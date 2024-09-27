@@ -85,7 +85,7 @@
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            picBoxFlotaPostas = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -363,7 +363,7 @@
             tabPageGesFlo.Controls.Add(guna2HtmlLabel7);
             tabPageGesFlo.Controls.Add(guna2ImageButton5);
             tabPageGesFlo.Controls.Add(guna2HtmlLabel2);
-            tabPageGesFlo.Controls.Add(guna2ImageButton1);
+            tabPageGesFlo.Controls.Add(picBoxFlotaPostas);
             tabPageGesFlo.Controls.Add(guna2HtmlLabel3);
             tabPageGesFlo.Controls.Add(guna2ImageButton2);
             tabPageGesFlo.Controls.Add(guna2HtmlLabel4);
@@ -455,20 +455,21 @@
             guna2HtmlLabel2.Text = "Postas";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2ImageButton1
+            // picBoxFlotaPostas
             // 
-            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(135, 135);
-            guna2ImageButton1.Image = Resources.postasFlota;
-            guna2ImageButton1.ImageOffset = new Point(0, 0);
-            guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.ImageSize = new Size(128, 128);
-            guna2ImageButton1.Location = new Point(429, 263);
-            guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(140, 140);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2ImageButton1.Size = new Size(140, 140);
-            guna2ImageButton1.TabIndex = 19;
+            picBoxFlotaPostas.CheckedState.ImageSize = new Size(64, 64);
+            picBoxFlotaPostas.HoverState.ImageSize = new Size(135, 135);
+            picBoxFlotaPostas.Image = Resources.postasFlota;
+            picBoxFlotaPostas.ImageOffset = new Point(0, 0);
+            picBoxFlotaPostas.ImageRotate = 0F;
+            picBoxFlotaPostas.ImageSize = new Size(128, 128);
+            picBoxFlotaPostas.Location = new Point(429, 263);
+            picBoxFlotaPostas.Name = "picBoxFlotaPostas";
+            picBoxFlotaPostas.PressedState.ImageSize = new Size(140, 140);
+            picBoxFlotaPostas.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            picBoxFlotaPostas.Size = new Size(140, 140);
+            picBoxFlotaPostas.TabIndex = 19;
+            picBoxFlotaPostas.Click += picBoxFlotaPostas_Click;
             // 
             // guna2HtmlLabel3
             // 
@@ -1352,7 +1353,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel labelAdminBB;
         private Guna.UI2.WinForms.Guna2ImageButton picBoxAdminBB;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton picBoxFlotaPostas;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;

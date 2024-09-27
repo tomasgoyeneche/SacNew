@@ -313,9 +313,39 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loginAutoChenyi {
+            get {
+                object obj = ResourceManager.GetObject("loginAutoChenyi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loginAutoChenyiCalidad {
+            get {
+                object obj = ResourceManager.GetObject("loginAutoChenyiCalidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loginCamion {
             get {
                 object obj = ResourceManager.GetObject("loginCamion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loginCamion1 {
+            get {
+                object obj = ResourceManager.GetObject("loginCamion1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +366,16 @@ namespace SacNew {
         internal static System.Drawing.Bitmap loginUsuarioGris {
             get {
                 object obj = ResourceManager.GetObject("loginUsuarioGris", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoMinimizar {
+            get {
+                object obj = ResourceManager.GetObject("logoMinimizar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

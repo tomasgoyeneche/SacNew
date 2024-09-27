@@ -124,8 +124,14 @@
   <data name="informesEstadoFlota1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\informesEstadoFlota1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loginAutoChenyiCalidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\loginAutoChenyiCalidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="configuracionLocaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\configuracionLocaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginCamion1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\loginCamion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="documentalPlanilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\documentalPlanilla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +193,9 @@
   <data name="postasConsumos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\postasConsumos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loginAutoChenyi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\loginAutoChenyi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="calendarioFlota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\calendarioFlota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,5 +222,8 @@
   </data>
   <data name="configuracionUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\configuracionUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoMinimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\logoMinimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

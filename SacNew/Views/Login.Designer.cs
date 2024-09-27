@@ -29,22 +29,19 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessFormLogin = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             pInicioLogin = new Guna.UI2.WinForms.Guna2Panel();
-            picBoxLoginCamion = new Guna.UI2.WinForms.Guna2PictureBox();
             tLogUsu = new Guna.UI2.WinForms.Guna2TextBox();
             tLogPass = new Guna.UI2.WinForms.Guna2TextBox();
             bIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
@@ -52,8 +49,8 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             loginCloseButton = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            pInicioLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picBoxLoginCamion).BeginInit();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,31 +65,17 @@
             // 
             // pInicioLogin
             // 
-            pInicioLogin.Controls.Add(picBoxLoginCamion);
-            pInicioLogin.CustomizableEdges = customizableEdges8;
+            pInicioLogin.BackColor = Color.Transparent;
+            pInicioLogin.BackgroundImage = Resources.loginAutoChenyiCalidad;
+            pInicioLogin.BackgroundImageLayout = ImageLayout.Stretch;
+            pInicioLogin.CustomizableEdges = customizableEdges6;
             pInicioLogin.Dock = DockStyle.Left;
-            pInicioLogin.FillColor = Color.FromArgb(255, 102, 0);
+            pInicioLogin.FillColor = Color.Transparent;
             pInicioLogin.Location = new Point(0, 0);
             pInicioLogin.Name = "pInicioLogin";
-            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges7;
             pInicioLogin.Size = new Size(407, 450);
             pInicioLogin.TabIndex = 0;
-            // 
-            // picBoxLoginCamion
-            // 
-            picBoxLoginCamion.BackColor = Color.Transparent;
-            picBoxLoginCamion.BackgroundImage = Resources.loginCamion;
-            picBoxLoginCamion.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxLoginCamion.CustomizableEdges = customizableEdges6;
-            picBoxLoginCamion.FillColor = Color.Transparent;
-            picBoxLoginCamion.ImageRotate = 0F;
-            picBoxLoginCamion.Location = new Point(79, 123);
-            picBoxLoginCamion.Name = "picBoxLoginCamion";
-            picBoxLoginCamion.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            picBoxLoginCamion.Size = new Size(249, 206);
-            picBoxLoginCamion.TabIndex = 0;
-            picBoxLoginCamion.TabStop = false;
-            picBoxLoginCamion.UseTransparentBackground = true;
             // 
             // tLogUsu
             // 
@@ -109,7 +92,7 @@
             tLogUsu.ForeColor = Color.Black;
             tLogUsu.HoverState.BorderColor = Color.FromArgb(40, 167, 69);
             tLogUsu.IconLeft = Resources.loginUsuarioGris;
-            tLogUsu.Location = new Point(495, 204);
+            tLogUsu.Location = new Point(495, 197);
             tLogUsu.Margin = new Padding(4);
             tLogUsu.MaxLength = 15;
             tLogUsu.Name = "tLogUsu";
@@ -137,7 +120,7 @@
             tLogPass.ForeColor = Color.Black;
             tLogPass.HoverState.BorderColor = Color.FromArgb(40, 167, 69);
             tLogPass.IconLeft = Resources.loginContrasenaGris;
-            tLogPass.Location = new Point(495, 265);
+            tLogPass.Location = new Point(495, 258);
             tLogPass.Margin = new Padding(4);
             tLogPass.MaxLength = 15;
             tLogPass.Name = "tLogPass";
@@ -156,7 +139,7 @@
             bIniciarSesion.BorderColor = Color.Transparent;
             bIniciarSesion.BorderRadius = 15;
             bIniciarSesion.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            bIniciarSesion.CustomizableEdges = customizableEdges10;
+            bIniciarSesion.CustomizableEdges = customizableEdges8;
             bIniciarSesion.DisabledState.BorderColor = Color.Transparent;
             bIniciarSesion.DisabledState.CustomBorderColor = Color.Transparent;
             bIniciarSesion.DisabledState.FillColor = Color.FromArgb(40, 167, 69);
@@ -164,9 +147,9 @@
             bIniciarSesion.FillColor = Color.FromArgb(40, 167, 69);
             bIniciarSesion.Font = new Font("Segoe UI", 12F);
             bIniciarSesion.ForeColor = Color.White;
-            bIniciarSesion.Location = new Point(48, 303);
+            bIniciarSesion.Location = new Point(48, 299);
             bIniciarSesion.Name = "bIniciarSesion";
-            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges9;
             bIniciarSesion.Size = new Size(220, 47);
             bIniciarSesion.TabIndex = 5;
             bIniciarSesion.Text = "Iniciar Sesion";
@@ -176,7 +159,7 @@
             // 
             lblError.BackColor = Color.WhiteSmoke;
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(468, 395);
+            lblError.Location = new Point(469, 392);
             lblError.Name = "lblError";
             lblError.Size = new Size(28, 17);
             lblError.TabIndex = 0;
@@ -187,7 +170,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 8F);
-            guna2HtmlLabel1.ForeColor = SystemColors.ControlDarkDark;
+            guna2HtmlLabel1.ForeColor = SystemColors.WindowFrame;
             guna2HtmlLabel1.Location = new Point(733, 432);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(60, 15);
@@ -216,21 +199,48 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
-            guna2Panel1.BorderRadius = 15;
+            guna2Panel1.BorderRadius = 5;
+            guna2Panel1.Controls.Add(guna2HtmlLabel3);
+            guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(bIniciarSesion);
-            guna2Panel1.CustomizableEdges = customizableEdges12;
+            guna2Panel1.CustomizableEdges = customizableEdges10;
             guna2Panel1.FillColor = Color.WhiteSmoke;
             guna2Panel1.Location = new Point(447, 39);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges11;
             guna2Panel1.Size = new Size(315, 375);
             guna2Panel1.TabIndex = 9;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.AutoSize = false;
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 11F);
+            guna2HtmlLabel3.Location = new Point(48, 94);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(220, 26);
+            guna2HtmlLabel3.TabIndex = 7;
+            guna2HtmlLabel3.Text = "Ingrese sus datos para continuar";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 28F, FontStyle.Bold);
+            guna2HtmlLabel2.ForeColor = SystemColors.ControlText;
+            guna2HtmlLabel2.Location = new Point(48, 45);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(220, 49);
+            guna2HtmlLabel2.TabIndex = 6;
+            guna2HtmlLabel2.Text = "LOGIN";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(40, 167, 69);
+            BackColor = Color.FromArgb(255, 102, 0);
             ClientSize = new Size(800, 450);
             Controls.Add(loginCloseButton);
             Controls.Add(guna2HtmlLabel1);
@@ -244,8 +254,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Login_Load;
-            pInicioLogin.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picBoxLoginCamion).EndInit();
             guna2Panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -260,8 +268,9 @@
         private Guna.UI2.WinForms.Guna2Button bIniciarSesion;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblError;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2PictureBox picBoxLoginCamion;
         private Guna.UI2.WinForms.Guna2ImageButton loginCloseButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

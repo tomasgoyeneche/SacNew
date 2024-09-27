@@ -264,6 +264,7 @@
             Controls.Add(guna2GradientPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Guardia";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Guardia";
             Load += Guardia_Load;
             guna2GradientPanel1.ResumeLayout(false);
