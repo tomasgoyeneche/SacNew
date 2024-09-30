@@ -94,7 +94,7 @@
             tLogUsu.IconLeft = Resources.loginUsuarioGris;
             tLogUsu.Location = new Point(495, 197);
             tLogUsu.Margin = new Padding(4);
-            tLogUsu.MaxLength = 15;
+            tLogUsu.MaxLength = 25;
             tLogUsu.Name = "tLogUsu";
             tLogUsu.PasswordChar = '\0';
             tLogUsu.PlaceholderText = "Usuario";
@@ -122,7 +122,7 @@
             tLogPass.IconLeft = Resources.loginContrasenaGris;
             tLogPass.Location = new Point(495, 258);
             tLogPass.Margin = new Padding(4);
-            tLogPass.MaxLength = 15;
+            tLogPass.MaxLength = 25;
             tLogPass.Name = "tLogPass";
             tLogPass.PasswordChar = '●';
             tLogPass.PlaceholderText = "Contraseña";
@@ -135,7 +135,7 @@
             // 
             // bIniciarSesion
             // 
-            bIniciarSesion.BackColor = Color.WhiteSmoke;
+            bIniciarSesion.BackColor = Color.Transparent;
             bIniciarSesion.BorderColor = Color.Transparent;
             bIniciarSesion.BorderRadius = 15;
             bIniciarSesion.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
@@ -157,7 +157,7 @@
             // 
             // lblError
             // 
-            lblError.BackColor = Color.WhiteSmoke;
+            lblError.BackColor = Color.Transparent;
             lblError.ForeColor = Color.Red;
             lblError.Location = new Point(469, 392);
             lblError.Name = "lblError";
@@ -170,7 +170,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 8F);
-            guna2HtmlLabel1.ForeColor = SystemColors.WindowFrame;
+            guna2HtmlLabel1.ForeColor = SystemColors.ButtonShadow;
             guna2HtmlLabel1.Location = new Point(733, 432);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(60, 15);
@@ -199,12 +199,12 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
-            guna2Panel1.BorderRadius = 5;
+            guna2Panel1.BorderRadius = 15;
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(bIniciarSesion);
             guna2Panel1.CustomizableEdges = customizableEdges10;
-            guna2Panel1.FillColor = Color.WhiteSmoke;
+            guna2Panel1.FillColor = Color.FromArgb(255, 102, 0);
             guna2Panel1.Location = new Point(447, 39);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges11;
@@ -216,7 +216,7 @@
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 11F);
-            guna2HtmlLabel3.Location = new Point(48, 94);
+            guna2HtmlLabel3.Location = new Point(48, 86);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(220, 26);
             guna2HtmlLabel3.TabIndex = 7;
@@ -229,7 +229,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 28F, FontStyle.Bold);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlText;
-            guna2HtmlLabel2.Location = new Point(48, 45);
+            guna2HtmlLabel2.Location = new Point(48, 37);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(220, 49);
             guna2HtmlLabel2.TabIndex = 6;
@@ -240,7 +240,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 102, 0);
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(800, 450);
             Controls.Add(loginCloseButton);
             Controls.Add(guna2HtmlLabel1);

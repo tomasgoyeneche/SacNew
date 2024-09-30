@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
+using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +44,7 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bAbmPostasMenu_Click(object sender, EventArgs e)
         {
-                //var MenuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>();
+            //var MenuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>();
             using (var MenuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>())
             {
                 this.Hide();
@@ -56,6 +57,16 @@ namespace SacNew.Views.GestionFlota.Postas
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void bMenuConceptos_Click(object sender, EventArgs e)
+        {
+            using (var MenuConceptos = _serviceProvider.GetService<MenuConceptos>())
+            {
+                this.Hide();
+                MenuConceptos.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

@@ -20,11 +20,11 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
     {
         private readonly MenuAbmPostasPresenter _presenter;
 
-        public MenuAbmPostas(IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider)
+        public MenuAbmPostas(IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider, ISesionService sesionService)
         {
             InitializeComponent();
 
-            _presenter = new MenuAbmPostasPresenter(this, postaRepositorio, serviceProvider);
+            _presenter = new MenuAbmPostasPresenter(this, postaRepositorio, serviceProvider, sesionService);
 
             // Cargar las postas al iniciar el formulario
             _presenter.CargarPostas();

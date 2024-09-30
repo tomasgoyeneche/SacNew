@@ -5,6 +5,7 @@ using SacNew.Repositories;
 using SacNew.Views;
 using SacNew.Views.GestionFlota.Postas;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
+using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionOperativa.Guardias;
 using System;
 using System.Collections.Generic;
@@ -34,14 +35,14 @@ namespace SacNew.Services
 
 
 
-            // Registrar MenuForm
+            // Registrar Formularios
             serviceCollection.AddTransient<Login>();
             serviceCollection.AddTransient<Menu>();
             serviceCollection.AddTransient<MenuPostas>();
             serviceCollection.AddTransient<MenuAbmPostas>();
             serviceCollection.AddTransient<AgregarEditarPosta>();  // Registrar el Formulario de Agregar Posta
-            
-            
+            serviceCollection.AddTransient<MenuConceptos>();
+
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();

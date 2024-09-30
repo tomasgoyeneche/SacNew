@@ -48,18 +48,7 @@ namespace SacNew.Views
 
         private void bGestGuardiaBB_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
-            {
-                var postasMenu = _serviceProvider.GetService<MenuPostas>();
-
-                this.Hide();
-                postasMenu.ShowDialog();
-                this.Show();
-            }
-            else
-            {
-                MessageBox.Show(@"No tienes permisos para acceder a las Guardias de BB.", @"Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+           
         }
 
         private void picBoxFlotaPostas_Click(object sender, EventArgs e)
@@ -76,6 +65,11 @@ namespace SacNew.Views
             {
                 MessageBox.Show(@"No tienes permisos para acceder a las Guardias de BB.", @"Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void picBoxAdminBB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

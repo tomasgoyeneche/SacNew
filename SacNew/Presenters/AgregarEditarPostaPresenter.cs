@@ -43,6 +43,13 @@ namespace SacNew.Presenters
 
         public void GuardarPosta()
         {
+
+            if (string.IsNullOrEmpty(_view.Codigo) || string.IsNullOrEmpty(_view.Descripcion))
+            {
+                _view.MostrarMensaje("El código y la descripción de la posta son obligatorios.");
+                return;
+            }
+
             if (_postaActual == null)
             {
                 // Crear una nueva posta

@@ -14,15 +14,10 @@ namespace SacNew.Views.GestionOperativa.Guardias
 {
     public partial class Guardia : Form
     {
-
-        private int _idUsuario;
-        private string? _nombreUsuario;
         public Guardia()
         {
             InitializeComponent();
-            //_idUsuario = SesionActual.IdUsuario;
-            //_nombreUsuario = SesionActual.NombreCompleto;
-
+            
         }
 
         private void Guardia_Load(object sender, EventArgs e)

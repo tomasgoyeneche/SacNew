@@ -41,21 +41,18 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtCodigo = new Guna.UI2.WinForms.Guna2TextBox();
             txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
             txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
             cmbProvincia = new Guna.UI2.WinForms.Guna2ComboBox();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2BorderlessAgregarEditarPosta = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtId = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2BorderlessAgregarEditarPosta = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             SuspendLayout();
             // 
             // txtCodigo
@@ -69,7 +66,8 @@
             txtCodigo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCodigo.Font = new Font("Segoe UI", 9F);
             txtCodigo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCodigo.Location = new Point(151, 79);
+            txtCodigo.Location = new Point(151, 80);
+            txtCodigo.MaxLength = 3;
             txtCodigo.Name = "txtCodigo";
             txtCodigo.PasswordChar = '\0';
             txtCodigo.PlaceholderText = "";
@@ -89,7 +87,8 @@
             txtDescripcion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDescripcion.Font = new Font("Segoe UI", 9F);
             txtDescripcion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDescripcion.Location = new Point(151, 142);
+            txtDescripcion.Location = new Point(151, 143);
+            txtDescripcion.MaxLength = 30;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PasswordChar = '\0';
             txtDescripcion.PlaceholderText = "";
@@ -109,7 +108,8 @@
             txtDireccion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDireccion.Font = new Font("Segoe UI", 9F);
             txtDireccion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDireccion.Location = new Point(151, 210);
+            txtDireccion.Location = new Point(151, 211);
+            txtDireccion.MaxLength = 30;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.PasswordChar = '\0';
             txtDireccion.PlaceholderText = "";
@@ -128,11 +128,13 @@
             cmbProvincia.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cmbProvincia.Font = new Font("Segoe UI", 10F);
             cmbProvincia.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbProvincia.IntegralHeight = false;
             cmbProvincia.ItemHeight = 30;
-            cmbProvincia.Location = new Point(151, 273);
+            cmbProvincia.Location = new Point(151, 274);
             cmbProvincia.Name = "cmbProvincia";
             cmbProvincia.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cmbProvincia.Size = new Size(200, 36);
+            cmbProvincia.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             cmbProvincia.TabIndex = 3;
             // 
             // btnCancelar
@@ -169,71 +171,27 @@
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(43, 98);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(97, 17);
-            guna2HtmlLabel1.TabIndex = 6;
-            guna2HtmlLabel1.Text = "guna2HtmlLabel1";
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(43, 161);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(97, 17);
-            guna2HtmlLabel2.TabIndex = 7;
-            guna2HtmlLabel2.Text = "guna2HtmlLabel2";
-            // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(43, 229);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(97, 17);
-            guna2HtmlLabel3.TabIndex = 8;
-            guna2HtmlLabel3.Text = "guna2HtmlLabel3";
-            // 
             // guna2HtmlLabel4
             // 
+            guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(43, 292);
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel4.Location = new Point(43, 274);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(97, 17);
+            guna2HtmlLabel4.Size = new Size(93, 36);
             guna2HtmlLabel4.TabIndex = 9;
-            guna2HtmlLabel4.Text = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Text = "Provincia:";
+            guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(138, 25);
+            guna2HtmlLabel5.Font = new Font("Segoe UI", 22F);
+            guna2HtmlLabel5.Location = new Point(101, 12);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(97, 17);
+            guna2HtmlLabel5.Size = new Size(191, 42);
             guna2HtmlLabel5.TabIndex = 10;
-            guna2HtmlLabel5.Text = "guna2HtmlLabel5";
-            // 
-            // txtId
-            // 
-            txtId.CustomizableEdges = customizableEdges13;
-            txtId.DefaultText = "";
-            txtId.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtId.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtId.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtId.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtId.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtId.Font = new Font("Segoe UI", 9F);
-            txtId.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtId.Location = new Point(261, 37);
-            txtId.Name = "txtId";
-            txtId.PasswordChar = '\0';
-            txtId.PlaceholderText = "";
-            txtId.SelectedText = "";
-            txtId.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtId.Size = new Size(90, 36);
-            txtId.TabIndex = 11;
-            txtId.Visible = false;
+            guna2HtmlLabel5.Text = "Agregar/Editar";
             // 
             // guna2BorderlessAgregarEditarPosta
             // 
@@ -243,17 +201,52 @@
             guna2BorderlessAgregarEditarPosta.ResizeForm = false;
             guna2BorderlessAgregarEditarPosta.TransparentWhileDrag = true;
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel1.Location = new Point(43, 211);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(93, 36);
+            guna2HtmlLabel1.TabIndex = 11;
+            guna2HtmlLabel1.Text = "Direccion:";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel2.Location = new Point(43, 147);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(93, 36);
+            guna2HtmlLabel2.TabIndex = 12;
+            guna2HtmlLabel2.Text = "Descripcion:";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.AutoSize = false;
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel3.Location = new Point(43, 80);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(93, 36);
+            guna2HtmlLabel3.TabIndex = 13;
+            guna2HtmlLabel3.Text = "Codigo:";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // AgregarEditarPosta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 411);
-            Controls.Add(txtId);
-            Controls.Add(guna2HtmlLabel5);
-            Controls.Add(guna2HtmlLabel4);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2HtmlLabel1);
+            Controls.Add(guna2HtmlLabel5);
+            Controls.Add(guna2HtmlLabel4);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);
             Controls.Add(cmbProvincia);
@@ -276,12 +269,11 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbProvincia;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2TextBox txtId;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessAgregarEditarPosta;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

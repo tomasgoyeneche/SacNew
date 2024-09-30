@@ -288,6 +288,7 @@
             picBoxAdminBB.ShadowDecoration.Depth = 10;
             picBoxAdminBB.Size = new Size(140, 140);
             picBoxAdminBB.TabIndex = 8;
+            picBoxAdminBB.Click += picBoxAdminBB_Click;
             // 
             // labelGuardiaPH
             // 

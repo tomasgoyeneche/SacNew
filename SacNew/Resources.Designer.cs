@@ -403,6 +403,16 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap postasYPF {
+            get {
+                object obj = ResourceManager.GetObject("postasYPF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ruteoFlota {
             get {
                 object obj = ResourceManager.GetObject("ruteoFlota", resourceCulture);

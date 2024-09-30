@@ -2,6 +2,7 @@
 using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,15 @@ namespace SacNew.Presenters
         private readonly IMenuAbmPostasView _view;
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IServiceProvider _serviceProvider;
+        private readonly ISesionService _sesionService;
 
-        public MenuAbmPostasPresenter(IMenuAbmPostasView view, IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider)
+
+        public MenuAbmPostasPresenter(IMenuAbmPostasView view, IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider, ISesionService sesionService)
         {
             _view = view;
             _postaRepositorio = postaRepositorio;
             _serviceProvider = serviceProvider;
+            _sesionService = sesionService;
         }
 
         public void CargarPostas()
@@ -62,7 +66,7 @@ namespace SacNew.Presenters
 
         public void EliminarPosta(Posta postaSeleccionada)
         {
-            var confirmResult = MessageBox.Show("¿Estás seguro de que quieres eliminar esta posta?",
+            var confirmResult = MessageBox.Show($"¿Estás seguro de que quieres eliminar esta posta?",
                                                 "Confirmar Eliminación",
                                                 MessageBoxButtons.YesNo);
 

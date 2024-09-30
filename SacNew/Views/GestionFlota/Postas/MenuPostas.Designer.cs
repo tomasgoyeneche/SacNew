@@ -79,6 +79,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessMenuPostas = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -89,7 +91,7 @@
             lMenuPostasNombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            bMenuConceptos = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -123,6 +125,7 @@
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnMinimizar = new Guna.UI2.WinForms.Guna2ImageButton();
+            guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
@@ -139,6 +142,7 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox7).BeginInit();
             guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox8).BeginInit();
+            guna2Panel9.SuspendLayout();
             SuspendLayout();
             // 
             // guna2BorderlessMenuPostas
@@ -170,12 +174,13 @@
             guna2PictureBox1.Location = new Point(24, 9);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges46;
-            guna2PictureBox1.Size = new Size(113, 63);
+            guna2PictureBox1.Size = new Size(113, 65);
             guna2PictureBox1.TabIndex = 12;
             guna2PictureBox1.TabStop = false;
             // 
             // bAbmPostasMenu
             // 
+            bAbmPostasMenu.BorderRadius = 5;
             bAbmPostasMenu.CustomizableEdges = customizableEdges47;
             bAbmPostasMenu.DisabledState.BorderColor = Color.DarkGray;
             bAbmPostasMenu.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -195,7 +200,7 @@
             // 
             guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(17, 98);
+            guna2HtmlLabel2.Location = new Point(17, 101);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(129, 47);
             guna2HtmlLabel2.TabIndex = 13;
@@ -207,7 +212,7 @@
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(17, 80);
+            guna2HtmlLabel1.Location = new Point(17, 83);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(129, 17);
             guna2HtmlLabel1.TabIndex = 12;
@@ -236,7 +241,7 @@
             // lMenuPostasNombre
             // 
             lMenuPostasNombre.BackColor = Color.Transparent;
-            lMenuPostasNombre.Location = new Point(87, 10);
+            lMenuPostasNombre.Location = new Point(363, 14);
             lMenuPostasNombre.Name = "lMenuPostasNombre";
             lMenuPostasNombre.Size = new Size(97, 17);
             lMenuPostasNombre.TabIndex = 11;
@@ -245,7 +250,7 @@
             // guna2Panel1
             // 
             guna2Panel1.Controls.Add(guna2PictureBox2);
-            guna2Panel1.Controls.Add(guna2Button2);
+            guna2Panel1.Controls.Add(bMenuConceptos);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.CustomizableEdges = customizableEdges42;
@@ -262,43 +267,44 @@
             guna2PictureBox2.Location = new Point(24, 9);
             guna2PictureBox2.Name = "guna2PictureBox2";
             guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges39;
-            guna2PictureBox2.Size = new Size(113, 63);
+            guna2PictureBox2.Size = new Size(113, 68);
             guna2PictureBox2.TabIndex = 12;
             guna2PictureBox2.TabStop = false;
             // 
-            // guna2Button2
+            // bMenuConceptos
             // 
-            guna2Button2.CustomizableEdges = customizableEdges40;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.Font = new Font("Segoe UI", 9F);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(17, 148);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges41;
-            guna2Button2.Size = new Size(129, 23);
-            guna2Button2.TabIndex = 12;
-            guna2Button2.Text = "Ingresar";
+            bMenuConceptos.BorderRadius = 5;
+            bMenuConceptos.CustomizableEdges = customizableEdges40;
+            bMenuConceptos.DisabledState.BorderColor = Color.DarkGray;
+            bMenuConceptos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bMenuConceptos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bMenuConceptos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bMenuConceptos.Font = new Font("Segoe UI", 9F);
+            bMenuConceptos.ForeColor = Color.White;
+            bMenuConceptos.Location = new Point(17, 148);
+            bMenuConceptos.Name = "bMenuConceptos";
+            bMenuConceptos.ShadowDecoration.CustomizableEdges = customizableEdges41;
+            bMenuConceptos.Size = new Size(129, 23);
+            bMenuConceptos.TabIndex = 12;
+            bMenuConceptos.Text = "Ingresar";
+            bMenuConceptos.Click += bMenuConceptos_Click;
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(17, 98);
+            guna2HtmlLabel3.Location = new Point(17, 102);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(129, 47);
             guna2HtmlLabel3.TabIndex = 13;
-            guna2HtmlLabel3.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
-            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleLeft;
+            guna2HtmlLabel3.Text = "Manejo de concepto de consumos";
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.Location = new Point(17, 80);
+            guna2HtmlLabel4.Location = new Point(17, 83);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(129, 17);
             guna2HtmlLabel4.TabIndex = 12;
@@ -325,12 +331,13 @@
             guna2PictureBox3.Location = new Point(24, 9);
             guna2PictureBox3.Name = "guna2PictureBox3";
             guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            guna2PictureBox3.Size = new Size(113, 63);
+            guna2PictureBox3.Size = new Size(113, 68);
             guna2PictureBox3.TabIndex = 12;
             guna2PictureBox3.TabStop = false;
             // 
             // guna2Button3
             // 
+            guna2Button3.BorderRadius = 5;
             guna2Button3.CustomizableEdges = customizableEdges34;
             guna2Button3.DisabledState.BorderColor = Color.DarkGray;
             guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -353,8 +360,7 @@
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(129, 47);
             guna2HtmlLabel5.TabIndex = 13;
-            guna2HtmlLabel5.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
-            guna2HtmlLabel5.TextAlignment = ContentAlignment.MiddleLeft;
+            guna2HtmlLabel5.Text = "Asignar limite de credito a empresas.";
             // 
             // guna2HtmlLabel6
             // 
@@ -365,7 +371,7 @@
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(129, 17);
             guna2HtmlLabel6.TabIndex = 12;
-            guna2HtmlLabel6.Text = "ABM Postas";
+            guna2HtmlLabel6.Text = "Limite de Credito";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
@@ -388,12 +394,13 @@
             guna2PictureBox4.Location = new Point(24, 9);
             guna2PictureBox4.Name = "guna2PictureBox4";
             guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges27;
-            guna2PictureBox4.Size = new Size(113, 63);
+            guna2PictureBox4.Size = new Size(113, 68);
             guna2PictureBox4.TabIndex = 12;
             guna2PictureBox4.TabStop = false;
             // 
             // guna2Button4
             // 
+            guna2Button4.BorderRadius = 5;
             guna2Button4.CustomizableEdges = customizableEdges28;
             guna2Button4.DisabledState.BorderColor = Color.DarkGray;
             guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -416,8 +423,7 @@
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(129, 47);
             guna2HtmlLabel7.TabIndex = 13;
-            guna2HtmlLabel7.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
-            guna2HtmlLabel7.TextAlignment = ContentAlignment.MiddleLeft;
+            guna2HtmlLabel7.Text = "Informes y consultas acerca de consumos.";
             // 
             // guna2HtmlLabel8
             // 
@@ -428,7 +434,7 @@
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(129, 17);
             guna2HtmlLabel8.TabIndex = 12;
-            guna2HtmlLabel8.Text = "ABM Postas";
+            guna2HtmlLabel8.Text = "Informes";
             guna2HtmlLabel8.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel5
@@ -457,6 +463,7 @@
             // 
             // guna2Button5
             // 
+            guna2Button5.BorderRadius = 5;
             guna2Button5.CustomizableEdges = customizableEdges22;
             guna2Button5.DisabledState.BorderColor = Color.DarkGray;
             guna2Button5.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -479,7 +486,7 @@
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(129, 47);
             guna2HtmlLabel9.TabIndex = 13;
-            guna2HtmlLabel9.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
+            guna2HtmlLabel9.Text = "Realiza modificaciones.";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel10
@@ -491,7 +498,7 @@
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(129, 17);
             guna2HtmlLabel10.TabIndex = 12;
-            guna2HtmlLabel10.Text = "ABM Postas";
+            guna2HtmlLabel10.Text = "Modificaciones";
             guna2HtmlLabel10.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel6
@@ -520,6 +527,7 @@
             // 
             // guna2Button6
             // 
+            guna2Button6.BorderRadius = 5;
             guna2Button6.CustomizableEdges = customizableEdges16;
             guna2Button6.DisabledState.BorderColor = Color.DarkGray;
             guna2Button6.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -542,8 +550,7 @@
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(129, 47);
             guna2HtmlLabel11.TabIndex = 13;
-            guna2HtmlLabel11.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
-            guna2HtmlLabel11.TextAlignment = ContentAlignment.MiddleLeft;
+            guna2HtmlLabel11.Text = "Permite corregir consumos ingresados.";
             // 
             // guna2HtmlLabel12
             // 
@@ -554,7 +561,7 @@
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(129, 17);
             guna2HtmlLabel12.TabIndex = 12;
-            guna2HtmlLabel12.Text = "ABM Postas";
+            guna2HtmlLabel12.Text = "Corrige Consumos";
             guna2HtmlLabel12.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel7
@@ -567,22 +574,28 @@
             guna2Panel7.Location = new Point(237, 258);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel7.ShadowDecoration.Enabled = true;
             guna2Panel7.Size = new Size(160, 180);
             guna2Panel7.TabIndex = 14;
             // 
             // guna2PictureBox7
             // 
+            guna2PictureBox7.BackColor = Color.Transparent;
+            guna2PictureBox7.BackgroundImage = Resources.postasYPF;
+            guna2PictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox7.CustomizableEdges = customizableEdges8;
+            guna2PictureBox7.FillColor = Color.Transparent;
             guna2PictureBox7.ImageRotate = 0F;
-            guna2PictureBox7.Location = new Point(24, 9);
+            guna2PictureBox7.Location = new Point(40, 9);
             guna2PictureBox7.Name = "guna2PictureBox7";
             guna2PictureBox7.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2PictureBox7.Size = new Size(113, 63);
+            guna2PictureBox7.Size = new Size(82, 65);
             guna2PictureBox7.TabIndex = 12;
             guna2PictureBox7.TabStop = false;
             // 
             // guna2Button7
             // 
+            guna2Button7.BorderRadius = 5;
             guna2Button7.CustomizableEdges = customizableEdges10;
             guna2Button7.DisabledState.BorderColor = Color.DarkGray;
             guna2Button7.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -605,7 +618,7 @@
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(129, 47);
             guna2HtmlLabel13.TabIndex = 13;
-            guna2HtmlLabel13.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
+            guna2HtmlLabel13.Text = "Permite ingresar consumos de YPF en ruta.";
             guna2HtmlLabel13.TextAlignment = ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel14
@@ -617,8 +630,7 @@
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(129, 17);
             guna2HtmlLabel14.TabIndex = 12;
-            guna2HtmlLabel14.Text = "ABM Postas";
-            guna2HtmlLabel14.TextAlignment = ContentAlignment.MiddleCenter;
+            guna2HtmlLabel14.Text = "Ingresa Consumos YPF";
             // 
             // guna2Panel8
             // 
@@ -646,6 +658,7 @@
             // 
             // guna2Button8
             // 
+            guna2Button8.BorderRadius = 5;
             guna2Button8.CustomizableEdges = customizableEdges4;
             guna2Button8.DisabledState.BorderColor = Color.DarkGray;
             guna2Button8.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -668,8 +681,7 @@
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(129, 47);
             guna2HtmlLabel15.TabIndex = 13;
-            guna2HtmlLabel15.Text = "Agregar, modificar, eliminar o visualizar las postas actuales";
-            guna2HtmlLabel15.TextAlignment = ContentAlignment.MiddleLeft;
+            guna2HtmlLabel15.Text = "Permite ingresar consumos en las postas.";
             // 
             // guna2HtmlLabel16
             // 
@@ -680,12 +692,12 @@
             guna2HtmlLabel16.Name = "guna2HtmlLabel16";
             guna2HtmlLabel16.Size = new Size(129, 17);
             guna2HtmlLabel16.TabIndex = 12;
-            guna2HtmlLabel16.Text = "ABM Postas";
+            guna2HtmlLabel16.Text = "Ingresa Consumos";
             guna2HtmlLabel16.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // btnMinimizar
             // 
-            btnMinimizar.BackColor = Color.Transparent;
+            btnMinimizar.BackColor = Color.Gray;
             btnMinimizar.CheckedState.ImageSize = new Size(64, 64);
             btnMinimizar.HoverState.ImageSize = new Size(28, 28);
             btnMinimizar.Image = Resources.logoMinimizar;
@@ -700,6 +712,18 @@
             btnMinimizar.TabIndex = 15;
             btnMinimizar.Click += btnMinimizar_Click;
             // 
+            // guna2Panel9
+            // 
+            guna2Panel9.Controls.Add(lMenuPostasNombre);
+            guna2Panel9.CustomizableEdges = customizableEdges51;
+            guna2Panel9.Dock = DockStyle.Top;
+            guna2Panel9.FillColor = Color.Gray;
+            guna2Panel9.Location = new Point(0, 0);
+            guna2Panel9.Name = "guna2Panel9";
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            guna2Panel9.Size = new Size(800, 43);
+            guna2Panel9.TabIndex = 16;
+            // 
             // MenuPostas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -713,11 +737,12 @@
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
-            Controls.Add(lMenuPostasNombre);
             Controls.Add(loginCloseButton);
             Controls.Add(guna2Panel4);
+            Controls.Add(guna2Panel9);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MenuPostas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuPostas";
             Load += MenuPostas_Load;
             guna2Panel4.ResumeLayout(false);
@@ -736,8 +761,9 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox7).EndInit();
             guna2Panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox8).EndInit();
+            guna2Panel9.ResumeLayout(false);
+            guna2Panel9.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -782,9 +808,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button bMenuConceptos;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2ImageButton btnMinimizar;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
     }
 }
