@@ -4,11 +4,6 @@ using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -18,7 +13,6 @@ namespace SacNew.Presenters
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IServiceProvider _serviceProvider;
         private readonly ISesionService _sesionService;
-
 
         public MenuAbmPostasPresenter(IMenuAbmPostasView view, IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider, ISesionService sesionService)
         {

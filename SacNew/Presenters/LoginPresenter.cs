@@ -1,16 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -22,6 +14,7 @@ namespace SacNew.Presenters
         private readonly ISesionService _sesionService;
 
         private readonly IServiceProvider _serviceProvider;
+
         public LoginPresenter(Login view, IUsuarioRepositorio usuarioRepositorio, IPermisoRepositorio permisoRepositorio, ISesionService sesionService, IServiceProvider serviceProvider)
         {
             _view = view;
@@ -53,8 +46,5 @@ namespace SacNew.Presenters
                 _view.RedirigirAlMenu(menuForm);
             }
         }
-
-
-       
     }
 }

@@ -1,17 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Views;
 using SacNew.Views.GestionFlota.Postas;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
-using SacNew.Views.GestionOperativa.Guardias;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Services
 {
@@ -23,17 +16,14 @@ namespace SacNew.Services
 
             serviceCollection.AddSingleton<ISesionService, SesionService>();
 
-
-
             // Registrar Repositorios
             serviceCollection.AddSingleton<IUsuarioRepositorio, UsuarioRepositorio>();
             serviceCollection.AddSingleton<IPermisoRepositorio, PermisoRepositorio>();
             serviceCollection.AddSingleton<IPostaRepositorio, PostaRepositorio>();
             serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  // Registrar el repositorio de provincias
             serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  // Registrar el repositorio de provincias
-
-
-
+            serviceCollection.AddSingleton<IConceptoRepositorio, ConceptoRepositorio>();
+            serviceCollection.AddSingleton<IConceptoTipoRepositorio, ConceptoTipoRepositorio>();
 
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
@@ -42,11 +32,11 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuAbmPostas>();
             serviceCollection.AddTransient<AgregarEditarPosta>();  // Registrar el Formulario de Agregar Posta
             serviceCollection.AddTransient<MenuConceptos>();
-
+            serviceCollection.AddTransient<MenuConceptos>();
+            serviceCollection.AddTransient<AgregarEditarConcepto>();
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
-
 
             return serviceCollection.BuildServiceProvider();
         }

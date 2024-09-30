@@ -1,11 +1,6 @@
 ﻿using SacNew.Models;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -93,7 +88,6 @@ namespace SacNew.Repositories
             }
         }
 
-
         public void ActualizarPosta(Posta postaActualizada)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -106,12 +100,10 @@ namespace SacNew.Repositories
                 command.Parameters.AddWithValue("@Descripcion", postaActualizada.Descripcion);
                 command.Parameters.AddWithValue("@Direccion", postaActualizada.Direccion);
                 command.Parameters.AddWithValue("@ProvinciaId", postaActualizada.ProvinciaId);
-               
 
                 command.ExecuteNonQuery();
             }
         }
-
 
         public void EliminarPosta(int idPosta)
         {

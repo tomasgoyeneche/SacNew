@@ -1,11 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -43,7 +38,6 @@ namespace SacNew.Presenters
 
         public void GuardarPosta()
         {
-
             if (string.IsNullOrEmpty(_view.Codigo) || string.IsNullOrEmpty(_view.Descripcion))
             {
                 _view.MostrarMensaje("El código y la descripción de la posta son obligatorios.");

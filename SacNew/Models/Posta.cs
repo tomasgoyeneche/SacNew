@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SacNew.Models
+﻿namespace SacNew.Models
 {
     public class Posta
     {
@@ -16,6 +10,5 @@ namespace SacNew.Models
         public string? Direccion { get; set; }
 
         public int ProvinciaId { get; set; }
-
     }
 }

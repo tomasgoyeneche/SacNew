@@ -1,18 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
+﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 {
@@ -29,7 +19,6 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             // Cargar las postas al iniciar el formulario
             _presenter.CargarPostas();
         }
-
 
         public void MostrarMensaje(string mensaje)
         {
@@ -60,7 +49,6 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             _presenter.AgregarPosta();
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

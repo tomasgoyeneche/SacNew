@@ -157,7 +157,7 @@
             // 
             // lblError
             // 
-            lblError.BackColor = Color.Transparent;
+            lblError.BackColor = Color.WhiteSmoke;
             lblError.ForeColor = Color.Red;
             lblError.Location = new Point(469, 392);
             lblError.Name = "lblError";
@@ -204,7 +204,7 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(bIniciarSesion);
             guna2Panel1.CustomizableEdges = customizableEdges10;
-            guna2Panel1.FillColor = Color.FromArgb(255, 102, 0);
+            guna2Panel1.FillColor = Color.WhiteSmoke;
             guna2Panel1.Location = new Point(447, 39);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges11;
@@ -240,7 +240,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.FromArgb(255, 102, 0);
             ClientSize = new Size(800, 450);
             Controls.Add(loginCloseButton);
             Controls.Add(guna2HtmlLabel1);

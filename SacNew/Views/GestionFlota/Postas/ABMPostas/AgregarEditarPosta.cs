@@ -3,15 +3,6 @@ using SacNew.Models;
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 {
@@ -19,7 +10,6 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
     {
         private readonly ISesionService _sesionService;
         private readonly AgregarEditarPostaPresenter _presenter;
-
 
         public AgregarEditarPosta(ISesionService sesionService, IPostaRepositorio postaRepositorio, IProvinciaRepositorio provinciaRepositorio)
         {
@@ -30,12 +20,11 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 
             _presenter.CargarProvincias();
 
-
             _presenter.CargarProvincias();
-
-
         }
+
         public int Id { get; set; }
+
         public string Codigo
         {
             get => txtCodigo.Text.Trim();
