@@ -257,6 +257,7 @@
             Name = "AgregarEditarPosta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarPosta";
+            
             ResumeLayout(false);
             PerformLayout();
         }

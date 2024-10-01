@@ -3,6 +3,9 @@ using SacNew.Models;
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Services;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 {
@@ -13,11 +16,22 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
         public MenuAbmPostas(IPostaRepositorio postaRepositorio, IServiceProvider serviceProvider, ISesionService sesionService)
         {
             InitializeComponent();
-
             _presenter = new MenuAbmPostasPresenter(this, postaRepositorio, serviceProvider, sesionService);
 
             // Cargar las postas al iniciar el formulario
-            _presenter.CargarPostas();
+            CargarPostas();
+        }
+
+        private async void CargarPostas()
+        {
+            try
+            {
+                await _presenter.CargarPostasAsync();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Error al cargar las postas: {ex.Message}");
+            }
         }
 
         public void MostrarMensaje(string mensaje)
@@ -36,9 +50,16 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             dataGridViewPostas.Columns["ProvinciaId"].Visible = false;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            _presenter.BuscarPostas();
+            try
+            {
+                await _presenter.BuscarPostasAsync();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Error al buscar las postas: {ex.Message}");
+            }
         }
 
         private void loginCloseButton_Click(object sender, EventArgs e)
@@ -46,17 +67,31 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             this.Dispose();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarPosta();
+            try
+            {
+                await _presenter.AgregarPostaAsync();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Error al agregar la posta: {ex.Message}");
+            }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private async void btnEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewPostas.SelectedRows.Count > 0)
             {
                 var postaSeleccionada = (Posta)dataGridViewPostas.SelectedRows[0].DataBoundItem;
-                _presenter.EditarPosta(postaSeleccionada);
+                try
+                {
+                    await _presenter.EditarPostaAsync(postaSeleccionada);
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensaje($"Error al editar la posta: {ex.Message}");
+                }
             }
             else
             {
@@ -64,12 +99,19 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridViewPostas.SelectedRows.Count > 0)
             {
                 var postaSeleccionada = (Posta)dataGridViewPostas.SelectedRows[0].DataBoundItem;
-                _presenter.EliminarPosta(postaSeleccionada);
+                try
+                {
+                    await _presenter.EliminarPostaAsync(postaSeleccionada);
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensaje($"Error al eliminar la posta: {ex.Message}");
+                }
             }
             else
             {

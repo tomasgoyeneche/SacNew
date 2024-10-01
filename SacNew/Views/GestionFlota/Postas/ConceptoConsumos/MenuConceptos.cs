@@ -57,6 +57,11 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             txtBuscar.Text = "";
         }
 
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            _presenter.BuscarConceptos();
+        }
+
         // Evento del botón Agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {

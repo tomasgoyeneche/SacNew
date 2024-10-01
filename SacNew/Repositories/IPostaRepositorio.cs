@@ -1,17 +1,19 @@
 ﻿using SacNew.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace SacNew.Repositories
 {
     public interface IPostaRepositorio
     {
-        List<Posta> ObtenerTodasLasPostas();
+        Task<List<Posta>> ObtenerTodasLasPostasAsync();
 
-        List<Posta> BuscarPostas(string textoBusqueda);
+        Task<List<Posta>> BuscarPostasAsync(string textoBusqueda);
 
-        void AgregarPosta(Posta nuevaPosta);
+        Task AgregarPostaAsync(Posta nuevaPosta);
 
-        void ActualizarPosta(Posta postaActualizada);
+        Task ActualizarPostaAsync(Posta postaActualizada);
 
-        void EliminarPosta(int idPosta);  // Nuevo método para eliminar
+        Task EliminarPostaAsync(int idPosta);
     }
 }

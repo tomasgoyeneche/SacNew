@@ -1,104 +1,95 @@
-﻿using SacNew.Models;
+﻿using SacNew.Interfaces;
+using SacNew.Models;
+using SacNew.Presenters;
 using SacNew.Repositories;
+using SacNew.Services;
 
 namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 {
-    public partial class AgregarEditarConcepto : Form
+    public partial class AgregarEditarConcepto : Form, IAgregarEditarConceptoView
     {
-        private readonly IConceptoRepositorio _conceptoRepositorio;
-        private readonly IConceptoTipoRepositorio _conceptoTipoRepositorio;
-        private Concepto _conceptoActual;
+        //private readonly ISesionService _sesionService;
 
-        public AgregarEditarConcepto(IConceptoRepositorio conceptoRepositorio, IConceptoTipoRepositorio conceptoTipoRepositorio)
+        public readonly AgregarEditarConceptoPresenter _presenter;
+
+        public AgregarEditarConcepto(AgregarEditarConceptoPresenter presenter)
         {
             InitializeComponent();
-            _conceptoRepositorio = conceptoRepositorio;
-            _conceptoTipoRepositorio = conceptoTipoRepositorio;
+            _presenter = presenter;
+            _presenter.SetView(this);  // Asociamos la vista con el presenter después de la creación
 
-            CargarTiposDeConsumo();
-            CargarProveedores();
+            // Cargar datos iniciales como tipos de consumo y proveedores
         }
 
-        private void AgregarEditarConcepto_Load(object sender, EventArgs e)
-        {
-        }
+        // Implementación de IAgregarEditarConceptoView
+        public int Id { get; set; }
+        public string Codigo => txtCodigo.Text.Trim();
+        public string Descripcion => txtDescripcion.Text.Trim();
+        public int IdTipoConsumo => Convert.ToInt32(cmbTipoConsumo.SelectedValue);
+        public decimal PrecioActual => Convert.ToDecimal(txtPrecioActual.Text);
+        public decimal PrecioAnterior => Convert.ToDecimal(txtPrecioAnterior.Text);
+        public DateTime Vigencia => dtpVigencia.Value;
 
-        private void CargarTiposDeConsumo()
-        {
-            var tiposDeConsumo = _conceptoTipoRepositorio.ObtenerTodosLosTipos();
+        public int IdProveedorBahiaBlanca => Convert.ToInt32(cmbProveedorBahiaBlanca.SelectedValue);
+        public int IdProveedorPlazaHuincul => Convert.ToInt32(cmbProveedorPlazaHuincul.SelectedValue);
 
-            // Asignar los tipos de consumo al ComboBox
+        public void CargarTiposDeConsumo(List<ConceptoTipo> tiposDeConsumo)
+        {
             cmbTipoConsumo.DataSource = tiposDeConsumo;
-            cmbTipoConsumo.DisplayMember = "Descripcion";  // Mostrar la descripción
-            cmbTipoConsumo.ValueMember = "IdConsumoTipo";  // Usar el IdConsumoTipo como valor
+            cmbTipoConsumo.DisplayMember = "Descripcion";
+            cmbTipoConsumo.ValueMember = "IdConsumoTipo";
         }
 
-        private void CargarProveedores()
+        public void CargarProveedoresBahiaBlanca(List<Proveedor> proveedores)
         {
-            // Agregar los proveedores manualmente al ComboBox
-            cmbProveedor.Items.Add("Bahía Blanca");
-            cmbProveedor.Items.Add("Pz Huincul");
-            // Puedes agregar otros proveedores si es necesario
+            cmbProveedorBahiaBlanca.DataSource = proveedores;
+            cmbProveedorBahiaBlanca.DisplayMember = "Codigo";  // Mostramos el código del proveedor
+            cmbProveedorBahiaBlanca.ValueMember = "IdProveedor";
         }
 
-        public void CargarDatos(Concepto concepto)
+        public void CargarProveedoresPlazaHuincul(List<Proveedor> proveedores)
         {
-            _conceptoActual = concepto;
+            cmbProveedorPlazaHuincul.DataSource = proveedores;
+            cmbProveedorPlazaHuincul.DisplayMember = "Codigo";
+            cmbProveedorPlazaHuincul.ValueMember = "IdProveedor";
+        }
 
-            // Cargar los datos del concepto en los controles del formulario
-            txtCodigo.Text = _conceptoActual.Codigo;
+        public void MostrarDatosConcepto(Concepto concepto)
+        {
+            Id = concepto.IdConsumo;
+            txtCodigo.Text = concepto.Codigo;
             txtCodigo.Enabled = false;  // El código no se puede modificar al editar
-            txtDescripcion.Text = _conceptoActual.Descripcion;
-            cmbTipoConsumo.SelectedValue = _conceptoActual.IdTipoConsumo;
-            txtPrecioActual.Text = _conceptoActual.PrecioActual.ToString("F2");
-            txtPrecioAnterior.Text = _conceptoActual.PrecioAnterior.ToString("F2");
-            dtpVigencia.Value = _conceptoActual.Vigencia;
-            // Aquí puedes configurar el proveedor según tu lógica, si lo tienes como parte del concepto
+            txtDescripcion.Text = concepto.Descripcion;
+            cmbTipoConsumo.SelectedValue = concepto.IdTipoConsumo;
+            txtPrecioActual.Text = concepto.PrecioActual.ToString("F2");
+            txtPrecioAnterior.Text = concepto.PrecioAnterior.ToString("F2");
+            dtpVigencia.Value = concepto.Vigencia;
+            cmbProveedorBahiaBlanca.Enabled = true;
+            cmbProveedorPlazaHuincul.Enabled = true;
+            // Cargar los datos del concepto para edición
+            // Aquí deberías implementar la lógica para seleccionar los proveedores de Bahía y Plaza
+        }
+
+        public void MostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (_conceptoActual == null)
-            {
-                // Crear un nuevo concepto si no existe
-                var nuevoConcepto = new Concepto
-                {
-                    Codigo = txtCodigo.Text.Trim(),
-                    Descripcion = txtDescripcion.Text.Trim(),
-                    IdTipoConsumo = Convert.ToInt32(cmbTipoConsumo.SelectedValue),
-                    PrecioActual = Convert.ToDecimal(txtPrecioActual.Text),
-                    Vigencia = dtpVigencia.Value,
-                    PrecioAnterior = Convert.ToDecimal(txtPrecioAnterior.Text),
-                    Activo = true,  // Por defecto activo
-                    IdUsuario = ObtenerUsuarioActual(),  // Función para obtener el usuario
-                    FechaModificacion = DateTime.Now
-                };
-
-                _conceptoRepositorio.AgregarConcepto(nuevoConcepto);
-                MessageBox.Show("Concepto agregado exitosamente.");
-            }
-            else
-            {
-                // Actualizar el concepto existente
-                _conceptoActual.Descripcion = txtDescripcion.Text.Trim();
-                _conceptoActual.IdTipoConsumo = Convert.ToInt32(cmbTipoConsumo.SelectedValue);
-                _conceptoActual.PrecioActual = Convert.ToDecimal(txtPrecioActual.Text);
-                _conceptoActual.Vigencia = dtpVigencia.Value;
-                _conceptoActual.PrecioAnterior = Convert.ToDecimal(txtPrecioAnterior.Text);
-                _conceptoActual.FechaModificacion = DateTime.Now;
-                _conceptoActual.IdUsuario = ObtenerUsuarioActual();
-
-                _conceptoRepositorio.ActualizarConcepto(_conceptoActual);
-                MessageBox.Show("Concepto actualizado exitosamente.");
-            }
-
-            this.Close(); // Cerrar el formulario después de guardar
+            _presenter.GuardarConcepto();
+            this.Close();
         }
 
-        private int ObtenerUsuarioActual()
+        private void AgregarEditarConcepto_Load(object sender, EventArgs e)
         {
-            // Lógica para obtener el usuario actual, puede ser desde SesionService o similar
-            return 1;  // Temporalmente se puede retornar un ID fijo
+            // Mover la inicialización aquí
+            _presenter.Inicializar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

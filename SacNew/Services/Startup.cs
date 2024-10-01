@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SacNew.Interfaces;
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Views;
@@ -24,7 +25,8 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  // Registrar el repositorio de provincias
             serviceCollection.AddSingleton<IConceptoRepositorio, ConceptoRepositorio>();
             serviceCollection.AddSingleton<IConceptoTipoRepositorio, ConceptoTipoRepositorio>();
-
+            serviceCollection.AddSingleton<IConceptoProveedorRepositorio, ConceptoProveedorRepositorio>();
+            serviceCollection.AddSingleton<IConceptoPostaProveedorRepositorio, ConceptoPostaProveedorRepositorio>();
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
             serviceCollection.AddTransient<Menu>();
@@ -32,11 +34,14 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuAbmPostas>();
             serviceCollection.AddTransient<AgregarEditarPosta>();  // Registrar el Formulario de Agregar Posta
             serviceCollection.AddTransient<MenuConceptos>();
-            serviceCollection.AddTransient<MenuConceptos>();
+
+            // Registrar la vista como el formulario concreto
+  
             serviceCollection.AddTransient<AgregarEditarConcepto>();
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
+            serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
 
             return serviceCollection.BuildServiceProvider();
         }

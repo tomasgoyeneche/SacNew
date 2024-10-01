@@ -33,6 +33,8 @@ namespace SacNew.Presenters
             _view.MostrarConceptos(conceptos);
         }
 
+   
+        
         public void BuscarConceptos()
         {
             var textoBusqueda = _view.TextoBusqueda;
@@ -63,7 +65,7 @@ namespace SacNew.Presenters
         public void EditarConcepto(Concepto conceptoSeleccionado)
         {
             var agregarEditarConcepto = _serviceProvider.GetService<AgregarEditarConcepto>();
-            agregarEditarConcepto.CargarDatos(conceptoSeleccionado); // Cargar los datos en el formulario
+            agregarEditarConcepto._presenter.CargarDatosParaEditar(conceptoSeleccionado);// Cargar los datos en el formulario
             agregarEditarConcepto.ShowDialog();
             CargarConceptos(); // Recargar la lista después de la edición
         }

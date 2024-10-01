@@ -54,7 +54,7 @@ namespace SacNew.Presenters
                     Direccion = _view.Direccion,
                     ProvinciaId = _view.ProvinciaId
                 };
-                _postaRepositorio.AgregarPosta(nuevaPosta);
+                _postaRepositorio.AgregarPostaAsync(nuevaPosta);
                 _view.MostrarMensaje("Posta agregada exitosamente.");
             }
             else
@@ -68,7 +68,7 @@ namespace SacNew.Presenters
                     Direccion = _view.Direccion,
                     ProvinciaId = _view.ProvinciaId
                 };
-                _postaRepositorio.ActualizarPosta(postaExistente);
+                _postaRepositorio.ActualizarPostaAsync(postaExistente);
                 _view.MostrarMensaje("Posta actualizada exitosamente.");
             }
         }

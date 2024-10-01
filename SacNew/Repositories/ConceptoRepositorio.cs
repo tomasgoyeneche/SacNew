@@ -113,7 +113,7 @@ namespace SacNew.Repositories
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Concepto (Codigo, Descripcion, IdTipoConsumo, PrecioActual, Vigencia, PrecioAnterior, Activo, IdUsuario, FechaModificacion) " +
+                string query = "INSERT INTO Concepto (Codigo, Descripcion, idConsumoTipo, PrecioActual, Vigencia, PrecioAnterior, Activo, IdUsuario, FechaModificacion) " +
                                "VALUES (@Codigo, @Descripcion, @IdTipoConsumo, @PrecioActual, @Vigencia, @PrecioAnterior, @Activo, @IdUsuario, @FechaModificacion)";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Codigo", concepto.Codigo);
@@ -126,6 +126,8 @@ namespace SacNew.Repositories
                 command.Parameters.AddWithValue("@IdUsuario", concepto.IdUsuario);
                 command.Parameters.AddWithValue("@FechaModificacion", concepto.FechaModificacion);
                 command.ExecuteNonQuery();
+
+
             }
         }
 
@@ -134,7 +136,7 @@ namespace SacNew.Repositories
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "UPDATE Concepto SET Codigo = @Codigo, Descripcion = @Descripcion, IdTipoConsumo = @IdTipoConsumo, PrecioActual = @PrecioActual, " +
+                string query = "UPDATE Concepto SET Codigo = @Codigo, Descripcion = @Descripcion, idConsumoTipo = @IdTipoConsumo, PrecioActual = @PrecioActual, " +
                                "Vigencia = @Vigencia, PrecioAnterior = @PrecioAnterior, Activo = @Activo, IdUsuario = @IdUsuario, FechaModificacion = @FechaModificacion " +
                                "WHERE IdConsumo = @IdConsumo";
                 SqlCommand command = new SqlCommand(query, connection);

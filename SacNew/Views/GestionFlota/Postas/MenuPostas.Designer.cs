@@ -200,7 +200,7 @@
             // 
             guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(17, 101);
+            guna2HtmlLabel2.Location = new Point(17, 103);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(129, 47);
             guna2HtmlLabel2.TabIndex = 13;
@@ -293,7 +293,7 @@
             // 
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(17, 102);
+            guna2HtmlLabel3.Location = new Point(17, 104);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(129, 47);
             guna2HtmlLabel3.TabIndex = 13;
@@ -356,7 +356,7 @@
             // 
             guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(17, 98);
+            guna2HtmlLabel5.Location = new Point(17, 100);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(129, 47);
             guna2HtmlLabel5.TabIndex = 13;
@@ -419,7 +419,7 @@
             // 
             guna2HtmlLabel7.AutoSize = false;
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(17, 98);
+            guna2HtmlLabel7.Location = new Point(17, 100);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(129, 47);
             guna2HtmlLabel7.TabIndex = 13;
@@ -482,12 +482,11 @@
             // 
             guna2HtmlLabel9.AutoSize = false;
             guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Location = new Point(17, 98);
+            guna2HtmlLabel9.Location = new Point(17, 100);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(129, 47);
             guna2HtmlLabel9.TabIndex = 13;
             guna2HtmlLabel9.Text = "Realiza modificaciones.";
-            guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel10
             // 
@@ -546,7 +545,7 @@
             // 
             guna2HtmlLabel11.AutoSize = false;
             guna2HtmlLabel11.BackColor = Color.Transparent;
-            guna2HtmlLabel11.Location = new Point(17, 98);
+            guna2HtmlLabel11.Location = new Point(17, 100);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(129, 47);
             guna2HtmlLabel11.TabIndex = 13;
@@ -614,7 +613,7 @@
             // 
             guna2HtmlLabel13.AutoSize = false;
             guna2HtmlLabel13.BackColor = Color.Transparent;
-            guna2HtmlLabel13.Location = new Point(17, 98);
+            guna2HtmlLabel13.Location = new Point(17, 100);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(129, 47);
             guna2HtmlLabel13.TabIndex = 13;
@@ -677,7 +676,7 @@
             // 
             guna2HtmlLabel15.AutoSize = false;
             guna2HtmlLabel15.BackColor = Color.Transparent;
-            guna2HtmlLabel15.Location = new Point(17, 98);
+            guna2HtmlLabel15.Location = new Point(17, 100);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(129, 47);
             guna2HtmlLabel15.TabIndex = 13;

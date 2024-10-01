@@ -4,6 +4,10 @@ using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SacNew.Presenters
 {
@@ -22,53 +26,88 @@ namespace SacNew.Presenters
             _sesionService = sesionService;
         }
 
-        public void CargarPostas()
+        public async Task CargarPostasAsync()
         {
-            var postas = _postaRepositorio.ObtenerTodasLasPostas();
-            _view.MostrarPostas(postas);
-        }
-
-        public void BuscarPostas()
-        {
-            var textoBusqueda = _view.TextoBusqueda;
-
-            if (string.IsNullOrEmpty(textoBusqueda))
+            try
             {
-                CargarPostas(); // Si no hay texto de búsqueda, cargar todas las postas
+                var postas = await Task.Run(() => _postaRepositorio.ObtenerTodasLasPostasAsync());
+                _view.MostrarPostas(postas);
             }
-            else
+            catch (Exception ex)
             {
-                var postasFiltradas = _postaRepositorio.BuscarPostas(textoBusqueda);
-                _view.MostrarPostas(postasFiltradas);
+                _view.MostrarMensaje($"Error al cargar las postas: {ex.Message}");
             }
         }
 
-        public void AgregarPosta()
+        public async Task BuscarPostasAsync()
         {
-            var agregarEditarPosta = _serviceProvider.GetService<AgregarEditarPosta>();
-            agregarEditarPosta.ShowDialog();
-            CargarPostas(); // Recargar las postas después de agregar una nueva
-        }
-
-        public void EditarPosta(Posta postaSeleccionada)
-        {
-            var agregarEditarPosta = _serviceProvider.GetService<AgregarEditarPosta>();
-            agregarEditarPosta.CargarDatos(postaSeleccionada);
-            agregarEditarPosta.ShowDialog();
-            CargarPostas(); // Recargar las postas después de editar
-        }
-
-        public void EliminarPosta(Posta postaSeleccionada)
-        {
-            var confirmResult = MessageBox.Show($"¿Estás seguro de que quieres eliminar esta posta?",
-                                                "Confirmar Eliminación",
-                                                MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes)
+            try
             {
-                _postaRepositorio.EliminarPosta(postaSeleccionada.Id);
-                _view.MostrarMensaje("Posta eliminada exitosamente.");
-                CargarPostas();  // Recargar las postas después de eliminar
+                var textoBusqueda = _view.TextoBusqueda;
+
+                if (string.IsNullOrEmpty(textoBusqueda))
+                {
+                    await CargarPostasAsync(); // Si no hay texto de búsqueda, cargar todas las postas
+                }
+                else
+                {
+                    var postasFiltradas = await Task.Run(() => _postaRepositorio.BuscarPostasAsync(textoBusqueda));
+                    _view.MostrarPostas(postasFiltradas);
+                }
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al buscar las postas: {ex.Message}");
+            }
+        }
+
+        public async Task AgregarPostaAsync()
+        {
+            try
+            {
+                var agregarEditarPosta = _serviceProvider.GetService<AgregarEditarPosta>();
+                agregarEditarPosta.ShowDialog();
+                await CargarPostasAsync(); // Recargar las postas después de agregar una nueva
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al agregar la posta: {ex.Message}");
+            }
+        }
+
+        public async Task EditarPostaAsync(Posta postaSeleccionada)
+        {
+            try
+            {
+                var agregarEditarPosta = _serviceProvider.GetService<AgregarEditarPosta>();
+                agregarEditarPosta.CargarDatos(postaSeleccionada);
+                agregarEditarPosta.ShowDialog();
+                await CargarPostasAsync(); // Recargar las postas después de editar
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al editar la posta: {ex.Message}");
+            }
+        }
+
+        public async Task EliminarPostaAsync(Posta postaSeleccionada)
+        {
+            try
+            {
+                var confirmResult = MessageBox.Show($"¿Estás seguro de que quieres eliminar esta posta?",
+                                                    "Confirmar Eliminación",
+                                                    MessageBoxButtons.YesNo);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    await Task.Run(() => _postaRepositorio.EliminarPostaAsync(postaSeleccionada.Id));
+                    _view.MostrarMensaje("Posta eliminada exitosamente.");
+                    await CargarPostasAsync();  // Recargar las postas después de eliminar
+                }
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al eliminar la posta: {ex.Message}");
             }
         }
     }

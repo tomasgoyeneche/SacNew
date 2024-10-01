@@ -75,6 +75,7 @@
             txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtBuscar.Size = new Size(123, 36);
             txtBuscar.TabIndex = 0;
+            txtBuscar.TextChanged += TxtBuscar_TextChanged;
             // 
             // guna2HtmlLabel1
             // 
@@ -116,18 +117,19 @@
             // 
             // dataGridViewConceptos
             // 
+            dataGridViewConceptos.AllowUserToResizeColumns = false;
+            dataGridViewConceptos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(185, 226, 218);
             dataGridViewConceptos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(22, 160, 133);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewConceptos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewConceptos.ColumnHeadersHeight = 25;
-            dataGridViewConceptos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(208, 235, 230);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -137,10 +139,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewConceptos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewConceptos.GridColor = Color.FromArgb(182, 224, 216);
-            dataGridViewConceptos.Location = new Point(12, 67);
+            dataGridViewConceptos.Location = new Point(14, 67);
+            dataGridViewConceptos.MultiSelect = false;
             dataGridViewConceptos.Name = "dataGridViewConceptos";
             dataGridViewConceptos.RowHeadersVisible = false;
-            dataGridViewConceptos.Size = new Size(776, 320);
+            dataGridViewConceptos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewConceptos.ScrollBars = ScrollBars.Vertical;
+            dataGridViewConceptos.Size = new Size(770, 320);
             dataGridViewConceptos.TabIndex = 3;
             dataGridViewConceptos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
             dataGridViewConceptos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(185, 226, 218);
@@ -152,9 +157,9 @@
             dataGridViewConceptos.ThemeStyle.GridColor = Color.FromArgb(182, 224, 216);
             dataGridViewConceptos.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(22, 160, 133);
             dataGridViewConceptos.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewConceptos.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewConceptos.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F);
             dataGridViewConceptos.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dataGridViewConceptos.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewConceptos.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewConceptos.ThemeStyle.HeaderStyle.Height = 25;
             dataGridViewConceptos.ThemeStyle.ReadOnly = false;
             dataGridViewConceptos.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(208, 235, 230);
