@@ -24,16 +24,15 @@ namespace SacNew
             // Resolver LoginForm directamente desde el contenedor
             var loginForm = serviceProvider.GetService<Login>();
 
+            //var loginPresenter = new LoginPresenter(
+            //  loginForm,
+            //  serviceProvider.GetService<IUsuarioRepositorio>(),
+            //  serviceProvider.GetService<IPermisoRepositorio>(),
+            //  serviceProvider.GetService<ISesionService>(),
+            //  serviceProvider);
 
-            var loginPresenter = new LoginPresenter(
-              loginForm,
-              serviceProvider.GetService<IUsuarioRepositorio>(),
-              serviceProvider.GetService<IPermisoRepositorio>(),
-              serviceProvider.GetService<ISesionService>(),
-              serviceProvider);
-
-            // Inyectar manualmente el presentador en el LoginForm
-            loginForm.SetPresenter(loginPresenter);
+            //// Inyectar manualmente el presentador en el LoginForm
+            //loginForm.SetPresenter(loginPresenter);
             Application.Run(loginForm);
 
         }
