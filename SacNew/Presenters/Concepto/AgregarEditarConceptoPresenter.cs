@@ -2,12 +2,6 @@
 using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
-using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -29,24 +23,24 @@ namespace SacNew.Presenters
                                               IConceptoPostaProveedorRepositorio conceptoPostaProveedorRepositorio,
                                               ISesionService sesionService)
         {
-            
             _conceptoRepositorio = conceptoRepositorio;
             _conceptoTipoRepositorio = conceptoTipoRepositorio;
             _conceptoProveedorRepositorio = conceptoProveedorRepositorio;
             _conceptoPostaProveedorRepositorio = conceptoPostaProveedorRepositorio;
             _sesionService = sesionService;
-
         }
 
         public void SetView(IAgregarEditarConceptoView view)
         {
             _view = view;
         }
+
         public void Inicializar()
         {
             //CargarTiposDeConsumo();
             CargarProveedores();
         }
+
         private void CargarTiposDeConsumo()
         {
             var tiposDeConsumo = _conceptoTipoRepositorio.ObtenerTodosLosTipos();
@@ -88,12 +82,11 @@ namespace SacNew.Presenters
 
                 _conceptoRepositorio.AgregarConcepto(nuevoConcepto);
 
-                // Agregar los registros a la tabla de conceptoPostaProveedor
-                var idProveedorBahia = _view.IdProveedorBahiaBlanca;
-                var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
+                //var idProveedorBahia = _view.IdProveedorBahiaBlanca;
+                //var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
 
-               // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 2, idProveedorBahia);  // Posta 2 (Bahía Blanca)
-               // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 3, idProveedorPlaza);  // Posta 3 (Plaza Huincul)
+                // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 2, idProveedorBahia);  // Posta 2 (Bahía Blanca)
+                // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 3, idProveedorPlaza);  // Posta 3 (Plaza Huincul)
 
                 _view.MostrarMensaje("Concepto agregado exitosamente.");
             }

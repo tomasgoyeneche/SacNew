@@ -1,20 +1,15 @@
 using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
-using SacNew.Presenters;
-using SacNew.Repositories;
 using SacNew.Services;
 
 namespace SacNew
 {
     internal static class Program
     {
-
-
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             var serviceProvider = Startup.ConfigureServices();
 
@@ -25,9 +20,6 @@ namespace SacNew
             var loginForm = serviceProvider.GetService<Login>();
 
             Application.Run(loginForm);
-
         }
-
-
     }
 }

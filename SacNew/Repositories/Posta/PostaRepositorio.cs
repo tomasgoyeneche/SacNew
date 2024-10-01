@@ -1,7 +1,6 @@
 ﻿using SacNew.Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {

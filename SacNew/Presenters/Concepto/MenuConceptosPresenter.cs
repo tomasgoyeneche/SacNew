@@ -33,8 +33,6 @@ namespace SacNew.Presenters
             _view.MostrarConceptos(conceptos);
         }
 
-   
-        
         public void BuscarConceptos()
         {
             var textoBusqueda = _view.TextoBusqueda;

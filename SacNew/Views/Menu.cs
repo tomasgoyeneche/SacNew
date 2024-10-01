@@ -1,27 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
-using SacNew.Models;
-using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas;
-using SacNew.Views.GestionOperativa.Guardias;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views
 {
     public partial class Menu : Form
     {
-
-
-
         private readonly ISesionService _sesionService;
         private readonly IServiceProvider _serviceProvider;
 
@@ -30,16 +14,13 @@ namespace SacNew.Views
             InitializeComponent();
             _sesionService = sesionService;
             _serviceProvider = serviceProvider;
-
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
             txtUserName.Text = $"{_sesionService.NombreCompleto}";
             lDiaDeHoy.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
-
         }
-
 
         private void loginCloseButton_Click(object sender, EventArgs e)
         {
@@ -48,12 +29,11 @@ namespace SacNew.Views
 
         private void bGestGuardiaBB_Click(object sender, EventArgs e)
         {
-           
         }
 
         private void picBoxFlotaPostas_Click(object sender, EventArgs e)
         {
-            if (!_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
+            if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
                 var postasMenu = _serviceProvider.GetService<MenuPostas>();
 
@@ -69,7 +49,6 @@ namespace SacNew.Views
 
         private void picBoxAdminBB_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

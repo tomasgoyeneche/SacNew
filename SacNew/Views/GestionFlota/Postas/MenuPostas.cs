@@ -2,23 +2,14 @@
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views.GestionFlota.Postas
 {
     public partial class MenuPostas : Form
     {
-
         private readonly ISesionService _sesionService;
         private readonly IServiceProvider _serviceProvider;
+
         public MenuPostas(ISesionService sesionService, IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -51,7 +42,6 @@ namespace SacNew.Views.GestionFlota.Postas
                 MenuAbmPostas.ShowDialog();
                 this.Show();
             }
-
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)

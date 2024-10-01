@@ -1,9 +1,4 @@
 ﻿using SacNew.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Interfaces
 {
@@ -21,10 +16,13 @@ namespace SacNew.Interfaces
         int IdProveedorPlazaHuincul { get; }
 
         void CargarTiposDeConsumo(List<ConceptoTipo> tiposDeConsumo);
+
         void CargarProveedoresBahiaBlanca(List<Proveedor> proveedores);
+
         void CargarProveedoresPlazaHuincul(List<Proveedor> proveedores);
 
         void MostrarDatosConcepto(Concepto concepto);
+
         void MostrarMensaje(string mensaje);
     }
 }

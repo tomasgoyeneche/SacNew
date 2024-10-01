@@ -79,7 +79,7 @@
             txtCodigo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCodigo.Font = new Font("Segoe UI", 9F);
             txtCodigo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCodigo.Location = new Point(148, 26);
+            txtCodigo.Location = new Point(176, 62);
             txtCodigo.MaxLength = 10;
             txtCodigo.Name = "txtCodigo";
             txtCodigo.PasswordChar = '\0';
@@ -100,7 +100,7 @@
             txtDescripcion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDescripcion.Font = new Font("Segoe UI", 9F);
             txtDescripcion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDescripcion.Location = new Point(148, 84);
+            txtDescripcion.Location = new Point(176, 112);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PasswordChar = '\0';
             txtDescripcion.PlaceholderText = "";
@@ -120,10 +120,10 @@
             cmbTipoConsumo.Font = new Font("Segoe UI", 10F);
             cmbTipoConsumo.ForeColor = Color.FromArgb(68, 88, 112);
             cmbTipoConsumo.ItemHeight = 30;
-            cmbTipoConsumo.Location = new Point(148, 143);
+            cmbTipoConsumo.Location = new Point(176, 169);
             cmbTipoConsumo.Name = "cmbTipoConsumo";
             cmbTipoConsumo.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cmbTipoConsumo.Size = new Size(140, 36);
+            cmbTipoConsumo.Size = new Size(144, 36);
             cmbTipoConsumo.TabIndex = 2;
             // 
             // txtPrecioActual
@@ -137,7 +137,7 @@
             txtPrecioActual.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPrecioActual.Font = new Font("Segoe UI", 9F);
             txtPrecioActual.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrecioActual.Location = new Point(144, 283);
+            txtPrecioActual.Location = new Point(176, 219);
             txtPrecioActual.Name = "txtPrecioActual";
             txtPrecioActual.PasswordChar = '\0';
             txtPrecioActual.PlaceholderText = "";
@@ -157,7 +157,7 @@
             txtPrecioAnterior.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPrecioAnterior.Font = new Font("Segoe UI", 9F);
             txtPrecioAnterior.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrecioAnterior.Location = new Point(511, 283);
+            txtPrecioAnterior.Location = new Point(176, 278);
             txtPrecioAnterior.Name = "txtPrecioAnterior";
             txtPrecioAnterior.PasswordChar = '\0';
             txtPrecioAnterior.PlaceholderText = "";
@@ -170,14 +170,15 @@
             // 
             dtpVigencia.Checked = true;
             dtpVigencia.CustomizableEdges = customizableEdges11;
+            dtpVigencia.FillColor = Color.WhiteSmoke;
             dtpVigencia.Font = new Font("Segoe UI", 9F);
             dtpVigencia.Format = DateTimePickerFormat.Long;
-            dtpVigencia.Location = new Point(140, 337);
+            dtpVigencia.Location = new Point(358, 219);
             dtpVigencia.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpVigencia.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpVigencia.Name = "dtpVigencia";
             dtpVigencia.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpVigencia.Size = new Size(200, 36);
+            dtpVigencia.Size = new Size(229, 36);
             dtpVigencia.TabIndex = 5;
             dtpVigencia.Value = new DateTime(2024, 9, 30, 16, 48, 9, 511);
             // 
@@ -185,7 +186,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel1.Location = new Point(89, 39);
+            guna2HtmlLabel1.Location = new Point(38, 75);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(53, 23);
             guna2HtmlLabel1.TabIndex = 7;
@@ -195,7 +196,7 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel2.Location = new Point(58, 97);
+            guna2HtmlLabel2.Location = new Point(38, 125);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(84, 23);
             guna2HtmlLabel2.TabIndex = 8;
@@ -205,7 +206,7 @@
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel3.Location = new Point(38, 156);
+            guna2HtmlLabel3.Location = new Point(38, 182);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(104, 23);
             guna2HtmlLabel3.TabIndex = 9;
@@ -215,7 +216,7 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel4.Location = new Point(38, 296);
+            guna2HtmlLabel4.Location = new Point(38, 232);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(96, 23);
             guna2HtmlLabel4.TabIndex = 10;
@@ -225,7 +226,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel5.Location = new Point(72, 350);
+            guna2HtmlLabel5.Location = new Point(436, 182);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(62, 23);
             guna2HtmlLabel5.TabIndex = 11;
@@ -235,7 +236,7 @@
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel6.Location = new Point(395, 296);
+            guna2HtmlLabel6.Location = new Point(38, 291);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(110, 23);
             guna2HtmlLabel6.TabIndex = 12;
@@ -245,7 +246,7 @@
             // 
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.ForeColor = Color.Black;
-            guna2HtmlLabel7.Location = new Point(391, 61);
+            guna2HtmlLabel7.Location = new Point(358, 81);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(74, 17);
             guna2HtmlLabel7.TabIndex = 13;
@@ -263,7 +264,7 @@
             cmbProveedorBahiaBlanca.Font = new Font("Segoe UI", 10F);
             cmbProveedorBahiaBlanca.ForeColor = Color.FromArgb(68, 88, 112);
             cmbProveedorBahiaBlanca.ItemHeight = 30;
-            cmbProveedorBahiaBlanca.Location = new Point(484, 42);
+            cmbProveedorBahiaBlanca.Location = new Point(453, 62);
             cmbProveedorBahiaBlanca.Name = "cmbProveedorBahiaBlanca";
             cmbProveedorBahiaBlanca.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cmbProveedorBahiaBlanca.Size = new Size(140, 36);
@@ -273,7 +274,7 @@
             // 
             guna2HtmlLabel8.BackColor = Color.Transparent;
             guna2HtmlLabel8.ForeColor = Color.Black;
-            guna2HtmlLabel8.Location = new Point(391, 103);
+            guna2HtmlLabel8.Location = new Point(358, 131);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(76, 17);
             guna2HtmlLabel8.TabIndex = 15;
@@ -291,7 +292,7 @@
             cmbProveedorPlazaHuincul.Font = new Font("Segoe UI", 10F);
             cmbProveedorPlazaHuincul.ForeColor = Color.FromArgb(68, 88, 112);
             cmbProveedorPlazaHuincul.ItemHeight = 30;
-            cmbProveedorPlazaHuincul.Location = new Point(484, 103);
+            cmbProveedorPlazaHuincul.Location = new Point(453, 112);
             cmbProveedorPlazaHuincul.Name = "cmbProveedorPlazaHuincul";
             cmbProveedorPlazaHuincul.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbProveedorPlazaHuincul.Size = new Size(140, 36);
@@ -306,7 +307,7 @@
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnGuardar.Font = new Font("Segoe UI", 9F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(511, 378);
+            btnGuardar.Location = new Point(340, 371);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnGuardar.Size = new Size(180, 45);
@@ -323,7 +324,7 @@
             btnCancelar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnCancelar.Font = new Font("Segoe UI", 9F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(258, 393);
+            btnCancelar.Location = new Point(95, 371);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnCancelar.Size = new Size(180, 45);
@@ -335,7 +336,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(622, 450);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(cmbProveedorPlazaHuincul);

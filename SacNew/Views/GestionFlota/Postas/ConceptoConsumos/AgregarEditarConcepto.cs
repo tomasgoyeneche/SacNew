@@ -1,8 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
-using SacNew.Repositories;
-using SacNew.Services;
 
 namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 {
@@ -23,6 +21,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 
         // Implementación de IAgregarEditarConceptoView
         public int Id { get; set; }
+
         public string Codigo => txtCodigo.Text.Trim();
         public string Descripcion => txtDescripcion.Text.Trim();
         public int IdTipoConsumo => Convert.ToInt32(cmbTipoConsumo.SelectedValue);

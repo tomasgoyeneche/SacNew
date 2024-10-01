@@ -126,8 +126,6 @@ namespace SacNew.Repositories
                 command.Parameters.AddWithValue("@IdUsuario", concepto.IdUsuario);
                 command.Parameters.AddWithValue("@FechaModificacion", concepto.FechaModificacion);
                 command.ExecuteNonQuery();
-
-
             }
         }
 
