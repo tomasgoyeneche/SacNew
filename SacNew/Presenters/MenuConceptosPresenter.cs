@@ -65,6 +65,7 @@ namespace SacNew.Presenters
         public void EditarConcepto(Concepto conceptoSeleccionado)
         {
             var agregarEditarConcepto = _serviceProvider.GetService<AgregarEditarConcepto>();
+            agregarEditarConcepto.CargarTiposDeConsumo(_conceptoTipoRepositorio.ObtenerTodosLosTipos());
             agregarEditarConcepto._presenter.CargarDatosParaEditar(conceptoSeleccionado);// Cargar los datos en el formulario
             agregarEditarConcepto.ShowDialog();
             CargarConceptos(); // Recargar la lista después de la edición
