@@ -29,34 +29,39 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessFormLogin = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             pInicioLogin = new Guna.UI2.WinForms.Guna2Panel();
             tLogUsu = new Guna.UI2.WinForms.Guna2TextBox();
             tLogPass = new Guna.UI2.WinForms.Guna2TextBox();
-            bIniciarSesion = new Guna.UI2.WinForms.Guna2Button();
             lblError = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            loginCloseButton = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            bIniciarSesion = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // guna2BorderlessFormLogin
             // 
-            guna2BorderlessFormLogin.BorderRadius = 25;
             guna2BorderlessFormLogin.ContainerControl = this;
             guna2BorderlessFormLogin.DockIndicatorTransparencyValue = 0.8D;
             guna2BorderlessFormLogin.DragForm = false;
@@ -68,12 +73,12 @@
             pInicioLogin.BackColor = Color.Transparent;
             pInicioLogin.BackgroundImage = Resources.loginAutoChenyiCalidad;
             pInicioLogin.BackgroundImageLayout = ImageLayout.Stretch;
-            pInicioLogin.CustomizableEdges = customizableEdges6;
+            pInicioLogin.CustomizableEdges = customizableEdges5;
             pInicioLogin.Dock = DockStyle.Left;
-            pInicioLogin.FillColor = Color.FromArgb(200, 0, 0, 0);
+            pInicioLogin.FillColor = Color.FromArgb(150, 0, 0, 0);
             pInicioLogin.Location = new Point(0, 0);
             pInicioLogin.Name = "pInicioLogin";
-            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pInicioLogin.Size = new Size(407, 450);
             pInicioLogin.TabIndex = 0;
             // 
@@ -81,26 +86,26 @@
             // 
             tLogUsu.Animated = true;
             tLogUsu.BorderRadius = 20;
-            tLogUsu.CustomizableEdges = customizableEdges4;
+            tLogUsu.CustomizableEdges = customizableEdges11;
             tLogUsu.DefaultText = "";
             tLogUsu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tLogUsu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             tLogUsu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             tLogUsu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            tLogUsu.FocusedState.BorderColor = Color.FromArgb(40, 167, 69);
-            tLogUsu.Font = new Font("Segoe UI", 12F);
+            tLogUsu.FocusedState.BorderColor = Color.Chocolate;
+            tLogUsu.Font = new Font("Segoe UI", 10F);
             tLogUsu.ForeColor = Color.Black;
-            tLogUsu.HoverState.BorderColor = Color.FromArgb(40, 167, 69);
+            tLogUsu.HoverState.BorderColor = Color.Coral;
             tLogUsu.IconLeft = Resources.loginUsuarioGris;
-            tLogUsu.Location = new Point(495, 197);
-            tLogUsu.Margin = new Padding(4);
+            tLogUsu.Location = new Point(47, 161);
+            tLogUsu.Margin = new Padding(4, 5, 4, 5);
             tLogUsu.MaxLength = 25;
             tLogUsu.Name = "tLogUsu";
             tLogUsu.PasswordChar = '\0';
-            tLogUsu.PlaceholderText = "Usuario";
+            tLogUsu.PlaceholderText = "Ingrese su usuario";
             tLogUsu.SelectedText = "";
-            tLogUsu.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            tLogUsu.Size = new Size(220, 41);
+            tLogUsu.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            tLogUsu.Size = new Size(220, 34);
             tLogUsu.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             tLogUsu.TabIndex = 3;
             // 
@@ -108,60 +113,38 @@
             // 
             tLogPass.Animated = true;
             tLogPass.BackColor = Color.Transparent;
-            tLogPass.BorderRadius = 20;
-            tLogPass.CustomizableEdges = customizableEdges2;
+            tLogPass.CustomizableEdges = customizableEdges9;
             tLogPass.DefaultText = "";
             tLogPass.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tLogPass.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             tLogPass.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             tLogPass.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            tLogPass.FocusedState.BorderColor = Color.FromArgb(40, 167, 69);
-            tLogPass.Font = new Font("Segoe UI", 12F);
+            tLogPass.FocusedState.BorderColor = Color.Chocolate;
+            tLogPass.Font = new Font("Segoe UI", 10F);
             tLogPass.ForeColor = Color.Black;
-            tLogPass.HoverState.BorderColor = Color.FromArgb(40, 167, 69);
+            tLogPass.HoverState.BorderColor = Color.Coral;
             tLogPass.IconLeft = Resources.loginContrasenaGris;
-            tLogPass.Location = new Point(495, 258);
-            tLogPass.Margin = new Padding(4);
+            tLogPass.Location = new Point(47, 231);
+            tLogPass.Margin = new Padding(4, 5, 4, 5);
             tLogPass.MaxLength = 25;
             tLogPass.Name = "tLogPass";
             tLogPass.PasswordChar = '●';
-            tLogPass.PlaceholderText = "Contraseña";
+            tLogPass.PlaceholderText = "Ingrese su contraseña";
             tLogPass.SelectedText = "";
-            tLogPass.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            tLogPass.Size = new Size(220, 41);
+            tLogPass.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            tLogPass.Size = new Size(220, 34);
             tLogPass.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             tLogPass.TabIndex = 4;
             tLogPass.UseSystemPasswordChar = true;
             // 
-            // bIniciarSesion
-            // 
-            bIniciarSesion.BackColor = Color.Transparent;
-            bIniciarSesion.BorderColor = Color.Transparent;
-            bIniciarSesion.BorderRadius = 15;
-            bIniciarSesion.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            bIniciarSesion.CustomizableEdges = customizableEdges8;
-            bIniciarSesion.DisabledState.BorderColor = Color.Transparent;
-            bIniciarSesion.DisabledState.CustomBorderColor = Color.Transparent;
-            bIniciarSesion.DisabledState.FillColor = Color.FromArgb(40, 167, 69);
-            bIniciarSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            bIniciarSesion.FillColor = Color.FromArgb(40, 167, 69);
-            bIniciarSesion.Font = new Font("Segoe UI", 12F);
-            bIniciarSesion.ForeColor = Color.White;
-            bIniciarSesion.Location = new Point(48, 299);
-            bIniciarSesion.Name = "bIniciarSesion";
-            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            bIniciarSesion.Size = new Size(220, 47);
-            bIniciarSesion.TabIndex = 5;
-            bIniciarSesion.Text = "Iniciar Sesion";
-            bIniciarSesion.Click += bIniciarSesion_Click;
-            // 
             // lblError
             // 
-            lblError.BackColor = Color.WhiteSmoke;
-            lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(469, 392);
+            lblError.BackColor = Color.FromArgb(63, 73, 75);
+            lblError.Font = new Font("Century Gothic", 8F);
+            lblError.ForeColor = Color.IndianRed;
+            lblError.Location = new Point(16, 355);
             lblError.Name = "lblError";
-            lblError.Size = new Size(28, 17);
+            lblError.Size = new Size(25, 18);
             lblError.TabIndex = 0;
             lblError.Text = "Error";
             lblError.Visible = false;
@@ -171,82 +154,137 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 8F);
             guna2HtmlLabel1.ForeColor = SystemColors.ButtonShadow;
-            guna2HtmlLabel1.Location = new Point(733, 432);
+            guna2HtmlLabel1.Location = new Point(738, 432);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(60, 15);
             guna2HtmlLabel1.TabIndex = 7;
             guna2HtmlLabel1.Text = "Version 0.1";
             // 
-            // loginCloseButton
-            // 
-            loginCloseButton.BackColor = Color.Transparent;
-            loginCloseButton.CheckedState.ImageSize = new Size(64, 64);
-            loginCloseButton.HoverState.ImageSize = new Size(28, 28);
-            loginCloseButton.Image = Resources.appCloseButton;
-            loginCloseButton.ImageOffset = new Point(0, 0);
-            loginCloseButton.ImageRotate = 0F;
-            loginCloseButton.ImageSize = new Size(25, 25);
-            loginCloseButton.Location = new Point(768, 2);
-            loginCloseButton.Name = "loginCloseButton";
-            loginCloseButton.PressedState.ImageSize = new Size(25, 25);
-            loginCloseButton.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            loginCloseButton.ShadowDecoration.Depth = 7;
-            loginCloseButton.Size = new Size(28, 28);
-            loginCloseButton.TabIndex = 8;
-            loginCloseButton.UseTransparentBackground = true;
-            loginCloseButton.Click += loginCloseButton_Click;
-            // 
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
-            guna2Panel1.BorderRadius = 15;
+            guna2Panel1.BorderRadius = 20;
+            guna2Panel1.Controls.Add(guna2Separator1);
+            guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
-            guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(bIniciarSesion);
-            guna2Panel1.CustomizableEdges = customizableEdges10;
-            guna2Panel1.FillColor = Color.WhiteSmoke;
+            guna2Panel1.Controls.Add(guna2HtmlLabel2);
+            guna2Panel1.Controls.Add(tLogPass);
+            guna2Panel1.Controls.Add(lblError);
+            guna2Panel1.Controls.Add(tLogUsu);
+            guna2Panel1.CustomBorderColor = Color.Transparent;
+            guna2Panel1.CustomizableEdges = customizableEdges13;
+            guna2Panel1.FillColor = Color.FromArgb(63, 73, 75);
             guna2Panel1.Location = new Point(447, 39);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel1.Size = new Size(315, 375);
             guna2Panel1.TabIndex = 9;
+            // 
+            // guna2Separator1
+            // 
+            guna2Separator1.Location = new Point(76, 87);
+            guna2Separator1.Name = "guna2Separator1";
+            guna2Separator1.Size = new Size(163, 10);
+            guna2Separator1.TabIndex = 10;
+            // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.AutoSize = false;
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Century Gothic", 9F);
+            guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel4.Location = new Point(47, 209);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(220, 19);
+            guna2HtmlLabel4.TabIndex = 9;
+            guna2HtmlLabel4.Text = "Contraseña*";
+            guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Segoe UI", 11F);
-            guna2HtmlLabel3.Location = new Point(48, 86);
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 9F);
+            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel3.Location = new Point(47, 139);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(220, 26);
-            guna2HtmlLabel3.TabIndex = 7;
-            guna2HtmlLabel3.Text = "Ingrese sus datos para continuar";
-            guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
+            guna2HtmlLabel3.Size = new Size(220, 19);
+            guna2HtmlLabel3.TabIndex = 8;
+            guna2HtmlLabel3.Text = "Usuario*";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleLeft;
+            // 
+            // bIniciarSesion
+            // 
+            bIniciarSesion.CustomizableEdges = customizableEdges7;
+            bIniciarSesion.DisabledState.BorderColor = Color.DarkGray;
+            bIniciarSesion.DisabledState.CustomBorderColor = Color.DarkGray;
+            bIniciarSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bIniciarSesion.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            bIniciarSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bIniciarSesion.FillColor = Color.Coral;
+            bIniciarSesion.FillColor2 = Color.Coral;
+            bIniciarSesion.Font = new Font("Century Gothic", 10F, FontStyle.Bold);
+            bIniciarSesion.ForeColor = Color.White;
+            bIniciarSesion.ImageAlign = HorizontalAlignment.Left;
+            bIniciarSesion.Location = new Point(47, 299);
+            bIniciarSesion.Name = "bIniciarSesion";
+            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            bIniciarSesion.Size = new Size(220, 40);
+            bIniciarSesion.TabIndex = 7;
+            bIniciarSesion.Text = "Ingresar";
+            bIniciarSesion.Click += bIniciarSesion_Click;
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 28F, FontStyle.Bold);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlText;
-            guna2HtmlLabel2.Location = new Point(48, 37);
+            guna2HtmlLabel2.Font = new Font("Century Gothic", 24F);
+            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel2.Location = new Point(47, 22);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(220, 49);
+            guna2HtmlLabel2.Size = new Size(220, 75);
             guna2HtmlLabel2.TabIndex = 6;
-            guna2HtmlLabel2.Text = "LOGIN";
+            guna2HtmlLabel2.Text = "Iniciar Sesion";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2ControlBox1
+            // 
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.Animated = true;
+            guna2ControlBox1.CustomizableEdges = customizableEdges3;
+            guna2ControlBox1.FillColor = Color.Transparent;
+            guna2ControlBox1.HoverState.FillColor = Color.IndianRed;
+            guna2ControlBox1.HoverState.IconColor = Color.White;
+            guna2ControlBox1.IconColor = Color.WhiteSmoke;
+            guna2ControlBox1.Location = new Point(769, 0);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2ControlBox1.Size = new Size(32, 24);
+            guna2ControlBox1.TabIndex = 18;
+            // 
+            // guna2ControlBox2
+            // 
+            guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            guna2ControlBox2.CustomizableEdges = customizableEdges1;
+            guna2ControlBox2.FillColor = Color.Transparent;
+            guna2ControlBox2.IconColor = Color.WhiteSmoke;
+            guna2ControlBox2.Location = new Point(739, 0);
+            guna2ControlBox2.Name = "guna2ControlBox2";
+            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2ControlBox2.Size = new Size(32, 24);
+            guna2ControlBox2.TabIndex = 19;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(216, 119, 12);
+            BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 450);
-            Controls.Add(loginCloseButton);
+            Controls.Add(guna2ControlBox2);
+            Controls.Add(guna2ControlBox1);
             Controls.Add(guna2HtmlLabel1);
-            Controls.Add(lblError);
-            Controls.Add(tLogPass);
-            Controls.Add(tLogUsu);
             Controls.Add(pInicioLogin);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -255,6 +293,7 @@
             Text = "Login";
             Load += Login_Load;
             guna2Panel1.ResumeLayout(false);
+            guna2Panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -265,12 +304,15 @@
         private Guna.UI2.WinForms.Guna2Panel pInicioLogin;
         private Guna.UI2.WinForms.Guna2TextBox tLogUsu;
         private Guna.UI2.WinForms.Guna2TextBox tLogPass;
-        private Guna.UI2.WinForms.Guna2Button bIniciarSesion;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblError;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2ImageButton loginCloseButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2GradientButton bIniciarSesion;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }
