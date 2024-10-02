@@ -156,11 +156,13 @@
             // 
             // guna2Panel4
             // 
+            guna2Panel4.BorderRadius = 10;
             guna2Panel4.Controls.Add(guna2PictureBox1);
             guna2Panel4.Controls.Add(bAbmPostasMenu);
             guna2Panel4.Controls.Add(guna2HtmlLabel2);
             guna2Panel4.Controls.Add(guna2HtmlLabel1);
             guna2Panel4.CustomizableEdges = customizableEdges49;
+            guna2Panel4.FillColor = Color.WhiteSmoke;
             guna2Panel4.Location = new Point(47, 61);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges50;
@@ -200,7 +202,7 @@
             // 
             guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(17, 103);
+            guna2HtmlLabel2.Location = new Point(17, 99);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(129, 47);
             guna2HtmlLabel2.TabIndex = 13;
@@ -249,11 +251,13 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.BorderRadius = 10;
             guna2Panel1.Controls.Add(guna2PictureBox2);
             guna2Panel1.Controls.Add(bMenuConceptos);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.CustomizableEdges = customizableEdges42;
+            guna2Panel1.FillColor = Color.WhiteSmoke;
             guna2Panel1.Location = new Point(237, 61);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges43;
@@ -293,7 +297,8 @@
             // 
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(17, 104);
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 8F);
+            guna2HtmlLabel3.Location = new Point(17, 100);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(129, 47);
             guna2HtmlLabel3.TabIndex = 13;
@@ -303,7 +308,7 @@
             // 
             guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.Font = new Font("Century Gothic", 8F, FontStyle.Bold);
             guna2HtmlLabel4.Location = new Point(17, 83);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(129, 17);
@@ -313,11 +318,13 @@
             // 
             // guna2Panel2
             // 
+            guna2Panel2.BorderRadius = 10;
             guna2Panel2.Controls.Add(guna2PictureBox3);
             guna2Panel2.Controls.Add(guna2Button3);
             guna2Panel2.Controls.Add(guna2HtmlLabel5);
             guna2Panel2.Controls.Add(guna2HtmlLabel6);
             guna2Panel2.CustomizableEdges = customizableEdges36;
+            guna2Panel2.FillColor = Color.WhiteSmoke;
             guna2Panel2.Location = new Point(425, 61);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges37;
@@ -356,7 +363,7 @@
             // 
             guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(17, 100);
+            guna2HtmlLabel5.Location = new Point(17, 96);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(129, 47);
             guna2HtmlLabel5.TabIndex = 13;
@@ -376,11 +383,13 @@
             // 
             // guna2Panel3
             // 
+            guna2Panel3.BorderRadius = 10;
             guna2Panel3.Controls.Add(guna2PictureBox4);
             guna2Panel3.Controls.Add(guna2Button4);
             guna2Panel3.Controls.Add(guna2HtmlLabel7);
             guna2Panel3.Controls.Add(guna2HtmlLabel8);
             guna2Panel3.CustomizableEdges = customizableEdges30;
+            guna2Panel3.FillColor = Color.WhiteSmoke;
             guna2Panel3.Location = new Point(606, 61);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges31;
@@ -419,7 +428,7 @@
             // 
             guna2HtmlLabel7.AutoSize = false;
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(17, 100);
+            guna2HtmlLabel7.Location = new Point(17, 96);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(129, 47);
             guna2HtmlLabel7.TabIndex = 13;
@@ -439,11 +448,14 @@
             // 
             // guna2Panel5
             // 
+            guna2Panel5.BackColor = Color.Transparent;
+            guna2Panel5.BorderRadius = 10;
             guna2Panel5.Controls.Add(guna2PictureBox5);
             guna2Panel5.Controls.Add(guna2Button5);
             guna2Panel5.Controls.Add(guna2HtmlLabel9);
             guna2Panel5.Controls.Add(guna2HtmlLabel10);
             guna2Panel5.CustomizableEdges = customizableEdges24;
+            guna2Panel5.FillColor = Color.WhiteSmoke;
             guna2Panel5.Location = new Point(606, 258);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges25;
@@ -502,11 +514,14 @@
             // 
             // guna2Panel6
             // 
+            guna2Panel6.BackColor = Color.Transparent;
+            guna2Panel6.BorderRadius = 10;
             guna2Panel6.Controls.Add(guna2PictureBox6);
             guna2Panel6.Controls.Add(guna2Button6);
             guna2Panel6.Controls.Add(guna2HtmlLabel11);
             guna2Panel6.Controls.Add(guna2HtmlLabel12);
             guna2Panel6.CustomizableEdges = customizableEdges18;
+            guna2Panel6.FillColor = Color.WhiteSmoke;
             guna2Panel6.Location = new Point(425, 258);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges19;
@@ -520,7 +535,7 @@
             guna2PictureBox6.Location = new Point(24, 9);
             guna2PictureBox6.Name = "guna2PictureBox6";
             guna2PictureBox6.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2PictureBox6.Size = new Size(113, 63);
+            guna2PictureBox6.Size = new Size(113, 65);
             guna2PictureBox6.TabIndex = 12;
             guna2PictureBox6.TabStop = false;
             // 
@@ -565,15 +580,17 @@
             // 
             // guna2Panel7
             // 
+            guna2Panel7.BackColor = Color.Transparent;
+            guna2Panel7.BorderRadius = 10;
             guna2Panel7.Controls.Add(guna2PictureBox7);
             guna2Panel7.Controls.Add(guna2Button7);
             guna2Panel7.Controls.Add(guna2HtmlLabel13);
             guna2Panel7.Controls.Add(guna2HtmlLabel14);
             guna2Panel7.CustomizableEdges = customizableEdges12;
+            guna2Panel7.FillColor = Color.White;
             guna2Panel7.Location = new Point(237, 258);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2Panel7.ShadowDecoration.Enabled = true;
             guna2Panel7.Size = new Size(160, 180);
             guna2Panel7.TabIndex = 14;
             // 
@@ -585,10 +602,10 @@
             guna2PictureBox7.CustomizableEdges = customizableEdges8;
             guna2PictureBox7.FillColor = Color.Transparent;
             guna2PictureBox7.ImageRotate = 0F;
-            guna2PictureBox7.Location = new Point(40, 9);
+            guna2PictureBox7.Location = new Point(24, 11);
             guna2PictureBox7.Name = "guna2PictureBox7";
             guna2PictureBox7.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2PictureBox7.Size = new Size(82, 65);
+            guna2PictureBox7.Size = new Size(113, 61);
             guna2PictureBox7.TabIndex = 12;
             guna2PictureBox7.TabStop = false;
             // 
@@ -633,11 +650,13 @@
             // 
             // guna2Panel8
             // 
+            guna2Panel8.BorderRadius = 10;
             guna2Panel8.Controls.Add(guna2PictureBox8);
             guna2Panel8.Controls.Add(guna2Button8);
             guna2Panel8.Controls.Add(guna2HtmlLabel15);
             guna2Panel8.Controls.Add(guna2HtmlLabel16);
             guna2Panel8.CustomizableEdges = customizableEdges6;
+            guna2Panel8.FillColor = Color.WhiteSmoke;
             guna2Panel8.Location = new Point(47, 258);
             guna2Panel8.Name = "guna2Panel8";
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges7;
@@ -646,7 +665,11 @@
             // 
             // guna2PictureBox8
             // 
+            guna2PictureBox8.BackColor = Color.Transparent;
+            guna2PictureBox8.BackgroundImage = Resources.menuPostasIngresaConsumos;
+            guna2PictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox8.CustomizableEdges = customizableEdges2;
+            guna2PictureBox8.FillColor = Color.Transparent;
             guna2PictureBox8.ImageRotate = 0F;
             guna2PictureBox8.Location = new Point(24, 9);
             guna2PictureBox8.Name = "guna2PictureBox8";
@@ -727,6 +750,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(800, 450);
             Controls.Add(btnMinimizar);
             Controls.Add(guna2Panel8);

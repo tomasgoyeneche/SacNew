@@ -59,6 +59,18 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             }
         }
 
+        private async void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                await _presenter.BuscarPostasAsync();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Error al buscar las postas: {ex.Message}");
+            }
+        }
+
         private void loginCloseButton_Click(object sender, EventArgs e)
         {
             this.Dispose();

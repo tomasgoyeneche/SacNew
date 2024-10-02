@@ -70,7 +70,7 @@
             pInicioLogin.BackgroundImageLayout = ImageLayout.Stretch;
             pInicioLogin.CustomizableEdges = customizableEdges6;
             pInicioLogin.Dock = DockStyle.Left;
-            pInicioLogin.FillColor = Color.Transparent;
+            pInicioLogin.FillColor = Color.FromArgb(200, 0, 0, 0);
             pInicioLogin.Location = new Point(0, 0);
             pInicioLogin.Name = "pInicioLogin";
             pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges7;
@@ -240,7 +240,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 102, 0);
+            BackColor = Color.FromArgb(216, 119, 12);
             ClientSize = new Size(800, 450);
             Controls.Add(loginCloseButton);
             Controls.Add(guna2HtmlLabel1);

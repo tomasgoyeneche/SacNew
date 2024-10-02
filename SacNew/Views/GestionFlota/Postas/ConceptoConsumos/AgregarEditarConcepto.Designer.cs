@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -66,6 +67,7 @@
             cmbProveedorPlazaHuincul = new Guna.UI2.WinForms.Guna2ComboBox();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
+            guna2BorderlessAgregarEditarConcepto = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             SuspendLayout();
             // 
             // txtCodigo
@@ -226,7 +228,7 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel5.Location = new Point(436, 182);
+            guna2HtmlLabel5.Location = new Point(358, 190);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(62, 23);
             guna2HtmlLabel5.TabIndex = 11;
@@ -305,6 +307,7 @@
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnGuardar.FillColor = Color.DarkGreen;
             btnGuardar.Font = new Font("Segoe UI", 9F);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(340, 371);
@@ -322,6 +325,7 @@
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCancelar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCancelar.FillColor = Color.Gray;
             btnCancelar.Font = new Font("Segoe UI", 9F);
             btnCancelar.ForeColor = Color.White;
             btnCancelar.Location = new Point(95, 371);
@@ -331,6 +335,14 @@
             btnCancelar.TabIndex = 18;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
+            // 
+            // guna2BorderlessAgregarEditarConcepto
+            // 
+            guna2BorderlessAgregarEditarConcepto.ContainerControl = this;
+            guna2BorderlessAgregarEditarConcepto.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessAgregarEditarConcepto.DragForm = false;
+            guna2BorderlessAgregarEditarConcepto.ResizeForm = false;
+            guna2BorderlessAgregarEditarConcepto.TransparentWhileDrag = true;
             // 
             // AgregarEditarConcepto
             // 
@@ -355,7 +367,9 @@
             Controls.Add(cmbTipoConsumo);
             Controls.Add(txtDescripcion);
             Controls.Add(txtCodigo);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AgregarEditarConcepto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarConcepto";
             Load += AgregarEditarConcepto_Load;
             ResumeLayout(false);
@@ -382,5 +396,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbProveedorPlazaHuincul;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessAgregarEditarConcepto;
     }
 }

@@ -137,6 +137,7 @@
             txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges11;
             txtBuscar.Size = new Size(200, 36);
             txtBuscar.TabIndex = 1;
+            txtBuscar.TextChanged += TxtBuscar_TextChanged;
             // 
             // guna2HtmlLabel1
             // 

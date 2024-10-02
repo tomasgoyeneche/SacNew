@@ -48,7 +48,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -64,6 +63,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessMenu = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             tabControlMenu = new Guna.UI2.WinForms.Guna2TabControl();
             tabPageGestOpe = new TabPage();
@@ -125,7 +125,6 @@
             guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ImageButton13 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ImageButton14 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ImageButton15 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -151,6 +150,7 @@
             txtUserName = new Label();
             picBoxCircleMenuUser = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             loginCloseButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             tabControlMenu.SuspendLayout();
             tabPageGestOpe.SuspendLayout();
             tabPageGesFlo.SuspendLayout();
@@ -888,12 +888,12 @@
             // 
             // tabPagInf
             // 
+            tabPagInf.Controls.Add(guna2ImageButton1);
             tabPagInf.Controls.Add(guna2vSeparator9);
             tabPagInf.Controls.Add(guna2vSeparator8);
             tabPagInf.Controls.Add(guna2HtmlLabel16);
             tabPagInf.Controls.Add(guna2ImageButton13);
             tabPagInf.Controls.Add(guna2HtmlLabel17);
-            tabPagInf.Controls.Add(guna2ImageButton14);
             tabPagInf.Controls.Add(guna2HtmlLabel18);
             tabPagInf.Controls.Add(guna2ImageButton15);
             tabPagInf.Controls.Add(guna2HtmlLabel19);
@@ -947,7 +947,7 @@
             guna2ImageButton13.Location = new Point(230, 263);
             guna2ImageButton13.Name = "guna2ImageButton13";
             guna2ImageButton13.PressedState.ImageSize = new Size(140, 140);
-            guna2ImageButton13.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2ImageButton13.ShadowDecoration.CustomizableEdges = customizableEdges29;
             guna2ImageButton13.Size = new Size(140, 140);
             guna2ImageButton13.TabIndex = 49;
             // 
@@ -961,21 +961,6 @@
             guna2HtmlLabel17.TabIndex = 48;
             guna2HtmlLabel17.Text = "Est. Flota";
             guna2HtmlLabel17.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
-            // guna2ImageButton14
-            // 
-            guna2ImageButton14.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton14.HoverState.ImageSize = new Size(135, 135);
-            guna2ImageButton14.Image = Resources.informesEstadoFlota1;
-            guna2ImageButton14.ImageOffset = new Point(0, 0);
-            guna2ImageButton14.ImageRotate = 0F;
-            guna2ImageButton14.ImageSize = new Size(128, 128);
-            guna2ImageButton14.Location = new Point(230, 81);
-            guna2ImageButton14.Name = "guna2ImageButton14";
-            guna2ImageButton14.PressedState.ImageSize = new Size(140, 140);
-            guna2ImageButton14.ShadowDecoration.CustomizableEdges = customizableEdges29;
-            guna2ImageButton14.Size = new Size(140, 140);
-            guna2ImageButton14.TabIndex = 47;
             // 
             // guna2HtmlLabel18
             // 
@@ -1249,12 +1234,11 @@
             // 
             // txtUserName
             // 
-            txtUserName.AutoSize = true;
             txtUserName.BackColor = Color.Transparent;
             txtUserName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUserName.Location = new Point(32, 102);
+            txtUserName.Location = new Point(4, 102);
             txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(136, 21);
+            txtUserName.Size = new Size(194, 35);
             txtUserName.TabIndex = 1;
             txtUserName.Text = "Nombre Usuario";
             txtUserName.TextAlign = ContentAlignment.MiddleCenter;
@@ -1296,6 +1280,21 @@
             loginCloseButton.UseTransparentBackground = true;
             loginCloseButton.Click += loginCloseButton_Click;
             // 
+            // guna2ImageButton1
+            // 
+            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
+            guna2ImageButton1.HoverState.ImageSize = new Size(135, 135);
+            guna2ImageButton1.Image = Resources.informesEstadoFlota;
+            guna2ImageButton1.ImageOffset = new Point(0, 0);
+            guna2ImageButton1.ImageRotate = 0F;
+            guna2ImageButton1.ImageSize = new Size(128, 128);
+            guna2ImageButton1.Location = new Point(230, 81);
+            guna2ImageButton1.Name = "guna2ImageButton1";
+            guna2ImageButton1.PressedState.ImageSize = new Size(140, 140);
+            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2ImageButton1.Size = new Size(140, 140);
+            guna2ImageButton1.TabIndex = 53;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1324,7 +1323,6 @@
             tabPagConf.PerformLayout();
             pMenuVerde.ResumeLayout(false);
             pMenuOrange.ResumeLayout(false);
-            pMenuOrange.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxCircleMenuUser).EndInit();
             ResumeLayout(false);
         }
@@ -1382,7 +1380,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
@@ -1418,5 +1415,6 @@
         private Guna.UI2.WinForms.Guna2VSeparator guna2vSeparator10;
         private Guna.UI2.WinForms.Guna2HtmlLabel lDiaDeHoy;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

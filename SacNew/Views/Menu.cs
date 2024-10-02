@@ -8,6 +8,7 @@ namespace SacNew.Views
     {
         private readonly ISesionService _sesionService;
         private readonly IServiceProvider _serviceProvider;
+        private MenuPostas _menuPostas;
 
         public Menu(ISesionService sesionService, IServiceProvider serviceProvider)
         {
@@ -35,11 +36,25 @@ namespace SacNew.Views
         {
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
-                var postasMenu = _serviceProvider.GetService<MenuPostas>();
+                if (_menuPostas == null || _menuPostas.IsDisposed)
+                {
+                    _menuPostas = _serviceProvider.GetService<MenuPostas>();
+                }
 
                 this.Hide();
-                postasMenu.ShowDialog();
+                _menuPostas.ShowDialog();
                 this.Show();
+
+
+                //using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
+                //{
+                //    this.Hide();
+                //    postasMenu.ShowDialog();
+                //    this.Show();
+                //}
+
+                //GC.Collect();
+                //GC.WaitForPendingFinalizers();
             }
             else
             {
