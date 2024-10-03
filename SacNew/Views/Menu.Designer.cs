@@ -1289,7 +1289,7 @@
             picBoxCircleMenuUser.BackgroundImageLayout = ImageLayout.Zoom;
             picBoxCircleMenuUser.FillColor = Color.Transparent;
             picBoxCircleMenuUser.ImageRotate = 0F;
-            picBoxCircleMenuUser.Location = new Point(54, 22);
+            picBoxCircleMenuUser.Location = new Point(53, 22);
             picBoxCircleMenuUser.Name = "picBoxCircleMenuUser";
             picBoxCircleMenuUser.ShadowDecoration.BorderRadius = 0;
             picBoxCircleMenuUser.ShadowDecoration.CustomizableEdges = customizableEdges34;

@@ -121,7 +121,7 @@
             guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            bIngresaConsumos = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
@@ -630,7 +630,7 @@
             // 
             guna2Panel8.BorderRadius = 10;
             guna2Panel8.Controls.Add(guna2PictureBox8);
-            guna2Panel8.Controls.Add(guna2Button8);
+            guna2Panel8.Controls.Add(bIngresaConsumos);
             guna2Panel8.Controls.Add(guna2HtmlLabel15);
             guna2Panel8.Controls.Add(guna2HtmlLabel16);
             guna2Panel8.CustomizableEdges = customizableEdges47;
@@ -656,22 +656,23 @@
             guna2PictureBox8.TabIndex = 12;
             guna2PictureBox8.TabStop = false;
             // 
-            // guna2Button8
+            // bIngresaConsumos
             // 
-            guna2Button8.BorderRadius = 5;
-            guna2Button8.CustomizableEdges = customizableEdges45;
-            guna2Button8.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button8.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button8.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button8.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button8.Font = new Font("Segoe UI", 9F);
-            guna2Button8.ForeColor = Color.White;
-            guna2Button8.Location = new Point(17, 148);
-            guna2Button8.Name = "guna2Button8";
-            guna2Button8.ShadowDecoration.CustomizableEdges = customizableEdges46;
-            guna2Button8.Size = new Size(129, 23);
-            guna2Button8.TabIndex = 12;
-            guna2Button8.Text = "Ingresar";
+            bIngresaConsumos.BorderRadius = 5;
+            bIngresaConsumos.CustomizableEdges = customizableEdges45;
+            bIngresaConsumos.DisabledState.BorderColor = Color.DarkGray;
+            bIngresaConsumos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bIngresaConsumos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bIngresaConsumos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bIngresaConsumos.Font = new Font("Segoe UI", 9F);
+            bIngresaConsumos.ForeColor = Color.White;
+            bIngresaConsumos.Location = new Point(17, 148);
+            bIngresaConsumos.Name = "bIngresaConsumos";
+            bIngresaConsumos.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            bIngresaConsumos.Size = new Size(129, 23);
+            bIngresaConsumos.TabIndex = 12;
+            bIngresaConsumos.Text = "Ingresar";
+            bIngresaConsumos.Click += bIngresaConsumos_Click;
             // 
             // guna2HtmlLabel15
             // 
@@ -791,7 +792,7 @@
         private Guna.UI2.WinForms.Guna2Button bAbmPostasMenu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button bIngresaConsumos;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;

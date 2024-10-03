@@ -2,6 +2,7 @@
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
 
 namespace SacNew.Views.GestionFlota.Postas
 {
@@ -51,6 +52,14 @@ namespace SacNew.Views.GestionFlota.Postas
             }
         }
 
-        
+        private void bIngresaConsumos_Click(object sender, EventArgs e)
+        {
+            using (var menuConsumos = _serviceProvider.GetService<MenuIngresaConsumos>())
+            {
+                this.Hide();
+                menuConsumos.ShowDialog();
+                this.Show();
+            }
+        }
     }
 }

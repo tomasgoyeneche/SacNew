@@ -5,6 +5,8 @@ using SacNew.Views;
 using SacNew.Views.GestionFlota.Postas;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
+using System.Configuration;
 
 namespace SacNew.Services
 {
@@ -16,6 +18,23 @@ namespace SacNew.Services
 
             serviceCollection.AddSingleton<ISesionService, SesionService>();
 
+
+
+
+
+
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
+            // Reemplaza con tu cadena de conexión real
+            serviceCollection.AddSingleton(connectionString);
+
+
+
+
+
+
+
+
+
             // Registrar Repositorios
             serviceCollection.AddSingleton<IUsuarioRepositorio, UsuarioRepositorio>();
             serviceCollection.AddSingleton<IPermisoRepositorio, PermisoRepositorio>();
@@ -26,6 +45,7 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IConceptoTipoRepositorio, ConceptoTipoRepositorio>();
             serviceCollection.AddSingleton<IConceptoProveedorRepositorio, ConceptoProveedorRepositorio>();
             serviceCollection.AddSingleton<IConceptoPostaProveedorRepositorio, ConceptoPostaProveedorRepositorio>();
+            serviceCollection.AddSingleton<IRepositorioPOC, RepositorioPOC>();
 
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
@@ -35,11 +55,13 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarEditarPosta>();
             serviceCollection.AddTransient<MenuConceptos>();
             serviceCollection.AddTransient<AgregarEditarConcepto>();
+            serviceCollection.AddTransient<MenuIngresaConsumos>();
 
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
             serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
+            serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();
 
             return serviceCollection.BuildServiceProvider();
         }

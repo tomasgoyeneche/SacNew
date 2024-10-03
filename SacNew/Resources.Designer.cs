@@ -73,6 +73,16 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregarEditarPOCWallpaper {
+            get {
+                object obj = ResourceManager.GetObject("agregarEditarPOCWallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alertasFlota {
             get {
                 object obj = ResourceManager.GetObject("alertasFlota", resourceCulture);
