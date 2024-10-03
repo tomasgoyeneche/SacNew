@@ -6,6 +6,7 @@ using SacNew.Views.GestionFlota.Postas;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 using System.Configuration;
 
 namespace SacNew.Services
@@ -18,22 +19,9 @@ namespace SacNew.Services
 
             serviceCollection.AddSingleton<ISesionService, SesionService>();
 
-
-
-
-
-
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
             // Reemplaza con tu cadena de conexión real
             serviceCollection.AddSingleton(connectionString);
-
-
-
-
-
-
-
-
 
             // Registrar Repositorios
             serviceCollection.AddSingleton<IUsuarioRepositorio, UsuarioRepositorio>();
@@ -46,6 +34,7 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IConceptoProveedorRepositorio, ConceptoProveedorRepositorio>();
             serviceCollection.AddSingleton<IConceptoPostaProveedorRepositorio, ConceptoPostaProveedorRepositorio>();
             serviceCollection.AddSingleton<IRepositorioPOC, RepositorioPOC>();
+            serviceCollection.AddSingleton<INominaRepositorio, NominaRepositorio>();
 
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
@@ -56,12 +45,14 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuConceptos>();
             serviceCollection.AddTransient<AgregarEditarConcepto>();
             serviceCollection.AddTransient<MenuIngresaConsumos>();
+            serviceCollection.AddTransient<AgregarEditarPoc>();
 
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
             serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
             serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();
+            serviceCollection.AddTransient<AgregarEditarPOCPresenter>();
 
             return serviceCollection.BuildServiceProvider();
         }

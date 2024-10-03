@@ -19,6 +19,7 @@ namespace SacNew.Presenters
 
             CargarProvincias();
         }
+
         public void CargarProvincias()
         {
             var provincias = _provinciaRepositorio.ObtenerProvincias();

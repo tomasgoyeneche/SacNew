@@ -63,8 +63,8 @@
             btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             dataGridViewPOC = new Guna.UI2.WinForms.Guna2DataGridView();
             btnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            btnEditarPOC = new Guna.UI2.WinForms.Guna2Button();
+            btnAgregarPOC = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPOC).BeginInit();
@@ -269,39 +269,41 @@
             btnEliminar.Text = "Eliminar";
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // guna2Button2
+            // btnEditarPOC
             // 
-            guna2Button2.CustomizableEdges = customizableEdges3;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.Goldenrod;
-            guna2Button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(164, 486);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button2.Size = new Size(132, 37);
-            guna2Button2.TabIndex = 25;
-            guna2Button2.Text = "Editar POC";
+            btnEditarPOC.CustomizableEdges = customizableEdges3;
+            btnEditarPOC.DisabledState.BorderColor = Color.DarkGray;
+            btnEditarPOC.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnEditarPOC.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnEditarPOC.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnEditarPOC.FillColor = Color.Goldenrod;
+            btnEditarPOC.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEditarPOC.ForeColor = Color.White;
+            btnEditarPOC.Location = new Point(164, 486);
+            btnEditarPOC.Name = "btnEditarPOC";
+            btnEditarPOC.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnEditarPOC.Size = new Size(132, 37);
+            btnEditarPOC.TabIndex = 25;
+            btnEditarPOC.Text = "Editar POC";
+            btnEditarPOC.Click += btnEditarPOC_Click;
             // 
-            // guna2Button3
+            // btnAgregarPOC
             // 
-            guna2Button3.CustomizableEdges = customizableEdges1;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.ForestGreen;
-            guna2Button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(743, 486);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button3.Size = new Size(132, 37);
-            guna2Button3.TabIndex = 26;
-            guna2Button3.Text = "Crear POC";
+            btnAgregarPOC.CustomizableEdges = customizableEdges1;
+            btnAgregarPOC.DisabledState.BorderColor = Color.DarkGray;
+            btnAgregarPOC.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAgregarPOC.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAgregarPOC.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAgregarPOC.FillColor = Color.ForestGreen;
+            btnAgregarPOC.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAgregarPOC.ForeColor = Color.White;
+            btnAgregarPOC.Location = new Point(743, 486);
+            btnAgregarPOC.Name = "btnAgregarPOC";
+            btnAgregarPOC.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnAgregarPOC.Size = new Size(132, 37);
+            btnAgregarPOC.TabIndex = 26;
+            btnAgregarPOC.Text = "Crear POC";
+            btnAgregarPOC.Click += btnAgregarPOC_Click;
             // 
             // guna2HtmlLabel1
             // 
@@ -320,8 +322,8 @@
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(900, 544);
             Controls.Add(guna2HtmlLabel1);
-            Controls.Add(guna2Button3);
-            Controls.Add(guna2Button2);
+            Controls.Add(btnAgregarPOC);
+            Controls.Add(btnEditarPOC);
             Controls.Add(btnEliminar);
             Controls.Add(dataGridViewPOC);
             Controls.Add(btnBuscar);
@@ -351,9 +353,9 @@
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewPOC;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnEditarPOC;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnAgregarPOC;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

@@ -1,7 +1,9 @@
-﻿using SacNew.Interfaces;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SacNew.Interfaces;
 using SacNew.Models.DTOs;
 using SacNew.Presenters;
 using SacNew.Repositories;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +19,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
     public partial class MenuIngresaConsumos : Form, IMenuIngresaConsumosView
     {
         private readonly MenuIngresaConsumosPresenter _presenter;
+        private readonly IServiceProvider _serviceProvider;
 
-        public MenuIngresaConsumos(MenuIngresaConsumosPresenter presenter)
+        public MenuIngresaConsumos(MenuIngresaConsumosPresenter presenter, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _presenter = presenter;
             _presenter.SetView(this);
+            _serviceProvider = serviceProvider;
         }
 
         public string CriterioBusqueda => txtBuscar.Text.Trim();
@@ -78,6 +82,31 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             }
         }
 
-        
+        private void btnAgregarPOC_Click(object sender, EventArgs e)
+        {
+            using (var agregarEditarPOC = _serviceProvider.GetService<AgregarEditarPoc >())
+            {
+                agregarEditarPOC.ShowDialog();
+            }
+        }
+
+        private void btnEditarPOC_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPOC.SelectedRows.Count > 0)
+            {
+                // Obtener el IdPoc de la fila seleccionada
+                int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
+
+                // Obtener la POC desde el Presenter
+                var poc = _presenter.ObtenerPOCPorId(idPoc);
+
+                // Abrir el formulario de edición y pasar los datos
+                _presenter.EditarPOC(poc);  
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una POC para editar.");
+            }
+        }
     }
 }
