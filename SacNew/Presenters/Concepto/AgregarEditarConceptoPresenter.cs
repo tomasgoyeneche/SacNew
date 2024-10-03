@@ -37,7 +37,7 @@ namespace SacNew.Presenters
 
         public void Inicializar()
         {
-            CargarTiposDeConsumo();
+            //CargarTiposDeConsumo();
             CargarProveedores();
         }
 
