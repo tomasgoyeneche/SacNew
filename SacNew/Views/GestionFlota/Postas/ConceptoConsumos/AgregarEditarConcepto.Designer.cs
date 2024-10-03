@@ -315,7 +315,7 @@
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnGuardar.Size = new Size(180, 45);
             btnGuardar.TabIndex = 17;
-            btnGuardar.Text = "guardar";
+            btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar

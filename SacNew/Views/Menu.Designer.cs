@@ -174,30 +174,30 @@
             tabControlMenu.Controls.Add(tabPagGesDoc);
             tabControlMenu.Controls.Add(tabPagInf);
             tabControlMenu.Controls.Add(tabPagConf);
-            tabControlMenu.Font = new Font("Segoe UI", 12F);
+            tabControlMenu.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabControlMenu.ItemSize = new Size(200, 50);
             tabControlMenu.Location = new Point(-1, 144);
             tabControlMenu.Name = "tabControlMenu";
             tabControlMenu.SelectedIndex = 0;
             tabControlMenu.Size = new Size(799, 457);
             tabControlMenu.TabButtonHoverState.BorderColor = Color.Empty;
-            tabControlMenu.TabButtonHoverState.FillColor = Color.FromArgb(204, 102, 0);
+            tabControlMenu.TabButtonHoverState.FillColor = Color.FromArgb(63, 73, 75);
             tabControlMenu.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 11F);
-            tabControlMenu.TabButtonHoverState.ForeColor = Color.Black;
-            tabControlMenu.TabButtonHoverState.InnerColor = Color.FromArgb(40, 167, 69);
+            tabControlMenu.TabButtonHoverState.ForeColor = Color.WhiteSmoke;
+            tabControlMenu.TabButtonHoverState.InnerColor = Color.FromArgb(66, 101, 26);
             tabControlMenu.TabButtonIdleState.BorderColor = Color.Empty;
-            tabControlMenu.TabButtonIdleState.FillColor = Color.FromArgb(255, 133, 51);
+            tabControlMenu.TabButtonIdleState.FillColor = Color.FromArgb(41, 44, 53);
             tabControlMenu.TabButtonIdleState.Font = new Font("Segoe UI Semibold", 11F);
-            tabControlMenu.TabButtonIdleState.ForeColor = Color.FromArgb(64, 64, 64);
+            tabControlMenu.TabButtonIdleState.ForeColor = Color.WhiteSmoke;
             tabControlMenu.TabButtonIdleState.InnerColor = Color.FromArgb(255, 133, 51);
             tabControlMenu.TabButtonSelectedState.BorderColor = Color.Empty;
-            tabControlMenu.TabButtonSelectedState.FillColor = Color.FromArgb(204, 102, 0);
+            tabControlMenu.TabButtonSelectedState.FillColor = Color.FromArgb(63, 73, 75);
             tabControlMenu.TabButtonSelectedState.Font = new Font("Segoe UI Semibold", 12F);
-            tabControlMenu.TabButtonSelectedState.ForeColor = Color.Black;
-            tabControlMenu.TabButtonSelectedState.InnerColor = Color.FromArgb(40, 167, 69);
+            tabControlMenu.TabButtonSelectedState.ForeColor = Color.DarkGray;
+            tabControlMenu.TabButtonSelectedState.InnerColor = Color.FromArgb(66, 101, 26);
             tabControlMenu.TabButtonSize = new Size(200, 50);
             tabControlMenu.TabIndex = 2;
-            tabControlMenu.TabMenuBackColor = Color.FromArgb(255, 133, 51);
+            tabControlMenu.TabMenuBackColor = Color.FromArgb(41, 44, 53);
             // 
             // tabPageGestOpe
             // 
@@ -1177,13 +1177,14 @@
             // 
             // pMenuVerde
             // 
+            pMenuVerde.BackColor = Color.Transparent;
             pMenuVerde.Controls.Add(guna2ControlBox2);
             pMenuVerde.Controls.Add(guna2ControlBox1);
             pMenuVerde.Controls.Add(lDiaDeHoy);
             pMenuVerde.Controls.Add(guna2Panel1);
             pMenuVerde.Controls.Add(pMenuOrange);
             pMenuVerde.CustomizableEdges = customizableEdges37;
-            pMenuVerde.FillColor = Color.FromArgb(40, 167, 69);
+            pMenuVerde.FillColor = Color.Peru;
             pMenuVerde.Location = new Point(-1, 0);
             pMenuVerde.Name = "pMenuVerde";
             pMenuVerde.ShadowDecoration.CustomizableEdges = customizableEdges38;
@@ -1223,8 +1224,9 @@
             // lDiaDeHoy
             // 
             lDiaDeHoy.AutoSize = false;
-            lDiaDeHoy.BackColor = Color.FromArgb(255, 133, 51);
+            lDiaDeHoy.BackColor = Color.FromArgb(63, 73, 75);
             lDiaDeHoy.Font = new Font("Segoe UI", 14F);
+            lDiaDeHoy.ForeColor = SystemColors.ControlLight;
             lDiaDeHoy.Location = new Point(346, 20);
             lDiaDeHoy.Name = "lDiaDeHoy";
             lDiaDeHoy.Size = new Size(327, 34);
@@ -1238,7 +1240,7 @@
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.BorderRadius = 24;
             guna2Panel1.CustomizableEdges = customizableEdges32;
-            guna2Panel1.FillColor = Color.FromArgb(255, 133, 51);
+            guna2Panel1.FillColor = Color.FromArgb(63, 73, 75);
             guna2Panel1.Location = new Point(330, 12);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges33;
@@ -1251,7 +1253,7 @@
             pMenuOrange.Controls.Add(txtUserName);
             pMenuOrange.Controls.Add(picBoxCircleMenuUser);
             pMenuOrange.CustomizableEdges = customizableEdges35;
-            pMenuOrange.FillColor = Color.FromArgb(255, 133, 51);
+            pMenuOrange.FillColor = Color.FromArgb(41, 44, 53);
             pMenuOrange.Location = new Point(0, 0);
             pMenuOrange.Name = "pMenuOrange";
             pMenuOrange.ShadowDecoration.CustomizableEdges = customizableEdges36;
@@ -1272,6 +1274,7 @@
             // 
             txtUserName.BackColor = Color.Transparent;
             txtUserName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUserName.ForeColor = SystemColors.ControlLight;
             txtUserName.Location = new Point(4, 102);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(194, 35);

@@ -37,7 +37,7 @@ namespace SacNew.Presenters
 
         public void Inicializar()
         {
-            //CargarTiposDeConsumo();
+            CargarTiposDeConsumo();
             CargarProveedores();
         }
 
@@ -62,6 +62,11 @@ namespace SacNew.Presenters
 
         public void GuardarConcepto()
         {
+            if (!ValidarDatos())
+            {
+                return;
+            }
+
             var idUsuario = _sesionService.IdUsuario;
 
             if (_conceptoActual == null)
@@ -81,12 +86,6 @@ namespace SacNew.Presenters
                 };
 
                 _conceptoRepositorio.AgregarConcepto(nuevoConcepto);
-
-                //var idProveedorBahia = _view.IdProveedorBahiaBlanca;
-                //var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
-
-                // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 2, idProveedorBahia);  // Posta 2 (Bahía Blanca)
-                // _conceptoPostaProveedorRepositorio.AgregarConceptoPostaProveedor(nuevoConcepto.IdConsumo, 3, idProveedorPlaza);  // Posta 3 (Plaza Huincul)
 
                 _view.MostrarMensaje("Concepto agregado exitosamente.");
             }
@@ -112,6 +111,59 @@ namespace SacNew.Presenters
 
                 _view.MostrarMensaje("Concepto actualizado exitosamente.");
             }
+        }
+
+        private bool ValidarDatos()
+        {
+            if (string.IsNullOrWhiteSpace(_view.Codigo))
+            {
+                _view.MostrarMensaje("El código no puede estar vacío.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(_view.Descripcion))
+            {
+                _view.MostrarMensaje("La descripción no puede estar vacía.");
+                return false;
+            }
+
+            if (_view.IdTipoConsumo <= 0)
+            {
+                _view.MostrarMensaje("Debe seleccionar un tipo de consumo válido.");
+                return false;
+            }
+
+            if (_view.PrecioActual < 0)
+            {
+                _view.MostrarMensaje("El precio actual debe ser mayor o igual a 0.");
+                return false;
+            }
+
+            if (_view.PrecioAnterior < 0)
+            {
+                _view.MostrarMensaje("El precio anterior no puede ser negativo.");
+                return false;
+            }
+
+            if (_view.Vigencia == DateTime.MinValue)
+            {
+                _view.MostrarMensaje("Debe seleccionar una fecha de vigencia válida.");
+                return false;
+            }
+
+            if (_view.IdProveedorBahiaBlanca <= 0)
+            {
+                _view.MostrarMensaje("Debe seleccionar un proveedor válido para Bahía Blanca.");
+                return false;
+            }
+
+            if (_view.IdProveedorPlazaHuincul <= 0)
+            {
+                _view.MostrarMensaje("Debe seleccionar un proveedor válido para Plaza Huincul.");
+                return false;
+            }
+
+            return true;
         }
     }
 }

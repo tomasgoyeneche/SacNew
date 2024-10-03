@@ -107,7 +107,7 @@
             tLogUsu.ShadowDecoration.CustomizableEdges = customizableEdges12;
             tLogUsu.Size = new Size(220, 34);
             tLogUsu.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            tLogUsu.TabIndex = 3;
+            tLogUsu.TabIndex = 1;
             // 
             // tLogPass
             // 
@@ -134,7 +134,7 @@
             tLogPass.ShadowDecoration.CustomizableEdges = customizableEdges10;
             tLogPass.Size = new Size(220, 34);
             tLogPass.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            tLogPass.TabIndex = 4;
+            tLogPass.TabIndex = 2;
             tLogPass.UseSystemPasswordChar = true;
             // 
             // lblError
@@ -216,6 +216,7 @@
             // 
             // bIniciarSesion
             // 
+            bIniciarSesion.BorderRadius = 5;
             bIniciarSesion.CustomizableEdges = customizableEdges7;
             bIniciarSesion.DisabledState.BorderColor = Color.DarkGray;
             bIniciarSesion.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -231,7 +232,7 @@
             bIniciarSesion.Name = "bIniciarSesion";
             bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges8;
             bIniciarSesion.Size = new Size(220, 40);
-            bIniciarSesion.TabIndex = 7;
+            bIniciarSesion.TabIndex = 3;
             bIniciarSesion.Text = "Ingresar";
             bIniciarSesion.Click += bIniciarSesion_Click;
             // 

@@ -19,7 +19,6 @@ namespace SacNew.Presenters
 
             CargarProvincias();
         }
-
         public void CargarProvincias()
         {
             var provincias = _provinciaRepositorio.ObtenerProvincias();
@@ -38,9 +37,8 @@ namespace SacNew.Presenters
 
         public void GuardarPosta()
         {
-            if (string.IsNullOrEmpty(_view.Codigo) || string.IsNullOrEmpty(_view.Descripcion))
+            if (!ValidarDatos())
             {
-                _view.MostrarMensaje("El código y la descripción de la posta son obligatorios.");
                 return;
             }
 
@@ -71,6 +69,29 @@ namespace SacNew.Presenters
                 _postaRepositorio.ActualizarPostaAsync(postaExistente);
                 _view.MostrarMensaje("Posta actualizada exitosamente.");
             }
+        }
+
+        private bool ValidarDatos()
+        {
+            if (string.IsNullOrWhiteSpace(_view.Codigo))
+            {
+                _view.MostrarMensaje("El código no puede estar vacío.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(_view.Descripcion))
+            {
+                _view.MostrarMensaje("La descripción no puede estar vacía.");
+                return false;
+            }
+
+            if (_view.ProvinciaId <= 0)
+            {
+                _view.MostrarMensaje("Debe seleccionar una provincia válida.");
+                return false;
+            }
+
+            return true;
         }
     }
 }
