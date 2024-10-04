@@ -64,6 +64,19 @@ namespace SacNew.Presenters
             CargarPOC(); // Recargar la lista después de la edición
         }
 
+        public void AgregarPOC()
+        {
+            // Obtener los datos de la POC desde el repositorio
+
+            // Recargar la lista después de la edición
+
+            using (var agregarEditarPOC = _serviceProvider.GetService<AgregarEditarPoc>())
+            {
+                agregarEditarPOC.ShowDialog();
+                CargarPOC();
+            }
+        }
+
         public void EliminarPOC(int id)
         {
             var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar esta POC?");

@@ -77,14 +77,12 @@ namespace SacNew.Presenters
                 _pocActual.IdPosta = _view.IdPosta;
                 _pocActual.Odometro = _view.Odometro;
                 _pocActual.Comentario = _view.Comentario;
-                _pocActual.FechaCreacion = DateTime.Now;
+                _pocActual.FechaCreacion = _view.FechaCreacion;
                 _pocActual.IdUsuario = _view.IdUsuario;// Actualizar fecha de modificación
 
                 _pocRepositorio.ActualizarPOC(_pocActual);
                 _view.MostrarMensaje("POC actualizada exitosamente.");
             }
-
-
         }
     }
 }

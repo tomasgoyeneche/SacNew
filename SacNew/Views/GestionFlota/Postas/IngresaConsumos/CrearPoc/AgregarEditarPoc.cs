@@ -1,15 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 {
@@ -26,14 +17,13 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         // Implementación de IAgregarEditarPOCView
         public int IdNomina => Convert.ToInt32(cmbNomina.SelectedValue);
+
         public int IdPosta => Convert.ToInt32(cmbPosta.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
         public int Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToInt32(txtOdometro.Text.Trim());
         public string Comentario => txtComentario.Text.Trim();
         public DateTime FechaCreacion => dtpFechaCreacion.Value;
         public int IdUsuario => _presenter.IdUsuario;
-
-
 
         public void CargarNominas(List<Nomina> nominas)
         {
@@ -49,7 +39,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public void CargarPostas(List<Posta> postas)
         {
-
             cmbPosta.DataSource = postas;
             cmbPosta.DisplayMember = "Descripcion";
             cmbPosta.ValueMember = "Id";
@@ -90,7 +79,5 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         {
             MessageBox.Show(mensaje);
         }
-
-      
     }
 }

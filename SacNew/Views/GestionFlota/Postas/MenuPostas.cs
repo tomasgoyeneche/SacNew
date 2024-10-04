@@ -16,8 +16,6 @@ namespace SacNew.Views.GestionFlota.Postas
             InitializeComponent();
             _sesionService = sesionService;
             _serviceProvider = serviceProvider;
-
-
         }
 
         private void MenuPostas_Load(object sender, EventArgs e)
@@ -25,10 +23,8 @@ namespace SacNew.Views.GestionFlota.Postas
             lMenuPostasNombre.Text = _sesionService.NombreCompleto;
         }
 
-
         private void bAbmPostasMenu_Click(object sender, EventArgs e)
         {
-
             using (var MenuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>())
             {
                 this.Hide();
@@ -36,6 +32,7 @@ namespace SacNew.Views.GestionFlota.Postas
                 this.Show();
             }
         }
+
         private void bMenuConceptos_Click(object sender, EventArgs e)
         {
             var MenuConceptos = _serviceProvider.GetService<MenuConceptos>();
