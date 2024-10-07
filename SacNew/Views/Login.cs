@@ -37,7 +37,5 @@ namespace SacNew
         {
             _presenter.AutenticarUsuario();
         }
-
-      
     }
 }

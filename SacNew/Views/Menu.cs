@@ -23,8 +23,6 @@ namespace SacNew.Views
             lDiaDeHoy.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
-    
-
         private void bGestGuardiaBB_Click(object sender, EventArgs e)
         {
         }
@@ -41,7 +39,6 @@ namespace SacNew.Views
                 this.Hide();
                 _menuPostas.ShowDialog();
                 this.Show();
-
 
                 //using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
                 //{
