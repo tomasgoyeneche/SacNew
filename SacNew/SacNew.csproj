@@ -19,7 +19,7 @@
     <Folder Include="Views\GestionDocumental\" />
     <Folder Include="Views\GestionFlota\Postas\LimiteDeCredito\" />
     <Folder Include="Views\GestionFlota\Postas\Informes\" />
-    <Folder Include="Views\GestionOperativa\Guardias\" />
+    <Folder Include="Views\GestionOperativa\" />
     <Folder Include="Views\InformesEstadisticas\" />
     <Folder Include="Views\Configuraciones\" />
     <Folder Include="Views\ServiciosExternos\" />

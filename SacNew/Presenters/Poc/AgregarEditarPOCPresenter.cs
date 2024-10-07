@@ -15,7 +15,6 @@ namespace SacNew.Presenters
         public POC _pocActual;
 
         public AgregarEditarPOCPresenter(
-
             INominaRepositorio nominaRepositorio,
             IPostaRepositorio postaRepositorio,
             ISesionService sesionService,
@@ -37,7 +36,7 @@ namespace SacNew.Presenters
         public async void Inicializar()
         {
             var nominas = _nominaRepositorio.ObtenerTodasLasNominas();
-            var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();  // // Esperar el resultado de la tarea
+            var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();
             var nominasOrdenadas = nominas.OrderBy(n => n.DescripcionNomina).ToList();
 
             _view.CargarNominas(nominasOrdenadas);
@@ -52,36 +51,24 @@ namespace SacNew.Presenters
 
         public void GuardarPOC()
         {
+            var poc = _pocActual ?? new POC { Activo = true };
+
+            poc.NumeroPOC = _view.NumeroPOC;
+            poc.IdNomina = _view.IdNomina;
+            poc.IdPosta = _view.IdPosta;
+            poc.Odometro = _view.Odometro;
+            poc.Comentario = _view.Comentario;
+            poc.FechaCreacion = _view.FechaCreacion;
+            poc.IdUsuario = _view.IdUsuario;
+
             if (_pocActual == null)
             {
-                // Crear nueva POC
-                var nuevaPOC = new POC
-                {
-                    NumeroPOC = _view.NumeroPOC,
-                    IdNomina = _view.IdNomina,
-                    IdPosta = _view.IdPosta,
-                    Odometro = _view.Odometro,
-                    Comentario = _view.Comentario,
-                    FechaCreacion = _view.FechaCreacion,
-                    IdUsuario = _view.IdUsuario,
-                    Activo = true
-                };
-
-                _pocRepositorio.AgregarPOC(nuevaPOC);
+                _pocRepositorio.AgregarPOC(poc);
                 _view.MostrarMensaje("POC creada exitosamente.");
             }
             else
             {
-                // Actualizar POC existente
-                _pocActual.NumeroPOC = _view.NumeroPOC;
-                _pocActual.IdNomina = _view.IdNomina;
-                _pocActual.IdPosta = _view.IdPosta;
-                _pocActual.Odometro = _view.Odometro;
-                _pocActual.Comentario = _view.Comentario;
-                _pocActual.FechaCreacion = _view.FechaCreacion;
-                _pocActual.IdUsuario = _view.IdUsuario;// Actualizar fecha de modificación
-
-                _pocRepositorio.ActualizarPOC(_pocActual);
+                _pocRepositorio.ActualizarPOC(poc);
                 _view.MostrarMensaje("POC actualizada exitosamente.");
             }
         }

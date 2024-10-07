@@ -12,12 +12,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         {
             InitializeComponent();
             _presenter = presenter;
-            _presenter.SetView(this);  // Relacionamos la vista con el Presenter
+            _presenter.SetView(this);
         }
 
-        // Implementación de IAgregarEditarPOCView
         public int IdNomina => Convert.ToInt32(cmbNomina.SelectedValue);
-
         public int IdPosta => Convert.ToInt32(cmbPosta.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
         public int Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToInt32(txtOdometro.Text.Trim());
@@ -28,7 +26,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public void CargarNominas(List<Nomina> nominas)
         {
             cmbNomina.DataSource = nominas;
-            cmbNomina.DisplayMember = "DescripcionNomina";  // Mostrar la descripción personalizada
+            cmbNomina.DisplayMember = "DescripcionNomina";
             cmbNomina.ValueMember = "IdNomina";
 
             if (_presenter._pocActual != null)
@@ -52,7 +50,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public void MostrarDatosPOC(POC poc)
         {
             txtNumeroPOC.Text = poc.NumeroPOC;
-            txtOdometro.Text = Convert.ToString(poc.Odometro);
+            txtOdometro.Text = poc.Odometro.ToString();
             txtComentario.Text = poc.Comentario;
             cmbNomina.SelectedValue = poc.IdNomina;
             cmbPosta.SelectedValue = poc.IdPosta;
@@ -62,17 +60,17 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _presenter.GuardarPOC();
-            this.Close();
+            Close();
         }
 
         private void AgregarEditarPOC_Load(object sender, EventArgs e)
         {
-            _presenter.Inicializar();  // Cargar datos iniciales
+            _presenter.Inicializar();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         public void MostrarMensaje(string mensaje)
