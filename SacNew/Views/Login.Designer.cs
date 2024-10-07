@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessFormLogin = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             pInicioLogin = new Guna.UI2.WinForms.Guna2Panel();
             tLogUsu = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,8 +55,8 @@
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bIniciarSesion = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            bClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,12 +73,12 @@
             pInicioLogin.BackColor = Color.Transparent;
             pInicioLogin.BackgroundImage = Resources.loginAutoChenyiCalidad;
             pInicioLogin.BackgroundImageLayout = ImageLayout.Stretch;
-            pInicioLogin.CustomizableEdges = customizableEdges5;
+            pInicioLogin.CustomizableEdges = customizableEdges15;
             pInicioLogin.Dock = DockStyle.Left;
             pInicioLogin.FillColor = Color.FromArgb(150, 0, 0, 0);
             pInicioLogin.Location = new Point(0, 0);
             pInicioLogin.Name = "pInicioLogin";
-            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges16;
             pInicioLogin.Size = new Size(407, 450);
             pInicioLogin.TabIndex = 0;
             // 
@@ -86,7 +86,7 @@
             // 
             tLogUsu.Animated = true;
             tLogUsu.BorderRadius = 20;
-            tLogUsu.CustomizableEdges = customizableEdges11;
+            tLogUsu.CustomizableEdges = customizableEdges17;
             tLogUsu.DefaultText = "";
             tLogUsu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tLogUsu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -104,7 +104,7 @@
             tLogUsu.PasswordChar = '\0';
             tLogUsu.PlaceholderText = "Ingrese su usuario";
             tLogUsu.SelectedText = "";
-            tLogUsu.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            tLogUsu.ShadowDecoration.CustomizableEdges = customizableEdges18;
             tLogUsu.Size = new Size(220, 34);
             tLogUsu.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             tLogUsu.TabIndex = 1;
@@ -113,7 +113,7 @@
             // 
             tLogPass.Animated = true;
             tLogPass.BackColor = Color.Transparent;
-            tLogPass.CustomizableEdges = customizableEdges9;
+            tLogPass.CustomizableEdges = customizableEdges19;
             tLogPass.DefaultText = "";
             tLogPass.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tLogPass.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -131,7 +131,7 @@
             tLogPass.PasswordChar = '●';
             tLogPass.PlaceholderText = "Ingrese su contraseña";
             tLogPass.SelectedText = "";
-            tLogPass.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            tLogPass.ShadowDecoration.CustomizableEdges = customizableEdges20;
             tLogPass.Size = new Size(220, 34);
             tLogPass.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             tLogPass.TabIndex = 2;
@@ -173,11 +173,11 @@
             guna2Panel1.Controls.Add(lblError);
             guna2Panel1.Controls.Add(tLogUsu);
             guna2Panel1.CustomBorderColor = Color.Transparent;
-            guna2Panel1.CustomizableEdges = customizableEdges13;
+            guna2Panel1.CustomizableEdges = customizableEdges23;
             guna2Panel1.FillColor = Color.FromArgb(63, 73, 75);
             guna2Panel1.Location = new Point(447, 39);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel1.Size = new Size(315, 375);
             guna2Panel1.TabIndex = 9;
             // 
@@ -217,7 +217,7 @@
             // bIniciarSesion
             // 
             bIniciarSesion.BorderRadius = 5;
-            bIniciarSesion.CustomizableEdges = customizableEdges7;
+            bIniciarSesion.CustomizableEdges = customizableEdges21;
             bIniciarSesion.DisabledState.BorderColor = Color.DarkGray;
             bIniciarSesion.DisabledState.CustomBorderColor = Color.DarkGray;
             bIniciarSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -230,7 +230,7 @@
             bIniciarSesion.ImageAlign = HorizontalAlignment.Left;
             bIniciarSesion.Location = new Point(47, 299);
             bIniciarSesion.Name = "bIniciarSesion";
-            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            bIniciarSesion.ShadowDecoration.CustomizableEdges = customizableEdges22;
             bIniciarSesion.Size = new Size(220, 40);
             bIniciarSesion.TabIndex = 3;
             bIniciarSesion.Text = "Ingresar";
@@ -249,33 +249,33 @@
             guna2HtmlLabel2.Text = "Iniciar Sesion";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2ControlBox1
+            // bClose
             // 
-            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.Animated = true;
-            guna2ControlBox1.CustomizableEdges = customizableEdges3;
-            guna2ControlBox1.FillColor = Color.Transparent;
-            guna2ControlBox1.HoverState.FillColor = Color.IndianRed;
-            guna2ControlBox1.HoverState.IconColor = Color.White;
-            guna2ControlBox1.IconColor = Color.WhiteSmoke;
-            guna2ControlBox1.Location = new Point(769, 0);
-            guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2ControlBox1.Size = new Size(32, 24);
-            guna2ControlBox1.TabIndex = 18;
+            bClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            bClose.Animated = true;
+            bClose.CustomizableEdges = customizableEdges25;
+            bClose.FillColor = Color.Transparent;
+            bClose.HoverState.FillColor = Color.IndianRed;
+            bClose.HoverState.IconColor = Color.White;
+            bClose.IconColor = Color.WhiteSmoke;
+            bClose.Location = new Point(769, 0);
+            bClose.Name = "bClose";
+            bClose.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            bClose.Size = new Size(32, 24);
+            bClose.TabIndex = 18;
             // 
-            // guna2ControlBox2
+            // bMinimize
             // 
-            guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox2.CustomizableEdges = customizableEdges1;
-            guna2ControlBox2.FillColor = Color.Transparent;
-            guna2ControlBox2.IconColor = Color.WhiteSmoke;
-            guna2ControlBox2.Location = new Point(739, 0);
-            guna2ControlBox2.Name = "guna2ControlBox2";
-            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2ControlBox2.Size = new Size(32, 24);
-            guna2ControlBox2.TabIndex = 19;
+            bMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            bMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            bMinimize.CustomizableEdges = customizableEdges27;
+            bMinimize.FillColor = Color.Transparent;
+            bMinimize.IconColor = Color.WhiteSmoke;
+            bMinimize.Location = new Point(739, 0);
+            bMinimize.Name = "bMinimize";
+            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            bMinimize.Size = new Size(32, 24);
+            bMinimize.TabIndex = 19;
             // 
             // Login
             // 
@@ -283,8 +283,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 450);
-            Controls.Add(guna2ControlBox2);
-            Controls.Add(guna2ControlBox1);
+            Controls.Add(bMinimize);
+            Controls.Add(bClose);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(pInicioLogin);
             Controls.Add(guna2Panel1);
@@ -292,7 +292,6 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += Login_Load;
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             ResumeLayout(false);
@@ -309,8 +308,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox bClose;
+        private Guna.UI2.WinForms.Guna2ControlBox bMinimize;
         private Guna.UI2.WinForms.Guna2GradientButton bIniciarSesion;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;

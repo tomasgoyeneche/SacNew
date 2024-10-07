@@ -38,8 +38,9 @@ namespace SacNew.Presenters
         {
             var nominas = _nominaRepositorio.ObtenerTodasLasNominas();
             var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();  // // Esperar el resultado de la tarea
+            var nominasOrdenadas = nominas.OrderBy(n => n.DescripcionNomina).ToList();
 
-            _view.CargarNominas(nominas);
+            _view.CargarNominas(nominasOrdenadas);
             _view.CargarPostas(postas);
         }
 

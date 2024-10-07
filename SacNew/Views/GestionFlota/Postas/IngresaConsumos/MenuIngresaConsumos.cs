@@ -40,9 +40,9 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         }
 
         // Eventos
-        private void MenuIngresaConsumos_Load(object sender, EventArgs e)
+        private async void MenuIngresaConsumos_Load(object sender, EventArgs e)
         {
-            _presenter.Inicializar();  // Cargar datos iniciales
+            await _presenter.InicializarAsync();  // Cargar datos iniciales de forma asíncrona
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -55,12 +55,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             _presenter.BuscarPOC(CriterioBusqueda);  // Búsqueda dinámica al escribir
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridViewPOC.SelectedRows.Count > 0)
             {
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-                _presenter.EliminarPOC(idPoc);  // Llamar al presenter para eliminar
+                await _presenter.EliminarPOCAsync(idPoc);  // Llamar al presenter para eliminar
             }
             else
             {
@@ -68,23 +68,17 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             }
         }
 
-        private void btnAgregarPOC_Click(object sender, EventArgs e)
+        private async void btnAgregarPOC_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarPOC();
+            await _presenter.AgregarPOCAsync();
         }
 
-        private void btnEditarPOC_Click(object sender, EventArgs e)
+        private async void btnEditarPOC_Click(object sender, EventArgs e)
         {
             if (dataGridViewPOC.SelectedRows.Count > 0)
             {
-                // Obtener el IdPoc de la fila seleccionada
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-
-                // Obtener la POC desde el Presenter
-                var poc = _presenter.ObtenerPOCPorId(idPoc);
-
-                // Abrir el formulario de edición y pasar los datos
-                _presenter.EditarPOC(poc);
+                await _presenter.EditarPOCAsync(idPoc);  // Editar usando el idPoc
             }
             else
             {

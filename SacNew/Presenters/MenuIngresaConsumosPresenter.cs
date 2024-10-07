@@ -26,10 +26,18 @@ namespace SacNew.Presenters
             _view = view;
         }
 
-        public void Inicializar()
+        public async Task InicializarAsync()
         {
-            MostrarNombreUsuario();
-            CargarPOC();  // Cargar las POCs al inicializar
+            try
+            {
+                MostrarNombreUsuario();
+                await CargarPOCAsync();  // Cargar las POCs al inicializar
+            }
+            catch (Exception ex)
+            {
+                // Manejo centralizado de errores
+                _view.MostrarMensaje($"Error al inicializar: {ex.Message}");
+            }
         }
 
         public void MostrarNombreUsuario()
@@ -38,53 +46,90 @@ namespace SacNew.Presenters
             _view.MostrarNombreUsuario(nombreUsuario);
         }
 
-        public void CargarPOC()
+        public async Task CargarPOCAsync()
         {
-            var listaPOC = _repositorioPOC.ObtenerTodos();
-            _view.MostrarPOC(listaPOC);
+            try
+            {
+                var listaPOC = await Task.Run(() => _repositorioPOC.ObtenerTodos());
+                _view.MostrarPOC(listaPOC);
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al cargar POCs: {ex.Message}");
+            }
         }
 
         public void BuscarPOC(string criterio)
         {
-            var listaFiltrada = _repositorioPOC.BuscarPOC(criterio);
-            _view.MostrarPOC(listaFiltrada);
-        }
-
-        public POC ObtenerPOCPorId(int idPoc)
-        {
-            return _repositorioPOC.ObtenerPorId(idPoc);
-        }
-
-        public void EditarPOC(POC poc)
-        {
-            // Obtener los datos de la POC desde el repositorio
-            var agregarEditarPoc = _serviceProvider.GetService<AgregarEditarPoc>();
-            agregarEditarPoc._presenter.CargarDatosParaEditar(poc);// Cargar los datos en el formulario
-            agregarEditarPoc.ShowDialog();
-            CargarPOC(); // Recargar la lista después de la edición
-        }
-
-        public void AgregarPOC()
-        {
-            // Obtener los datos de la POC desde el repositorio
-
-            // Recargar la lista después de la edición
-
-            using (var agregarEditarPOC = _serviceProvider.GetService<AgregarEditarPoc>())
+            try
             {
-                agregarEditarPOC.ShowDialog();
-                CargarPOC();
+                var listaFiltrada = _repositorioPOC.BuscarPOC(criterio);
+                _view.MostrarPOC(listaFiltrada);
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al buscar POCs: {ex.Message}");
             }
         }
 
-        public void EliminarPOC(int id)
+        public async Task EditarPOCAsync(int idPoc)
         {
-            var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar esta POC?");
-            if (confirmacion == DialogResult.Yes)
+            try
             {
-                _repositorioPOC.EliminarPOC(id);
-                _view.MostrarMensaje("POC eliminada correctamente.");
-                CargarPOC();  // Recargar la lista después de eliminar
+                var poc = ObtenerPOCPorId(idPoc);
+                var agregarEditarPoc = _serviceProvider.GetService<AgregarEditarPoc>();
+                agregarEditarPoc._presenter.CargarDatosParaEditar(poc);  // Cargar los datos en el formulario
+                agregarEditarPoc.ShowDialog();
+                await CargarPOCAsync(); // Recargar la lista después de la edición
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al editar la POC: {ex.Message}");
+            }
+        }
+
+        public async Task AgregarPOCAsync()
+        {
+            try
+            {
+                var agregarEditarPOC = _serviceProvider.GetService<AgregarEditarPoc>();
+                agregarEditarPOC.ShowDialog();
+                await CargarPOCAsync(); // Recargar después de agregar
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al agregar la POC: {ex.Message}");
+            }
+        }
+
+        public async Task EliminarPOCAsync(int id)
+        {
+            try
+            {
+                var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar esta POC?");
+                if (confirmacion == DialogResult.Yes)
+                {
+                    _repositorioPOC.EliminarPOC(id);
+                    _view.MostrarMensaje("POC eliminada correctamente.");
+                    await CargarPOCAsync(); // Recargar la lista después de eliminar
+                }
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al eliminar la POC: {ex.Message}");
+            }
+        }
+
+        private POC ObtenerPOCPorId(int idPoc)
+        {
+            try
+            {
+                return _repositorioPOC.ObtenerPorId(idPoc);
+            }
+            catch (Exception ex)
+            {
+                _view.MostrarMensaje($"Error al obtener la POC: {ex.Message}");
+                return null;
             }
         }
     }

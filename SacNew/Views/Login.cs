@@ -20,10 +20,6 @@ namespace SacNew
 
         public string Contrasena => tLogPass.Text;
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-        }
-
         public void MostrarMensaje(string mensaje)
         {
             lblError.Text = mensaje;
@@ -42,9 +38,6 @@ namespace SacNew
             _presenter.AutenticarUsuario();
         }
 
-        private void loginCloseButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+      
     }
 }
