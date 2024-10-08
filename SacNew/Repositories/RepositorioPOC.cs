@@ -13,22 +13,21 @@ namespace SacNew.Repositories
             _connectionString = connectionString;
         }
 
-        public List<POCDto> ObtenerTodos()
+        public async Task<List<POCDto>> ObtenerTodosAsync()
         {
             var listaPOC = new List<POCDto>();
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                // Agrega la columna Id en la consulta
                 var query = "SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreChofer, ApellidoChofer FROM POC_NominaDetalle WHERE Activo = 1";
 
                 using (var command = new SqlCommand(query, connection))
                 {
-                    using (var reader = command.ExecuteReader())
+                    using (var reader = await command.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             var pocDto = new POCDto
                             {
@@ -49,33 +48,32 @@ namespace SacNew.Repositories
             return listaPOC;
         }
 
-        public List<POCDto> BuscarPOC(string criterio)
+        public async Task<List<POCDto>> BuscarPOCAsync(string criterio)
         {
             var listaPOC = new List<POCDto>();
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                // Agrega la columna Id en la consulta
                 var query = @"
-        SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreChofer, ApellidoChofer
-        FROM POC_NominaDetalle
-        WHERE Activo = 1
-        AND (NumeroPOC LIKE @Criterio
-        OR PatenteTractor LIKE @Criterio
-        OR PatenteSemi LIKE @Criterio
-        OR NombreFantasia LIKE @Criterio
-        OR NombreChofer LIKE @Criterio
-        OR ApellidoChofer LIKE @Criterio)";
+                SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreChofer, ApellidoChofer
+                FROM POC_NominaDetalle
+                WHERE Activo = 1
+                AND (NumeroPOC LIKE @Criterio
+                OR PatenteTractor LIKE @Criterio
+                OR PatenteSemi LIKE @Criterio
+                OR NombreFantasia LIKE @Criterio
+                OR NombreChofer LIKE @Criterio
+                OR ApellidoChofer LIKE @Criterio)";
 
                 using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Criterio", "%" + criterio + "%");
 
-                    using (var reader = command.ExecuteReader())
+                    using (var reader = await command.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             var pocDto = new POCDto
                             {
@@ -96,29 +94,29 @@ namespace SacNew.Repositories
             return listaPOC;
         }
 
-        public void EliminarPOC(int id)
+        public async Task EliminarPOCAsync(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 var query = "UPDATE POC SET Activo = 0 WHERE IdPoc = @Id";
 
                 using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
-                    command.ExecuteNonQuery();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
 
-        public POC ObtenerPorId(int IdPOC)
+        public async Task<POC> ObtenerPorIdAsync(int idPoc)
         {
             POC poc = null;
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var query = @"
                 SELECT IdPoc, NumeroPOC, IdPosta, IdNomina, Odometro, Comentario, FechaCreacion, IdUsuario, Activo
                 FROM POC
@@ -126,11 +124,11 @@ namespace SacNew.Repositories
 
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdPoc", IdPOC);
+                    command.Parameters.AddWithValue("@IdPoc", idPoc);
 
-                    using (var reader = command.ExecuteReader())
+                    using (var reader = await command.ExecuteReaderAsync())
                     {
-                        if (reader.Read())
+                        if (await reader.ReadAsync())
                         {
                             poc = new POC
                             {
@@ -138,7 +136,7 @@ namespace SacNew.Repositories
                                 NumeroPOC = reader["NumeroPOC"].ToString(),
                                 IdPosta = Convert.ToInt32(reader["IdPosta"]),
                                 IdNomina = Convert.ToInt32(reader["IdNomina"]),
-                                Odometro = Convert.ToInt32(reader["Odometro"]),
+                                Odometro = Convert.ToDouble(reader["Odometro"]),
                                 Comentario = reader["Comentario"].ToString(),
                                 FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]),
                                 IdUsuario = Convert.ToInt32(reader["IdUsuario"]),
@@ -152,11 +150,11 @@ namespace SacNew.Repositories
             return poc;
         }
 
-        public void AgregarPOC(POC poc)
+        public async Task AgregarPOCAsync(POC poc)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var query = @"
                 INSERT INTO POC (NumeroPOC, IdPosta, IdNomina, Odometro, Comentario, FechaCreacion, IdUsuario, Activo)
                 VALUES (@NumeroPOC, @IdPosta, @IdNomina, @Odometro, @Comentario, @FechaCreacion, @IdUsuario, 1)";
@@ -170,16 +168,16 @@ namespace SacNew.Repositories
                     command.Parameters.AddWithValue("@Comentario", poc.Comentario);
                     command.Parameters.AddWithValue("@FechaCreacion", poc.FechaCreacion);
                     command.Parameters.AddWithValue("@IdUsuario", poc.IdUsuario);
-                    command.ExecuteNonQuery();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
 
-        public void ActualizarPOC(POC poc)
+        public async Task ActualizarPOCAsync(POC poc)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 var query = @"
                 UPDATE POC
                 SET NumeroPOC = @NumeroPOC,
@@ -201,7 +199,7 @@ namespace SacNew.Repositories
                     command.Parameters.AddWithValue("@FechaCreacion", poc.FechaCreacion);
                     command.Parameters.AddWithValue("@IdUsuario", poc.IdUsuario);
                     command.Parameters.AddWithValue("@IdPoc", poc.IdPOC);
-                    command.ExecuteNonQuery();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }

@@ -5,16 +5,16 @@ namespace SacNew.Repositories
 {
     public interface IRepositorioPOC
     {
-        List<POCDto> ObtenerTodos();
+        Task<List<POCDto>> ObtenerTodosAsync();
 
-        List<POCDto> BuscarPOC(string criterio);
+        Task<List<POCDto>> BuscarPOCAsync(string criterio);
 
-        void EliminarPOC(int id);
+        Task EliminarPOCAsync(int id);
 
-        POC ObtenerPorId(int idPoc);
+        Task<POC> ObtenerPorIdAsync(int idPoc);
 
-        void AgregarPOC(POC poc);
+        Task AgregarPOCAsync(POC poc);
 
-        void ActualizarPOC(POC poc);
+        Task ActualizarPOCAsync(POC poc);
     }
 }

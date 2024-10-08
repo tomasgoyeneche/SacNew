@@ -36,6 +36,9 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IRepositorioPOC, RepositorioPOC>();
             serviceCollection.AddSingleton<INominaRepositorio, NominaRepositorio>();
 
+            serviceCollection.AddSingleton<IAuditoriaRepositorio, AuditoriaRepositorio>();
+            serviceCollection.AddSingleton<IAuditoriaService, AuditoriaService>();
+
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
             serviceCollection.AddTransient<Menu>();

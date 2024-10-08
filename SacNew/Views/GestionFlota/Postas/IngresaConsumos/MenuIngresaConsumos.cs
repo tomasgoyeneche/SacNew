@@ -20,18 +20,27 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         // Implementación de IMenuIngresaConsumosView
         public void MostrarPOC(List<POCDto> listaPOC)
         {
-            dataGridViewPOC.DataSource = listaPOC;
-            dataGridViewPOC.Columns["IdPoc"].Visible = false;  // Ocultar el ID
+            EjecutarEnHiloUI(() =>
+            {
+                dataGridViewPOC.DataSource = listaPOC;
+                dataGridViewPOC.Columns["IdPoc"].Visible = false;
+            });// Ocultar el ID
         }
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            EjecutarEnHiloUI(() =>
+            {
+                MessageBox.Show(mensaje);
+            });
         }
 
         public void MostrarNombreUsuario(string nombre)
         {
-            lNombreUsuario.Text = nombre;
+            EjecutarEnHiloUI(() =>
+            {
+                lNombreUsuario.Text = nombre;
+            });
         }
 
         public DialogResult ConfirmarEliminacion(string mensaje)
@@ -42,17 +51,26 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         // Eventos
         private async void MenuIngresaConsumos_Load(object sender, EventArgs e)
         {
-            await _presenter.InicializarAsync();  // Cargar datos iniciales de forma asíncrona
+            await ManejarErroresAsync(async () =>
+            {
+                await _presenter.InicializarAsync().ConfigureAwait(false);  // Cargar datos iniciales de forma asíncrona
+            });
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            _presenter.BuscarPOC(CriterioBusqueda);  // Pasar el criterio de búsqueda al presenter
+            await ManejarErroresAsync(async () =>
+            {
+                await _presenter.BuscarPOCAsync(CriterioBusqueda).ConfigureAwait(false);  // Pasar el criterio de búsqueda al presenter
+            });
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private async void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            _presenter.BuscarPOC(CriterioBusqueda);  // Búsqueda dinámica al escribir
+            await ManejarErroresAsync(async () =>
+            {
+                await _presenter.BuscarPOCAsync(CriterioBusqueda).ConfigureAwait(false);  // Búsqueda dinámica al escribir
+            });
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
@@ -60,7 +78,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             if (dataGridViewPOC.SelectedRows.Count > 0)
             {
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-                await _presenter.EliminarPOCAsync(idPoc);  // Llamar al presenter para eliminar
+                await ManejarErroresAsync(async () =>
+                {
+                    await _presenter.EliminarPOCAsync(idPoc).ConfigureAwait(false);  // Llamar al presenter para eliminar
+                });
             }
             else
             {
@@ -70,7 +91,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 
         private async void btnAgregarPOC_Click(object sender, EventArgs e)
         {
-            await _presenter.AgregarPOCAsync();
+            await ManejarErroresAsync(async () =>
+            {
+                await _presenter.AgregarPOCAsync().ConfigureAwait(false);
+            });
         }
 
         private async void btnEditarPOC_Click(object sender, EventArgs e)
@@ -78,11 +102,39 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             if (dataGridViewPOC.SelectedRows.Count > 0)
             {
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-                await _presenter.EditarPOCAsync(idPoc);  // Editar usando el idPoc
+                await ManejarErroresAsync(async () =>
+                {
+                    await _presenter.EditarPOCAsync(idPoc).ConfigureAwait(false);  // Editar usando el idPoc
+                });
             }
             else
             {
-                MessageBox.Show("Seleccione una POC para editar.");
+                MostrarMensaje("Seleccione una POC para editar.");
+            }
+        }
+
+
+        private async Task ManejarErroresAsync(Func<Task> accion)
+        {
+            try
+            {
+                await accion();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Ocurrió un error: {ex.Message}");
+            }
+        }
+
+        private void EjecutarEnHiloUI(Action accion)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action(accion));
+            }
+            else
+            {
+                accion();
             }
         }
     }

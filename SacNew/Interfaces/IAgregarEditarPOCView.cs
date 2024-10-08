@@ -7,7 +7,7 @@ namespace SacNew.Interfaces
         int IdNomina { get; }
         int IdPosta { get; }
         string NumeroPOC { get; }
-        int Odometro { get; }
+        double Odometro { get; }
         string Comentario { get; }
         DateTime FechaCreacion { get; }  // La fecha y hora que se ingresa manualmente
         int IdUsuario { get; }
