@@ -2,6 +2,7 @@
 using SacNew.Presenters;
 using SacNew.Repositories;
 using SacNew.Views;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
@@ -35,6 +36,7 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IConceptoPostaProveedorRepositorio, ConceptoPostaProveedorRepositorio>();
             serviceCollection.AddSingleton<IRepositorioPOC, RepositorioPOC>();
             serviceCollection.AddSingleton<INominaRepositorio, NominaRepositorio>();
+            serviceCollection.AddSingleton<ILocacionRepositorio, LocacionRepositorio>();
 
             serviceCollection.AddSingleton<IAuditoriaRepositorio, AuditoriaRepositorio>();
             serviceCollection.AddSingleton<IAuditoriaService, AuditoriaService>();
@@ -49,6 +51,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarEditarConcepto>();
             serviceCollection.AddTransient<MenuIngresaConsumos>();
             serviceCollection.AddTransient<AgregarEditarPoc>();
+            serviceCollection.AddTransient<MenuLocaciones>();
 
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
@@ -56,6 +59,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
             serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();
             serviceCollection.AddTransient<AgregarEditarPOCPresenter>();
+            serviceCollection.AddTransient<MenuLocacionesPresenter>();
 
             return serviceCollection.BuildServiceProvider();
         }

@@ -63,6 +63,16 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap abmLocacionesMapa {
+            get {
+                object obj = ResourceManager.GetObject("abmLocacionesMapa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adminIcon {
             get {
                 object obj = ResourceManager.GetObject("adminIcon", resourceCulture);
@@ -376,6 +386,16 @@ namespace SacNew {
         internal static System.Drawing.Bitmap logoMinimizar {
             get {
                 object obj = ResourceManager.GetObject("logoMinimizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapaArgentinaWpaper {
+            get {
+                object obj = ResourceManager.GetObject("mapaArgentinaWpaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

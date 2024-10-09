@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Services;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
 
 namespace SacNew.Views
@@ -8,7 +9,7 @@ namespace SacNew.Views
     {
         private readonly ISesionService _sesionService;
         private readonly IServiceProvider _serviceProvider;
-        private MenuPostas _menuPostas;
+    
 
         public Menu(ISesionService sesionService, IServiceProvider serviceProvider)
         {
@@ -23,32 +24,24 @@ namespace SacNew.Views
             lDiaDeHoy.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
-        private void bGestGuardiaBB_Click(object sender, EventArgs e)
-        {
-        }
-
         private void picBoxFlotaPostas_Click(object sender, EventArgs e)
         {
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
-                if (_menuPostas == null || _menuPostas.IsDisposed)
-                {
-                    _menuPostas = _serviceProvider.GetService<MenuPostas>();
-                }
-
-                this.Hide();
-                _menuPostas.ShowDialog();
-                this.Show();
-
-                //using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
+                //if (_menuPostas == null || _menuPostas.IsDisposed)
                 //{
-                //    this.Hide();
-                //    postasMenu.ShowDialog();
-                //    this.Show();
+                //    _menuPostas = _serviceProvider.GetService<MenuPostas>();
                 //}
+                //this.Hide();
+                //_menuPostas.ShowDialog();
+                //this.Show();
 
-                //GC.Collect();
-                //GC.WaitForPendingFinalizers();
+                using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
+                {
+                    this.Hide();
+                    postasMenu.ShowDialog();
+                    this.Show();
+                }
             }
             else
             {
@@ -56,8 +49,14 @@ namespace SacNew.Views
             }
         }
 
-        private void picBoxAdminBB_Click(object sender, EventArgs e)
+        private void picBoxMenuAbmLocacion_Click(object sender, EventArgs e)
         {
+            using (var menuLocaciones = _serviceProvider.GetService<MenuLocaciones>())
+            {
+                this.Hide();
+                menuLocaciones.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

@@ -21,7 +21,6 @@
     <Folder Include="Views\GestionFlota\Postas\Informes\" />
     <Folder Include="Views\GestionOperativa\" />
     <Folder Include="Views\InformesEstadisticas\" />
-    <Folder Include="Views\Configuraciones\" />
     <Folder Include="Views\ServiciosExternos\" />
   </ItemGroup>
 
