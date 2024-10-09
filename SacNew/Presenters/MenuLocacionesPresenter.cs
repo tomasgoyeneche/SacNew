@@ -1,6 +1,8 @@
-﻿using SacNew.Interfaces;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,12 @@ namespace SacNew.Presenters
     {
         private IMenuLocacionesView _view;
         private readonly ILocacionRepositorio _locacionRepositorio;
+        private readonly IServiceProvider _serviceProvider;
 
-        public MenuLocacionesPresenter(ILocacionRepositorio locacionRepositorio)
+        public MenuLocacionesPresenter(ILocacionRepositorio locacionRepositorio,IServiceProvider serviceProvider)
         {
             _locacionRepositorio = locacionRepositorio;
+            _serviceProvider = serviceProvider;
         }
 
         public void SetView(IMenuLocacionesView view)
@@ -26,7 +30,8 @@ namespace SacNew.Presenters
 
         public async Task InicializarAsync()
         {
-            await CargarLocacionesAsync();  // No necesitas ConfigureAwait(false) aquí
+            await CargarLocacionesAsync(); 
+            // No necesitas ConfigureAwait(false) aquí
         }
 
         public async Task CargarLocacionesAsync()
@@ -75,16 +80,32 @@ namespace SacNew.Presenters
 
 
 
-        public void EditarLocacion(int idLocacion)
+        public async void EditarLocacion(int idLocacion)
         {
-            // Aquí llamamos al formulario de edición cuando lo implementes.
-            //_view.AbrirFormularioEdicion(idLocacion);
+            var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
+
+            // Inicializamos el presenter con la locación seleccionada
+            await agregarEditarLocacionForm._presenter.InicializarAsync(idLocacion);
+
+            // Mostrar el formulario después de la inicialización
+            agregarEditarLocacionForm.ShowDialog();
+
+            // Refrescar las locaciones después de cerrar el formulario
+            await CargarLocacionesAsync();
         }
 
-        public void AgregarLocacion()
+        public async  void AgregarLocacion()
         {
-            // Aquí llamamos al formulario de agregar cuando lo implementes.
-            //_view.AbrirFormularioAgregar();
+            var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
+
+            // Inicializamos sin pasar un id, ya que es una nueva locación
+            await agregarEditarLocacionForm._presenter.InicializarAsync(null);
+
+            // Mostrar el formulario
+            agregarEditarLocacionForm.ShowDialog();
+
+            // Refrescar las locaciones después de cerrar el formulario
+            await CargarLocacionesAsync();
         }
 
     }

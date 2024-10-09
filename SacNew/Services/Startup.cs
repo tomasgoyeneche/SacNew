@@ -37,6 +37,9 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<IRepositorioPOC, RepositorioPOC>();
             serviceCollection.AddSingleton<INominaRepositorio, NominaRepositorio>();
             serviceCollection.AddSingleton<ILocacionRepositorio, LocacionRepositorio>();
+            serviceCollection.AddSingleton<ILocacionKilometrosEntreRepositorio, LocacionKilometrosEntreRepositorio>();
+            serviceCollection.AddSingleton<ILocacionProductoRepositorio, LocacionProductoRepositorio>();
+
 
             serviceCollection.AddSingleton<IAuditoriaRepositorio, AuditoriaRepositorio>();
             serviceCollection.AddSingleton<IAuditoriaService, AuditoriaService>();
@@ -52,6 +55,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuIngresaConsumos>();
             serviceCollection.AddTransient<AgregarEditarPoc>();
             serviceCollection.AddTransient<MenuLocaciones>();
+            serviceCollection.AddTransient<AgregarEditarLocacion>();
 
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
@@ -60,7 +64,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();
             serviceCollection.AddTransient<AgregarEditarPOCPresenter>();
             serviceCollection.AddTransient<MenuLocacionesPresenter>();
-
+            serviceCollection.AddTransient<AgregarEditarLocacionPresenter>();
             return serviceCollection.BuildServiceProvider();
         }
     }

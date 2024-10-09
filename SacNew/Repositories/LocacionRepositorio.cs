@@ -51,6 +51,34 @@ namespace SacNew.Repositories
             return locaciones;
         }
 
+
+        public async Task<Locacion> ObtenerPorIdAsync(int idLocacion)
+        {
+            Locacion locacion = null;
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var query = "SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion";
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdLocacion", idLocacion);
+                await connection.OpenAsync();
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        locacion = new Locacion
+                        {
+                            IdLocacion = (int)reader["IdLocacion"],
+                            Nombre = (string)reader["Nombre"],
+                            Carga = (bool)reader["Carga"],
+                            Descarga = (bool)reader["Descarga"],
+                            Activo = (bool)reader["Activo"]
+                        };
+                    }
+                }
+            }
+            return locacion;
+        }
+
         public async Task<List<Locacion>> BuscarPorCriterioAsync(string criterio)
         {
             var locaciones = new List<Locacion>();
@@ -85,6 +113,38 @@ namespace SacNew.Repositories
             }
 
             return locaciones;
+        }
+
+        public async Task AgregarAsync(Locacion locacion)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var query = "INSERT INTO Locacion (Nombre, Carga, Descarga, Activo) VALUES (@Nombre, @Carga, @Descarga, @Activo)";
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nombre", locacion.Nombre);
+                command.Parameters.AddWithValue("@Carga", locacion.Carga);
+                command.Parameters.AddWithValue("@Descarga", locacion.Descarga);
+                command.Parameters.AddWithValue("@Activo", locacion.Activo);
+                await connection.OpenAsync();
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
+
+        public async Task ActualizarAsync(Locacion locacion)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var query = "UPDATE Locacion SET Nombre = @Nombre, Carga = @Carga, Descarga = @Descarga, Activo = @Activo WHERE IdLocacion = @IdLocacion";
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nombre", locacion.Nombre);
+                command.Parameters.AddWithValue("@Carga", locacion.Carga);
+                command.Parameters.AddWithValue("@Descarga", locacion.Descarga);
+                command.Parameters.AddWithValue("@Activo", locacion.Activo);
+                command.Parameters.AddWithValue("@IdLocacion", locacion.IdLocacion);
+                await connection.OpenAsync();
+                await command.ExecuteNonQueryAsync();
+            }
         }
 
         public async Task EliminarAsync(int idLocacion)
