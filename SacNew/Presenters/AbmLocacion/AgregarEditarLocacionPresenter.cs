@@ -83,20 +83,30 @@ namespace SacNew.Presenters
 
         public async Task EliminarProductoAsync(int idLocacionProducto)
         {
-            await _locacionProductoRepositorio.EliminarAsync(idLocacionProducto);
+            var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar este producto asociado?");
+            if (confirmacion == DialogResult.Yes) 
+            {
+                await _locacionProductoRepositorio.EliminarAsync(idLocacionProducto);
 
-            // Refrescar lista de productos
-            var productosCarga = await _locacionProductoRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
-            _view.CargarProductos(productosCarga);
+                // Refrescar lista de productos
+                var productosCarga = await _locacionProductoRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
+                _view.CargarProductos(productosCarga);
+            }
         }
 
         public async Task EliminarKilometrosAsync(int idKilometros)
         {
-            await _locacionKilometrosEntreRepositorio.EliminarAsync(idKilometros);
+            var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar esta locación-destino?");
+            if (confirmacion == DialogResult.Yes)
+            {
+                await _locacionKilometrosEntreRepositorio.EliminarAsync(idKilometros);
 
-            // Refrescar lista de distancias
-            var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
-            _view.CargarKilometros(kilometrosEntre);
+                // Refrescar lista de distancias
+                var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
+                _view.CargarKilometros(kilometrosEntre);
+
+            }
+            
         }
 
         private async Task CargarProductosAsync(int idLocacion)
@@ -115,15 +125,19 @@ namespace SacNew.Presenters
         public void AgregarProducto()
         {
             var agregarProductoForm = _serviceProvider.GetService<AgregarProductoForm>();
-
-            // Pasamos el id de la locación actual
             agregarProductoForm._presenter.InicializarAsync(_locacionActual.IdLocacion);
-            
-            // Mostrar el formulario de agregar producto
-            agregarProductoForm.ShowDialog();
 
-            // Después de agregar, refrescamos la lista de productos
+            agregarProductoForm.ShowDialog();
             CargarProductosAsync(_locacionActual.IdLocacion);
+        }
+
+        public void AgregarKilometro()
+        {
+            var agregarKilometroForm = _serviceProvider.GetService<AgregarKilometrosLocaciones>();
+            agregarKilometroForm._presenter.InicializarAsync(_locacionActual.IdLocacion);
+
+            agregarKilometroForm.ShowDialog();
+            CargarKilometrosAsync(_locacionActual.IdLocacion);
         }
     }
 }

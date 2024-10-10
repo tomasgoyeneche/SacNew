@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SacNew.Interfaces;
+using SacNew.Models;
+using SacNew.Presenters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +13,49 @@ using System.Windows.Forms;
 
 namespace SacNew.Views.Configuraciones.AbmLocaciones
 {
-    public partial class AgregarKilometrosLocaciones : Form
+    public partial class AgregarKilometrosLocaciones : Form, IAgregarKilometrosView
     {
-        public AgregarKilometrosLocaciones()
+        public AgregarKilometrosPresenter _presenter;
+
+        public AgregarKilometrosLocaciones(AgregarKilometrosPresenter presenter)
         {
             InitializeComponent();
+            _presenter = presenter;
+            _presenter.SetView(this);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
+        public int IdLocacionDestino => (int)cmbLocacionDestino.SelectedValue;
 
+        public decimal Kilometros => decimal.TryParse(txtKilometros.Text, out var value) ? value : 0;
+
+        public void CargarLocaciones(List<Locacion> locaciones)
+        {
+            cmbLocacionDestino.DataSource = locaciones;
+            cmbLocacionDestino.DisplayMember = "Nombre";
+            cmbLocacionDestino.ValueMember = "IdLocacion";
+        }
+
+        public void MostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await _presenter.GuardarKilometrosAsync();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Error al guardar kilómetros: {ex.Message}");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

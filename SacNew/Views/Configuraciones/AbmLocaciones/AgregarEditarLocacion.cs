@@ -59,7 +59,10 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         {
             MessageBox.Show(mensaje);
         }
-
+        public DialogResult ConfirmarEliminacion(string mensaje)
+        {
+            return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        }
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -112,6 +115,11 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         {
             _presenter.AgregarProducto();
 
+        }
+
+        private void btnAgregarKilometro_Click(object sender, EventArgs e)
+        {
+            _presenter.AgregarKilometro();
         }
     }
 }

@@ -57,6 +57,8 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuLocaciones>();
             serviceCollection.AddTransient<AgregarEditarLocacion>();
             serviceCollection.AddTransient<AgregarProductoForm>();
+            serviceCollection.AddTransient<AgregarKilometrosLocaciones>();
+
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
@@ -66,6 +68,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<MenuLocacionesPresenter>();
             serviceCollection.AddTransient<AgregarEditarLocacionPresenter>();
             serviceCollection.AddTransient<AgregarProductoPresenter>();
+            serviceCollection.AddTransient<AgregarKilometrosPresenter>();
             return serviceCollection.BuildServiceProvider();
         }
     }

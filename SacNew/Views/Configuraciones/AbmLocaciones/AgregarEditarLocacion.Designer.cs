@@ -425,6 +425,7 @@
             btnAgregarKilometro.Size = new Size(105, 29);
             btnAgregarKilometro.TabIndex = 17;
             btnAgregarKilometro.Text = "Agregar";
+            btnAgregarKilometro.Click += btnAgregarKilometro_Click;
             // 
             // guna2Panel9
             // 

@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Properties\DataSources\" />
-    <Folder Include="Repositories\AbmLocacion\" />
     <Folder Include="Views\GestionDocumental\" />
     <Folder Include="Views\GestionFlota\Postas\LimiteDeCredito\" />
     <Folder Include="Views\GestionFlota\Postas\Informes\" />

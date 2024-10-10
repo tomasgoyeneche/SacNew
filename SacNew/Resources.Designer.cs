@@ -63,6 +63,26 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap abmLocacionesGasoil {
+            get {
+                object obj = ResourceManager.GetObject("abmLocacionesGasoil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap abmLocacionesKilometros {
+            get {
+                object obj = ResourceManager.GetObject("abmLocacionesKilometros", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap abmLocacionesMapa {
             get {
                 object obj = ResourceManager.GetObject("abmLocacionesMapa", resourceCulture);

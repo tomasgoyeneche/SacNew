@@ -20,5 +20,7 @@ namespace SacNew.Interfaces
         void CargarKilometros(List<LocacionKilometrosEntre> kilometrosEntre);
 
         void MostrarMensaje(string mensaje);
+
+        DialogResult ConfirmarEliminacion(string mensaje);
     }
 }

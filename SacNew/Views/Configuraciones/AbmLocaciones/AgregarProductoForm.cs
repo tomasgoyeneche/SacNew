@@ -31,9 +31,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             cmbProductos.DataSource = productos;
             cmbProductos.DisplayMember = "Nombre";  // Mostrar el nombre del producto en el ComboBox
             cmbProductos.ValueMember = "IdProducto";  // El valor seleccionado será el ID del producto
-
-            cmbProductos.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbProductos.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void MostrarMensaje(string mensaje)

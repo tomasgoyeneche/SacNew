@@ -111,7 +111,9 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             if (dataGridViewLocaciones.SelectedRows.Count > 0)
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
+              
                 _presenter.EditarLocacion(idLocacion);
+                
             }
             else
             {
