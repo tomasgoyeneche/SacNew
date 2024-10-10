@@ -1,11 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -20,7 +15,6 @@ namespace SacNew.Presenters
         {
             _productoRepositorio = productoRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
-           
         }
 
         public void SetView(IAgregarProductoView view)

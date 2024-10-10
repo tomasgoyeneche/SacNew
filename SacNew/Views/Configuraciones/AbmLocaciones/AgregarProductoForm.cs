@@ -1,15 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SacNew.Views.Configuraciones.AbmLocaciones
 {
@@ -41,12 +32,12 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _presenter.GuardarProducto();
-            Close();
+            Dispose();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
         }
     }
 }

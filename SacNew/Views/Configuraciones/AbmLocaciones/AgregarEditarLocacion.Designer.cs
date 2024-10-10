@@ -531,7 +531,7 @@
             // 
             // guna2vSeparator1
             // 
-            guna2vSeparator1.Location = new Point(416, 92);
+            guna2vSeparator1.Location = new Point(421, 92);
             guna2vSeparator1.Name = "guna2vSeparator1";
             guna2vSeparator1.Size = new Size(12, 328);
             guna2vSeparator1.TabIndex = 20;

@@ -1,12 +1,7 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -19,7 +14,6 @@ namespace SacNew.Repositories
         {
             _connectionString = connectionString;
             _sesionService = sesionService;
-
         }
 
         // Método auxiliar para manejar la conexión con retorno

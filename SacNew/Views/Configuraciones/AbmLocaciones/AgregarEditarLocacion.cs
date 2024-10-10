@@ -39,7 +39,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             }).ToList();
 
             dataGridViewProductos.Columns["IdLocacionProducto"].Visible = false;
-
         }
 
         public void CargarKilometros(List<LocacionKilometrosEntre> kilometrosEntre)
@@ -51,7 +50,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
                 k.Kilometros
             }).ToList();
 
-
             dataGridViewKilometros.Columns["idKilometros"].Visible = false;
         }
 
@@ -59,10 +57,12 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         {
             MessageBox.Show(mensaje);
         }
+
         public DialogResult ConfirmarEliminacion(string mensaje)
         {
             return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -114,7 +114,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             _presenter.AgregarProducto();
-
         }
 
         private void btnAgregarKilometro_Click(object sender, EventArgs e)

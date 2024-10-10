@@ -1,8 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
@@ -23,6 +21,7 @@ namespace SacNew.Repositories
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
+
         public Task<Locacion?> ObtenerPorIdAsync(int idLocacion)
         {
             var query = "SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion";
@@ -32,6 +31,7 @@ namespace SacNew.Repositories
                 return connection.QueryFirstOrDefaultAsync<Locacion?>(query, new { IdLocacion = idLocacion });
             });
         }
+
         public Task<List<Locacion>> BuscarPorCriterioAsync(string criterio)
         {
             var query = "SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)";
@@ -59,14 +59,13 @@ namespace SacNew.Repositories
             );
         }
 
-
         public async Task ActualizarAsync(Locacion locacion)
         {
             // Obtener los valores anteriores antes de la actualización para la auditoría
             var locacionAnterior = await ObtenerPorIdAsync(locacion.IdLocacion);
 
             var query = @"
-        UPDATE Locacion 
+        UPDATE Locacion
         SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo
         WHERE IdLocacion = @IdLocacion";
 

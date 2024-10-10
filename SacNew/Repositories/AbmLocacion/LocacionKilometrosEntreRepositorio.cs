@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
@@ -15,7 +14,7 @@ namespace SacNew.Repositories
         public async Task<List<LocacionKilometrosEntre>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
             var query = @"
-    SELECT lk.IdKilometros, lk.IdLocacionOrigen, lk.IdLocacionDestino, lk.Kilometros, l.IdLocacion AS LocacionDestinoId, l.Nombre 
+    SELECT lk.IdKilometros, lk.IdLocacionOrigen, lk.IdLocacionDestino, lk.Kilometros, l.IdLocacion AS LocacionDestinoId, l.Nombre
     FROM LocacionKilometrosEntre lk
     INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
     WHERE lk.IdLocacionOrigen = @IdLocacion";

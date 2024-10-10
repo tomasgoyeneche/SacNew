@@ -6,7 +6,8 @@ namespace SacNew.Interfaces
     {
         // Propiedades para obtener datos de los campos del formulario
         string Nombre { get; }
-        string Direccion { get; }   
+
+        string Direccion { get; }
         bool Carga { get; }
         bool Descarga { get; }
 

@@ -1,23 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
-using SacNew.Services;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 
 namespace SacNew.Presenters
 {
     public class AgregarEditarLocacionPresenter
     {
-
         private IAgregarEditarLocacionView _view;
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
         private Locacion _locacionActual;
         private readonly IServiceProvider _serviceProvider;
-
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,
@@ -30,6 +26,7 @@ namespace SacNew.Presenters
             _locacionKilometrosEntreRepositorio = locacionKilometrosEntreRepositorio;
             _serviceProvider = serviceProvider;
         }
+
         public void SetView(IAgregarEditarLocacionView view)
         {
             _view = view;
@@ -49,7 +46,6 @@ namespace SacNew.Presenters
                 // Cargar distancias entre locaciones
                 await CargarKilometrosAsync(idLocacion.Value);
                 _view.EstablecerModoEdicion(true);
-
             }
             else
             {
@@ -84,7 +80,7 @@ namespace SacNew.Presenters
         public async Task EliminarProductoAsync(int idLocacionProducto)
         {
             var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar este producto asociado?");
-            if (confirmacion == DialogResult.Yes) 
+            if (confirmacion == DialogResult.Yes)
             {
                 await _locacionProductoRepositorio.EliminarAsync(idLocacionProducto);
 
@@ -104,9 +100,7 @@ namespace SacNew.Presenters
                 // Refrescar lista de distancias
                 var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
                 _view.CargarKilometros(kilometrosEntre);
-
             }
-            
         }
 
         private async Task CargarProductosAsync(int idLocacion)
@@ -120,7 +114,6 @@ namespace SacNew.Presenters
             var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(idLocacion);
             _view.CargarKilometros(kilometrosEntre);
         }
-
 
         public void AgregarProducto()
         {
