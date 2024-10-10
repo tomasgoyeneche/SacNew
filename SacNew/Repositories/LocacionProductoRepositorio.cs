@@ -1,70 +1,74 @@
-﻿using SacNew.Models;
+﻿using Dapper;
+using SacNew.Models;
+using SacNew.Services;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    public class LocacionProductoRepositorio : ILocacionProductoRepositorio
+    public class LocacionProductoRepositorio : BaseRepositorio, ILocacionProductoRepositorio
     {
-        private readonly string _connectionString;
-
-        public LocacionProductoRepositorio(string connectionString)
+        public LocacionProductoRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService)
         {
-            _connectionString = connectionString;
         }
 
         public async Task<List<LocacionProducto>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
-            var productos = new List<LocacionProducto>();
-            using (var connection = new SqlConnection(_connectionString))
+            var query = @"
+            SELECT lp.*, p.Nombre AS ProductoNombre 
+            FROM LocacionProducto lp 
+            INNER JOIN Producto p ON lp.IdProducto = p.IdProducto 
+            WHERE lp.IdLocacion = @IdLocacion";
+
+            return await ConectarAsync(connection =>
             {
-                var query = "SELECT lp.*, p.Nombre AS ProductoNombre FROM LocacionProducto lp INNER JOIN Producto p ON lp.IdProducto = p.IdProducto WHERE lp.IdLocacion = @IdLocacion";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacion", idLocacion);
-                await connection.OpenAsync();
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    while (await reader.ReadAsync())
+                return connection.QueryAsync<LocacionProducto, Producto, LocacionProducto>(
+                    query,
+                    (locacionProducto, producto) =>
                     {
-                        productos.Add(new LocacionProducto
-                        {
-                            IdLocacionProducto = (int)reader["IdLocacionProducto"],
-                            IdLocacion = (int)reader["IdLocacion"],
-                            IdProducto = (int)reader["IdProducto"],
-                            Producto = new Producto
-                            {
-                                IdProducto = (int)reader["IdProducto"],
-                                Nombre = (string)reader["ProductoNombre"]
-                            }
-                        });
-                    }
-                }
-            }
-            return productos;
+                        locacionProducto.Producto = producto;  // Mapear Producto a LocacionProducto
+                        return locacionProducto;
+                    },
+                    new { IdLocacion = idLocacion },  // Parámetro para la consulta
+                    splitOn: "IdProducto"
+                ).ContinueWith(task => task.Result.ToList());
+            });
         }
 
-        public async Task AgregarAsync(LocacionProducto locacionProducto)
+        public Task AgregarAsync(LocacionProducto locacionProducto)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "INSERT INTO LocacionProducto (IdLocacion, IdProducto) VALUES (@IdLocacion, @IdProducto)";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacion", locacionProducto.IdLocacion);
-                command.Parameters.AddWithValue("@IdProducto", locacionProducto.IdProducto);
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var query = "INSERT INTO LocacionProducto (IdLocacion, IdProducto) VALUES (@IdLocacion, @IdProducto)";
+
+            return EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacionProducto),
+                "LocacionProducto",
+                "INSERT",
+                null,  // No hay valores anteriores ya que es un nuevo registro
+                locacionProducto  // Pasamos directamente el objeto sin serializar
+            );
         }
 
         public async Task EliminarAsync(int idLocacionProducto)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "DELETE FROM LocacionProducto WHERE IdLocacionProducto = @IdLocacionProducto";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacionProducto", idLocacionProducto);
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var query = "DELETE FROM LocacionProducto WHERE IdLocacionProducto = @IdLocacionProducto";
+
+            // Obtener el producto antes de eliminar para la auditoría
+            var locacionProductoAnterior = await ObtenerPorIdAsync(idLocacionProducto);
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, new { IdLocacionProducto = idLocacionProducto }),
+                "LocacionProducto",
+                "DELETE",
+                locacionProductoAnterior,  // Pasamos directamente el objeto sin serializar
+                null  // No hay valores nuevos ya que se elimina el registro
+            );
+        }
+        private async Task<LocacionProducto?> ObtenerPorIdAsync(int idLocacionProducto)
+        {
+            var query = "SELECT * FROM LocacionProducto WHERE IdLocacionProducto = @IdLocacionProducto";
+
+            return await ConectarAsync(connection =>
+                connection.QueryFirstOrDefaultAsync<LocacionProducto>(query, new { IdLocacionProducto = idLocacionProducto }));
         }
     }
 }

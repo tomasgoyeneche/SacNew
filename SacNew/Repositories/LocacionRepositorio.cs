@@ -1,142 +1,100 @@
-﻿using SacNew.Models;
+﻿using Dapper;
+using SacNew.Models;
+using SacNew.Services;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    public class LocacionRepositorio : ILocacionRepositorio
+    public class LocacionRepositorio : BaseRepositorio, ILocacionRepositorio
     {
-        private readonly string _connectionString;
-
-        public LocacionRepositorio(string connectionString)
+        public LocacionRepositorio(string connectionString, ISesionService sesionService)
+        : base(connectionString, sesionService)
         {
-            _connectionString = connectionString;
         }
 
-        public async Task<List<Locacion>> ObtenerTodasAsync()
+        public Task<List<Locacion>> ObtenerTodasAsync()
         {
-            var locaciones = new List<Locacion>();
+            var query = "SELECT * FROM Locacion WHERE Activo = 1";
 
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE Activo = 1", connection))
+            return ConectarAsync(connection =>
             {
-                await connection.OpenAsync();
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    while (await reader.ReadAsync())
-                    {
-                        locaciones.Add(new Locacion
-                        {
-                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
-                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
-                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
-                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
-                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
-                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
-                        });
-                    }
-                }
-            }
-
-            return locaciones;
+                return connection.QueryAsync<Locacion>(query)
+                                 .ContinueWith(task => task.Result.ToList());
+            });
         }
-
-        public async Task<Locacion> ObtenerPorIdAsync(int idLocacion)
+        public Task<Locacion?> ObtenerPorIdAsync(int idLocacion)
         {
-            Locacion locacion = null;
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion", connection))
-            {
-                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = idLocacion;
-                await connection.OpenAsync();
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    if (await reader.ReadAsync())
-                    {
-                        locacion = new Locacion
-                        {
-                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
-                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
-                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
-                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
-                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
-                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
-                        };
-                    }
-                }
-            }
-            return locacion;
-        }
+            var query = "SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion";
 
-        public async Task<List<Locacion>> BuscarPorCriterioAsync(string criterio)
+            return ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<Locacion?>(query, new { IdLocacion = idLocacion });
+            });
+        }
+        public Task<List<Locacion>> BuscarPorCriterioAsync(string criterio)
         {
-            var locaciones = new List<Locacion>();
+            var query = "SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)";
 
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)", connection))
+            return ConectarAsync(connection =>
             {
-                command.Parameters.Add("@Criterio", SqlDbType.NVarChar).Value = $"%{criterio}%";
-                await connection.OpenAsync();
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    while (await reader.ReadAsync())
-                    {
-                        locaciones.Add(new Locacion
-                        {
-                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
-                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
-                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
-                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
-                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
-                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
-                        });
-                    }
-                }
-            }
-
-            return locaciones;
+                return connection.QueryAsync<Locacion>(query, new { Criterio = $"%{criterio}%" })
+                                 .ContinueWith(task => task.Result.ToList());
+            });
         }
 
-        public async Task AgregarAsync(Locacion locacion)
+        public Task AgregarAsync(Locacion locacion)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo) VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo)", connection))
-            {
-                command.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = locacion.Nombre;
-                command.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = locacion.Direccion;
-                command.Parameters.Add("@Carga", SqlDbType.Bit).Value = locacion.Carga;
-                command.Parameters.Add("@Descarga", SqlDbType.Bit).Value = locacion.Descarga;
-                command.Parameters.Add("@Activo", SqlDbType.Bit).Value = locacion.Activo;
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var query = @"
+        INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo)
+        VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo)";
+
+            // No hay necesidad de serializar los valores manualmente
+            return EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacion),
+                "Locacion",
+                "INSERT",
+                null,  // No hay valores anteriores porque es un nuevo registro
+                locacion  // Pasamos el objeto directamente, el BaseRepositorio lo serializa
+            );
         }
+
 
         public async Task ActualizarAsync(Locacion locacion)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("UPDATE Locacion SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo WHERE IdLocacion = @IdLocacion", connection))
-            {
-                command.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = locacion.Nombre;
-                command.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = locacion.Direccion;
-                command.Parameters.Add("@Carga", SqlDbType.Bit).Value = locacion.Carga;
-                command.Parameters.Add("@Descarga", SqlDbType.Bit).Value = locacion.Descarga;
-                command.Parameters.Add("@Activo", SqlDbType.Bit).Value = locacion.Activo;
-                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = locacion.IdLocacion;
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            // Obtener los valores anteriores antes de la actualización para la auditoría
+            var locacionAnterior = await ObtenerPorIdAsync(locacion.IdLocacion);
+
+            var query = @"
+        UPDATE Locacion 
+        SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo
+        WHERE IdLocacion = @IdLocacion";
+
+            // Llamar a EjecutarConAuditoriaAsync para ejecutar la consulta y registrar auditoría
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacion),
+                "Locacion",
+                "UPDATE",
+                locacionAnterior,  // Pasamos los valores anteriores sin serializarlos
+                locacion  // Pasamos los valores nuevos sin serializarlos
+            );
         }
 
         public async Task EliminarAsync(int idLocacion)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            using (var command = new SqlCommand("UPDATE Locacion SET Activo = 0 WHERE IdLocacion = @IdLocacion", connection))
-            {
-                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = idLocacion;
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var query = "UPDATE Locacion SET Activo = 0 WHERE IdLocacion = @IdLocacion";
+
+            // Obtener los valores anteriores antes de la eliminación
+            var locacionAnterior = await ObtenerPorIdAsync(idLocacion);
+
+            // Registrar el cambio de estado como "Eliminado" en la auditoría
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, new { IdLocacion = idLocacion }),
+                "Locacion",
+                "DELETE",
+                locacionAnterior,  // Pasamos los valores anteriores sin serializarlos
+                null  // No hay valores nuevos ya que solo se desactiva el registro
+            );
         }
     }
 }

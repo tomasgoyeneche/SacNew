@@ -8,26 +8,22 @@ namespace SacNew.Presenters
 {
     public class AgregarEditarLocacionPresenter
     {
+
         private IAgregarEditarLocacionView _view;
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
-        private readonly IAuditoriaService _auditoriaService;
         private Locacion _locacionActual;
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,
             ILocacionProductoRepositorio locacionProductoRepositorio,
-            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio,
-            IAuditoriaService auditoriaService
-            )
+            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio)
         {
             _locacionRepositorio = locacionRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
             _locacionKilometrosEntreRepositorio = locacionKilometrosEntreRepositorio;
-            _auditoriaService = auditoriaService;
         }
-
         public void SetView(IAgregarEditarLocacionView view)
         {
             _view = view;
@@ -42,12 +38,10 @@ namespace SacNew.Presenters
                 _view.MostrarDatosLocacion(_locacionActual);
 
                 // Cargar productos asociados a la locación
-                var productosCarga = await _locacionProductoRepositorio.ObtenerPorLocacionIdAsync(idLocacion.Value);
-                _view.CargarProductos(productosCarga);
+                await CargarProductosAsync(idLocacion.Value);
 
                 // Cargar distancias entre locaciones
-                var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(idLocacion.Value);
-                _view.CargarKilometros(kilometrosEntre);
+                await CargarKilometrosAsync(idLocacion.Value);
             }
             else
             {

@@ -33,7 +33,7 @@ namespace SacNew.Presenters
             await ManejarErroresAsync(async () =>
             {
                 var locaciones = await _locacionRepositorio.ObtenerTodasAsync();
-                _view.CargarLocaciones(locaciones);  // Actualizamos la UI, no usar ConfigureAwait(false)
+                _view.CargarLocaciones(locaciones);
             }, "Error al cargar locaciones.");
         }
 
@@ -74,30 +74,20 @@ namespace SacNew.Presenters
 
         public async void EditarLocacion(int idLocacion)
         {
+            await AbrirFormularioLocacionAsync(idLocacion);
+        }
+
+        private async Task AbrirFormularioLocacionAsync(int? idLocacion)
+        {
             var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
-
-            // Inicializamos el presenter con la locación seleccionada
             await agregarEditarLocacionForm._presenter.InicializarAsync(idLocacion);
-
-            // Mostrar el formulario después de la inicialización
             agregarEditarLocacionForm.ShowDialog();
-
-            // Refrescar las locaciones después de cerrar el formulario
-            await CargarLocacionesAsync();
+            await CargarLocacionesAsync(); // Refrescar la lista al cerrar el formulario
         }
 
         public async void AgregarLocacion()
         {
-            var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
-
-            // Inicializamos sin pasar un id, ya que es una nueva locación
-            await agregarEditarLocacionForm._presenter.InicializarAsync(null);
-
-            // Mostrar el formulario
-            agregarEditarLocacionForm.ShowDialog();
-
-            // Refrescar las locaciones después de cerrar el formulario
-            await CargarLocacionesAsync();
+            await AbrirFormularioLocacionAsync(null);
         }
     }
 }

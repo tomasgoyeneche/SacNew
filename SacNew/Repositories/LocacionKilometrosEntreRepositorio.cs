@@ -1,76 +1,73 @@
-﻿using SacNew.Models;
+﻿using Dapper;
+using SacNew.Models;
+using SacNew.Services;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    internal class LocacionKilometrosEntreRepositorio : ILocacionKilometrosEntreRepositorio
+    public class LocacionKilometrosEntreRepositorio : BaseRepositorio, ILocacionKilometrosEntreRepositorio
     {
-        private readonly string _connectionString;
-
-        public LocacionKilometrosEntreRepositorio(string connectionString)
+        public LocacionKilometrosEntreRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService)
         {
-            _connectionString = connectionString;
         }
 
         public async Task<List<LocacionKilometrosEntre>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
-            var kilometrosEntre = new List<LocacionKilometrosEntre>();
-            using (var connection = new SqlConnection(_connectionString))
+            var query = @"
+        SELECT lk.*, l.Nombre AS LocacionDestinoNombre
+        FROM LocacionKilometrosEntre lk
+        INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
+        WHERE lk.IdLocacionOrigen = @IdLocacion";
+
+            return await ConectarAsync(connection =>
             {
-                var query = @"SELECT lk.*, l.Nombre AS LocacionDestinoNombre
-                          FROM LocacionKilometrosEntre lk
-                          INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
-                          WHERE lk.IdLocacionOrigen = @IdLocacion";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacion", idLocacion);
-                await connection.OpenAsync();
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    while (await reader.ReadAsync())
+                return connection.QueryAsync<LocacionKilometrosEntre, Locacion, LocacionKilometrosEntre>(
+                    query,
+                    (locacionKilometrosEntre, locacionDestino) =>
                     {
-                        kilometrosEntre.Add(new LocacionKilometrosEntre
-                        {
-                            IdKilometros = (int)reader["IdKilometros"],
-                            IdLocacionOrigen = (int)reader["IdLocacionOrigen"],
-                            IdLocacionDestino = (int)reader["IdLocacionDestino"],
-                            Kilometros = (int)reader["Kilometros"],
-                            LocacionDestino = new Locacion
-                            {
-                                IdLocacion = (int)reader["IdLocacionDestino"],
-                                Nombre = (string)reader["LocacionDestinoNombre"]
-                            }
-                        });
-                    }
-                }
-            }
-            return kilometrosEntre;
+                        locacionKilometrosEntre.LocacionDestino = locacionDestino;  // Asignar la locación destino
+                        return locacionKilometrosEntre;
+                    },
+                    new { IdLocacion = idLocacion },  // Parámetro para la consulta
+                    splitOn: "IdLocacionDestino"  // Indica dónde empieza el segundo objeto (LocacionDestino)
+                ).ContinueWith(task => task.Result.ToList());
+            });
         }
 
-        public async Task AgregarAsync(LocacionKilometrosEntre locacionKilometrosEntre)
+        public Task AgregarAsync(LocacionKilometrosEntre locacionKilometrosEntre)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = @"INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros)
-                          VALUES (@IdLocacionOrigen, @IdLocacionDestino, @Kilometros)";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacionOrigen", locacionKilometrosEntre.IdLocacionOrigen);
-                command.Parameters.AddWithValue("@IdLocacionDestino", locacionKilometrosEntre.IdLocacionDestino);
-                command.Parameters.AddWithValue("@Kilometros", locacionKilometrosEntre.Kilometros);
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var query = @"
+        INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros)
+        VALUES (@IdLocacionOrigen, @IdLocacionDestino, @Kilometros)";
+
+            return EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacionKilometrosEntre),
+                "LocacionKilometrosEntre",
+                "INSERT",
+                null,
+                locacionKilometrosEntre);
         }
 
         public async Task EliminarAsync(int idKilometros)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "DELETE FROM LocacionKilometrosEntre WHERE IdKilometros = @IdKilometros";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdKilometros", idKilometros);
-                await connection.OpenAsync();
-                await command.ExecuteNonQueryAsync();
-            }
+            var locacionKilometrosAnterior = await ObtenerPorIdAsync(idKilometros);  // Obtener antes de eliminar
+            var query = "DELETE FROM LocacionKilometrosEntre WHERE IdKilometros = @IdKilometros";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, new { IdKilometros = idKilometros }),
+                "LocacionKilometrosEntre",
+                "DELETE",
+                locacionKilometrosAnterior,
+                null);
+        }
+
+        private async Task<LocacionKilometrosEntre?> ObtenerPorIdAsync(int idKilometros)
+        {
+            var query = "SELECT * FROM LocacionKilometrosEntre WHERE IdKilometros = @IdKilometros";
+
+            return await ConectarAsync(connection =>
+                connection.QueryFirstOrDefaultAsync<LocacionKilometrosEntre>(query, new { IdKilometros = idKilometros }));
         }
     }
 }
