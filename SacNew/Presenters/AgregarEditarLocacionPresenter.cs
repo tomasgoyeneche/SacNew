@@ -1,11 +1,8 @@
-﻿using SacNew.Interfaces;
+﻿using Newtonsoft.Json;
+using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SacNew.Services;
 
 namespace SacNew.Presenters
 {
@@ -15,16 +12,20 @@ namespace SacNew.Presenters
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
+        private readonly IAuditoriaService _auditoriaService;
         private Locacion _locacionActual;
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,
             ILocacionProductoRepositorio locacionProductoRepositorio,
-            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio)
+            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio,
+            IAuditoriaService auditoriaService
+            )
         {
             _locacionRepositorio = locacionRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
             _locacionKilometrosEntreRepositorio = locacionKilometrosEntreRepositorio;
+            _auditoriaService = auditoriaService;
         }
 
         public void SetView(IAgregarEditarLocacionView view)
@@ -34,8 +35,6 @@ namespace SacNew.Presenters
 
         public async Task InicializarAsync(int? idLocacion)
         {
-
-
             if (idLocacion.HasValue)
             {
                 // Editar locación existente
@@ -59,21 +58,44 @@ namespace SacNew.Presenters
 
         public async Task GuardarLocacionAsync()
         {
+            string valoresAnteriores = null;
+
+            if (_locacionActual.IdLocacion != 0)
+            {
+                // Si es una edición, convertimos los valores anteriores a JSON para la auditoría
+                valoresAnteriores = JsonConvert.SerializeObject(_locacionActual);
+            }
+
+            // Guardar la locación actual
             _locacionActual.Nombre = _view.Nombre;
             _locacionActual.Carga = _view.Carga;
             _locacionActual.Descarga = _view.Descarga;
             _locacionActual.Activo = true;
 
+            string accion;
+            string valoresNuevos = JsonConvert.SerializeObject(_locacionActual); // Convertir los valores nuevos a JSON
+
             if (_locacionActual.IdLocacion == 0)
             {
                 // Agregar nueva locación
                 await _locacionRepositorio.AgregarAsync(_locacionActual);
+                accion = "Agregar";
             }
             else
             {
                 // Actualizar locación existente
                 await _locacionRepositorio.ActualizarAsync(_locacionActual);
+                accion = "Editar";
             }
+
+            // Registrar auditoría después de agregar o editar
+            await _auditoriaService.RegistrarAuditoriaAsync(
+                "Locacion",
+                accion,
+                _locacionActual.IdLocacion,
+                valoresAnteriores,
+                valoresNuevos
+            );
 
             _view.MostrarMensaje("Locación guardada correctamente.");
         }

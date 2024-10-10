@@ -65,7 +65,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             {
                 await _presenter.InicializarAsync();
             });
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -85,6 +84,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
             txtOdometro.TextChanged += txtOdometro_TextChanged;
         }
+
         public void MostrarMensaje(string mensaje)
         {
             MessageBox.Show(mensaje);

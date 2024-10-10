@@ -1,10 +1,5 @@
 ﻿using SacNew.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -22,8 +17,8 @@ namespace SacNew.Repositories
             var kilometrosEntre = new List<LocacionKilometrosEntre>();
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = @"SELECT lk.*, l.Nombre AS LocacionDestinoNombre 
-                          FROM LocacionKilometrosEntre lk 
+                var query = @"SELECT lk.*, l.Nombre AS LocacionDestinoNombre
+                          FROM LocacionKilometrosEntre lk
                           INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
                           WHERE lk.IdLocacionOrigen = @IdLocacion";
                 var command = new SqlCommand(query, connection);
@@ -55,7 +50,7 @@ namespace SacNew.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = @"INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros) 
+                var query = @"INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros)
                           VALUES (@IdLocacionOrigen, @IdLocacionDestino, @Kilometros)";
                 var command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@IdLocacionOrigen", locacionKilometrosEntre.IdLocacionOrigen);

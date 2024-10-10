@@ -1,10 +1,6 @@
 ﻿using SacNew.Models;
-using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -22,28 +18,22 @@ namespace SacNew.Repositories
             var locaciones = new List<Locacion>();
 
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE Activo = 1", connection))
             {
                 await connection.OpenAsync();
-                var query = "SELECT * FROM Locacion WHERE Activo = 1";  // Solo locaciones activas
-
-                using (var command = new SqlCommand(query, connection))
+                using (var reader = await command.ExecuteReaderAsync())
                 {
-                    using (var reader = await command.ExecuteReaderAsync())
+                    while (await reader.ReadAsync())
                     {
-                        while (await reader.ReadAsync())
+                        locaciones.Add(new Locacion
                         {
-                            var locacion = new Locacion
-                            {
-                                IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
-                                Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
-                                Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
-                                Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
-                                Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
-                                Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
-                            };
-
-                            locaciones.Add(locacion);
-                        }
+                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
+                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
+                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
+                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
+                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
+                        });
                     }
                 }
             }
@@ -51,15 +41,13 @@ namespace SacNew.Repositories
             return locaciones;
         }
 
-
         public async Task<Locacion> ObtenerPorIdAsync(int idLocacion)
         {
             Locacion locacion = null;
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion", connection))
             {
-                var query = "SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdLocacion", idLocacion);
+                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = idLocacion;
                 await connection.OpenAsync();
                 using (var reader = await command.ExecuteReaderAsync())
                 {
@@ -67,11 +55,12 @@ namespace SacNew.Repositories
                     {
                         locacion = new Locacion
                         {
-                            IdLocacion = (int)reader["IdLocacion"],
-                            Nombre = (string)reader["Nombre"],
-                            Carga = (bool)reader["Carga"],
-                            Descarga = (bool)reader["Descarga"],
-                            Activo = (bool)reader["Activo"]
+                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
+                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
+                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
+                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
+                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
                         };
                     }
                 }
@@ -84,30 +73,23 @@ namespace SacNew.Repositories
             var locaciones = new List<Locacion>();
 
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)", connection))
             {
+                command.Parameters.Add("@Criterio", SqlDbType.NVarChar).Value = $"%{criterio}%";
                 await connection.OpenAsync();
-                var query = "SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)";
-
-                using (var command = new SqlCommand(query, connection))
+                using (var reader = await command.ExecuteReaderAsync())
                 {
-                    command.Parameters.AddWithValue("@Criterio", $"%{criterio}%");
-
-                    using (var reader = await command.ExecuteReaderAsync())
+                    while (await reader.ReadAsync())
                     {
-                        while (await reader.ReadAsync())
+                        locaciones.Add(new Locacion
                         {
-                            var locacion = new Locacion
-                            {
-                                IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
-                                Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
-                                Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
-                                Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
-                                Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
-                                Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
-                            };
-
-                            locaciones.Add(locacion);
-                        }
+                            IdLocacion = reader.GetInt32(reader.GetOrdinal("IdLocacion")),
+                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                            Direccion = reader.GetString(reader.GetOrdinal("Direccion")),
+                            Carga = reader.GetBoolean(reader.GetOrdinal("Carga")),
+                            Descarga = reader.GetBoolean(reader.GetOrdinal("Descarga")),
+                            Activo = reader.GetBoolean(reader.GetOrdinal("Activo"))
+                        });
                     }
                 }
             }
@@ -118,30 +100,29 @@ namespace SacNew.Repositories
         public async Task AgregarAsync(Locacion locacion)
         {
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo) VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo)", connection))
             {
-                var query = "INSERT INTO Locacion (Nombre, Carga, Descarga, Activo) VALUES (@Nombre, @Carga, @Descarga, @Activo)";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Nombre", locacion.Nombre);
-                command.Parameters.AddWithValue("@Carga", locacion.Carga);
-                command.Parameters.AddWithValue("@Descarga", locacion.Descarga);
-                command.Parameters.AddWithValue("@Activo", locacion.Activo);
+                command.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = locacion.Nombre;
+                command.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = locacion.Direccion;
+                command.Parameters.Add("@Carga", SqlDbType.Bit).Value = locacion.Carga;
+                command.Parameters.Add("@Descarga", SqlDbType.Bit).Value = locacion.Descarga;
+                command.Parameters.Add("@Activo", SqlDbType.Bit).Value = locacion.Activo;
                 await connection.OpenAsync();
                 await command.ExecuteNonQueryAsync();
             }
         }
 
-
         public async Task ActualizarAsync(Locacion locacion)
         {
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("UPDATE Locacion SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo WHERE IdLocacion = @IdLocacion", connection))
             {
-                var query = "UPDATE Locacion SET Nombre = @Nombre, Carga = @Carga, Descarga = @Descarga, Activo = @Activo WHERE IdLocacion = @IdLocacion";
-                var command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Nombre", locacion.Nombre);
-                command.Parameters.AddWithValue("@Carga", locacion.Carga);
-                command.Parameters.AddWithValue("@Descarga", locacion.Descarga);
-                command.Parameters.AddWithValue("@Activo", locacion.Activo);
-                command.Parameters.AddWithValue("@IdLocacion", locacion.IdLocacion);
+                command.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = locacion.Nombre;
+                command.Parameters.Add("@Direccion", SqlDbType.NVarChar).Value = locacion.Direccion;
+                command.Parameters.Add("@Carga", SqlDbType.Bit).Value = locacion.Carga;
+                command.Parameters.Add("@Descarga", SqlDbType.Bit).Value = locacion.Descarga;
+                command.Parameters.Add("@Activo", SqlDbType.Bit).Value = locacion.Activo;
+                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = locacion.IdLocacion;
                 await connection.OpenAsync();
                 await command.ExecuteNonQueryAsync();
             }
@@ -150,15 +131,11 @@ namespace SacNew.Repositories
         public async Task EliminarAsync(int idLocacion)
         {
             using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("UPDATE Locacion SET Activo = 0 WHERE IdLocacion = @IdLocacion", connection))
             {
+                command.Parameters.Add("@IdLocacion", SqlDbType.Int).Value = idLocacion;
                 await connection.OpenAsync();
-                var query = "UPDATE Locacion SET Activo = 0 WHERE IdLocacion = @IdLocacion";  // Baja lógica
-
-                using (var command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@IdLocacion", idLocacion);
-                    await command.ExecuteNonQueryAsync();
-                }
+                await command.ExecuteNonQueryAsync();
             }
         }
     }

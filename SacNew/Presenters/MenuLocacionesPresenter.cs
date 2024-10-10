@@ -1,13 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Interfaces;
-using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Views.Configuraciones.AbmLocaciones;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -17,7 +11,7 @@ namespace SacNew.Presenters
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly IServiceProvider _serviceProvider;
 
-        public MenuLocacionesPresenter(ILocacionRepositorio locacionRepositorio,IServiceProvider serviceProvider)
+        public MenuLocacionesPresenter(ILocacionRepositorio locacionRepositorio, IServiceProvider serviceProvider)
         {
             _locacionRepositorio = locacionRepositorio;
             _serviceProvider = serviceProvider;
@@ -30,7 +24,7 @@ namespace SacNew.Presenters
 
         public async Task InicializarAsync()
         {
-            await CargarLocacionesAsync(); 
+            await CargarLocacionesAsync();
             // No necesitas ConfigureAwait(false) aquí
         }
 
@@ -78,8 +72,6 @@ namespace SacNew.Presenters
             }
         }
 
-
-
         public async void EditarLocacion(int idLocacion)
         {
             var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
@@ -94,7 +86,7 @@ namespace SacNew.Presenters
             await CargarLocacionesAsync();
         }
 
-        public async  void AgregarLocacion()
+        public async void AgregarLocacion()
         {
             var agregarEditarLocacionForm = _serviceProvider.GetService<AgregarEditarLocacion>();
 
@@ -107,6 +99,5 @@ namespace SacNew.Presenters
             // Refrescar las locaciones después de cerrar el formulario
             await CargarLocacionesAsync();
         }
-
     }
 }

@@ -71,7 +71,6 @@ namespace SacNew.Presenters
 
                 var valoresAnteriores = PocActual != null ? JsonConvert.SerializeObject(PocActual) : null;
 
-
                 poc.NumeroPOC = _view.NumeroPOC;
                 poc.IdNomina = _view.IdNomina;
                 poc.IdPosta = _view.IdPosta;

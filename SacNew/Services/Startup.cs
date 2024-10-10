@@ -40,7 +40,6 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<ILocacionKilometrosEntreRepositorio, LocacionKilometrosEntreRepositorio>();
             serviceCollection.AddSingleton<ILocacionProductoRepositorio, LocacionProductoRepositorio>();
 
-
             serviceCollection.AddSingleton<IAuditoriaRepositorio, AuditoriaRepositorio>();
             serviceCollection.AddSingleton<IAuditoriaService, AuditoriaService>();
 

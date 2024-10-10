@@ -9,7 +9,6 @@ namespace SacNew.Views
     {
         private readonly ISesionService _sesionService;
         private readonly IServiceProvider _serviceProvider;
-    
 
         public Menu(ISesionService sesionService, IServiceProvider serviceProvider)
         {
