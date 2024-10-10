@@ -6,7 +6,7 @@ namespace SacNew.Interfaces
     {
         // Propiedades para obtener datos de los campos del formulario
         string Nombre { get; }
-
+        string Direccion { get; }   
         bool Carga { get; }
         bool Descarga { get; }
 
@@ -14,6 +14,8 @@ namespace SacNew.Interfaces
         void MostrarDatosLocacion(Locacion locacion);
 
         void CargarProductos(List<LocacionProducto> productos);
+
+        void EstablecerModoEdicion(bool habilitar);
 
         void CargarKilometros(List<LocacionKilometrosEntre> kilometrosEntre);
 

@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 
 namespace SacNew.Presenters
 {
@@ -14,15 +16,19 @@ namespace SacNew.Presenters
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
         private Locacion _locacionActual;
+        private readonly IServiceProvider _serviceProvider;
+
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,
             ILocacionProductoRepositorio locacionProductoRepositorio,
-            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio)
+            ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio
+          , IServiceProvider serviceProvider)
         {
             _locacionRepositorio = locacionRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
             _locacionKilometrosEntreRepositorio = locacionKilometrosEntreRepositorio;
+            _serviceProvider = serviceProvider;
         }
         public void SetView(IAgregarEditarLocacionView view)
         {
@@ -42,56 +48,37 @@ namespace SacNew.Presenters
 
                 // Cargar distancias entre locaciones
                 await CargarKilometrosAsync(idLocacion.Value);
+                _view.EstablecerModoEdicion(true);
+
             }
             else
             {
                 // Nueva locación
                 _locacionActual = new Locacion();
+                _view.EstablecerModoEdicion(false);
             }
         }
 
         public async Task GuardarLocacionAsync()
         {
-            string valoresAnteriores = null;
-
-            if (_locacionActual.IdLocacion != 0)
-            {
-                // Si es una edición, convertimos los valores anteriores a JSON para la auditoría
-                valoresAnteriores = JsonConvert.SerializeObject(_locacionActual);
-            }
-
-            // Guardar la locación actual
             _locacionActual.Nombre = _view.Nombre;
+            _locacionActual.Direccion = _view.Direccion;
             _locacionActual.Carga = _view.Carga;
             _locacionActual.Descarga = _view.Descarga;
             _locacionActual.Activo = true;
-
-            string accion;
-            string valoresNuevos = JsonConvert.SerializeObject(_locacionActual); // Convertir los valores nuevos a JSON
 
             if (_locacionActual.IdLocacion == 0)
             {
                 // Agregar nueva locación
                 await _locacionRepositorio.AgregarAsync(_locacionActual);
-                accion = "Agregar";
+                _view.MostrarMensaje("Locación agregada correctamente.");
             }
             else
             {
                 // Actualizar locación existente
                 await _locacionRepositorio.ActualizarAsync(_locacionActual);
-                accion = "Editar";
+                _view.MostrarMensaje("Locación actualizada correctamente.");
             }
-
-            // Registrar auditoría después de agregar o editar
-            await _auditoriaService.RegistrarAuditoriaAsync(
-                "Locacion",
-                accion,
-                _locacionActual.IdLocacion,
-                valoresAnteriores,
-                valoresNuevos
-            );
-
-            _view.MostrarMensaje("Locación guardada correctamente.");
         }
 
         public async Task EliminarProductoAsync(int idLocacionProducto)
@@ -110,6 +97,33 @@ namespace SacNew.Presenters
             // Refrescar lista de distancias
             var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(_locacionActual.IdLocacion);
             _view.CargarKilometros(kilometrosEntre);
+        }
+
+        private async Task CargarProductosAsync(int idLocacion)
+        {
+            var productosCarga = await _locacionProductoRepositorio.ObtenerPorLocacionIdAsync(idLocacion);
+            _view.CargarProductos(productosCarga);
+        }
+
+        private async Task CargarKilometrosAsync(int idLocacion)
+        {
+            var kilometrosEntre = await _locacionKilometrosEntreRepositorio.ObtenerPorLocacionIdAsync(idLocacion);
+            _view.CargarKilometros(kilometrosEntre);
+        }
+
+
+        public void AgregarProducto()
+        {
+            var agregarProductoForm = _serviceProvider.GetService<AgregarProductoForm>();
+
+            // Pasamos el id de la locación actual
+            agregarProductoForm._presenter.InicializarAsync(_locacionActual.IdLocacion);
+            
+            // Mostrar el formulario de agregar producto
+            agregarProductoForm.ShowDialog();
+
+            // Después de agregar, refrescamos la lista de productos
+            CargarProductosAsync(_locacionActual.IdLocacion);
         }
     }
 }

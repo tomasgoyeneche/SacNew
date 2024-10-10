@@ -15,10 +15,10 @@ namespace SacNew.Repositories
         public async Task<List<LocacionKilometrosEntre>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
             var query = @"
-        SELECT lk.*, l.Nombre AS LocacionDestinoNombre
-        FROM LocacionKilometrosEntre lk
-        INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
-        WHERE lk.IdLocacionOrigen = @IdLocacion";
+    SELECT lk.IdKilometros, lk.IdLocacionOrigen, lk.IdLocacionDestino, lk.Kilometros, l.IdLocacion AS LocacionDestinoId, l.Nombre 
+    FROM LocacionKilometrosEntre lk
+    INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
+    WHERE lk.IdLocacionOrigen = @IdLocacion";
 
             return await ConectarAsync(connection =>
             {
@@ -30,7 +30,7 @@ namespace SacNew.Repositories
                         return locacionKilometrosEntre;
                     },
                     new { IdLocacion = idLocacion },  // Parámetro para la consulta
-                    splitOn: "IdLocacionDestino"  // Indica dónde empieza el segundo objeto (LocacionDestino)
+                    splitOn: "LocacionDestinoId"  // Indica dónde empieza el segundo objeto (LocacionDestino)
                 ).ContinueWith(task => task.Result.ToList());
             });
         }

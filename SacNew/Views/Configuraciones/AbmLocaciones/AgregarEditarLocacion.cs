@@ -17,12 +17,15 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         }
 
         public string Nombre => txtNombre.Text.Trim();
+        public string Direccion => txtDireccion.Text.Trim();
+
         public bool Carga => cbCarga.SelectedItem.ToString() == "Sí";
         public bool Descarga => cbDescarga.SelectedItem.ToString() == "Sí";
 
         public void MostrarDatosLocacion(Locacion locacion)
         {
             txtNombre.Text = locacion.Nombre;
+            txtDireccion.Text = locacion.Direccion;
             cbCarga.SelectedItem = locacion.Carga ? "Sí" : "No";
             cbDescarga.SelectedItem = locacion.Descarga ? "Sí" : "No";
         }
@@ -32,8 +35,11 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             dataGridViewProductos.DataSource = productos.Select(p => new
             {
                 p.IdLocacionProducto,
-                p.Producto.Nombre
+                p.Producto.Nombre,
             }).ToList();
+
+            dataGridViewProductos.Columns["IdLocacionProducto"].Visible = false;
+
         }
 
         public void CargarKilometros(List<LocacionKilometrosEntre> kilometrosEntre)
@@ -44,6 +50,9 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
                 LocacionDestino = k.LocacionDestino.Nombre,
                 k.Kilometros
             }).ToList();
+
+
+            dataGridViewKilometros.Columns["idKilometros"].Visible = false;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -85,6 +94,24 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        public void EstablecerModoEdicion(bool habilitar)
+        {
+            // Habilitar o deshabilitar los DataGridViews y botones
+            dataGridViewProductos.Enabled = habilitar;
+            dataGridViewKilometros.Enabled = habilitar;
+            btnEliminarProducto.Enabled = habilitar;
+            btnEliminarKilometros.Enabled = habilitar;
+            btnAgregarKilometro.Enabled = habilitar;
+            btnAgregarProducto.Enabled = habilitar;
+            // Si hay más controles, puedes agregarlos aquí
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            _presenter.AgregarProducto();
+
         }
     }
 }

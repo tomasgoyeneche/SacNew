@@ -15,10 +15,10 @@ namespace SacNew.Repositories
         public async Task<List<LocacionProducto>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
             var query = @"
-            SELECT lp.*, p.Nombre AS ProductoNombre 
-            FROM LocacionProducto lp 
-            INNER JOIN Producto p ON lp.IdProducto = p.IdProducto 
-            WHERE lp.IdLocacion = @IdLocacion";
+    SELECT lp.IdLocacionProducto, lp.IdLocacion, lp.IdProducto, p.IdProducto, p.Nombre 
+    FROM LocacionProducto lp 
+    INNER JOIN Producto p ON lp.IdProducto = p.IdProducto 
+    WHERE lp.IdLocacion = @IdLocacion";
 
             return await ConectarAsync(connection =>
             {
@@ -26,11 +26,11 @@ namespace SacNew.Repositories
                     query,
                     (locacionProducto, producto) =>
                     {
-                        locacionProducto.Producto = producto;  // Mapear Producto a LocacionProducto
+                        locacionProducto.Producto = producto;  // Asignar el producto mapeado
                         return locacionProducto;
                     },
                     new { IdLocacion = idLocacion },  // Parámetro para la consulta
-                    splitOn: "IdProducto"
+                    splitOn: "IdProducto"  // Indicar dónde empieza el objeto Producto
                 ).ContinueWith(task => task.Result.ToList());
             });
         }
