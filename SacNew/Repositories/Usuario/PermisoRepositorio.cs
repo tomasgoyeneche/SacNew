@@ -1,33 +1,23 @@
-﻿using System.Configuration;
+﻿using Dapper;
+using SacNew.Services;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    internal class PermisoRepositorio : IPermisoRepositorio
+    internal class PermisoRepositorio : BaseRepositorio, IPermisoRepositorio
     {
+        public PermisoRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService) { }
+
         public List<int> ObtenerPermisosPorUsuario(int idUsuario)
         {
-            List<int> permisos = new List<int>();
-            string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
+            var query = "SELECT idPermiso FROM UsuarioPermiso WHERE idUsuario = @IdUsuario";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            return Conectar(connection =>
             {
-                connection.Open();
-                string query = "SELECT idPermiso FROM UsuarioPermiso WHERE idUsuario = @IdUsuario";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@IdUsuario", idUsuario);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            permisos.Add(reader.GetInt32(0)); // Agregamos los permisos
-                        }
-                    }
-                }
-            }
-            return permisos;
+                return connection.Query<int>(query, new { IdUsuario = idUsuario }).ToList(); // Dapper devuelve directamente la lista de permisos
+            });
         }
     }
 }

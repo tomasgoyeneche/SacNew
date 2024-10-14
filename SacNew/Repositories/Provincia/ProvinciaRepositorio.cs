@@ -1,42 +1,24 @@
-﻿using SacNew.Models;
+﻿using Dapper;
+using SacNew.Models;
+using SacNew.Services;
 using System.Configuration;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    public class ProvinciaRepositorio : IProvinciaRepositorio
+    public class ProvinciaRepositorio : BaseRepositorio, IProvinciaRepositorio
     {
-        private readonly string _connectionString;
-
-        public ProvinciaRepositorio()
-        {
-            _connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
-        }
+        public ProvinciaRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService) { }
 
         public List<Provincia> ObtenerProvincias()
         {
-            var provincias = new List<Provincia>();
+            var query = "SELECT idProvincia, nombreProvincia FROM Provincia";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            return Conectar(connection =>
             {
-                connection.Open();
-                string query = "SELECT idProvincia, nombreProvincia FROM Provincia";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var provincia = new Provincia
-                        {
-                            IdProvincia = reader.GetInt32(0),
-                            NombreProvincia = reader.GetString(1)
-                        };
-                        provincias.Add(provincia);
-                    }
-                }
-            }
-            return provincias;
+                return connection.Query<Provincia>(query).ToList(); // Dapper mapea directamente a la lista de Provincias
+            });
         }
     }
 }

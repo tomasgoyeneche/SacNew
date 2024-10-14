@@ -1,43 +1,41 @@
-﻿using System.Configuration;
+﻿using Dapper;
+using SacNew.Services;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    internal class ConceptoPostaProveedorRepositorio : IConceptoPostaProveedorRepositorio
+    internal class ConceptoPostaProveedorRepositorio : BaseRepositorio, IConceptoPostaProveedorRepositorio
     {
-        private readonly string _connectionString;
-
-        public ConceptoPostaProveedorRepositorio()
-        {
-            _connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
-        }
+        public ConceptoPostaProveedorRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService)
+        { }
 
         public void AgregarConceptoPostaProveedor(int idConsumo, int idPosta, int idProveedor)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            var query = @"
+        INSERT INTO ConceptoPostaProveedor (IdConsumo, IdPosta, IdProveedor)
+        VALUES (@IdConsumo, @IdPosta, @IdProveedor)";
+
+            Conectar(connection =>
             {
-                connection.Open();
-                string query = "INSERT INTO ConceptoPostaProveedor (IdConsumo, IdPosta, IdProveedor) VALUES (@IdConsumo, @IdPosta, @IdProveedor)";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdConsumo", idConsumo);
-                command.Parameters.AddWithValue("@IdPosta", idPosta);
-                command.Parameters.AddWithValue("@IdProveedor", idProveedor);
-                command.ExecuteNonQuery();
-            }
+                connection.Execute(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
+                return 0;
+            });
         }
 
         public void ActualizarConceptoPostaProveedor(int idConsumo, int idPosta, int idProveedor)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            var query = @"
+        UPDATE ConceptoPostaProveedor
+        SET IdProveedor = @IdProveedor
+        WHERE IdConsumo = @IdConsumo AND IdPosta = @IdPosta";
+
+            Conectar(connection =>
             {
-                connection.Open();
-                string query = "UPDATE ConceptoPostaProveedor SET IdProveedor = @IdProveedor WHERE IdConsumo = @IdConsumo AND IdPosta = @IdPosta";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@IdConsumo", idConsumo);
-                command.Parameters.AddWithValue("@IdPosta", idPosta);
-                command.Parameters.AddWithValue("@IdProveedor", idProveedor);
-                command.ExecuteNonQuery();
-            }
+                connection.Execute(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
+                return 0;
+            });
         }
     }
 }

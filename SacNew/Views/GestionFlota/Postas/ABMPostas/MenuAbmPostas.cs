@@ -43,8 +43,8 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             dataGridViewPostas.DataSource = postas;
 
             // Mostrar solo las columnas específicas
-            dataGridViewPostas.Columns["Id"].Visible = false;
-            dataGridViewPostas.Columns["ProvinciaId"].Visible = false;
+            dataGridViewPostas.Columns["IdPosta"].Visible = false;
+            dataGridViewPostas.Columns["idProvincia"].Visible = false;
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)

@@ -16,6 +16,16 @@ namespace SacNew.Repositories
             _sesionService = sesionService;
         }
 
+
+        protected T Conectar<T>(Func<SqlConnection, T> consulta)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                return consulta(connection);
+            }
+        }
+
         // Método auxiliar para manejar la conexión con retorno
         protected async Task<T> ConectarAsync<T>(Func<SqlConnection, Task<T>> consulta)
         {

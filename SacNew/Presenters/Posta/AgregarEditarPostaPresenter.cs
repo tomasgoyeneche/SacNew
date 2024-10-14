@@ -32,8 +32,8 @@ namespace SacNew.Presenters
             _view.Codigo = posta.Codigo;
             _view.Descripcion = posta.Descripcion;
             _view.Direccion = posta.Direccion;
-            _view.ProvinciaId = posta.ProvinciaId;
-            _view.Id = posta.Id;
+            _view.ProvinciaId = posta.IdProvincia;
+            _view.Id = posta.IdPosta;
         }
 
         public void GuardarPosta()
@@ -51,7 +51,7 @@ namespace SacNew.Presenters
                     Codigo = _view.Codigo,
                     Descripcion = _view.Descripcion,
                     Direccion = _view.Direccion,
-                    ProvinciaId = _view.ProvinciaId
+                    IdProvincia = _view.ProvinciaId
                 };
                 _postaRepositorio.AgregarPostaAsync(nuevaPosta);
                 _view.MostrarMensaje("Posta agregada exitosamente.");
@@ -61,11 +61,11 @@ namespace SacNew.Presenters
                 // Actualizar la posta existente
                 var postaExistente = new Posta
                 {
-                    Id = _view.Id,  // Mantener el Id de la Posta existente
+                    IdPosta = _view.Id,  // Mantener el Id de la Posta existente
                     Codigo = _view.Codigo,
                     Descripcion = _view.Descripcion,
                     Direccion = _view.Direccion,
-                    ProvinciaId = _view.ProvinciaId
+                    IdProvincia = _view.ProvinciaId
                 };
                 _postaRepositorio.ActualizarPostaAsync(postaExistente);
                 _view.MostrarMensaje("Posta actualizada exitosamente.");
@@ -77,6 +77,11 @@ namespace SacNew.Presenters
             if (string.IsNullOrWhiteSpace(_view.Codigo))
             {
                 _view.MostrarMensaje("El código no puede estar vacío.");
+                return false;
+            }
+            if (_view.Codigo.Length > 2)
+            {
+                _view.MostrarMensaje("El código es de maximo 2 letras.");
                 return false;
             }
 

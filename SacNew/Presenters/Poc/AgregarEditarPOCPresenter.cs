@@ -69,8 +69,6 @@ namespace SacNew.Presenters
                     throw new InvalidOperationException("El número de POC es requerido.");
                 }
 
-                var valoresAnteriores = PocActual != null ? JsonConvert.SerializeObject(PocActual) : null;
-
                 poc.NumeroPOC = _view.NumeroPOC;
                 poc.IdNomina = _view.IdNomina;
                 poc.IdPosta = _view.IdPosta;
@@ -83,15 +81,11 @@ namespace SacNew.Presenters
                 {
                     await _pocRepositorio.AgregarPOCAsync(poc).ConfigureAwait(false);
                     _view.MostrarMensaje("POC creada exitosamente.");
-
-                    await _auditoriaService.RegistrarAuditoriaAsync("POC", "INSERT", poc.IdPOC, null, JsonConvert.SerializeObject(poc));
                 }
                 else
                 {
                     await _pocRepositorio.ActualizarPOCAsync(poc).ConfigureAwait(false);
                     _view.MostrarMensaje("POC actualizada exitosamente.");
-
-                    await _auditoriaService.RegistrarAuditoriaAsync("POC", "UPDATE", poc.IdPOC, valoresAnteriores, JsonConvert.SerializeObject(poc));
                 }
             });
         }

@@ -1,40 +1,24 @@
-﻿using SacNew.Models;
+﻿using Dapper;
+using SacNew.Models;
+using SacNew.Services;
 using System.Configuration;
 using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
-    internal class UsuarioRepositorio : IUsuarioRepositorio
+    internal class UsuarioRepositorio : BaseRepositorio, IUsuarioRepositorio
     {
-        public Usuario ObtenerPorNombreUsuario(string nombreUsuario)
+        public UsuarioRepositorio(string connectionString, ISesionService sesionService)
+            : base(connectionString, sesionService) { }
+
+        public Usuario? ObtenerPorNombreUsuario(string nombreUsuario)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
+            var query = "SELECT idUsuario, nombreUsuario, contrasena, nombreCompleto, activo FROM Usuario WHERE nombreUsuario = @NombreUsuario";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            return Conectar(connection =>
             {
-                connection.Open();
-                string query = "SELECT idUsuario, nombreUsuario,contrasena, nombreCompleto, activo FROM Usuario WHERE nombreUsuario = @NombreUsuario";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new Usuario
-                            {
-                                IdUsuario = reader.GetInt32(0),
-                                NombreUsuario = reader.GetString(1),
-                                Contrasena = reader.GetString(2),
-                                NombreCompleto = reader.GetString(3),
-                                Activo = reader.GetBoolean(4)
-                            };
-                        }
-                    }
-                }
-            }
-            return null; // Si no se encuentra el usuario
+                return connection.QueryFirstOrDefault<Usuario>(query, new { NombreUsuario = nombreUsuario });
+            });
         }
     }
 }

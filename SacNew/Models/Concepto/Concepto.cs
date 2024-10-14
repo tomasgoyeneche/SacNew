@@ -5,7 +5,7 @@
         public int IdConsumo { get; set; }
         public string? Codigo { get; set; }
         public string? Descripcion { get; set; }
-        public int IdTipoConsumo { get; set; }  // FK a la tabla de tipo de consumo
+        public int IdConsumoTipo { get; set; }  // FK a la tabla de tipo de consumo
         public decimal PrecioActual { get; set; }
         public DateTime Vigencia { get; set; }
         public decimal PrecioAnterior { get; set; }

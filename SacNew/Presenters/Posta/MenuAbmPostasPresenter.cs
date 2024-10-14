@@ -96,7 +96,7 @@ namespace SacNew.Presenters
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    await Task.Run(() => _postaRepositorio.EliminarPostaAsync(postaSeleccionada.Id));
+                    await Task.Run(() => _postaRepositorio.EliminarPostaAsync(postaSeleccionada.IdPosta));
                     _view.MostrarMensaje("Posta eliminada exitosamente.");
                     await CargarPostasAsync();  // Recargar las postas después de eliminar
                 }

@@ -76,7 +76,7 @@ namespace SacNew.Presenters
                 {
                     Codigo = _view.Codigo,
                     Descripcion = _view.Descripcion,
-                    IdTipoConsumo = _view.IdTipoConsumo,
+                    IdConsumoTipo = _view.IdTipoConsumo,
                     PrecioActual = _view.PrecioActual,
                     Vigencia = _view.Vigencia,
                     PrecioAnterior = _view.PrecioAnterior,
@@ -94,7 +94,7 @@ namespace SacNew.Presenters
                 // Actualizar concepto existente
                 _conceptoActual.IdConsumo = _view.Id;  // Mantener el Id del concepto
                 _conceptoActual.Descripcion = _view.Descripcion;
-                _conceptoActual.IdTipoConsumo = _view.IdTipoConsumo;
+                _conceptoActual.IdConsumoTipo = _view.IdTipoConsumo;
                 _conceptoActual.PrecioActual = _view.PrecioActual;
                 _conceptoActual.Vigencia = _view.Vigencia;
                 _conceptoActual.PrecioAnterior = _view.PrecioAnterior;

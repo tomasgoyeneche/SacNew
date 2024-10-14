@@ -56,6 +56,7 @@ namespace SacNew.Presenters
         public void AgregarConcepto()
         {
             var agregarEditarConcepto = _serviceProvider.GetService<AgregarEditarConcepto>();
+            agregarEditarConcepto.CargarTiposDeConsumo(_conceptoTipoRepositorio.ObtenerTodosLosTipos());
             agregarEditarConcepto.ShowDialog();
             CargarConceptos(); // Recargar después de agregar uno nuevo
         }

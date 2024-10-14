@@ -36,7 +36,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         {
             cmbPosta.DataSource = postas;
             cmbPosta.DisplayMember = "Descripcion";
-            cmbPosta.ValueMember = "Id";
+            cmbPosta.ValueMember = "IdPosta";
             cmbPosta.SelectedValue = _presenter.PocActual?.IdPosta ?? -1;
         }
 

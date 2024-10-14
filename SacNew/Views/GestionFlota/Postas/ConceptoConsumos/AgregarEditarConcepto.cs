@@ -59,7 +59,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             txtCodigo.Text = concepto.Codigo;
             txtCodigo.Enabled = false;  // El código no se puede modificar al editar
             txtDescripcion.Text = concepto.Descripcion;
-            cmbTipoConsumo.SelectedValue = concepto.IdTipoConsumo;
+            cmbTipoConsumo.SelectedValue = concepto.IdConsumoTipo;
             txtPrecioActual.Text = concepto.PrecioActual.ToString("F2");
             txtPrecioAnterior.Text = concepto.PrecioAnterior.ToString("F2");
             dtpVigencia.Value = concepto.Vigencia;

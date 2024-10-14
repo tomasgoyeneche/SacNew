@@ -28,7 +28,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
                 c.IdConsumo,
                 c.Codigo,
                 c.Descripcion,
-                TipoConsumo = _presenter.ObtenerDescripcionTipoConsumo(c.IdTipoConsumo)  // Obtener la descripción del tipo de consumo
+                TipoConsumo = _presenter.ObtenerDescripcionTipoConsumo(c.IdConsumoTipo)  // Obtener la descripción del tipo de consumo
             }).ToList();
 
             // Configurar para que el ID de consumo no se muestre
