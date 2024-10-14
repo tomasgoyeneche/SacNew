@@ -1,8 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
@@ -35,7 +33,7 @@ namespace SacNew.Repositories
         public async Task AgregarPostaAsync(Posta nuevaPosta)
         {
             var query = @"
-            INSERT INTO Posta (Codigo, Descripcion, Direccion, idProvincia) 
+            INSERT INTO Posta (Codigo, Descripcion, Direccion, idProvincia)
             VALUES (@Codigo, @Descripcion, @Direccion, @idProvincia)";
 
             await ConectarAsync(connection =>
@@ -47,8 +45,8 @@ namespace SacNew.Repositories
         public async Task ActualizarPostaAsync(Posta postaActualizada)
         {
             var query = @"
-            UPDATE Posta 
-            SET Codigo = @Codigo, Descripcion = @Descripcion, Direccion = @Direccion, idProvincia = @idProvincia 
+            UPDATE Posta
+            SET Codigo = @Codigo, Descripcion = @Descripcion, Direccion = @Direccion, idProvincia = @idProvincia
             WHERE IdPosta = @IdPosta";
 
             await ConectarAsync(connection =>

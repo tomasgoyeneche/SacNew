@@ -1,8 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {
@@ -23,6 +21,7 @@ namespace SacNew.Repositories
             var query = "SELECT * FROM Concepto WHERE IdConsumo = @IdConsumo";
             return Conectar(connection => connection.QueryFirstOrDefault<Concepto>(query, new { IdConsumo = idConsumo }));
         }
+
         public List<Concepto> BuscarConceptos(string textoBusqueda)
         {
             var query = "SELECT * FROM Concepto WHERE Codigo LIKE @Busqueda OR Descripcion LIKE @Busqueda";
@@ -42,14 +41,13 @@ namespace SacNew.Repositories
         public void ActualizarConcepto(Concepto concepto)
         {
             var query = @"
-            UPDATE Concepto 
-            SET Codigo = @Codigo, Descripcion = @Descripcion, idConsumoTipo = @idConsumoTipo, PrecioActual = @PrecioActual, 
+            UPDATE Concepto
+            SET Codigo = @Codigo, Descripcion = @Descripcion, idConsumoTipo = @idConsumoTipo, PrecioActual = @PrecioActual,
             Vigencia = @Vigencia, PrecioAnterior = @PrecioAnterior, Activo = @Activo, IdUsuario = @IdUsuario, FechaModificacion = @FechaModificacion
             WHERE IdConsumo = @IdConsumo";
 
             Conectar(connection => connection.Execute(query, concepto));
         }
-
 
         public void EliminarConcepto(int idConsumo)
         {

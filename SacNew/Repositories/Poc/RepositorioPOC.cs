@@ -2,7 +2,6 @@
 using SacNew.Models;
 using SacNew.Models.DTOs;
 using SacNew.Services;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {

@@ -1,7 +1,5 @@
 ﻿using Dapper;
 using SacNew.Services;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace SacNew.Repositories
 {

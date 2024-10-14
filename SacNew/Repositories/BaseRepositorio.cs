@@ -16,7 +16,6 @@ namespace SacNew.Repositories
             _sesionService = sesionService;
         }
 
-
         protected T Conectar<T>(Func<SqlConnection, T> consulta)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -73,8 +72,8 @@ namespace SacNew.Repositories
                 };
 
                 var queryAuditoria = @"
-            INSERT INTO Auditoria (IdUsuario, TablaModificada, Accion, ValoresAnteriores, ValoresNuevos, FechaHora)
-            VALUES (@IdUsuario, @TablaModificada, @Accion, @ValoresAnteriores, @ValoresNuevos, @FechaHora)";
+                INSERT INTO Auditoria (IdUsuario, TablaModificada, Accion, ValoresAnteriores, ValoresNuevos, FechaHora)
+                VALUES (@IdUsuario, @TablaModificada, @Accion, @ValoresAnteriores, @ValoresNuevos, @FechaHora)";
 
                 // Insertar la auditoría
                 await connection.ExecuteAsync(queryAuditoria, auditoria);
