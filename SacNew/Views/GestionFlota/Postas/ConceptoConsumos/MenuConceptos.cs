@@ -65,13 +65,8 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         {
             if (dataGridViewConceptos.SelectedRows.Count > 0)
             {
-                // Obtener el IdConsumo de la fila seleccionada
                 int idConsumo = Convert.ToInt32(dataGridViewConceptos.SelectedRows[0].Cells["IdConsumo"].Value);
-
-                // Obtener el concepto completo desde la base de datos
                 var conceptoCompleto = _presenter.ObtenerConceptoPorId(idConsumo);
-
-                // Llamar al formulario de edición con el concepto completo
                 _presenter.EditarConcepto(conceptoCompleto);
             }
             else

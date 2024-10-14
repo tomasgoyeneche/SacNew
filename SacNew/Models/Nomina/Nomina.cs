@@ -9,6 +9,8 @@
 
         public string ApellidoChofer { get; set; }
 
+        public int idEmpresa { get;set; }
+
         public string DescripcionNomina
         {
             get

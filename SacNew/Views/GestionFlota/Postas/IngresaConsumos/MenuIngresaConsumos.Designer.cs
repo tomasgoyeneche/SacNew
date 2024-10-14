@@ -172,6 +172,7 @@
             txtBuscar.Font = new Font("Segoe UI", 9F);
             txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtBuscar.Location = new Point(12, 42);
+            txtBuscar.MaxLength = 20;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PasswordChar = '\0';
             txtBuscar.PlaceholderText = "";
@@ -250,6 +251,7 @@
             dataGridViewPOC.ThemeStyle.RowsStyle.Height = 25;
             dataGridViewPOC.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewPOC.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewPOC.CellDoubleClick += dataGridViewPOC_CellDoubleClick;
             // 
             // btnEliminar
             // 

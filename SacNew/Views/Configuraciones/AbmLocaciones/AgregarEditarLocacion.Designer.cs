@@ -238,6 +238,7 @@
             txtNombre.Font = new Font("Segoe UI", 9F);
             txtNombre.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNombre.Location = new Point(27, 39);
+            txtNombre.MaxLength = 100;
             txtNombre.Name = "txtNombre";
             txtNombre.PasswordChar = '\0';
             txtNombre.PlaceholderText = "";
@@ -622,6 +623,7 @@
             txtDireccion.Font = new Font("Segoe UI", 9F);
             txtDireccion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDireccion.Location = new Point(27, 110);
+            txtDireccion.MaxLength = 100;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.PasswordChar = '\0';
             txtDireccion.PlaceholderText = "";

@@ -127,8 +127,8 @@
   <data name="loginAutoChenyiCalidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\loginAutoChenyiCalidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="configuracionLocaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\configuracionLocaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendarioFlota" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\calendarioFlota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="documentalPlanilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\documentalPlanilla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,6 +151,9 @@
   <data name="agregarEditarPOCWallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\agregarEditarPOCWallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AgregarEditarPosta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AgregarEditarPosta.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GuardiaBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\GuardiaBB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,17 +166,11 @@
   <data name="documentalAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\documentalAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loginCamionIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loginCamionIA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="loginContrasenaGris" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\loginContrasenaGris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cupeoFlota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\cupeoFlota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoMinimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\logoMinimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="adminIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\adminIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,9 +193,6 @@
   <data name="externosAutorizaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\externosAutorizaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoginFotoIaChenyi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\LoginFotoIaChenyi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="postasYPF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\postasYPF.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -214,14 +208,11 @@
   <data name="menuPostasIngresaConsumos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\menuPostasIngresaConsumos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendarioFlota" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\calendarioFlota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="configuracionLocaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\configuracionLocaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loginContraLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loginContraLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="appCloseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\appCloseButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="abmLocacionesKilometros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\abmLocacionesKilometros.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="documentalChoferes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\documentalChoferes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,13 +226,10 @@
   <data name="postasFlota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\postasFlota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loginCamion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loginCamion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="configuracionUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\configuracionUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="abmLocacionesKilometros" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\abmLocacionesKilometros.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConceptoConsumosAgregarEditarWallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ConceptoConsumosAgregarEditarWallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

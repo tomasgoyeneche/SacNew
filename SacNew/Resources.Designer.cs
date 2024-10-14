@@ -113,6 +113,16 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AgregarEditarPosta {
+            get {
+                object obj = ResourceManager.GetObject("AgregarEditarPosta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alertasFlota {
             get {
                 object obj = ResourceManager.GetObject("alertasFlota", resourceCulture);
@@ -123,9 +133,9 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap appCloseButton {
+        internal static System.Drawing.Bitmap calendarioFlota {
             get {
-                object obj = ResourceManager.GetObject("appCloseButton", resourceCulture);
+                object obj = ResourceManager.GetObject("calendarioFlota", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +143,9 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendarioFlota {
+        internal static System.Drawing.Bitmap ConceptoConsumosAgregarEditarWallpaper {
             get {
-                object obj = ResourceManager.GetObject("calendarioFlota", resourceCulture);
+                object obj = ResourceManager.GetObject("ConceptoConsumosAgregarEditarWallpaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,36 +353,6 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loginCamion {
-            get {
-                object obj = ResourceManager.GetObject("loginCamion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginCamionIA {
-            get {
-                object obj = ResourceManager.GetObject("loginCamionIA", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginContraLogo {
-            get {
-                object obj = ResourceManager.GetObject("loginContraLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap loginContrasenaGris {
             get {
                 object obj = ResourceManager.GetObject("loginContrasenaGris", resourceCulture);
@@ -383,29 +363,9 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LoginFotoIaChenyi {
-            get {
-                object obj = ResourceManager.GetObject("LoginFotoIaChenyi", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap loginUsuarioGris {
             get {
                 object obj = ResourceManager.GetObject("loginUsuarioGris", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logoMinimizar {
-            get {
-                object obj = ResourceManager.GetObject("logoMinimizar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

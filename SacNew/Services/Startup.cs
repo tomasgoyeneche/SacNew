@@ -8,6 +8,7 @@ using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using System.Configuration;
 
 namespace SacNew.Services
@@ -18,18 +19,20 @@ namespace SacNew.Services
         {
             var serviceCollection = new ServiceCollection();
 
-            serviceCollection.AddSingleton<ISesionService, SesionService>();
-
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
             // Reemplaza con tu cadena de conexión real
             serviceCollection.AddSingleton(connectionString);
+
+            serviceCollection.AddSingleton<ISesionService, SesionService>();
+
+            
 
             // Registrar Repositorios
             serviceCollection.AddSingleton<IUsuarioRepositorio, UsuarioRepositorio>();
             serviceCollection.AddSingleton<IPermisoRepositorio, PermisoRepositorio>();
             serviceCollection.AddSingleton<IPostaRepositorio, PostaRepositorio>();
-            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  // Registrar el repositorio de provincias
-            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  // Registrar el repositorio de provincias
+            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  
+            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>(); 
             serviceCollection.AddSingleton<IConceptoRepositorio, ConceptoRepositorio>();
             serviceCollection.AddSingleton<IConceptoTipoRepositorio, ConceptoTipoRepositorio>();
             serviceCollection.AddSingleton<IConceptoProveedorRepositorio, ConceptoProveedorRepositorio>();
@@ -40,9 +43,9 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<ILocacionKilometrosEntreRepositorio, LocacionKilometrosEntreRepositorio>();
             serviceCollection.AddSingleton<ILocacionProductoRepositorio, LocacionProductoRepositorio>();
             serviceCollection.AddSingleton<IProductoRepositorio, ProductoRepositorio>();
+            serviceCollection.AddSingleton<IEmpresaCreditoRepositorio, EmpresaCreditoRepositorio>();
 
-            serviceCollection.AddSingleton<IAuditoriaRepositorio, AuditoriaRepositorio>();
-            serviceCollection.AddSingleton<IAuditoriaService, AuditoriaService>();
+
 
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
@@ -58,9 +61,10 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarEditarLocacion>();
             serviceCollection.AddTransient<AgregarProductoForm>();
             serviceCollection.AddTransient<AgregarKilometrosLocaciones>();
+            serviceCollection.AddTransient<MenuIngresarGasoilOtros>();
 
             //Presentadores
-            serviceCollection.AddTransient<MenuAbmPostasPresenter>();  // Presenter de Postas
+            serviceCollection.AddTransient<MenuAbmPostasPresenter>(); 
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
             serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
             serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();
@@ -69,6 +73,8 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarEditarLocacionPresenter>();
             serviceCollection.AddTransient<AgregarProductoPresenter>();
             serviceCollection.AddTransient<AgregarKilometrosPresenter>();
+            serviceCollection.AddTransient<MenuIngresaGasoilOtrosPresenter>();
+
             return serviceCollection.BuildServiceProvider();
         }
     }

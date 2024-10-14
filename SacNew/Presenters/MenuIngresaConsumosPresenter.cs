@@ -3,6 +3,7 @@ using SacNew.Interfaces;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 
 namespace SacNew.Presenters
 {
@@ -100,6 +101,17 @@ namespace SacNew.Presenters
             });
         }
 
+        public async void AbrirMenuIngresaGasoilOtros(int idPoc)
+        {
+            // Obtener la vista y el presentador para MenuIngresaGasoilOtros
+            var menuIngresaGasoilOtrosView = _serviceProvider.GetService<MenuIngresarGasoilOtros>();
+
+            // Cargar los datos del POC seleccionado
+            await menuIngresaGasoilOtrosView._presenter.CargarDatosAsync(idPoc);
+
+            // Mostrar la vista
+            menuIngresaGasoilOtrosView.ShowDialog();
+        }
         private async Task ManejarErroresAsync(Func<Task> accion)
         {
             try

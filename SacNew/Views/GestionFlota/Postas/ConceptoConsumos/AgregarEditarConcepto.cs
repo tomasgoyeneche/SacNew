@@ -6,7 +6,6 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 {
     public partial class AgregarEditarConcepto : Form, IAgregarEditarConceptoView
     {
-        //private readonly ISesionService _sesionService;
 
         public readonly AgregarEditarConceptoPresenter _presenter;
 
@@ -14,12 +13,12 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         {
             InitializeComponent();
             _presenter = presenter;
-            _presenter.SetView(this);  // Asociamos la vista con el presenter después de la creación
+            _presenter.SetView(this); 
 
-            // Cargar datos iniciales como tipos de consumo y proveedores
+            
         }
 
-        // Implementación de IAgregarEditarConceptoView
+
         public int Id { get; set; }
 
         public string Codigo => txtCodigo.Text.Trim();

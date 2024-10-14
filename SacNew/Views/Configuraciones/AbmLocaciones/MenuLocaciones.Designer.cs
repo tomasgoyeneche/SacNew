@@ -240,6 +240,7 @@
             txtBuscar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtBuscar.Location = new Point(12, 38);
+            txtBuscar.MaxLength = 20;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PasswordChar = '\0';
             txtBuscar.PlaceholderText = "";

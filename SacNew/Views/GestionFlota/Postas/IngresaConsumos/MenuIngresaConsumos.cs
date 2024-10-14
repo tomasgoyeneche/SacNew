@@ -136,5 +136,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
                 accion();
             }
         }
+
+        private void dataGridViewPOC_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int idPoc = Convert.ToInt32(dataGridViewPOC.Rows[e.RowIndex].Cells["IdPoc"].Value);
+                _presenter.AbrirMenuIngresaGasoilOtros(idPoc);
+            }
+        }
     }
 }

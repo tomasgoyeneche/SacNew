@@ -133,6 +133,7 @@
             txtKilometros.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtKilometros.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtKilometros.Location = new Point(29, 161);
+            txtKilometros.MaxLength = 10;
             txtKilometros.Name = "txtKilometros";
             txtKilometros.PasswordChar = '\0';
             txtKilometros.PlaceholderText = "Ingrese Kilometros";

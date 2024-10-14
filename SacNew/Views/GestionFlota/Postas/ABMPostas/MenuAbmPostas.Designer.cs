@@ -149,6 +149,7 @@
             txtBuscar.Font = new Font("Segoe UI", 9F);
             txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtBuscar.Location = new Point(161, 41);
+            txtBuscar.MaxLength = 20;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PasswordChar = '\0';
             txtBuscar.PlaceholderText = "";

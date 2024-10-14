@@ -17,9 +17,7 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 
             _sesionService = sesionService;
             _presenter = new AgregarEditarPostaPresenter(this, postaRepositorio, provinciaRepositorio);
-
             _presenter.CargarProvincias();
-
             _presenter.CargarProvincias();
         }
 

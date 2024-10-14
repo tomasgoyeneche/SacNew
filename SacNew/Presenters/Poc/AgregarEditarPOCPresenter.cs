@@ -12,7 +12,6 @@ namespace SacNew.Presenters
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly ISesionService _sesionService;
         private readonly IRepositorioPOC _pocRepositorio;
-        private readonly IAuditoriaService _auditoriaService;
 
         public POC PocActual { get; private set; }
 
@@ -20,14 +19,14 @@ namespace SacNew.Presenters
             INominaRepositorio nominaRepositorio,
             IPostaRepositorio postaRepositorio,
             ISesionService sesionService,
-            IRepositorioPOC pocRepositorio,
-            IAuditoriaService auditoriaService)
+            IRepositorioPOC pocRepositorio
+           )
         {
             _nominaRepositorio = nominaRepositorio;
             _postaRepositorio = postaRepositorio;
             _sesionService = sesionService;
             _pocRepositorio = pocRepositorio;
-            _auditoriaService = auditoriaService;
+            
         }
 
         public void SetView(IAgregarEditarPOCView view)

@@ -27,19 +27,11 @@ namespace SacNew.Views
         {
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
-                //if (_menuPostas == null || _menuPostas.IsDisposed)
-                //{
-                //    _menuPostas = _serviceProvider.GetService<MenuPostas>();
-                //}
-                //this.Hide();
-                //_menuPostas.ShowDialog();
-                //this.Show();
-
                 using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
                 {
-                    this.Hide();
+                
                     postasMenu.ShowDialog();
-                    this.Show();
+                    
                 }
             }
             else
@@ -52,9 +44,7 @@ namespace SacNew.Views
         {
             using (var menuLocaciones = _serviceProvider.GetService<MenuLocaciones>())
             {
-                this.Hide();
                 menuLocaciones.ShowDialog();
-                this.Show();
             }
         }
     }
