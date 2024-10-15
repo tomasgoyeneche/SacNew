@@ -62,6 +62,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<AgregarProductoForm>();
             serviceCollection.AddTransient<AgregarKilometrosLocaciones>();
             serviceCollection.AddTransient<MenuIngresarGasoilOtros>();
+            serviceCollection.AddTransient<IngresaGasoil>();
 
             //Presentadores
             serviceCollection.AddTransient<MenuAbmPostasPresenter>(); 

@@ -1,5 +1,10 @@
-﻿using SacNew.Interfaces;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SacNew.Interfaces;
 using SacNew.Repositories;
+using SacNew.Views;
+using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,20 +20,30 @@ namespace SacNew.Presenters
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IRepositorioPOC _pocRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IServiceProvider _serviceProvider;
 
         public MenuIngresaGasoilOtrosPresenter(
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
             IRepositorioPOC pocRepositorio,
-            INominaRepositorio nominaRepositorio)
+            INominaRepositorio nominaRepositorio
+            , IServiceProvider serviceProvider)
         {
             _empresaCreditoRepositorio = empresaCreditoRepositorio ?? throw new ArgumentNullException(nameof(empresaCreditoRepositorio));
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));
             _nominaRepositorio = nominaRepositorio ?? throw new ArgumentNullException(nameof(nominaRepositorio));
+            _serviceProvider = serviceProvider;
         }
 
         public void SetView(IMenuIngresaGasoilOtrosView view)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
+        }
+
+
+        public void IngresaGasoil()
+        {
+            var ingresaGasoil = _serviceProvider.GetService<IngresaGasoil>();
+            ingresaGasoil.Show();
         }
 
         public async Task CargarDatosAsync(int idPoc)
