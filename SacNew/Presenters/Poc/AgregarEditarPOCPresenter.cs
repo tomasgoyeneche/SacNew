@@ -26,7 +26,6 @@ namespace SacNew.Presenters
             _postaRepositorio = postaRepositorio;
             _sesionService = sesionService;
             _pocRepositorio = pocRepositorio;
-            
         }
 
         public void SetView(IAgregarEditarPOCView view)

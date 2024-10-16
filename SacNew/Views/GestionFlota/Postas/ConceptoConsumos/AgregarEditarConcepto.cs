@@ -6,18 +6,14 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 {
     public partial class AgregarEditarConcepto : Form, IAgregarEditarConceptoView
     {
-
         public readonly AgregarEditarConceptoPresenter _presenter;
 
         public AgregarEditarConcepto(AgregarEditarConceptoPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
-            _presenter.SetView(this); 
-
-            
+            _presenter.SetView(this);
         }
-
 
         public int Id { get; set; }
 

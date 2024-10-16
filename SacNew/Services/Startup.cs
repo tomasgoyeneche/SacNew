@@ -25,14 +25,12 @@ namespace SacNew.Services
 
             serviceCollection.AddSingleton<ISesionService, SesionService>();
 
-            
-
             // Registrar Repositorios
             serviceCollection.AddSingleton<IUsuarioRepositorio, UsuarioRepositorio>();
             serviceCollection.AddSingleton<IPermisoRepositorio, PermisoRepositorio>();
             serviceCollection.AddSingleton<IPostaRepositorio, PostaRepositorio>();
-            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();  
-            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>(); 
+            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();
+            serviceCollection.AddSingleton<IProvinciaRepositorio, ProvinciaRepositorio>();
             serviceCollection.AddSingleton<IConceptoRepositorio, ConceptoRepositorio>();
             serviceCollection.AddSingleton<IConceptoTipoRepositorio, ConceptoTipoRepositorio>();
             serviceCollection.AddSingleton<IConceptoProveedorRepositorio, ConceptoProveedorRepositorio>();
@@ -44,8 +42,6 @@ namespace SacNew.Services
             serviceCollection.AddSingleton<ILocacionProductoRepositorio, LocacionProductoRepositorio>();
             serviceCollection.AddSingleton<IProductoRepositorio, ProductoRepositorio>();
             serviceCollection.AddSingleton<IEmpresaCreditoRepositorio, EmpresaCreditoRepositorio>();
-
-
 
             // Registrar Formularios
             serviceCollection.AddTransient<Login>();
@@ -65,7 +61,7 @@ namespace SacNew.Services
             serviceCollection.AddTransient<IngresaGasoil>();
 
             //Presentadores
-            serviceCollection.AddTransient<MenuAbmPostasPresenter>(); 
+            serviceCollection.AddTransient<MenuAbmPostasPresenter>();
             serviceCollection.AddTransient<AgregarEditarPostaPresenter>();
             serviceCollection.AddTransient<AgregarEditarConceptoPresenter>();
             serviceCollection.AddTransient<MenuIngresaConsumosPresenter>();

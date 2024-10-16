@@ -29,9 +29,7 @@ namespace SacNew.Views
             {
                 using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
                 {
-                
                     postasMenu.ShowDialog();
-                    
                 }
             }
             else

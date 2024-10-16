@@ -1,11 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -29,7 +24,7 @@ namespace SacNew.Repositories
         public async Task ActualizarCreditoAsync(EmpresaCredito empresaCredito)
         {
             var query = @"
-            UPDATE EmpresaCredito 
+            UPDATE EmpresaCredito
             SET CreditoAsignado = @CreditoAsignado,
                 CreditoConsumido = @CreditoConsumido,
                 CreditoDisponible = @CreditoDisponible,

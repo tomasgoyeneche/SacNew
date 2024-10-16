@@ -2,13 +2,9 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IMenuIngresaConsumosView
+    public interface IMenuIngresaConsumosView : IViewConMensajes, IViewConUsuario
     {
         void MostrarPOC(List<POCDto> listaPOC);
-
-        void MostrarMensaje(string mensaje);
-
-        void MostrarNombreUsuario(string nombre);
 
         DialogResult ConfirmarEliminacion(string mensaje);
     }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
+﻿using SacNew.Interfaces;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
@@ -7,23 +6,17 @@ using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 
 namespace SacNew.Presenters
 {
-    public class MenuIngresaConsumosPresenter
+    public class MenuIngresaConsumosPresenter : BasePresenter<IMenuIngresaConsumosView>
     {
-        private IMenuIngresaConsumosView _view;
         private readonly IRepositorioPOC _repositorioPOC;
-        private readonly ISesionService _sesionService;
-        private readonly IServiceProvider _serviceProvider;
 
-        public MenuIngresaConsumosPresenter(IRepositorioPOC repositorioPOC, ISesionService sesionService, IServiceProvider serviceProvider)
+        public MenuIngresaConsumosPresenter(
+            IRepositorioPOC repositorioPOC,
+            ISesionService sesionService,
+            IServiceProvider serviceProvider)
+        : base(sesionService, serviceProvider)  // Aquí pasamos las dependencias a la clase base
         {
             _repositorioPOC = repositorioPOC;
-            _sesionService = sesionService;
-            _serviceProvider = serviceProvider;
-        }
-
-        public void SetView(IMenuIngresaConsumosView view)
-        {
-            _view = view;
         }
 
         public async Task InicializarAsync()
@@ -31,97 +24,68 @@ namespace SacNew.Presenters
             await ManejarErroresAsync(async () =>
             {
                 MostrarNombreUsuario();
-                await CargarPOCAsync().ConfigureAwait(false);  // Cargar las POCs al inicializar
+                await CargarPOCAsync();
             });
-        }
-
-        public void MostrarNombreUsuario()
-        {
-            string nombreUsuario = _sesionService.NombreCompleto;
-            _view.MostrarNombreUsuario(nombreUsuario);
         }
 
         public async Task CargarPOCAsync()
         {
-            await ManejarErroresAsync(async () =>
-            {
-                var listaPOC = await _repositorioPOC.ObtenerTodosAsync().ConfigureAwait(false);
-                _view.MostrarPOC(listaPOC);
-            });
+            await EjecutarConCargaAsync(
+                () => _repositorioPOC.ObtenerTodosAsync(),
+                _view.MostrarPOC
+            );
         }
 
         public async Task BuscarPOCAsync(string criterio)
         {
-            await ManejarErroresAsync(async () =>
-            {
-                var listaFiltrada = await _repositorioPOC.BuscarPOCAsync(criterio).ConfigureAwait(false);
-                _view.MostrarPOC(listaFiltrada);
-            });
+            await EjecutarConCargaAsync(
+                () => _repositorioPOC.BuscarPOCAsync(criterio),
+                _view.MostrarPOC
+            );
         }
 
         public async Task EditarPOCAsync(int idPoc)
         {
-            await ManejarErroresAsync(async () =>
+            await EjecutarConCargaAsync(async () =>
             {
-                var poc = await _repositorioPOC.ObtenerPorIdAsync(idPoc).ConfigureAwait(false);
-                if (poc == null)
-                {
-                    _view.MostrarMensaje("POC no encontrada.");
-                    return;
-                }
+                var poc = await _repositorioPOC.ObtenerPorIdAsync(idPoc)
+                    ?? throw new Exception("POC no encontrada.");
 
-                var agregarEditarPoc = _serviceProvider.GetService<AgregarEditarPoc>();
-                agregarEditarPoc._presenter.CargarDatosParaEditar(poc);  // Cargar los datos en el formulario
-                agregarEditarPoc.ShowDialog();
-                await CargarPOCAsync().ConfigureAwait(false);  // Recargar la lista después de la edición
-            });
+                await AbrirFormularioAsync<AgregarEditarPoc>(async form =>
+                {
+                    form._presenter.CargarDatosParaEditar(poc);
+                    await Task.CompletedTask;
+                });
+            }, CargarPOCAsync);
         }
 
         public async Task AgregarPOCAsync()
         {
-            await ManejarErroresAsync(async () =>
+            await EjecutarConCargaAsync(() =>
             {
-                var agregarEditarPOC = _serviceProvider.GetService<AgregarEditarPoc>();
-                agregarEditarPOC.ShowDialog();
-                await CargarPOCAsync().ConfigureAwait(false);  // Recargar después de agregar
-            });
+                return AbrirFormularioAsync<AgregarEditarPoc>(async form => await Task.CompletedTask);
+            }, CargarPOCAsync);
         }
 
         public async Task EliminarPOCAsync(int id)
         {
-            await ManejarErroresAsync(async () =>
+            await EjecutarConCargaAsync(async () =>
             {
                 var confirmacion = _view.ConfirmarEliminacion("¿Está seguro que desea eliminar esta POC?");
                 if (confirmacion == DialogResult.Yes)
                 {
-                    await _repositorioPOC.EliminarPOCAsync(id).ConfigureAwait(false);
+                    await _repositorioPOC.EliminarPOCAsync(id);
                     _view.MostrarMensaje("POC eliminada correctamente.");
-                    await CargarPOCAsync().ConfigureAwait(false);  // Recargar la lista después de eliminar
                 }
+            }, CargarPOCAsync);
+        }
+
+        public async Task AbrirMenuIngresaGasoilOtrosAsync(int idPoc)
+        {
+            await AbrirFormularioAsync<MenuIngresarGasoilOtros>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idPoc);
             });
-        }
-
-        public async void AbrirMenuIngresaGasoilOtros(int idPoc)
-        {
-            // Obtener la vista y el presentador para MenuIngresaGasoilOtros
-            var menuIngresaGasoilOtrosView = _serviceProvider.GetService<MenuIngresarGasoilOtros>();
-
-            // Cargar los datos del POC seleccionado
-            await menuIngresaGasoilOtrosView._presenter.CargarDatosAsync(idPoc);
-
-            // Mostrar la vista
-            menuIngresaGasoilOtrosView.ShowDialog();
-        }
-        private async Task ManejarErroresAsync(Func<Task> accion)
-        {
-            try
-            {
-                await accion();
-            }
-            catch (Exception ex)
-            {
-                _view.MostrarMensaje($"Ocurrió un error: {ex.Message}");
-            }
         }
     }
 }

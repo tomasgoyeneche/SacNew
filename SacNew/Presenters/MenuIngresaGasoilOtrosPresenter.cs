@@ -1,16 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Interfaces;
 using SacNew.Repositories;
-using SacNew.Views;
-using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
-using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -38,7 +30,6 @@ namespace SacNew.Presenters
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
         }
-
 
         public void IngresaGasoil()
         {
