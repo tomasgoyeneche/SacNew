@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarEditarLocacionView
+    public interface IAgregarEditarLocacionView: IViewConMensajes
     {
         // Propiedades para obtener datos de los campos del formulario
         string Nombre { get; }
@@ -19,8 +19,6 @@ namespace SacNew.Interfaces
         void EstablecerModoEdicion(bool habilitar);
 
         void CargarKilometros(List<LocacionKilometrosEntre> kilometrosEntre);
-
-        void MostrarMensaje(string mensaje);
 
         DialogResult ConfirmarEliminacion(string mensaje);
     }

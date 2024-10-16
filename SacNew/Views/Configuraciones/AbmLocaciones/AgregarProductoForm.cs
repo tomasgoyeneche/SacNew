@@ -31,7 +31,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            _presenter.GuardarProducto();
+            _presenter.GuardarProductoAsync();
             Dispose();
         }
 

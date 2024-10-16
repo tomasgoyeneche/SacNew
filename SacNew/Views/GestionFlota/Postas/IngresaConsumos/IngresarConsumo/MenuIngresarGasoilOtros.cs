@@ -37,6 +37,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             MessageBox.Show(mensaje);
         }
 
+        public void MostrarNombreUsuario(string nombreUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
         private void bIngresaGasoil_Click(object sender, EventArgs e)
         {
             _presenter.IngresaGasoil();

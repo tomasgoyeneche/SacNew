@@ -5,12 +5,10 @@ using SacNew.Services;
 
 namespace SacNew.Presenters
 {
-    public class AgregarEditarPOCPresenter
+    public class AgregarEditarPOCPresenter : BasePresenter<IAgregarEditarPOCView>
     {
-        private IAgregarEditarPOCView _view;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IPostaRepositorio _postaRepositorio;
-        private readonly ISesionService _sesionService;
         private readonly IRepositorioPOC _pocRepositorio;
 
         public POC PocActual { get; private set; }
@@ -18,26 +16,21 @@ namespace SacNew.Presenters
         public AgregarEditarPOCPresenter(
             INominaRepositorio nominaRepositorio,
             IPostaRepositorio postaRepositorio,
+            IRepositorioPOC pocRepositorio,
             ISesionService sesionService,
-            IRepositorioPOC pocRepositorio
-           )
+            IServiceProvider serviceProvider
+        ) : base(sesionService, serviceProvider)
         {
             _nominaRepositorio = nominaRepositorio;
             _postaRepositorio = postaRepositorio;
-            _sesionService = sesionService;
             _pocRepositorio = pocRepositorio;
-        }
-
-        public void SetView(IAgregarEditarPOCView view)
-        {
-            _view = view;
         }
 
         public int IdUsuario => _sesionService.IdUsuario;
 
         public async Task InicializarAsync()
         {
-            await ManejarErroresAsync(async () =>
+            await EjecutarConCargaAsync(async () =>
             {
                 var nominas = _nominaRepositorio.ObtenerTodasLasNominas();
                 var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();
@@ -56,7 +49,7 @@ namespace SacNew.Presenters
 
         public async Task GuardarPOCAsync()
         {
-            await ManejarErroresAsync(async () =>
+            await EjecutarConCargaAsync(async () =>
             {
                 var poc = PocActual ?? new POC { Activo = true };
 
@@ -76,27 +69,15 @@ namespace SacNew.Presenters
 
                 if (PocActual == null)
                 {
-                    await _pocRepositorio.AgregarPOCAsync(poc).ConfigureAwait(false);
+                    await _pocRepositorio.AgregarPOCAsync(poc);
                     _view.MostrarMensaje("POC creada exitosamente.");
                 }
                 else
                 {
-                    await _pocRepositorio.ActualizarPOCAsync(poc).ConfigureAwait(false);
+                    await _pocRepositorio.ActualizarPOCAsync(poc);
                     _view.MostrarMensaje("POC actualizada exitosamente.");
                 }
             });
-        }
-
-        private async Task ManejarErroresAsync(Func<Task> accion)
-        {
-            try
-            {
-                await accion();
-            }
-            catch (Exception ex)
-            {
-                _view.MostrarMensaje($"Error: {ex.Message}");
-            }
         }
     }
 }

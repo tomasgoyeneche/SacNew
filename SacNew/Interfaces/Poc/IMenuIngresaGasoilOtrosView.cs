@@ -1,11 +1,9 @@
 ﻿namespace SacNew.Interfaces
 {
-    public interface IMenuIngresaGasoilOtrosView
+    public interface IMenuIngresaGasoilOtrosView: IViewConMensajes, IViewConUsuario
     {
         string NumeroPoc { get; set; }
         string CreditoTotal { get; set; }
         string CreditoDisponible { get; set; }
-
-        void MostrarMensaje(string mensaje);
     }
 }

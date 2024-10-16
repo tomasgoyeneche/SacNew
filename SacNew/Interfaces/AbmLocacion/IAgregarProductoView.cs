@@ -2,12 +2,12 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarProductoView
+    public interface IAgregarProductoView: IViewConMensajes
     {
         int ProductoSeleccionado { get; }
 
         void CargarProductos(List<Producto> productos);
 
-        void MostrarMensaje(string mensaje);
+
     }
 }

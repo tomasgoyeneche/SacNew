@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarEditarPOCView
+    public interface IAgregarEditarPOCView: IViewConMensajes
     {
         int IdNomina { get; }
         int IdPosta { get; }
@@ -17,7 +17,5 @@ namespace SacNew.Interfaces
         void CargarPostas(List<Posta> postas);
 
         void MostrarDatosPOC(POC poc);
-
-        void MostrarMensaje(string mensaje);
     }
 }

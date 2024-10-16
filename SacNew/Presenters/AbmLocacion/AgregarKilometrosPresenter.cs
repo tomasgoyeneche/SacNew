@@ -1,57 +1,60 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Services;
 
 namespace SacNew.Presenters
 {
-    public class AgregarKilometrosPresenter
+    public class AgregarKilometrosPresenter : BasePresenter<IAgregarKilometrosView>
     {
-        private IAgregarKilometrosView _view;
         private readonly ILocacionKilometrosEntreRepositorio _kilometrosRepositorio;
         private readonly ILocacionRepositorio _locacionRepositorio;
         private int _idLocacionOrigen;
 
         public AgregarKilometrosPresenter(
             ILocacionKilometrosEntreRepositorio kilometrosRepositorio,
-            ILocacionRepositorio locacionRepositorio)
+            ILocacionRepositorio locacionRepositorio,
+            ISesionService sesionService,
+            IServiceProvider serviceProvider
+        ) : base(sesionService, serviceProvider)
         {
             _kilometrosRepositorio = kilometrosRepositorio;
             _locacionRepositorio = locacionRepositorio;
-        }
-
-        public void SetView(IAgregarKilometrosView view)
-        {
-            _view = view;
         }
 
         public async Task InicializarAsync(int idLocacionOrigen)
         {
             _idLocacionOrigen = idLocacionOrigen;
 
-            // Obtener todas las locaciones excepto la de origen
-            var locaciones = await _locacionRepositorio.ObtenerTodasAsync();
-            locaciones = locaciones.Where(l => l.IdLocacion != idLocacionOrigen).ToList();
-
-            _view.CargarLocaciones(locaciones);
+            await EjecutarConCargaAsync(async () =>
+            {
+                // Obtener todas las locaciones excepto la de origen
+                var locaciones = await _locacionRepositorio.ObtenerTodasAsync();
+                locaciones = locaciones.Where(l => l.IdLocacion != idLocacionOrigen).ToList();
+                _view.CargarLocaciones(locaciones);
+            });
         }
 
         public async Task GuardarKilometrosAsync()
         {
-            if (_view.Kilometros <= 0)
+            await EjecutarConCargaAsync(async () =>
             {
-                _view.MostrarMensaje("La distancia en kilómetros debe ser mayor a 0.");
-                return;
-            }
+                if (_view.Kilometros <= 0)
+                {
+                    _view.MostrarMensaje("La distancia en kilómetros debe ser mayor a 0.");
+                    return;
+                }
 
-            var nuevoKilometro = new LocacionKilometrosEntre
-            {
-                IdLocacionOrigen = _idLocacionOrigen,
-                IdLocacionDestino = _view.IdLocacionDestino,
-                Kilometros = _view.Kilometros
-            };
+                var nuevoKilometro = new LocacionKilometrosEntre
+                {
+                    IdLocacionOrigen = _idLocacionOrigen,
+                    IdLocacionDestino = _view.IdLocacionDestino,
+                    Kilometros = _view.Kilometros
+                };
 
-            await _kilometrosRepositorio.AgregarAsync(nuevoKilometro);
-            _view.MostrarMensaje("Kilómetros guardados correctamente.");
+                await _kilometrosRepositorio.AgregarAsync(nuevoKilometro);
+                _view.MostrarMensaje("Kilómetros guardados correctamente.");
+            });
         }
     }
 }

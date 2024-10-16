@@ -1,37 +1,40 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Services;
 
 namespace SacNew.Presenters
 {
-    public class AgregarProductoPresenter
+    public class AgregarProductoPresenter : BasePresenter<IAgregarProductoView>
     {
-        private IAgregarProductoView _view;
         private readonly IProductoRepositorio _productoRepositorio;
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private int _idLocacion;
 
-        public AgregarProductoPresenter(IProductoRepositorio productoRepositorio, ILocacionProductoRepositorio locacionProductoRepositorio)
+        public AgregarProductoPresenter(
+            IProductoRepositorio productoRepositorio,
+            ILocacionProductoRepositorio locacionProductoRepositorio,
+            ISesionService sesionService,
+            IServiceProvider serviceProvider
+        ) : base(sesionService, serviceProvider)
         {
             _productoRepositorio = productoRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
         }
 
-        public void SetView(IAgregarProductoView view)
-        {
-            _view = view;
-        }
-
         public async Task InicializarAsync(int idLocacion)
         {
-            var productos = await _productoRepositorio.ObtenerTodosAsync();
             _idLocacion = idLocacion;
-            _view.CargarProductos(productos);
+            await EjecutarConCargaAsync(async () =>
+            {
+                var productos = await _productoRepositorio.ObtenerTodosAsync();
+                _view.CargarProductos(productos);
+            });
         }
 
-        public async void GuardarProducto()
+        public async Task GuardarProductoAsync()
         {
-            try
+            await EjecutarConCargaAsync(async () =>
             {
                 var locacionProducto = new LocacionProducto
                 {
@@ -41,11 +44,7 @@ namespace SacNew.Presenters
 
                 await _locacionProductoRepositorio.AgregarAsync(locacionProducto);
                 _view.MostrarMensaje("Producto agregado exitosamente.");
-            }
-            catch (Exception ex)
-            {
-                _view.MostrarMensaje($"Error al agregar producto: {ex.Message}");
-            }
+            });
         }
     }
 }

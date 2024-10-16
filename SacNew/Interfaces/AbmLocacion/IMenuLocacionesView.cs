@@ -2,13 +2,11 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IMenuLocacionesView
+    public interface IMenuLocacionesView: IViewConMensajes
     {
         string CriterioBusqueda { get; }
 
         void CargarLocaciones(List<Locacion> locaciones);  // Trabajamos directamente con la entidad
-
-        void MostrarMensaje(string mensaje);
 
         DialogResult ConfirmarEliminacion(string mensaje);
     }
