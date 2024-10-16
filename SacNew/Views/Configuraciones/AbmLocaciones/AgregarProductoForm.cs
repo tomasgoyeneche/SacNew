@@ -29,9 +29,9 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             MessageBox.Show(mensaje);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            _presenter.GuardarProductoAsync();
+            await _presenter.GuardarProductoAsync();
             Dispose();
         }
 

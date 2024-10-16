@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IMenuLocacionesView: IViewConMensajes
+    public interface IMenuLocacionesView : IViewConMensajes
     {
         string CriterioBusqueda { get; }
 

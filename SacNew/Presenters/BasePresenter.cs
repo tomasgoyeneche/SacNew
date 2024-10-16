@@ -66,8 +66,5 @@ namespace SacNew.Presenters
                 formulario.ShowDialog();
             }
         }
-
-        
-
     }
 }

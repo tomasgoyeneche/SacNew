@@ -8,10 +8,10 @@ namespace SacNew.Presenters
 {
     public class MenuIngresaConsumosPresenter : BasePresenter<IMenuIngresaConsumosView>
     {
-        private readonly IRepositorioPOC _repositorioPOC;
+        private readonly IPOCRepositorio _repositorioPOC;
 
         public MenuIngresaConsumosPresenter(
-            IRepositorioPOC repositorioPOC,
+            IPOCRepositorio repositorioPOC,
             ISesionService sesionService,
             IServiceProvider serviceProvider)
         : base(sesionService, serviceProvider)  // Aquí pasamos las dependencias a la clase base

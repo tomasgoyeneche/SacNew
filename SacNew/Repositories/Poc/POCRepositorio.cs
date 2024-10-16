@@ -5,9 +5,9 @@ using SacNew.Services;
 
 namespace SacNew.Repositories
 {
-    public class RepositorioPOC : BaseRepositorio, IRepositorioPOC
+    public class POCRepositorio : BaseRepositorio, IPOCRepositorio
     {
-        public RepositorioPOC(string connectionString, ISesionService sesionService)
+        public POCRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService)
         { }
 

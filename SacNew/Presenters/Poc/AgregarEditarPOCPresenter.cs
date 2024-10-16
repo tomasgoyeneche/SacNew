@@ -9,14 +9,14 @@ namespace SacNew.Presenters
     {
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IPostaRepositorio _postaRepositorio;
-        private readonly IRepositorioPOC _pocRepositorio;
+        private readonly IPOCRepositorio _pocRepositorio;
 
         public POC PocActual { get; private set; }
 
         public AgregarEditarPOCPresenter(
             INominaRepositorio nominaRepositorio,
             IPostaRepositorio postaRepositorio,
-            IRepositorioPOC pocRepositorio,
+            IPOCRepositorio pocRepositorio,
             ISesionService sesionService,
             IServiceProvider serviceProvider
         ) : base(sesionService, serviceProvider)

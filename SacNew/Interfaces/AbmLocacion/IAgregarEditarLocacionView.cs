@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarEditarLocacionView: IViewConMensajes
+    public interface IAgregarEditarLocacionView : IViewConMensajes
     {
         // Propiedades para obtener datos de los campos del formulario
         string Nombre { get; }

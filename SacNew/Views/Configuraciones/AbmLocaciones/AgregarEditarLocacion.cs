@@ -65,15 +65,8 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                await _presenter.GuardarLocacionAsync();
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MostrarMensaje($"Error al guardar locación: {ex.Message}");
-            }
+            await _presenter.GuardarLocacionAsync();
+            Close();
         }
 
         private async void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -111,14 +104,14 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             // Si hay más controles, puedes agregarlos aquí
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private async void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarProducto();
+            await _presenter.AgregarProducto();
         }
 
-        private void btnAgregarKilometro_Click(object sender, EventArgs e)
+        private async void btnAgregarKilometro_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarKilometro();
+            await _presenter.AgregarKilometro();
         }
     }
 }

@@ -66,8 +66,8 @@ namespace SacNew.Repositories
                     IdUsuario = _sesionService.IdUsuario,
                     TablaModificada = tabla,
                     Accion = accion,
-                    ValoresAnteriores = valoresAnterioresJson,
-                    ValoresNuevos = valoresNuevosJson,
+                    ValoresAnteriores = valoresAnterioresJson ?? string.Empty,
+                    ValoresNuevos = valoresNuevosJson ?? string.Empty,
                     FechaHora = DateTime.Now
                 };
 
@@ -78,7 +78,7 @@ namespace SacNew.Repositories
                 // Insertar la auditoría
                 await connection.ExecuteAsync(queryAuditoria, auditoria);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Manejar el error, si es necesario
                 throw;

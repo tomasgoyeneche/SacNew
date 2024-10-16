@@ -46,8 +46,8 @@ namespace SacNew.Repositories
         public Task AgregarAsync(Locacion locacion)
         {
             var query = @"
-        INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo)
-        VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo)";
+            INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo)
+            VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo)";
 
             // No hay necesidad de serializar los valores manualmente
             return EjecutarConAuditoriaAsync(
@@ -65,9 +65,9 @@ namespace SacNew.Repositories
             var locacionAnterior = await ObtenerPorIdAsync(locacion.IdLocacion);
 
             var query = @"
-        UPDATE Locacion
-        SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo
-        WHERE IdLocacion = @IdLocacion";
+            UPDATE Locacion
+            SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo
+            WHERE IdLocacion = @IdLocacion";
 
             // Llamar a EjecutarConAuditoriaAsync para ejecutar la consulta y registrar auditoría
             await EjecutarConAuditoriaAsync(

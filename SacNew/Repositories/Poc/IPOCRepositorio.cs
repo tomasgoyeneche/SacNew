@@ -3,7 +3,7 @@ using SacNew.Models.DTOs;
 
 namespace SacNew.Repositories
 {
-    public interface IRepositorioPOC
+    public interface IPOCRepositorio
     {
         Task<List<POCDto>> ObtenerTodosAsync();
 

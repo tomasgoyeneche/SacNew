@@ -2,12 +2,11 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarKilometrosView: IViewConMensajes
+    public interface IAgregarKilometrosView : IViewConMensajes
     {
         void CargarLocaciones(List<Locacion> locaciones);
 
         int IdLocacionDestino { get; }
         decimal Kilometros { get; }
-
     }
 }

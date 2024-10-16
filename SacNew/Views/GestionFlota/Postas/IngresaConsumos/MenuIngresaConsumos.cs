@@ -20,22 +20,18 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         // Implementación de IMenuIngresaConsumosView
         public void MostrarPOC(List<POCDto> listaPOC)
         {
-         
-                dataGridViewPOC.DataSource = listaPOC;
-                dataGridViewPOC.Columns["IdPoc"].Visible = false;
-         
+            dataGridViewPOC.DataSource = listaPOC;
+            dataGridViewPOC.Columns["IdPoc"].Visible = false;
         }
 
         public void MostrarMensaje(string mensaje)
         {
-                MessageBox.Show(mensaje);
+            MessageBox.Show(mensaje);
         }
 
         public void MostrarNombreUsuario(string nombre)
         {
-           
-                lNombreUsuario.Text = nombre;
-           
+            lNombreUsuario.Text = nombre;
         }
 
         public DialogResult ConfirmarEliminacion(string mensaje)
@@ -46,23 +42,17 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         // Eventos
         private async void MenuIngresaConsumos_Load(object sender, EventArgs e)
         {
-
             await _presenter.InicializarAsync();  // Cargar datos iniciales de forma asíncrona
-           
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-
             await _presenter.BuscarPOCAsync(CriterioBusqueda); // Pasar el criterio de búsqueda al presenter
-           
         }
 
         private async void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
             await _presenter.BuscarPOCAsync(CriterioBusqueda);  // Búsqueda dinámica al escribir
-          
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
@@ -72,7 +62,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
 
                 await _presenter.EliminarPOCAsync(idPoc); // Llamar al presenter para eliminar
-             
             }
             else
             {
@@ -82,9 +71,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 
         private async void btnAgregarPOC_Click(object sender, EventArgs e)
         {
-         
-                await _presenter.AgregarPOCAsync();
-          
+            await _presenter.AgregarPOCAsync();
         }
 
         private async void btnEditarPOC_Click(object sender, EventArgs e)
@@ -92,9 +79,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             if (dataGridViewPOC.SelectedRows.Count > 0)
             {
                 int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-               
+
                 await _presenter.EditarPOCAsync(idPoc);  // Editar usando el idPoc
-               
             }
             else
             {
@@ -102,12 +88,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             }
         }
 
-        private void dataGridViewPOC_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridViewPOC_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 int idPoc = Convert.ToInt32(dataGridViewPOC.Rows[e.RowIndex].Cells["IdPoc"].Value);
-                _presenter.AbrirMenuIngresaGasoilOtrosAsync(idPoc);
+                await _presenter.AbrirMenuIngresaGasoilOtrosAsync(idPoc);
             }
         }
     }

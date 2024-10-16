@@ -10,12 +10,12 @@ namespace SacNew.Presenters
     public class MenuIngresaGasoilOtrosPresenter : BasePresenter<IMenuIngresaGasoilOtrosView>
     {
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
-        private readonly IRepositorioPOC _pocRepositorio;
+        private readonly IPOCRepositorio _pocRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
 
         public MenuIngresaGasoilOtrosPresenter(
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
-            IRepositorioPOC pocRepositorio,
+            IPOCRepositorio pocRepositorio,
             INominaRepositorio nominaRepositorio,
             ISesionService sesionService,
             IServiceProvider serviceProvider

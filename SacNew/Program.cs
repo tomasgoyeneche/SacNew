@@ -11,15 +11,24 @@ namespace SacNew
         [STAThread]
         private static void Main()
         {
-            var serviceProvider = Startup.ConfigureServices();
-
+            Application.SetHighDpiMode(HighDpiMode.SystemAware); // Mejora la visualización en pantallas de alta resolución.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Resolver LoginForm directamente desde el contenedor
-            var loginForm = serviceProvider.GetService<Login>();
+            try
+            {
+                using var serviceProvider = Startup.ConfigureServices(); // Asegura la liberación de recursos.
 
-            Application.Run(loginForm);
+                var loginForm = serviceProvider.GetRequiredService<Login>(); // Lanza excepción si no encuentra el formulario.
+
+                Application.Run(loginForm);
+            }
+            catch (Exception ex)
+            {
+                // Manejo global de errores para evitar que la aplicación crashee sin aviso.
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
