@@ -3,6 +3,7 @@ using SacNew.Interfaces;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
+using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual;
 using System.Globalization;
 
 namespace SacNew.Presenters
@@ -40,6 +41,7 @@ namespace SacNew.Presenters
                            ?? throw new Exception("No se encontró el POC seleccionado.");
 
                 _view.NumeroPoc = poc.NumeroPOC;
+                _view.IdPoc = poc.IdPOC;    
 
                 var nomina = await _nominaRepositorio.ObtenerPorIdAsync(poc.IdNomina)
                              ?? throw new Exception("No se encontró la nomina asociada al POC.");
@@ -52,9 +54,20 @@ namespace SacNew.Presenters
             });
         }
 
-        public void IngresaGasoil()
+        public async Task AbrirGasoilAutorizadoAsync(int idPoc)
         {
-            _serviceProvider.GetService<IngresaGasoil>()?.Show();
+            await AbrirFormularioAsync<IngresaGasoil>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idPoc);
+            });
+        }
+
+        public async Task AbrirConsumosenYpfEnRutaAsync(int idPoc)
+        {
+            await AbrirFormularioAsync<IngresoManualYPF>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idPoc);
+            });
         }
     }
 }

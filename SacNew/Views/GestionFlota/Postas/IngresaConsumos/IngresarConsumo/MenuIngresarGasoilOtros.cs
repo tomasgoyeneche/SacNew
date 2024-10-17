@@ -20,6 +20,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             set => txtNumeroPoc.Text = value;
         }
 
+        public int IdPoc { get; set; }
         public string CreditoTotal
         {
             get => txtCreditoTotal.Text;
@@ -42,9 +43,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             throw new NotImplementedException();
         }
 
-        private void bIngresaGasoil_Click(object sender, EventArgs e)
+        private async void bIngresaGasoil_Click(object sender, EventArgs e)
         {
-            _presenter.IngresaGasoil();
+            await _presenter.AbrirGasoilAutorizadoAsync(IdPoc);
+        }
+
+        private async void bIngresaYpfRuta_Click(object sender, EventArgs e)
+        {
+            await _presenter.AbrirConsumosenYpfEnRutaAsync(IdPoc);
         }
     }
 }
