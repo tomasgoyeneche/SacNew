@@ -6,5 +6,9 @@
         {
             InitializeComponent();
         }
+
+        private void btnIngresarYpf_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

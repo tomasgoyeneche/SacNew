@@ -8,7 +8,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
     public partial class MenuLocaciones : Form, IMenuLocacionesView
     {
         private readonly MenuLocacionesPresenter _presenter;
-      
 
         public MenuLocaciones(MenuLocacionesPresenter presenter, ISesionService sesionService)
         {
@@ -18,8 +17,8 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         }
 
         private async void MenuLocaciones_Load(object sender, EventArgs e)
-        {       
-                await _presenter.InicializarAsync();   
+        {
+            await _presenter.InicializarAsync();
         }
 
         public string CriterioBusqueda => txtBuscar.Text.Trim();

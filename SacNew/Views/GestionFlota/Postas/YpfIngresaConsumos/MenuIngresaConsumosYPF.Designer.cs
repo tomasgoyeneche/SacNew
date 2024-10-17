@@ -208,6 +208,7 @@
             btnIngresarYpf.Size = new Size(224, 30);
             btnIngresarYpf.TabIndex = 12;
             btnIngresarYpf.Text = "Ingresar";
+            btnIngresarYpf.Click += btnIngresarYpf_Click;
             // 
             // guna2HtmlLabel3
             // 

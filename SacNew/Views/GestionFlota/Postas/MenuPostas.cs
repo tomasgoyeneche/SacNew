@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Services;
-using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
@@ -52,7 +51,6 @@ namespace SacNew.Views.GestionFlota.Postas
                     MessageBox.Show(@"No se pudo cargar el menú de Conceptos.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void bIngresaConsumos_Click(object sender, EventArgs e)

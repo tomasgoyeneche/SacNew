@@ -54,11 +54,6 @@ namespace SacNew.Presenters
             });
         }
 
-
-
-
-
-
         protected async Task ManejarErroresAsync(Func<Task> accion)
         {
             try
@@ -74,8 +69,6 @@ namespace SacNew.Presenters
                 MostrarMensaje($"Ocurrió un error: {ex.Message}");
             }
         }
-    
-      
 
         protected async Task<bool> ValidarAsync<T>(T entidad)
         {

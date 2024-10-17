@@ -1,8 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Services;
+﻿using SacNew.Services;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
-using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
 
 namespace SacNew.Views
 {

@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarEditarConceptoView: IViewConMensajes
+    public interface IAgregarEditarConceptoView : IViewConMensajes
     {
         int Id { get; set; }
         string Codigo { get; }
@@ -22,6 +22,5 @@ namespace SacNew.Interfaces
         void CargarProveedoresPlazaHuincul(List<Proveedor> proveedores);
 
         void MostrarDatosConcepto(Concepto concepto);
-
     }
 }
