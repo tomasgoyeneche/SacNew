@@ -14,12 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
     <Folder Include="Properties\DataSources\" />
     <Folder Include="Views\GestionDocumental\" />
     <Folder Include="Views\GestionFlota\Postas\LimiteDeCredito\" />
     <Folder Include="Views\GestionFlota\Postas\Informes\" />
-    <Folder Include="Views\GestionFlota\Postas\YpfIngresaConsumos\IngresoManual\" />
     <Folder Include="Views\GestionFlota\Postas\YpfIngresaConsumos\ImportarConsumos\" />
     <Folder Include="Views\GestionOperativa\" />
     <Folder Include="Views\InformesEstadisticas\" />
@@ -28,6 +26,8 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

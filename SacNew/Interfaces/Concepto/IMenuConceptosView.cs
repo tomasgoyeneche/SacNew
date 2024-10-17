@@ -2,12 +2,12 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IMenuConceptosView
+    public interface IMenuConceptosView: IViewConMensajes
     {
         void MostrarConceptos(List<Concepto> conceptos);
 
         string TextoBusqueda { get; }
 
-        void MostrarMensaje(string mensaje);
+
     }
 }

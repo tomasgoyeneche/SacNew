@@ -2,12 +2,11 @@
 
 namespace SacNew.Interfaces
 {
-    public interface ILoginView
+    public interface ILoginView: IViewConMensajes
     {
         string NombreUsuario { get; }
         string Contrasena { get; }
 
-        void MostrarMensaje(string mensaje);
 
         void RedirigirAlMenu(Menu menuform);
     }

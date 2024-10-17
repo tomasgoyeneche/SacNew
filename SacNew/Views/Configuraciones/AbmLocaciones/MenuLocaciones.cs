@@ -8,27 +8,18 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
     public partial class MenuLocaciones : Form, IMenuLocacionesView
     {
         private readonly MenuLocacionesPresenter _presenter;
-        private readonly ISesionService _sesionService;
+      
 
         public MenuLocaciones(MenuLocacionesPresenter presenter, ISesionService sesionService)
         {
             InitializeComponent();
             _presenter = presenter;
-            _sesionService = sesionService;
             _presenter.SetView(this);
         }
 
         private async void MenuLocaciones_Load(object sender, EventArgs e)
-        {
-            lMenuPostasNombre.Text = _sesionService.NombreCompleto;
-            try
-            {
-                await _presenter.InicializarAsync();
-            }
-            catch (Exception ex)
-            {
-                MostrarMensaje($"Error al cargar datos iniciales: {ex.Message}");
-            }
+        {       
+                await _presenter.InicializarAsync();   
         }
 
         public string CriterioBusqueda => txtBuscar.Text.Trim();
@@ -129,6 +120,11 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         private async void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             await _presenter.BuscarLocacionesAsync(CriterioBusqueda);
+        }
+
+        public void MostrarNombreUsuario(string nombreUsuario)
+        {
+            lMenuPostasNombre.Text = nombreUsuario;
         }
     }
 }

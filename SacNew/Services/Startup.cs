@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
+using SacNew.Validators;
 using System.Configuration;
 
 namespace SacNew.Services
@@ -12,6 +14,8 @@ namespace SacNew.Services
             // Configuración general
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
             serviceCollection.AddSingleton(connectionString);
+
+            serviceCollection.AddValidatorsFromAssemblyContaining<LocacionValidator>();
 
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan

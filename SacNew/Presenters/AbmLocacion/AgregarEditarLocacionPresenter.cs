@@ -57,6 +57,9 @@ namespace SacNew.Presenters
                 _locacionActual.Descarga = _view.Descarga;
                 _locacionActual.Activo = true;
 
+                if (!await ValidarAsync(_locacionActual))
+                    return;
+
                 if (_locacionActual.IdLocacion == 0)
                 {
                     await _locacionRepositorio.AgregarAsync(_locacionActual);

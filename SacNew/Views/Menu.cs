@@ -2,19 +2,20 @@
 using SacNew.Services;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
 
 namespace SacNew.Views
 {
     public partial class Menu : Form
     {
         private readonly ISesionService _sesionService;
-        private readonly IServiceProvider _serviceProvider;
+        private readonly INavigationService _navigationService;
 
-        public Menu(ISesionService sesionService, IServiceProvider serviceProvider)
+        public Menu(ISesionService sesionService, INavigationService navigationService)
         {
             InitializeComponent();
             _sesionService = sesionService;
-            _serviceProvider = serviceProvider;
+            _navigationService = navigationService;
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -27,23 +28,18 @@ namespace SacNew.Views
         {
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
-                using (var postasMenu = _serviceProvider.GetService<MenuPostas>())
-                {
-                    postasMenu.ShowDialog();
-                }
+                _navigationService.ShowDialog<MenuPostas>();
             }
             else
             {
-                MessageBox.Show(@"No tienes permisos para acceder a las Postas.", @"Permiso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No tienes permisos para acceder a las Postas.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void picBoxMenuAbmLocacion_Click(object sender, EventArgs e)
         {
-            using (var menuLocaciones = _serviceProvider.GetService<MenuLocaciones>())
-            {
-                menuLocaciones.ShowDialog();
-            }
+            _navigationService.ShowDialog<MenuLocaciones>();
         }
     }
 }

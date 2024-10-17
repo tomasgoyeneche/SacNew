@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using Microsoft.Extensions.DependencyInjection;
 using SacNew.Interfaces;
 using SacNew.Services;
 
@@ -18,24 +20,19 @@ namespace SacNew.Presenters
 
         public void SetView(TView view) => _view = view;
 
-        protected async Task ManejarErroresAsync(Func<Task> accion)
+        private TServicio ObtenerServicio<TServicio>()
         {
-            try
-            {
-                await accion();
-            }
-            catch (Exception ex)
-            {
-                if (_view is IViewConMensajes viewConMensajes)
-                    viewConMensajes.MostrarMensaje($"Ocurrió un error: {ex.Message}");
-            }
+            return _serviceProvider.GetService<TServicio>()
+                   ?? throw new InvalidOperationException($"No se pudo obtener el servicio {typeof(TServicio).Name}.");
         }
 
-        protected void MostrarNombreUsuario()
+        protected async Task AbrirFormularioAsync<TForm>(Func<TForm, Task> configurarFormulario) where TForm : Form
         {
-            if (_view is IViewConUsuario viewConUsuario)
+            var formulario = ObtenerServicio<TForm>();
+            using (formulario)
             {
-                viewConUsuario.MostrarNombreUsuario(_sesionService.NombreCompleto);
+                await configurarFormulario(formulario);
+                formulario.ShowDialog();
             }
         }
 
@@ -57,13 +54,58 @@ namespace SacNew.Presenters
             });
         }
 
-        protected async Task AbrirFormularioAsync<TForm>(Func<TForm, Task> configurarFormulario) where TForm : Form
+
+
+
+
+
+        protected async Task ManejarErroresAsync(Func<Task> accion)
         {
-            var formulario = _serviceProvider.GetService<TForm>();
-            if (formulario != null)
+            try
             {
-                await configurarFormulario(formulario);
-                formulario.ShowDialog();
+                await accion();
+            }
+            catch (ValidationException ex)
+            {
+                MostrarErrores(ex.Errors);
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Ocurrió un error: {ex.Message}");
+            }
+        }
+    
+      
+
+        protected async Task<bool> ValidarAsync<T>(T entidad)
+        {
+            var validador = ObtenerServicio<IValidator<T>>();
+            var resultado = await validador.ValidateAsync(entidad);
+
+            if (!resultado.IsValid)
+            {
+                MostrarErrores(resultado.Errors);
+                return false;
+            }
+            return true;
+        }
+
+        private void MostrarErrores(IEnumerable<ValidationFailure> errores) =>
+                   MostrarMensaje($"Errores de validación:\n{string.Join("\n", errores.Select(e => e.ErrorMessage))}");
+
+        private void MostrarMensaje(string mensaje)
+        {
+            if (_view is IViewConMensajes viewConMensajes)
+            {
+                viewConMensajes.MostrarMensaje(mensaje);
+            }
+        }
+
+        protected void MostrarNombreUsuario()
+        {
+            if (_view is IViewConUsuario viewConUsuario)
+            {
+                viewConUsuario.MostrarNombreUsuario(_sesionService.NombreCompleto);
             }
         }
     }

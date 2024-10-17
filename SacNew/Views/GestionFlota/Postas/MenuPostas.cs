@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SacNew.Services;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
+using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos;
 
 namespace SacNew.Views.GestionFlota.Postas
 {
@@ -25,37 +27,61 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bAbmPostasMenu_Click(object sender, EventArgs e)
         {
-            using (var MenuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>())
+            var menuAbmPostas = _serviceProvider.GetService<MenuAbmPostas>();
+            if (menuAbmPostas != null)
             {
-                this.Hide();
-                MenuAbmPostas.ShowDialog();
-                this.Show();
+                menuAbmPostas.ShowDialog();
+            }
+            else
+            {
+                // Handle the case where menuAbmPostas is null
+                MessageBox.Show("No se pudo cargar el menú ABM de postas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void bMenuConceptos_Click(object sender, EventArgs e)
         {
-            var MenuConceptos = _serviceProvider.GetService<MenuConceptos>();
-            if (MenuConceptos != null)
+            using (var MenuConceptos = _serviceProvider.GetService<MenuConceptos>())
             {
-                this.Hide();
-                MenuConceptos.ShowDialog();
-                this.Show();
+                if (MenuConceptos != null)
+                {
+                    MenuConceptos.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(@"No se pudo cargar el menú de Conceptos.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                // Handle the case where MenuConceptos is null
-                MessageBox.Show("No se pudo cargar el menú de conceptos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void bIngresaConsumos_Click(object sender, EventArgs e)
         {
             using (var menuConsumos = _serviceProvider.GetService<MenuIngresaConsumos>())
             {
-                this.Hide();
-                menuConsumos.ShowDialog();
-                this.Show();
+                if (menuConsumos != null)
+                {
+                    menuConsumos.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(@"No se pudo cargar el menú de Consumos.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void bIngresaConsumosYPF_Click(object sender, EventArgs e)
+        {
+            using (var menuConsumosYpf = _serviceProvider.GetService<MenuIngresaConsumosYPF>())
+            {
+                if (menuConsumosYpf != null)
+                {
+                    menuConsumosYpf.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(@"No se pudo cargar el menú de consumos YPF.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

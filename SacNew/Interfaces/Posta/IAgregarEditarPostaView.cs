@@ -2,7 +2,7 @@
 
 namespace SacNew.Interfaces
 {
-    public interface IAgregarEditarPostaView
+    public interface IAgregarEditarPostaView: IViewConMensajes
     {
         string Codigo { get; set; }
         string Descripcion { get; set; }
@@ -12,7 +12,7 @@ namespace SacNew.Interfaces
         int Id { get; set; }
 
         // Métodos para mostrar mensajes y cargar provincias
-        void MostrarMensaje(string mensaje);
+
 
         void CargarProvincias(List<Provincia> provincias);
     }
