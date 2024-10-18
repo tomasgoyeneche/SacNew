@@ -6,6 +6,8 @@ namespace SacNew.Repositories
     {
         List<Concepto> ObtenerTodosLosConceptos();
 
+        Task<IEnumerable<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo);
+
         List<Concepto> BuscarConceptos(string textoBusqueda);
 
         Concepto ObtenerPorId(int idConsumo);

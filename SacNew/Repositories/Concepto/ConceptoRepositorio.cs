@@ -16,6 +16,20 @@ namespace SacNew.Repositories
             return Conectar(connection => connection.Query<Concepto>(query).ToList());
         }
 
+        public async Task<IEnumerable<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo)
+        {
+            var query = @"
+            SELECT * 
+            FROM Concepto 
+            WHERE IdConsumoTipo = @IdTipoConsumo AND Activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var conceptos = await connection.QueryAsync<Concepto>(query, new { IdTipoConsumo = idTipoConsumo });
+                return conceptos;
+            });
+        }
+
         public Concepto ObtenerPorId(int idConsumo)
         {
             var query = "SELECT * FROM Concepto WHERE IdConsumo = @IdConsumo";
