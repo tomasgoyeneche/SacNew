@@ -35,10 +35,7 @@ namespace SacNew.Presenters
 
         public async Task GuardarConsumoAsync()
         {
-            var ticketsValidos = _view.Tickets.Where(t => t.EsValido()).ToList();
-            var ticketUrea = _view.TicketUrea;
-
-            if (!ticketsValidos.Any() && !ticketUrea.EsValido())
+            if (!_view.HayConsumosValidos())
             {
                 _view.MostrarMensaje("Debe ingresar al menos un ticket válido.");
                 return;
@@ -46,6 +43,7 @@ namespace SacNew.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
+                var ticketsValidos = _view.Tickets.Where(t => t.EsValido()).ToList();
                 foreach (var ticket in ticketsValidos)
                 {
                     var consumo = new ConsumoGasoil
@@ -58,10 +56,10 @@ namespace SacNew.Presenters
                         NumeroVale = ticket.Numero,
                         Activo = true
                     };
-
                     await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
                 }
 
+                var ticketUrea = _view.TicketUrea;
                 if (ticketUrea.EsValido())
                 {
                     var consumoUrea = new ConsumoGasoil
@@ -74,7 +72,6 @@ namespace SacNew.Presenters
                         NumeroVale = ticketUrea.Numero,
                         Activo = true
                     };
-
                     await _consumoGasoilRepositorio.AgregarConsumoAsync(consumoUrea);
                 }
 

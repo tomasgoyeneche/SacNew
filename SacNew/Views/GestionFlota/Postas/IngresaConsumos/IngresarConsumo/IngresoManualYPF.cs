@@ -19,20 +19,14 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual
         public DateTime FechaVale => dtpFechaVale.Value;
         public int TipoGasoilSeleccionado => (int)cmbTipoGasoil.SelectedValue;
 
-        public List<TicketInfo> Tickets
+        public List<TicketInfo> Tickets => new List<TicketInfo>
         {
-            get
-            {
-                return new List<TicketInfo>
-            {
-                new TicketInfo(txtTicket1.Text, txtLitros1.Text, txtAclaracion1.Text),
-                new TicketInfo(txtTicket2.Text, txtLitros2.Text, txtAclaracion2.Text),
-                new TicketInfo(txtTicket3.Text, txtLitros3.Text, txtAclaracion3.Text),
-                new TicketInfo(txtTicket4.Text, txtLitros4.Text, txtAclaracion4.Text),
-                new TicketInfo(txtTicket5.Text, txtLitros5.Text, txtAclaracion5.Text),
-            };
-            }
-        }
+            new TicketInfo(txtTicket1.Text, txtLitros1.Text, txtAclaracion1.Text),
+            new TicketInfo(txtTicket2.Text, txtLitros2.Text, txtAclaracion2.Text),
+            new TicketInfo(txtTicket3.Text, txtLitros3.Text, txtAclaracion3.Text),
+            new TicketInfo(txtTicket4.Text, txtLitros4.Text, txtAclaracion4.Text),
+            new TicketInfo(txtTicket5.Text, txtLitros5.Text, txtAclaracion5.Text),
+        };
 
         public TicketInfo TicketUrea =>
             new TicketInfo(txtTicketUrea.Text, txtLitrosUrea.Text, txtAclaracionUrea.Text);
@@ -48,9 +42,21 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        public bool HayConsumosValidos()
+        {
+            return Tickets.Any(t => t.EsValido()) || TicketUrea.EsValido();
+        }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarConsumoAsync();
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

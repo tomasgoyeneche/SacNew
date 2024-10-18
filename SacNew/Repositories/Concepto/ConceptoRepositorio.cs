@@ -19,8 +19,8 @@ namespace SacNew.Repositories
         public async Task<IEnumerable<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo)
         {
             var query = @"
-            SELECT * 
-            FROM Concepto 
+            SELECT *
+            FROM Concepto
             WHERE IdConsumoTipo = @IdTipoConsumo AND Activo = 1";
 
             return await ConectarAsync(async connection =>
