@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPostas));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -164,7 +165,10 @@
             // 
             // guna2PictureBox1
             // 
+            guna2PictureBox1.BackgroundImage = (Image)resources.GetObject("guna2PictureBox1.BackgroundImage");
+            guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(31, 17);
             guna2PictureBox1.Name = "guna2PictureBox1";
@@ -247,7 +251,10 @@
             // 
             // guna2PictureBox2
             // 
+            guna2PictureBox2.BackgroundImage = Resources.menuPostasConceptoConsumo;
+            guna2PictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox2.CustomizableEdges = customizableEdges7;
+            guna2PictureBox2.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox2.ImageRotate = 0F;
             guna2PictureBox2.Location = new Point(30, 17);
             guna2PictureBox2.Name = "guna2PictureBox2";
@@ -317,7 +324,10 @@
             // 
             // guna2PictureBox3
             // 
+            guna2PictureBox3.BackgroundImage = Resources.menuPostasLimiteCredito;
+            guna2PictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox3.CustomizableEdges = customizableEdges13;
+            guna2PictureBox3.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox3.ImageRotate = 0F;
             guna2PictureBox3.Location = new Point(31, 17);
             guna2PictureBox3.Name = "guna2PictureBox3";
@@ -386,7 +396,10 @@
             // 
             // guna2PictureBox4
             // 
+            guna2PictureBox4.BackgroundImage = Resources.menuPostasInformes;
+            guna2PictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox4.CustomizableEdges = customizableEdges19;
+            guna2PictureBox4.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox4.ImageRotate = 0F;
             guna2PictureBox4.Location = new Point(30, 17);
             guna2PictureBox4.Name = "guna2PictureBox4";
@@ -456,7 +469,10 @@
             // 
             // guna2PictureBox5
             // 
+            guna2PictureBox5.BackgroundImage = Resources.menuPostasConfiguraciones;
+            guna2PictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox5.CustomizableEdges = customizableEdges25;
+            guna2PictureBox5.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox5.ImageRotate = 0F;
             guna2PictureBox5.Location = new Point(30, 16);
             guna2PictureBox5.Name = "guna2PictureBox5";
@@ -526,7 +542,10 @@
             // 
             // guna2PictureBox6
             // 
+            guna2PictureBox6.BackgroundImage = Resources.menuPostasCorregirConsumos;
+            guna2PictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox6.CustomizableEdges = customizableEdges31;
+            guna2PictureBox6.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox6.ImageRotate = 0F;
             guna2PictureBox6.Location = new Point(31, 16);
             guna2PictureBox6.Name = "guna2PictureBox6";
@@ -600,7 +619,7 @@
             guna2PictureBox7.BackgroundImage = Resources.postasYPF;
             guna2PictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox7.CustomizableEdges = customizableEdges37;
-            guna2PictureBox7.FillColor = Color.Transparent;
+            guna2PictureBox7.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox7.ImageRotate = 0F;
             guna2PictureBox7.Location = new Point(30, 16);
             guna2PictureBox7.Name = "guna2PictureBox7";
@@ -675,7 +694,7 @@
             guna2PictureBox8.BackgroundImage = Resources.menuPostasIngresaConsumos;
             guna2PictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox8.CustomizableEdges = customizableEdges43;
-            guna2PictureBox8.FillColor = Color.Transparent;
+            guna2PictureBox8.FillColor = Color.FromArgb(100, 0, 0, 0);
             guna2PictureBox8.ImageRotate = 0F;
             guna2PictureBox8.Location = new Point(31, 16);
             guna2PictureBox8.Name = "guna2PictureBox8";

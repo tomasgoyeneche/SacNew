@@ -179,7 +179,7 @@
             btnBuscar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnBuscar.FillColor = Color.DimGray;
             btnBuscar.Font = new Font("Segoe UI", 9F);
-            btnBuscar.ForeColor = Color.Black;
+            btnBuscar.ForeColor = Color.WhiteSmoke;
             btnBuscar.Location = new Point(378, 41);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges22;

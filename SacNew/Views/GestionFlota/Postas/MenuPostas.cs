@@ -4,6 +4,7 @@ using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos;
+using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
 
 namespace SacNew.Views.GestionFlota.Postas
 {
@@ -70,11 +71,11 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bIngresaConsumosYPF_Click(object sender, EventArgs e)
         {
-            using (var menuConsumosYpf = _serviceProvider.GetService<MenuIngresaConsumosYPF>())
+            using (var menuImportaConsumosYpf = _serviceProvider.GetService<ImportarConsumosYPF>())
             {
-                if (menuConsumosYpf != null)
+                if (menuImportaConsumosYpf != null)
                 {
-                    menuConsumosYpf.ShowDialog();
+                    menuImportaConsumosYpf.ShowDialog();
                 }
                 else
                 {

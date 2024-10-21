@@ -246,7 +246,7 @@
             guna2Panel3.Controls.Add(guna2HtmlLabel1);
             guna2Panel3.CustomizableEdges = customizableEdges45;
             guna2Panel3.FillColor = Color.SteelBlue;
-            guna2Panel3.Location = new Point(0, 41);
+            guna2Panel3.Location = new Point(0, 37);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges46;
             guna2Panel3.Size = new Size(253, 38);

@@ -373,6 +373,16 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loginVolvoCamionChico {
+            get {
+                object obj = ResourceManager.GetObject("loginVolvoCamionChico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mapaArgentinaWpaper {
             get {
                 object obj = ResourceManager.GetObject("mapaArgentinaWpaper", resourceCulture);
@@ -383,9 +393,59 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menuPostasConceptoConsumo {
+            get {
+                object obj = ResourceManager.GetObject("menuPostasConceptoConsumo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuPostasConfiguraciones {
+            get {
+                object obj = ResourceManager.GetObject("menuPostasConfiguraciones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuPostasCorregirConsumos {
+            get {
+                object obj = ResourceManager.GetObject("menuPostasCorregirConsumos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuPostasInformes {
+            get {
+                object obj = ResourceManager.GetObject("menuPostasInformes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menuPostasIngresaConsumos {
             get {
                 object obj = ResourceManager.GetObject("menuPostasIngresaConsumos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuPostasLimiteCredito {
+            get {
+                object obj = ResourceManager.GetObject("menuPostasLimiteCredito", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

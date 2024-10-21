@@ -324,7 +324,7 @@
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.BackgroundImage = Resources.mapaArgentinaWpaper;
+            guna2PictureBox1.BackgroundImage = Resources.abmLocacionesMapa;
             guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Dock = DockStyle.Right;

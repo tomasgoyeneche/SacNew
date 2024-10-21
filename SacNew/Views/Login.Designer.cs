@@ -71,11 +71,11 @@
             // pInicioLogin
             // 
             pInicioLogin.BackColor = Color.Transparent;
-            pInicioLogin.BackgroundImage = Resources.loginAutoChenyiCalidad;
+            pInicioLogin.BackgroundImage = Resources.loginVolvoCamionChico;
             pInicioLogin.BackgroundImageLayout = ImageLayout.Stretch;
             pInicioLogin.CustomizableEdges = customizableEdges5;
             pInicioLogin.Dock = DockStyle.Left;
-            pInicioLogin.FillColor = Color.FromArgb(150, 0, 0, 0);
+            pInicioLogin.FillColor = Color.FromArgb(120, 0, 0, 0);
             pInicioLogin.Location = new Point(0, 0);
             pInicioLogin.Name = "pInicioLogin";
             pInicioLogin.ShadowDecoration.CustomizableEdges = customizableEdges6;
