@@ -97,7 +97,6 @@
             guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            lNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -149,7 +148,6 @@
             guna2Panel9.Controls.Add(guna2ControlBox4);
             guna2Panel9.Controls.Add(guna2ControlBox2);
             guna2Panel9.Controls.Add(guna2ControlBox1);
-            guna2Panel9.Controls.Add(lNombreUsuario);
             guna2Panel9.CustomizableEdges = customizableEdges59;
             guna2Panel9.Dock = DockStyle.Top;
             guna2Panel9.FillColor = Color.Transparent;
@@ -242,19 +240,6 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges58;
             guna2ControlBox1.Size = new Size(32, 31);
             guna2ControlBox1.TabIndex = 17;
-            // 
-            // lNombreUsuario
-            // 
-            lNombreUsuario.AutoSize = false;
-            lNombreUsuario.BackColor = Color.Transparent;
-            lNombreUsuario.Font = new Font("Century Gothic", 10F);
-            lNombreUsuario.ForeColor = SystemColors.ControlLight;
-            lNombreUsuario.Location = new Point(220, 0);
-            lNombreUsuario.Name = "lNombreUsuario";
-            lNombreUsuario.Size = new Size(176, 31);
-            lNombreUsuario.TabIndex = 11;
-            lNombreUsuario.Text = "guna2HtmlLabel1";
-            lNombreUsuario.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
             // 
@@ -897,7 +882,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lNombreUsuario;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;

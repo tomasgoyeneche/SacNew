@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿using Castle.DynamicProxy;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using SacNew.Repositories;
 using SacNew.Validators;
 using System.Configuration;
 
@@ -16,6 +18,8 @@ namespace SacNew.Services
             serviceCollection.AddSingleton(connectionString);
 
             serviceCollection.AddValidatorsFromAssemblyContaining<LocacionValidator>();
+            //serviceCollection.AddSingleton<AuditoriaInterceptor>();
+
 
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan
@@ -33,6 +37,7 @@ namespace SacNew.Services
                     .AsSelf()
                     .WithTransientLifetime()
             );
+
             return serviceCollection.BuildServiceProvider();
         }
     }

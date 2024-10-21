@@ -18,13 +18,13 @@
     <Folder Include="Views\GestionDocumental\" />
     <Folder Include="Views\GestionFlota\Postas\LimiteDeCredito\" />
     <Folder Include="Views\GestionFlota\Postas\Informes\" />
-    <Folder Include="Views\GestionFlota\Postas\YpfIngresaConsumos\ImportarConsumos\" />
     <Folder Include="Views\GestionOperativa\" />
     <Folder Include="Views\InformesEstadisticas\" />
     <Folder Include="Views\ServiciosExternos\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="5.1.1" />
     <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
