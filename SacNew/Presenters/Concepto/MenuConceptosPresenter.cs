@@ -2,24 +2,31 @@
 using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 
 namespace SacNew.Presenters
 {
-    public class MenuConceptosPresenter
+    public class MenuConceptosPresenter : BasePresenter<IMenuConceptosView>
     {
-        private readonly IMenuConceptosView _view;
+
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IConceptoTipoRepositorio _conceptoTipoRepositorio;
         private readonly IServiceProvider _serviceProvider;
-
-        public MenuConceptosPresenter(IMenuConceptosView view, IConceptoRepositorio conceptoRepositorio, IConceptoTipoRepositorio conceptoTipoRepositorio, IServiceProvider serviceProvider)
+        public MenuConceptosPresenter(
+            IConceptoRepositorio conceptoRepositorio,
+            IConceptoTipoRepositorio conceptoTipoRepositorio,
+            IServiceProvider serviceProvider,
+             ISesionService sesionService,
+            INavigationService navigationService)
+            : base(sesionService, navigationService)
         {
-            _view = view;
+
             _conceptoRepositorio = conceptoRepositorio;
             _conceptoTipoRepositorio = conceptoTipoRepositorio;
-
             _serviceProvider = serviceProvider;
+
+
         }
 
         public string ObtenerDescripcionTipoConsumo(int idTipoConsumo)

@@ -1,8 +1,5 @@
-﻿using Castle.DynamicProxy;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using SacNew.Repositories;
-using SacNew.Validators;
 using System.Configuration;
 
 namespace SacNew.Services
@@ -18,7 +15,7 @@ namespace SacNew.Services
             serviceCollection.AddSingleton(connectionString);
 
             //serviceCollection.AddSingleton<AuditoriaInterceptor>();
-           // serviceCollection.AddSingleton(typeof(IRepositorioGenerico<>), typeof(BaseRepositorioGenerico<>));
+            // serviceCollection.AddSingleton(typeof(IRepositorioGenerico<>), typeof(BaseRepositorioGenerico<>));
 
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan

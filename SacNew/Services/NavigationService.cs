@@ -72,12 +72,6 @@ namespace SacNew.Services
                     ?? throw new InvalidOperationException($"No se pudo obtener el formulario {typeof(TForm).Name}.");
 
                 _formularios[typeof(TForm)] = form;
-
-                form.FormClosing += (sender, e) =>
-                {
-                    e.Cancel = true;
-                    form.Hide();
-                };
             }
 
             return (TForm)form;

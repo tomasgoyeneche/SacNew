@@ -1,7 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
-using SacNew.Repositories;
 using System.Data;
 
 namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
@@ -10,13 +9,13 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
     {
         private readonly MenuConceptosPresenter _presenter;
 
-        public MenuConceptos(IConceptoRepositorio conceptoRepositorio, IConceptoTipoRepositorio conceptoTipoRepositorio, IServiceProvider serviceProvider)
+        public MenuConceptos(MenuConceptosPresenter presenter)
         {
             InitializeComponent();
 
             // Inicializamos el Presenter y cargamos los conceptos
-            _presenter = new MenuConceptosPresenter(this, conceptoRepositorio, conceptoTipoRepositorio, serviceProvider);
-            _presenter.CargarConceptos();
+            _presenter = presenter;
+            _presenter.SetView(this);
         }
 
         // Implementación de la interfaz para mostrar los conceptos
@@ -92,9 +91,9 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             }
         }
 
-        private void loginCloseButton_Click(object sender, EventArgs e)
+        private void MenuConceptos_Load(object sender, EventArgs e)
         {
-            this.Close();
+            _presenter.CargarConceptos();
         }
     }
 }

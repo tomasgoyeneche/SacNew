@@ -1,7 +1,6 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Presenters;
-using SacNew.Services;
 
 namespace SacNew.Views.Configuraciones.AbmLocaciones
 {
@@ -9,7 +8,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
     {
         private readonly MenuLocacionesPresenter _presenter;
 
-        public MenuLocaciones(MenuLocacionesPresenter presenter, ISesionService sesionService)
+        public MenuLocaciones(MenuLocacionesPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;

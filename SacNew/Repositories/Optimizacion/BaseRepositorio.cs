@@ -48,16 +48,16 @@ namespace SacNew.Repositories
            string accion,
            object? valoresAnteriores = null,
            object? valoresNuevos = null)
+        {
+            await ConectarAsync(async conn =>
             {
-                await ConectarAsync(async conn =>
-                {
-                    var resultado = await consulta(conn);
-                    await InsertarAuditoria(conn, tabla, accion, valoresAnteriores, valoresNuevos);
-                    return resultado;
-                });
-         }
+                var resultado = await consulta(conn);
+                await InsertarAuditoria(conn, tabla, accion, valoresAnteriores, valoresNuevos);
+                return resultado;
+            });
+        }
 
-     
+
         private async Task InsertarAuditoria(
                SqlConnection connection,
                string tabla,

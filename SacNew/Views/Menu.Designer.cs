@@ -278,7 +278,6 @@
             picBoxAdminBB.ShadowDecoration.Depth = 10;
             picBoxAdminBB.Size = new Size(140, 140);
             picBoxAdminBB.TabIndex = 8;
-           
             // 
             // labelGuardiaPH
             // 
@@ -342,7 +341,6 @@
             bGestGuardiaBB.ShadowDecoration.CustomizableEdges = customizableEdges4;
             bGestGuardiaBB.Size = new Size(140, 140);
             bGestGuardiaBB.TabIndex = 0;
-  
             // 
             // tabPageGesFlo
             // 
@@ -1221,6 +1219,7 @@
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges31;
             bClose.Size = new Size(32, 24);
             bClose.TabIndex = 19;
+ 
             // 
             // lDiaDeHoy
             // 
