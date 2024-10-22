@@ -13,8 +13,8 @@ namespace SacNew.Presenters
         public MenuIngresaConsumosPresenter(
             IPOCRepositorio repositorioPOC,
             ISesionService sesionService,
-            IServiceProvider serviceProvider)
-        : base(sesionService, serviceProvider)  // Aquí pasamos las dependencias a la clase base
+            INavigationService navigationService)
+        : base(sesionService, navigationService)  // Aquí pasamos las dependencias a la clase base
         {
             _repositorioPOC = repositorioPOC;
         }

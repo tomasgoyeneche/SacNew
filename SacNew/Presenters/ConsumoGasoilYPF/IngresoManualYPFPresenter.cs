@@ -15,8 +15,8 @@ namespace SacNew.Presenters
             IConceptoRepositorio conceptoRepositorio,
             IConsumoGasoilRepositorio consumoGasoilRepositorio,
             ISesionService sesionService,
-            IServiceProvider serviceProvider
-        ) : base(sesionService, serviceProvider)
+         INavigationService navigationService
+        ) : base(sesionService, navigationService)
         {
             _conceptoRepositorio = conceptoRepositorio;
             _consumoGasoilRepositorio = consumoGasoilRepositorio;

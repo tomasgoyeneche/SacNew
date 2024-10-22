@@ -17,8 +17,8 @@ namespace SacNew.Presenters
             IPOCRepositorio pocRepositorio,
             INominaRepositorio nominaRepositorio,
             ISesionService sesionService,
-            IServiceProvider serviceProvider
-        ) : base(sesionService, serviceProvider)
+            INavigationService navigationService
+        ) : base(sesionService, navigationService)
         {
             _empresaCreditoRepositorio = empresaCreditoRepositorio ?? throw new ArgumentNullException(nameof(empresaCreditoRepositorio));
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));

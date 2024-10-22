@@ -19,8 +19,8 @@ namespace SacNew.Presenters
             ILocacionProductoRepositorio locacionProductoRepositorio,
             ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio,
             ISesionService sesionService,
-            IServiceProvider serviceProvider
-        ) : base(sesionService, serviceProvider)
+            INavigationService navigationService
+        ) : base(sesionService, navigationService)
         {
             _locacionRepositorio = locacionRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;

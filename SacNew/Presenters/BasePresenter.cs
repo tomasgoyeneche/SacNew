@@ -9,31 +9,42 @@ namespace SacNew.Presenters
     public abstract class BasePresenter<TView>
     {
         protected readonly ISesionService _sesionService;
-        protected readonly IServiceProvider _serviceProvider;
+        protected readonly INavigationService _navigationService;
         protected TView _view;
 
-        public BasePresenter(ISesionService sesionService, IServiceProvider serviceProvider)
+        public BasePresenter(ISesionService sesionService, INavigationService navigationService)
         {
             _sesionService = sesionService;
-            _serviceProvider = serviceProvider;
+            _navigationService = navigationService;
         }
 
         public void SetView(TView view) => _view = view;
 
-        private TServicio ObtenerServicio<TServicio>()
+        protected async Task<bool> ValidarAsync<T>(T entidad)
         {
-            return _serviceProvider.GetService<TServicio>()
-                   ?? throw new InvalidOperationException($"No se pudo obtener el servicio {typeof(TServicio).Name}.");
+            var validador = _navigationService.ResolverServicio<IValidator<T>>();
+
+            if (validador == null)
+            {
+                MostrarMensaje($"No se encontró un validador para {typeof(T).Name}.");
+                return false;
+            }
+
+            var resultado = await validador.ValidateAsync(entidad);
+            if (!resultado.IsValid)
+            {
+                MostrarErrores(resultado.Errors);
+                return false;
+            }
+
+            return true;
         }
 
         protected async Task AbrirFormularioAsync<TForm>(Func<TForm, Task> configurarFormulario) where TForm : Form
         {
-            var formulario = ObtenerServicio<TForm>();
-            using (formulario)
-            {
-                await configurarFormulario(formulario);
-                formulario.ShowDialog();
-            }
+            var formulario = _navigationService.ObtenerFormulario<TForm>();
+            await configurarFormulario(formulario);
+            _navigationService.ShowDialog<TForm>();
         }
 
         protected async Task EjecutarConCargaAsync(Func<Task> accion, Func<Task>? postAccion = null)
@@ -68,19 +79,6 @@ namespace SacNew.Presenters
             {
                 MostrarMensaje($"Ocurrió un error: {ex.Message}");
             }
-        }
-
-        protected async Task<bool> ValidarAsync<T>(T entidad)
-        {
-            var validador = ObtenerServicio<IValidator<T>>();
-            var resultado = await validador.ValidateAsync(entidad);
-
-            if (!resultado.IsValid)
-            {
-                MostrarErrores(resultado.Errors);
-                return false;
-            }
-            return true;
         }
 
         private void MostrarErrores(IEnumerable<ValidationFailure> errores) =>

@@ -18,8 +18,8 @@ namespace SacNew.Presenters
             IPostaRepositorio postaRepositorio,
             IPOCRepositorio pocRepositorio,
             ISesionService sesionService,
-            IServiceProvider serviceProvider
-        ) : base(sesionService, serviceProvider)
+            INavigationService navigationService
+        ) : base(sesionService, navigationService)
         {
             _nominaRepositorio = nominaRepositorio;
             _postaRepositorio = postaRepositorio;

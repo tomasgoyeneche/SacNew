@@ -13,17 +13,10 @@ namespace SacNew.Services
             _formularios = new Dictionary<Type, Form>();
         }
 
-        public void ShowDialog<TForm>() where TForm : Form
+        public T ResolverServicio<T>() where T : class
         {
-            var form = ObtenerFormulario<TForm>();
-            if (form.Visible)
-            {
-                form.BringToFront();
-            }
-            else
-            {
-                form.ShowDialog();
-            }
+            return _serviceProvider.GetService<T>()
+                   ?? throw new InvalidOperationException($"No se pudo resolver el servicio {typeof(T).Name}.");
         }
 
         public void Show<TForm>() where TForm : Form
@@ -58,7 +51,20 @@ namespace SacNew.Services
             return _formularios.TryGetValue(typeof(TForm), out var form) && !form.IsDisposed && form.Visible;
         }
 
-        private TForm ObtenerFormulario<TForm>() where TForm : Form
+        public void ShowDialog<TForm>() where TForm : Form
+        {
+            var form = ObtenerFormulario<TForm>();
+            if (form.Visible)
+            {
+                form.BringToFront();
+            }
+            else
+            {
+                form.ShowDialog();
+            }
+        }
+
+        public TForm ObtenerFormulario<TForm>() where TForm : Form
         {
             if (!_formularios.TryGetValue(typeof(TForm), out var form) || form.IsDisposed)
             {

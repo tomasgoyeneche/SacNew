@@ -23,7 +23,7 @@ namespace SacNew
             try
             {
                 //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-                using var serviceProvider = Startup.ConfigureServices();
+                var serviceProvider = Startup.ConfigureServices();
                 var loginForm = serviceProvider.GetRequiredService<Login>();
                 Application.Run(loginForm);
             }
