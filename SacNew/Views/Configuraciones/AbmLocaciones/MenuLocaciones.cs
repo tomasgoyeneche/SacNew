@@ -96,6 +96,21 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
+
+        private void btnPool_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewLocaciones.SelectedRows.Count > 0)
+            {
+                int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
+
+                _presenter.AbrirLocacionPool(idLocacion);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione una locación para editar.");
+            }
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewLocaciones.SelectedRows.Count > 0)

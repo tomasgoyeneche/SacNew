@@ -14,9 +14,6 @@ namespace SacNew.Services
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
             serviceCollection.AddSingleton(connectionString);
 
-            //serviceCollection.AddSingleton<AuditoriaInterceptor>();
-            // serviceCollection.AddSingleton(typeof(IRepositorioGenerico<>), typeof(BaseRepositorioGenerico<>));
-
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan
                 .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies())

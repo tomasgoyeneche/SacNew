@@ -53,6 +53,14 @@ namespace SacNew.Presenters
             }
         }
 
+        public async void AbrirLocacionPool(int idLocacion)
+        {
+            await AbrirFormularioAsync<AgregarEditarPool>(async form =>
+            {
+                await form._presenter.InicializarAsync(idLocacion);
+            });
+        }
+
         public async void EditarLocacion(int idLocacion)
         {
             await AbrirFormularioAsync<AgregarEditarLocacion>(async form =>
