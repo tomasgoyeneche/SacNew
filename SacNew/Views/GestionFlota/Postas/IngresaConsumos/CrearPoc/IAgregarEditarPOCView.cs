@@ -1,6 +1,7 @@
-﻿using SacNew.Models;
+﻿using SacNew.Interfaces;
+using SacNew.Models;
 
-namespace SacNew.Interfaces
+namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 {
     public interface IAgregarEditarPOCView : IViewConMensajes
     {

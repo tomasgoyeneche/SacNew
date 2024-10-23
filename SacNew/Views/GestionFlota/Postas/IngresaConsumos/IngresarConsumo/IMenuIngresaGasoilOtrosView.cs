@@ -1,4 +1,6 @@
-﻿namespace SacNew.Interfaces
+﻿using SacNew.Interfaces;
+
+namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 {
     public interface IMenuIngresaGasoilOtrosView : IViewConMensajes, IViewConUsuario
     {

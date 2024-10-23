@@ -1,6 +1,6 @@
-﻿using SacNew.Views;
+﻿using SacNew.Interfaces;
 
-namespace SacNew.Interfaces
+namespace SacNew.Views
 {
     public interface ILoginView : IViewConMensajes
     {

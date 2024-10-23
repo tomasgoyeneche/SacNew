@@ -1,6 +1,6 @@
-﻿using SacNew.Interfaces;
-using SacNew.Models;
+﻿using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Views.GestionFlota.Postas.ABMPostas;
 
 namespace SacNew.Presenters
 {

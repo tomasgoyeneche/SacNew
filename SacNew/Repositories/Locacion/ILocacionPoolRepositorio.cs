@@ -11,7 +11,6 @@ namespace SacNew.Repositories
     {
         Task<IEnumerable<Locacion>> ObtenerPorIdPoolAsync(int idPool);
         Task<IEnumerable<Locacion>> ObtenerLocacionesDisponiblesAsync();
-
         Task<LocacionPool?> ObtenerRelacionAsync(int idPool, int idLocacion);
         Task AgregarLocacionAlPoolAsync(LocacionPool locacionPool);
         Task EliminarLocacionDelPoolAsync(int idLocacionPool);

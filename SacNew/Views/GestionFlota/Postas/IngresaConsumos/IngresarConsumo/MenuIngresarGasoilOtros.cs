@@ -1,5 +1,4 @@
-﻿using SacNew.Interfaces;
-using SacNew.Presenters;
+﻿using SacNew.Presenters;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 {
