@@ -9,10 +9,10 @@ namespace SacNew.Presenters
 {
     public class MenuConceptosPresenter : BasePresenter<IMenuConceptosView>
     {
-
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IConceptoTipoRepositorio _conceptoTipoRepositorio;
         private readonly IServiceProvider _serviceProvider;
+
         public MenuConceptosPresenter(
             IConceptoRepositorio conceptoRepositorio,
             IConceptoTipoRepositorio conceptoTipoRepositorio,
@@ -21,12 +21,9 @@ namespace SacNew.Presenters
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
-
             _conceptoRepositorio = conceptoRepositorio;
             _conceptoTipoRepositorio = conceptoTipoRepositorio;
             _serviceProvider = serviceProvider;
-
-
         }
 
         public string ObtenerDescripcionTipoConsumo(int idTipoConsumo)

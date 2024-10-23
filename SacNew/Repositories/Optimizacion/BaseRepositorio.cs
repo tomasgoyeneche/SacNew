@@ -57,7 +57,6 @@ namespace SacNew.Repositories
             });
         }
 
-
         private async Task InsertarAuditoria(
                SqlConnection connection,
                string tabla,
@@ -80,7 +79,7 @@ namespace SacNew.Repositories
             };
 
             var query = @"
-            INSERT INTO Auditoria 
+            INSERT INTO Auditoria
             (IdUsuario, TablaModificada, Accion, ValoresAnteriores, ValoresNuevos, FechaHora)
             VALUES (@IdUsuario, @TablaModificada, @Accion, @ValoresAnteriores, @ValoresNuevos, @FechaHora)";
 
