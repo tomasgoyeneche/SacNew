@@ -24,11 +24,8 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         public void CargarLocaciones(List<Locacion> locaciones)
         {
             dataGridViewLocaciones.DataSource = locaciones;
-
-            // Configurar las columnas
             ConfigurarColumnas();
 
-            // Llenar las nuevas columnas con "Sí" o "No"
             foreach (DataGridViewRow row in dataGridViewLocaciones.Rows)
             {
                 var locacion = (Locacion)row.DataBoundItem;
@@ -39,16 +36,17 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         private void ConfigurarColumnas()
         {
-            dataGridViewLocaciones.Columns["IdLocacion"].Visible = false;
-            dataGridViewLocaciones.Columns["Activo"].Visible = false;
-            dataGridViewLocaciones.Columns["Carga"].Visible = false;
-            dataGridViewLocaciones.Columns["Descarga"].Visible = false;
-            dataGridViewLocaciones.Columns["Nombre"].HeaderText = "Nombre";
-            dataGridViewLocaciones.Columns["Direccion"].HeaderText = "Dirección";
+            var columns = dataGridViewLocaciones.Columns;
+            columns["IdLocacion"].Visible = false;
+            columns["Activo"].Visible = false;
+            columns["Carga"].Visible = false;
+            columns["Descarga"].Visible = false;
+            columns["Nombre"].HeaderText = "Nombre";
+            columns["Direccion"].HeaderText = "Dirección";
 
-            if (!dataGridViewLocaciones.Columns.Contains("CargaTexto"))
+            if (!columns.Contains("CargaTexto"))
             {
-                dataGridViewLocaciones.Columns.Add(new DataGridViewTextBoxColumn
+                columns.Add(new DataGridViewTextBoxColumn
                 {
                     Name = "CargaTexto",
                     HeaderText = "Carga",
@@ -56,9 +54,9 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
                 });
             }
 
-            if (!dataGridViewLocaciones.Columns.Contains("DescargaTexto"))
+            if (!columns.Contains("DescargaTexto"))
             {
-                dataGridViewLocaciones.Columns.Add(new DataGridViewTextBoxColumn
+                columns.Add(new DataGridViewTextBoxColumn
                 {
                     Name = "DescargaTexto",
                     HeaderText = "Descarga",
@@ -95,14 +93,13 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
-
         private void btnPool_Click(object sender, EventArgs e)
         {
-            if (dataGridViewLocaciones.SelectedRows.Count > 0 )
+            if (dataGridViewLocaciones.SelectedRows.Count > 0)
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
-                String Carga = Convert.ToString(dataGridViewLocaciones.SelectedRows[0].Cells["CargaTexto"].Value);
-                if (Carga == "Sí")
+                string carga = dataGridViewLocaciones.SelectedRows[0].Cells["CargaTexto"].Value.ToString();
+                if (carga == "Sí")
                 {
                     _presenter.AbrirLocacionPool(idLocacion);
                 }
@@ -110,7 +107,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
                 {
                     MostrarMensaje("La locación no es de carga.");
                 }
-                
             }
             else
             {
@@ -123,7 +119,6 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             if (dataGridViewLocaciones.SelectedRows.Count > 0)
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
-
                 _presenter.EditarLocacion(idLocacion);
             }
             else
