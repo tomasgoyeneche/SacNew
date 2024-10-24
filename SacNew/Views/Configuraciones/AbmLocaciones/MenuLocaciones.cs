@@ -98,11 +98,19 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         private void btnPool_Click(object sender, EventArgs e)
         {
-            if (dataGridViewLocaciones.SelectedRows.Count > 0)
+            if (dataGridViewLocaciones.SelectedRows.Count > 0 )
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
-
-                _presenter.AbrirLocacionPool(idLocacion);
+                String Carga = Convert.ToString(dataGridViewLocaciones.SelectedRows[0].Cells["CargaTexto"].Value);
+                if (Carga == "Sí")
+                {
+                    _presenter.AbrirLocacionPool(idLocacion);
+                }
+                else
+                {
+                    MostrarMensaje("La locación no es de carga.");
+                }
+                
             }
             else
             {

@@ -160,6 +160,7 @@
             dataGridViewLocaciones.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewLocaciones.Location = new Point(12, 85);
             dataGridViewLocaciones.Name = "dataGridViewLocaciones";
+            dataGridViewLocaciones.ReadOnly = true;
             dataGridViewLocaciones.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.White;
@@ -186,7 +187,7 @@
             dataGridViewLocaciones.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewLocaciones.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewLocaciones.ThemeStyle.HeaderStyle.Height = 25;
-            dataGridViewLocaciones.ThemeStyle.ReadOnly = false;
+            dataGridViewLocaciones.ThemeStyle.ReadOnly = true;
             dataGridViewLocaciones.ThemeStyle.RowsStyle.BackColor = Color.White;
             dataGridViewLocaciones.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewLocaciones.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);

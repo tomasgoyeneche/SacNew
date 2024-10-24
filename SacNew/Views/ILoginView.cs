@@ -6,7 +6,6 @@ namespace SacNew.Views
     {
         string NombreUsuario { get; }
         string Contrasena { get; }
-
         void RedirigirAlMenu(Menu menuform);
     }
 }
