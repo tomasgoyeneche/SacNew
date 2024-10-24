@@ -273,6 +273,26 @@ namespace SacNew {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flechaDerecha {
+            get {
+                object obj = ResourceManager.GetObject("flechaDerecha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flechaIzquierda {
+            get {
+                object obj = ResourceManager.GetObject("flechaIzquierda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GuardiaBB {
             get {
                 object obj = ResourceManager.GetObject("GuardiaBB", resourceCulture);
