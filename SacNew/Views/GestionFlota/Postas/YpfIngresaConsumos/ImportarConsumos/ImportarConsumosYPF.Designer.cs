@@ -66,15 +66,15 @@
             bClose = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            cmbPeriodos = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            dgvConsumos = new Guna.UI2.WinForms.Guna2DataGridView();
             btnImportar = new Guna.UI2.WinForms.Guna2Button();
             btnExportarExcel = new Guna.UI2.WinForms.Guna2Button();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel9.SuspendLayout();
             guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsumos).BeginInit();
             SuspendLayout();
             // 
             // guna2Elipse1
@@ -97,7 +97,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Panel9.Size = new Size(800, 27);
+            guna2Panel9.Size = new Size(1200, 27);
             guna2Panel9.TabIndex = 18;
             // 
             // guna2ControlBox3
@@ -107,7 +107,7 @@
             guna2ControlBox3.CustomizableEdges = customizableEdges11;
             guna2ControlBox3.FillColor = Color.Transparent;
             guna2ControlBox3.IconColor = Color.WhiteSmoke;
-            guna2ControlBox3.Location = new Point(737, 0);
+            guna2ControlBox3.Location = new Point(1137, 0);
             guna2ControlBox3.Name = "guna2ControlBox3";
             guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2ControlBox3.Size = new Size(32, 27);
@@ -122,7 +122,7 @@
             guna2ControlBox4.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox4.HoverState.IconColor = Color.White;
             guna2ControlBox4.IconColor = Color.WhiteSmoke;
-            guna2ControlBox4.Location = new Point(769, 0);
+            guna2ControlBox4.Location = new Point(1169, 0);
             guna2ControlBox4.Name = "guna2ControlBox4";
             guna2ControlBox4.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2ControlBox4.Size = new Size(32, 27);
@@ -135,7 +135,7 @@
             guna2ControlBox1.CustomizableEdges = customizableEdges15;
             guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.IconColor = Color.WhiteSmoke;
-            guna2ControlBox1.Location = new Point(1250, -1);
+            guna2ControlBox1.Location = new Point(1650, -1);
             guna2ControlBox1.Name = "guna2ControlBox1";
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ControlBox1.Size = new Size(32, 27);
@@ -150,7 +150,7 @@
             guna2ControlBox2.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox2.HoverState.IconColor = Color.White;
             guna2ControlBox2.IconColor = Color.WhiteSmoke;
-            guna2ControlBox2.Location = new Point(1282, -1);
+            guna2ControlBox2.Location = new Point(1682, -1);
             guna2ControlBox2.Name = "guna2ControlBox2";
             guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox2.Size = new Size(32, 27);
@@ -163,7 +163,7 @@
             bMinimize.CustomizableEdges = customizableEdges19;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(1929, -1);
+            bMinimize.Location = new Point(2329, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges20;
             bMinimize.Size = new Size(32, 27);
@@ -178,7 +178,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(1961, -1);
+            bClose.Location = new Point(2361, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges22;
             bClose.Size = new Size(32, 27);
@@ -206,22 +206,22 @@
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Importa Consumos YPF";
             // 
-            // guna2ComboBox1
+            // cmbPeriodos
             // 
-            guna2ComboBox1.BackColor = Color.Transparent;
-            guna2ComboBox1.CustomizableEdges = customizableEdges7;
-            guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.Font = new Font("Segoe UI", 10F);
-            guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox1.ItemHeight = 30;
-            guna2ComboBox1.Location = new Point(101, 91);
-            guna2ComboBox1.Name = "guna2ComboBox1";
-            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2ComboBox1.Size = new Size(269, 36);
-            guna2ComboBox1.TabIndex = 39;
+            cmbPeriodos.BackColor = Color.Transparent;
+            cmbPeriodos.CustomizableEdges = customizableEdges7;
+            cmbPeriodos.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbPeriodos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPeriodos.FocusedColor = Color.FromArgb(94, 148, 255);
+            cmbPeriodos.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cmbPeriodos.Font = new Font("Segoe UI", 10F);
+            cmbPeriodos.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbPeriodos.ItemHeight = 30;
+            cmbPeriodos.Location = new Point(101, 91);
+            cmbPeriodos.Name = "cmbPeriodos";
+            cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cmbPeriodos.Size = new Size(269, 36);
+            cmbPeriodos.TabIndex = 39;
             // 
             // guna2HtmlLabel2
             // 
@@ -234,10 +234,10 @@
             guna2HtmlLabel2.TabIndex = 41;
             guna2HtmlLabel2.Text = "Periodo:";
             // 
-            // guna2DataGridView1
+            // dgvConsumos
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvConsumos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -245,9 +245,9 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 25;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvConsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvConsumos.ColumnHeadersHeight = 25;
+            dgvConsumos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -255,34 +255,35 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(30, 146);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.Size = new Size(739, 305);
-            guna2DataGridView1.TabIndex = 42;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 25;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvConsumos.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvConsumos.GridColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.Location = new Point(30, 146);
+            dgvConsumos.Name = "dgvConsumos";
+            dgvConsumos.ReadOnly = true;
+            dgvConsumos.RowHeadersVisible = false;
+            dgvConsumos.Size = new Size(1139, 305);
+            dgvConsumos.TabIndex = 42;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvConsumos.ThemeStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvConsumos.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvConsumos.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvConsumos.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvConsumos.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvConsumos.ThemeStyle.HeaderStyle.Height = 25;
+            dgvConsumos.ThemeStyle.ReadOnly = true;
+            dgvConsumos.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvConsumos.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvConsumos.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvConsumos.ThemeStyle.RowsStyle.Height = 25;
+            dgvConsumos.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // btnImportar
             // 
@@ -300,6 +301,7 @@
             btnImportar.Size = new Size(120, 37);
             btnImportar.TabIndex = 43;
             btnImportar.Text = "Importar";
+            btnImportar.Click += btnImportar_Click;
             // 
             // btnExportarExcel
             // 
@@ -317,6 +319,7 @@
             btnExportarExcel.Size = new Size(120, 37);
             btnExportarExcel.TabIndex = 44;
             btnExportarExcel.Text = "Exportar Excel";
+            btnExportarExcel.Click += btnExportarExcel_Click;
             // 
             // btnGuardar
             // 
@@ -327,25 +330,26 @@
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(649, 467);
+            btnGuardar.Location = new Point(1049, 471);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnGuardar.Size = new Size(120, 37);
             btnGuardar.TabIndex = 45;
             btnGuardar.Text = "Guardar";
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // ImportarConsumosYPF
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(800, 520);
+            ClientSize = new Size(1200, 520);
             Controls.Add(btnGuardar);
             Controls.Add(btnExportarExcel);
             Controls.Add(btnImportar);
-            Controls.Add(guna2DataGridView1);
+            Controls.Add(dgvConsumos);
             Controls.Add(guna2HtmlLabel2);
-            Controls.Add(guna2ComboBox1);
+            Controls.Add(cmbPeriodos);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel9);
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -353,10 +357,11 @@
             Name = "ImportarConsumosYPF";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ImportarConsumosYPF";
+            Load += ImportarConsumosYPF_Load;
             guna2Panel9.ResumeLayout(false);
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsumos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -374,10 +379,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnExportarExcel;
         private Guna.UI2.WinForms.Guna2Button btnImportar;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvConsumos;
     }
 }

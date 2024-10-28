@@ -2,7 +2,7 @@
 
 namespace SacNew.Services
 {
-    public class ExcelService
+    public class ExcelService : IExcelService
     {
         public ExcelService()
         {
@@ -10,7 +10,7 @@ namespace SacNew.Services
         }
 
         // Leer datos genéricos de Excel a una lista de objetos
-        public async Task<List<T>> LeerExcelAsync<T>(string filePath, Func<ExcelWorksheet, int, T> mapFunc)
+        public async Task<List<T>> LeerExcelAsync<T>(string filePath, Func<ExcelWorksheet, int, Task<T>> mapFunc)
         {
             var resultados = new List<T>();
 
@@ -20,12 +20,12 @@ namespace SacNew.Services
 
                 for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
                 {
-                    var item = mapFunc(worksheet, row);
+                    var item = await mapFunc(worksheet, row);
                     resultados.Add(item);
                 }
             }
 
-            return await Task.FromResult(resultados);
+            return resultados;
         }
 
         // Exportar lista de objetos a Excel
