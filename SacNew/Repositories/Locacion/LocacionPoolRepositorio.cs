@@ -1,11 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -31,7 +26,7 @@ namespace SacNew.Repositories
         public async Task<LocacionPool?> ObtenerRelacionAsync(int idPool, int idLocacion)
         {
             var query = @"
-            SELECT * 
+            SELECT *
             FROM LocacionPool
             WHERE IdPool = @IdPool AND IdLocacion = @IdLocacion AND Activo = 1";
 
@@ -42,8 +37,8 @@ namespace SacNew.Repositories
         public async Task<IEnumerable<Locacion>> ObtenerLocacionesDisponiblesAsync()
         {
             var query = @"
-            SELECT * 
-            FROM Locacion 
+            SELECT *
+            FROM Locacion
             WHERE Activo = 1";
 
             return await ConectarAsync(conn => conn.QueryAsync<Locacion>(query));

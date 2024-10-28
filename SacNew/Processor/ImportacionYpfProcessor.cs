@@ -1,16 +1,12 @@
 ﻿using OfficeOpenXml;
 using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Repositories.Chofer;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Processor
 {
-    public class ImportacionYpfProcessor: IImportacionYpfProcessor
+    public class ImportacionYpfProcessor : IImportacionYpfProcessor
     {
         private readonly IExcelService _excelService;
 
@@ -36,7 +32,6 @@ namespace SacNew.Processor
 
                 var idChofer = await _choferRepositorio.ObtenerIdPorDocumentoAsync(documentoChofer);
                 var idUnidad = await ObtenerIdUnidadDesdePatenteAsync(patente);
-
 
                 var nombreConsumo = worksheet.Cells[row, 19].Text;
                 var idConsumo = MapearNombreConsumo(nombreConsumo);

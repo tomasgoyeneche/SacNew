@@ -16,7 +16,6 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
 
         public Periodo? PeriodoSeleccionado => cmbPeriodos.SelectedItem as Periodo;
 
-
         public void CargarPeriodos(List<Periodo> periodos)
         {
             cmbPeriodos.DataSource = periodos;
@@ -35,7 +34,6 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
 
             dgvConsumos.Columns["idImportConsumoYPF"].Visible = false; // Ocultar columna ID
             dgvConsumos.Columns["Chequeado"].Visible = false; // Ocultar columna ID
-
         }
 
         public List<ImportConsumoYpfEnRuta> ObtenerConsumos()
@@ -46,7 +44,6 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
         private async void ImportarConsumosYPF_Load(object sender, EventArgs e)
         {
             await _presenter.CargarPeriodosAsync();
-
         }
 
         private async void btnExportarExcel_Click(object sender, EventArgs e)
@@ -75,7 +72,6 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
         {
             await _presenter.GuardarConsumosAsync();
             this.Dispose();
-
         }
     }
 }

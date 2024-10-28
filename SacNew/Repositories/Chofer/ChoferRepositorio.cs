@@ -1,12 +1,7 @@
 ﻿using Dapper;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SacNew.Repositories
+namespace SacNew.Repositories.Chofer
 {
     public class ChoferRepositorio : BaseRepositorio, IChoferRepositorio
     {

@@ -2,11 +2,6 @@
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Presenters
 {
@@ -15,7 +10,6 @@ namespace SacNew.Presenters
         private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IImportacionYpfProcessor _importacionProcessor;
         private readonly IImportConsumoYpfRepositorio _consumoYpfRepositorio;
-
 
         public ImportarConsumosYpfPresenter(
             IImportConsumoYpfRepositorio consumoYpfRepositorio,
@@ -29,7 +23,6 @@ namespace SacNew.Presenters
             _importacionProcessor = importacionProcessor;
             _periodoRepositorio = periodoRepositorio;
             _consumoYpfRepositorio = consumoYpfRepositorio;
-
         }
 
         public async Task CargarPeriodosAsync()
@@ -67,8 +60,6 @@ namespace SacNew.Presenters
             });
         }
 
-
-
         public async Task GuardarConsumosAsync()
         {
             var consumos = _view.ObtenerConsumos();
@@ -89,7 +80,6 @@ namespace SacNew.Presenters
                 _view.MostrarMensaje("Consumos guardados correctamente.");
             });
         }
-
 
         public async Task ExportarConsumosAExcelAsync(string filePath)
         {

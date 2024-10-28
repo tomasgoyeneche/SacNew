@@ -1,11 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -17,11 +12,11 @@ namespace SacNew.Repositories
         public async Task AgregarConsumoAsync(ImportConsumoYpfEnRuta consumo)
         {
             var query = @"
-        INSERT INTO ImportConsumoYpfEnRuta 
-        (FechaHora, Localidad, Tarjeta, idChofer, idUnidad, Remito, 
+        INSERT INTO ImportConsumoYpfEnRuta
+        (FechaHora, Localidad, Tarjeta, idChofer, idUnidad, Remito,
          idConsumo, Litros, ImporteTotalYer, ImporteSinImpuestos, Factura, IdPeriodo)
-        VALUES 
-        (@FechaHora, @Localidad, @Tarjeta, @IdChofer, @IdUnidad, @Remito, 
+        VALUES
+        (@FechaHora, @Localidad, @Tarjeta, @IdChofer, @IdUnidad, @Remito,
          @IdConsumo, @Litros, @ImporteTotalYer, @ImporteSinImpuestos, @Factura, @IdPeriodo)";
 
             await ConectarAsync(conn => conn.ExecuteAsync(query, consumo));
