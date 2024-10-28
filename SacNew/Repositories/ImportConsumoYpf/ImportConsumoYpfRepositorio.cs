@@ -25,7 +25,10 @@ namespace SacNew.Repositories
         public async Task<IEnumerable<ImportConsumoYpfEnRuta>> ObtenerPorPeriodoAsync(int idPeriodo)
         {
             var query = "SELECT * FROM ImportConsumoYpfEnRuta WHERE IdPeriodo = @IdPeriodo";
-            return await ConectarAsync(conn => conn.QueryAsync<ImportConsumoYpfEnRuta>(query, new { IdPeriodo = idPeriodo }));
+            var resultado = await ConectarAsync(conn =>
+                conn.QueryAsync<ImportConsumoYpfEnRuta>(query, new { idPeriodo })
+            );
+            return resultado.ToList();  // Convertimos el resultado a una lista.
         }
 
         public async Task EliminarConsumosPorPeriodoAsync(int idPeriodo)
