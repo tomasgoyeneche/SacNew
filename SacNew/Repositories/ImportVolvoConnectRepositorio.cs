@@ -1,11 +1,6 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Repositories
 {
@@ -17,11 +12,11 @@ namespace SacNew.Repositories
         public async Task AgregarImportacionAsync(ImportVolvoConnect importacion)
         {
             var query = @"
-        INSERT INTO ImportVolvoConnect 
-        (IdUnidad, Kilometros, PromedioGasoilEnMarcha, GasoilEnMarcha, 
+        INSERT INTO ImportVolvoConnect
+        (IdUnidad, Kilometros, PromedioGasoilEnMarcha, GasoilEnMarcha,
          PromedioGasoilEnConduccion, GasoilEnConduccion, IdPeriodo)
-        VALUES 
-        (@IdUnidad, @Kilometros, @PromedioGasoilEnMarcha, @GasoilEnMarcha, 
+        VALUES
+        (@IdUnidad, @Kilometros, @PromedioGasoilEnMarcha, @GasoilEnMarcha,
          @PromedioGasoilEnConduccion, @GasoilEnConduccion, @IdPeriodo)";
 
             await ConectarAsync(conn => conn.ExecuteAsync(query, importacion));

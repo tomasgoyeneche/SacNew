@@ -281,6 +281,7 @@
             Controls.Add(guna2Panel9);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ImportDatosVolvo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ImportDatosVolvo";
             Load += ImportDatosVolvo_Load;
             guna2Panel9.ResumeLayout(false);
