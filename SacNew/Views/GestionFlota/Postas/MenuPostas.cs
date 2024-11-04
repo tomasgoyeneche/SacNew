@@ -36,7 +36,7 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bIngresaConsumos_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<MenuIngresaConsumos>();
+            _navigationService.ShowDialog<MenuFormaIngresarConsumos>();
         }
 
         private void bIngresaConsumosYPF_Click(object sender, EventArgs e)

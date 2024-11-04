@@ -734,7 +734,7 @@
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(129, 54);
             guna2HtmlLabel15.TabIndex = 13;
-            guna2HtmlLabel15.Text = "Permite ingresar consumos en las postas.";
+            guna2HtmlLabel15.Text = "Permite ingresar/Importar consumos en postas.";
             // 
             // guna2HtmlLabel16
             // 

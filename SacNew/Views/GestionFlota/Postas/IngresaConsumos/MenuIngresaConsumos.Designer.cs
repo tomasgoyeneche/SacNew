@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -46,10 +48,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             lNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -59,7 +60,6 @@
             btnEditarPOC = new Guna.UI2.WinForms.Guna2Button();
             btnAgregarPOC = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPOC).BeginInit();
             SuspendLayout();
@@ -82,6 +82,19 @@
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel9.Size = new Size(900, 27);
             guna2Panel9.TabIndex = 17;
+            // 
+            // guna2ControlBox3
+            // 
+            guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            guna2ControlBox3.CustomizableEdges = customizableEdges11;
+            guna2ControlBox3.FillColor = Color.Transparent;
+            guna2ControlBox3.IconColor = Color.WhiteSmoke;
+            guna2ControlBox3.Location = new Point(836, -1);
+            guna2ControlBox3.Name = "guna2ControlBox3";
+            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2ControlBox3.Size = new Size(32, 27);
+            guna2ControlBox3.TabIndex = 20;
             // 
             // guna2ControlBox4
             // 
@@ -267,19 +280,6 @@
             guna2HtmlLabel1.Size = new Size(307, 17);
             guna2HtmlLabel1.TabIndex = 27;
             guna2HtmlLabel1.Text = "Haga doble click en una POC para ingresar los consumos.";
-            // 
-            // guna2ControlBox3
-            // 
-            guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox3.CustomizableEdges = customizableEdges11;
-            guna2ControlBox3.FillColor = Color.Transparent;
-            guna2ControlBox3.IconColor = Color.WhiteSmoke;
-            guna2ControlBox3.Location = new Point(836, -1);
-            guna2ControlBox3.Name = "guna2ControlBox3";
-            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2ControlBox3.Size = new Size(32, 27);
-            guna2ControlBox3.TabIndex = 20;
             // 
             // MenuIngresaConsumos
             // 
