@@ -1,13 +1,14 @@
 ﻿using SacNew.Models;
 using SacNew.Presenters;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.ImportConsumos;
 
-namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
+namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 {
-    public partial class ImportarConsumosYPF : Form, IImportarConsumosYpfView
+    public partial class ImportaDatosMv : Form, ImportaDatosMvView
     {
-        private readonly ImportarConsumosYpfPresenter _presenter;
+        private readonly ImportDatosMvPresenter _presenter;
 
-        public ImportarConsumosYPF(ImportarConsumosYpfPresenter presenter)
+        public ImportaDatosMv(ImportDatosMvPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -28,22 +29,15 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void MostrarConsumos(List<ImportConsumoYpfEnRuta> consumos)
+        public void MostrarConsumos(List<ImportMercadoVictoria> consumos)
         {
             dgvConsumos.DataSource = consumos;
-
-            dgvConsumos.Columns["idImportConsumoYPF"].Visible = false; // Ocultar columna ID
-            dgvConsumos.Columns["Chequeado"].Visible = false; // Ocultar columna ID
+            dgvConsumos.Columns["IdImportMercadoVictoria"].Visible = false; // Ocultar columna ID
         }
 
-        public List<ImportConsumoYpfEnRuta> ObtenerConsumos()
+        public List<ImportMercadoVictoria> ObtenerConsumos()
         {
-            return dgvConsumos.DataSource as List<ImportConsumoYpfEnRuta> ?? new List<ImportConsumoYpfEnRuta>();
-        }
-
-        private async void ImportarConsumosYPF_Load(object sender, EventArgs e)
-        {
-            await _presenter.CargarPeriodosAsync();
+            return dgvConsumos.DataSource as List<ImportMercadoVictoria> ?? new List<ImportMercadoVictoria>();
         }
 
         private async void btnExportarExcel_Click(object sender, EventArgs e)
@@ -74,9 +68,9 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
             this.Dispose();
         }
 
-        private void guna2ControlBox4_Click(object sender, EventArgs e)
+        private async void ImportaDatosMv_Load(object sender, EventArgs e)
         {
-            dgvConsumos.DataSource = null;
+            await _presenter.CargarPeriodosAsync();
         }
     }
 }

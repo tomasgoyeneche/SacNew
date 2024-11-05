@@ -51,7 +51,7 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbPeriodos = new Guna.UI2.WinForms.Guna2ComboBox();
-            dgvDatos = new Guna.UI2.WinForms.Guna2DataGridView();
+            dgvConsumos = new Guna.UI2.WinForms.Guna2DataGridView();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             btnExportarExcel = new Guna.UI2.WinForms.Guna2Button();
             btnImportar = new Guna.UI2.WinForms.Guna2Button();
@@ -60,7 +60,7 @@
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
             bClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsumos).BeginInit();
             guna2Panel3.SuspendLayout();
             guna2Panel9.SuspendLayout();
             SuspendLayout();
@@ -97,10 +97,10 @@
             cmbPeriodos.Size = new Size(269, 36);
             cmbPeriodos.TabIndex = 58;
             // 
-            // dgvDatos
+            // dgvConsumos
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvConsumos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -108,9 +108,9 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvDatos.ColumnHeadersHeight = 25;
-            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvConsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvConsumos.ColumnHeadersHeight = 25;
+            dgvConsumos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -118,35 +118,35 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvDatos.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvDatos.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDatos.Location = new Point(12, 134);
-            dgvDatos.Name = "dgvDatos";
-            dgvDatos.ReadOnly = true;
-            dgvDatos.RowHeadersVisible = false;
-            dgvDatos.Size = new Size(772, 305);
-            dgvDatos.TabIndex = 57;
-            dgvDatos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dgvDatos.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dgvDatos.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dgvDatos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dgvDatos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dgvDatos.ThemeStyle.BackColor = Color.White;
-            dgvDatos.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDatos.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvDatos.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvDatos.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvDatos.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDatos.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvDatos.ThemeStyle.HeaderStyle.Height = 25;
-            dgvDatos.ThemeStyle.ReadOnly = true;
-            dgvDatos.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgvDatos.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDatos.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvDatos.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dgvDatos.ThemeStyle.RowsStyle.Height = 25;
-            dgvDatos.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvDatos.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvConsumos.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvConsumos.GridColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.Location = new Point(12, 134);
+            dgvConsumos.Name = "dgvConsumos";
+            dgvConsumos.ReadOnly = true;
+            dgvConsumos.RowHeadersVisible = false;
+            dgvConsumos.Size = new Size(772, 305);
+            dgvConsumos.TabIndex = 57;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvConsumos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvConsumos.ThemeStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvConsumos.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvConsumos.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvConsumos.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvConsumos.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvConsumos.ThemeStyle.HeaderStyle.Height = 25;
+            dgvConsumos.ThemeStyle.ReadOnly = true;
+            dgvConsumos.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvConsumos.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvConsumos.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvConsumos.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvConsumos.ThemeStyle.RowsStyle.Height = 25;
+            dgvConsumos.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvConsumos.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // btnGuardar
             // 
@@ -163,6 +163,7 @@
             btnGuardar.Size = new Size(120, 37);
             btnGuardar.TabIndex = 56;
             btnGuardar.Text = "Guardar";
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnExportarExcel
             // 
@@ -272,7 +273,7 @@
             ClientSize = new Size(800, 500);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(cmbPeriodos);
-            Controls.Add(dgvDatos);
+            Controls.Add(dgvConsumos);
             Controls.Add(btnGuardar);
             Controls.Add(btnExportarExcel);
             Controls.Add(btnImportar);
@@ -280,8 +281,10 @@
             Controls.Add(guna2Panel9);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ImportaDatosMv";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuImportaIngresa";
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            Load += ImportaDatosMv_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvConsumos).EndInit();
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
             guna2Panel9.ResumeLayout(false);
@@ -294,7 +297,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDatos;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvConsumos;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnExportarExcel;
         private Guna.UI2.WinForms.Guna2Button btnImportar;
