@@ -426,6 +426,7 @@
             guna2Button4.Size = new Size(129, 30);
             guna2Button4.TabIndex = 12;
             guna2Button4.Text = "Ingresar";
+            guna2Button4.Click += guna2Button4_Click;
             // 
             // guna2HtmlLabel7
             // 
