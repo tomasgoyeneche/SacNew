@@ -22,6 +22,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         {
             dataGridViewPOC.DataSource = listaPOC;
             dataGridViewPOC.Columns["IdPoc"].Visible = false;
+            dataGridViewPOC.Columns["Estado"].Visible = false;
         }
 
         public void MostrarMensaje(string mensaje)

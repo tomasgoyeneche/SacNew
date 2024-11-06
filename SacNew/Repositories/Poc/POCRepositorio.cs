@@ -14,9 +14,9 @@ namespace SacNew.Repositories
         public async Task<List<POCDto>> ObtenerTodosAsync()
         {
             var query = @"
-        SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreChofer, ApellidoChofer
-        FROM POC_NominaDetalle
-        WHERE Activo = 1";
+        SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
+        FROM POC_UnidadDetalle
+        WHERE Estado = 'Abierta'";
 
             return await ConectarAsync(connection =>
             {
@@ -42,7 +42,7 @@ namespace SacNew.Repositories
 
         public async Task EliminarPOCAsync(int id)
         {
-            var query = "UPDATE POC SET Activo = 0 WHERE IdPoc = @Id";
+            var query = "UPDATE POC SET Estado = 'cerrada' WHERE IdPoc = @Id";
 
             await ConectarAsync(connection =>
             {
@@ -53,9 +53,9 @@ namespace SacNew.Repositories
         public async Task<POC?> ObtenerPorIdAsync(int idPoc)
         {
             var query = @"
-        SELECT IdPoc, NumeroPOC, IdPosta, IdNomina, Odometro, Comentario, FechaCreacion, IdUsuario, Activo
+        SELECT IdPoc, NumeroPOC, IdPosta, idUnidad, idChofer, Odometro, Comentario, FechaCreacion, IdUsuario, idPeriodo, Estado
         FROM POC
-        WHERE IdPoc = @IdPoc AND Activo = 1";
+        WHERE IdPoc = @IdPoc AND Estado = 'abierta'";
 
             return await ConectarAsync(connection =>
             {
@@ -66,8 +66,8 @@ namespace SacNew.Repositories
         public async Task AgregarPOCAsync(POC poc)
         {
             var query = @"
-        INSERT INTO POC (NumeroPOC, IdPosta, IdNomina, Odometro, Comentario, FechaCreacion, IdUsuario, Activo)
-        VALUES (@NumeroPOC, @IdPosta, @IdNomina, @Odometro, @Comentario, @FechaCreacion, @IdUsuario, 1)";
+        INSERT INTO POC (NumeroPOC, IdPosta, idUnidad, idChofer, Odometro, Comentario, FechaCreacion, IdUsuario, idPeriodo, Estado)
+        VALUES (@NumeroPOC, @IdPosta, @IdUnidad, @idChofer, @Odometro, @Comentario, @FechaCreacion, @IdUsuario, @idPeriodo, 'abierta')";
 
             await ConectarAsync(connection =>
             {
@@ -81,7 +81,8 @@ namespace SacNew.Repositories
         UPDATE POC
         SET NumeroPOC = @NumeroPOC,
             IdPosta = @IdPosta,
-            IdNomina = @IdNomina,
+            IdUnidad = @IdUnidad,
+            IdChofer = @IdChofer,
             Odometro = @Odometro,
             Comentario = @Comentario,
             FechaCreacion = @FechaCreacion,

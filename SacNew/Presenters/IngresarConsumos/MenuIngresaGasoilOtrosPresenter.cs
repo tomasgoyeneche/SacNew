@@ -10,19 +10,19 @@ namespace SacNew.Presenters
     {
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
-        private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IUnidadRepositorio _unidadRepositorio;
 
         public MenuIngresaGasoilOtrosPresenter(
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
             IPOCRepositorio pocRepositorio,
-            INominaRepositorio nominaRepositorio,
+            IUnidadRepositorio unidadRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
             _empresaCreditoRepositorio = empresaCreditoRepositorio ?? throw new ArgumentNullException(nameof(empresaCreditoRepositorio));
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));
-            _nominaRepositorio = nominaRepositorio ?? throw new ArgumentNullException(nameof(nominaRepositorio));
+            _unidadRepositorio = unidadRepositorio ?? throw new ArgumentNullException(nameof(unidadRepositorio));
         }
 
         public async Task CargarDatosAsync(int idPoc)
@@ -38,13 +38,13 @@ namespace SacNew.Presenters
                 var poc = await _pocRepositorio.ObtenerPorIdAsync(idPoc)
                            ?? throw new Exception("No se encontró el POC seleccionado.");
 
-                _view.NumeroPoc = poc.NumeroPOC;
-                _view.IdPoc = poc.IdPOC;
+                _view.NumeroPoc = poc.NumeroPoc;
+                _view.IdPoc = poc.IdPoc;
 
-                var nomina = await _nominaRepositorio.ObtenerPorIdAsync(poc.IdNomina)
+                var unidad = await _unidadRepositorio.ObtenerPorIdAsync(poc.IdUnidad)
                              ?? throw new Exception("No se encontró la nomina asociada al POC.");
 
-                var empresaCredito = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(nomina.idEmpresa)
+                var empresaCredito = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa)
                                      ?? throw new Exception("No se encontraron créditos para la empresa.");
 
                 _view.CreditoTotal = empresaCredito.CreditoAsignado.ToString("C", new CultureInfo("es-AR"));

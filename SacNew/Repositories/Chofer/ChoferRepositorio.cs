@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using SacNew.Models;
 using SacNew.Services;
 
 namespace SacNew.Repositories.Chofer
@@ -7,6 +8,17 @@ namespace SacNew.Repositories.Chofer
     {
         public ChoferRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService) { }
+
+        public async Task<List<chofer>> ObtenerTodosLosChoferes()
+        {
+            var query = "SELECT * FROM Chofer WHERE Activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<chofer>(query);
+                return chofers.ToList();
+            });
+        }
 
         public async Task<int?> ObtenerIdPorDocumentoAsync(string documento)
         {

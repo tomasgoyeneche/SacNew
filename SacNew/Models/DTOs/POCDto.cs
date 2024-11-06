@@ -7,7 +7,8 @@
         public string PatenteTractor { get; set; }
         public string PatenteSemi { get; set; }
         public string NombreFantasia { get; set; }
-        public string NombreChofer { get; set; }
-        public string ApellidoChofer { get; set; }
+        public string NombreCompletoChofer { get; set; }
+        public string Estado { get; set; }
+
     }
 }

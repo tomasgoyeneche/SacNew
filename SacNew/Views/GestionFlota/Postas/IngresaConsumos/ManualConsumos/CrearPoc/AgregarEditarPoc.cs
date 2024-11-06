@@ -1,4 +1,5 @@
 ﻿using SacNew.Models;
+using SacNew.Models.DTOs;
 using SacNew.Presenters;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
@@ -14,7 +15,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             _presenter.SetView(this);
         }
 
-        public int IdNomina => Convert.ToInt32(cmbNomina.SelectedValue);
+        public int IdUnidad => Convert.ToInt32(cmbNomina.SelectedValue);
+        public int IdChofer => Convert.ToInt32(cmbChofer.SelectedValue);
         public int IdPosta => Convert.ToInt32(cmbPosta.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
         public double Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToDouble(txtOdometro.Text.Trim());
@@ -22,13 +24,22 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public DateTime FechaCreacion => dtpFechaCreacion.Value;
         public int IdUsuario => _presenter.IdUsuario;
 
-        public void CargarNominas(List<Nomina> nominas)
+        public void CargarNominas(List<UnidadPatenteDto> unidades)
         {
-            cmbNomina.DataSource = nominas;
-            cmbNomina.DisplayMember = "DescripcionNomina";
-            cmbNomina.ValueMember = "IdNomina";
+            cmbNomina.DataSource = unidades;
+            cmbNomina.DisplayMember = "DescripcionUnidad";
+            cmbNomina.ValueMember = "IdUnidad";
 
-            cmbNomina.SelectedValue = _presenter.PocActual?.IdNomina ?? -1;
+            cmbNomina.SelectedValue = _presenter.PocActual?.IdUnidad ?? -1;
+        }
+
+        public void CargarChoferes(List<chofer> choferes)
+        {
+            cmbChofer.DataSource = choferes;
+            cmbChofer.DisplayMember = "Apellido";
+            cmbChofer.ValueMember = "IdChofer";
+
+            cmbChofer.SelectedValue = _presenter.PocActual?.IdChofer ?? -1;
         }
 
         public void CargarPostas(List<Posta> postas)
@@ -41,10 +52,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public void MostrarDatosPOC(POC poc)
         {
-            txtNumeroPOC.Text = poc.NumeroPOC;
+            txtNumeroPOC.Text = poc.NumeroPoc;
             txtOdometro.Text = poc.Odometro.ToString();
             txtComentario.Text = poc.Comentario;
-            cmbNomina.SelectedValue = poc.IdNomina;
+            cmbNomina.SelectedValue = poc.IdUnidad;
             cmbPosta.SelectedValue = poc.IdPosta;
             dtpFechaCreacion.Value = poc.FechaCreacion;
         }

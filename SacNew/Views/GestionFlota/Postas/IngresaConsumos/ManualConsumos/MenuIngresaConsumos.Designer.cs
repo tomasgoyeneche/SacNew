@@ -42,6 +42,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -191,6 +192,14 @@
             dataGridViewPOC.Location = new Point(12, 97);
             dataGridViewPOC.Name = "dataGridViewPOC";
             dataGridViewPOC.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 8F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewPOC.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewPOC.RowHeadersVisible = false;
             dataGridViewPOC.Size = new Size(863, 372);
             dataGridViewPOC.TabIndex = 21;
@@ -203,7 +212,7 @@
             dataGridViewPOC.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewPOC.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewPOC.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewPOC.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewPOC.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 8F);
             dataGridViewPOC.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewPOC.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPOC.ThemeStyle.HeaderStyle.Height = 25;

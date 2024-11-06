@@ -1,5 +1,6 @@
 ﻿using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Repositories.Chofer;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 
@@ -7,21 +8,24 @@ namespace SacNew.Presenters
 {
     public class AgregarEditarPOCPresenter : BasePresenter<IAgregarEditarPOCView>
     {
-        private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
+        private readonly IChoferRepositorio _choferRepositorio;
 
         public POC PocActual { get; private set; }
 
         public AgregarEditarPOCPresenter(
-            INominaRepositorio nominaRepositorio,
+            IChoferRepositorio choferRepositorio,
+            IUnidadRepositorio unidadRepositorio,
             IPostaRepositorio postaRepositorio,
             IPOCRepositorio pocRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
-            _nominaRepositorio = nominaRepositorio;
+            _choferRepositorio = choferRepositorio;
+            _unidadRepositorio = unidadRepositorio;
             _postaRepositorio = postaRepositorio;
             _pocRepositorio = pocRepositorio;
         }
@@ -32,11 +36,15 @@ namespace SacNew.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var nominas = _nominaRepositorio.ObtenerTodasLasNominas();
+                var unidades = _unidadRepositorio.ObtenerUnidadesPatenteDto();
                 var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();
-                var nominasOrdenadas = nominas.OrderBy(n => n.DescripcionNomina).ToList();
+                var unidadesOrdenadas = unidades.OrderBy(n => n.DescripcionUnidad).ToList();
+                var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
+                var choferesOrdenados = choferes.OrderBy(c => c.Apellido).ToList();
 
-                _view.CargarNominas(nominasOrdenadas);
+
+                _view.CargarChoferes(choferesOrdenados);
+                _view.CargarNominas(unidadesOrdenadas);
                 _view.CargarPostas(postas);
             });
         }
@@ -51,7 +59,7 @@ namespace SacNew.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var poc = PocActual ?? new POC { Activo = true };
+                var poc = PocActual ?? new POC { Estado = "Abierta" };
 
                 // Validaciones antes de guardar
                 if (string.IsNullOrWhiteSpace(_view.NumeroPOC))
@@ -59,8 +67,9 @@ namespace SacNew.Presenters
                     throw new InvalidOperationException("El número de POC es requerido.");
                 }
 
-                poc.NumeroPOC = _view.NumeroPOC;
-                poc.IdNomina = _view.IdNomina;
+                poc.NumeroPoc = _view.NumeroPOC;
+                poc.IdUnidad = _view.IdUnidad;
+                poc.IdChofer = _view.IdChofer;
                 poc.IdPosta = _view.IdPosta;
                 poc.Odometro = _view.Odometro;
                 poc.Comentario = _view.Comentario;
