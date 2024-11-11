@@ -31,7 +31,7 @@ namespace SacNew.Presenters
         public async Task CargarPOCAsync()
         {
             await EjecutarConCargaAsync(
-                () => _repositorioPOC.ObtenerTodosAsync(),
+                () => _repositorioPOC.ObtenerTodosPorPostaAsync(_sesionService.IdPosta),
                 _view.MostrarPOC
             );
         }

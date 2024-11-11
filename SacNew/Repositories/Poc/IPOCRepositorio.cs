@@ -16,5 +16,7 @@ namespace SacNew.Repositories
         Task AgregarPOCAsync(POC poc);
 
         Task ActualizarPOCAsync(POC poc);
+
+        Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta);
     }
 }

@@ -11,7 +11,7 @@ namespace SacNew.Repositories
 
         public Usuario? ObtenerPorNombreUsuario(string nombreUsuario)
         {
-            var query = "SELECT idUsuario, nombreUsuario, contrasena, nombreCompleto, activo FROM Usuario WHERE nombreUsuario = @NombreUsuario";
+            var query = "SELECT idUsuario, nombreUsuario, contrasena, nombreCompleto, activo, idPosta FROM Usuario WHERE nombreUsuario = @NombreUsuario";
 
             return Conectar(connection =>
             {

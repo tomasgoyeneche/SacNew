@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SacNew.Models
+﻿namespace SacNew.Models
 {
-    internal class InformeConsumoUnidad
+    public class InformeConsumoUnidad
     {
-        public int idInformeConsumoUnidad { get; set; }
         public string PatenteTractor { get; set; }          // Patente del tractor
         public decimal ConsumoLitrosMes { get; set; }       // Consumo total en litros del mes
         public decimal KilometrosRecorridos { get; set; }   // Kilómetros recorridos en el mes
@@ -21,8 +14,8 @@ namespace SacNew.Models
         public decimal DiferenciaLitros { get; set; }       // Diferencia de litros entre consumos
         public decimal PorcentajeDiferencia { get; set; }   // Porcentaje de diferencia de consumo
         public decimal LitrosConsumidosReales { get; set; } // Litros consumidos reales
-        public decimal DiferencialLitrosTeoricosReales { get; set; } // Diferencia entre litros teóricos y reales
-        public decimal PorcentajeDiferencialLitrosReales { get; set; } // Porcentaje de diferencia en litros reales
+        public decimal DiferenciaLitrosTeoricosReales { get; set; } // Diferencia entre litros teóricos y reales
+        public decimal PorcentajeDiferenciaLitrosReales { get; set; } // Porcentaje de diferencia en litros reales
 
         public int idPeriodo { get; set; }
     }

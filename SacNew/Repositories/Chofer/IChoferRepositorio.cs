@@ -1,5 +1,4 @@
 ﻿using SacNew.Models;
-using SacNew.Models.DTOs;
 
 namespace SacNew.Repositories.Chofer
 {

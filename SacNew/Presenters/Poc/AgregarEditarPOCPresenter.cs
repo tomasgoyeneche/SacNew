@@ -9,7 +9,7 @@ namespace SacNew.Presenters
     public class AgregarEditarPOCPresenter : BasePresenter<IAgregarEditarPOCView>
     {
         private readonly IUnidadRepositorio _unidadRepositorio;
-        private readonly IPostaRepositorio _postaRepositorio;
+        private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
 
@@ -18,7 +18,7 @@ namespace SacNew.Presenters
         public AgregarEditarPOCPresenter(
             IChoferRepositorio choferRepositorio,
             IUnidadRepositorio unidadRepositorio,
-            IPostaRepositorio postaRepositorio,
+            IPeriodoRepositorio periodoRepositorio,
             IPOCRepositorio pocRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
@@ -26,7 +26,7 @@ namespace SacNew.Presenters
         {
             _choferRepositorio = choferRepositorio;
             _unidadRepositorio = unidadRepositorio;
-            _postaRepositorio = postaRepositorio;
+            _periodoRepositorio = periodoRepositorio;
             _pocRepositorio = pocRepositorio;
         }
 
@@ -37,15 +37,14 @@ namespace SacNew.Presenters
             await EjecutarConCargaAsync(async () =>
             {
                 var unidades = _unidadRepositorio.ObtenerUnidadesPatenteDto();
-                var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();
+                var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
                 var unidadesOrdenadas = unidades.OrderBy(n => n.DescripcionUnidad).ToList();
                 var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
                 var choferesOrdenados = choferes.OrderBy(c => c.Apellido).ToList();
 
-
                 _view.CargarChoferes(choferesOrdenados);
                 _view.CargarNominas(unidadesOrdenadas);
-                _view.CargarPostas(postas);
+                _view.CargarPeriodo(periodos);
             });
         }
 
@@ -69,8 +68,9 @@ namespace SacNew.Presenters
 
                 poc.NumeroPoc = _view.NumeroPOC;
                 poc.IdUnidad = _view.IdUnidad;
+                poc.IdPosta = _sesionService.IdPosta;
                 poc.IdChofer = _view.IdChofer;
-                poc.IdPosta = _view.IdPosta;
+                poc.IdPeriodo = _view.IdPeriodo;
                 poc.Odometro = _view.Odometro;
                 poc.Comentario = _view.Comentario;
                 poc.FechaCreacion = _view.FechaCreacion;

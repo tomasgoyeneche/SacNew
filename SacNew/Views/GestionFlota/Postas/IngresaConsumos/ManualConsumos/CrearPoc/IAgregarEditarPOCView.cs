@@ -8,7 +8,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
     {
         int IdUnidad { get; }
         int IdChofer { get; }
-        int IdPosta { get; }
+        int IdPeriodo { get; }
         string NumeroPOC { get; }
         double Odometro { get; }
         string Comentario { get; }
@@ -16,8 +16,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         int IdUsuario { get; }
 
         void CargarNominas(List<UnidadPatenteDto> unidades);
+
         void CargarChoferes(List<chofer> choferes);
-        void CargarPostas(List<Posta> postas);
+
+        void CargarPeriodo(List<Periodo> periodos);
 
         void MostrarDatosPOC(POC poc);
     }

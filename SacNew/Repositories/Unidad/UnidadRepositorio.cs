@@ -9,8 +9,6 @@ namespace SacNew.Repositories
         public UnidadRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService) { }
 
-    
-
         public List<UnidadPatenteDto> ObtenerUnidadesPatenteDto()
         {
             var query = @"
@@ -22,7 +20,6 @@ namespace SacNew.Repositories
                 return unidades;
             });
         }
-
 
         public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
         {

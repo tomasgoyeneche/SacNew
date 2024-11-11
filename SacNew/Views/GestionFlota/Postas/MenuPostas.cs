@@ -52,7 +52,7 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<MenuInformesPostas>();    
+            _navigationService.ShowDialog<MenuInformesPostas>();
         }
     }
 }

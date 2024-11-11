@@ -24,6 +24,20 @@ namespace SacNew.Repositories
             });
         }
 
+        public async Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta)
+        {
+            var query = @"
+    SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
+    FROM POC_UnidadDetalle
+    WHERE Estado = 'Abierta' AND IdPosta = @idPosta";
+
+            return await ConectarAsync(async connection =>
+            {
+                var result = await connection.QueryAsync<POCDto>(query, new { idPosta });
+                return result.ToList();
+            });
+        }
+
         public async Task<List<POCDto>> BuscarPOCAsync(string criterio)
         {
             var query = @"

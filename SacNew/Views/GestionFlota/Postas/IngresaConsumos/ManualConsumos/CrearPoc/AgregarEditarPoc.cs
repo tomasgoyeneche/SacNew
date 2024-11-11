@@ -17,7 +17,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public int IdUnidad => Convert.ToInt32(cmbNomina.SelectedValue);
         public int IdChofer => Convert.ToInt32(cmbChofer.SelectedValue);
-        public int IdPosta => Convert.ToInt32(cmbPosta.SelectedValue);
+        public int IdPeriodo => Convert.ToInt32(cmbPeriodo.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
         public double Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToDouble(txtOdometro.Text.Trim());
         public string Comentario => txtComentario.Text.Trim();
@@ -42,12 +42,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             cmbChofer.SelectedValue = _presenter.PocActual?.IdChofer ?? -1;
         }
 
-        public void CargarPostas(List<Posta> postas)
+        public void CargarPeriodo(List<Periodo> periodos)
         {
-            cmbPosta.DataSource = postas;
-            cmbPosta.DisplayMember = "Descripcion";
-            cmbPosta.ValueMember = "IdPosta";
-            cmbPosta.SelectedValue = _presenter.PocActual?.IdPosta ?? -1;
+            cmbPeriodo.DataSource = periodos;
+            cmbPeriodo.DisplayMember = "NombrePeriodo";
+            cmbPeriodo.ValueMember = "idPeriodo";
+            cmbPeriodo.SelectedValue = _presenter.PocActual?.IdPeriodo ?? -1;
         }
 
         public void MostrarDatosPOC(POC poc)
@@ -56,7 +56,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             txtOdometro.Text = poc.Odometro.ToString();
             txtComentario.Text = poc.Comentario;
             cmbNomina.SelectedValue = poc.IdUnidad;
-            cmbPosta.SelectedValue = poc.IdPosta;
+            cmbPeriodo.SelectedValue = poc.IdPeriodo;
             dtpFechaCreacion.Value = poc.FechaCreacion;
         }
 

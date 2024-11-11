@@ -42,7 +42,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            bInformeUnidad = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
             bClose = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -60,22 +60,23 @@
             // 
             guna2Elipse1.TargetControl = this;
             // 
-            // guna2Button1
+            // bInformeUnidad
             // 
-            guna2Button1.CustomizableEdges = customizableEdges3;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.Gray;
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(29, 97);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button1.Size = new Size(132, 28);
-            guna2Button1.TabIndex = 0;
-            guna2Button1.Text = "Ingresar";
+            bInformeUnidad.CustomizableEdges = customizableEdges3;
+            bInformeUnidad.DisabledState.BorderColor = Color.DarkGray;
+            bInformeUnidad.DisabledState.CustomBorderColor = Color.DarkGray;
+            bInformeUnidad.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bInformeUnidad.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bInformeUnidad.FillColor = Color.Gray;
+            bInformeUnidad.Font = new Font("Segoe UI", 9F);
+            bInformeUnidad.ForeColor = Color.White;
+            bInformeUnidad.Location = new Point(29, 97);
+            bInformeUnidad.Name = "bInformeUnidad";
+            bInformeUnidad.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            bInformeUnidad.Size = new Size(132, 28);
+            bInformeUnidad.TabIndex = 0;
+            bInformeUnidad.Text = "Ingresar";
+            bInformeUnidad.Click += bInformeUnidad_Click;
             // 
             // guna2Panel9
             // 
@@ -145,7 +146,7 @@
             // guna2Panel1
             // 
             guna2Panel1.Controls.Add(guna2HtmlLabel2);
-            guna2Panel1.Controls.Add(guna2Button1);
+            guna2Panel1.Controls.Add(bInformeUnidad);
             guna2Panel1.Controls.Add(guna2HtmlLabel1);
             guna2Panel1.CustomizableEdges = customizableEdges5;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
@@ -189,6 +190,7 @@
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MenuInformesPostas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuInformesPostas";
             guna2Panel9.ResumeLayout(false);
             guna2Panel1.ResumeLayout(false);
@@ -200,7 +202,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button bInformeUnidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;

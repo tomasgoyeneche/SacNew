@@ -8,11 +8,14 @@ namespace SacNew.Services
         public string NombreCompleto { get; private set; }
         public List<int> Permisos { get; private set; }
 
+        public int IdPosta { get; private set; }
+
         public void IniciarSesion(Usuario usuario, List<int> permisos)
         {
             IdUsuario = usuario.IdUsuario;
             NombreCompleto = usuario.NombreCompleto;
             Permisos = permisos;
+            IdPosta = usuario.idPosta;
         }
 
         public void CerrarSesion()
