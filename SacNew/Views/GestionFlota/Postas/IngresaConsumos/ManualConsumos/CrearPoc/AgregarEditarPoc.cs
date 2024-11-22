@@ -36,7 +36,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public void CargarChoferes(List<chofer> choferes)
         {
             cmbChofer.DataSource = choferes;
-            cmbChofer.DisplayMember = "Apellido";
+            cmbChofer.DisplayMember = "NombreApellido";
             cmbChofer.ValueMember = "IdChofer";
 
             cmbChofer.SelectedValue = _presenter.PocActual?.IdChofer ?? -1;

@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+    <Folder Include="Reports\" />
     <Folder Include="Views\GestionDocumental\" />
     <Folder Include="Views\GestionFlota\Postas\LimiteDeCredito\" />
     <Folder Include="Views\GestionOperativa\" />
@@ -25,13 +26,13 @@
   <ItemGroup>
     <PackageReference Include="Castle.Core" Version="5.1.1" />
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <PackageReference Include="EPPlus" Version="7.4.1" />
+    <PackageReference Include="EPPlus" Version="7.4.2" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Scrutor" Version="5.0.1" />
+    <PackageReference Include="Scrutor" Version="5.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
