@@ -10,17 +10,17 @@ namespace SacNew.Repositories
             : base(connectionString, sesionService)
         { }
 
-        public List<Proveedor> ObtenerTodosLosProveedores()
+        public async Task<List<Proveedor>> ObtenerTodosLosProveedoresAsync()
         {
             var query = @"
         SELECT IdProveedor, Codigo, RazonSocial, NumeroFicha, Activo
         FROM ConceptoProveedor
-        WHERE Activo = 1";  // Solo proveedores activos
+        WHERE Activo = 1"; // Solo proveedores activos
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                var proveedores = connection.Query<Proveedor>(query).ToList();
-                return proveedores;
+                var proveedores = await connection.QueryAsync<Proveedor>(query);
+                return proveedores.ToList(); // Convertimos el resultado a una lista
             });
         }
     }

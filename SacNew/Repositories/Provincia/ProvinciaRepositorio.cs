@@ -9,13 +9,14 @@ namespace SacNew.Repositories
         public ProvinciaRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService) { }
 
-        public List<Provincia> ObtenerProvincias()
+        public async Task<List<Provincia>> ObtenerProvinciasAsync()
         {
             var query = "SELECT idProvincia, nombreProvincia FROM Provincia";
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.Query<Provincia>(query).ToList(); // Dapper mapea directamente a la lista de Provincias
+                var provincias = await connection.QueryAsync<Provincia>(query);
+                return provincias.ToList(); // Convertimos el IEnumerable a List
             });
         }
     }

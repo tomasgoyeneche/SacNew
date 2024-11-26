@@ -43,10 +43,10 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             await _presenter.EliminarLocacionDelPoolAsync();
         }
 
-        public Locacion LocacionSeleccionadaDisponible =>
+        public Locacion? LocacionSeleccionadaDisponible =>
             lstLocacionesDisponibles.SelectedItem as Locacion;
 
-        public Locacion LocacionSeleccionadaAsignada =>
+        public Locacion? LocacionSeleccionadaAsignada =>
             lstLocacionesAsignadas.SelectedItem as Locacion;
     }
 }

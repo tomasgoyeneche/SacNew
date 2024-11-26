@@ -15,19 +15,24 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             // Inicializamos el Presenter y cargamos los conceptos
             _presenter = presenter;
             _presenter.SetView(this);
+
+            // Inicializamos la carga asíncrona
+            _ = InicializarAsync();
         }
 
         // Implementación de la interfaz para mostrar los conceptos
-        public void MostrarConceptos(List<Concepto> conceptos)
+        public async Task MostrarConceptosAsync(List<Concepto> conceptos)
         {
-            // Se configura el DataGridView para mostrar solo las columnas deseadas
-            dataGridViewConceptos.DataSource = conceptos.Select(c => new
+            // Configuramos el DataGridView para mostrar solo las columnas deseadas
+            var conceptosAMostrar = await Task.WhenAll(conceptos.Select(async c => new
             {
                 c.IdConsumo,
                 c.Codigo,
                 c.Descripcion,
-                TipoConsumo = _presenter.ObtenerDescripcionTipoConsumo(c.IdConsumoTipo)  // Obtener la descripción del tipo de consumo
-            }).ToList();
+                TipoConsumo = await _presenter.ObtenerDescripcionTipoConsumoAsync(c.IdConsumoTipo) // Obtener la descripción del tipo de consumo de forma asíncrona
+            }));
+
+            dataGridViewConceptos.DataSource = conceptosAMostrar.ToList();
 
             // Configurar para que el ID de consumo no se muestre
             dataGridViewConceptos.Columns["IdConsumo"].Visible = false;
@@ -41,31 +46,31 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         }
 
         // Evento del botón Buscar
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            _presenter.BuscarConceptos();
+            await _presenter.BuscarConceptosAsync();
             txtBuscar.Text = "";
         }
 
-        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        private async void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            _presenter.BuscarConceptos();
+            await _presenter.BuscarConceptosAsync();
         }
 
         // Evento del botón Agregar
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarConcepto();
+            await _presenter.AgregarConceptoAsync();
         }
 
         // Evento del botón Editar
-        private void btnEditar_Click(object sender, EventArgs e)
+        private async void btnEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewConceptos.SelectedRows.Count > 0)
             {
                 int idConsumo = Convert.ToInt32(dataGridViewConceptos.SelectedRows[0].Cells["IdConsumo"].Value);
-                var conceptoCompleto = _presenter.ObtenerConceptoPorId(idConsumo);
-                _presenter.EditarConcepto(conceptoCompleto);
+                var conceptoCompleto = await _presenter.ObtenerConceptoPorIdAsync(idConsumo);
+                await _presenter.EditarConceptoAsync(conceptoCompleto);
             }
             else
             {
@@ -74,7 +79,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         }
 
         // Evento del botón Eliminar
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridViewConceptos.SelectedRows.Count > 0)
             {
@@ -82,7 +87,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
                 int idConsumo = Convert.ToInt32(dataGridViewConceptos.SelectedRows[0].Cells["IdConsumo"].Value);
 
                 // Ahora puedes usar el idConsumo para eliminar el concepto
-                _presenter.EliminarConceptoPorId(idConsumo);
+                await _presenter.EliminarConceptoPorIdAsync(idConsumo);
             }
             else
             {
@@ -90,9 +95,14 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             }
         }
 
-        private void MenuConceptos_Load(object sender, EventArgs e)
+        private async void MenuConceptos_Load(object sender, EventArgs e)
         {
-            _presenter.CargarConceptos();
+            await _presenter.CargarConceptosAsync();
+        }
+
+        private async Task InicializarAsync()
+        {
+            await _presenter.CargarConceptosAsync();
         }
     }
 }

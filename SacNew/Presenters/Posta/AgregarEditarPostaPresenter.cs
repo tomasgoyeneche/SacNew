@@ -1,77 +1,88 @@
 ﻿using SacNew.Models;
 using SacNew.Repositories;
+using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 
 namespace SacNew.Presenters
 {
-    public class AgregarEditarPostaPresenter
+    public class AgregarEditarPostaPresenter : BasePresenter<IAgregarEditarPostaView>
     {
-        private readonly IAgregarEditarPostaView _view;
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IProvinciaRepositorio _provinciaRepositorio;
         private Posta _postaActual;
 
-        public AgregarEditarPostaPresenter(IAgregarEditarPostaView view, IPostaRepositorio postaRepositorio, IProvinciaRepositorio provinciaRepositorio)
+        public AgregarEditarPostaPresenter(
+            IPostaRepositorio postaRepositorio,
+            IProvinciaRepositorio provinciaRepositorio,
+            ISesionService sesionService,
+            INavigationService navigationService
+        ) : base(sesionService, navigationService)
         {
-            _view = view;
             _postaRepositorio = postaRepositorio;
             _provinciaRepositorio = provinciaRepositorio;
-
-            CargarProvincias();
         }
 
-        public void CargarProvincias()
+        public async Task CargarProvinciasAsync()
         {
-            var provincias = _provinciaRepositorio.ObtenerProvincias();
-            _view.CargarProvincias(provincias);
+            await EjecutarConCargaAsync(async () =>
+            {
+                var provincias = await _provinciaRepositorio.ObtenerProvinciasAsync();
+                _view.CargarProvincias(provincias);
+            });
         }
 
         public void CargarDatosPosta(Posta posta)
         {
-            _postaActual = posta;
-            _view.Codigo = posta.Codigo;
-            _view.Descripcion = posta.Descripcion;
-            _view.Direccion = posta.Direccion;
-            _view.ProvinciaId = posta.IdProvincia;
-            _view.Id = posta.IdPosta;
+            if(posta != null)
+            {
+                _postaActual = posta;
+                _view.Codigo = posta.Codigo;
+                _view.Descripcion = posta.Descripcion;
+                _view.Direccion = posta.Direccion;
+                _view.ProvinciaId = posta.IdProvincia;
+                _view.Id = posta.IdPosta;
+            }
+        
         }
 
-        public void GuardarPosta()
+        public async Task GuardarPostaAsync()
         {
             if (!ValidarDatos())
             {
                 return;
             }
 
-            if (_postaActual == null)
+            await EjecutarConCargaAsync(async () =>
             {
-                // Crear una nueva posta
-                var nuevaPosta = new Posta
+                if (_postaActual == null)
                 {
-                    Codigo = _view.Codigo,
-                    Descripcion = _view.Descripcion,
-                    Direccion = _view.Direccion,
-                    IdProvincia = _view.ProvinciaId
-                };
-                _postaRepositorio.AgregarPostaAsync(nuevaPosta);
-                _view.MostrarMensaje("Posta agregada exitosamente.");
-            }
-            else
-            {
-                // Actualizar la posta existente
-                var postaExistente = new Posta
+                    // Crear una nueva posta
+                    var nuevaPosta = new Posta
+                    {
+                        Codigo = _view.Codigo,
+                        Descripcion = _view.Descripcion,
+                        Direccion = _view.Direccion,
+                        IdProvincia = _view.ProvinciaId
+                    };
+                    await _postaRepositorio.AgregarPostaAsync(nuevaPosta);
+                    _view.MostrarMensaje("Posta agregada exitosamente.");
+                }
+                else
                 {
-                    IdPosta = _view.Id,  // Mantener el Id de la Posta existente
-                    Codigo = _view.Codigo,
-                    Descripcion = _view.Descripcion,
-                    Direccion = _view.Direccion,
-                    IdProvincia = _view.ProvinciaId
-                };
-                _postaRepositorio.ActualizarPostaAsync(postaExistente);
-                _view.MostrarMensaje("Posta actualizada exitosamente.");
-            }
+                    // Actualizar la posta existente
+                    var postaExistente = new Posta
+                    {
+                        IdPosta = _view.Id,  // Mantener el Id de la Posta existente
+                        Codigo = _view.Codigo,
+                        Descripcion = _view.Descripcion,
+                        Direccion = _view.Direccion,
+                        IdProvincia = _view.ProvinciaId
+                    };
+                    await _postaRepositorio.ActualizarPostaAsync(postaExistente);
+                    _view.MostrarMensaje("Posta actualizada exitosamente.");
+                }
+            });
         }
-
         private bool ValidarDatos()
         {
             if (string.IsNullOrWhiteSpace(_view.Codigo))

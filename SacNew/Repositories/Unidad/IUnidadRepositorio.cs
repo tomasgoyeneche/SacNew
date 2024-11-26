@@ -8,7 +8,7 @@ namespace SacNew.Repositories
 
         Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor);
 
-        public List<UnidadPatenteDto> ObtenerUnidadesPatenteDto();
+        Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync();
 
         Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
     }

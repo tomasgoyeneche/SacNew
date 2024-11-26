@@ -36,7 +36,7 @@ namespace SacNew.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var unidades = _unidadRepositorio.ObtenerUnidadesPatenteDto();
+                var unidades =await  _unidadRepositorio.ObtenerUnidadesPatenteDtoAsync();
                 var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
                 var unidadesOrdenadas = unidades.OrderBy(n => n.DescripcionUnidad).ToList();
                 var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();

@@ -10,25 +10,25 @@ namespace SacNew.Repositories
             : base(connectionString, sesionService)
         { }
 
-        public string ObtenerDescripcionPorId(int idConsumoTipo)
+        public async Task<string> ObtenerDescripcionPorIdAsync(int idConsumoTipo)
         {
             var query = "SELECT Descripcion FROM ConceptoTipo WHERE IdConsumoTipo = @IdConsumoTipo";
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                var descripcion = connection.ExecuteScalar<string>(query, new { IdConsumoTipo = idConsumoTipo });
+                var descripcion = await connection.ExecuteScalarAsync<string>(query, new { IdConsumoTipo = idConsumoTipo });
                 return descripcion ?? "Tipo no encontrado";
             });
         }
 
-        public List<ConceptoTipo> ObtenerTodosLosTipos()
+        public async Task<List<ConceptoTipo>> ObtenerTodosLosTiposAsync()
         {
             var query = "SELECT * FROM ConceptoTipo";
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                var tipos = connection.Query<ConceptoTipo>(query).ToList();
-                return tipos;
+                var tipos = await connection.QueryAsync<ConceptoTipo>(query);
+                return tipos.ToList(); // Convertimos el IEnumerable a List
             });
         }
     }

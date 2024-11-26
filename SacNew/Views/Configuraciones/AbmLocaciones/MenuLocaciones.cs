@@ -93,15 +93,15 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
-        private void btnPool_Click(object sender, EventArgs e)
+        private async void btnPool_Click(object sender, EventArgs e)
         {
             if (dataGridViewLocaciones.SelectedRows.Count > 0)
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
-                string carga = dataGridViewLocaciones.SelectedRows[0].Cells["CargaTexto"].Value.ToString();
+                string? carga = dataGridViewLocaciones.SelectedRows[0].Cells["CargaTexto"].Value.ToString();
                 if (carga == "Sí")
                 {
-                    _presenter.AbrirLocacionPool(idLocacion);
+                    await _presenter.AbrirLocacionPool(idLocacion);
                 }
                 else
                 {
@@ -114,12 +114,12 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private async void btnEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewLocaciones.SelectedRows.Count > 0)
             {
                 int idLocacion = Convert.ToInt32(dataGridViewLocaciones.SelectedRows[0].Cells["IdLocacion"].Value);
-                _presenter.EditarLocacion(idLocacion);
+                await _presenter.EditarLocacion(idLocacion);
             }
             else
             {
@@ -127,9 +127,9 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarLocacion();
+            await _presenter.AgregarLocacion();
         }
 
         private async void txtBuscar_TextChanged(object sender, EventArgs e)

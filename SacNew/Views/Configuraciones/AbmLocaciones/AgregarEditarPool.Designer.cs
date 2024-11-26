@@ -72,7 +72,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel9.Size = new Size(739, 31);
+            guna2Panel9.Size = new Size(900, 31);
             guna2Panel9.TabIndex = 19;
             // 
             // bMinimize
@@ -82,7 +82,7 @@
             bMinimize.CustomizableEdges = customizableEdges7;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(675, -1);
+            bMinimize.Location = new Point(836, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges8;
             bMinimize.Size = new Size(32, 31);
@@ -97,7 +97,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(707, -1);
+            bClose.Location = new Point(868, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges10;
             bClose.Size = new Size(32, 31);
@@ -115,7 +115,7 @@
             btnAgregar.ForeColor = Color.White;
             btnAgregar.Image = Resources.flechaDerecha;
             btnAgregar.ImageAlign = HorizontalAlignment.Right;
-            btnAgregar.Location = new Point(304, 172);
+            btnAgregar.Location = new Point(385, 265);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnAgregar.Size = new Size(130, 40);
@@ -135,7 +135,7 @@
             btnEliminar.ForeColor = Color.White;
             btnEliminar.Image = Resources.flechaIzquierda;
             btnEliminar.ImageAlign = HorizontalAlignment.Left;
-            btnEliminar.Location = new Point(304, 286);
+            btnEliminar.Location = new Point(385, 388);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnEliminar.Size = new Size(130, 40);
@@ -147,18 +147,18 @@
             // 
             lstLocacionesDisponibles.FormattingEnabled = true;
             lstLocacionesDisponibles.ItemHeight = 17;
-            lstLocacionesDisponibles.Location = new Point(38, 79);
+            lstLocacionesDisponibles.Location = new Point(62, 170);
             lstLocacionesDisponibles.Name = "lstLocacionesDisponibles";
-            lstLocacionesDisponibles.Size = new Size(228, 327);
+            lstLocacionesDisponibles.Size = new Size(280, 378);
             lstLocacionesDisponibles.TabIndex = 28;
             // 
             // lstLocacionesAsignadas
             // 
             lstLocacionesAsignadas.FormattingEnabled = true;
             lstLocacionesAsignadas.ItemHeight = 17;
-            lstLocacionesAsignadas.Location = new Point(472, 79);
+            lstLocacionesAsignadas.Location = new Point(562, 170);
             lstLocacionesAsignadas.Name = "lstLocacionesAsignadas";
-            lstLocacionesAsignadas.Size = new Size(228, 327);
+            lstLocacionesAsignadas.Size = new Size(280, 378);
             lstLocacionesAsignadas.TabIndex = 29;
             // 
             // guna2HtmlLabel1
@@ -176,7 +176,7 @@
             guna2Panel3.Controls.Add(guna2HtmlLabel2);
             guna2Panel3.CustomizableEdges = customizableEdges1;
             guna2Panel3.FillColor = Color.DarkCyan;
-            guna2Panel3.Location = new Point(1, 20);
+            guna2Panel3.Location = new Point(0, 55);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel3.Size = new Size(253, 38);
@@ -198,7 +198,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(739, 422);
+            ClientSize = new Size(900, 600);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(lstLocacionesAsignadas);

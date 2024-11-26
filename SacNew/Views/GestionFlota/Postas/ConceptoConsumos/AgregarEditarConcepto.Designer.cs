@@ -526,7 +526,6 @@
             Name = "AgregarEditarConcepto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarConcepto";
-            Load += AgregarEditarConcepto_Load;
             guna2Panel9.ResumeLayout(false);
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();

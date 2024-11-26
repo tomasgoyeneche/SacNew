@@ -9,30 +9,28 @@ namespace SacNew.Repositories
             : base(connectionString, sesionService)
         { }
 
-        public void AgregarConceptoPostaProveedor(int idConsumo, int idPosta, int idProveedor)
+        public async Task AgregarConceptoPostaProveedorAsync(int idConsumo, int idPosta, int idProveedor)
         {
             var query = @"
         INSERT INTO ConceptoPostaProveedor (IdConsumo, IdPosta, IdProveedor)
         VALUES (@IdConsumo, @IdPosta, @IdProveedor)";
 
-            Conectar(connection =>
+            await ConectarAsync(async connection =>
             {
-                connection.Execute(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
-                return 0;
+                await connection.ExecuteAsync(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
             });
         }
 
-        public void ActualizarConceptoPostaProveedor(int idConsumo, int idPosta, int idProveedor)
+        public async Task ActualizarConceptoPostaProveedorAsync(int idConsumo, int idPosta, int idProveedor)
         {
             var query = @"
         UPDATE ConceptoPostaProveedor
         SET IdProveedor = @IdProveedor
         WHERE IdConsumo = @IdConsumo AND IdPosta = @IdPosta";
 
-            Conectar(connection =>
+            await ConectarAsync(async connection =>
             {
-                connection.Execute(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
-                return 0;
+                await connection.ExecuteAsync(query, new { IdConsumo = idConsumo, IdPosta = idPosta, IdProveedor = idProveedor });
             });
         }
     }

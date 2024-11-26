@@ -4,6 +4,6 @@ namespace SacNew.Repositories
 {
     public interface IConceptoProveedorRepositorio
     {
-        List<Proveedor> ObtenerTodosLosProveedores();
+        Task<List<Proveedor>> ObtenerTodosLosProveedoresAsync();
     }
 }

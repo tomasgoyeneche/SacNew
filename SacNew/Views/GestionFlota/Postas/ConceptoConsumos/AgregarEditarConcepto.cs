@@ -12,6 +12,8 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             InitializeComponent();
             _presenter = presenter;
             _presenter.SetView(this);
+
+            // Inicialización asíncrona al cargar el formulario
         }
 
         public int Id { get; set; }
@@ -26,21 +28,21 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         public int IdProveedorBahiaBlanca => Convert.ToInt32(cmbProveedorBahiaBlanca.SelectedValue);
         public int IdProveedorPlazaHuincul => Convert.ToInt32(cmbProveedorPlazaHuincul.SelectedValue);
 
-        public void CargarTiposDeConsumo(List<ConceptoTipo> tiposDeConsumo)
+        public async Task CargarTiposDeConsumoAsync(List<ConceptoTipo> tiposDeConsumo)
         {
             cmbTipoConsumo.DataSource = tiposDeConsumo;
             cmbTipoConsumo.DisplayMember = "Descripcion";
             cmbTipoConsumo.ValueMember = "IdConsumoTipo";
         }
 
-        public void CargarProveedoresBahiaBlanca(List<Proveedor> proveedores)
+        public async Task CargarProveedoresBahiaBlancaAsync(List<Proveedor> proveedores)
         {
             cmbProveedorBahiaBlanca.DataSource = proveedores;
             cmbProveedorBahiaBlanca.DisplayMember = "Codigo";  // Mostramos el código del proveedor
             cmbProveedorBahiaBlanca.ValueMember = "IdProveedor";
         }
 
-        public void CargarProveedoresPlazaHuincul(List<Proveedor> proveedores)
+        public async Task CargarProveedoresPlazaHuinculAsync(List<Proveedor> proveedores)
         {
             cmbProveedorPlazaHuincul.DataSource = proveedores;
             cmbProveedorPlazaHuincul.DisplayMember = "Codigo";
@@ -59,8 +61,6 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             dtpVigencia.Value = concepto.Vigencia;
             cmbProveedorBahiaBlanca.Enabled = true;
             cmbProveedorPlazaHuincul.Enabled = true;
-            // Cargar los datos del concepto para edición
-            // Aquí deberías implementar la lógica para seleccionar los proveedores de Bahía y Plaza
         }
 
         public void MostrarMensaje(string mensaje)
@@ -68,21 +68,17 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
             MessageBox.Show(mensaje);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            _presenter.GuardarConcepto();
+            await _presenter.GuardarConceptoAsync();
             this.Close();
-        }
-
-        private void AgregarEditarConcepto_Load(object sender, EventArgs e)
-        {
-            // Mover la inicialización aquí
-            _presenter.Inicializar();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
+    
     }
 }

@@ -9,10 +9,11 @@ namespace SacNew
     {
         private readonly LoginPresenter _presenter;
 
-        public Login(IUsuarioRepositorio usuarioRepositorio, IPermisoRepositorio permisoRepositorio, ISesionService sesionService, IServiceProvider serviceProvider)
+        public Login(LoginPresenter presenter)
         {
             InitializeComponent();
-            _presenter = new LoginPresenter(this, usuarioRepositorio, permisoRepositorio, sesionService, serviceProvider);
+            _presenter = presenter;
+            _presenter.SetView(this);
         }
 
         public string NombreUsuario => tLogUsu.Text;
@@ -32,9 +33,9 @@ namespace SacNew
             Environment.Exit(0);
         }
 
-        private void bIniciarSesion_Click(object sender, EventArgs e)
+        private async void bIniciarSesion_Click(object sender, EventArgs e)
         {
-            _presenter.AutenticarUsuario();
+            await _presenter.AutenticarUsuarioAsync();
         }
     }
 }

@@ -190,7 +190,7 @@
             dgvConsumos.Name = "dgvConsumos";
             dgvConsumos.ReadOnly = true;
             dgvConsumos.RowHeadersVisible = false;
-            dgvConsumos.Size = new Size(1139, 305);
+            dgvConsumos.Size = new Size(1139, 378);
             dgvConsumos.TabIndex = 42;
             dgvConsumos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvConsumos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -224,7 +224,7 @@
             btnImportar.FillColor = Color.Goldenrod;
             btnImportar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnImportar.ForeColor = Color.White;
-            btnImportar.Location = new Point(30, 467);
+            btnImportar.Location = new Point(30, 551);
             btnImportar.Name = "btnImportar";
             btnImportar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnImportar.Size = new Size(120, 37);
@@ -242,7 +242,7 @@
             btnExportarExcel.FillColor = Color.ForestGreen;
             btnExportarExcel.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExportarExcel.ForeColor = Color.White;
-            btnExportarExcel.Location = new Point(165, 467);
+            btnExportarExcel.Location = new Point(165, 551);
             btnExportarExcel.Name = "btnExportarExcel";
             btnExportarExcel.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnExportarExcel.Size = new Size(120, 37);
@@ -259,7 +259,7 @@
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(1049, 471);
+            btnGuardar.Location = new Point(1049, 551);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnGuardar.Size = new Size(120, 37);
@@ -272,7 +272,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(1200, 520);
+            ClientSize = new Size(1200, 600);
             Controls.Add(btnGuardar);
             Controls.Add(btnExportarExcel);
             Controls.Add(btnImportar);

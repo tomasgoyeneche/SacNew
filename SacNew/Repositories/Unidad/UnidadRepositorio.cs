@@ -9,18 +9,17 @@ namespace SacNew.Repositories
         public UnidadRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService) { }
 
-        public List<UnidadPatenteDto> ObtenerUnidadesPatenteDto()
+        public async Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync()
         {
             var query = @"
             SELECT * FROM UnidadPatentesEmpresaVista";
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                var unidades = connection.Query<UnidadPatenteDto>(query).ToList();
-                return unidades;
+                var unidades = await connection.QueryAsync<UnidadPatenteDto>(query);
+                return unidades.ToList();
             });
         }
-
         public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
         {
             var query = @"

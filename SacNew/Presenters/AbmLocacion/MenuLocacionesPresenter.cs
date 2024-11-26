@@ -52,7 +52,7 @@ namespace SacNew.Presenters
             }
         }
 
-        public async void AbrirLocacionPool(int idLocacion)
+        public async Task AbrirLocacionPool(int idLocacion)
         {
             await AbrirFormularioAsync<AgregarEditarPool>(async form =>
             {
@@ -60,7 +60,7 @@ namespace SacNew.Presenters
             });
         }
 
-        public async void EditarLocacion(int idLocacion)
+        public async Task EditarLocacion(int idLocacion)
         {
             await AbrirFormularioAsync<AgregarEditarLocacion>(async form =>
             {
@@ -69,7 +69,7 @@ namespace SacNew.Presenters
             await CargarLocacionesAsync(); // Refrescar al cerrar el formulario
         }
 
-        public async void AgregarLocacion()
+        public async Task AgregarLocacion()
         {
             await AbrirFormularioAsync<AgregarEditarLocacion>(async form =>
             {

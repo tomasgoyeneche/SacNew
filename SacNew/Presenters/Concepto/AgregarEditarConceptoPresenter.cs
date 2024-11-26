@@ -5,53 +5,50 @@ using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 
 namespace SacNew.Presenters
 {
-    public class AgregarEditarConceptoPresenter
+    public class AgregarEditarConceptoPresenter : BasePresenter<IAgregarEditarConceptoView>
     {
-        private IAgregarEditarConceptoView _view;
-
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IConceptoTipoRepositorio _conceptoTipoRepositorio;
         private readonly IConceptoProveedorRepositorio _conceptoProveedorRepositorio;
         private readonly IConceptoPostaProveedorRepositorio _conceptoPostaProveedorRepositorio;
-        private readonly ISesionService _sesionService;
         private Concepto _conceptoActual;
 
         public AgregarEditarConceptoPresenter(
-                                              IConceptoRepositorio conceptoRepositorio,
-                                              IConceptoTipoRepositorio conceptoTipoRepositorio,
-                                              IConceptoProveedorRepositorio conceptoProveedorRepositorio,
-                                              IConceptoPostaProveedorRepositorio conceptoPostaProveedorRepositorio,
-                                              ISesionService sesionService)
+            IConceptoRepositorio conceptoRepositorio,
+            IConceptoTipoRepositorio conceptoTipoRepositorio,
+            IConceptoProveedorRepositorio conceptoProveedorRepositorio,
+            IConceptoPostaProveedorRepositorio conceptoPostaProveedorRepositorio,
+            ISesionService sesionService,
+            INavigationService navigationService)
+            : base(sesionService, navigationService)
         {
             _conceptoRepositorio = conceptoRepositorio;
             _conceptoTipoRepositorio = conceptoTipoRepositorio;
             _conceptoProveedorRepositorio = conceptoProveedorRepositorio;
             _conceptoPostaProveedorRepositorio = conceptoPostaProveedorRepositorio;
-            _sesionService = sesionService;
         }
 
-        public void SetView(IAgregarEditarConceptoView view)
+        public async Task InicializarAsync(Concepto conceptoSeleccionado)
         {
-            _view = view;
+            await CargarTiposDeConsumoAsync();
+            await CargarProveedoresAsync();
+            if (conceptoSeleccionado != null)
+            {
+                CargarDatosParaEditar(conceptoSeleccionado);
+            }
         }
 
-        public void Inicializar()
+        private async Task CargarTiposDeConsumoAsync()
         {
-            //CargarTiposDeConsumo();
-            CargarProveedores();
+            var tiposDeConsumo = await _conceptoTipoRepositorio.ObtenerTodosLosTiposAsync();
+            await _view.CargarTiposDeConsumoAsync(tiposDeConsumo);
         }
 
-        private void CargarTiposDeConsumo()
+        private async Task CargarProveedoresAsync()
         {
-            var tiposDeConsumo = _conceptoTipoRepositorio.ObtenerTodosLosTipos();
-            _view.CargarTiposDeConsumo(tiposDeConsumo);
-        }
-
-        private void CargarProveedores()
-        {
-            var proveedores = _conceptoProveedorRepositorio.ObtenerTodosLosProveedores();
-            _view.CargarProveedoresBahiaBlanca(proveedores);
-            _view.CargarProveedoresPlazaHuincul(proveedores);
+            var proveedores = await _conceptoProveedorRepositorio.ObtenerTodosLosProveedoresAsync();
+            await _view.CargarProveedoresBahiaBlancaAsync(proveedores);
+            await _view.CargarProveedoresPlazaHuinculAsync(proveedores);
         }
 
         public void CargarDatosParaEditar(Concepto concepto)
@@ -60,7 +57,7 @@ namespace SacNew.Presenters
             _view.MostrarDatosConcepto(_conceptoActual);
         }
 
-        public void GuardarConcepto()
+        public async Task GuardarConceptoAsync()
         {
             if (!ValidarDatos())
             {
@@ -85,8 +82,7 @@ namespace SacNew.Presenters
                     FechaModificacion = DateTime.Now
                 };
 
-                _conceptoRepositorio.AgregarConcepto(nuevoConcepto);
-
+                await _conceptoRepositorio.AgregarConceptoAsync(nuevoConcepto);
                 _view.MostrarMensaje("Concepto agregado exitosamente.");
             }
             else
@@ -100,14 +96,15 @@ namespace SacNew.Presenters
                 _conceptoActual.PrecioAnterior = _view.PrecioAnterior;
                 _conceptoActual.IdUsuario = idUsuario;
                 _conceptoActual.FechaModificacion = DateTime.Now;
-                _conceptoRepositorio.ActualizarConcepto(_conceptoActual);
+
+                await _conceptoRepositorio.ActualizarConceptoAsync(_conceptoActual);
 
                 // Actualizar los registros de conceptoPostaProveedor
                 var idProveedorBahia = _view.IdProveedorBahiaBlanca;
                 var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
 
-                _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedor(_conceptoActual.IdConsumo, 2, idProveedorBahia);
-                _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedor(_conceptoActual.IdConsumo, 3, idProveedorPlaza);
+                await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 2, idProveedorBahia);
+                await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 3, idProveedorPlaza);
 
                 _view.MostrarMensaje("Concepto actualizado exitosamente.");
             }

@@ -207,7 +207,7 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(801, 75);
+            guna2DataGridView1.Location = new Point(801, 108);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.Size = new Size(379, 193);
@@ -236,7 +236,7 @@
             // 
             // guna2vSeparator1
             // 
-            guna2vSeparator1.Location = new Point(381, 75);
+            guna2vSeparator1.Location = new Point(381, 108);
             guna2vSeparator1.Name = "guna2vSeparator1";
             guna2vSeparator1.Size = new Size(10, 434);
             guna2vSeparator1.TabIndex = 21;
@@ -264,7 +264,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView2.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView2.Location = new Point(801, 338);
+            guna2DataGridView2.Location = new Point(801, 371);
             guna2DataGridView2.Name = "guna2DataGridView2";
             guna2DataGridView2.RowHeadersVisible = false;
             guna2DataGridView2.Size = new Size(379, 193);
@@ -293,7 +293,7 @@
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(821, 269);
+            guna2Separator1.Location = new Point(821, 302);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(340, 26);
             guna2Separator1.TabIndex = 23;
@@ -303,7 +303,7 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(26, 90);
+            guna2HtmlLabel1.Location = new Point(26, 123);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(58, 23);
             guna2HtmlLabel1.TabIndex = 24;
@@ -320,7 +320,7 @@
             guna2ComboBox1.Font = new Font("Segoe UI", 10F);
             guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
             guna2ComboBox1.ItemHeight = 30;
-            guna2ComboBox1.Location = new Point(129, 77);
+            guna2ComboBox1.Location = new Point(129, 110);
             guna2ComboBox1.Name = "guna2ComboBox1";
             guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges29;
             guna2ComboBox1.Size = new Size(219, 36);
@@ -333,7 +333,7 @@
             guna2DateTimePicker1.FillColor = Color.WhiteSmoke;
             guna2DateTimePicker1.Font = new Font("Segoe UI", 9F);
             guna2DateTimePicker1.Format = DateTimePickerFormat.Long;
-            guna2DateTimePicker1.Location = new Point(129, 131);
+            guna2DateTimePicker1.Location = new Point(129, 164);
             guna2DateTimePicker1.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             guna2DateTimePicker1.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -347,7 +347,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(26, 144);
+            guna2HtmlLabel2.Location = new Point(26, 177);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(56, 23);
             guna2HtmlLabel2.TabIndex = 27;
@@ -364,7 +364,7 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(129, 185);
+            guna2TextBox1.Location = new Point(129, 218);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "Ingrese litros";
@@ -378,7 +378,7 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(26, 198);
+            guna2HtmlLabel3.Location = new Point(26, 231);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(45, 23);
             guna2HtmlLabel3.TabIndex = 29;
@@ -389,7 +389,7 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(26, 306);
+            guna2HtmlLabel4.Location = new Point(26, 339);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(82, 23);
             guna2HtmlLabel4.TabIndex = 30;
@@ -406,7 +406,7 @@
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Font = new Font("Segoe UI", 9F);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(129, 293);
+            guna2TextBox2.Location = new Point(129, 326);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PasswordChar = '\0';
             guna2TextBox2.PlaceholderText = "Ingrese numero de vale";
@@ -420,7 +420,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(26, 252);
+            guna2HtmlLabel5.Location = new Point(26, 285);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(97, 23);
             guna2HtmlLabel5.TabIndex = 32;
@@ -437,7 +437,7 @@
             guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox3.Font = new Font("Segoe UI", 9F);
             guna2TextBox3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox3.Location = new Point(129, 239);
+            guna2TextBox3.Location = new Point(129, 272);
             guna2TextBox3.Name = "guna2TextBox3";
             guna2TextBox3.PasswordChar = '\0';
             guna2TextBox3.PlaceholderText = "Ingrese precio o calcule";
@@ -453,7 +453,7 @@
             guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
             guna2ImageButton1.ImageOffset = new Point(0, 0);
             guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.Location = new Point(298, 239);
+            guna2ImageButton1.Location = new Point(298, 272);
             guna2ImageButton1.Name = "guna2ImageButton1";
             guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges19;
@@ -467,7 +467,7 @@
             guna2ImageButton2.Image = (Image)resources.GetObject("guna2ImageButton2.Image");
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
-            guna2ImageButton2.Location = new Point(298, 185);
+            guna2ImageButton2.Location = new Point(298, 218);
             guna2ImageButton2.Name = "guna2ImageButton2";
             guna2ImageButton2.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges18;
@@ -501,7 +501,7 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(26, 357);
+            guna2HtmlLabel7.Location = new Point(26, 390);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(93, 23);
             guna2HtmlLabel7.TabIndex = 37;
@@ -518,7 +518,7 @@
             txtComentario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtComentario.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtComentario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtComentario.Location = new Point(26, 388);
+            txtComentario.Location = new Point(26, 421);
             txtComentario.MaxLength = 300;
             txtComentario.Name = "txtComentario";
             txtComentario.PasswordChar = '\0';
@@ -539,7 +539,7 @@
             guna2Button1.FillColor = Color.ForestGreen;
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(26, 486);
+            guna2Button1.Location = new Point(26, 519);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges13;
             guna2Button1.Size = new Size(322, 45);
@@ -551,7 +551,7 @@
             guna2HtmlLabel8.BackColor = Color.Transparent;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(801, 292);
+            guna2HtmlLabel8.Location = new Point(801, 325);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(164, 21);
             guna2HtmlLabel8.TabIndex = 40;
@@ -562,7 +562,7 @@
             guna2HtmlLabel9.BackColor = Color.Transparent;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(801, 314);
+            guna2HtmlLabel9.Location = new Point(801, 347);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(178, 19);
             guna2HtmlLabel9.TabIndex = 41;
@@ -573,7 +573,7 @@
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel10.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel10.Location = new Point(801, 29);
+            guna2HtmlLabel10.Location = new Point(801, 57);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(176, 21);
             guna2HtmlLabel10.TabIndex = 42;
@@ -584,7 +584,7 @@
             guna2HtmlLabel11.BackColor = Color.Transparent;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(801, 51);
+            guna2HtmlLabel11.Location = new Point(801, 84);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(230, 19);
             guna2HtmlLabel11.TabIndex = 43;
@@ -592,7 +592,7 @@
             // 
             // guna2vSeparator2
             // 
-            guna2vSeparator2.Location = new Point(754, 75);
+            guna2vSeparator2.Location = new Point(754, 108);
             guna2vSeparator2.Name = "guna2vSeparator2";
             guna2vSeparator2.Size = new Size(10, 434);
             guna2vSeparator2.TabIndex = 44;
@@ -602,7 +602,7 @@
             guna2HtmlLabel12.BackColor = Color.Transparent;
             guna2HtmlLabel12.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel12.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel12.Location = new Point(423, 77);
+            guna2HtmlLabel12.Location = new Point(423, 110);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(188, 21);
             guna2HtmlLabel12.TabIndex = 45;
@@ -613,7 +613,7 @@
             guna2HtmlLabel13.BackColor = Color.Transparent;
             guna2HtmlLabel13.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel13.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel13.Location = new Point(423, 131);
+            guna2HtmlLabel13.Location = new Point(423, 164);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(113, 23);
             guna2HtmlLabel13.TabIndex = 46;
@@ -630,7 +630,7 @@
             guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox4.Font = new Font("Segoe UI", 9F);
             guna2TextBox4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox4.Location = new Point(556, 118);
+            guna2TextBox4.Location = new Point(556, 151);
             guna2TextBox4.Name = "guna2TextBox4";
             guna2TextBox4.PasswordChar = '\0';
             guna2TextBox4.PlaceholderText = "Ingrese litros";
@@ -646,7 +646,7 @@
             guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
             guna2ImageButton3.ImageOffset = new Point(0, 0);
             guna2ImageButton3.ImageRotate = 0F;
-            guna2ImageButton3.Location = new Point(668, 118);
+            guna2ImageButton3.Location = new Point(668, 151);
             guna2ImageButton3.Name = "guna2ImageButton3";
             guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges9;
@@ -658,7 +658,7 @@
             guna2HtmlLabel14.BackColor = Color.Transparent;
             guna2HtmlLabel14.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel14.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel14.Location = new Point(423, 184);
+            guna2HtmlLabel14.Location = new Point(423, 217);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(109, 23);
             guna2HtmlLabel14.TabIndex = 49;
@@ -675,7 +675,7 @@
             guna2TextBox5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox5.Font = new Font("Segoe UI", 9F);
             guna2TextBox5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox5.Location = new Point(556, 171);
+            guna2TextBox5.Location = new Point(556, 204);
             guna2TextBox5.Name = "guna2TextBox5";
             guna2TextBox5.PasswordChar = '\0';
             guna2TextBox5.PlaceholderText = "";
@@ -689,7 +689,7 @@
             guna2HtmlLabel15.BackColor = Color.Transparent;
             guna2HtmlLabel15.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel15.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel15.Location = new Point(423, 237);
+            guna2HtmlLabel15.Location = new Point(423, 270);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(56, 23);
             guna2HtmlLabel15.TabIndex = 51;
@@ -706,7 +706,7 @@
             guna2TextBox6.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox6.Font = new Font("Segoe UI", 9F);
             guna2TextBox6.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox6.Location = new Point(556, 224);
+            guna2TextBox6.Location = new Point(556, 257);
             guna2TextBox6.Name = "guna2TextBox6";
             guna2TextBox6.PasswordChar = '\0';
             guna2TextBox6.PlaceholderText = "";
@@ -720,7 +720,7 @@
             guna2HtmlLabel16.BackColor = Color.Transparent;
             guna2HtmlLabel16.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel16.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel16.Location = new Point(423, 290);
+            guna2HtmlLabel16.Location = new Point(423, 323);
             guna2HtmlLabel16.Name = "guna2HtmlLabel16";
             guna2HtmlLabel16.Size = new Size(81, 23);
             guna2HtmlLabel16.TabIndex = 53;
@@ -737,7 +737,7 @@
             guna2TextBox7.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox7.Font = new Font("Segoe UI", 9F);
             guna2TextBox7.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox7.Location = new Point(556, 277);
+            guna2TextBox7.Location = new Point(556, 310);
             guna2TextBox7.Name = "guna2TextBox7";
             guna2TextBox7.PasswordChar = '\0';
             guna2TextBox7.PlaceholderText = "";
@@ -750,7 +750,7 @@
             // 
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(423, 338);
+            guna2PictureBox1.Location = new Point(423, 371);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2PictureBox1.Size = new Size(295, 193);
@@ -762,7 +762,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(1200, 550);
+            ClientSize = new Size(1200, 600);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2TextBox7);
             Controls.Add(guna2HtmlLabel16);

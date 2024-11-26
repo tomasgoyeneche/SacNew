@@ -75,7 +75,7 @@
             txtBuscar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtBuscar.Font = new Font("Segoe UI", 9F);
             txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtBuscar.Location = new Point(199, 34);
+            txtBuscar.Location = new Point(213, 55);
             txtBuscar.MaxLength = 20;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PasswordChar = '\0';
@@ -91,7 +91,7 @@
             lBuscarConcepto.BackColor = Color.Transparent;
             lBuscarConcepto.Font = new Font("Century Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lBuscarConcepto.ForeColor = SystemColors.ControlLight;
-            lBuscarConcepto.Location = new Point(14, 45);
+            lBuscarConcepto.Location = new Point(28, 67);
             lBuscarConcepto.Name = "lBuscarConcepto";
             lBuscarConcepto.Size = new Size(179, 25);
             lBuscarConcepto.TabIndex = 1;
@@ -130,13 +130,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewConceptos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewConceptos.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewConceptos.Location = new Point(14, 83);
+            dataGridViewConceptos.Location = new Point(28, 120);
             dataGridViewConceptos.MultiSelect = false;
             dataGridViewConceptos.Name = "dataGridViewConceptos";
             dataGridViewConceptos.RowHeadersVisible = false;
             dataGridViewConceptos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewConceptos.ScrollBars = ScrollBars.Vertical;
-            dataGridViewConceptos.Size = new Size(843, 320);
+            dataGridViewConceptos.Size = new Size(843, 392);
             dataGridViewConceptos.TabIndex = 3;
             dataGridViewConceptos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewConceptos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -166,7 +166,7 @@
             lInstrucciones.BackColor = Color.Transparent;
             lInstrucciones.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lInstrucciones.ForeColor = SystemColors.ControlLightLight;
-            lInstrucciones.Location = new Point(515, 34);
+            lInstrucciones.Location = new Point(529, 56);
             lInstrucciones.Name = "lInstrucciones";
             lInstrucciones.Size = new Size(342, 36);
             lInstrucciones.TabIndex = 7;
@@ -183,7 +183,7 @@
             pVentana.Location = new Point(0, 0);
             pVentana.Name = "pVentana";
             pVentana.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            pVentana.Size = new Size(870, 24);
+            pVentana.Size = new Size(900, 24);
             pVentana.TabIndex = 17;
             // 
             // bMinimize
@@ -193,7 +193,7 @@
             bMinimize.CustomizableEdges = customizableEdges11;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(806, -1);
+            bMinimize.Location = new Point(836, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges12;
             bMinimize.Size = new Size(32, 24);
@@ -208,7 +208,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(838, -1);
+            bClose.Location = new Point(868, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges14;
             bClose.Size = new Size(32, 24);
@@ -224,7 +224,7 @@
             btnBuscar.FillColor = Color.DimGray;
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(337, 33);
+            btnBuscar.Location = new Point(353, 55);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnBuscar.Size = new Size(132, 37);
@@ -242,7 +242,7 @@
             btnEliminar.FillColor = Color.Brown;
             btnEliminar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(14, 414);
+            btnEliminar.Location = new Point(28, 535);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnEliminar.Size = new Size(132, 37);
@@ -260,7 +260,7 @@
             btnEditar.FillColor = Color.Goldenrod;
             btnEditar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(162, 414);
+            btnEditar.Location = new Point(180, 535);
             btnEditar.Name = "btnEditar";
             btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnEditar.Size = new Size(132, 37);
@@ -278,7 +278,7 @@
             btnAgregar.FillColor = Color.ForestGreen;
             btnAgregar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(725, 414);
+            btnAgregar.Location = new Point(739, 535);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnAgregar.Size = new Size(132, 37);
@@ -291,7 +291,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(870, 460);
+            ClientSize = new Size(900, 600);
             Controls.Add(btnAgregar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);

@@ -2,6 +2,6 @@
 {
     public interface IPermisoRepositorio
     {
-        List<int> ObtenerPermisosPorUsuario(int idUsuario);
+        Task<List<int>> ObtenerPermisosPorUsuarioAsync(int idUsuario);
     }
 }

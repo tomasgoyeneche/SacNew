@@ -4,6 +4,6 @@ namespace SacNew.Repositories
 {
     public interface IProvinciaRepositorio
     {
-        List<Provincia> ObtenerProvincias();
+        Task<List<Provincia>> ObtenerProvinciasAsync();
     }
 }

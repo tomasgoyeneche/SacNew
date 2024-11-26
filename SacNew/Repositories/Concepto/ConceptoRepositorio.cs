@@ -10,63 +10,82 @@ namespace SacNew.Repositories
             : base(connectionString, sesionService)
         { }
 
-        public List<Concepto> ObtenerTodosLosConceptos()
+        public async Task<List<Concepto>> ObtenerTodosLosConceptosAsync()
         {
             var query = "SELECT * FROM Concepto WHERE Activo = 1";
-            return Conectar(connection => connection.Query<Concepto>(query).ToList());
+            return await ConectarAsync(async connection =>
+            {
+                var conceptos = await connection.QueryAsync<Concepto>(query);
+                return conceptos.ToList();
+            });
         }
 
-        public async Task<IEnumerable<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo)
+        public async Task<List<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo)
         {
             var query = @"
-            SELECT *
-            FROM Concepto
-            WHERE IdConsumoTipo = @IdTipoConsumo AND Activo = 1";
+        SELECT *
+        FROM Concepto
+        WHERE IdConsumoTipo = @IdTipoConsumo AND Activo = 1";
 
             return await ConectarAsync(async connection =>
             {
                 var conceptos = await connection.QueryAsync<Concepto>(query, new { IdTipoConsumo = idTipoConsumo });
-                return conceptos;
+                return conceptos.ToList();
             });
         }
 
-        public Concepto ObtenerPorId(int idConsumo)
+        public async Task<Concepto?> ObtenerPorIdAsync(int idConsumo)
         {
             var query = "SELECT * FROM Concepto WHERE IdConsumo = @IdConsumo";
-            return Conectar(connection => connection.QueryFirstOrDefault<Concepto>(query, new { IdConsumo = idConsumo }));
+            return await ConectarAsync(async connection =>
+            {
+                return await connection.QueryFirstOrDefaultAsync<Concepto>(query, new { IdConsumo = idConsumo });
+            });
         }
 
-        public List<Concepto> BuscarConceptos(string textoBusqueda)
+        public async Task<List<Concepto>> BuscarConceptosAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM Concepto WHERE Codigo LIKE @Busqueda OR Descripcion LIKE @Busqueda";
-            return Conectar(connection =>
-                connection.Query<Concepto>(query, new { Busqueda = $"%{textoBusqueda}%" }).ToList());
+            return await ConectarAsync(async connection =>
+            {
+                var conceptos = await connection.QueryAsync<Concepto>(query, new { Busqueda = $"%{textoBusqueda}%" });
+                return conceptos.ToList();
+            });
         }
 
-        public void AgregarConcepto(Concepto concepto)
+        public async Task AgregarConceptoAsync(Concepto concepto)
         {
             var query = @"
-            INSERT INTO Concepto (Codigo, Descripcion, idConsumoTipo, PrecioActual, Vigencia, PrecioAnterior, Activo, IdUsuario, FechaModificacion)
-            VALUES (@Codigo, @Descripcion, @IdConsumoTipo, @PrecioActual, @Vigencia, @PrecioAnterior, @Activo, @IdUsuario, @FechaModificacion)";
+        INSERT INTO Concepto (Codigo, Descripcion, idConsumoTipo, PrecioActual, Vigencia, PrecioAnterior, Activo, IdUsuario, FechaModificacion)
+        VALUES (@Codigo, @Descripcion, @IdConsumoTipo, @PrecioActual, @Vigencia, @PrecioAnterior, @Activo, @IdUsuario, @FechaModificacion)";
 
-            Conectar(connection => connection.Execute(query, concepto));
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, concepto);
+            });
         }
 
-        public void ActualizarConcepto(Concepto concepto)
+        public async Task ActualizarConceptoAsync(Concepto concepto)
         {
             var query = @"
-            UPDATE Concepto
-            SET Codigo = @Codigo, Descripcion = @Descripcion, idConsumoTipo = @idConsumoTipo, PrecioActual = @PrecioActual,
-            Vigencia = @Vigencia, PrecioAnterior = @PrecioAnterior, Activo = @Activo, IdUsuario = @IdUsuario, FechaModificacion = @FechaModificacion
-            WHERE IdConsumo = @IdConsumo";
+        UPDATE Concepto
+        SET Codigo = @Codigo, Descripcion = @Descripcion, idConsumoTipo = @idConsumoTipo, PrecioActual = @PrecioActual,
+        Vigencia = @Vigencia, PrecioAnterior = @PrecioAnterior, Activo = @Activo, IdUsuario = @IdUsuario, FechaModificacion = @FechaModificacion
+        WHERE IdConsumo = @IdConsumo";
 
-            Conectar(connection => connection.Execute(query, concepto));
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, concepto);
+            });
         }
 
-        public void EliminarConcepto(int idConsumo)
+        public async Task EliminarConceptoAsync(int idConsumo)
         {
             var query = "UPDATE Concepto SET Activo = 0 WHERE IdConsumo = @IdConsumo";
-            Conectar(connection => connection.Execute(query, new { IdConsumo = idConsumo }));
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new { IdConsumo = idConsumo });
+            });
         }
     }
 }

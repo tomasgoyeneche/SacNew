@@ -4,8 +4,8 @@ namespace SacNew.Repositories
 {
     public interface IConceptoTipoRepositorio
     {
-        string ObtenerDescripcionPorId(int idConsumoTipo);
+        Task<string> ObtenerDescripcionPorIdAsync(int idConsumoTipo);
 
-        List<ConceptoTipo> ObtenerTodosLosTipos();
+        Task<List<ConceptoTipo>> ObtenerTodosLosTiposAsync();
     }
 }

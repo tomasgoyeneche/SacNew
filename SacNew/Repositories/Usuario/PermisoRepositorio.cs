@@ -8,13 +8,14 @@ namespace SacNew.Repositories
         public PermisoRepositorio(string connectionString, ISesionService sesionService)
             : base(connectionString, sesionService) { }
 
-        public List<int> ObtenerPermisosPorUsuario(int idUsuario)
+        public async Task<List<int>> ObtenerPermisosPorUsuarioAsync(int idUsuario)
         {
             var query = "SELECT idPermiso FROM UsuarioPermiso WHERE idUsuario = @IdUsuario";
 
-            return Conectar(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.Query<int>(query, new { IdUsuario = idUsuario }).ToList(); // Dapper devuelve directamente la lista de permisos
+                var permisos = await connection.QueryAsync<int>(query, new { IdUsuario = idUsuario });
+                return permisos.ToList(); // Dapper devuelve IEnumerable, lo convertimos a List
             });
         }
     }

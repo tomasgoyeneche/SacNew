@@ -14,8 +14,6 @@ namespace SacNew.Services
             string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
             serviceCollection.AddSingleton(connectionString);
 
-            //serviceCollection.AddSingleton<ExcelService>(); // Asegúrate de registrarlo como singleton o transient según tu necesidad.
-
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan
                 .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies())

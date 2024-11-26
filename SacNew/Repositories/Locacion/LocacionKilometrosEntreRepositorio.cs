@@ -14,10 +14,10 @@ namespace SacNew.Repositories
         public async Task<List<LocacionKilometrosEntre>> ObtenerPorLocacionIdAsync(int idLocacion)
         {
             var query = @"
-    SELECT lk.IdKilometros, lk.IdLocacionOrigen, lk.IdLocacionDestino, lk.Kilometros, l.IdLocacion AS LocacionDestinoId, l.Nombre
-    FROM LocacionKilometrosEntre lk
-    INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
-    WHERE lk.IdLocacionOrigen = @IdLocacion";
+            SELECT lk.IdKilometros, lk.IdLocacionOrigen, lk.IdLocacionDestino, lk.Kilometros, l.IdLocacion AS LocacionDestinoId, l.Nombre
+            FROM LocacionKilometrosEntre lk
+            INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
+            WHERE lk.IdLocacionOrigen = @IdLocacion";
 
             return await ConectarAsync(connection =>
             {
@@ -37,8 +37,8 @@ namespace SacNew.Repositories
         public Task AgregarAsync(LocacionKilometrosEntre locacionKilometrosEntre)
         {
             var query = @"
-        INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros)
-        VALUES (@IdLocacionOrigen, @IdLocacionDestino, @Kilometros)";
+            INSERT INTO LocacionKilometrosEntre (IdLocacionOrigen, IdLocacionDestino, Kilometros)
+            VALUES (@IdLocacionOrigen, @IdLocacionDestino, @Kilometros)";
 
             return EjecutarConAuditoriaAsync(
                 connection => connection.ExecuteAsync(query, locacionKilometrosEntre),

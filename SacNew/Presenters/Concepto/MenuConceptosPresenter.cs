@@ -2,6 +2,7 @@
 using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
+using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 
 namespace SacNew.Presenters
@@ -16,7 +17,7 @@ namespace SacNew.Presenters
             IConceptoRepositorio conceptoRepositorio,
             IConceptoTipoRepositorio conceptoTipoRepositorio,
             IServiceProvider serviceProvider,
-             ISesionService sesionService,
+            ISesionService sesionService,
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
@@ -25,66 +26,77 @@ namespace SacNew.Presenters
             _serviceProvider = serviceProvider;
         }
 
-        public string ObtenerDescripcionTipoConsumo(int idTipoConsumo)
+        public async Task<string> ObtenerDescripcionTipoConsumoAsync(int idTipoConsumo)
         {
-            return _conceptoTipoRepositorio.ObtenerDescripcionPorId(idTipoConsumo);
+            return await _conceptoTipoRepositorio.ObtenerDescripcionPorIdAsync(idTipoConsumo);
         }
 
-        public void CargarConceptos()
+        public async Task CargarConceptosAsync()
         {
-            var conceptos = _conceptoRepositorio.ObtenerTodosLosConceptos();
-            _view.MostrarConceptos(conceptos);
+            await EjecutarConCargaAsync(async () =>
+            {
+                var conceptos = await _conceptoRepositorio.ObtenerTodosLosConceptosAsync();
+                await _view.MostrarConceptosAsync(conceptos);
+            });
         }
 
-        public void BuscarConceptos()
+        public async Task BuscarConceptosAsync()
         {
             var textoBusqueda = _view.TextoBusqueda;
 
             if (string.IsNullOrEmpty(textoBusqueda))
             {
-                CargarConceptos(); // Si no hay texto de búsqueda, cargar todos los conceptos
+                await CargarConceptosAsync(); // Si no hay texto de búsqueda, cargar todos los conceptos
             }
             else
             {
-                var conceptosFiltrados = _conceptoRepositorio.BuscarConceptos(textoBusqueda);
-                _view.MostrarConceptos(conceptosFiltrados);
+                await EjecutarConCargaAsync(async () =>
+                {
+                    var conceptosFiltrados = await _conceptoRepositorio.BuscarConceptosAsync(textoBusqueda);
+                    await _view.MostrarConceptosAsync(conceptosFiltrados);
+                });
             }
         }
 
-        public Concepto ObtenerConceptoPorId(int idConsumo)
+        public async Task<Concepto> ObtenerConceptoPorIdAsync(int idConsumo)
         {
-            return _conceptoRepositorio.ObtenerPorId(idConsumo);
+            return await _conceptoRepositorio.ObtenerPorIdAsync(idConsumo);
         }
 
-        public void AgregarConcepto()
+        public async Task AgregarConceptoAsync()
         {
-            var agregarEditarConcepto = _serviceProvider.GetService<AgregarEditarConcepto>();
-            agregarEditarConcepto.CargarTiposDeConsumo(_conceptoTipoRepositorio.ObtenerTodosLosTipos());
-            agregarEditarConcepto.ShowDialog();
-            CargarConceptos(); // Recargar después de agregar uno nuevo
+            await AbrirFormularioAsync<AgregarEditarConcepto>(async form =>
+            {
+                await form._presenter.InicializarAsync(default);
+            });
+            await CargarConceptosAsync();
         }
 
-        public void EditarConcepto(Concepto conceptoSeleccionado)
+        public async Task EditarConceptoAsync(Concepto conceptoSeleccionado)
         {
-            var agregarEditarConcepto = _serviceProvider.GetService<AgregarEditarConcepto>();
-            agregarEditarConcepto.CargarTiposDeConsumo(_conceptoTipoRepositorio.ObtenerTodosLosTipos());
-            agregarEditarConcepto._presenter.CargarDatosParaEditar(conceptoSeleccionado);// Cargar los datos en el formulario
-            agregarEditarConcepto.ShowDialog();
-            CargarConceptos(); // Recargar la lista después de la edición
+            await AbrirFormularioAsync<AgregarEditarConcepto>(async form =>
+            {
+                await form._presenter.InicializarAsync(conceptoSeleccionado);
+            });
+            await CargarConceptosAsync();
         }
 
-        public void EliminarConceptoPorId(int idConsumo)
+        public async Task EliminarConceptoPorIdAsync(int idConsumo)
         {
-            var confirmResult = MessageBox.Show("¿Estás seguro de que quieres eliminar este concepto?",
-                                        "Confirmar Eliminación",
-                                        MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show(
+                "¿Estás seguro de que quieres eliminar este concepto?",
+                "Confirmar Eliminación",
+                MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
             {
-                _conceptoRepositorio.EliminarConcepto(idConsumo);
-                _view.MostrarMensaje("Concepto marcado como inactivo.");
-                CargarConceptos();  // Recargar los conceptos después de eliminar
+                await EjecutarConCargaAsync(async () =>
+                {
+                    await _conceptoRepositorio.EliminarConceptoAsync(idConsumo);
+                    _view.MostrarMensaje("Concepto marcado como inactivo.");
+                }, CargarConceptosAsync);
             }
         }
     }
+
 }

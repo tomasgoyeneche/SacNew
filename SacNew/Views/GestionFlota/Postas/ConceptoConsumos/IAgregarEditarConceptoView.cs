@@ -16,11 +16,11 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         int IdProveedorBahiaBlanca { get; }
         int IdProveedorPlazaHuincul { get; }
 
-        void CargarTiposDeConsumo(List<ConceptoTipo> tiposDeConsumo);
+        Task CargarTiposDeConsumoAsync(List<ConceptoTipo> tiposDeConsumo);
 
-        void CargarProveedoresBahiaBlanca(List<Proveedor> proveedores);
+        Task CargarProveedoresBahiaBlancaAsync(List<Proveedor> proveedores);
 
-        void CargarProveedoresPlazaHuincul(List<Proveedor> proveedores);
+        Task CargarProveedoresPlazaHuinculAsync(List<Proveedor> proveedores);
 
         void MostrarDatosConcepto(Concepto concepto);
     }

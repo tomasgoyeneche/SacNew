@@ -174,12 +174,13 @@
             tabControlMenu.Controls.Add(tabPagGesDoc);
             tabControlMenu.Controls.Add(tabPagInf);
             tabControlMenu.Controls.Add(tabPagConf);
+            tabControlMenu.Dock = DockStyle.Bottom;
             tabControlMenu.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabControlMenu.ItemSize = new Size(200, 50);
-            tabControlMenu.Location = new Point(-1, 144);
+            tabControlMenu.Location = new Point(0, 146);
             tabControlMenu.Name = "tabControlMenu";
             tabControlMenu.SelectedIndex = 0;
-            tabControlMenu.Size = new Size(799, 457);
+            tabControlMenu.Size = new Size(900, 454);
             tabControlMenu.TabButtonHoverState.BorderColor = Color.Empty;
             tabControlMenu.TabButtonHoverState.FillColor = Color.FromArgb(63, 73, 75);
             tabControlMenu.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 11F);
@@ -215,7 +216,7 @@
             tabPageGestOpe.Location = new Point(204, 4);
             tabPageGestOpe.Name = "tabPageGestOpe";
             tabPageGestOpe.Padding = new Padding(3);
-            tabPageGestOpe.Size = new Size(591, 449);
+            tabPageGestOpe.Size = new Size(692, 446);
             tabPageGestOpe.TabIndex = 0;
             tabPageGestOpe.Text = "Gestion Operativa";
             // 
@@ -363,7 +364,7 @@
             tabPageGesFlo.Location = new Point(204, 4);
             tabPageGesFlo.Name = "tabPageGesFlo";
             tabPageGesFlo.Padding = new Padding(3);
-            tabPageGesFlo.Size = new Size(591, 449);
+            tabPageGesFlo.Size = new Size(692, 547);
             tabPageGesFlo.TabIndex = 1;
             tabPageGesFlo.Text = "Gestion De Flota";
             // 
@@ -562,7 +563,7 @@
             tabPagServExt.Location = new Point(204, 4);
             tabPagServExt.Name = "tabPagServExt";
             tabPagServExt.Padding = new Padding(3);
-            tabPagServExt.Size = new Size(591, 449);
+            tabPagServExt.Size = new Size(692, 547);
             tabPagServExt.TabIndex = 2;
             tabPagServExt.Text = "Servicios Externos";
             tabPagServExt.UseVisualStyleBackColor = true;
@@ -689,7 +690,7 @@
             tabPagGesDoc.Location = new Point(204, 4);
             tabPagGesDoc.Name = "tabPagGesDoc";
             tabPagGesDoc.Padding = new Padding(3);
-            tabPagGesDoc.Size = new Size(591, 449);
+            tabPagGesDoc.Size = new Size(692, 547);
             tabPagGesDoc.TabIndex = 3;
             tabPagGesDoc.Text = "Gestion Documental";
             tabPagGesDoc.UseVisualStyleBackColor = true;
@@ -894,7 +895,7 @@
             tabPagInf.Location = new Point(204, 4);
             tabPagInf.Name = "tabPagInf";
             tabPagInf.Padding = new Padding(3);
-            tabPagInf.Size = new Size(591, 449);
+            tabPagInf.Size = new Size(692, 547);
             tabPagInf.TabIndex = 4;
             tabPagInf.Text = "Informes y Estadisticas";
             tabPagInf.UseVisualStyleBackColor = true;
@@ -1092,7 +1093,7 @@
             tabPagConf.Location = new Point(204, 4);
             tabPagConf.Name = "tabPagConf";
             tabPagConf.Padding = new Padding(3);
-            tabPagConf.Size = new Size(591, 449);
+            tabPagConf.Size = new Size(692, 547);
             tabPagConf.TabIndex = 5;
             tabPagConf.Text = "Configuraciones";
             tabPagConf.UseVisualStyleBackColor = true;
@@ -1183,11 +1184,12 @@
             pMenuVerde.Controls.Add(guna2Panel1);
             pMenuVerde.Controls.Add(pMenuOrange);
             pMenuVerde.CustomizableEdges = customizableEdges37;
+            pMenuVerde.Dock = DockStyle.Top;
             pMenuVerde.FillColor = Color.Peru;
-            pMenuVerde.Location = new Point(-1, 0);
+            pMenuVerde.Location = new Point(0, 0);
             pMenuVerde.Name = "pMenuVerde";
             pMenuVerde.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            pMenuVerde.Size = new Size(805, 146);
+            pMenuVerde.Size = new Size(900, 146);
             pMenuVerde.TabIndex = 3;
             // 
             // bMinimize
@@ -1198,7 +1200,7 @@
             bMinimize.CustomizableEdges = customizableEdges28;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(738, 0);
+            bMinimize.Location = new Point(834, 0);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges29;
             bMinimize.Size = new Size(32, 24);
@@ -1214,12 +1216,11 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(770, 0);
+            bClose.Location = new Point(866, 0);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges31;
             bClose.Size = new Size(32, 24);
             bClose.TabIndex = 19;
- 
             // 
             // lDiaDeHoy
             // 
@@ -1227,7 +1228,7 @@
             lDiaDeHoy.BackColor = Color.FromArgb(63, 73, 75);
             lDiaDeHoy.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lDiaDeHoy.ForeColor = SystemColors.ControlLight;
-            lDiaDeHoy.Location = new Point(346, 20);
+            lDiaDeHoy.Location = new Point(343, 22);
             lDiaDeHoy.Name = "lDiaDeHoy";
             lDiaDeHoy.Size = new Size(327, 34);
             lDiaDeHoy.TabIndex = 11;
@@ -1241,7 +1242,7 @@
             guna2Panel1.BorderRadius = 24;
             guna2Panel1.CustomizableEdges = customizableEdges32;
             guna2Panel1.FillColor = Color.FromArgb(63, 73, 75);
-            guna2Panel1.Location = new Point(330, 12);
+            guna2Panel1.Location = new Point(327, 14);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges33;
             guna2Panel1.Size = new Size(356, 50);
@@ -1305,7 +1306,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(900, 600);
             Controls.Add(pMenuVerde);
             Controls.Add(tabControlMenu);
             FormBorderStyle = FormBorderStyle.None;

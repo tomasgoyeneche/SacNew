@@ -14,7 +14,7 @@ namespace SacNew.Views.GestionFlota.Postas.DatosVolvo
             _presenter.SetView(this);
         }
 
-        public Periodo PeriodoSeleccionado => cmbPeriodos.SelectedItem as Periodo;
+        public Periodo? PeriodoSeleccionado => cmbPeriodos.SelectedItem as Periodo;
 
         public void CargarPeriodos(IEnumerable<Periodo> periodos)
         {

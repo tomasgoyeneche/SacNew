@@ -7,17 +7,13 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 {
     public partial class AgregarEditarPosta : Form, IAgregarEditarPostaView
     {
-        private readonly ISesionService _sesionService;
-        private readonly AgregarEditarPostaPresenter _presenter;
+        public AgregarEditarPostaPresenter _presenter;
 
-        public AgregarEditarPosta(ISesionService sesionService, IPostaRepositorio postaRepositorio, IProvinciaRepositorio provinciaRepositorio)
+        public AgregarEditarPosta(AgregarEditarPostaPresenter presenter)
         {
             InitializeComponent();
-
-            _sesionService = sesionService;
-            _presenter = new AgregarEditarPostaPresenter(this, postaRepositorio, provinciaRepositorio);
-            _presenter.CargarProvincias();
-            _presenter.CargarProvincias();
+            _presenter = presenter;
+            _presenter.SetView(this);
         }
 
         public int Id { get; set; }
@@ -58,16 +54,16 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
             MessageBox.Show(mensaje);
         }
 
-        // Método para cargar datos de una posta existente
-        public void CargarDatos(Posta posta)
+        public async Task CargarDatosAsync(Posta posta)
         {
+            await _presenter.CargarProvinciasAsync();
             _presenter.CargarDatosPosta(posta);
         }
 
         // Evento del botón Guardar
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            _presenter.GuardarPosta();
+            await _presenter.GuardarPostaAsync();
             this.Close();
         }
 

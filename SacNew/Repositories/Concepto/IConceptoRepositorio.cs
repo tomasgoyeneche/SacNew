@@ -4,18 +4,18 @@ namespace SacNew.Repositories
 {
     public interface IConceptoRepositorio
     {
-        List<Concepto> ObtenerTodosLosConceptos();
+        Task<List<Concepto>> ObtenerTodosLosConceptosAsync();
 
-        Task<IEnumerable<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo);
+        Task<List<Concepto>> ObtenerPorTipoAsync(int idTipoConsumo);
 
-        List<Concepto> BuscarConceptos(string textoBusqueda);
+        Task<List<Concepto>> BuscarConceptosAsync(string textoBusqueda);
 
-        Concepto ObtenerPorId(int idConsumo);
+        Task<Concepto?> ObtenerPorIdAsync(int idConsumo);
 
-        void AgregarConcepto(Concepto concepto);
+        Task AgregarConceptoAsync(Concepto concepto);
 
-        void ActualizarConcepto(Concepto concepto);
+        Task ActualizarConceptoAsync(Concepto concepto);
 
-        void EliminarConcepto(int idConsumo);
+        Task EliminarConceptoAsync(int idConsumo);
     }
 }

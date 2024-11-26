@@ -73,6 +73,7 @@
             // 
             // guna2ElipseMenuLocaciones
             // 
+            guna2ElipseMenuLocaciones.BorderRadius = 0;
             guna2ElipseMenuLocaciones.TargetControl = this;
             // 
             // guna2Panel9
@@ -87,7 +88,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel9.Size = new Size(950, 27);
+            guna2Panel9.Size = new Size(900, 27);
             guna2Panel9.TabIndex = 17;
             // 
             // bMinimize
@@ -97,7 +98,7 @@
             bMinimize.CustomizableEdges = customizableEdges15;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(885, -2);
+            bMinimize.Location = new Point(835, -2);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges16;
             bMinimize.Size = new Size(32, 27);
@@ -112,7 +113,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(918, -1);
+            bClose.Location = new Point(868, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges18;
             bClose.Size = new Size(32, 27);
@@ -140,7 +141,6 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.Silver;
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewLocaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewLocaciones.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 64, 128);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -160,7 +160,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewLocaciones.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewLocaciones.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewLocaciones.Location = new Point(12, 85);
+            dataGridViewLocaciones.Location = new Point(12, 94);
             dataGridViewLocaciones.Name = "dataGridViewLocaciones";
             dataGridViewLocaciones.ReadOnly = true;
             dataGridViewLocaciones.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -174,7 +174,7 @@
             dataGridViewLocaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewLocaciones.RowHeadersVisible = false;
             dataGridViewLocaciones.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewLocaciones.Size = new Size(558, 352);
+            dataGridViewLocaciones.Size = new Size(558, 441);
             dataGridViewLocaciones.TabIndex = 18;
             dataGridViewLocaciones.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewLocaciones.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -248,7 +248,7 @@
             btnEliminar.FillColor = Color.Brown;
             btnEliminar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(12, 448);
+            btnEliminar.Location = new Point(12, 556);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnEliminar.Size = new Size(101, 32);
@@ -266,7 +266,7 @@
             btnEditar.FillColor = Color.Orange;
             btnEditar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(121, 448);
+            btnEditar.Location = new Point(121, 556);
             btnEditar.Name = "btnEditar";
             btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnEditar.Size = new Size(101, 32);
@@ -284,7 +284,7 @@
             btnAgregar.FillColor = Color.ForestGreen;
             btnAgregar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(469, 448);
+            btnAgregar.Location = new Point(469, 556);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnAgregar.Size = new Size(101, 32);
@@ -300,10 +300,10 @@
             guna2PictureBox1.Dock = DockStyle.Right;
             guna2PictureBox1.FillColor = Color.FromArgb(150, 0, 0, 0);
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(589, 27);
+            guna2PictureBox1.Location = new Point(598, 27);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2PictureBox1.Size = new Size(361, 473);
+            guna2PictureBox1.Size = new Size(302, 573);
             guna2PictureBox1.TabIndex = 26;
             guna2PictureBox1.TabStop = false;
             // 
@@ -317,7 +317,7 @@
             btnPool.FillColor = Color.DarkCyan;
             btnPool.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPool.ForeColor = Color.White;
-            btnPool.Location = new Point(362, 448);
+            btnPool.Location = new Point(362, 556);
             btnPool.Name = "btnPool";
             btnPool.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnPool.Size = new Size(101, 32);
@@ -330,7 +330,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(950, 500);
+            ClientSize = new Size(900, 600);
             Controls.Add(btnPool);
             Controls.Add(guna2PictureBox1);
             Controls.Add(btnAgregar);
