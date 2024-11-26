@@ -1,7 +1,5 @@
 ﻿using SacNew.Models;
 using SacNew.Presenters;
-using SacNew.Repositories;
-using SacNew.Services;
 
 namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 {

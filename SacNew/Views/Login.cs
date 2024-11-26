@@ -1,6 +1,4 @@
 using SacNew.Presenters;
-using SacNew.Repositories;
-using SacNew.Services;
 using SacNew.Views;
 
 namespace SacNew

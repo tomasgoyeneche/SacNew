@@ -78,7 +78,5 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
         {
             this.Dispose();
         }
-
-    
     }
 }

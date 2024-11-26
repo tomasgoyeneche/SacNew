@@ -9,7 +9,7 @@ namespace SacNew.Presenters
     {
         protected readonly ISesionService _sesionService;
         protected readonly INavigationService _navigationService;
-        protected TView _view;
+        protected TView? _view;
 
         public BasePresenter(ISesionService sesionService, INavigationService navigationService)
         {
@@ -17,7 +17,7 @@ namespace SacNew.Presenters
             _navigationService = navigationService;
         }
 
-        public void SetView(TView view) => _view = view;
+        public void SetView(TView? view) => _view = view;
 
         protected async Task<bool> ValidarAsync<T>(T entidad)
         {

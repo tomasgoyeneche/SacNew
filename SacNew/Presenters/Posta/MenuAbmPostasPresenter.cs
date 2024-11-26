@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Interfaces;
+﻿using SacNew.Interfaces;
 using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
-using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 
 namespace SacNew.Presenters

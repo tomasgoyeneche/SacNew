@@ -11,7 +11,7 @@ namespace SacNew.Presenters
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
 
-        private Locacion _locacionActual;
+        private Locacion? _locacionActual;
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,

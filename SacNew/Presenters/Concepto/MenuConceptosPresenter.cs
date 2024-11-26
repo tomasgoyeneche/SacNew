@@ -1,8 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Models;
+﻿using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
-using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 
 namespace SacNew.Presenters
@@ -98,5 +96,4 @@ namespace SacNew.Presenters
             }
         }
     }
-
 }

@@ -11,7 +11,7 @@ namespace SacNew.Presenters
         private readonly IConceptoTipoRepositorio _conceptoTipoRepositorio;
         private readonly IConceptoProveedorRepositorio _conceptoProveedorRepositorio;
         private readonly IConceptoPostaProveedorRepositorio _conceptoPostaProveedorRepositorio;
-        private Concepto _conceptoActual;
+        private Concepto? _conceptoActual;
 
         public AgregarEditarConceptoPresenter(
             IConceptoRepositorio conceptoRepositorio,

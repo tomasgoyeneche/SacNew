@@ -20,6 +20,7 @@ namespace SacNew.Repositories
                 return unidades.ToList();
             });
         }
+
         public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
         {
             var query = @"

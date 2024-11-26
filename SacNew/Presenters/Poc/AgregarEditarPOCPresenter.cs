@@ -13,7 +13,7 @@ namespace SacNew.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
 
-        public POC PocActual { get; private set; }
+        public POC? PocActual { get; private set; }
 
         public AgregarEditarPOCPresenter(
             IChoferRepositorio choferRepositorio,
@@ -36,7 +36,7 @@ namespace SacNew.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var unidades =await  _unidadRepositorio.ObtenerUnidadesPatenteDtoAsync();
+                var unidades = await _unidadRepositorio.ObtenerUnidadesPatenteDtoAsync();
                 var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
                 var unidadesOrdenadas = unidades.OrderBy(n => n.DescripcionUnidad).ToList();
                 var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();

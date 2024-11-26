@@ -1,10 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SacNew.Models;
+﻿using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views;
-using SacNew.Views.GestionFlota.Postas.ABMPostas;
-using System.ComponentModel.DataAnnotations;
 
 namespace SacNew.Presenters
 {
@@ -48,13 +45,10 @@ namespace SacNew.Presenters
 
                 // Redirigir al menú principal
 
-
                 await AbrirFormularioAsync<Menu>(async form =>
                 {
                     _view.RedirigirAlMenu(form);
                 });
-          
-
             });
         }
     }

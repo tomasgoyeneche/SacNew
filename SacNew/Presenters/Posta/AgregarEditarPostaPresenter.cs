@@ -9,7 +9,7 @@ namespace SacNew.Presenters
     {
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IProvinciaRepositorio _provinciaRepositorio;
-        private Posta _postaActual;
+        private Posta? _postaActual;
 
         public AgregarEditarPostaPresenter(
             IPostaRepositorio postaRepositorio,
@@ -33,7 +33,7 @@ namespace SacNew.Presenters
 
         public void CargarDatosPosta(Posta posta)
         {
-            if(posta != null)
+            if (posta != null)
             {
                 _postaActual = posta;
                 _view.Codigo = posta.Codigo;
@@ -42,7 +42,6 @@ namespace SacNew.Presenters
                 _view.ProvinciaId = posta.IdProvincia;
                 _view.Id = posta.IdPosta;
             }
-        
         }
 
         public async Task GuardarPostaAsync()
@@ -83,6 +82,7 @@ namespace SacNew.Presenters
                 }
             });
         }
+
         private bool ValidarDatos()
         {
             if (string.IsNullOrWhiteSpace(_view.Codigo))

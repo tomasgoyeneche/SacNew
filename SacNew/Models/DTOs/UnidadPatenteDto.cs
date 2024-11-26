@@ -3,12 +3,12 @@
     public class UnidadPatenteDto
     {
         public int IdUnidad { get; set; }
-        public string PatenteTractor { get; set; }
-        public string PatenteSemi { get; set; }
+        public string? PatenteTractor { get; set; }
+        public string? PatenteSemi { get; set; }
 
         public int idEmpresa { get; set; }
 
-        public string DescripcionUnidad
+        public string? DescripcionUnidad
         {
             get
             {
