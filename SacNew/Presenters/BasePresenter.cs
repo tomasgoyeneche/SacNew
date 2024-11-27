@@ -74,6 +74,10 @@ namespace SacNew.Presenters
             {
                 MostrarErrores(ex.Errors);
             }
+            catch (Exception ex)
+            {
+                MostrarMensaje($"Ocurrió un error: {ex.Message}");
+            }
         }
 
         private void MostrarErrores(IEnumerable<ValidationFailure> errores) =>

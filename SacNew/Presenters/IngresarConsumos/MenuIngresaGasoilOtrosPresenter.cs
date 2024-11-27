@@ -1,4 +1,5 @@
-﻿using SacNew.Repositories;
+﻿using SacNew.Models;
+using SacNew.Repositories;
 using SacNew.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual;
@@ -11,7 +12,7 @@ namespace SacNew.Presenters
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
-
+        EmpresaCredito _amount;    
         public MenuIngresaGasoilOtrosPresenter(
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
             IPOCRepositorio pocRepositorio,
@@ -47,18 +48,21 @@ namespace SacNew.Presenters
                 var empresaCredito = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa)
                                      ?? throw new Exception("No se encontraron créditos para la empresa.");
 
+
+                _amount = empresaCredito;
+                
                 _view.CreditoTotal = empresaCredito.CreditoAsignado.ToString("C", new CultureInfo("es-AR"));
                 _view.CreditoDisponible = empresaCredito.CreditoDisponible.ToString("C", new CultureInfo("es-AR"));
             });
         }
 
-        //public async Task AbrirGasoilAutorizadoAsync(int idPoc)
-        //{
-        //    await AbrirFormularioAsync<IngresaGasoil>(async form =>
-        //    {
-        //        await form._presenter.CargarDatosAsync(idPoc);
-        //    });
-        //}
+        public async Task AbrirGasoilAutorizadoAsync(int idPoc)
+        {
+            await AbrirFormularioAsync<IngresaGasoil>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idPoc, _amount);
+            });
+        }
 
         public async Task AbrirConsumosenYpfEnRutaAsync(int idPoc)
         {
