@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class LocacionPoolRepositorio : BaseRepositorio, ILocacionPoolRepositorio
     {
-        public LocacionPoolRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public LocacionPoolRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         {
         }
 

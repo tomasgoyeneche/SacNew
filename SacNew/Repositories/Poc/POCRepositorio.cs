@@ -2,13 +2,14 @@
 using SacNew.Models;
 using SacNew.Models.DTOs;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class POCRepositorio : BaseRepositorio, IPOCRepositorio
     {
-        public POCRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public POCRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         { }
 
         public async Task<List<POCDto>> ObtenerTodosAsync()

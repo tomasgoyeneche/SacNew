@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class EmpresaCreditoRepositorio : BaseRepositorio, IEmpresaCreditoRepositorio
     {
-        public EmpresaCreditoRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public EmpresaCreditoRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         {
         }
 
@@ -27,7 +28,6 @@ namespace SacNew.Repositories
             UPDATE EmpresaCredito
             SET CreditoAsignado = @CreditoAsignado,
                 CreditoConsumido = @CreditoConsumido,
-                CreditoDisponible = @CreditoDisponible,
                 FechaModificacion = @FechaModificacion
             WHERE IdCredito = @IdCredito";
 

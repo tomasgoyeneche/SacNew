@@ -27,32 +27,45 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bAbmPostasMenu_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<MenuAbmPostas>();
+            this.Show();
         }
 
         private void bMenuConceptos_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<MenuConceptos>();
+            this.Show();
         }
 
         private void bIngresaConsumos_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<MenuFormaIngresarConsumos>();
+            this.Show();
         }
 
         private void bIngresaConsumosYPF_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<ImportarConsumosYPF>();
+            this.Show();
         }
 
         private void bDatosVolvo_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<ImportDatosVolvo>();
+            this.Show();
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _navigationService.ShowDialog<MenuInformesPostas>();
+            this.Show();
+
         }
     }
 }

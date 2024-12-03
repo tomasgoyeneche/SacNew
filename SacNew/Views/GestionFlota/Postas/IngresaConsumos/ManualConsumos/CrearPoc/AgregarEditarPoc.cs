@@ -62,24 +62,24 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            await ManejarErroresAsync(async () =>
-            {
                 await _presenter.GuardarPOCAsync();
                 Close();
-            });
+
         }
 
         private async void AgregarEditarPOC_Load(object sender, EventArgs e)
         {
-            await ManejarErroresAsync(async () =>
-            {
                 await _presenter.InicializarAsync();
-            });
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        public void MostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
 
         private void txtOdometro_TextChanged(object sender, EventArgs e)
@@ -93,23 +93,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             }
 
             txtOdometro.TextChanged += txtOdometro_TextChanged;
-        }
-
-        public void MostrarMensaje(string mensaje)
-        {
-            MessageBox.Show(mensaje);
-        }
-
-        private async Task ManejarErroresAsync(Func<Task> accion)
-        {
-            try
-            {
-                await accion();
-            }
-            catch (Exception ex)
-            {
-                MostrarMensaje($"Ocurrió un error: {ex.Message}");
-            }
         }
     }
 }

@@ -142,7 +142,7 @@
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(664, 447);
+            btnGuardar.Location = new Point(663, 538);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnGuardar.Size = new Size(120, 37);
@@ -160,7 +160,7 @@
             btnExportarExcel.FillColor = Color.ForestGreen;
             btnExportarExcel.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExportarExcel.ForeColor = Color.White;
-            btnExportarExcel.Location = new Point(148, 447);
+            btnExportarExcel.Location = new Point(147, 538);
             btnExportarExcel.Name = "btnExportarExcel";
             btnExportarExcel.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnExportarExcel.Size = new Size(120, 37);
@@ -178,7 +178,7 @@
             btnImportar.FillColor = Color.Goldenrod;
             btnImportar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnImportar.ForeColor = Color.White;
-            btnImportar.Location = new Point(13, 447);
+            btnImportar.Location = new Point(12, 538);
             btnImportar.Name = "btnImportar";
             btnImportar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnImportar.Size = new Size(120, 37);
@@ -209,11 +209,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDatos.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDatos.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDatos.Location = new Point(12, 128);
+            dgvDatos.Location = new Point(12, 142);
             dgvDatos.Name = "dgvDatos";
             dgvDatos.ReadOnly = true;
             dgvDatos.RowHeadersVisible = false;
-            dgvDatos.Size = new Size(772, 305);
+            dgvDatos.Size = new Size(772, 379);
             dgvDatos.TabIndex = 49;
             dgvDatos.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDatos.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -242,7 +242,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(12, 83);
+            guna2HtmlLabel2.Location = new Point(12, 94);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(65, 23);
             guna2HtmlLabel2.TabIndex = 51;
@@ -259,7 +259,7 @@
             cmbPeriodos.Font = new Font("Segoe UI", 10F);
             cmbPeriodos.ForeColor = Color.FromArgb(68, 88, 112);
             cmbPeriodos.ItemHeight = 30;
-            cmbPeriodos.Location = new Point(83, 77);
+            cmbPeriodos.Location = new Point(83, 88);
             cmbPeriodos.Name = "cmbPeriodos";
             cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges2;
             cmbPeriodos.Size = new Size(269, 36);
@@ -270,7 +270,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(800, 500);
+            ClientSize = new Size(800, 600);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(cmbPeriodos);
             Controls.Add(dgvDatos);

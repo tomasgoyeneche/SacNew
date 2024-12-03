@@ -45,7 +45,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaGasoil_Click(object sender, EventArgs e)
         {
-            //await _presenter.AbrirGasoilAutorizadoAsync(IdPoc);
+            this.Hide();
+            await _presenter.AbrirGasoilAutorizadoAsync(IdPoc);
         }
 
         private async void bIngresaYpfRuta_Click(object sender, EventArgs e)

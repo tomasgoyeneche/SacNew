@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class ProvinciaRepositorio : BaseRepositorio, IProvinciaRepositorio
     {
-        public ProvinciaRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public ProvinciaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<List<Provincia>> ObtenerProvinciasAsync()
         {

@@ -6,13 +6,25 @@ namespace SacNew.Services
 {
     public class Startup
     {
+        public class ConnectionStrings
+        {
+            public string MyDBConnectionString { get; set; }
+            public string FOConnectionString { get; set; }
+        }
+
         public static IServiceProvider ConfigureServices()
         {
             var serviceCollection = new ServiceCollection();
 
             // Configuración general
-            string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString;
-            serviceCollection.AddSingleton(connectionString);
+            var connectionStrings = new ConnectionStrings
+            {
+                MyDBConnectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString"].ConnectionString,
+                FOConnectionString = ConfigurationManager.ConnectionStrings["FOConnectionString"].ConnectionString
+            };
+            serviceCollection.AddSingleton(connectionStrings);
+
+
 
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan

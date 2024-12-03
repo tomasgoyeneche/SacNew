@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class ConsumoUnidadRepositorio : BaseRepositorio, IConsumoUnidadRepositorio
     {
-        public ConsumoUnidadRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public ConsumoUnidadRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         {
         }
 

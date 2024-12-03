@@ -140,7 +140,7 @@
             guna2vSeparator11 = new Guna.UI2.WinForms.Guna2VSeparator();
             guna2vSeparator10 = new Guna.UI2.WinForms.Guna2VSeparator();
             guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ImageButton22 = new Guna.UI2.WinForms.Guna2ImageButton();
+            bAbmUsuarios = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             picBoxMenuAbmLocacion = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -180,7 +180,7 @@
             tabControlMenu.Location = new Point(0, 146);
             tabControlMenu.Name = "tabControlMenu";
             tabControlMenu.SelectedIndex = 0;
-            tabControlMenu.Size = new Size(900, 454);
+            tabControlMenu.Size = new Size(800, 454);
             tabControlMenu.TabButtonHoverState.BorderColor = Color.Empty;
             tabControlMenu.TabButtonHoverState.FillColor = Color.FromArgb(63, 73, 75);
             tabControlMenu.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 11F);
@@ -364,7 +364,7 @@
             tabPageGesFlo.Location = new Point(204, 4);
             tabPageGesFlo.Name = "tabPageGesFlo";
             tabPageGesFlo.Padding = new Padding(3);
-            tabPageGesFlo.Size = new Size(692, 547);
+            tabPageGesFlo.Size = new Size(692, 446);
             tabPageGesFlo.TabIndex = 1;
             tabPageGesFlo.Text = "Gestion De Flota";
             // 
@@ -563,7 +563,7 @@
             tabPagServExt.Location = new Point(204, 4);
             tabPagServExt.Name = "tabPagServExt";
             tabPagServExt.Padding = new Padding(3);
-            tabPagServExt.Size = new Size(692, 547);
+            tabPagServExt.Size = new Size(692, 446);
             tabPagServExt.TabIndex = 2;
             tabPagServExt.Text = "Servicios Externos";
             tabPagServExt.UseVisualStyleBackColor = true;
@@ -690,7 +690,7 @@
             tabPagGesDoc.Location = new Point(204, 4);
             tabPagGesDoc.Name = "tabPagGesDoc";
             tabPagGesDoc.Padding = new Padding(3);
-            tabPagGesDoc.Size = new Size(692, 547);
+            tabPagGesDoc.Size = new Size(692, 446);
             tabPagGesDoc.TabIndex = 3;
             tabPagGesDoc.Text = "Gestion Documental";
             tabPagGesDoc.UseVisualStyleBackColor = true;
@@ -895,7 +895,7 @@
             tabPagInf.Location = new Point(204, 4);
             tabPagInf.Name = "tabPagInf";
             tabPagInf.Padding = new Padding(3);
-            tabPagInf.Size = new Size(692, 547);
+            tabPagInf.Size = new Size(692, 446);
             tabPagInf.TabIndex = 4;
             tabPagInf.Text = "Informes y Estadisticas";
             tabPagInf.UseVisualStyleBackColor = true;
@@ -1085,7 +1085,7 @@
             tabPagConf.Controls.Add(guna2vSeparator11);
             tabPagConf.Controls.Add(guna2vSeparator10);
             tabPagConf.Controls.Add(guna2HtmlLabel27);
-            tabPagConf.Controls.Add(guna2ImageButton22);
+            tabPagConf.Controls.Add(bAbmUsuarios);
             tabPagConf.Controls.Add(guna2HtmlLabel28);
             tabPagConf.Controls.Add(guna2HtmlLabel29);
             tabPagConf.Controls.Add(picBoxMenuAbmLocacion);
@@ -1093,7 +1093,7 @@
             tabPagConf.Location = new Point(204, 4);
             tabPagConf.Name = "tabPagConf";
             tabPagConf.Padding = new Padding(3);
-            tabPagConf.Size = new Size(692, 547);
+            tabPagConf.Size = new Size(592, 446);
             tabPagConf.TabIndex = 5;
             tabPagConf.Text = "Configuraciones";
             tabPagConf.UseVisualStyleBackColor = true;
@@ -1123,20 +1123,21 @@
             guna2HtmlLabel27.Text = "ABM Usuarios";
             guna2HtmlLabel27.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2ImageButton22
+            // bAbmUsuarios
             // 
-            guna2ImageButton22.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton22.HoverState.ImageSize = new Size(135, 135);
-            guna2ImageButton22.Image = Resources.configuracionUsuario;
-            guna2ImageButton22.ImageOffset = new Point(0, 0);
-            guna2ImageButton22.ImageRotate = 0F;
-            guna2ImageButton22.ImageSize = new Size(128, 128);
-            guna2ImageButton22.Location = new Point(233, 85);
-            guna2ImageButton22.Name = "guna2ImageButton22";
-            guna2ImageButton22.PressedState.ImageSize = new Size(140, 140);
-            guna2ImageButton22.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            guna2ImageButton22.Size = new Size(140, 140);
-            guna2ImageButton22.TabIndex = 52;
+            bAbmUsuarios.CheckedState.ImageSize = new Size(64, 64);
+            bAbmUsuarios.HoverState.ImageSize = new Size(135, 135);
+            bAbmUsuarios.Image = Resources.configuracionUsuario;
+            bAbmUsuarios.ImageOffset = new Point(0, 0);
+            bAbmUsuarios.ImageRotate = 0F;
+            bAbmUsuarios.ImageSize = new Size(128, 128);
+            bAbmUsuarios.Location = new Point(233, 85);
+            bAbmUsuarios.Name = "bAbmUsuarios";
+            bAbmUsuarios.PressedState.ImageSize = new Size(140, 140);
+            bAbmUsuarios.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            bAbmUsuarios.Size = new Size(140, 140);
+            bAbmUsuarios.TabIndex = 52;
+            bAbmUsuarios.Click += bAbmUsuarios_Click;
             // 
             // guna2HtmlLabel28
             // 
@@ -1189,7 +1190,7 @@
             pMenuVerde.Location = new Point(0, 0);
             pMenuVerde.Name = "pMenuVerde";
             pMenuVerde.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            pMenuVerde.Size = new Size(900, 146);
+            pMenuVerde.Size = new Size(800, 146);
             pMenuVerde.TabIndex = 3;
             // 
             // bMinimize
@@ -1200,7 +1201,7 @@
             bMinimize.CustomizableEdges = customizableEdges28;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(834, 0);
+            bMinimize.Location = new Point(734, 0);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges29;
             bMinimize.Size = new Size(32, 24);
@@ -1216,7 +1217,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(866, 0);
+            bClose.Location = new Point(766, 0);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges31;
             bClose.Size = new Size(32, 24);
@@ -1306,7 +1307,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(800, 600);
             Controls.Add(pMenuVerde);
             Controls.Add(tabControlMenu);
             FormBorderStyle = FormBorderStyle.None;
@@ -1400,7 +1401,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton22;
+        private Guna.UI2.WinForms.Guna2ImageButton bAbmUsuarios;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
         private Guna.UI2.WinForms.Guna2ImageButton picBoxMenuAbmLocacion;

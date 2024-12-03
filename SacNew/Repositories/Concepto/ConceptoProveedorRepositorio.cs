@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class ConceptoProveedorRepositorio : BaseRepositorio, IConceptoProveedorRepositorio
     {
-        public ConceptoProveedorRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public ConceptoProveedorRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         { }
 
         public async Task<List<Proveedor>> ObtenerTodosLosProveedoresAsync()

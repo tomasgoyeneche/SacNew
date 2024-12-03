@@ -98,7 +98,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Panel9.Size = new Size(627, 27);
+            guna2Panel9.Size = new Size(800, 27);
             guna2Panel9.TabIndex = 18;
             // 
             // bMinimize
@@ -108,7 +108,7 @@
             bMinimize.CustomizableEdges = customizableEdges17;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(563, -1);
+            bMinimize.Location = new Point(736, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges18;
             bMinimize.Size = new Size(32, 27);
@@ -123,7 +123,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(595, -1);
+            bClose.Location = new Point(768, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges20;
             bClose.Size = new Size(32, 27);
@@ -138,7 +138,7 @@
             guna2ControlBox4.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox4.HoverState.IconColor = Color.White;
             guna2ControlBox4.IconColor = Color.WhiteSmoke;
-            guna2ControlBox4.Location = new Point(1295, -1);
+            guna2ControlBox4.Location = new Point(1468, -1);
             guna2ControlBox4.Name = "guna2ControlBox4";
             guna2ControlBox4.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2ControlBox4.Size = new Size(32, 27);
@@ -149,7 +149,7 @@
             lCreditoDisponible.BackColor = Color.Transparent;
             lCreditoDisponible.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lCreditoDisponible.ForeColor = SystemColors.ControlLight;
-            lCreditoDisponible.Location = new Point(12, 257);
+            lCreditoDisponible.Location = new Point(12, 263);
             lCreditoDisponible.Name = "lCreditoDisponible";
             lCreditoDisponible.Size = new Size(128, 18);
             lCreditoDisponible.TabIndex = 19;
@@ -162,7 +162,7 @@
             lEnEstaPoc.BackColor = Color.Transparent;
             lEnEstaPoc.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lEnEstaPoc.ForeColor = SystemColors.ControlLightLight;
-            lEnEstaPoc.Location = new Point(12, 232);
+            lEnEstaPoc.Location = new Point(12, 238);
             lEnEstaPoc.Name = "lEnEstaPoc";
             lEnEstaPoc.Size = new Size(128, 18);
             lEnEstaPoc.TabIndex = 20;
@@ -175,7 +175,7 @@
             lOtrosConsumosLabel.BackColor = Color.Transparent;
             lOtrosConsumosLabel.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lOtrosConsumosLabel.ForeColor = SystemColors.ControlLight;
-            lOtrosConsumosLabel.Location = new Point(12, 207);
+            lOtrosConsumosLabel.Location = new Point(12, 213);
             lOtrosConsumosLabel.Name = "lOtrosConsumosLabel";
             lOtrosConsumosLabel.Size = new Size(128, 18);
             lOtrosConsumosLabel.TabIndex = 21;
@@ -188,7 +188,7 @@
             lCreditoLabel.BackColor = Color.Transparent;
             lCreditoLabel.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lCreditoLabel.ForeColor = SystemColors.ControlLight;
-            lCreditoLabel.Location = new Point(12, 183);
+            lCreditoLabel.Location = new Point(12, 189);
             lCreditoLabel.Name = "lCreditoLabel";
             lCreditoLabel.Size = new Size(128, 18);
             lCreditoLabel.TabIndex = 22;
@@ -219,10 +219,10 @@
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.Dock = DockStyle.Bottom;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(0, 294);
+            guna2DataGridView1.Location = new Point(0, 384);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.Size = new Size(627, 216);
+            guna2DataGridView1.Size = new Size(800, 216);
             guna2DataGridView1.TabIndex = 23;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -258,7 +258,7 @@
             txtCreditoTotal.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCreditoTotal.Font = new Font("Century Gothic", 9F);
             txtCreditoTotal.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCreditoTotal.Location = new Point(146, 180);
+            txtCreditoTotal.Location = new Point(146, 186);
             txtCreditoTotal.Name = "txtCreditoTotal";
             txtCreditoTotal.PasswordChar = '\0';
             txtCreditoTotal.PlaceholderText = "";
@@ -279,7 +279,7 @@
             guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox2.Font = new Font("Century Gothic", 9F);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(146, 205);
+            guna2TextBox2.Location = new Point(146, 211);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PasswordChar = '\0';
             guna2TextBox2.PlaceholderText = "";
@@ -300,7 +300,7 @@
             guna2TextBox3.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox3.Font = new Font("Century Gothic", 9F);
             guna2TextBox3.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox3.Location = new Point(146, 230);
+            guna2TextBox3.Location = new Point(146, 236);
             guna2TextBox3.Name = "guna2TextBox3";
             guna2TextBox3.PasswordChar = '\0';
             guna2TextBox3.PlaceholderText = "";
@@ -321,7 +321,7 @@
             txtCreditoDisponible.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCreditoDisponible.Font = new Font("Century Gothic", 9F);
             txtCreditoDisponible.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCreditoDisponible.Location = new Point(146, 255);
+            txtCreditoDisponible.Location = new Point(146, 261);
             txtCreditoDisponible.Name = "txtCreditoDisponible";
             txtCreditoDisponible.PasswordChar = '\0';
             txtCreditoDisponible.PlaceholderText = "";
@@ -374,7 +374,7 @@
             bIngresaGasoil.FillColor = Color.Orange;
             bIngresaGasoil.Font = new Font("Segoe UI", 9F);
             bIngresaGasoil.ForeColor = Color.White;
-            bIngresaGasoil.Location = new Point(352, 180);
+            bIngresaGasoil.Location = new Point(500, 260);
             bIngresaGasoil.Name = "bIngresaGasoil";
             bIngresaGasoil.ShadowDecoration.CustomizableEdges = customizableEdges6;
             bIngresaGasoil.Size = new Size(104, 42);
@@ -431,7 +431,7 @@
             bIngresaOtrosConsumos.FillColor = Color.Violet;
             bIngresaOtrosConsumos.Font = new Font("Segoe UI", 9F);
             bIngresaOtrosConsumos.ForeColor = Color.White;
-            bIngresaOtrosConsumos.Location = new Point(413, 233);
+            bIngresaOtrosConsumos.Location = new Point(561, 313);
             bIngresaOtrosConsumos.Name = "bIngresaOtrosConsumos";
             bIngresaOtrosConsumos.ShadowDecoration.CustomizableEdges = customizableEdges4;
             bIngresaOtrosConsumos.Size = new Size(104, 42);
@@ -448,7 +448,7 @@
             bIngresaYpfRuta.FillColor = Color.SteelBlue;
             bIngresaYpfRuta.Font = new Font("Segoe UI", 9F);
             bIngresaYpfRuta.ForeColor = Color.White;
-            bIngresaYpfRuta.Location = new Point(478, 180);
+            bIngresaYpfRuta.Location = new Point(626, 260);
             bIngresaYpfRuta.Name = "bIngresaYpfRuta";
             bIngresaYpfRuta.ShadowDecoration.CustomizableEdges = customizableEdges2;
             bIngresaYpfRuta.Size = new Size(104, 42);
@@ -462,7 +462,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(352, 152);
+            guna2HtmlLabel5.Location = new Point(500, 232);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(230, 21);
             guna2HtmlLabel5.TabIndex = 38;
@@ -474,7 +474,7 @@
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(627, 510);
+            ClientSize = new Size(800, 600);
             Controls.Add(guna2HtmlLabel5);
             Controls.Add(bIngresaYpfRuta);
             Controls.Add(bIngresaOtrosConsumos);

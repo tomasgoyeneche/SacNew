@@ -232,7 +232,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel9.Size = new Size(900, 24);
+            guna2Panel9.Size = new Size(800, 24);
             guna2Panel9.TabIndex = 19;
             // 
             // guna2ControlBox5
@@ -242,7 +242,7 @@
             guna2ControlBox5.CustomizableEdges = customizableEdges15;
             guna2ControlBox5.FillColor = Color.Transparent;
             guna2ControlBox5.IconColor = Color.WhiteSmoke;
-            guna2ControlBox5.Location = new Point(836, -1);
+            guna2ControlBox5.Location = new Point(736, -1);
             guna2ControlBox5.Name = "guna2ControlBox5";
             guna2ControlBox5.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ControlBox5.Size = new Size(32, 24);
@@ -257,7 +257,7 @@
             guna2ControlBox6.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox6.HoverState.IconColor = Color.White;
             guna2ControlBox6.IconColor = Color.WhiteSmoke;
-            guna2ControlBox6.Location = new Point(868, -1);
+            guna2ControlBox6.Location = new Point(768, -1);
             guna2ControlBox6.Name = "guna2ControlBox6";
             guna2ControlBox6.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox6.Size = new Size(32, 24);
@@ -304,10 +304,10 @@
             guna2Panel1.CustomizableEdges = customizableEdges9;
             guna2Panel1.Dock = DockStyle.Right;
             guna2Panel1.FillColor = Color.LightGray;
-            guna2Panel1.Location = new Point(467, 24);
+            guna2Panel1.Location = new Point(437, 24);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel1.Size = new Size(433, 576);
+            guna2Panel1.Size = new Size(363, 576);
             guna2Panel1.TabIndex = 23;
             // 
             // AgregarEditarPosta
@@ -315,7 +315,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 55);
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(800, 600);
             Controls.Add(guna2Panel1);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);

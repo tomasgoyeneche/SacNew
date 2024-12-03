@@ -157,7 +157,7 @@
             guna2Panel4.Controls.Add(guna2HtmlLabel1);
             guna2Panel4.CustomizableEdges = customizableEdges5;
             guna2Panel4.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel4.Location = new Point(21, 84);
+            guna2Panel4.Location = new Point(12, 96);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel4.Size = new Size(190, 225);
@@ -243,7 +243,7 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.CustomizableEdges = customizableEdges11;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel1.Location = new Point(244, 84);
+            guna2Panel1.Location = new Point(209, 96);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel1.Size = new Size(190, 225);
@@ -316,7 +316,7 @@
             guna2Panel2.Controls.Add(guna2HtmlLabel6);
             guna2Panel2.CustomizableEdges = customizableEdges17;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel2.Location = new Point(467, 84);
+            guna2Panel2.Location = new Point(406, 96);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel2.Size = new Size(190, 225);
@@ -388,7 +388,7 @@
             guna2Panel3.Controls.Add(guna2HtmlLabel8);
             guna2Panel3.CustomizableEdges = customizableEdges23;
             guna2Panel3.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel3.Location = new Point(690, 84);
+            guna2Panel3.Location = new Point(603, 96);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel3.Size = new Size(190, 225);
@@ -462,7 +462,7 @@
             guna2Panel5.Controls.Add(guna2HtmlLabel10);
             guna2Panel5.CustomizableEdges = customizableEdges29;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel5.Location = new Point(690, 348);
+            guna2Panel5.Location = new Point(603, 344);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Panel5.Size = new Size(190, 225);
@@ -535,7 +535,7 @@
             guna2Panel6.Controls.Add(guna2HtmlLabel12);
             guna2Panel6.CustomizableEdges = customizableEdges35;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel6.Location = new Point(467, 348);
+            guna2Panel6.Location = new Point(406, 344);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges36;
             guna2Panel6.Size = new Size(190, 225);
@@ -609,7 +609,7 @@
             guna2Panel7.Controls.Add(guna2HtmlLabel14);
             guna2Panel7.CustomizableEdges = customizableEdges41;
             guna2Panel7.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel7.Location = new Point(244, 348);
+            guna2Panel7.Location = new Point(209, 344);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges42;
             guna2Panel7.Size = new Size(190, 225);
@@ -684,7 +684,7 @@
             guna2Panel8.Controls.Add(guna2HtmlLabel16);
             guna2Panel8.CustomizableEdges = customizableEdges47;
             guna2Panel8.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel8.Location = new Point(21, 348);
+            guna2Panel8.Location = new Point(12, 344);
             guna2Panel8.Name = "guna2Panel8";
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges48;
             guna2Panel8.Size = new Size(190, 225);
@@ -761,7 +761,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges54;
-            guna2Panel9.Size = new Size(900, 24);
+            guna2Panel9.Size = new Size(800, 24);
             guna2Panel9.TabIndex = 16;
             // 
             // bMinimize
@@ -771,7 +771,7 @@
             bMinimize.CustomizableEdges = customizableEdges49;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(836, -1);
+            bMinimize.Location = new Point(736, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges50;
             bMinimize.Size = new Size(32, 24);
@@ -786,7 +786,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(868, -1);
+            bClose.Location = new Point(768, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges52;
             bClose.Size = new Size(32, 24);
@@ -803,7 +803,7 @@
             guna2HtmlLabel17.BackColor = Color.Transparent;
             guna2HtmlLabel17.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel17.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel17.Location = new Point(12, 39);
+            guna2HtmlLabel17.Location = new Point(12, 45);
             guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             guna2HtmlLabel17.Size = new Size(190, 28);
             guna2HtmlLabel17.TabIndex = 14;
@@ -814,7 +814,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 29, 35);
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(800, 600);
             Controls.Add(guna2HtmlLabel17);
             Controls.Add(guna2Panel8);
             Controls.Add(guna2Panel7);

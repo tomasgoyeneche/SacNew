@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories.Chofer
 {
     public class ChoferRepositorio : BaseRepositorio, IChoferRepositorio
     {
-        public ChoferRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public ChoferRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<List<chofer>> ObtenerTodosLosChoferes()
         {

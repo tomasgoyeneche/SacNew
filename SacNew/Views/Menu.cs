@@ -1,5 +1,6 @@
 ﻿using SacNew.Services;
 using SacNew.Views.Configuraciones.AbmLocaciones;
+using SacNew.Views.Configuraciones.AbmUsuarios;
 using SacNew.Views.GestionFlota.Postas;
 
 namespace SacNew.Views
@@ -38,6 +39,12 @@ namespace SacNew.Views
         private void picBoxMenuAbmLocacion_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuLocaciones>();
+        }
+
+        private void bAbmUsuarios_Click(object sender, EventArgs e)
+        {
+            _navigationService.ShowDialog<MenuUsuariosForm>();
+
         }
     }
 }

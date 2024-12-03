@@ -1,18 +1,21 @@
 ﻿using Dapper;
 using SacNew.Services;
 using System.Data.SqlClient;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public abstract class BaseRepositorio
     {
         private readonly string _connectionString;
+        private readonly string _connectionStringFo;
         private readonly ISesionService _sesionService;
 
-        protected BaseRepositorio(string connectionString, ISesionService sesionService)
+        protected BaseRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
         {
-            _connectionString = connectionString;
+            _connectionString = connectionStrings.MyDBConnectionString;
             _sesionService = sesionService;
+            _connectionStringFo = connectionStrings.FOConnectionString;
         }
 
         // Método auxiliar para manejar la conexión con retorno
@@ -40,6 +43,46 @@ namespace SacNew.Repositories
                 return true; // Dummy value para cumplir con la firma genérica.
             });
         }
+
+
+        protected async Task<T> ConectarAsyncFo<T>(Func<SqlConnection, Task<T>> consulta)
+        {
+            try
+            {
+                await using var connection = new SqlConnection(_connectionStringFo);
+                await connection.OpenAsync();
+                return await consulta(connection);
+            }
+            catch (SqlException ex)
+            {
+                // Re-lanzar con un mensaje claro
+                throw new ApplicationException("Ocurrió un error al acceder a la base de datos.", ex);
+            }
+        }
+
+        // Método auxiliar para manejar la conexión sin retorno
+        protected async Task ConectarAsyncFo(Func<SqlConnection, Task> consulta)
+        {
+            await ConectarAsyncFo(async conn =>
+            {
+                await consulta(conn);
+                return true; // Dummy value para cumplir con la firma genérica.
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         protected async Task<T> EjecutarConAuditoriaAsync<T>(
           Func<SqlConnection, Task<T>> consulta,

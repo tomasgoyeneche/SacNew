@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class ImportMercadoVictoriaRepositorio : BaseRepositorio, IImportMercadoVictoriaRepositorio
     {
-        public ImportMercadoVictoriaRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public ImportMercadoVictoriaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<List<ImportMercadoVictoria>> ObtenerPorPeriodoAsync(int idPeriodo)
         {

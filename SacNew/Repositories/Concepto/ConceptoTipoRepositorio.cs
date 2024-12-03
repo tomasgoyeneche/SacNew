@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class ConceptoTipoRepositorio : BaseRepositorio, IConceptoTipoRepositorio
     {
-        public ConceptoTipoRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public ConceptoTipoRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         { }
 
         public async Task<string> ObtenerDescripcionPorIdAsync(int idConsumoTipo)

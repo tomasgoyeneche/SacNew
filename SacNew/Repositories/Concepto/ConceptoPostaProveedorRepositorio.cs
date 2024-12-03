@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class ConceptoPostaProveedorRepositorio : BaseRepositorio, IConceptoPostaProveedorRepositorio
     {
-        public ConceptoPostaProveedorRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService)
+        public ConceptoPostaProveedorRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService)
         { }
 
         public async Task AgregarConceptoPostaProveedorAsync(int idConsumo, int idPosta, int idProveedor)

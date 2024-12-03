@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models.DTOs;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class UnidadRepositorio : BaseRepositorio, IUnidadRepositorio
     {
-        public UnidadRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public UnidadRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync()
         {

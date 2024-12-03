@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class PermisoRepositorio : BaseRepositorio, IPermisoRepositorio
     {
-        public PermisoRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public PermisoRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<List<int>> ObtenerPermisosPorUsuarioAsync(int idUsuario)
         {

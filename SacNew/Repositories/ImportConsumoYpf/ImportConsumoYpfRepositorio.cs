@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     public class ImportConsumoYpfRepositorio : BaseRepositorio, IImportConsumoYpfRepositorio
     {
-        public ImportConsumoYpfRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public ImportConsumoYpfRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task AgregarConsumoAsync(ImportConsumoYpfEnRuta consumo)
         {

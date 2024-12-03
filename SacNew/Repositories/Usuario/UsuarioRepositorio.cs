@@ -1,13 +1,14 @@
 ﻿using Dapper;
 using SacNew.Models;
 using SacNew.Services;
+using static SacNew.Services.Startup;
 
 namespace SacNew.Repositories
 {
     internal class UsuarioRepositorio : BaseRepositorio, IUsuarioRepositorio
     {
-        public UsuarioRepositorio(string connectionString, ISesionService sesionService)
-            : base(connectionString, sesionService) { }
+        public UsuarioRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
 
         public async Task<Usuario?> ObtenerPorNombreUsuarioAsync(string nombreUsuario)
         {
