@@ -12,6 +12,7 @@ namespace SacNew.Presenters
         private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
+        private readonly IPostaRepositorio _postaRepositorio;
 
         public POC? PocActual { get; private set; }
 
@@ -20,6 +21,7 @@ namespace SacNew.Presenters
             IUnidadRepositorio unidadRepositorio,
             IPeriodoRepositorio periodoRepositorio,
             IPOCRepositorio pocRepositorio,
+            IPostaRepositorio postaRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
@@ -28,6 +30,7 @@ namespace SacNew.Presenters
             _unidadRepositorio = unidadRepositorio;
             _periodoRepositorio = periodoRepositorio;
             _pocRepositorio = pocRepositorio;
+            _postaRepositorio = postaRepositorio;
         }
 
         public int IdUsuario => _sesionService.IdUsuario;
@@ -66,7 +69,20 @@ namespace SacNew.Presenters
                     throw new InvalidOperationException("El número de POC es requerido.");
                 }
 
-                poc.NumeroPoc = _view.NumeroPOC;
+                // Obtener el código de la posta
+                var posta = await _postaRepositorio.ObtenerPorIdAsync(_sesionService.IdPosta);
+                if (posta == null)
+                {
+                    throw new InvalidOperationException("La posta asociada no fue encontrada.");
+                }
+
+                var codigoPosta = posta.Codigo; // Campo 'Codigo' de la posta
+                if (string.IsNullOrWhiteSpace(codigoPosta))
+                {
+                    throw new InvalidOperationException("La posta asociada no tiene un código definido.");
+                }
+
+                poc.NumeroPoc = $"{codigoPosta}-{_view.NumeroPOC}";
                 poc.IdUnidad = _view.IdUnidad;
                 poc.IdPosta = _sesionService.IdPosta;
                 poc.IdChofer = _view.IdChofer;

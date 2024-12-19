@@ -44,7 +44,6 @@ namespace SacNew.Repositories
             });
         }
 
-
         protected async Task<T> ConectarAsyncFo<T>(Func<SqlConnection, Task<T>> consulta)
         {
             try
@@ -69,20 +68,6 @@ namespace SacNew.Repositories
                 return true; // Dummy value para cumplir con la firma genérica.
             });
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         protected async Task<T> EjecutarConAuditoriaAsync<T>(
           Func<SqlConnection, Task<T>> consulta,
@@ -120,7 +105,7 @@ namespace SacNew.Repositories
                     ValoresNuevos = valoresNuevos != null
                         ? Newtonsoft.Json.JsonConvert.SerializeObject(valoresNuevos)
                         : string.Empty,
-                    FechaHora = DateTime.UtcNow
+                    FechaHora = DateTime.Now
                 };
 
                 var query = @"

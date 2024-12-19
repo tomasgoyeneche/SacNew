@@ -62,14 +62,13 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-                await _presenter.GuardarPOCAsync();
-                Close();
-
+            await _presenter.GuardarPOCAsync();
+            Close();
         }
 
         private async void AgregarEditarPOC_Load(object sender, EventArgs e)
         {
-                await _presenter.InicializarAsync();
+            await _presenter.InicializarAsync();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

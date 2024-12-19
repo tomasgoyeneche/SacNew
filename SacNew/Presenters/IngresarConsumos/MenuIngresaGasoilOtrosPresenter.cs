@@ -12,7 +12,8 @@ namespace SacNew.Presenters
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
-        EmpresaCredito _amount;    
+        private EmpresaCredito _amount;
+
         public MenuIngresaGasoilOtrosPresenter(
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
             IPOCRepositorio pocRepositorio,
@@ -48,9 +49,8 @@ namespace SacNew.Presenters
                 var empresaCredito = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa)
                                      ?? throw new Exception("No se encontraron créditos para la empresa.");
 
-
                 _amount = empresaCredito;
-                
+
                 _view.CreditoTotal = empresaCredito.CreditoAsignado.ToString("C", new CultureInfo("es-AR"));
                 _view.CreditoDisponible = empresaCredito.CreditoDisponible.ToString("C", new CultureInfo("es-AR"));
             });

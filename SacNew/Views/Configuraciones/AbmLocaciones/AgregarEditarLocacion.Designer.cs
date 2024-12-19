@@ -137,7 +137,7 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dataGridViewProductos.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewProductos.GridColor = Color.FromArgb(187, 238, 208);
-            dataGridViewProductos.Location = new Point(509, 74);
+            dataGridViewProductos.Location = new Point(459, 74);
             dataGridViewProductos.Name = "dataGridViewProductos";
             dataGridViewProductos.RowHeadersVisible = false;
             dataGridViewProductos.Size = new Size(324, 150);
@@ -167,7 +167,7 @@
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(550, 295);
+            guna2Separator1.Location = new Point(500, 295);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(253, 23);
             guna2Separator1.TabIndex = 1;
@@ -196,7 +196,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewKilometros.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewKilometros.GridColor = Color.FromArgb(187, 238, 208);
-            dataGridViewKilometros.Location = new Point(509, 369);
+            dataGridViewKilometros.Location = new Point(459, 369);
             dataGridViewKilometros.Name = "dataGridViewKilometros";
             dataGridViewKilometros.ReadOnly = true;
             dataGridViewKilometros.RowHeadersVisible = false;
@@ -321,7 +321,7 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(509, 48);
+            guna2HtmlLabel4.Location = new Point(459, 48);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(136, 23);
             guna2HtmlLabel4.TabIndex = 11;
@@ -332,7 +332,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(510, 340);
+            guna2HtmlLabel5.Location = new Point(460, 340);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(238, 23);
             guna2HtmlLabel5.TabIndex = 12;
@@ -366,7 +366,7 @@
             btnEliminarProducto.FillColor = Color.Brown;
             btnEliminarProducto.Font = new Font("Segoe UI", 9F);
             btnEliminarProducto.ForeColor = Color.White;
-            btnEliminarProducto.Location = new Point(509, 240);
+            btnEliminarProducto.Location = new Point(459, 240);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btnEliminarProducto.Size = new Size(105, 29);
@@ -384,7 +384,7 @@
             btnAgregarProducto.FillColor = Color.ForestGreen;
             btnAgregarProducto.Font = new Font("Segoe UI", 9F);
             btnAgregarProducto.ForeColor = Color.White;
-            btnAgregarProducto.Location = new Point(728, 240);
+            btnAgregarProducto.Location = new Point(678, 240);
             btnAgregarProducto.Name = "btnAgregarProducto";
             btnAgregarProducto.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnAgregarProducto.Size = new Size(105, 29);
@@ -402,7 +402,7 @@
             btnEliminarKilometros.FillColor = Color.Brown;
             btnEliminarKilometros.Font = new Font("Segoe UI", 9F);
             btnEliminarKilometros.ForeColor = Color.White;
-            btnEliminarKilometros.Location = new Point(510, 535);
+            btnEliminarKilometros.Location = new Point(460, 535);
             btnEliminarKilometros.Name = "btnEliminarKilometros";
             btnEliminarKilometros.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnEliminarKilometros.Size = new Size(105, 29);
@@ -420,7 +420,7 @@
             btnAgregarKilometro.FillColor = Color.ForestGreen;
             btnAgregarKilometro.Font = new Font("Segoe UI", 9F);
             btnAgregarKilometro.ForeColor = Color.White;
-            btnAgregarKilometro.Location = new Point(728, 535);
+            btnAgregarKilometro.Location = new Point(678, 535);
             btnAgregarKilometro.Name = "btnAgregarKilometro";
             btnAgregarKilometro.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnAgregarKilometro.Size = new Size(105, 29);
@@ -443,7 +443,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel9.Size = new Size(900, 27);
+            guna2Panel9.Size = new Size(800, 27);
             guna2Panel9.TabIndex = 18;
             // 
             // guna2ControlBox3
@@ -453,7 +453,7 @@
             guna2ControlBox3.CustomizableEdges = customizableEdges1;
             guna2ControlBox3.FillColor = Color.Transparent;
             guna2ControlBox3.IconColor = Color.WhiteSmoke;
-            guna2ControlBox3.Location = new Point(836, -1);
+            guna2ControlBox3.Location = new Point(736, -1);
             guna2ControlBox3.Name = "guna2ControlBox3";
             guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2ControlBox3.Size = new Size(32, 27);
@@ -466,7 +466,7 @@
             guna2ControlBox1.CustomizableEdges = customizableEdges3;
             guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.IconColor = Color.WhiteSmoke;
-            guna2ControlBox1.Location = new Point(1586, -1);
+            guna2ControlBox1.Location = new Point(1486, -1);
             guna2ControlBox1.Name = "guna2ControlBox1";
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2ControlBox1.Size = new Size(32, 27);
@@ -481,7 +481,7 @@
             guna2ControlBox4.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox4.HoverState.IconColor = Color.White;
             guna2ControlBox4.IconColor = Color.WhiteSmoke;
-            guna2ControlBox4.Location = new Point(868, -1);
+            guna2ControlBox4.Location = new Point(768, -1);
             guna2ControlBox4.Name = "guna2ControlBox4";
             guna2ControlBox4.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2ControlBox4.Size = new Size(32, 27);
@@ -494,7 +494,7 @@
             bMinimize.CustomizableEdges = customizableEdges7;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(2186, -1);
+            bMinimize.Location = new Point(2086, -1);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges8;
             bMinimize.Size = new Size(32, 27);
@@ -509,7 +509,7 @@
             guna2ControlBox2.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox2.HoverState.IconColor = Color.White;
             guna2ControlBox2.IconColor = Color.WhiteSmoke;
-            guna2ControlBox2.Location = new Point(1618, -1);
+            guna2ControlBox2.Location = new Point(1518, -1);
             guna2ControlBox2.Name = "guna2ControlBox2";
             guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2ControlBox2.Size = new Size(32, 27);
@@ -524,7 +524,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(2218, -1);
+            bClose.Location = new Point(2118, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges12;
             bClose.Size = new Size(32, 27);
@@ -532,7 +532,7 @@
             // 
             // guna2vSeparator1
             // 
-            guna2vSeparator1.Location = new Point(458, 100);
+            guna2vSeparator1.Location = new Point(419, 100);
             guna2vSeparator1.Name = "guna2vSeparator1";
             guna2vSeparator1.Size = new Size(12, 328);
             guna2vSeparator1.TabIndex = 20;
@@ -542,7 +542,7 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 16F);
             guna2HtmlLabel6.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel6.Location = new Point(100, 45);
+            guna2HtmlLabel6.Location = new Point(73, 45);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(252, 26);
             guna2HtmlLabel6.TabIndex = 21;
@@ -554,7 +554,7 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Century Gothic", 12F);
             guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(45, 102);
+            guna2HtmlLabel7.Location = new Point(18, 102);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(374, 122);
             guna2HtmlLabel7.TabIndex = 22;
@@ -594,7 +594,7 @@
             guna2Panel1.Controls.Add(cbDescarga);
             guna2Panel1.CustomizableEdges = customizableEdges35;
             guna2Panel1.FillColor = Color.FromArgb(63, 73, 75);
-            guna2Panel1.Location = new Point(45, 260);
+            guna2Panel1.Location = new Point(18, 260);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges36;
             guna2Panel1.Size = new Size(374, 304);
@@ -637,7 +637,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(800, 600);
             Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2HtmlLabel6);
             Controls.Add(guna2vSeparator1);

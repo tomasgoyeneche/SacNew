@@ -79,7 +79,7 @@
             txtCodigo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCodigo.Font = new Font("Segoe UI", 9F);
             txtCodigo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCodigo.Location = new Point(173, 160);
+            txtCodigo.Location = new Point(159, 160);
             txtCodigo.MaxLength = 2;
             txtCodigo.Name = "txtCodigo";
             txtCodigo.PasswordChar = '\0';
@@ -100,7 +100,7 @@
             txtDescripcion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDescripcion.Font = new Font("Segoe UI", 9F);
             txtDescripcion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDescripcion.Location = new Point(175, 243);
+            txtDescripcion.Location = new Point(161, 243);
             txtDescripcion.MaxLength = 30;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PasswordChar = '\0';
@@ -121,7 +121,7 @@
             txtDireccion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDireccion.Font = new Font("Segoe UI", 9F);
             txtDireccion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDireccion.Location = new Point(174, 326);
+            txtDireccion.Location = new Point(160, 326);
             txtDireccion.MaxLength = 30;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.PasswordChar = '\0';
@@ -143,7 +143,7 @@
             cmbProvincia.ForeColor = Color.FromArgb(68, 88, 112);
             cmbProvincia.IntegralHeight = false;
             cmbProvincia.ItemHeight = 30;
-            cmbProvincia.Location = new Point(174, 409);
+            cmbProvincia.Location = new Point(160, 409);
             cmbProvincia.Name = "cmbProvincia";
             cmbProvincia.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cmbProvincia.Size = new Size(230, 36);
@@ -156,7 +156,7 @@
             lProvincia.BackColor = Color.Transparent;
             lProvincia.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lProvincia.ForeColor = SystemColors.ControlLight;
-            lProvincia.Location = new Point(56, 409);
+            lProvincia.Location = new Point(42, 409);
             lProvincia.Name = "lProvincia";
             lProvincia.Size = new Size(93, 36);
             lProvincia.TabIndex = 9;
@@ -168,7 +168,7 @@
             lTitulo.BackColor = Color.Transparent;
             lTitulo.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lTitulo.ForeColor = SystemColors.ControlLight;
-            lTitulo.Location = new Point(98, 64);
+            lTitulo.Location = new Point(84, 64);
             lTitulo.Name = "lTitulo";
             lTitulo.Size = new Size(276, 35);
             lTitulo.TabIndex = 10;
@@ -188,7 +188,7 @@
             lDescripccion.BackColor = Color.Transparent;
             lDescripccion.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lDescripccion.ForeColor = SystemColors.ControlLight;
-            lDescripccion.Location = new Point(55, 326);
+            lDescripccion.Location = new Point(41, 326);
             lDescripccion.Name = "lDescripccion";
             lDescripccion.Size = new Size(93, 36);
             lDescripccion.TabIndex = 11;
@@ -201,7 +201,7 @@
             lDireccion.BackColor = Color.Transparent;
             lDireccion.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lDireccion.ForeColor = SystemColors.ControlLight;
-            lDireccion.Location = new Point(55, 256);
+            lDireccion.Location = new Point(41, 256);
             lDireccion.Name = "lDireccion";
             lDireccion.Size = new Size(112, 23);
             lDireccion.TabIndex = 12;
@@ -214,7 +214,7 @@
             lCodigo.BackColor = Color.Transparent;
             lCodigo.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lCodigo.ForeColor = SystemColors.ControlLight;
-            lCodigo.Location = new Point(55, 160);
+            lCodigo.Location = new Point(41, 160);
             lCodigo.Name = "lCodigo";
             lCodigo.Size = new Size(93, 36);
             lCodigo.TabIndex = 13;
@@ -273,7 +273,7 @@
             btnCancelar.FillColor = Color.DimGray;
             btnCancelar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(56, 507);
+            btnCancelar.Location = new Point(42, 507);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnCancelar.Size = new Size(130, 40);
@@ -291,7 +291,7 @@
             btnGuardar.FillColor = Color.ForestGreen;
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(274, 507);
+            btnGuardar.Location = new Point(260, 507);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnGuardar.Size = new Size(130, 40);

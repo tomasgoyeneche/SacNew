@@ -216,7 +216,7 @@
             tabPageGestOpe.Location = new Point(204, 4);
             tabPageGestOpe.Name = "tabPageGestOpe";
             tabPageGestOpe.Padding = new Padding(3);
-            tabPageGestOpe.Size = new Size(692, 446);
+            tabPageGestOpe.Size = new Size(592, 446);
             tabPageGestOpe.TabIndex = 0;
             tabPageGestOpe.Text = "Gestion Operativa";
             // 
@@ -364,7 +364,7 @@
             tabPageGesFlo.Location = new Point(204, 4);
             tabPageGesFlo.Name = "tabPageGesFlo";
             tabPageGesFlo.Padding = new Padding(3);
-            tabPageGesFlo.Size = new Size(692, 446);
+            tabPageGesFlo.Size = new Size(592, 446);
             tabPageGesFlo.TabIndex = 1;
             tabPageGesFlo.Text = "Gestion De Flota";
             // 
@@ -563,7 +563,7 @@
             tabPagServExt.Location = new Point(204, 4);
             tabPagServExt.Name = "tabPagServExt";
             tabPagServExt.Padding = new Padding(3);
-            tabPagServExt.Size = new Size(692, 446);
+            tabPagServExt.Size = new Size(592, 446);
             tabPagServExt.TabIndex = 2;
             tabPagServExt.Text = "Servicios Externos";
             tabPagServExt.UseVisualStyleBackColor = true;
@@ -690,7 +690,7 @@
             tabPagGesDoc.Location = new Point(204, 4);
             tabPagGesDoc.Name = "tabPagGesDoc";
             tabPagGesDoc.Padding = new Padding(3);
-            tabPagGesDoc.Size = new Size(692, 446);
+            tabPagGesDoc.Size = new Size(592, 446);
             tabPagGesDoc.TabIndex = 3;
             tabPagGesDoc.Text = "Gestion Documental";
             tabPagGesDoc.UseVisualStyleBackColor = true;
@@ -895,7 +895,7 @@
             tabPagInf.Location = new Point(204, 4);
             tabPagInf.Name = "tabPagInf";
             tabPagInf.Padding = new Padding(3);
-            tabPagInf.Size = new Size(692, 446);
+            tabPagInf.Size = new Size(592, 446);
             tabPagInf.TabIndex = 4;
             tabPagInf.Text = "Informes y Estadisticas";
             tabPagInf.UseVisualStyleBackColor = true;
@@ -1201,7 +1201,7 @@
             bMinimize.CustomizableEdges = customizableEdges28;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(734, 0);
+            bMinimize.Location = new Point(735, 0);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges29;
             bMinimize.Size = new Size(32, 24);
@@ -1217,7 +1217,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(766, 0);
+            bClose.Location = new Point(767, 0);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges31;
             bClose.Size = new Size(32, 24);

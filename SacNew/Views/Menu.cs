@@ -44,7 +44,6 @@ namespace SacNew.Views
         private void bAbmUsuarios_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuUsuariosForm>();
-
         }
     }
 }

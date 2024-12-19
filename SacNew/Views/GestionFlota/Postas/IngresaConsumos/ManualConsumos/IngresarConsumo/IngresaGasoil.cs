@@ -7,6 +7,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
     public partial class IngresaGasoil : Form, IIngresaGasoilView
     {
         public readonly IngresaGasoilPresenter _presenter;
+
         public IngresaGasoil(IngresaGasoilPresenter presenter)
         {
             _presenter = presenter;
@@ -19,11 +20,16 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         public string NumeroVale => txtNumeroVale.Text.Trim();
         public string Observaciones => txtObservaciones.Text.Trim();
         public DateTime FechaCarga => dtpFechaCarga.Value;
+
         public void CargarTiposGasoil(List<Concepto> tiposGasoil)
         {
             cmbTipoGasoil.DataSource = tiposGasoil;
             cmbTipoGasoil.DisplayMember = "Descripcion";
             cmbTipoGasoil.ValueMember = "IdConsumo";
+
+            var autoCompleteCollection = new AutoCompleteStringCollection();
+            autoCompleteCollection.AddRange(tiposGasoil.Select(c => c.Descripcion).ToArray());
+            cmbTipoGasoil.AutoCompleteCustomSource = autoCompleteCollection;
         }
 
         public void MostrarTotalCalculado(decimal total)
@@ -62,6 +68,5 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             Cerrar();
         }
-
     }
 }

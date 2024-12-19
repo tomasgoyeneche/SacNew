@@ -1,10 +1,5 @@
 ﻿using SacNew.Interfaces;
 using SacNew.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo
 {
@@ -17,7 +12,9 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
         DateTime FechaCarga { get; }
 
         void CargarTiposGasoil(List<Concepto> tiposGasoil);
+
         void MostrarTotalCalculado(decimal total);
+
         void Cerrar();
     }
 }

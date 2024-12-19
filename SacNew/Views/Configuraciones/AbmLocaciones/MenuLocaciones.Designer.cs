@@ -64,11 +64,10 @@
             btnEliminar = new Guna.UI2.WinForms.Guna2Button();
             btnEditar = new Guna.UI2.WinForms.Guna2Button();
             btnAgregar = new Guna.UI2.WinForms.Guna2Button();
-            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             btnPool = new Guna.UI2.WinForms.Guna2Button();
+            guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLocaciones).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2ElipseMenuLocaciones
@@ -88,7 +87,7 @@
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel9.Size = new Size(900, 27);
+            guna2Panel9.Size = new Size(800, 27);
             guna2Panel9.TabIndex = 17;
             // 
             // bMinimize
@@ -98,7 +97,7 @@
             bMinimize.CustomizableEdges = customizableEdges15;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(835, -2);
+            bMinimize.Location = new Point(735, -2);
             bMinimize.Name = "bMinimize";
             bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges16;
             bMinimize.Size = new Size(32, 27);
@@ -113,7 +112,7 @@
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(868, -1);
+            bClose.Location = new Point(768, -1);
             bClose.Name = "bClose";
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges18;
             bClose.Size = new Size(32, 27);
@@ -174,7 +173,7 @@
             dataGridViewLocaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewLocaciones.RowHeadersVisible = false;
             dataGridViewLocaciones.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewLocaciones.Size = new Size(558, 441);
+            dataGridViewLocaciones.Size = new Size(478, 441);
             dataGridViewLocaciones.TabIndex = 18;
             dataGridViewLocaciones.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewLocaciones.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -248,7 +247,7 @@
             btnEliminar.FillColor = Color.Brown;
             btnEliminar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(12, 556);
+            btnEliminar.Location = new Point(12, 553);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnEliminar.Size = new Size(101, 32);
@@ -266,7 +265,7 @@
             btnEditar.FillColor = Color.Orange;
             btnEditar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(121, 556);
+            btnEditar.Location = new Point(121, 553);
             btnEditar.Name = "btnEditar";
             btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnEditar.Size = new Size(101, 32);
@@ -284,7 +283,7 @@
             btnAgregar.FillColor = Color.ForestGreen;
             btnAgregar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(469, 556);
+            btnAgregar.Location = new Point(389, 553);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnAgregar.Size = new Size(101, 32);
@@ -292,24 +291,9 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // guna2PictureBox1
-            // 
-            guna2PictureBox1.BackgroundImage = Resources.mapaArgentinaWpaper;
-            guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2PictureBox1.CustomizableEdges = customizableEdges3;
-            guna2PictureBox1.Dock = DockStyle.Right;
-            guna2PictureBox1.FillColor = Color.FromArgb(150, 0, 0, 0);
-            guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(598, 27);
-            guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2PictureBox1.Size = new Size(302, 573);
-            guna2PictureBox1.TabIndex = 26;
-            guna2PictureBox1.TabStop = false;
-            // 
             // btnPool
             // 
-            btnPool.CustomizableEdges = customizableEdges1;
+            btnPool.CustomizableEdges = customizableEdges3;
             btnPool.DisabledState.BorderColor = Color.DarkGray;
             btnPool.DisabledState.CustomBorderColor = Color.DarkGray;
             btnPool.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -317,22 +301,33 @@
             btnPool.FillColor = Color.DarkCyan;
             btnPool.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPool.ForeColor = Color.White;
-            btnPool.Location = new Point(362, 556);
+            btnPool.Location = new Point(282, 553);
             btnPool.Name = "btnPool";
-            btnPool.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnPool.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnPool.Size = new Size(101, 32);
             btnPool.TabIndex = 27;
             btnPool.Text = "Pool";
             btnPool.Click += btnPool_Click;
+            // 
+            // guna2GradientPanel1
+            // 
+            guna2GradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2GradientPanel1.Dock = DockStyle.Right;
+            guna2GradientPanel1.FillColor2 = Color.DarkCyan;
+            guna2GradientPanel1.Location = new Point(496, 27);
+            guna2GradientPanel1.Name = "guna2GradientPanel1";
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientPanel1.Size = new Size(304, 573);
+            guna2GradientPanel1.TabIndex = 63;
             // 
             // MenuLocaciones
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(900, 600);
+            ClientSize = new Size(800, 600);
+            Controls.Add(guna2GradientPanel1);
             Controls.Add(btnPool);
-            Controls.Add(guna2PictureBox1);
             Controls.Add(btnAgregar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -348,7 +343,6 @@
             Load += MenuLocaciones_Load;
             guna2Panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewLocaciones).EndInit();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -365,7 +359,7 @@
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private Guna.UI2.WinForms.Guna2Button btnAgregar;
         private Guna.UI2.WinForms.Guna2Button btnEditar;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnPool;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
     }
 }

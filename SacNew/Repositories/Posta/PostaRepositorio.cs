@@ -20,6 +20,16 @@ namespace SacNew.Repositories
             });
         }
 
+        public async Task<Posta?> ObtenerPorIdAsync(int idPosta)
+        {
+            var query = "SELECT * FROM Posta where idPosta = @idPosta";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<Posta>(query, new { idPosta = idPosta });
+            });
+        }
+
         public async Task<List<Posta>> BuscarPostasAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM Posta WHERE Codigo LIKE @TextoBusqueda OR Descripcion LIKE @TextoBusqueda";

@@ -65,7 +65,6 @@ namespace SacNew.Views.GestionFlota.Postas
             this.Hide();
             _navigationService.ShowDialog<MenuInformesPostas>();
             this.Show();
-
         }
     }
 }

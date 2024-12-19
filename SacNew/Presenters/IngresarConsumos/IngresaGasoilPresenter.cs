@@ -1,7 +1,6 @@
 ﻿using SacNew.Models;
 using SacNew.Repositories;
 using SacNew.Services;
-using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 
 namespace SacNew.Presenters
@@ -34,8 +33,13 @@ namespace SacNew.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                var tiposGasoil = (await _conceptoRepositorio.ObtenerPorTipoAsync(1)).ToList();
-                _view.CargarTiposGasoil(tiposGasoil);
+                var tiposGasoil = await Task.WhenAll(
+                    _conceptoRepositorio.ObtenerPorTipoAsync(1),
+                    _conceptoRepositorio.ObtenerPorTipoAsync(2)
+                );
+
+                var todosLosTiposGasoil = tiposGasoil.SelectMany(x => x).ToList();
+                _view.CargarTiposGasoil(todosLosTiposGasoil);
             });
         }
 
@@ -48,68 +52,77 @@ namespace SacNew.Presenters
                 return;
             }
 
-            var precioActual = tipoSeleccionado.PrecioActual;
-            var total = litros * precioActual;
-            _view.MostrarTotalCalculado(total);
+            _view.MostrarTotalCalculado(litros * tipoSeleccionado.PrecioActual);
         }
 
         public async Task GuardarConsumoAsync()
         {
             await EjecutarConCargaAsync(async () =>
             {
-                // Validar datos ingresados
+                if (!ValidarDatos()) return;
+
                 var tipoSeleccionado = _view.TipoGasoilSeleccionado;
-                if (tipoSeleccionado == null)
-                {
-                    _view.MostrarMensaje("Debe seleccionar un tipo de gasoil.");
-                    return;
-                }
-
-                if (!_view.Litros.HasValue || _view.Litros <= 0)
-                {
-                    _view.MostrarMensaje("Debe ingresar un valor válido para los litros.");
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(_view.NumeroVale))
-                {
-                    _view.MostrarMensaje("Debe ingresar el número de vale.");
-                    return;
-                }
-
-                // Calcular el precio total
                 var precioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual;
 
-                if (_empresaCredito.CreditoConsumido + precioTotal > _empresaCredito.CreditoDisponible)
-                {
-                    _view.MostrarMensaje("El crédito disponible no es suficiente para este consumo.");
-                    return;
-                }
+                if (VerificarCreditoInsuficiente(precioTotal)) return;
 
-                // Crear entidad ConsumoGasoil
                 var consumo = new ConsumoGasoil
                 {
                     IdPOC = _idPoc,
                     IdConsumo = tipoSeleccionado.IdConsumo,
                     NumeroVale = _view.NumeroVale,
                     LitrosCargados = _view.Litros.Value,
-                    PrecioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual,
+                    PrecioTotal = precioTotal,
                     Observaciones = _view.Observaciones,
                     FechaCarga = _view.FechaCarga,
                     Activo = true
                 };
 
-
-
-                // Guardar en repositorio
                 await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
-
-                _empresaCredito.CreditoConsumido += precioTotal;
-                await _empresaCreditoRepositorio.ActualizarCreditoAsync(_empresaCredito);
+                ActualizarCredito(precioTotal);
 
                 _view.MostrarMensaje("Consumo de gasoil guardado correctamente.");
                 _view.Cerrar();
             });
+        }
+
+        private bool ValidarDatos()
+        {
+            if (_view.TipoGasoilSeleccionado == null)
+            {
+                _view.MostrarMensaje("Debe seleccionar un tipo de gasoil.");
+                return false;
+            }
+
+            if (!_view.Litros.HasValue || _view.Litros <= 0)
+            {
+                _view.MostrarMensaje("Debe ingresar un valor válido para los litros.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(_view.NumeroVale))
+            {
+                _view.MostrarMensaje("Debe ingresar el número de vale.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool VerificarCreditoInsuficiente(decimal precioTotal)
+        {
+            if (_empresaCredito.CreditoConsumido + precioTotal > _empresaCredito.CreditoDisponible)
+            {
+                _view.MostrarMensaje("El crédito disponible no es suficiente para este consumo.");
+                return true;
+            }
+            return false;
+        }
+
+        private async void ActualizarCredito(decimal precioTotal)
+        {
+            _empresaCredito.CreditoConsumido += precioTotal;
+            await _empresaCreditoRepositorio.ActualizarCreditoAsync(_empresaCredito);
         }
     }
 }

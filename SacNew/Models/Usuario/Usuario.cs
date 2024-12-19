@@ -7,7 +7,6 @@
         public string? Contrasena { get; set; }
         public string? NombreCompleto { get; set; }
         public bool Activo { get; set; }
-
         public int idPosta { get; set; }
     }
 }

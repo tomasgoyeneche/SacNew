@@ -12,6 +12,8 @@ namespace SacNew.Repositories
 
         Task ActualizarPostaAsync(Posta postaActualizada);
 
+        Task<Posta> ObtenerPorIdAsync(int id);
+
         Task EliminarPostaAsync(int idPosta);
     }
 }

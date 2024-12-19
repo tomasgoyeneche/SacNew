@@ -24,8 +24,6 @@ namespace SacNew.Services
             };
             serviceCollection.AddSingleton(connectionStrings);
 
-
-
             // Registro automático de dependencias
             serviceCollection.Scan(scan => scan
                 .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies())

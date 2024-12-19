@@ -57,7 +57,7 @@ namespace SacNew.Repositories
 
         public async Task EliminarPOCAsync(int id)
         {
-            var query = "UPDATE POC SET Estado = 'cerrada' WHERE IdPoc = @Id";
+            var query = "UPDATE POC SET Estado = 'cancelada' WHERE IdPoc = @Id";
 
             await ConectarAsync(connection =>
             {
