@@ -1,0 +1,24 @@
+﻿using Shared.Models;
+using Shared.Models.DTOs;
+
+namespace Core.Repositories
+{
+    public interface IPOCRepositorio
+    {
+        Task<List<POCDto>> ObtenerTodosAsync();
+
+        Task<List<POCDto>> BuscarPOCAsync(string criterio);
+
+        Task EliminarPOCAsync(int id);
+
+        Task<POC> ObtenerPorIdAsync(int idPoc);
+
+        Task AgregarPOCAsync(POC poc);
+
+        Task ActualizarPOCAsync(POC poc);
+
+        Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime fechaCierre, string estado);
+
+        Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta);
+    }
+}

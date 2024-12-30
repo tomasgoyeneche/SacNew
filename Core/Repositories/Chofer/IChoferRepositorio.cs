@@ -1,0 +1,11 @@
+﻿using Shared.Models;
+
+namespace Core.Repositories
+{
+    public interface IChoferRepositorio
+    {
+        Task<int?> ObtenerIdPorDocumentoAsync(string documento);
+
+        Task<List<Chofer>> ObtenerTodosLosChoferes();
+    }
+}

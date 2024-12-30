@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AbmLocaciones\AgregarEditarLocacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmLocaciones\AgregarEditarPool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmLocaciones\AgregarKilometrosLocaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmLocaciones\AgregarProductoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmUsuarios\AgregarEditarUsuarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmUsuarios\MenuUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmUsuarios\PermisosUsuarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AbmLocaciones\MenuLocaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

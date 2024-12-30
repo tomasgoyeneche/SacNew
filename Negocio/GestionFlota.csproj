@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Configuraciones\Configuraciones.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Postas\ABMPostas\AgregarEditarPosta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\ABMPostas\MenuAbmPostas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\ConceptoConsumos\AgregarEditarConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\ConceptoConsumos\MenuConceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\DatosVolvo\ImportDatosVolvo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\Informes\ConsumoPorUnidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\Informes\MenuInformesPostas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ImportConsumos\ImportaDatosMv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\CrearPoc\AgregarEditarPoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\IngresarConsumo\IngresaGasoil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\IngresarConsumo\IngresoManualYPF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\IngresarConsumo\MenuIngresarGasoilOtros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\MenuIngresaConsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\IngresaConsumos\MenuFormaIngresarConsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\MenuPostas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Postas\YpfIngresaConsumos\ImportarConsumos\ImportarConsumosYPF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Postas\LimiteDeCredito\" />
+  </ItemGroup>
+
+</Project>
