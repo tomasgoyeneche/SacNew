@@ -65,7 +65,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaYpfRuta_Click(object sender, EventArgs e)
         {
-            await _presenter.AbrirConsumosenYpfEnRutaAsync(IdPoc);
+            //await _presenter.AbrirConsumosenYpfEnRutaAsync(IdPoc);
         }
 
         private async void bIngresaOtrosConsumos_Click(object sender, EventArgs e)
@@ -76,6 +76,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public void MostrarConsumos(List<ConsumosUnificadosDto> consumos)
         {
+            dtpCierrePoc.Value = DateTime.Now;  
+
             dataGridViewConsumos.DataSource = consumos.Select(c => new
             {
                 c.Descripcion,

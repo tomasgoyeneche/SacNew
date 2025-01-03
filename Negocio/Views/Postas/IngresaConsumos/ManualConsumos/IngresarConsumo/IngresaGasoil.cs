@@ -10,9 +10,9 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public IngresaGasoil(IngresaGasoilPresenter presenter)
         {
+            InitializeComponent();
             _presenter = presenter;
             _presenter.SetView(this);
-            InitializeComponent();
         }
 
         public Concepto TipoGasoilSeleccionado => cmbTipoGasoil.SelectedItem as Concepto;
@@ -26,13 +26,15 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             cmbTipoGasoil.DataSource = tiposGasoil;
             cmbTipoGasoil.DisplayMember = "Descripcion";
             cmbTipoGasoil.ValueMember = "IdConsumo";
+            cmbTipoGasoil.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbTipoGasoil.AutoCompleteSource = AutoCompleteSource.ListItems;
             dtpFechaCarga.Value = DateTime.Now;
-
-            var autoCompleteCollection = new AutoCompleteStringCollection();
-            autoCompleteCollection.AddRange(tiposGasoil.Select(c => c.Descripcion).ToArray());
-            cmbTipoGasoil.AutoCompleteCustomSource = autoCompleteCollection;
         }
 
+        public void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros)
+        {
+            txtLitrosAutorizados.Text = $"La cantidad de litros autorizados restante es de, {litrosAutorizados.ToString("N2")}Lts para un viaje de {kilometros.ToString("N2")}Km";
+        }
         public void MostrarTotalCalculado(decimal total)
         {
             txtTotal.Text = $"{total:C}";
@@ -43,8 +45,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             MessageBox.Show(mensaje);
         }
 
+        public bool ConfirmarGuardado(string mensaje)
+        {
+            return MessageBox.Show(mensaje, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+        }
+
         public void Cerrar()
         {
+            DialogResult = DialogResult.OK;
             Dispose();
         }
 
@@ -69,5 +77,54 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             Cerrar();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        public void MostrarConsumosAnteriores(List<ConsumoGasoilAutorizadoDto> consumos)
+        {
+            dataGridViewAnteriores.DataSource = consumos.Select(c => new
+            {
+                c.NumeroPoc,
+                c.NumeroVale,
+                c.LitrosAutorizados,
+                c.LitrosCargados,
+                c.Observaciones,
+                c.FechaCarga
+            }).ToList();
+        }
+
+        public void MostrarConsumosTotales(List<ConsumoGasoilAutorizadoDto> consumos)
+        {
+            dataGridViewTotales.DataSource = consumos.Select(c => new
+            {
+                c.NumeroPoc,
+                c.NumeroVale,
+                c.LitrosAutorizados,
+                c.LitrosCargados,
+                c.Observaciones,
+                c.FechaCarga
+            }).ToList();
+        }
+
+        public void ActualizarLabelAnterior(decimal restante)
+        {
+            lblAnterior.Text = $"Restante Anterior: {restante:N2} L";
+        }
+
+        public void ActualizarLabelTotal(decimal restante)
+        {
+            lblTotal.Text = $"Restante Total: {restante:N2} L";
+        }
+
+    
     }
 }

@@ -28,7 +28,7 @@ namespace Core.Repositories
         public async Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta)
         {
             var query = @"
-    SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
+    SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
     FROM POC_UnidadDetalle
     WHERE Estado = 'Abierta' AND IdPosta = @idPosta";
 
@@ -125,6 +125,19 @@ namespace Core.Repositories
                     FechaCierre = fechaCierre,
                     Estado = estado
                 });
+            });
+        }
+
+        public async Task<(string PatenteTractor, decimal CapacidadTanque)> ObtenerUnidadPorPocAsync(int idPoc)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT PatenteTractor, CapacidadTanque
+                FROM POC_UnidadDetalle
+                WHERE IdPoc = @IdPoc";
+
+                return await connection.QuerySingleAsync<(string, decimal)>(query, new { IdPoc = idPoc });
             });
         }
     }

@@ -11,9 +11,22 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
         string Observaciones { get; }
         DateTime FechaCarga { get; }
 
+        void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros);
+
         void CargarTiposGasoil(List<Concepto> tiposGasoil);
 
+        bool ConfirmarGuardado(string mensaje);
+
         void MostrarTotalCalculado(decimal total);
+
+        // Mostrar Consumos en la DataGridView
+        void MostrarConsumosTotales(List<ConsumoGasoilAutorizadoDto> consumos);
+
+        void MostrarConsumosAnteriores(List<ConsumoGasoilAutorizadoDto> consumos);
+
+        void ActualizarLabelAnterior(decimal restante);
+
+        void ActualizarLabelTotal(decimal restante);
 
         void Cerrar();
     }

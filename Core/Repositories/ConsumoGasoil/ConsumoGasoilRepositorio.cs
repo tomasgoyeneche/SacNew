@@ -22,10 +22,10 @@ namespace Core.Repositories
         {
             var query = @"
             INSERT INTO ConsumoGasoil
-            (idPOC, idConsumo, NumeroVale, LitrosAutorizados, LitrosCargados,
+            (idPOC, idConsumo, NumeroVale, LitrosAutorizados, idPrograma, LitrosCargados,
              PrecioTotal, Observaciones, Activo, FechaCarga)
             VALUES
-            (@IdPOC, @IdConsumo, @NumeroVale, @LitrosAutorizados, @LitrosCargados,
+            (@IdPOC, @IdConsumo, @NumeroVale, @LitrosAutorizados, @idPrograma, @LitrosCargados,
              @PrecioTotal, @Observaciones, @Activo, @FechaCarga)";
 
             await EjecutarConAuditoriaAsync(
@@ -57,6 +57,63 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QuerySingleOrDefaultAsync<ConsumoGasoil>(query, new { idConsumoGasoil })
             );
+        }
+
+        public async Task<decimal> ObtenerLitrosCargadosPorProgramaAsync(int idPrograma)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT ISNULL(SUM(LitrosCargados), 0)
+                FROM ConsumoGasoil
+                WHERE IdPrograma = @IdPrograma AND Activo = 1";
+
+                return await connection.ExecuteScalarAsync<decimal>(query, new { IdPrograma = idPrograma });
+            });
+        }
+
+        public async Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor)
+        {
+            return await ConectarAsyncFo(async connection =>
+            {
+                const string query = @"
+                SELECT IdPrograma, Kilometros
+                FROM vw_ProgramaCombustible
+                WHERE PatenteTractor = @PatenteTractor";
+
+                return await connection.QuerySingleOrDefaultAsync<(int, decimal)?>(query, new { PatenteTractor = patenteTractor });
+            });
+        }
+
+        public async Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT IdConsumoGasoil, NumeroPoc, NumeroVale, IdPrograma, LitrosAutorizados, LitrosCargados, Observaciones, FechaCarga
+                FROM vw_ConsumoGasoilAutorizadoActivo
+                WHERE IdPrograma = @IdPrograma";
+
+                return (await connection.QueryAsync<ConsumoGasoilAutorizadoDto>(query, new { IdPrograma = idPrograma })).ToList();
+            });
+        }
+
+        public async Task<int?> ObtenerIdProgramaAnteriorAsync(string patente, int idProgramaActual)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT TOP 1 IdPrograma
+                FROM vw_ConsumoGasoilAutorizadoActivo
+                WHERE Patente = @Patente AND IdPrograma < @IdProgramaActual
+                ORDER BY IdPrograma DESC";
+
+                return await connection.QueryFirstOrDefaultAsync<int?>(query, new
+                {
+                    Patente = patente,
+                    IdProgramaActual = idProgramaActual
+                });
+            });
         }
     }
 }

@@ -23,6 +23,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             dataGridViewPOC.DataSource = listaPOC;
             dataGridViewPOC.Columns["IdPoc"].Visible = false;
             dataGridViewPOC.Columns["IdPosta"].Visible = false;
+            dataGridViewPOC.Columns["CapacidadTanque"].Visible = false;
 
             dataGridViewPOC.Columns["Estado"].Visible = false;
         }

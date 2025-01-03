@@ -20,5 +20,7 @@ namespace Core.Repositories
         Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime fechaCierre, string estado);
 
         Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta);
+
+        Task<(string PatenteTractor, decimal CapacidadTanque)> ObtenerUnidadPorPocAsync(int idPoc);
     }
 }

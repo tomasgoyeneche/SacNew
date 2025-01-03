@@ -37,12 +37,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -64,8 +66,8 @@
             guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox6 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
+            dataGridViewTotales = new Guna.UI2.WinForms.Guna2DataGridView();
+            dataGridViewAnteriores = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpFechaCarga = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -88,9 +90,12 @@
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2vSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             cmbTipoGasoil = new ComboBox();
+            txtLitrosAutorizados = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblAnterior = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTotales).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAnteriores).BeginInit();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -156,105 +161,139 @@
             guna2ControlBox1.Size = new Size(32, 31);
             guna2ControlBox1.TabIndex = 17;
             // 
-            // guna2DataGridView1
+            // dataGridViewTotales
             // 
-            dataGridViewCellStyle4.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            guna2DataGridView1.ColumnHeadersHeight = 4;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewTotales.AllowUserToAddRows = false;
+            dataGridViewTotales.AllowUserToDeleteRows = false;
+            dataGridViewTotales.AllowUserToResizeColumns = false;
+            dataGridViewTotales.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewTotales.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTotales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(393, 108);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.Size = new Size(379, 193);
-            guna2DataGridView1.TabIndex = 20;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(252, 165, 3);
+            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(252, 165, 3);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridViewTotales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewTotales.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dataGridViewTotales.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewTotales.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewTotales.Location = new Point(393, 108);
+            dataGridViewTotales.Name = "dataGridViewTotales";
+            dataGridViewTotales.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataGridViewTotales.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewTotales.RowHeadersVisible = false;
+            dataGridViewTotales.Size = new Size(379, 193);
+            dataGridViewTotales.TabIndex = 20;
+            dataGridViewTotales.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridViewTotales.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridViewTotales.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridViewTotales.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridViewTotales.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridViewTotales.ThemeStyle.BackColor = Color.White;
+            dataGridViewTotales.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewTotales.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewTotales.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewTotales.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewTotales.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridViewTotales.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewTotales.ThemeStyle.HeaderStyle.Height = 25;
+            dataGridViewTotales.ThemeStyle.ReadOnly = false;
+            dataGridViewTotales.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridViewTotales.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewTotales.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewTotales.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewTotales.ThemeStyle.RowsStyle.Height = 25;
+            dataGridViewTotales.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewTotales.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // guna2DataGridView2
+            // dataGridViewAnteriores
             // 
+            dataGridViewAnteriores.AllowUserToAddRows = false;
+            dataGridViewAnteriores.AllowUserToDeleteRows = false;
+            dataGridViewAnteriores.AllowUserToResizeColumns = false;
+            dataGridViewAnteriores.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
-            guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewAnteriores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewAnteriores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(252, 165, 3);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(252, 165, 3);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView2.ColumnHeadersHeight = 4;
-            guna2DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewAnteriores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewAnteriores.ColumnHeadersHeight = 25;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
-            guna2DataGridView2.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView2.Location = new Point(393, 383);
-            guna2DataGridView2.Name = "guna2DataGridView2";
-            guna2DataGridView2.RowHeadersVisible = false;
-            guna2DataGridView2.Size = new Size(379, 193);
-            guna2DataGridView2.TabIndex = 22;
-            guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView2.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView2.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView2.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 4;
-            guna2DataGridView2.ThemeStyle.ReadOnly = false;
-            guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView2.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView2.ThemeStyle.RowsStyle.Height = 25;
-            guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewAnteriores.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewAnteriores.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewAnteriores.Location = new Point(393, 383);
+            dataGridViewAnteriores.Name = "dataGridViewAnteriores";
+            dataGridViewAnteriores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewAnteriores.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewAnteriores.RowHeadersVisible = false;
+            dataGridViewAnteriores.Size = new Size(379, 193);
+            dataGridViewAnteriores.TabIndex = 22;
+            dataGridViewAnteriores.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridViewAnteriores.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridViewAnteriores.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridViewAnteriores.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridViewAnteriores.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridViewAnteriores.ThemeStyle.BackColor = Color.White;
+            dataGridViewAnteriores.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewAnteriores.ThemeStyle.HeaderStyle.Height = 25;
+            dataGridViewAnteriores.ThemeStyle.ReadOnly = false;
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.Height = 25;
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewAnteriores.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // guna2Separator1
             // 
@@ -547,12 +586,49 @@
             cmbTipoGasoil.Size = new Size(219, 25);
             cmbTipoGasoil.TabIndex = 46;
             // 
+            // txtLitrosAutorizados
+            // 
+            txtLitrosAutorizados.AutoSize = false;
+            txtLitrosAutorizados.BackColor = Color.Transparent;
+            txtLitrosAutorizados.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtLitrosAutorizados.ForeColor = SystemColors.ControlLight;
+            txtLitrosAutorizados.Location = new Point(28, 76);
+            txtLitrosAutorizados.Name = "txtLitrosAutorizados";
+            txtLitrosAutorizados.Size = new Size(320, 33);
+            txtLitrosAutorizados.TabIndex = 47;
+            txtLitrosAutorizados.Text = "Autorizado:";
+            // 
+            // lblAnterior
+            // 
+            lblAnterior.BackColor = Color.Transparent;
+            lblAnterior.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAnterior.ForeColor = SystemColors.ControlLight;
+            lblAnterior.Location = new Point(577, 361);
+            lblAnterior.Name = "lblAnterior";
+            lblAnterior.Size = new Size(41, 18);
+            lblAnterior.TabIndex = 48;
+            lblAnterior.Text = "Sobra";
+            // 
+            // lblTotal
+            // 
+            lblTotal.BackColor = Color.Transparent;
+            lblTotal.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.ForeColor = SystemColors.ControlLight;
+            lblTotal.Location = new Point(629, 85);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(41, 18);
+            lblTotal.TabIndex = 49;
+            lblTotal.Text = "Sobra";
+            // 
             // IngresaGasoil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 600);
+            Controls.Add(lblTotal);
+            Controls.Add(lblAnterior);
+            Controls.Add(txtLitrosAutorizados);
             Controls.Add(cmbTipoGasoil);
             Controls.Add(guna2vSeparator1);
             Controls.Add(guna2HtmlLabel11);
@@ -574,8 +650,8 @@
             Controls.Add(dtpFechaCarga);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2Separator1);
-            Controls.Add(guna2DataGridView2);
-            Controls.Add(guna2DataGridView1);
+            Controls.Add(dataGridViewAnteriores);
+            Controls.Add(dataGridViewTotales);
             Controls.Add(guna2Panel9);
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -583,8 +659,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IngresaGasoil";
             guna2Panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTotales).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAnteriores).EndInit();
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             ResumeLayout(false);
@@ -598,9 +674,9 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox6;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewTotales;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewAnteriores;
         private Guna.UI2.WinForms.Guna2TextBox txtNumeroVale;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
@@ -622,5 +698,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2VSeparator guna2vSeparator1;
         private ComboBox cmbTipoGasoil;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtLitrosAutorizados;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTotal;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAnterior;
     }
 }
