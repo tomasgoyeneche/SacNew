@@ -16,7 +16,7 @@ namespace Core.Repositories
 
         Task<decimal> ObtenerLitrosCargadosPorProgramaAsync(int idPrograma);
 
-        Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma);
+        Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma, string patente);
 
         Task<int?> ObtenerIdProgramaAnteriorAsync(string patente, int idProgramaActual);
     }

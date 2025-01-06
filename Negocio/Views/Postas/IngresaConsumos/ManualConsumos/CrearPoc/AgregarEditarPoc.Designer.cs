@@ -266,7 +266,7 @@
             txtOdometro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOdometro.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtOdometro.Location = new Point(224, 221);
-            txtOdometro.MaxLength = 15;
+            txtOdometro.MaxLength = 10;
             txtOdometro.Name = "txtOdometro";
             txtOdometro.PasswordChar = '\0';
             txtOdometro.PlaceholderText = "Ingrese el Odometro";
@@ -388,7 +388,7 @@
             txtComentario.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtComentario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtComentario.Location = new Point(27, 420);
-            txtComentario.MaxLength = 300;
+            txtComentario.MaxLength = 255;
             txtComentario.Name = "txtComentario";
             txtComentario.PasswordChar = '\0';
             txtComentario.PlaceholderText = "Ingrese un comentario adicional si es necesario.";

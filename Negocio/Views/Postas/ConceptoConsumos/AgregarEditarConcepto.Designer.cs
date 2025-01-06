@@ -112,7 +112,7 @@
             txtCodigo.PlaceholderText = "Ingrese el Codigo";
             txtCodigo.SelectedText = "";
             txtCodigo.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtCodigo.Size = new Size(144, 36);
+            txtCodigo.Size = new Size(195, 36);
             txtCodigo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtCodigo.TabIndex = 0;
             // 
@@ -134,7 +134,7 @@
             txtDescripcion.PlaceholderText = "Descripcion de concepto";
             txtDescripcion.SelectedText = "";
             txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtDescripcion.Size = new Size(144, 36);
+            txtDescripcion.Size = new Size(195, 36);
             txtDescripcion.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtDescripcion.TabIndex = 1;
             // 
@@ -152,7 +152,7 @@
             cmbTipoConsumo.Location = new Point(169, 195);
             cmbTipoConsumo.Name = "cmbTipoConsumo";
             cmbTipoConsumo.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cmbTipoConsumo.Size = new Size(144, 36);
+            cmbTipoConsumo.Size = new Size(195, 36);
             cmbTipoConsumo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             cmbTipoConsumo.TabIndex = 2;
             // 
@@ -174,7 +174,7 @@
             txtPrecioActual.PlaceholderText = "Precio con coma";
             txtPrecioActual.SelectedText = "";
             txtPrecioActual.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtPrecioActual.Size = new Size(144, 36);
+            txtPrecioActual.Size = new Size(195, 36);
             txtPrecioActual.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtPrecioActual.TabIndex = 3;
             // 
@@ -196,7 +196,7 @@
             txtPrecioAnterior.PlaceholderText = "Precio Con Coma";
             txtPrecioAnterior.SelectedText = "";
             txtPrecioAnterior.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtPrecioAnterior.Size = new Size(144, 36);
+            txtPrecioAnterior.Size = new Size(195, 36);
             txtPrecioAnterior.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtPrecioAnterior.TabIndex = 4;
             // 
@@ -214,7 +214,7 @@
             dtpVigencia.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpVigencia.Name = "dtpVigencia";
             dtpVigencia.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpVigencia.Size = new Size(144, 33);
+            dtpVigencia.Size = new Size(195, 33);
             dtpVigencia.TabIndex = 5;
             dtpVigencia.Value = new DateTime(2024, 9, 30, 16, 48, 9, 511);
             // 
@@ -310,7 +310,7 @@
             cmbProveedorBahiaBlanca.Location = new Point(169, 47);
             cmbProveedorBahiaBlanca.Name = "cmbProveedorBahiaBlanca";
             cmbProveedorBahiaBlanca.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cmbProveedorBahiaBlanca.Size = new Size(144, 36);
+            cmbProveedorBahiaBlanca.Size = new Size(195, 36);
             cmbProveedorBahiaBlanca.TabIndex = 14;
             // 
             // guna2HtmlLabel8
@@ -339,7 +339,7 @@
             cmbProveedorPlazaHuincul.Location = new Point(169, 94);
             cmbProveedorPlazaHuincul.Name = "cmbProveedorPlazaHuincul";
             cmbProveedorPlazaHuincul.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cmbProveedorPlazaHuincul.Size = new Size(144, 36);
+            cmbProveedorPlazaHuincul.Size = new Size(195, 36);
             cmbProveedorPlazaHuincul.TabIndex = 16;
             // 
             // btnGuardar
@@ -352,10 +352,10 @@
             btnGuardar.FillColor = Color.DarkGreen;
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(228, 632);
+            btnGuardar.Location = new Point(245, 632);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnGuardar.Size = new Size(140, 40);
+            btnGuardar.Size = new Size(168, 40);
             btnGuardar.TabIndex = 17;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
@@ -373,7 +373,7 @@
             btnCancelar.Location = new Point(25, 632);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnCancelar.Size = new Size(140, 40);
+            btnCancelar.Size = new Size(187, 40);
             btnCancelar.TabIndex = 18;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
@@ -427,7 +427,6 @@
             bClose.ShadowDecoration.CustomizableEdges = customizableEdges26;
             bClose.Size = new Size(32, 27);
             bClose.TabIndex = 25;
-     
             // 
             // guna2Panel1
             // 
@@ -451,7 +450,7 @@
             guna2Panel1.Location = new Point(25, 33);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2Panel1.Size = new Size(343, 419);
+            guna2Panel1.Size = new Size(388, 419);
             guna2Panel1.TabIndex = 25;
             // 
             // guna2HtmlLabel9
@@ -479,7 +478,7 @@
             guna2Panel2.Location = new Point(25, 468);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            guna2Panel2.Size = new Size(343, 145);
+            guna2Panel2.Size = new Size(388, 145);
             guna2Panel2.TabIndex = 26;
             // 
             // guna2HtmlLabel10
@@ -500,10 +499,10 @@
             guna2PictureBox1.Dock = DockStyle.Right;
             guna2PictureBox1.FillColor = Color.FromArgb(150, 0, 0, 0);
             guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(403, 27);
+            guna2PictureBox1.Location = new Point(436, 27);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2PictureBox1.Size = new Size(397, 673);
+            guna2PictureBox1.Size = new Size(364, 673);
             guna2PictureBox1.TabIndex = 27;
             guna2PictureBox1.TabStop = false;
             // 

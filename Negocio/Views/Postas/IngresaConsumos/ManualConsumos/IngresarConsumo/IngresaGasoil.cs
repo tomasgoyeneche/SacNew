@@ -26,8 +26,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             cmbTipoGasoil.DataSource = tiposGasoil;
             cmbTipoGasoil.DisplayMember = "Descripcion";
             cmbTipoGasoil.ValueMember = "IdConsumo";
-            cmbTipoGasoil.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbTipoGasoil.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cmbTipoGasoil.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cmbTipoGasoil.AutoCompleteSource = AutoCompleteSource.ListItems;
             dtpFechaCarga.Value = DateTime.Now;
         }
 
@@ -35,6 +35,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             txtLitrosAutorizados.Text = $"La cantidad de litros autorizados restante es de, {litrosAutorizados.ToString("N2")}Lts para un viaje de {kilometros.ToString("N2")}Km";
         }
+
         public void MostrarTotalCalculado(decimal total)
         {
             txtTotal.Text = $"{total:C}";
@@ -78,17 +79,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             Cerrar();
         }
 
-
-
-
-
-
-
-
-
-
-
-
         public void MostrarConsumosAnteriores(List<ConsumoGasoilAutorizadoDto> consumos)
         {
             dataGridViewAnteriores.DataSource = consumos.Select(c => new
@@ -118,13 +108,41 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         public void ActualizarLabelAnterior(decimal restante)
         {
             lblAnterior.Text = $"Restante Anterior: {restante:N2} L";
+
+            if (restante < 0)
+            {
+                lblAnterior.ForeColor = Color.Brown;
+            }
+            else if (restante < 1000)
+            {
+                lblAnterior.ForeColor = Color.Orange;
+            }
+            else
+            {
+                lblAnterior.ForeColor = Color.LightGreen;
+            }
         }
 
         public void ActualizarLabelTotal(decimal restante)
         {
             lblTotal.Text = $"Restante Total: {restante:N2} L";
+            if (restante < 0)
+            {
+                lblTotal.ForeColor = Color.Brown;
+            }
+            else if (restante < 1000)
+            {
+                lblTotal.ForeColor = Color.Orange;
+            }
+            else
+            {
+                lblTotal.ForeColor = Color.LightGreen;
+            }
         }
 
-    
+        private void guna2ControlBox6_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

@@ -55,7 +55,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OtrosConsumosForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
@@ -170,7 +169,7 @@
             txtRemitoExterno.SelectedText = "";
             txtRemitoExterno.ShadowDecoration.CustomizableEdges = customizableEdges19;
             txtRemitoExterno.Size = new Size(249, 36);
-            txtRemitoExterno.TabIndex = 40;
+            txtRemitoExterno.TabIndex = 2;
             // 
             // guna2HtmlLabel2
             // 
@@ -222,7 +221,7 @@
             cmbTipoConsumo.Name = "cmbTipoConsumo";
             cmbTipoConsumo.ShadowDecoration.CustomizableEdges = customizableEdges17;
             cmbTipoConsumo.Size = new Size(249, 36);
-            cmbTipoConsumo.TabIndex = 44;
+            cmbTipoConsumo.TabIndex = 1;
             // 
             // dtpFechaRemito
             // 
@@ -238,7 +237,7 @@
             dtpFechaRemito.Name = "dtpFechaRemito";
             dtpFechaRemito.ShadowDecoration.CustomizableEdges = customizableEdges15;
             dtpFechaRemito.Size = new Size(249, 36);
-            dtpFechaRemito.TabIndex = 45;
+            dtpFechaRemito.TabIndex = 3;
             dtpFechaRemito.Value = new DateTime(2024, 12, 26, 15, 17, 10, 881);
             // 
             // guna2Separator1
@@ -266,7 +265,7 @@
             txtCantidad.SelectedText = "";
             txtCantidad.ShadowDecoration.CustomizableEdges = customizableEdges13;
             txtCantidad.Size = new Size(195, 36);
-            txtCantidad.TabIndex = 48;
+            txtCantidad.TabIndex = 4;
             // 
             // guna2HtmlLabel6
             // 
@@ -308,7 +307,7 @@
             txtImporteTotal.SelectedText = "";
             txtImporteTotal.ShadowDecoration.CustomizableEdges = customizableEdges11;
             txtImporteTotal.Size = new Size(249, 36);
-            txtImporteTotal.TabIndex = 51;
+            txtImporteTotal.TabIndex = 6;
             // 
             // txtAclaracion
             // 
@@ -330,7 +329,7 @@
             txtAclaracion.SelectedText = "";
             txtAclaracion.ShadowDecoration.CustomizableEdges = customizableEdges9;
             txtAclaracion.Size = new Size(362, 57);
-            txtAclaracion.TabIndex = 52;
+            txtAclaracion.TabIndex = 7;
             // 
             // guna2HtmlLabel8
             // 
@@ -357,7 +356,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btnCancelar.Size = new Size(160, 40);
-            btnCancelar.TabIndex = 80;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -375,7 +374,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnGuardar.Size = new Size(160, 40);
-            btnGuardar.TabIndex = 79;
+            btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -394,17 +393,17 @@
             // 
             btnCalcular.BackgroundImageLayout = ImageLayout.Stretch;
             btnCalcular.CheckedState.ImageSize = new Size(64, 64);
-            btnCalcular.HoverState.ImageSize = new Size(55, 45);
-            btnCalcular.Image = (Image)resources.GetObject("btnCalcular.Image");
+            btnCalcular.HoverState.ImageSize = new Size(50, 40);
+            btnCalcular.Image = Properties.Resources.calculadora;
             btnCalcular.ImageOffset = new Point(0, 0);
             btnCalcular.ImageRotate = 0F;
             btnCalcular.ImageSize = new Size(50, 38);
             btnCalcular.Location = new Point(344, 317);
             btnCalcular.Name = "btnCalcular";
-            btnCalcular.PressedState.ImageSize = new Size(64, 64);
+            btnCalcular.PressedState.ImageSize = new Size(55, 40);
             btnCalcular.ShadowDecoration.CustomizableEdges = customizableEdges1;
             btnCalcular.Size = new Size(50, 36);
-            btnCalcular.TabIndex = 82;
+            btnCalcular.TabIndex = 5;
             btnCalcular.Click += btnCalcular_Click;
             // 
             // OtrosConsumosForm

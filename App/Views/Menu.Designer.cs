@@ -333,7 +333,7 @@
             // 
             bGestGuardiaBB.CheckedState.ImageSize = new Size(64, 64);
             bGestGuardiaBB.HoverState.ImageSize = new Size(135, 135);
-            bGestGuardiaBB.Image = (Image)resources.GetObject("bGestGuardiaBB.Image");
+            bGestGuardiaBB.Image = App.Properties.Resources.calculadora;
             bGestGuardiaBB.ImageOffset = new Point(0, 0);
             bGestGuardiaBB.ImageRotate = 0F;
             bGestGuardiaBB.ImageSize = new Size(128, 128);

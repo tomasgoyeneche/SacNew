@@ -85,16 +85,16 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma)
+        public async Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma, string patente)
         {
             return await ConectarAsync(async connection =>
             {
                 const string query = @"
                 SELECT IdConsumoGasoil, NumeroPoc, NumeroVale, IdPrograma, LitrosAutorizados, LitrosCargados, Observaciones, FechaCarga
                 FROM vw_ConsumoGasoilAutorizadoActivo
-                WHERE IdPrograma = @IdPrograma";
+                WHERE IdPrograma = @IdPrograma and patente = @patente";
 
-                return (await connection.QueryAsync<ConsumoGasoilAutorizadoDto>(query, new { IdPrograma = idPrograma })).ToList();
+                return (await connection.QueryAsync<ConsumoGasoilAutorizadoDto>(query, new { IdPrograma = idPrograma, patente = patente })).ToList();
             });
         }
 

@@ -76,7 +76,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public void MostrarConsumos(List<ConsumosUnificadosDto> consumos)
         {
-            dtpCierrePoc.Value = DateTime.Now;  
+            dtpCierrePoc.Value = DateTime.Now;
 
             dataGridViewConsumos.DataSource = consumos.Select(c => new
             {

@@ -112,7 +112,7 @@ namespace GestionFlota.Presenters
 
         public async Task GuardarConsumoAsync()
         {
-            if (_view.Litros.Value > _autorizado && !_view.ConfirmarGuardado("El consumo excede el autorizado, ¿desea guardar de todos modos?"))
+            if (!_view.Litros.HasValue || _view.Litros.Value > _autorizado && !_view.ConfirmarGuardado("El consumo excede el autorizado, ¿desea guardar de todos modos?"))
             {
                 return;
             }
@@ -214,7 +214,7 @@ namespace GestionFlota.Presenters
                 }
 
                 // Obtener los consumos del idPrograma anterior
-                var consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(idProgramaAnterior.Value);
+                var consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(idProgramaAnterior.Value, _patente);
 
                 // Calcular el restante
                 _restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
@@ -230,7 +230,7 @@ namespace GestionFlota.Presenters
             await EjecutarConCargaAsync(async () =>
             {
                 // Obtener consumos del programa actual
-                var consumosActuales = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(_idPrograma);
+                var consumosActuales = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(_idPrograma, _patente);
 
                 // Calcular restante del programa actual
                 var totalCargadoActual = consumosActuales.Sum(c => c.LitrosCargados);
