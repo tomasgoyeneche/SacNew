@@ -69,7 +69,14 @@ namespace GestionFlota.Presenters
                 if (programa?.Kilometros > 0)
                 {
                     _kilometros = programa.Value.Kilometros;
-                    _autorizado = programa.Value.Kilometros * 35 / 100 * 2;
+                    if(_empresaCredito.IdEmpresa == 1)
+                    {
+                        _autorizado = programa.Value.Kilometros * 32 / 100 * 2;
+                    }
+                    else
+                    {
+                        _autorizado = programa.Value.Kilometros * 35 / 100 * 2;
+                    }
                     _idPrograma = programa.Value.IdPrograma;
                     var litrosCargados = await _consumoGasoilRepositorio.ObtenerLitrosCargadosPorProgramaAsync(programa.Value.IdPrograma);
 
@@ -218,7 +225,7 @@ namespace GestionFlota.Presenters
 
                 // Calcular el restante
                 _restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
-                _restanteAnterior -= consumosAnteriores.Sum(c => c.LitrosCargados);
+                _restanteAnterior -= consumosAnteriores.FirstOrDefault().LitrosCargados;
 
                 _view.MostrarConsumosAnteriores(consumosAnteriores);
                 _view.ActualizarLabelAnterior(_restanteAnterior);

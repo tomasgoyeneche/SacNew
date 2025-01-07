@@ -198,7 +198,7 @@
             txtPrecioAnterior.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtPrecioAnterior.Size = new Size(195, 36);
             txtPrecioAnterior.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            txtPrecioAnterior.TabIndex = 4;
+            txtPrecioAnterior.TabIndex = 5;
             // 
             // dtpVigencia
             // 
@@ -215,7 +215,7 @@
             dtpVigencia.Name = "dtpVigencia";
             dtpVigencia.ShadowDecoration.CustomizableEdges = customizableEdges12;
             dtpVigencia.Size = new Size(195, 33);
-            dtpVigencia.TabIndex = 5;
+            dtpVigencia.TabIndex = 4;
             dtpVigencia.Value = new DateTime(2024, 9, 30, 16, 48, 9, 511);
             // 
             // guna2HtmlLabel1
@@ -311,7 +311,7 @@
             cmbProveedorBahiaBlanca.Name = "cmbProveedorBahiaBlanca";
             cmbProveedorBahiaBlanca.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cmbProveedorBahiaBlanca.Size = new Size(195, 36);
-            cmbProveedorBahiaBlanca.TabIndex = 14;
+            cmbProveedorBahiaBlanca.TabIndex = 6;
             // 
             // guna2HtmlLabel8
             // 
@@ -340,7 +340,7 @@
             cmbProveedorPlazaHuincul.Name = "cmbProveedorPlazaHuincul";
             cmbProveedorPlazaHuincul.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbProveedorPlazaHuincul.Size = new Size(195, 36);
-            cmbProveedorPlazaHuincul.TabIndex = 16;
+            cmbProveedorPlazaHuincul.TabIndex = 7;
             // 
             // btnGuardar
             // 
@@ -356,7 +356,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnGuardar.Size = new Size(168, 40);
-            btnGuardar.TabIndex = 17;
+            btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -374,7 +374,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnCancelar.Size = new Size(187, 40);
-            btnCancelar.TabIndex = 18;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 

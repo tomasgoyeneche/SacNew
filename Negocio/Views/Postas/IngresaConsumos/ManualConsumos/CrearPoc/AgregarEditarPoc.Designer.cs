@@ -85,13 +85,12 @@
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtComentario = new Guna.UI2.WinForms.Guna2TextBox();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
-            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbChofer = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2Panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2Elipse1
@@ -229,7 +228,7 @@
             dtpFechaCreacion.ShadowDecoration.CustomizableEdges = customizableEdges20;
             dtpFechaCreacion.ShowUpDown = true;
             dtpFechaCreacion.Size = new Size(224, 38);
-            dtpFechaCreacion.TabIndex = 19;
+            dtpFechaCreacion.TabIndex = 3;
             dtpFechaCreacion.Value = new DateTime(2024, 10, 4, 0, 0, 0, 0);
             // 
             // guna2HtmlLabel2
@@ -273,7 +272,7 @@
             txtOdometro.SelectedText = "";
             txtOdometro.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txtOdometro.Size = new Size(229, 41);
-            txtOdometro.TabIndex = 23;
+            txtOdometro.TabIndex = 4;
             txtOdometro.TextChanged += txtOdometro_TextChanged;
             // 
             // cmbNomina
@@ -292,7 +291,7 @@
             cmbNomina.Name = "cmbNomina";
             cmbNomina.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbNomina.Size = new Size(352, 36);
-            cmbNomina.TabIndex = 24;
+            cmbNomina.TabIndex = 5;
             // 
             // guna2HtmlLabel4
             // 
@@ -331,7 +330,7 @@
             cmbPeriodo.Name = "cmbPeriodo";
             cmbPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cmbPeriodo.Size = new Size(267, 36);
-            cmbPeriodo.TabIndex = 28;
+            cmbPeriodo.TabIndex = 1;
             // 
             // guna2HtmlLabel6
             // 
@@ -363,7 +362,7 @@
             txtNumeroPOC.SelectedText = "";
             txtNumeroPOC.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtNumeroPOC.Size = new Size(131, 36);
-            txtNumeroPOC.TabIndex = 30;
+            txtNumeroPOC.TabIndex = 2;
             // 
             // guna2HtmlLabel7
             // 
@@ -396,7 +395,7 @@
             txtComentario.SelectedText = "";
             txtComentario.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtComentario.Size = new Size(426, 102);
-            txtComentario.TabIndex = 32;
+            txtComentario.TabIndex = 7;
             // 
             // btnCancelar
             // 
@@ -412,27 +411,13 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCancelar.Size = new Size(180, 35);
-            btnCancelar.TabIndex = 33;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // guna2PictureBox1
-            // 
-            guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2PictureBox1.CustomizableEdges = customizableEdges5;
-            guna2PictureBox1.Dock = DockStyle.Right;
-            guna2PictureBox1.FillColor = Color.FromArgb(200, 0, 0, 0);
-            guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(482, 27);
-            guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2PictureBox1.Size = new Size(418, 572);
-            guna2PictureBox1.TabIndex = 35;
-            guna2PictureBox1.TabStop = false;
-            // 
             // btnGuardar
             // 
-            btnGuardar.CustomizableEdges = customizableEdges3;
+            btnGuardar.CustomizableEdges = customizableEdges5;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -442,9 +427,9 @@
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(273, 544);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnGuardar.Size = new Size(180, 35);
-            btnGuardar.TabIndex = 36;
+            btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -469,7 +454,7 @@
             // cmbChofer
             // 
             cmbChofer.BackColor = Color.Transparent;
-            cmbChofer.CustomizableEdges = customizableEdges1;
+            cmbChofer.CustomizableEdges = customizableEdges3;
             cmbChofer.DrawMode = DrawMode.OwnerDrawFixed;
             cmbChofer.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbChofer.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -480,9 +465,20 @@
             cmbChofer.ItemHeight = 30;
             cmbChofer.Location = new Point(101, 340);
             cmbChofer.Name = "cmbChofer";
-            cmbChofer.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            cmbChofer.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cmbChofer.Size = new Size(352, 36);
-            cmbChofer.TabIndex = 39;
+            cmbChofer.TabIndex = 6;
+            // 
+            // guna2GradientPanel1
+            // 
+            guna2GradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2GradientPanel1.Dock = DockStyle.Right;
+            guna2GradientPanel1.FillColor2 = Color.Orange;
+            guna2GradientPanel1.Location = new Point(484, 27);
+            guna2GradientPanel1.Name = "guna2GradientPanel1";
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientPanel1.Size = new Size(416, 572);
+            guna2GradientPanel1.TabIndex = 41;
             // 
             // AgregarEditarPoc
             // 
@@ -490,12 +486,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(900, 599);
+            Controls.Add(guna2GradientPanel1);
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(cmbChofer);
             Controls.Add(guna2Separator1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(btnGuardar);
-            Controls.Add(guna2PictureBox1);
             Controls.Add(btnCancelar);
             Controls.Add(txtComentario);
             Controls.Add(guna2HtmlLabel7);
@@ -516,7 +512,6 @@
             Text = "AgregarEditarPoc";
             Load += AgregarEditarPOC_Load;
             guna2Panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -544,11 +539,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChofer;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SacNew.Views.GestionFlota.Postas
+﻿using GestionFlota.Properties;
+
+namespace SacNew.Views.GestionFlota.Postas
 {
     partial class MenuPostas
     {
@@ -83,6 +85,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             bAbmPostasMenu = new Guna.UI2.WinForms.Guna2Button();
@@ -129,6 +133,7 @@
             bClose = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
@@ -146,6 +151,7 @@
             guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox8).BeginInit();
             guna2Panel9.SuspendLayout();
+            guna2Panel10.SuspendLayout();
             SuspendLayout();
             // 
             // guna2Panel4
@@ -164,6 +170,7 @@
             // 
             // guna2PictureBox1
             // 
+            guna2PictureBox1.BackgroundImage = Resources.menuPostasAbmPostas;
             guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -226,7 +233,7 @@
             lMenuPostasNombre.BackColor = Color.Transparent;
             lMenuPostasNombre.Font = new Font("Century Gothic", 10F);
             lMenuPostasNombre.ForeColor = SystemColors.ControlLight;
-            lMenuPostasNombre.Location = new Point(362, -1);
+            lMenuPostasNombre.Location = new Point(314, 0);
             lMenuPostasNombre.Name = "lMenuPostasNombre";
             lMenuPostasNombre.Size = new Size(176, 24);
             lMenuPostasNombre.TabIndex = 11;
@@ -249,6 +256,7 @@
             // 
             // guna2PictureBox2
             // 
+            guna2PictureBox2.BackgroundImage = Resources.menuPostasConceptoConsumos;
             guna2PictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox2.CustomizableEdges = customizableEdges7;
             guna2PictureBox2.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -321,6 +329,7 @@
             // 
             // guna2PictureBox3
             // 
+            guna2PictureBox3.BackgroundImage = Resources.menuPostasLimiteCredito;
             guna2PictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox3.CustomizableEdges = customizableEdges13;
             guna2PictureBox3.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -392,6 +401,7 @@
             // 
             // guna2PictureBox4
             // 
+            guna2PictureBox4.BackgroundImage = Resources.menuPostasInformes;
             guna2PictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox4.CustomizableEdges = customizableEdges19;
             guna2PictureBox4.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -465,6 +475,7 @@
             // 
             // guna2PictureBox5
             // 
+            guna2PictureBox5.BackgroundImage = Resources.menuPostasConfiguraciones;
             guna2PictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox5.CustomizableEdges = customizableEdges25;
             guna2PictureBox5.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -501,9 +512,9 @@
             guna2HtmlLabel9.BackColor = Color.Transparent;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 9F);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(30, 131);
+            guna2HtmlLabel9.Location = new Point(30, 123);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(129, 39);
+            guna2HtmlLabel9.Size = new Size(129, 54);
             guna2HtmlLabel9.TabIndex = 13;
             guna2HtmlLabel9.Text = "Realiza modificaciones.";
             // 
@@ -537,6 +548,7 @@
             // 
             // guna2PictureBox6
             // 
+            guna2PictureBox6.BackgroundImage = Resources.menuPostasLogoVolvo;
             guna2PictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox6.CustomizableEdges = customizableEdges31;
             guna2PictureBox6.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -611,6 +623,7 @@
             // guna2PictureBox7
             // 
             guna2PictureBox7.BackColor = Color.Transparent;
+            guna2PictureBox7.BackgroundImage = Resources.menuPostasLogoYpf;
             guna2PictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox7.CustomizableEdges = customizableEdges37;
             guna2PictureBox7.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -685,6 +698,7 @@
             // guna2PictureBox8
             // 
             guna2PictureBox8.BackColor = Color.Transparent;
+            guna2PictureBox8.BackgroundImage = Resources.menuPostasIngresaConsumo;
             guna2PictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox8.CustomizableEdges = customizableEdges43;
             guna2PictureBox8.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -794,11 +808,22 @@
             guna2HtmlLabel17.BackColor = Color.Transparent;
             guna2HtmlLabel17.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel17.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel17.Location = new Point(12, 45);
+            guna2HtmlLabel17.Location = new Point(8, 5);
             guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             guna2HtmlLabel17.Size = new Size(190, 28);
             guna2HtmlLabel17.TabIndex = 14;
             guna2HtmlLabel17.Text = "Menu Postas";
+            // 
+            // guna2Panel10
+            // 
+            guna2Panel10.Controls.Add(guna2HtmlLabel17);
+            guna2Panel10.CustomizableEdges = customizableEdges55;
+            guna2Panel10.FillColor = Color.Coral;
+            guna2Panel10.Location = new Point(0, 33);
+            guna2Panel10.Name = "guna2Panel10";
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges56;
+            guna2Panel10.Size = new Size(253, 38);
+            guna2Panel10.TabIndex = 37;
             // 
             // MenuPostas
             // 
@@ -806,7 +831,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 29, 35);
             ClientSize = new Size(800, 600);
-            Controls.Add(guna2HtmlLabel17);
+            Controls.Add(guna2Panel10);
             Controls.Add(guna2Panel8);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2Panel6);
@@ -838,6 +863,7 @@
             guna2Panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox8).EndInit();
             guna2Panel9.ResumeLayout(false);
+            guna2Panel10.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -888,5 +914,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ControlBox bMinimize;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
     }
 }

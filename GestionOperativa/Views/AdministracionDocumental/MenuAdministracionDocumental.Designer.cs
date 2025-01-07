@@ -105,6 +105,8 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
@@ -435,6 +437,8 @@
             // guna2Panel3
             // 
             guna2Panel3.BorderRadius = 5;
+            guna2Panel3.Controls.Add(guna2HtmlLabel25);
+            guna2Panel3.Controls.Add(guna2HtmlLabel24);
             guna2Panel3.Controls.Add(guna2HtmlLabel21);
             guna2Panel3.Controls.Add(guna2Button14);
             guna2Panel3.Controls.Add(guna2Button13);
@@ -452,6 +456,30 @@
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges36;
             guna2Panel3.Size = new Size(402, 252);
             guna2Panel3.TabIndex = 17;
+            // 
+            // guna2HtmlLabel25
+            // 
+            guna2HtmlLabel25.AutoSize = false;
+            guna2HtmlLabel25.BackColor = Color.Transparent;
+            guna2HtmlLabel25.Font = new Font("Century Gothic", 7F);
+            guna2HtmlLabel25.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel25.Location = new Point(130, 207);
+            guna2HtmlLabel25.Name = "guna2HtmlLabel25";
+            guna2HtmlLabel25.Size = new Size(89, 42);
+            guna2HtmlLabel25.TabIndex = 31;
+            guna2HtmlLabel25.Text = "Mas YPF, Calibrado, Checklist\r\n\r\n";
+            // 
+            // guna2HtmlLabel24
+            // 
+            guna2HtmlLabel24.AutoSize = false;
+            guna2HtmlLabel24.BackColor = Color.Transparent;
+            guna2HtmlLabel24.Font = new Font("Century Gothic", 7F);
+            guna2HtmlLabel24.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel24.Location = new Point(130, 137);
+            guna2HtmlLabel24.Name = "guna2HtmlLabel24";
+            guna2HtmlLabel24.Size = new Size(89, 69);
+            guna2HtmlLabel24.TabIndex = 30;
+            guna2HtmlLabel24.Text = "Ruta, VTV, Espesor, Visual Interna, Visual Externa, Estanqueidad, Cubicacion\r\n";
             // 
             // guna2HtmlLabel21
             // 
@@ -996,5 +1024,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button15;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel24;
     }
 }

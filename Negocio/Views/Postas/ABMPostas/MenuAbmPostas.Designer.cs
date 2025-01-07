@@ -75,10 +75,10 @@
             // 
             dataGridViewPostas.AllowUserToResizeColumns = false;
             dataGridViewPostas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(254, 205, 189);
+            dataGridViewCellStyle1.BackColor = Color.White;
             dataGridViewPostas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(254, 87, 34);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -87,14 +87,14 @@
             dataGridViewPostas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewPostas.ColumnHeadersHeight = 17;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(254, 221, 211);
+            dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(254, 143, 107);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewPostas.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewPostas.GridColor = Color.FromArgb(254, 203, 186);
+            dataGridViewPostas.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewPostas.Location = new Point(24, 103);
             dataGridViewPostas.Name = "dataGridViewPostas";
             dataGridViewPostas.ReadOnly = true;
@@ -102,28 +102,27 @@
             dataGridViewPostas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewPostas.Size = new Size(754, 418);
             dataGridViewPostas.TabIndex = 0;
-            dataGridViewPostas.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepOrange;
-            dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(254, 205, 189);
+            dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.Font = null;
             dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
             dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
             dataGridViewPostas.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             dataGridViewPostas.ThemeStyle.BackColor = Color.White;
-            dataGridViewPostas.ThemeStyle.GridColor = Color.FromArgb(254, 203, 186);
-            dataGridViewPostas.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(254, 87, 34);
+            dataGridViewPostas.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewPostas.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewPostas.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewPostas.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dataGridViewPostas.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewPostas.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewPostas.ThemeStyle.HeaderStyle.Height = 17;
             dataGridViewPostas.ThemeStyle.ReadOnly = true;
-            dataGridViewPostas.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(254, 221, 211);
+            dataGridViewPostas.ThemeStyle.RowsStyle.BackColor = Color.White;
             dataGridViewPostas.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewPostas.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dataGridViewPostas.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            dataGridViewPostas.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewPostas.ThemeStyle.RowsStyle.Height = 25;
-            dataGridViewPostas.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(254, 143, 107);
-            dataGridViewPostas.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+            dataGridViewPostas.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewPostas.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // txtBuscar
             // 

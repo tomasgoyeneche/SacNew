@@ -24,8 +24,9 @@ namespace SacNew.Views
             lDiaDeHoy.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
-        private void picBoxFlotaPostas_Click(object sender, EventArgs e)
+        private void bMenuPostas_Click(object sender, EventArgs e)
         {
+
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
                 _navigationService.ShowDialog<MenuPostas>();
@@ -37,17 +38,18 @@ namespace SacNew.Views
             }
         }
 
-        private void picBoxMenuAbmLocacion_Click(object sender, EventArgs e)
+        private void bAbmUsuar_Click(object sender, EventArgs e)
+        {
+            _navigationService.ShowDialog<MenuUsuariosForm>();
+
+        }
+
+        private void bAbmLocaciones_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuLocaciones>();
         }
 
-        private void bAbmUsuarios_Click(object sender, EventArgs e)
-        {
-            _navigationService.ShowDialog<MenuUsuariosForm>();
-        }
-
-        private void guna2ImageButton12_Click(object sender, EventArgs e)
+        private void bAdminDocumental_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuAdministracionDocumental>();
         }
