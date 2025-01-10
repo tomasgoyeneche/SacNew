@@ -7,5 +7,7 @@ namespace Core.Repositories
         Task<int?> ObtenerIdPorDocumentoAsync(string documento);
 
         Task<List<Chofer>> ObtenerTodosLosChoferes();
+
+        Task<List<Chofer>> BuscarAsync(string textoBusqueda);
     }
 }

@@ -20,7 +20,16 @@ namespace Core.Repositories
                 return chofers.ToList();
             });
         }
+        public async Task<List<Chofer>> BuscarAsync(string textoBusqueda)
+        {
+            var query = "SELECT * FROM Chofer WHERE activo = 1 and (Nombre LIKE @TextoBusqueda OR Apellido LIKE @TextoBusqueda OR Documento LIKE @TextoBusqueda)";
 
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryAsync<Chofer>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
+                                 .ContinueWith(task => task.Result.ToList());
+            });
+        }
         public async Task<int?> ObtenerIdPorDocumentoAsync(string documento)
         {
             var query = "SELECT IdChofer FROM Chofer WHERE Documento = @Documento AND Activo = 1";

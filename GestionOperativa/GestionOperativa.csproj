@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Presenters\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Negocio\GestionFlota.csproj" />
   </ItemGroup>
 

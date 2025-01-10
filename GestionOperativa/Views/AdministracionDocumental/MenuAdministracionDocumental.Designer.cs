@@ -89,9 +89,9 @@
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
+            bAltaEmpresas = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            bAltaChofer = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -160,9 +160,9 @@
             // 
             guna2Panel1.BorderRadius = 5;
             guna2Panel1.Controls.Add(guna2Panel5);
-            guna2Panel1.Controls.Add(guna2Button7);
+            guna2Panel1.Controls.Add(bAltaEmpresas);
             guna2Panel1.Controls.Add(guna2HtmlLabel11);
-            guna2Panel1.Controls.Add(guna2Button6);
+            guna2Panel1.Controls.Add(bAltaChofer);
             guna2Panel1.Controls.Add(guna2HtmlLabel10);
             guna2Panel1.Controls.Add(guna2Button5);
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
@@ -201,24 +201,25 @@
             guna2HtmlLabel12.TabIndex = 22;
             guna2HtmlLabel12.Text = "Altas";
             // 
-            // guna2Button7
+            // bAltaEmpresas
             // 
-            guna2Button7.BackColor = Color.Transparent;
-            guna2Button7.BorderRadius = 5;
-            guna2Button7.CustomizableEdges = customizableEdges45;
-            guna2Button7.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button7.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button7.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button7.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button7.FillColor = Color.ForestGreen;
-            guna2Button7.Font = new Font("Century Gothic", 9F);
-            guna2Button7.ForeColor = Color.White;
-            guna2Button7.Location = new Point(223, 41);
-            guna2Button7.Name = "guna2Button7";
-            guna2Button7.ShadowDecoration.CustomizableEdges = customizableEdges46;
-            guna2Button7.Size = new Size(83, 29);
-            guna2Button7.TabIndex = 20;
-            guna2Button7.Text = "Ingresar";
+            bAltaEmpresas.BackColor = Color.Transparent;
+            bAltaEmpresas.BorderRadius = 5;
+            bAltaEmpresas.CustomizableEdges = customizableEdges45;
+            bAltaEmpresas.DisabledState.BorderColor = Color.DarkGray;
+            bAltaEmpresas.DisabledState.CustomBorderColor = Color.DarkGray;
+            bAltaEmpresas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bAltaEmpresas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bAltaEmpresas.FillColor = Color.ForestGreen;
+            bAltaEmpresas.Font = new Font("Century Gothic", 9F);
+            bAltaEmpresas.ForeColor = Color.White;
+            bAltaEmpresas.Location = new Point(223, 41);
+            bAltaEmpresas.Name = "bAltaEmpresas";
+            bAltaEmpresas.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            bAltaEmpresas.Size = new Size(83, 29);
+            bAltaEmpresas.TabIndex = 20;
+            bAltaEmpresas.Text = "Ingresar";
+            bAltaEmpresas.Click += bAltaEmpresas_Click;
             // 
             // guna2HtmlLabel11
             // 
@@ -232,24 +233,25 @@
             guna2HtmlLabel11.TabIndex = 19;
             guna2HtmlLabel11.Text = "Empresas";
             // 
-            // guna2Button6
+            // bAltaChofer
             // 
-            guna2Button6.BackColor = Color.Transparent;
-            guna2Button6.BorderRadius = 5;
-            guna2Button6.CustomizableEdges = customizableEdges47;
-            guna2Button6.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button6.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button6.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button6.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button6.FillColor = Color.ForestGreen;
-            guna2Button6.Font = new Font("Century Gothic", 9F);
-            guna2Button6.ForeColor = Color.White;
-            guna2Button6.Location = new Point(223, 81);
-            guna2Button6.Name = "guna2Button6";
-            guna2Button6.ShadowDecoration.CustomizableEdges = customizableEdges48;
-            guna2Button6.Size = new Size(83, 29);
-            guna2Button6.TabIndex = 18;
-            guna2Button6.Text = "Ingresar";
+            bAltaChofer.BackColor = Color.Transparent;
+            bAltaChofer.BorderRadius = 5;
+            bAltaChofer.CustomizableEdges = customizableEdges47;
+            bAltaChofer.DisabledState.BorderColor = Color.DarkGray;
+            bAltaChofer.DisabledState.CustomBorderColor = Color.DarkGray;
+            bAltaChofer.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bAltaChofer.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bAltaChofer.FillColor = Color.ForestGreen;
+            bAltaChofer.Font = new Font("Century Gothic", 9F);
+            bAltaChofer.ForeColor = Color.White;
+            bAltaChofer.Location = new Point(223, 81);
+            bAltaChofer.Name = "bAltaChofer";
+            bAltaChofer.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            bAltaChofer.Size = new Size(83, 29);
+            bAltaChofer.TabIndex = 18;
+            bAltaChofer.Text = "Ingresar";
+            bAltaChofer.Click += bAltaChofer_Click;
             // 
             // guna2HtmlLabel10
             // 
@@ -984,9 +986,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private Guna.UI2.WinForms.Guna2ControlBox bMinimize;
         private Guna.UI2.WinForms.Guna2ControlBox bClose;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
+        private Guna.UI2.WinForms.Guna2Button bAltaEmpresas;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button bAltaChofer;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;

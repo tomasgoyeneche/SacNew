@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Services;
+using Core.Validators;
 using FluentValidation;
 using FluentValidation.Results;
 
@@ -19,7 +20,7 @@ namespace Core.Base
 
         public void SetView(TView? view) => _view = view;
 
-        protected async Task<bool> ValidarAsync<T>(T entidad)
+        protected async Task<bool> ValidarAsync<T>(T entidad, params object[] parametros)
         {
             var validador = _navigationService.ResolverServicio<IValidator<T>>();
 
@@ -27,6 +28,12 @@ namespace Core.Base
             {
                 MostrarMensaje($"No se encontró un validador para {typeof(T).Name}.");
                 return false;
+            }
+
+            // Si el validador implementa una interfaz personalizada para configuraciones adicionales
+            if (validador is IConfigurableValidator<T> configurableValidator)
+            {
+                configurableValidator.Configurar(parametros);
             }
 
             var resultado = await validador.ValidateAsync(entidad);

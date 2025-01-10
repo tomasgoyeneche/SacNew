@@ -1,8 +1,8 @@
 ﻿using Core.Services;
 using Dapper;
 using Shared.Models;
-using System.Data.SqlClient;
-
+//using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 namespace Core.Base
 {
     public abstract class BaseRepositorio
@@ -30,7 +30,7 @@ namespace Core.Base
             catch (SqlException ex)
             {
                 // Re-lanzar con un mensaje claro
-                throw new ApplicationException("Ocurrió un error al acceder a la base de datos.", ex);
+                throw new ApplicationException($"SQL Error {ex.Number}: {ex.Message}", ex);
             }
         }
 

@@ -1,10 +1,36 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental
+﻿using Core.Services;
+using GestionOperativa.Presenters;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
+namespace GestionOperativa.Views.AdministracionDocumental
 {
-    public partial class MenuAdministracionDocumental : Form
+    public partial class MenuAdministracionDocumental : Form, IMenuAdministracionDocumentalView
     {
-        public MenuAdministracionDocumental()
+
+        private readonly MenuAdministracionDocumentalPresenter _presenter;
+        private readonly INavigationService _navigationService;
+
+  
+        public MenuAdministracionDocumental(MenuAdministracionDocumentalPresenter presenter, INavigationService navigationService)
         {
+            _navigationService = navigationService;
+
+            _presenter = presenter;
+            _presenter.SetView(this);
             InitializeComponent();
+
+        }
+
+        private void bAltaEmpresas_Click(object sender, EventArgs e)
+        {
+            _presenter.CargarMenuEntidad("empresa");
+        }
+
+        private void bAltaChofer_Click(object sender, EventArgs e)
+        {
+
+            
+            _presenter.CargarMenuEntidad("chofer");
+
         }
     }
 }

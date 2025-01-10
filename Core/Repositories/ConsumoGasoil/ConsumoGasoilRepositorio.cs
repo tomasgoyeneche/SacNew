@@ -2,6 +2,7 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
+using System.Data.SqlClient;
 
 namespace Core.Repositories
 {
@@ -114,6 +115,37 @@ namespace Core.Repositories
                     IdProgramaActual = idProgramaActual
                 });
             });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public async Task<ConsumoGasoilAutorizadoDto?> ObtenerUltimoConsumoPorPatenteAsync(string patente)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT TOP 1 *
+                FROM vw_ConsumoGasoilAutorizadoActivo
+                WHERE Patente = @Patente
+                ORDER BY FechaCarga DESC";
+
+
+                return await connection.QuerySingleOrDefaultAsync<ConsumoGasoilAutorizadoDto>(query, new { Patente = patente });
+
+            });
+           
+
+  
         }
     }
 }

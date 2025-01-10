@@ -43,7 +43,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            MessageBox.Show(mensaje, "Informacion de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public bool ConfirmarGuardado(string mensaje)

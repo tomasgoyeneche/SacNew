@@ -26,7 +26,6 @@ namespace SacNew.Views
 
         private void bMenuPostas_Click(object sender, EventArgs e)
         {
-
             if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
             {
                 _navigationService.ShowDialog<MenuPostas>();
@@ -41,7 +40,6 @@ namespace SacNew.Views
         private void bAbmUsuar_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuUsuariosForm>();
-
         }
 
         private void bAbmLocaciones_Click(object sender, EventArgs e)
