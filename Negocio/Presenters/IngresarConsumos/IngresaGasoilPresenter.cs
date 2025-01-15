@@ -76,36 +76,16 @@ namespace GestionFlota.Presenters
                 : tiposGasoil.Where(tipo => tipo.Descripcion.Contains("Autorizado", StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
+        // Calcula los litros autorizados actuales
+
         private async Task CalcularLitrosAutorizadosAsync()
         {
             (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_idPoc);
             var programa = await _consumoGasoilRepositorio.ObtenerProgramaPorPatenteAsync(_patente);
-
+            bool validaPorBahiaBlanca = false;
+            bool programaValido = programa?.Kilometros > 0;
 
             // Validar si estamos en Bahía Blanca y el último consumo fue en Bahía Blanca
-         
-
-            if (programa?.Kilometros > 0)
-            {
-                _kilometros = programa.Value.Kilometros;
-                _autorizado = _empresaCredito.IdEmpresa == 1
-                    ? _kilometros * 32 / 100 * 2
-                    : _kilometros * 35 / 100 * 2;
-
-                _idPrograma = programa.Value.IdPrograma;
-                var litrosCargados = await _consumoGasoilRepositorio.ObtenerLitrosCargadosPorProgramaAsync(_idPrograma);
-                _autorizado -= litrosCargados;
-
-                _view.MostrarLitrosAutorizados(_autorizado, _kilometros);
-
-            }
-            else
-            {
-                _autorizado = _capacidadTanque;
-                _idPrograma = 0;
-                _view.MostrarMensaje("No se encontró un programa válido, se usara como maximo la capacidad del tanque.");
-            }
-
 
             if (_sesionService.IdPosta == 2 /*si el programa no es nulo -> && programa != null*/)
             {
@@ -117,17 +97,44 @@ namespace GestionFlota.Presenters
 
                     _idPrograma = ultimoConsumo.IdPrograma;
                     _autorizado = ultimoConsumo.LitrosAutorizados - ultimoConsumo.LitrosCargados;
-                    _view.MostrarLitrosAutorizados(_autorizado, 1000);
+                    _view.MostrarLitrosAutorizados(_autorizado, 640);
+                    validaPorBahiaBlanca = true;
                 }
             }
 
+            if (programaValido && !validaPorBahiaBlanca)
+            {
+                _kilometros = programa.Value.Kilometros;
+                _autorizado = _empresaCredito.IdEmpresa == 1
+                    ? _kilometros * 32 / 100 * 2
+                    : _kilometros * 35 / 100 * 2;
+
+                _idPrograma = programa.Value.IdPrograma;
+                var litrosCargados = await _consumoGasoilRepositorio.ObtenerLitrosCargadosPorProgramaAsync(_idPrograma);
+                _autorizado -= litrosCargados;
+
+                _view.MostrarLitrosAutorizados(_autorizado, _kilometros);
+            }
+
+            if (!programaValido && !validaPorBahiaBlanca)
+            {
+                // Caso sin programa válido y sin Bahía Blanca
+                _autorizado = _capacidadTanque;
+                _idPrograma = 0;
+                _view.MostrarMensaje("No se encontró un programa válido. Se usará como máximo la capacidad del tanque.");
+            }
         }
+
+        // Calcula la autorizacion anterior
 
         private async Task CargarAutorizacionAnteriorAsync()
         {
-            var idProgramaAnterior = await _consumoGasoilRepositorio.ObtenerIdProgramaAnteriorAsync(_patente, _idPrograma);
+            int idProgramaParaBusqueda = _idPrograma != 0 ? _idPrograma : 1000000;
 
-            if (!idProgramaAnterior.HasValue)
+            // Obtener el programa anterior
+            var idProgramaAnterior = await _consumoGasoilRepositorio.ObtenerIdProgramaAnteriorAsync(_patente, idProgramaParaBusqueda);
+
+            if (idProgramaAnterior == null)
             {
                 _view.MostrarMensaje("No se encontró un programa anterior.");
                 _view.MostrarConsumosAnteriores(new List<ConsumoGasoilAutorizadoDto>());
@@ -143,9 +150,10 @@ namespace GestionFlota.Presenters
             _view.ActualizarLabelAnterior(_restanteAnterior);
         }
 
+        // Calcula la actual y le suma la anterior
         private async Task CargarAutorizacionActualAsync()
         {
-            if(_idPrograma != 0)
+            if (_idPrograma != 0)
             {
                 var consumosActuales = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(_idPrograma, _patente);
 
@@ -162,7 +170,6 @@ namespace GestionFlota.Presenters
                 _view.MostrarConsumosTotales(new List<ConsumoGasoilAutorizadoDto>());
                 _view.ActualizarLabelTotal(0);
             }
-     
         }
 
         public void CalcularTotal(decimal litros)

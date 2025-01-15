@@ -2,23 +2,67 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.Repositories.Empresa
+namespace Core.Repositories
 {
     public class EmpresaRepositorio : BaseRepositorio, IEmpresaRepositorio
     {
-
         public EmpresaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService)
+        {}
+
+
+        public async Task<List<EmpresaDto>> ObtenerTodasLasEmpresasAsync()
         {
+            var query = "SELECT * FROM vw_EmpresaDetalle";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryAsync<EmpresaDto>(query).ContinueWith(task => task.Result.ToList());
+            });
         }
 
+        public async Task<Empresa?> ObtenerPorIdAsync(int idEmpresa)
+        {
+            var query = "SELECT * FROM Empresa where idEmpresa = @idEmpresa";
 
-       
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<Empresa>(query, new { idEmpresa = idEmpresa });
+            });
+        }
+
+        public async Task<List<Empresa>> BuscarEmpresasAsync(string textoBusqueda)
+        {
+            var query = "SELECT * FROM vw_EmpresaDetalle WHERE Cuit LIKE @TextoBusqueda OR NombreFantasia LIKE @TextoBusqueda";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryAsync<Empresa>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
+                                 .ContinueWith(task => task.Result.ToList());
+            });
+        }
+
+        public async Task AgregarEmpresaAsync(Empresa nuevaEmpresa)
+        {
+            var query = @"
+            INSERT INTO Empresa (Codigo, Descripcion, Direccion, idProvincia)
+            VALUES (@Codigo, @Descripcion, @Direccion, @idProvincia)";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, nuevaEmpresa);
+            });
+        }
+
+        public async Task EliminarEmpresaAsync(int idEmpresa)
+        {
+            var query = "Update Empresa set Activo = 0 WHERE IdEmpresa = @IdEmpresa";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, new { IdEmpresa = idEmpresa });
+            });
+        }
     }
 }

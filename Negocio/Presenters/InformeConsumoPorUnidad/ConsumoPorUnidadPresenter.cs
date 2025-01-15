@@ -45,6 +45,7 @@ namespace GestionFlota.Presenters
             await EjecutarConCargaAsync(async () =>
             {
                 var consumos = await _consumoUnidadRepositorio.ObtenerConsumosPorPeriodoAsync(idPeriodo);
+
                 _view.MostrarConsumos(consumos);
                 _view.MostrarMensaje("Búsqueda completada.");
             });

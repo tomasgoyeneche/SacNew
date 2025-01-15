@@ -1,8 +1,10 @@
 ﻿using Core.Services;
 using Dapper;
-using Shared.Models;
+
 //using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using Shared.Models;
+
 namespace Core.Base
 {
     public abstract class BaseRepositorio

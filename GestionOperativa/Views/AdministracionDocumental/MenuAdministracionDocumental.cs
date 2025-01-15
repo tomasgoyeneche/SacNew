@@ -1,15 +1,13 @@
 ﻿using Core.Services;
 using GestionOperativa.Presenters;
-using GestionOperativa.Views.AdministracionDocumental.Altas;
+
 namespace GestionOperativa.Views.AdministracionDocumental
 {
     public partial class MenuAdministracionDocumental : Form, IMenuAdministracionDocumentalView
     {
-
         private readonly MenuAdministracionDocumentalPresenter _presenter;
         private readonly INavigationService _navigationService;
 
-  
         public MenuAdministracionDocumental(MenuAdministracionDocumentalPresenter presenter, INavigationService navigationService)
         {
             _navigationService = navigationService;
@@ -17,7 +15,6 @@ namespace GestionOperativa.Views.AdministracionDocumental
             _presenter = presenter;
             _presenter.SetView(this);
             InitializeComponent();
-
         }
 
         private void bAltaEmpresas_Click(object sender, EventArgs e)
@@ -27,10 +24,7 @@ namespace GestionOperativa.Views.AdministracionDocumental
 
         private void bAltaChofer_Click(object sender, EventArgs e)
         {
-
-            
             _presenter.CargarMenuEntidad("chofer");
-
         }
     }
 }

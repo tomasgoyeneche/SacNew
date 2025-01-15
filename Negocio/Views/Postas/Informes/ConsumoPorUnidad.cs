@@ -31,7 +31,24 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
         public void MostrarConsumos(List<InformeConsumoUnidad> consumos)
         {
             dgvConsumos.DataSource = consumos;
-            dgvConsumos.Columns["idPeriodo"].Visible = false; // Oculta ID si no es necesario
+
+            // Ocultar columnas innecesarias
+            dgvConsumos.Columns["idPeriodo"].Visible = false;
+
+            // Formatear las celdas para agregar el símbolo de porcentaje
+        }
+
+        private void dgvConsumos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verifica si la columna requiere el símbolo de porcentaje
+            var columnName = dgvConsumos.Columns[e.ColumnIndex].Name;
+
+            if (columnName.StartsWith("Porcentaje", StringComparison.OrdinalIgnoreCase) && e.Value is decimal decimalValue)
+            {
+                // Aplica formato con el símbolo de porcentaje
+                e.Value = $"{decimalValue}%";
+                e.FormattingApplied = true;
+            }
         }
 
         public List<InformeConsumoUnidad> ObtenerConsumos()

@@ -68,7 +68,7 @@ namespace Core.Repositories
 
         public async Task EliminarPostaAsync(int idPosta)
         {
-            var query = "DELETE FROM Posta WHERE IdPosta = @IdPosta";
+            var query = "UPDATE Posta SET Activo = 0 WHERE IdPosta = @IdPosta";
 
             await ConectarAsync(connection =>
             {

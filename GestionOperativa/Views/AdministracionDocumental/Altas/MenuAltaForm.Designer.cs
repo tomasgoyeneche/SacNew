@@ -218,6 +218,7 @@
             btnEditar.Size = new Size(101, 32);
             btnEditar.TabIndex = 51;
             btnEditar.Text = "Editar";
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnEliminar
             // 
@@ -235,6 +236,7 @@
             btnEliminar.Size = new Size(101, 32);
             btnEliminar.TabIndex = 50;
             btnEliminar.Text = "Eliminar";
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // dataGridViewEntidades
             // 

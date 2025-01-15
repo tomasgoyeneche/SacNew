@@ -20,9 +20,6 @@ namespace Core.Repositories
 
         Task<int?> ObtenerIdProgramaAnteriorAsync(string patente, int idProgramaActual);
 
-
-
-
         Task<ConsumoGasoilAutorizadoDto?> ObtenerUltimoConsumoPorPatenteAsync(string patente);
     }
 }

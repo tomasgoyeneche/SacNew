@@ -33,8 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -54,7 +52,6 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             dgvConsumos = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             cmbPeriodos = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -138,10 +135,11 @@
             dgvConsumos.ThemeStyle.RowsStyle.Height = 25;
             dgvConsumos.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvConsumos.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvConsumos.CellFormatting += dgvConsumos_CellFormatting;
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges17;
+            guna2Button1.CustomizableEdges = customizableEdges15;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -149,33 +147,13 @@
             guna2Button1.FillColor = Color.Gray;
             guna2Button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(846, 30);
+            guna2Button1.Location = new Point(321, 37);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Button1.Size = new Size(133, 36);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Buscar";
             guna2Button1.Click += btnBuscar_Click;
-            // 
-            // guna2TextBox1
-            // 
-            guna2TextBox1.CustomizableEdges = customizableEdges15;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(26, 29);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2TextBox1.Size = new Size(169, 36);
-            guna2TextBox1.TabIndex = 2;
             // 
             // cmbPeriodos
             // 
@@ -188,7 +166,7 @@
             cmbPeriodos.Font = new Font("Segoe UI", 9F);
             cmbPeriodos.ForeColor = Color.FromArgb(68, 88, 112);
             cmbPeriodos.ItemHeight = 30;
-            cmbPeriodos.Location = new Point(566, 30);
+            cmbPeriodos.Location = new Point(26, 37);
             cmbPeriodos.Name = "cmbPeriodos";
             cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cmbPeriodos.Size = new Size(274, 36);
@@ -204,7 +182,7 @@
             guna2Button2.FillColor = Color.Brown;
             guna2Button2.Font = new Font("Century Gothic", 9F);
             guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(26, 499);
+            guna2Button2.Location = new Point(26, 498);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Button2.Size = new Size(133, 33);
@@ -221,7 +199,7 @@
             guna2Button3.FillColor = Color.ForestGreen;
             guna2Button3.Font = new Font("Century Gothic", 9F);
             guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(707, 490);
+            guna2Button3.Location = new Point(707, 498);
             guna2Button3.Name = "guna2Button3";
             guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Button3.Size = new Size(133, 33);
@@ -238,7 +216,7 @@
             guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button4.Font = new Font("Century Gothic", 9F);
             guna2Button4.ForeColor = Color.White;
-            guna2Button4.Location = new Point(846, 490);
+            guna2Button4.Location = new Point(846, 498);
             guna2Button4.Name = "guna2Button4";
             guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Button4.Size = new Size(133, 33);
@@ -298,7 +276,6 @@
             Controls.Add(guna2Button3);
             Controls.Add(guna2Button2);
             Controls.Add(cmbPeriodos);
-            Controls.Add(guna2TextBox1);
             Controls.Add(guna2Button1);
             Controls.Add(dgvConsumos);
             FormBorderStyle = FormBorderStyle.None;
@@ -319,7 +296,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private Guna.UI2.WinForms.Guna2ControlBox bMinimize;

@@ -20,6 +20,7 @@ namespace Core.Repositories
                 return chofers.ToList();
             });
         }
+
         public async Task<List<Chofer>> BuscarAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM Chofer WHERE activo = 1 and (Nombre LIKE @TextoBusqueda OR Apellido LIKE @TextoBusqueda OR Documento LIKE @TextoBusqueda)";
@@ -30,12 +31,23 @@ namespace Core.Repositories
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
+
         public async Task<int?> ObtenerIdPorDocumentoAsync(string documento)
         {
             var query = "SELECT IdChofer FROM Chofer WHERE Documento = @Documento AND Activo = 1";
 
             return await ConectarAsync(async conn =>
                 await conn.QuerySingleOrDefaultAsync<int?>(query, new { Documento = documento }));
+        }
+
+        public async Task EliminarChoferAsync(int idChofer)
+        {
+            var query = "Update Chofer set Activo = 0 WHERE IdChofer = @IdChofer";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, new { IdChofer = idChofer });
+            });
         }
     }
 }

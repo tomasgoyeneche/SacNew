@@ -2,24 +2,27 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
-using SacNew.Views.Configuraciones.AbmLocaciones;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
+using Shared.Models;
 
 namespace GestionOperativa.Presenters
 {
     public class MenuAbmEntidadPresenter : BasePresenter<IMenuAltasView>
     {
         private readonly IChoferRepositorio _choferRepositorio;
+        private readonly IEmpresaRepositorio _empresaRepositorio;
 
-        private string _entidad;
+        private string? _entidad;
 
         public MenuAbmEntidadPresenter(
             IChoferRepositorio choferRepositorio,
+            IEmpresaRepositorio empresaRepositorio,
             ISesionService sesionService,
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
+            _empresaRepositorio = empresaRepositorio;
             _choferRepositorio = choferRepositorio;
-
         }
 
         public void SetEntidad(string entidad)
@@ -37,10 +40,10 @@ namespace GestionOperativa.Presenters
                         var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
                         _view.MostrarEntidades(choferes);
                         break;
-                    //case "tractor":
-                    //    var tractores = await _tractorGestor.ObtenerTodosAsync();
-                    //    _view.MostrarEntidades(tractores);
-                    //    break;
+                    case "empresa":
+                        var tractores = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
+                        _view.MostrarEntidades(tractores);
+                        break;
                     default:
                         throw new ArgumentException("Entidad no soportada");
                 }
@@ -65,10 +68,10 @@ namespace GestionOperativa.Presenters
                             var choferes = await _choferRepositorio.BuscarAsync(textoBusqueda);
                             _view.MostrarEntidades(choferes);
                             break;
-                        //case "tractor":
-                        //    var tractores = await _tractorGestor.BuscarAsync(textoBusqueda);
-                        //    _view.MostrarEntidades(tractores);
-                        //    break;
+                        case "empresa":
+                            var empresas = await _empresaRepositorio.BuscarEmpresasAsync(textoBusqueda);
+                            _view.MostrarEntidades(empresas);
+                            break;
                         default:
                             throw new ArgumentException("Entidad no soportada");
                     }
@@ -88,9 +91,14 @@ namespace GestionOperativa.Presenters
                         ("Domicilio", 2)  // Columna "Licencia" en la posición 2
                     });
                     break;
-                //case "tractor":
-                //    MostrarColumnasEspecificas(gridView, new List<string> { "Placa", "Modelo", "Año" });
-                //    break;
+                case "empresa":
+                    MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
+                    {
+                        ("razonSocial", 0), // Columna "Nombre" en la posición 0
+                        ("nombreFantasia", 1), // Columna "Apellido" en la posición 1
+                        ("Cuit", 2)  // Columna "Licencia" en la posición 2
+                    });
+                    break;
 
                 default:
                     // Si no hay columnas configuradas, puedes decidir mostrar todas o ninguna
@@ -120,6 +128,48 @@ namespace GestionOperativa.Presenters
                 }
             }
         }
-    }
 
+
+        public async Task EliminarEntidadAsync<T>(T entidadSeleccionada)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                if (entidadSeleccionada == null)
+                {
+                    _view.MostrarMensaje("Seleccione un registro para eliminar.");
+                    return;
+                }
+
+                var confirmResult = MessageBox.Show(
+                    $"¿Estás seguro de que deseas eliminar esta {_entidad}?",
+                    "Confirmar Eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (confirmResult != DialogResult.Yes)
+                    return;
+
+                switch (_entidad.ToLower())
+                {
+                    case "chofer":
+                        if (entidadSeleccionada is Chofer chofer)
+                        {
+                            await _choferRepositorio.EliminarChoferAsync(chofer.IdChofer);
+                        }
+                        break;
+                    case "empresa":
+                        if (entidadSeleccionada is EmpresaDto empresa)
+                        {
+                            await _empresaRepositorio.EliminarEmpresaAsync(empresa.IdEmpresa);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentException("Entidad no soportada para eliminación.");
+                }
+
+                _view.MostrarMensaje($"Registro eliminado correctamente.");
+                await CargarEntidadesAsync(); // Recargar la lista de entidades
+            });
+        }
+    }
 }

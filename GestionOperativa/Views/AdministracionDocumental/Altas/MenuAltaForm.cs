@@ -1,13 +1,4 @@
 ﻿using GestionOperativa.Presenters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -76,6 +67,24 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewEntidades.SelectedRows.Count > 0)
+            {
+                var entidadSeleccionada = dataGridViewEntidades.SelectedRows[0].DataBoundItem;
+                await _presenter.EliminarEntidadAsync(entidadSeleccionada);
+            }
+            else
+            {
+                MostrarMensaje("Debe seleccionar un registro para eliminar.");
+            }
+        }
+
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+           // _presenter.EditarEntidadAsync();
         }
     }
 }
