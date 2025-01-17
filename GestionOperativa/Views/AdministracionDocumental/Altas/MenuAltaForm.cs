@@ -84,7 +84,16 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void btnEditar_Click(object sender, EventArgs e)
         {
-           // _presenter.EditarEntidadAsync();
+            if (dataGridViewEntidades.SelectedRows.Count > 0)
+            {
+                var entidadSeleccionada = dataGridViewEntidades.SelectedRows[0].DataBoundItem;
+                await _presenter.EditarEntidadAsync(entidadSeleccionada);
+               
+            }
+            else
+            {
+                MostrarMensaje("Debe seleccionar un registro para editar.");
+            }
         }
     }
 }

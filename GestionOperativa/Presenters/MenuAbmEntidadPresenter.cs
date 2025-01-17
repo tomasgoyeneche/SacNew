@@ -40,10 +40,12 @@ namespace GestionOperativa.Presenters
                         var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
                         _view.MostrarEntidades(choferes);
                         break;
+
                     case "empresa":
                         var tractores = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
                         _view.MostrarEntidades(tractores);
                         break;
+
                     default:
                         throw new ArgumentException("Entidad no soportada");
                 }
@@ -68,10 +70,12 @@ namespace GestionOperativa.Presenters
                             var choferes = await _choferRepositorio.BuscarAsync(textoBusqueda);
                             _view.MostrarEntidades(choferes);
                             break;
+
                         case "empresa":
                             var empresas = await _empresaRepositorio.BuscarEmpresasAsync(textoBusqueda);
                             _view.MostrarEntidades(empresas);
                             break;
+
                         default:
                             throw new ArgumentException("Entidad no soportada");
                     }
@@ -91,6 +95,7 @@ namespace GestionOperativa.Presenters
                         ("Domicilio", 2)  // Columna "Licencia" en la posición 2
                     });
                     break;
+
                 case "empresa":
                     MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
                     {
@@ -129,6 +134,43 @@ namespace GestionOperativa.Presenters
             }
         }
 
+        public async Task EditarEntidadAsync<T>(T entidadSeleccionada)
+        {
+            if (entidadSeleccionada == null)
+            {
+                _view.MostrarMensaje("Debe seleccionar un registro para editar.");
+                return;
+            }
+
+            await EjecutarConCargaAsync(async () =>
+            {
+                switch (_entidad.ToLower())
+                {
+                    //case "chofer":
+                    //    if (entidadSeleccionada is ChoferDto chofer)
+                    //    {
+                    //        await AbrirFormularioAsync<AgregarEditarChoferForm>(async form =>
+                    //        {
+                    //            await form._presenter.CargarDatosParaEditar(chofer);
+                    //        });
+                    //    }
+                    //    break;
+
+                    case "empresa":
+                        if (entidadSeleccionada is EmpresaDto empresa)
+                        {
+                            await AbrirFormularioAsync<AgregarEditarEmpresaForm>(async form =>
+                            {
+                                await form._presenter.CargarDatosParaMostrarAsync(empresa);
+                            });
+                        }
+                        break;
+
+                    default:
+                        throw new ArgumentException("Entidad no soportada para edición.");
+                }
+            }, CargarEntidadesAsync);
+        }
 
         public async Task EliminarEntidadAsync<T>(T entidadSeleccionada)
         {
@@ -157,12 +199,14 @@ namespace GestionOperativa.Presenters
                             await _choferRepositorio.EliminarChoferAsync(chofer.IdChofer);
                         }
                         break;
+
                     case "empresa":
                         if (entidadSeleccionada is EmpresaDto empresa)
                         {
                             await _empresaRepositorio.EliminarEmpresaAsync(empresa.IdEmpresa);
                         }
                         break;
+
                     default:
                         throw new ArgumentException("Entidad no soportada para eliminación.");
                 }

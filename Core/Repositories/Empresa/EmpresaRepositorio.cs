@@ -9,8 +9,7 @@ namespace Core.Repositories
     {
         public EmpresaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService)
-        {}
-
+        { }
 
         public async Task<List<EmpresaDto>> ObtenerTodasLasEmpresasAsync()
         {
