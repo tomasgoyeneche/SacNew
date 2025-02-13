@@ -15,6 +15,7 @@ namespace GestionFlota.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
+        private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
         private EmpresaCredito _amount;
 
         public MenuIngresaGasoilOtrosPresenter(
@@ -23,6 +24,7 @@ namespace GestionFlota.Presenters
             IUnidadRepositorio unidadRepositorio,
             ISesionService sesionService,
             IConsumoOtrosRepositorio consumoOtrosRepositorio,
+            IConsumoGasoilRepositorio consumoGasoilRepositorio,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
@@ -30,6 +32,7 @@ namespace GestionFlota.Presenters
             _empresaCreditoRepositorio = empresaCreditoRepositorio ?? throw new ArgumentNullException(nameof(empresaCreditoRepositorio));
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));
             _unidadRepositorio = unidadRepositorio ?? throw new ArgumentNullException(nameof(unidadRepositorio));
+            _consumoGasoilRepositorio = consumoGasoilRepositorio;
         }
 
         public async Task CargarDatosAsync(int idPoc)
@@ -51,22 +54,20 @@ namespace GestionFlota.Presenters
                 var unidad = await _unidadRepositorio.ObtenerPorIdAsync(poc.IdUnidad)
                              ?? throw new Exception("No se encontró la nomina asociada al POC.");
 
-                var empresaCredito = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa);
+                _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa);
                 var consumos = await _consumoOtrosRepositorio.ObtenerPorPocAsync(idPoc);
                 var total = consumos.Sum(c => c.ImporteTotal ?? 0);
 
-                if (empresaCredito != null)
+                if (_amount != null)
                 {
-                    _amount = empresaCredito;
                     _view.CreditoEnPoc = total.ToString("C", new CultureInfo("es-AR"));
-                    _view.CreditoTotal = empresaCredito.CreditoAsignado.ToString("C", new CultureInfo("es-AR"));
-                    _view.CreditoDisponible = empresaCredito.CreditoDisponible.ToString("C", new CultureInfo("es-AR"));
-                    _view.CreditoConsumido = empresaCredito.CreditoConsumido.ToString("C", new CultureInfo("es-AR"));
+                    _view.CreditoTotal = _amount.CreditoAsignado.ToString("C", new CultureInfo("es-AR"));
+                    _view.CreditoDisponible = _amount.CreditoDisponible.ToString("C", new CultureInfo("es-AR"));
+                    _view.CreditoConsumido = _amount.CreditoConsumido.ToString("C", new CultureInfo("es-AR"));
                 }
                 else
                 {
-                    _amount = null;
-                    _view.MostrarMensaje("No se encontraron creditos para esta empresa");
+                    _view.MostrarMensaje("No se encontraron créditos para esta empresa.");
                 }
 
                 _view.MostrarConsumos(consumos);
@@ -113,6 +114,52 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.CargarDatosAsync(idPoc, _amount);
             });
+        }
+
+        public async Task EliminarConsumo(int idConsumo, int tipoConsumo, decimal importeTotal)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                // Determinar el repositorio correcto
+                if (tipoConsumo == 1)
+                {
+                    await _consumoGasoilRepositorio.EliminarConsumoAsync(idConsumo);
+                }
+                else if (tipoConsumo == 2)
+                {
+                    await _consumoOtrosRepositorio.EliminarConsumoAsync(idConsumo);
+                }
+                else
+                {
+                    _view.MostrarMensaje("Tipo de consumo desconocido.");
+                    return;
+                }
+
+                // Restar el importe eliminado al crédito consumido
+                if (_amount != null)
+                {
+                    _amount.CreditoConsumido -= importeTotal;
+
+                    // Actualizar en la base de datos
+                    await _empresaCreditoRepositorio.ActualizarCreditoAsync(_amount);
+                }
+
+                // Refrescar la vista
+                await CargarDatosAsync(_view.IdPoc);
+                _view.MostrarMensaje("Consumo eliminado correctamente.");
+            });
+        }
+
+        public async Task EditarConsumoOtros(int idPoc, int idConsumo, int tipoConsumo)
+        {
+            if(tipoConsumo == 2)
+            {
+                await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
+                {
+                    await form._presenter.CargarDatosParaEditarAsync(idPoc, idConsumo, _amount);
+                });
+            }
+           
         }
     }
 }

@@ -11,11 +11,13 @@ namespace GestionOperativa.Presenters
         private readonly IConfRepositorio _confRepositorio;
         private readonly IEmpresaSatelitalRepositorio _empresaSatelitalRepositorio;
         private readonly IEmpresaPaisRepositorio _empresaPaisRepositorio;
+        private readonly IEmpresaRepositorio _empresaRepositorio;
 
         public AgregarEditarEmpresaPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
             IConfRepositorio confRepositorio,
+            IEmpresaRepositorio empresaRepositorio,
             IEmpresaSatelitalRepositorio empresaSatelitalRepositorio,
             IEmpresaPaisRepositorio empresaPaisRepositorio)
             : base(sesionService, navigationService)
@@ -23,14 +25,16 @@ namespace GestionOperativa.Presenters
             _confRepositorio = confRepositorio;
             _empresaSatelitalRepositorio = empresaSatelitalRepositorio;
             _empresaPaisRepositorio = empresaPaisRepositorio;
+            _empresaRepositorio = empresaRepositorio;
         }
 
-        public async Task CargarDatosParaMostrarAsync(EmpresaDto empresa)
+        public async Task CargarDatosParaMostrarAsync(int empresaId)
         {
-            await EjecutarConCargaAsync(async () =>
+            await EjecutarConCargaAsync( async () =>
             {
-                _view.MostrarDatosEmpresa(empresa);
+                EmpresaDto empresa = await _empresaRepositorio.ObtenerPorIdDto(empresaId);
                 await VerificarArchivosLegajoAsync(empresa.Cuit);
+                 _view.MostrarDatosEmpresa(empresa);
 
                 var satelitales = await _empresaSatelitalRepositorio.ObtenerSatelitalesPorEmpresaAsync(empresa.IdEmpresa);
                 _view.MostrarSatelitales(satelitales);
@@ -62,6 +66,45 @@ namespace GestionOperativa.Presenters
             return conf == null || string.IsNullOrEmpty(conf.Ruta)
                 ? null
                 : Path.Combine(conf.Ruta, subDirectorio, $"{cuit}.pdf");
+        }
+
+        public async Task EditarDatosEmpresa(int idEmpresa)
+        {
+            await AbrirFormularioAsync<ModificarDatosEmpresaForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idEmpresa);
+            });
+            await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
+
+        }
+
+        public async Task EditarDatosSeguro(int idEmpresa)
+        {
+            await AbrirFormularioAsync<ModificarDatosSeguroForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idEmpresa);
+            });
+            await CargarDatosParaMostrarAsync(idEmpresa);
+        }
+
+
+        public async Task AgregarEmpresaSatelital(int idEmpresa)
+        {
+            await AbrirFormularioAsync<AgregarEmpresaSatelitalForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idEmpresa);
+            });
+            await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
+        }
+
+        public async Task EliminarEmpresaSatelital(int idEmpresaSatelital, int idEmpresa)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                await _empresaSatelitalRepositorio.EliminarAsync(idEmpresaSatelital);
+                _view.MostrarMensaje("Empresa satelital eliminada correctamente.");
+            });
+            await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de eliminar
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Core.Repositories
             // Registrar el cambio de estado como "Eliminado" en la auditoría
             await EjecutarConAuditoriaAsync(
                 connection => connection.ExecuteAsync(query, new { IdUsuario = idUsuario }),
-                "Locacion",
+                "Usuario",
                 "DELETE",
                 usuarioAnterior,  // Pasamos los valores anteriores sin serializarlos
                 null  // No hay valores nuevos ya que solo se desactiva el registro

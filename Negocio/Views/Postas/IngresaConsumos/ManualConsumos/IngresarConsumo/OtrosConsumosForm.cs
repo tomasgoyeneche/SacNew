@@ -14,6 +14,9 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             InitializeComponent();
         }
 
+   
+
+
         public Concepto TipoConsumoSeleccionado => cmbTipoConsumo.SelectedItem as Concepto;
         public string RemitoExterno => txtRemitoExterno.Text.Trim();
         public DateTime FechaRemito => dtpFechaRemito.Value;
@@ -64,6 +67,16 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Cerrar();
+        }
+
+        public void InicializarParaEdicion(ConsumoOtros consumo)
+        {
+            cmbTipoConsumo.SelectedValue = consumo.IdConsumo;
+            txtRemitoExterno.Text = consumo.NumeroVale;
+            dtpFechaRemito.Value = consumo.FechaRemito;
+            txtCantidad.Text = consumo.Cantidad?.ToString("N2") ?? "0.00";
+            txtImporteTotal.Text = $"{consumo.ImporteTotal:C}";
+            txtAclaracion.Text = consumo.Aclaracion;
         }
     }
 }

@@ -161,7 +161,7 @@ namespace GestionOperativa.Presenters
                         {
                             await AbrirFormularioAsync<AgregarEditarEmpresaForm>(async form =>
                             {
-                                await form._presenter.CargarDatosParaMostrarAsync(empresa);
+                                await form._presenter.CargarDatosParaMostrarAsync(empresa.IdEmpresa);
                             });
                         }
                         break;

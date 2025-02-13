@@ -8,10 +8,14 @@ namespace Core.Repositories
 
         Task<Empresa?> ObtenerPorIdAsync(int idEmpresa);
 
+        Task<EmpresaDto> ObtenerPorIdDto(int idEmpresa);
+
         Task<List<Empresa>> BuscarEmpresasAsync(string textoBusqueda);
 
         Task AgregarEmpresaAsync(Empresa nuevaEmpresa);
 
         Task EliminarEmpresaAsync(int idEmpresa);
+
+        Task ActualizarAsync(Empresa empresa);
     }
 }

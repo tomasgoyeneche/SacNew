@@ -25,5 +25,40 @@ namespace Core.Repositories
                 return (await conn.QueryAsync<EmpresaSatelitalDto>(query, new { IdEmpresa = idEmpresa })).ToList();
             });
         }
+
+        public async Task AgregarAsync(EmpresaSatelital empresaSatelital)
+        {
+            var query = @"
+        INSERT INTO EmpresaSatelital (IdEmpresa, IdSatelital, Usuario, Clave, Activo)
+        VALUES (@IdEmpresa, @IdSatelital, @Usuario, @Clave, @Activo)";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, empresaSatelital),
+                "EmpresaSatelital",
+                "INSERT",
+                null,
+                empresaSatelital
+            );
+        }
+
+        public async Task EliminarAsync(int idEmpresaSatelital)
+        {
+            var query = "UPDATE EmpresaSatelital SET Activo = 0 WHERE IdEmpresaSatelital = @IdEmpresaSatelital";
+
+            var empresaSatelitalAnterior = await ConectarAsync(async connection =>
+            {
+                return await connection.QueryFirstOrDefaultAsync<EmpresaSatelital>(
+                    "SELECT * FROM EmpresaSatelital WHERE IdEmpresaSatelital = @IdEmpresaSatelital",
+                    new { IdEmpresaSatelital = idEmpresaSatelital });
+            });
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, new { IdEmpresaSatelital = idEmpresaSatelital }),
+                "EmpresaSatelital",
+                "UPDATE",
+                empresaSatelitalAnterior,
+                new { Activo = 0 }
+            );
+        }
     }
 }

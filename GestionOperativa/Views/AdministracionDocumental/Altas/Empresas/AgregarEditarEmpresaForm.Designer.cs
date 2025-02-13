@@ -329,6 +329,7 @@
             btnEditarDatos.Size = new Size(570, 26);
             btnEditarDatos.TabIndex = 52;
             btnEditarDatos.Text = "Editar";
+            btnEditarDatos.Click += btnEditarDatos_Click;
             // 
             // btnLegajoCuit
             // 
@@ -515,6 +516,7 @@
             btnEditarArt.Size = new Size(570, 26);
             btnEditarArt.TabIndex = 53;
             btnEditarArt.Text = "Editar";
+            btnEditarArt.Click += btnEditarArt_Click;
             // 
             // lPagoHasta
             // 
@@ -821,6 +823,7 @@
             bAgregarSatelital.ShadowDecoration.CustomizableEdges = customizableEdges10;
             bAgregarSatelital.Size = new Size(62, 30);
             bAgregarSatelital.TabIndex = 48;
+            bAgregarSatelital.Click += bAgregarSatelital_Click;
             // 
             // bEliminarSatelital
             // 
@@ -837,6 +840,7 @@
             bEliminarSatelital.ShadowDecoration.CustomizableEdges = customizableEdges12;
             bEliminarSatelital.Size = new Size(62, 30);
             bEliminarSatelital.TabIndex = 46;
+            bEliminarSatelital.Click += bEliminarSatelital_Click;
             // 
             // guna2Panel7
             // 
@@ -958,6 +962,7 @@
             bAgregarPaisAuto.ShadowDecoration.CustomizableEdges = customizableEdges2;
             bAgregarPaisAuto.Size = new Size(62, 30);
             bAgregarPaisAuto.TabIndex = 50;
+            bAgregarPaisAuto.Click += bAgregarPaisAuto_Click;
             // 
             // bEliminarPaisAut
             // 

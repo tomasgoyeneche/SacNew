@@ -80,6 +80,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
             dataGridViewConsumos.DataSource = consumos.Select(c => new
             {
+                c.IdConsumo,
                 c.Descripcion,
                 c.NumeroVale,
                 c.LitrosAutorizados,
@@ -95,6 +96,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             // Ocultar columna tipoConsumo
             if (dataGridViewConsumos.Columns["tipoConsumo"] != null)
             {
+                dataGridViewConsumos.Columns["IdConsumo"].Visible = false;
+
                 dataGridViewConsumos.Columns["tipoConsumo"].Visible = false;
             }
         }
@@ -156,6 +159,44 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             await _presenter.CerrarPocAsync(IdPoc, dtpCierrePoc.Value);
             this.Close();
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewConsumos.SelectedRows.Count > 0)
+            {
+                int idConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["IdConsumo"].Value);
+                int tipoConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["tipoConsumo"].Value);
+                string importeTexto = dataGridViewConsumos.SelectedRows[0].Cells["ImporteTotal"].Value?.ToString() ?? "0";
+                decimal importeTotal = 0;
+
+                if (decimal.TryParse(importeTexto.Replace("$", "").Replace(".", "").Replace(",", "."), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal resultado))
+                {
+                    importeTotal = resultado;
+                }
+
+                await _presenter.EliminarConsumo(idConsumo, tipoConsumo, importeTotal);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un consumo para eliminar.");
+            }
+        }
+
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewConsumos.SelectedRows.Count > 0)
+            {
+                int idConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["IdConsumo"].Value);
+                int tipoConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["tipoConsumo"].Value);
+              
+
+                await _presenter.EditarConsumoOtros(IdPoc, idConsumo, tipoConsumo);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un consumo para eliminar.");
+            }
         }
     }
 }

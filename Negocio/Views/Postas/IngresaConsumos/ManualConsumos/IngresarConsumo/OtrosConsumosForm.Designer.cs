@@ -163,6 +163,7 @@
             txtRemitoExterno.Font = new Font("Segoe UI", 9F);
             txtRemitoExterno.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtRemitoExterno.Location = new Point(145, 159);
+            txtRemitoExterno.MaxLength = 10;
             txtRemitoExterno.Name = "txtRemitoExterno";
             txtRemitoExterno.PasswordChar = '\0';
             txtRemitoExterno.PlaceholderText = "Ingrese N° de Remito";
@@ -259,6 +260,7 @@
             txtCantidad.Font = new Font("Segoe UI", 9F);
             txtCantidad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCantidad.Location = new Point(145, 317);
+            txtCantidad.MaxLength = 6;
             txtCantidad.Name = "txtCantidad";
             txtCantidad.PasswordChar = '\0';
             txtCantidad.PlaceholderText = "Ingrese Cantidad";
@@ -301,6 +303,7 @@
             txtImporteTotal.Font = new Font("Segoe UI", 9F);
             txtImporteTotal.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtImporteTotal.Location = new Point(145, 371);
+            txtImporteTotal.MaxLength = 20;
             txtImporteTotal.Name = "txtImporteTotal";
             txtImporteTotal.PasswordChar = '\0';
             txtImporteTotal.PlaceholderText = "Importe Total";

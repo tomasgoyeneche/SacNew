@@ -9,6 +9,9 @@ namespace Core.Repositories
 
         Task EliminarConsumoAsync(int idConsumoOtros);
 
+        Task ActualizarConsumoAsync(ConsumoOtros consumo);
+
+
         Task<ConsumoOtros> ObtenerPorIdAsync(int idConsumoOtros);
 
         Task<List<ConsumosUnificadosDto>> ObtenerPorPocAsync(int idPoc);

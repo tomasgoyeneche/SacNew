@@ -490,6 +490,7 @@
             btnEliminar.Size = new Size(100, 30);
             btnEliminar.TabIndex = 42;
             btnEliminar.Text = "Eliminar";
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -507,6 +508,7 @@
             btnEditar.Size = new Size(100, 30);
             btnEditar.TabIndex = 43;
             btnEditar.Text = "Editar";
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnCerrarPoc
             // 

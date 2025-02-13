@@ -92,7 +92,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             }
         }
 
-
         public void MostrarSatelitales(List<EmpresaSatelitalDto> satelitales)
         {
             dgvSatelitales.DataSource = satelitales;
@@ -103,6 +102,41 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         {
             dgvPaises.DataSource = paises;
             dgvPaises.Columns["idEmpresaPais"].Visible = false;
+        }
+
+        private void btnEditarDatos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatosEmpresa(IdEmpresa);
+
+        }
+
+        private void btnEditarArt_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatosSeguro(IdEmpresa);
+
+        }
+
+        private void bAgregarSatelital_Click(object sender, EventArgs e)
+        {
+            _presenter.AgregarEmpresaSatelital(IdEmpresa);
+
+        }
+
+        private async void bEliminarSatelital_Click(object sender, EventArgs e)
+        {
+            if (dgvSatelitales.SelectedRows.Count > 0)
+            {
+                int idEmpresaSatelital = Convert.ToInt32(dgvSatelitales.SelectedRows[0].Cells["idEmpresaSatelital"].Value);
+                await _presenter.EliminarEmpresaSatelital(idEmpresaSatelital, IdEmpresa);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione una empresa satelital para eliminar.");
+            }
+        }
+
+        private void bAgregarPaisAuto_Click(object sender, EventArgs e)
+        {
 
         }
     }

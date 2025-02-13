@@ -11,7 +11,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
-
+        private int? _idConsumo; // Null si es un nuevo consumo, valor si es edición
         private int _idPoc;
         private EmpresaCredito _empresaCredito;
 
@@ -56,7 +56,6 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
             _view.MostrarTotalCalculado(litros * tipoSeleccionado.PrecioActual);
         }
-
         public async Task GuardarConsumoAsync()
         {
             await EjecutarConCargaAsync(async () =>
@@ -64,30 +63,53 @@ namespace GestionFlota.Presenters.IngresarConsumos
                 if (!ValidarDatos()) return;
 
                 var tipoSeleccionado = _view.TipoConsumoSeleccionado;
-                var precioTotal = _view.Cantidad.Value * tipoSeleccionado.PrecioActual;
+                var nuevoPrecioTotal = _view.Cantidad.Value * tipoSeleccionado.PrecioActual;
 
-                if (VerificarCreditoInsuficiente(precioTotal)) return;
-
-                var consumo = new ConsumoOtros
+                if (_idConsumo == null) // Nuevo consumo
                 {
-                    IdPOC = _idPoc,
-                    IdConsumo = tipoSeleccionado.IdConsumo,
-                    NumeroVale = _view.RemitoExterno,
-                    Cantidad = _view.Cantidad.Value,
-                    ImporteTotal = precioTotal,
-                    Aclaracion = _view.Aclaraciones,
-                    FechaRemito = _view.FechaRemito,
-                    Activo = true
-                };
+                    if (VerificarCreditoInsuficiente(nuevoPrecioTotal)) return;
 
-                await _consumoOtrosRepositorio.AgregarConsumoAsync(consumo);
-                ActualizarCredito(precioTotal);
+                    var nuevoConsumo = new ConsumoOtros
+                    {
+                        IdPOC = _idPoc,
+                        IdConsumo = tipoSeleccionado.IdConsumo,
+                        NumeroVale = _view.RemitoExterno,
+                        Cantidad = _view.Cantidad.Value,
+                        ImporteTotal = nuevoPrecioTotal,
+                        Aclaracion = _view.Aclaraciones,
+                        FechaRemito = _view.FechaRemito,
+                        Activo = true
+                    };
+
+                    await _consumoOtrosRepositorio.AgregarConsumoAsync(nuevoConsumo);
+                    ActualizarCredito(nuevoPrecioTotal, 0); // Agregar el nuevo consumo
+                }
+                else // Edición de consumo existente
+                {
+                    var consumoAnterior = await _consumoOtrosRepositorio.ObtenerPorIdAsync(_idConsumo.Value);
+                    if (consumoAnterior == null)
+                    {
+                        _view.MostrarMensaje("No se pudo cargar el consumo anterior.");
+                        return;
+                    }
+
+                    if (VerificarCreditoInsuficiente(nuevoPrecioTotal - consumoAnterior.ImporteTotal)) return;
+
+                    consumoAnterior.IdConsumo = tipoSeleccionado.IdConsumo;
+                    consumoAnterior.NumeroVale = _view.RemitoExterno;
+                    consumoAnterior.Cantidad = _view.Cantidad.Value;
+                    consumoAnterior.ImporteTotal = nuevoPrecioTotal;
+                    consumoAnterior.Aclaracion = _view.Aclaraciones;
+                    consumoAnterior.FechaRemito = _view.FechaRemito;
+
+                    await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoAnterior);
+                    ActualizarCredito(nuevoPrecioTotal, consumoAnterior.ImporteTotal); // Ajustar crédito
+                }
 
                 _view.MostrarMensaje("Consumo de gasoil guardado correctamente.");
                 _view.Cerrar();
             });
         }
-
         private bool ValidarDatos()
         {
             if (_view.TipoConsumoSeleccionado == null)
@@ -121,10 +143,40 @@ namespace GestionFlota.Presenters.IngresarConsumos
             return false;
         }
 
-        private async void ActualizarCredito(decimal precioTotal)
+        private async void ActualizarCredito(decimal nuevoImporte, decimal importeAnterior)
         {
-            _empresaCredito.CreditoConsumido += precioTotal;
+            decimal diferencia = nuevoImporte - importeAnterior;
+
+            _empresaCredito.CreditoConsumido += diferencia;
+            _empresaCredito.CreditoDisponible -= diferencia;
+
             await _empresaCreditoRepositorio.ActualizarCreditoAsync(_empresaCredito);
+        }
+
+        public async Task CargarDatosParaEditarAsync(int idPoc, int idConsumo, EmpresaCredito empresaCredito)
+        {
+            _idPoc = idPoc;
+            _empresaCredito = empresaCredito;
+
+            await EjecutarConCargaAsync(async () =>
+            {
+                var consumo = await _consumoOtrosRepositorio.ObtenerPorIdAsync(idConsumo);
+                if (consumo == null)
+                {
+                    _view.MostrarMensaje("No se encontró el consumo seleccionado.");
+                    return;
+                }
+
+                var tiposConsumo = await Task.WhenAll(
+                    _conceptoRepositorio.ObtenerPorTipoAsync(3),
+                    _conceptoRepositorio.ObtenerPorTipoAsync(5)
+                );
+
+                var todosLosTiposConsumo = tiposConsumo.SelectMany(x => x).ToList();
+                _view.CargarTiposConsumo(todosLosTiposConsumo);
+                _idConsumo = idConsumo;
+                _view.InicializarParaEdicion(consumo);
+            });
         }
     }
 }

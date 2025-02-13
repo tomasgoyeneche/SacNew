@@ -61,5 +61,23 @@ namespace Core.Repositories
                 conn.QuerySingleOrDefaultAsync<ConsumoOtros>(query, new { idConsumoOtros })
             );
         }
+
+
+        public async Task ActualizarConsumoAsync(ConsumoOtros consumo)
+        {
+            var query = @"
+        UPDATE ConsumoOtros
+        SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, Cantidad = @Cantidad, 
+            ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito
+        WHERE IdConsumo = @IdConsumo";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, consumo),
+                "ConsumoOtros",
+                "UPDATE",
+                consumo,
+                consumo
+            );
+        }
     }
 }
