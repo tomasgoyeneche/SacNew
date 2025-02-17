@@ -30,11 +30,11 @@ namespace GestionOperativa.Presenters
 
         public async Task CargarDatosParaMostrarAsync(int empresaId)
         {
-            await EjecutarConCargaAsync( async () =>
+            await EjecutarConCargaAsync(async () =>
             {
                 EmpresaDto empresa = await _empresaRepositorio.ObtenerPorIdDto(empresaId);
                 await VerificarArchivosLegajoAsync(empresa.Cuit);
-                 _view.MostrarDatosEmpresa(empresa);
+                _view.MostrarDatosEmpresa(empresa);
 
                 var satelitales = await _empresaSatelitalRepositorio.ObtenerSatelitalesPorEmpresaAsync(empresa.IdEmpresa);
                 _view.MostrarSatelitales(satelitales);
@@ -75,7 +75,6 @@ namespace GestionOperativa.Presenters
                 await form._presenter.InicializarAsync(idEmpresa);
             });
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
-
         }
 
         public async Task EditarDatosSeguro(int idEmpresa)
@@ -86,7 +85,6 @@ namespace GestionOperativa.Presenters
             });
             await CargarDatosParaMostrarAsync(idEmpresa);
         }
-
 
         public async Task AgregarEmpresaSatelital(int idEmpresa)
         {

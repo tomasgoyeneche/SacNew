@@ -1,14 +1,5 @@
 ﻿using GestionOperativa.Presenters.Empresas;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 {
@@ -55,7 +46,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            
             await _presenter.GuardarCambios();
             Close();
         }

@@ -7,6 +7,7 @@ namespace Core.Repositories
         Task<List<EmpresaSatelitalDto>> ObtenerSatelitalesPorEmpresaAsync(int idEmpresa);
 
         Task AgregarAsync(EmpresaSatelital empresaSatelital);
+
         Task EliminarAsync(int idEmpresaSatelital);
     }
 }

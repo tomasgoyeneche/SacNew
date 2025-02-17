@@ -18,8 +18,12 @@ namespace Core.Repositories
 
         Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaAsync(int idPrograma, string patente);
 
+        Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaEditableAsync(int idConsumo, int idPrograma, string patente);
+
         Task<int?> ObtenerIdProgramaAnteriorAsync(string patente, int idProgramaActual);
 
         Task<ConsumoGasoilAutorizadoDto?> ObtenerUltimoConsumoPorPatenteAsync(string patente);
+
+        Task ActualizarConsumoAsync(ConsumoGasoil consumo);
     }
 }

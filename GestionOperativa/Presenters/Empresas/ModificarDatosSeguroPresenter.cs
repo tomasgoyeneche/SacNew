@@ -3,12 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Presenters.Empresas
 {
@@ -63,9 +57,8 @@ namespace GestionOperativa.Presenters.Empresas
                 PagoHasta = _view.PagoHasta
             };
 
-                 await _empresaSeguroRepositorio.ActualizarAsync(seguro);
-                _view.MostrarMensaje("Datos del seguro actualizados correctamente.");
-         
+            await _empresaSeguroRepositorio.ActualizarAsync(seguro);
+            _view.MostrarMensaje("Datos del seguro actualizados correctamente.");
         }
     }
 }

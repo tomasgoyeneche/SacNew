@@ -64,7 +64,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            
             await _presenter.GuardarCambios();
             Hide();
         }

@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -30,11 +25,11 @@ namespace Core.Repositories
 
             var query = @"
         UPDATE EmpresaSeguro
-        SET IdCia = @IdCia, 
-            IdCobertura = @IdCobertura, 
-            NumeroPoliza = @NumeroPoliza, 
-            VigenciaHasta = @VigenciaHasta, 
-            PagoDesde = @PagoDesde, 
+        SET IdCia = @IdCia,
+            IdCobertura = @IdCobertura,
+            NumeroPoliza = @NumeroPoliza,
+            VigenciaHasta = @VigenciaHasta,
+            PagoDesde = @PagoDesde,
             PagoHasta = @PagoHasta
         WHERE IdSeguroEmpresa = @IdSeguroEmpresa";
 

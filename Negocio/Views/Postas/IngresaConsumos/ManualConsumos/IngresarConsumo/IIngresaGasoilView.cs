@@ -13,6 +13,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
 
         void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros);
 
+        void InicializarParaEdicion(ConsumoGasoil consumo);
+
         void CargarTiposGasoil(List<Concepto> tiposGasoil);
 
         bool ConfirmarGuardado(string mensaje);

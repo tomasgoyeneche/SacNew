@@ -59,7 +59,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaGasoil_Click(object sender, EventArgs e)
         {
-            this.Hide();
             await _presenter.AbrirGasoilAutorizadoAsync(IdPoc);
         }
 
@@ -70,7 +69,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaOtrosConsumos_Click(object sender, EventArgs e)
         {
-            this.Hide();
             await _presenter.AbrirOtrosConsumos(IdPoc);
         }
 
@@ -157,8 +155,18 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void btnCerrarPoc_Click(object sender, EventArgs e)
         {
-            await _presenter.CerrarPocAsync(IdPoc, dtpCierrePoc.Value);
-            this.Close();
+            var confirmacion = MessageBox.Show(
+        "¿Está seguro de que desea cerrar la POC? Esta acción no se puede deshacer.",
+        "Confirmar cierre de POC",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning
+    );
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                await _presenter.CerrarPocAsync(IdPoc, dtpCierrePoc.Value);
+                this.Close();
+            }
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
@@ -175,7 +183,17 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
                     importeTotal = resultado;
                 }
 
-                await _presenter.EliminarConsumo(idConsumo, tipoConsumo, importeTotal);
+                var confirmacion = MessageBox.Show(
+                    "¿Está seguro de que desea eliminar este consumo? Esta acción no se puede deshacer.",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    await _presenter.EliminarConsumo(idConsumo, tipoConsumo, importeTotal);
+                }
             }
             else
             {
@@ -189,7 +207,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             {
                 int idConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["IdConsumo"].Value);
                 int tipoConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["tipoConsumo"].Value);
-              
 
                 await _presenter.EditarConsumoOtros(IdPoc, idConsumo, tipoConsumo);
             }

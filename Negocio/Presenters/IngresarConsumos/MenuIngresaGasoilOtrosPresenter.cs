@@ -80,6 +80,7 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.CargarDatosAsync(idPoc, _amount);
             });
+            await CargarDatosAsync(_view.IdPoc);
         }
 
         public async Task AbrirConsumosenYpfEnRutaAsync(int idPoc)
@@ -88,6 +89,7 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.CargarDatosAsync(idPoc);
             });
+            await CargarDatosAsync(_view.IdPoc);
         }
 
         public async Task CerrarPocAsync(int idPoc, DateTime fechaCierre)
@@ -114,6 +116,8 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.CargarDatosAsync(idPoc, _amount);
             });
+
+            await CargarDatosAsync(_view.IdPoc);
         }
 
         public async Task EliminarConsumo(int idConsumo, int tipoConsumo, decimal importeTotal)
@@ -152,14 +156,22 @@ namespace GestionFlota.Presenters
 
         public async Task EditarConsumoOtros(int idPoc, int idConsumo, int tipoConsumo)
         {
-            if(tipoConsumo == 2)
+            if (tipoConsumo == 2)
             {
                 await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
                 {
                     await form._presenter.CargarDatosParaEditarAsync(idPoc, idConsumo, _amount);
                 });
             }
-           
+            else if (tipoConsumo == 1)
+            {
+                await AbrirFormularioAsync<IngresaGasoil>(async form =>
+                {
+                    await form._presenter.CargarDatosParaEditarAsync(idPoc, idConsumo, _amount);
+                });
+            }
+
+            await CargarDatosAsync(_view.IdPoc);
         }
     }
 }

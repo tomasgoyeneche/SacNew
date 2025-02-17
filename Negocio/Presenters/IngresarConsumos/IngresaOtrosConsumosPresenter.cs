@@ -56,6 +56,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
             _view.MostrarTotalCalculado(litros * tipoSeleccionado.PrecioActual);
         }
+
         public async Task GuardarConsumoAsync()
         {
             await EjecutarConCargaAsync(async () =>
@@ -110,6 +111,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                 _view.Cerrar();
             });
         }
+
         private bool ValidarDatos()
         {
             if (_view.TipoConsumoSeleccionado == null)
@@ -135,7 +137,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
         private bool VerificarCreditoInsuficiente(decimal precioTotal)
         {
-            if (_empresaCredito.CreditoConsumido + precioTotal > _empresaCredito.CreditoDisponible)
+            if (precioTotal > _empresaCredito.CreditoDisponible)
             {
                 _view.MostrarMensaje("El crédito disponible no es suficiente para este consumo.");
                 return true;

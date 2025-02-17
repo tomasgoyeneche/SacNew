@@ -31,7 +31,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<Empresa?> ObtenerPorIdAsync(int idEmpresa)
         {
             var query = "SELECT * FROM Empresa where idEmpresa = @idEmpresa";

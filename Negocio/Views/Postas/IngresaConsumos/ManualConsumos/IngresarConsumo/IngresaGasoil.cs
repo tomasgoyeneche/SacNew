@@ -31,6 +31,16 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dtpFechaCarga.Value = DateTime.Now;
         }
 
+        public void InicializarParaEdicion(ConsumoGasoil consumo)
+        {
+            cmbTipoGasoil.SelectedValue = consumo.IdConsumo;
+            txtNumeroVale.Text = consumo.NumeroVale;
+            dtpFechaCarga.Value = consumo.FechaCarga;
+            txtLitros.Text = consumo.LitrosCargados.ToString("N2");
+            txtTotal.Text = $"{consumo.PrecioTotal:C}";
+            txtObservaciones.Text = consumo.Observaciones;
+        }
+
         public void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros)
         {
             txtLitrosAutorizados.Text = $"La cantidad de litros autorizados restante es de, {litrosAutorizados.ToString("N2")}Lts para un viaje de {kilometros.ToString("N2")}Km";

@@ -98,6 +98,19 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosPorProgramaEditableAsync(int idConsumo, int idPrograma, string patente)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+                SELECT IdConsumoGasoil, NumeroPoc, NumeroVale, IdPrograma, LitrosAutorizados, LitrosCargados, Observaciones, FechaCarga
+                FROM vw_ConsumoGasoilAutorizadoActivo
+                WHERE IdPrograma = @IdPrograma and patente = @patente and IdConsumoGasoil != @IdConsumo";
+
+                return (await connection.QueryAsync<ConsumoGasoilAutorizadoDto>(query, new { IdPrograma = idPrograma, patente = patente, IdConsumo = idConsumo })).ToList();
+            });
+        }
+
         public async Task<int?> ObtenerIdProgramaAnteriorAsync(string patente, int idProgramaActual)
         {
             return await ConectarAsync(async connection =>
@@ -128,6 +141,23 @@ namespace Core.Repositories
 
                 return await connection.QuerySingleOrDefaultAsync<ConsumoGasoilAutorizadoDto>(query, new { Patente = patente });
             });
+        }
+
+        public async Task ActualizarConsumoAsync(ConsumoGasoil consumo)
+        {
+            var query = @"
+        UPDATE ConsumoGasoil
+        SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, LitrosCargados = @LitrosCargados,
+            PrecioTotal = @PrecioTotal, Observaciones = @Observaciones, FechaCarga = @FechaCarga
+        WHERE IdConsumoGasoil = @IdConsumoGasoil";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, consumo),
+                "ConsumoGasoil",
+                "UPDATE",
+                consumo,
+                consumo
+            );
         }
     }
 }

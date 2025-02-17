@@ -88,7 +88,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             {
                 var entidadSeleccionada = dataGridViewEntidades.SelectedRows[0].DataBoundItem;
                 await _presenter.EditarEntidadAsync(entidadSeleccionada);
-               
             }
             else
             {

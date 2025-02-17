@@ -14,9 +14,6 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             InitializeComponent();
         }
 
-   
-
-
         public Concepto TipoConsumoSeleccionado => cmbTipoConsumo.SelectedItem as Concepto;
         public string RemitoExterno => txtRemitoExterno.Text.Trim();
         public DateTime FechaRemito => dtpFechaRemito.Value;

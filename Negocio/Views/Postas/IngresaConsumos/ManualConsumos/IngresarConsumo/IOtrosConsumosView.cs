@@ -10,12 +10,13 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         DateTime FechaRemito { get; }
         decimal? Cantidad { get; }
         string Aclaraciones { get; }
-        
+
         void CargarTiposConsumo(List<Concepto> tiposConsumo);
 
         void MostrarTotalCalculado(decimal total);
 
         void InicializarParaEdicion(ConsumoOtros consumo);
+
         void Cerrar();
     }
 }
