@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
 using Shared.Models;
 
@@ -37,7 +38,7 @@ namespace GestionOperativa.Presenters
                 switch (_entidad.ToLower())
                 {
                     case "chofer":
-                        var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
+                        var choferes = await _choferRepositorio.ObtenerTodosLosChoferesDto();
                         _view.MostrarEntidades(choferes);
                         break;
 
@@ -90,9 +91,10 @@ namespace GestionOperativa.Presenters
                 case "chofer":
                     MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
                     {
-                        ("NombreApellido", 0), // Columna "Nombre" en la posición 0
-                        ("Documento", 1), // Columna "Apellido" en la posición 1
-                        ("Domicilio", 2)  // Columna "Licencia" en la posición 2
+                        ("Apellido", 0), // Columna "Nombre" en la posición 0
+                        ("Nombre", 1),
+                        ("Documento", 2), // Columna "Apellido" en la posición 1
+                        ("Domicilio", 3)  // Columna "Licencia" en la posición 2
                     });
                     break;
 
@@ -146,15 +148,15 @@ namespace GestionOperativa.Presenters
             {
                 switch (_entidad.ToLower())
                 {
-                    //case "chofer":
-                    //    if (entidadSeleccionada is ChoferDto chofer)
-                    //    {
-                    //        await AbrirFormularioAsync<AgregarEditarChoferForm>(async form =>
-                    //        {
-                    //            await form._presenter.CargarDatosParaEditar(chofer);
-                    //        });
-                    //    }
-                    //    break;
+                    case "chofer":
+                        if (entidadSeleccionada is ChoferDto chofer)
+                        {
+                            await AbrirFormularioAsync<AgregarEditarChoferForm>(async form =>
+                            {
+                                await form._presenter.CargarDatosParaMostrarAsync(chofer.IdChofer);
+                            });
+                        }
+                        break;
 
                     case "empresa":
                         if (entidadSeleccionada is EmpresaDto empresa)
@@ -194,7 +196,7 @@ namespace GestionOperativa.Presenters
                 switch (_entidad.ToLower())
                 {
                     case "chofer":
-                        if (entidadSeleccionada is Chofer chofer)
+                        if (entidadSeleccionada is ChoferDto chofer)
                         {
                             await _choferRepositorio.EliminarChoferAsync(chofer.IdChofer);
                         }

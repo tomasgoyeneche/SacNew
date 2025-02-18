@@ -49,5 +49,22 @@ namespace Core.Repositories
                 return connection.ExecuteAsync(query, new { IdChofer = idChofer });
             });
         }
+
+        public async Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer)
+        {
+            var query = "SELECT * FROM vw_ChoferesDetalles WHERE idChofer = @IdChofer";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<ChoferDto>(query, new { IdChofer = idChofer }));
+        }
+
+        public async Task<List<ChoferDto>> ObtenerTodosLosChoferesDto()
+        {
+            var query = "SELECT * FROM vw_ChoferesDetalles";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<ChoferDto>(query);
+                return chofers.ToList();
+            });
+        }
     }
 }

@@ -37,6 +37,23 @@ namespace Core.Repositories
             );
         }
 
+        public async Task ActualizarConsumoAsync(ConsumoGasoil consumo)
+        {
+            var query = @"
+        UPDATE ConsumoGasoil
+        SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, LitrosCargados = @LitrosCargados,
+            PrecioTotal = @PrecioTotal, Observaciones = @Observaciones, FechaCarga = @FechaCarga
+        WHERE IdConsumoGasoil = @IdConsumoGasoil";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, consumo),
+                "ConsumoGasoil",
+                "UPDATE",
+                consumo,
+                consumo
+            );
+        }
+
         public async Task EliminarConsumoAsync(int idConsumoGasoil)
         {
             var query = "UPDATE ConsumoGasoil SET Activo = 0 WHERE idConsumoGasoil = @idConsumoGasoil";
@@ -58,6 +75,13 @@ namespace Core.Repositories
                 conn.QuerySingleOrDefaultAsync<ConsumoGasoil>(query, new { idConsumoGasoil })
             );
         }
+
+
+
+
+
+
+
 
         public async Task<decimal> ObtenerLitrosCargadosPorProgramaAsync(int idPrograma)
         {
@@ -143,21 +167,6 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarConsumoAsync(ConsumoGasoil consumo)
-        {
-            var query = @"
-        UPDATE ConsumoGasoil
-        SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, LitrosCargados = @LitrosCargados,
-            PrecioTotal = @PrecioTotal, Observaciones = @Observaciones, FechaCarga = @FechaCarga
-        WHERE IdConsumoGasoil = @IdConsumoGasoil";
-
-            await EjecutarConAuditoriaAsync(
-                connection => connection.ExecuteAsync(query, consumo),
-                "ConsumoGasoil",
-                "UPDATE",
-                consumo,
-                consumo
-            );
-        }
+        
     }
 }

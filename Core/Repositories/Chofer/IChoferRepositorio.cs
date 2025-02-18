@@ -8,6 +8,11 @@ namespace Core.Repositories
 
         Task<List<Chofer>> ObtenerTodosLosChoferes();
 
+        Task<List<ChoferDto>> ObtenerTodosLosChoferesDto();
+
+        Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer);
+
+
         Task<List<Chofer>> BuscarAsync(string textoBusqueda);
 
         Task EliminarChoferAsync(int idChofer);
