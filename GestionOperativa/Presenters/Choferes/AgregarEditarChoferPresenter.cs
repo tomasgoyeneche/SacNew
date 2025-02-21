@@ -3,7 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 
-namespace GestionOperativa.Presenters.Chofer
+namespace GestionOperativa.Presenters.Choferes
 {
     public class AgregarEditarChoferPresenter : BasePresenter<IAgregarEditarChoferView>
     {
@@ -62,7 +62,14 @@ namespace GestionOperativa.Presenters.Chofer
                 ? null
                 : Path.Combine(conf.Ruta, subDirectorio, archivo);
         }
+
+        public async Task EditarDatosChofer(int idChofer)
+        {
+            await AbrirFormularioAsync<ModificarDatosChoferForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idChofer);
+            });
+            await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
+        }
     }
-
-
 }

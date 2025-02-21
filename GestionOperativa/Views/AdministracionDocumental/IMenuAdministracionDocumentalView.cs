@@ -1,6 +1,9 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental
+﻿using Core.Interfaces;
+
+namespace GestionOperativa.Views.AdministracionDocumental
 {
-    public interface IMenuAdministracionDocumentalView
+    public interface IMenuAdministracionDocumentalView : IViewConMensajes
     {
+        void MostrarRelevamiento(int cantidad);
     }
 }

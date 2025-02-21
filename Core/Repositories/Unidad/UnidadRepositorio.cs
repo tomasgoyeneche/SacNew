@@ -23,6 +23,17 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<UnidadDto>> ObtenerUnidadesDtoAsync()
+        {
+            var query = "SELECT * FROM vw_UnidadesDetalles";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<UnidadDto>(query);
+                return chofers.ToList();
+            });
+        }
+
         public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
         {
             var query = @"

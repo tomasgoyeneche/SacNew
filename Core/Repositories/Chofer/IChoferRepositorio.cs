@@ -12,9 +12,12 @@ namespace Core.Repositories
 
         Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer);
 
+        Task<Chofer> ObtenerPorIdAsync(int idChofer);
 
-        Task<List<Chofer>> BuscarAsync(string textoBusqueda);
+        Task<List<ChoferDto>> BuscarAsync(string textoBusqueda);
 
         Task EliminarChoferAsync(int idChofer);
+
+        Task ActualizarAsync(Chofer chofer);
     }
 }

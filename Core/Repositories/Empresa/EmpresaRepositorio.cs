@@ -41,13 +41,13 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<Empresa>> BuscarEmpresasAsync(string textoBusqueda)
+        public async Task<List<EmpresaDto>> BuscarEmpresasAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM vw_EmpresaDetalle WHERE Cuit LIKE @TextoBusqueda OR NombreFantasia LIKE @TextoBusqueda";
 
             return await ConectarAsync(connection =>
             {
-                return connection.QueryAsync<Empresa>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
+                return connection.QueryAsync<EmpresaDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
                                  .ContinueWith(task => task.Result.ToList());
             });
         }

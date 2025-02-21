@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
+﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
-    public partial class AgregarEditarTractorForm: Form
+    public partial class AgregarEditarTractorForm : Form
     {
         public AgregarEditarTractorForm()
         {

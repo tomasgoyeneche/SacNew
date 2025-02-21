@@ -1,4 +1,5 @@
-﻿using Shared.Models.DTOs;
+﻿using Shared.Models;
+using Shared.Models.DTOs;
 
 namespace Core.Repositories
 {
@@ -9,6 +10,8 @@ namespace Core.Repositories
         Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor);
 
         Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync();
+
+        Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 
         Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
     }

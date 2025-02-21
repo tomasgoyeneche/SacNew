@@ -175,18 +175,8 @@ namespace GestionFlota.Presenters
 
         private async Task CargarAutorizacionAnteriorAsync()
         {
-            int idProgramaParaBusqueda = _idPrograma;
-            var idProgramaAnterior = await _consumoGasoilRepositorio.ObtenerIdProgramaAnteriorAsync(_patente, idProgramaParaBusqueda);
+            var consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosUltimosDosMesesAsync(_patente, _idPrograma);
 
-            if (idProgramaAnterior == null || idProgramaAnterior == 0)
-            {
-                _view.MostrarMensaje("No se encontró un programa anterior.");
-                _view.MostrarConsumosAnteriores(new List<ConsumoGasoilAutorizadoDto>());
-                _view.ActualizarLabelAnterior(0);
-                return;
-            }
-
-            var consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(idProgramaAnterior.Value, _patente);
             _restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
             _restanteAnterior -= consumosAnteriores.Sum(c => c.LitrosCargados);
 

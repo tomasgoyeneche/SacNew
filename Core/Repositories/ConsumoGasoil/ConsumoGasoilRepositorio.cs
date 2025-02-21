@@ -76,13 +76,6 @@ namespace Core.Repositories
             );
         }
 
-
-
-
-
-
-
-
         public async Task<decimal> ObtenerLitrosCargadosPorProgramaAsync(int idPrograma)
         {
             return await ConectarAsync(async connection =>
@@ -167,6 +160,24 @@ namespace Core.Repositories
             });
         }
 
-        
+        public async Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosUltimosDosMesesAsync(string patente, int idProgramaActual)
+        {
+            return await ConectarAsync(async connection =>
+            {
+                const string query = @"
+        SELECT IdConsumoGasoil, NumeroPoc, NumeroVale, IdPrograma, LitrosAutorizados, LitrosCargados, Observaciones, FechaCarga
+        FROM vw_ConsumoGasoilAutorizadoActivo
+        WHERE Patente = @Patente
+        AND FechaCarga >= DATEADD(MONTH, -2, GETDATE())
+        AND (@IdProgramaActual = 0 OR IdPrograma <> @IdProgramaActual)
+        ORDER BY IdConsumoGasoil DESC";
+
+                return (await connection.QueryAsync<ConsumoGasoilAutorizadoDto>(query, new
+                {
+                    Patente = patente,
+                    IdProgramaActual = idProgramaActual
+                })).ToList();
+            });
+        }
     }
 }

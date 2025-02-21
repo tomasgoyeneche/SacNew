@@ -18,5 +18,13 @@ namespace Core.Repositories
                 return (await connection.QueryAsync<Cia>(query)).ToList();
             });
         }
+
+        public async Task<List<Cia>> ObtenerPorTipoAsync(int idTipoCia)
+        {
+            var query = "SELECT * FROM Cia WHERE idTipoCia = @idTipoCia AND Activo = 1";
+            return (await ConectarAsync(conn =>
+                conn.QueryAsync<Cia>(query, new { idTipoCia })
+            )).ToList();
+        }
     }
 }

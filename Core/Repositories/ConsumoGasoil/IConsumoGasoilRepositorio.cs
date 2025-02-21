@@ -25,5 +25,7 @@ namespace Core.Repositories
         Task<ConsumoGasoilAutorizadoDto?> ObtenerUltimoConsumoPorPatenteAsync(string patente);
 
         Task ActualizarConsumoAsync(ConsumoGasoil consumo);
+
+        Task<List<ConsumoGasoilAutorizadoDto>> ObtenerConsumosUltimosDosMesesAsync(string patente, int idProgramaActual);
     }
 }

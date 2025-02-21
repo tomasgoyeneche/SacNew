@@ -105,6 +105,7 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -118,11 +119,12 @@
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            LRegistrosContabilizados = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            bPdfEmpresa = new Guna.UI2.WinForms.Guna2Button();
+            bPdfUnidades = new Guna.UI2.WinForms.Guna2Button();
+            bPdfChoferes = new Guna.UI2.WinForms.Guna2Button();
+            bFotosChoferes = new Guna.UI2.WinForms.Guna2Button();
+            bUnidadesEnNominaFotos = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -439,6 +441,7 @@
             // guna2Panel3
             // 
             guna2Panel3.BorderRadius = 5;
+            guna2Panel3.Controls.Add(guna2HtmlLabel26);
             guna2Panel3.Controls.Add(guna2HtmlLabel25);
             guna2Panel3.Controls.Add(guna2HtmlLabel24);
             guna2Panel3.Controls.Add(guna2HtmlLabel21);
@@ -459,13 +462,26 @@
             guna2Panel3.Size = new Size(402, 252);
             guna2Panel3.TabIndex = 17;
             // 
+            // guna2HtmlLabel26
+            // 
+            guna2HtmlLabel26.AutoSize = false;
+            guna2HtmlLabel26.BackColor = Color.Transparent;
+            guna2HtmlLabel26.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel26.ForeColor = SystemColors.ControlDark;
+            guna2HtmlLabel26.Location = new Point(154, 228);
+            guna2HtmlLabel26.Name = "guna2HtmlLabel26";
+            guna2HtmlLabel26.Size = new Size(87, 23);
+            guna2HtmlLabel26.TabIndex = 23;
+            guna2HtmlLabel26.Text = "RegistrosContabilizados";
+            guna2HtmlLabel26.Visible = false;
+            // 
             // guna2HtmlLabel25
             // 
             guna2HtmlLabel25.AutoSize = false;
             guna2HtmlLabel25.BackColor = Color.Transparent;
             guna2HtmlLabel25.Font = new Font("Century Gothic", 7F);
             guna2HtmlLabel25.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel25.Location = new Point(130, 207);
+            guna2HtmlLabel25.Location = new Point(93, 201);
             guna2HtmlLabel25.Name = "guna2HtmlLabel25";
             guna2HtmlLabel25.Size = new Size(89, 42);
             guna2HtmlLabel25.TabIndex = 31;
@@ -477,7 +493,7 @@
             guna2HtmlLabel24.BackColor = Color.Transparent;
             guna2HtmlLabel24.Font = new Font("Century Gothic", 7F);
             guna2HtmlLabel24.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel24.Location = new Point(130, 137);
+            guna2HtmlLabel24.Location = new Point(93, 131);
             guna2HtmlLabel24.Name = "guna2HtmlLabel24";
             guna2HtmlLabel24.Size = new Size(89, 69);
             guna2HtmlLabel24.TabIndex = 30;
@@ -489,9 +505,9 @@
             guna2HtmlLabel21.BackColor = Color.Transparent;
             guna2HtmlLabel21.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel21.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel21.Location = new Point(24, 215);
+            guna2HtmlLabel21.Location = new Point(24, 209);
             guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            guna2HtmlLabel21.Size = new Size(98, 19);
+            guna2HtmlLabel21.Size = new Size(66, 19);
             guna2HtmlLabel21.TabIndex = 29;
             guna2HtmlLabel21.Text = "Nomina";
             // 
@@ -507,7 +523,7 @@
             guna2Button14.FillColor = Color.DimGray;
             guna2Button14.Font = new Font("Century Gothic", 9F);
             guna2Button14.ForeColor = Color.White;
-            guna2Button14.Location = new Point(273, 207);
+            guna2Button14.Location = new Point(273, 201);
             guna2Button14.Name = "guna2Button14";
             guna2Button14.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Button14.Size = new Size(96, 30);
@@ -526,7 +542,7 @@
             guna2Button13.FillColor = Color.DimGray;
             guna2Button13.Font = new Font("Century Gothic", 9F);
             guna2Button13.ForeColor = Color.White;
-            guna2Button13.Location = new Point(273, 154);
+            guna2Button13.Location = new Point(273, 148);
             guna2Button13.Name = "guna2Button13";
             guna2Button13.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Button13.Size = new Size(96, 30);
@@ -539,9 +555,9 @@
             guna2HtmlLabel20.BackColor = Color.Transparent;
             guna2HtmlLabel20.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel20.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel20.Location = new Point(24, 161);
+            guna2HtmlLabel20.Location = new Point(24, 155);
             guna2HtmlLabel20.Name = "guna2HtmlLabel20";
-            guna2HtmlLabel20.Size = new Size(98, 19);
+            guna2HtmlLabel20.Size = new Size(66, 19);
             guna2HtmlLabel20.TabIndex = 26;
             guna2HtmlLabel20.Text = "Semi";
             // 
@@ -557,7 +573,7 @@
             guna2Button12.FillColor = Color.DimGray;
             guna2Button12.Font = new Font("Century Gothic", 9F);
             guna2Button12.ForeColor = Color.White;
-            guna2Button12.Location = new Point(273, 97);
+            guna2Button12.Location = new Point(273, 91);
             guna2Button12.Name = "guna2Button12";
             guna2Button12.ShadowDecoration.CustomizableEdges = customizableEdges32;
             guna2Button12.Size = new Size(96, 30);
@@ -570,7 +586,7 @@
             guna2HtmlLabel18.BackColor = Color.Transparent;
             guna2HtmlLabel18.Font = new Font("Century Gothic", 7F);
             guna2HtmlLabel18.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel18.Location = new Point(130, 112);
+            guna2HtmlLabel18.Location = new Point(93, 106);
             guna2HtmlLabel18.Name = "guna2HtmlLabel18";
             guna2HtmlLabel18.Size = new Size(89, 19);
             guna2HtmlLabel18.TabIndex = 24;
@@ -582,9 +598,9 @@
             guna2HtmlLabel19.BackColor = Color.Transparent;
             guna2HtmlLabel19.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel19.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel19.Location = new Point(24, 105);
+            guna2HtmlLabel19.Location = new Point(24, 99);
             guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            guna2HtmlLabel19.Size = new Size(98, 19);
+            guna2HtmlLabel19.Size = new Size(66, 19);
             guna2HtmlLabel19.TabIndex = 23;
             guna2HtmlLabel19.Text = "Tractor";
             // 
@@ -600,7 +616,7 @@
             guna2Button2.FillColor = Color.DimGray;
             guna2Button2.Font = new Font("Century Gothic", 9F);
             guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(273, 41);
+            guna2Button2.Location = new Point(273, 35);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges34;
             guna2Button2.Size = new Size(96, 30);
@@ -613,7 +629,7 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 7F);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(130, 39);
+            guna2HtmlLabel5.Location = new Point(93, 33);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(89, 58);
             guna2HtmlLabel5.TabIndex = 13;
@@ -625,20 +641,21 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel6.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel6.Location = new Point(24, 53);
+            guna2HtmlLabel6.Location = new Point(24, 47);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(79, 19);
+            guna2HtmlLabel6.Size = new Size(66, 19);
             guna2HtmlLabel6.TabIndex = 12;
             guna2HtmlLabel6.Text = "Chofer";
             // 
             // guna2Panel4
             // 
             guna2Panel4.BorderRadius = 5;
-            guna2Panel4.Controls.Add(guna2Button11);
-            guna2Panel4.Controls.Add(guna2Button10);
-            guna2Panel4.Controls.Add(guna2Button9);
-            guna2Panel4.Controls.Add(guna2Button3);
-            guna2Panel4.Controls.Add(guna2Button8);
+            guna2Panel4.Controls.Add(LRegistrosContabilizados);
+            guna2Panel4.Controls.Add(bPdfEmpresa);
+            guna2Panel4.Controls.Add(bPdfUnidades);
+            guna2Panel4.Controls.Add(bPdfChoferes);
+            guna2Panel4.Controls.Add(bFotosChoferes);
+            guna2Panel4.Controls.Add(bUnidadesEnNominaFotos);
             guna2Panel4.Controls.Add(guna2HtmlLabel16);
             guna2Panel4.Controls.Add(guna2HtmlLabel15);
             guna2Panel4.Controls.Add(guna2HtmlLabel14);
@@ -652,100 +669,118 @@
             guna2Panel4.Size = new Size(402, 252);
             guna2Panel4.TabIndex = 18;
             // 
-            // guna2Button11
+            // LRegistrosContabilizados
             // 
-            guna2Button11.BackColor = Color.Transparent;
-            guna2Button11.BorderRadius = 5;
-            guna2Button11.CustomizableEdges = customizableEdges15;
-            guna2Button11.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button11.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button11.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button11.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button11.FillColor = Color.DimGray;
-            guna2Button11.Font = new Font("Century Gothic", 9F);
-            guna2Button11.ForeColor = Color.White;
-            guna2Button11.Location = new Point(273, 203);
-            guna2Button11.Name = "guna2Button11";
-            guna2Button11.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Button11.Size = new Size(96, 30);
-            guna2Button11.TabIndex = 21;
-            guna2Button11.Text = "Buscar";
+            LRegistrosContabilizados.AutoSize = false;
+            LRegistrosContabilizados.BackColor = Color.Transparent;
+            LRegistrosContabilizados.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LRegistrosContabilizados.ForeColor = SystemColors.ControlDark;
+            LRegistrosContabilizados.Location = new Point(154, 228);
+            LRegistrosContabilizados.Name = "LRegistrosContabilizados";
+            LRegistrosContabilizados.Size = new Size(87, 23);
+            LRegistrosContabilizados.TabIndex = 22;
+            LRegistrosContabilizados.Text = "RegistrosContabilizados";
+            LRegistrosContabilizados.Visible = false;
             // 
-            // guna2Button10
+            // bPdfEmpresa
             // 
-            guna2Button10.BackColor = Color.Transparent;
-            guna2Button10.BorderRadius = 5;
-            guna2Button10.CustomizableEdges = customizableEdges17;
-            guna2Button10.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button10.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button10.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button10.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button10.FillColor = Color.DimGray;
-            guna2Button10.Font = new Font("Century Gothic", 9F);
-            guna2Button10.ForeColor = Color.White;
-            guna2Button10.Location = new Point(273, 163);
-            guna2Button10.Name = "guna2Button10";
-            guna2Button10.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Button10.Size = new Size(96, 30);
-            guna2Button10.TabIndex = 20;
-            guna2Button10.Text = "Buscar";
+            bPdfEmpresa.BackColor = Color.Transparent;
+            bPdfEmpresa.BorderRadius = 5;
+            bPdfEmpresa.CustomizableEdges = customizableEdges15;
+            bPdfEmpresa.DisabledState.BorderColor = Color.DarkGray;
+            bPdfEmpresa.DisabledState.CustomBorderColor = Color.DarkGray;
+            bPdfEmpresa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bPdfEmpresa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bPdfEmpresa.FillColor = Color.DimGray;
+            bPdfEmpresa.Font = new Font("Century Gothic", 9F);
+            bPdfEmpresa.ForeColor = Color.White;
+            bPdfEmpresa.Location = new Point(273, 203);
+            bPdfEmpresa.Name = "bPdfEmpresa";
+            bPdfEmpresa.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            bPdfEmpresa.Size = new Size(96, 30);
+            bPdfEmpresa.TabIndex = 21;
+            bPdfEmpresa.Text = "Buscar";
+            bPdfEmpresa.Click += bPdfEmpresa_Click;
             // 
-            // guna2Button9
+            // bPdfUnidades
             // 
-            guna2Button9.BackColor = Color.Transparent;
-            guna2Button9.BorderRadius = 5;
-            guna2Button9.CustomizableEdges = customizableEdges19;
-            guna2Button9.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button9.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button9.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button9.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button9.FillColor = Color.DimGray;
-            guna2Button9.Font = new Font("Century Gothic", 9F);
-            guna2Button9.ForeColor = Color.White;
-            guna2Button9.Location = new Point(273, 123);
-            guna2Button9.Name = "guna2Button9";
-            guna2Button9.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Button9.Size = new Size(96, 30);
-            guna2Button9.TabIndex = 19;
-            guna2Button9.Text = "Buscar";
+            bPdfUnidades.BackColor = Color.Transparent;
+            bPdfUnidades.BorderRadius = 5;
+            bPdfUnidades.CustomizableEdges = customizableEdges17;
+            bPdfUnidades.DisabledState.BorderColor = Color.DarkGray;
+            bPdfUnidades.DisabledState.CustomBorderColor = Color.DarkGray;
+            bPdfUnidades.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bPdfUnidades.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bPdfUnidades.FillColor = Color.DimGray;
+            bPdfUnidades.Font = new Font("Century Gothic", 9F);
+            bPdfUnidades.ForeColor = Color.White;
+            bPdfUnidades.Location = new Point(273, 163);
+            bPdfUnidades.Name = "bPdfUnidades";
+            bPdfUnidades.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            bPdfUnidades.Size = new Size(96, 30);
+            bPdfUnidades.TabIndex = 20;
+            bPdfUnidades.Text = "Buscar";
+            bPdfUnidades.Click += bPdfUnidades_Click;
             // 
-            // guna2Button3
+            // bPdfChoferes
             // 
-            guna2Button3.BackColor = Color.Transparent;
-            guna2Button3.BorderRadius = 5;
-            guna2Button3.CustomizableEdges = customizableEdges21;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.DimGray;
-            guna2Button3.Font = new Font("Century Gothic", 9F);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(273, 43);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Button3.Size = new Size(96, 30);
-            guna2Button3.TabIndex = 18;
-            guna2Button3.Text = "Buscar";
+            bPdfChoferes.BackColor = Color.Transparent;
+            bPdfChoferes.BorderRadius = 5;
+            bPdfChoferes.CustomizableEdges = customizableEdges19;
+            bPdfChoferes.DisabledState.BorderColor = Color.DarkGray;
+            bPdfChoferes.DisabledState.CustomBorderColor = Color.DarkGray;
+            bPdfChoferes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bPdfChoferes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bPdfChoferes.FillColor = Color.DimGray;
+            bPdfChoferes.Font = new Font("Century Gothic", 9F);
+            bPdfChoferes.ForeColor = Color.White;
+            bPdfChoferes.Location = new Point(273, 123);
+            bPdfChoferes.Name = "bPdfChoferes";
+            bPdfChoferes.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            bPdfChoferes.Size = new Size(96, 30);
+            bPdfChoferes.TabIndex = 19;
+            bPdfChoferes.Text = "Buscar";
+            bPdfChoferes.Click += bPdfChoferes_Click;
             // 
-            // guna2Button8
+            // bFotosChoferes
             // 
-            guna2Button8.BackColor = Color.Transparent;
-            guna2Button8.BorderRadius = 5;
-            guna2Button8.CustomizableEdges = customizableEdges23;
-            guna2Button8.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button8.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button8.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button8.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button8.FillColor = Color.DimGray;
-            guna2Button8.Font = new Font("Century Gothic", 9F);
-            guna2Button8.ForeColor = Color.White;
-            guna2Button8.Location = new Point(273, 83);
-            guna2Button8.Name = "guna2Button8";
-            guna2Button8.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Button8.Size = new Size(96, 30);
-            guna2Button8.TabIndex = 17;
-            guna2Button8.Text = "Buscar";
+            bFotosChoferes.BackColor = Color.Transparent;
+            bFotosChoferes.BorderRadius = 5;
+            bFotosChoferes.CustomizableEdges = customizableEdges21;
+            bFotosChoferes.DisabledState.BorderColor = Color.DarkGray;
+            bFotosChoferes.DisabledState.CustomBorderColor = Color.DarkGray;
+            bFotosChoferes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bFotosChoferes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bFotosChoferes.FillColor = Color.DimGray;
+            bFotosChoferes.Font = new Font("Century Gothic", 9F);
+            bFotosChoferes.ForeColor = Color.White;
+            bFotosChoferes.Location = new Point(273, 43);
+            bFotosChoferes.Name = "bFotosChoferes";
+            bFotosChoferes.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            bFotosChoferes.Size = new Size(96, 30);
+            bFotosChoferes.TabIndex = 18;
+            bFotosChoferes.Text = "Buscar";
+            bFotosChoferes.Click += bFotosChoferes_Click;
+            // 
+            // bUnidadesEnNominaFotos
+            // 
+            bUnidadesEnNominaFotos.BackColor = Color.Transparent;
+            bUnidadesEnNominaFotos.BorderRadius = 5;
+            bUnidadesEnNominaFotos.CustomizableEdges = customizableEdges23;
+            bUnidadesEnNominaFotos.DisabledState.BorderColor = Color.DarkGray;
+            bUnidadesEnNominaFotos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bUnidadesEnNominaFotos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bUnidadesEnNominaFotos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bUnidadesEnNominaFotos.FillColor = Color.DimGray;
+            bUnidadesEnNominaFotos.Font = new Font("Century Gothic", 9F);
+            bUnidadesEnNominaFotos.ForeColor = Color.White;
+            bUnidadesEnNominaFotos.Location = new Point(273, 83);
+            bUnidadesEnNominaFotos.Name = "bUnidadesEnNominaFotos";
+            bUnidadesEnNominaFotos.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            bUnidadesEnNominaFotos.Size = new Size(96, 30);
+            bUnidadesEnNominaFotos.TabIndex = 17;
+            bUnidadesEnNominaFotos.Text = "Buscar";
+            bUnidadesEnNominaFotos.Click += bUnidadesEnNominaFotos_Click;
             // 
             // guna2HtmlLabel16
             // 
@@ -769,7 +804,7 @@
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(129, 29);
             guna2HtmlLabel15.TabIndex = 15;
-            guna2HtmlLabel15.Text = "PDF Unidadades";
+            guna2HtmlLabel15.Text = "PDF Unidades";
             // 
             // guna2HtmlLabel14
             // 
@@ -998,11 +1033,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2Button guna2Button11;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button bPdfEmpresa;
+        private Guna.UI2.WinForms.Guna2Button bPdfUnidades;
+        private Guna.UI2.WinForms.Guna2Button bPdfChoferes;
+        private Guna.UI2.WinForms.Guna2Button bFotosChoferes;
+        private Guna.UI2.WinForms.Guna2Button bUnidadesEnNominaFotos;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
@@ -1028,5 +1063,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel24;
+        private Guna.UI2.WinForms.Guna2HtmlLabel LRegistrosContabilizados;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
     }
 }

@@ -1,7 +1,6 @@
-﻿using GestionOperativa.Presenters.Chofer;
+﻿using GestionOperativa.Presenters.Choferes;
 using Guna.UI2.WinForms;
 using Shared.Models;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 {
@@ -10,6 +9,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         public readonly AgregarEditarChoferPresenter _presenter;
         private string? _rutaFotoChofer;
         private readonly Dictionary<string, string?> _rutasDocumentos = new();
+        public int IdChofer { get; private set; } // Propiedad para manejar el ID de la empresa
 
         public AgregarEditarChoferForm(AgregarEditarChoferPresenter presenter)
         {
@@ -25,6 +25,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 
         public void MostrarDatosChofer(ChoferDto chofer)
         {
+            IdChofer = chofer.IdChofer;
             IApellido.Text = chofer.Apellido;
             INombre.Text = chofer.Nombre;
             IDoc.Text = chofer.Documento;
@@ -58,15 +59,24 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             {
                 picBoxFotoChofer.BackgroundImage = Image.FromFile(rutaArchivo);
             }
+            else
+            {
+                picBoxFotoChofer.BackgroundImage = null;
+            }
         }
 
         public void ConfigurarBotonAltaTemprana(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bAltaTemprana, habilitar, rutaArchivo);
+
         public void ConfigurarBotonApto(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bPsicofisicoApto, habilitar, rutaArchivo);
+
         public void ConfigurarBotonCurso(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bPsicofisicoCurso, habilitar, rutaArchivo);
+
         public void ConfigurarBotonDNI(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bDocumento, habilitar, rutaArchivo);
+
         public void ConfigurarBotonLicencia(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLicencia, habilitar, rutaArchivo);
+
         public void ConfigurarBotonSeguro(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCentralizado, habilitar, rutaArchivo);
-        
+
         public void ConfigurarBotonExamenAnual(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bExamenAnual, habilitar, rutaArchivo);
 
         private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)
@@ -123,13 +133,16 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private void bPsicofisicoApto_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bPsicofisicoApto"]);
-
         }
 
         private void bPsicofisicoCurso_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bPsicofisicoCurso"]);
+        }
 
+        private void btnEditarDatos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatosChofer(IdChofer);
         }
     }
 }

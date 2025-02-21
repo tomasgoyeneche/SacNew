@@ -21,13 +21,13 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<Chofer>> BuscarAsync(string textoBusqueda)
+        public async Task<List<ChoferDto>> BuscarAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM Chofer WHERE activo = 1 and (Nombre LIKE @TextoBusqueda OR Apellido LIKE @TextoBusqueda OR Documento LIKE @TextoBusqueda)";
 
             return await ConectarAsync(connection =>
             {
-                return connection.QueryAsync<Chofer>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
+                return connection.QueryAsync<ChoferDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
@@ -56,6 +56,12 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<ChoferDto>(query, new { IdChofer = idChofer }));
         }
 
+        public async Task<Chofer> ObtenerPorIdAsync(int idChofer)
+        {
+            var query = "SELECT * FROM chofer WHERE idChofer = @IdChofer";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Chofer>(query, new { IdChofer = idChofer }));
+        }
+
         public async Task<List<ChoferDto>> ObtenerTodosLosChoferesDto()
         {
             var query = "SELECT * FROM vw_ChoferesDetalles";
@@ -65,6 +71,33 @@ namespace Core.Repositories
                 var chofers = await connection.QueryAsync<ChoferDto>(query);
                 return chofers.ToList();
             });
+        }
+
+        public async Task ActualizarAsync(Chofer chofer)
+        {
+            var choferAnterior = await ObtenerPorIdAsync(chofer.IdChofer);
+
+            var query = @"
+                UPDATE chofer
+                SET Apellido = @Apellido,
+                    Nombre = @Nombre,
+                    Documento = @Documento,
+                    FechaNacimiento = @FechaNacimiento,
+                    IdLocalidad = @IdLocalidad,
+                    Domicilio = @Domicilio,
+                    Telefono = @Telefono,
+                    idEmpresa = @idEmpresa,
+                    ZonaFria = @ZonaFria,
+                    FechaAlta = @FechaAlta
+                WHERE IdChofer = @IdChofer";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, chofer),
+                "Chofer",
+                "UPDATE",
+                choferAnterior,
+                chofer
+            );
         }
     }
 }
