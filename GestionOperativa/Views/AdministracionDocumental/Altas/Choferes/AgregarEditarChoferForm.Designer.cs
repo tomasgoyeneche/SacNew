@@ -1083,7 +1083,7 @@
             guna2HtmlLabel36.BackColor = Color.Transparent;
             guna2HtmlLabel36.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel36.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel36.Location = new Point(230, 3);
+            guna2HtmlLabel36.Location = new Point(340, 3);
             guna2HtmlLabel36.Name = "guna2HtmlLabel36";
             guna2HtmlLabel36.Size = new Size(90, 18);
             guna2HtmlLabel36.TabIndex = 32;

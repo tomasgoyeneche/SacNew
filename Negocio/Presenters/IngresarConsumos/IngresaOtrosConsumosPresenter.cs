@@ -79,6 +79,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                         ImporteTotal = nuevoPrecioTotal,
                         Aclaracion = _view.Aclaraciones,
                         FechaRemito = _view.FechaRemito,
+                        Dolar = _view.Dolar,
                         Activo = true
                     };
 
@@ -102,6 +103,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     consumoAnterior.ImporteTotal = nuevoPrecioTotal;
                     consumoAnterior.Aclaracion = _view.Aclaraciones;
                     consumoAnterior.FechaRemito = _view.FechaRemito;
+                    consumoAnterior.Dolar = _view.Dolar;
 
                     await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoAnterior);
                     ActualizarCredito(nuevoPrecioTotal, consumoAnterior.ImporteTotal); // Ajustar crédito

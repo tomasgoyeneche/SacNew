@@ -11,6 +11,8 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         decimal? Cantidad { get; }
         string Aclaraciones { get; }
 
+        bool Dolar { get; }
+
         void CargarTiposConsumo(List<Concepto> tiposConsumo);
 
         void MostrarTotalCalculado(decimal total);

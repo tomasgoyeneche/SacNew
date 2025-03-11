@@ -11,5 +11,6 @@
         public string? Aclaracion { get; set; }
         public DateTime FechaRemito { get; set; }
         public bool Activo { get; set; } = true;
+        public bool Dolar { get; set; }
     }
 }

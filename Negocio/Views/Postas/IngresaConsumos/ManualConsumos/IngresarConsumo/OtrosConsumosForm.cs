@@ -20,6 +20,8 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         public decimal? Cantidad => decimal.TryParse(txtCantidad.Text, out var result) ? result : null;
         public string Aclaraciones => txtAclaracion.Text.Trim();
 
+        public bool Dolar => dolarCheck.Checked;
+
         public void CargarTiposConsumo(List<Concepto> tiposConsumo)
         {
             cmbTipoConsumo.DataSource = tiposConsumo;
@@ -74,6 +76,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtCantidad.Text = consumo.Cantidad?.ToString("N2") ?? "0.00";
             txtImporteTotal.Text = $"{consumo.ImporteTotal:C}";
             txtAclaracion.Text = consumo.Aclaracion;
+            dolarCheck.Checked = consumo.Dolar;
         }
     }
 }

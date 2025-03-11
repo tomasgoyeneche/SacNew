@@ -21,6 +21,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         public string Observaciones => txtObservaciones.Text.Trim();
         public DateTime FechaCarga => dtpFechaCarga.Value;
 
+        public bool Dolar => dolarCheck.Checked;
+
         public void CargarTiposGasoil(List<Concepto> tiposGasoil)
         {
             cmbTipoGasoil.DataSource = tiposGasoil;
@@ -39,6 +41,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtLitros.Text = consumo.LitrosCargados.ToString("N2");
             txtTotal.Text = $"{consumo.PrecioTotal:C}";
             txtObservaciones.Text = consumo.Observaciones;
+            dolarCheck.Checked = consumo.Dolar;
         }
 
         public void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros)

@@ -216,6 +216,7 @@ namespace GestionFlota.Presenters
                 PrecioTotal = precioTotal,
                 Observaciones = _view.Observaciones,
                 FechaCarga = _view.FechaCarga,
+                Dolar = _view.Dolar,
                 Activo = true
             };
 
@@ -234,6 +235,7 @@ namespace GestionFlota.Presenters
             consumo.LitrosCargados = _view.Litros.Value;
             consumo.PrecioTotal = nuevoPrecioTotal;
             consumo.Observaciones = _view.Observaciones;
+            consumo.Dolar = _view.Dolar;
             consumo.FechaCarga = _view.FechaCarga;
 
             return consumo;

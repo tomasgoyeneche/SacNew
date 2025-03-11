@@ -50,17 +50,19 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<Chofer> ObtenerPorIdAsync(int idChofer)
+        {
+            var query = "SELECT * FROM chofer WHERE idChofer = @IdChofer";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Chofer>(query, new { IdChofer = idChofer }));
+        }
+
         public async Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer)
         {
             var query = "SELECT * FROM vw_ChoferesDetalles WHERE idChofer = @IdChofer";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<ChoferDto>(query, new { IdChofer = idChofer }));
         }
 
-        public async Task<Chofer> ObtenerPorIdAsync(int idChofer)
-        {
-            var query = "SELECT * FROM chofer WHERE idChofer = @IdChofer";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Chofer>(query, new { IdChofer = idChofer }));
-        }
+       
 
         public async Task<List<ChoferDto>> ObtenerTodosLosChoferesDto()
         {

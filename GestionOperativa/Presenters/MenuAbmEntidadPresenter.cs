@@ -4,6 +4,7 @@ using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 using Shared.Models;
 
 namespace GestionOperativa.Presenters
@@ -12,16 +13,20 @@ namespace GestionOperativa.Presenters
     {
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly IEmpresaRepositorio _empresaRepositorio;
+        private readonly ITractorRepositorio _tractorRepositorio;
+
 
         private string? _entidad;
 
         public MenuAbmEntidadPresenter(
             IChoferRepositorio choferRepositorio,
             IEmpresaRepositorio empresaRepositorio,
+            ITractorRepositorio tractorRepositorio,
             ISesionService sesionService,
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
+            _tractorRepositorio = tractorRepositorio;
             _empresaRepositorio = empresaRepositorio;
             _choferRepositorio = choferRepositorio;
         }
@@ -43,7 +48,11 @@ namespace GestionOperativa.Presenters
                         break;
 
                     case "empresa":
-                        var tractores = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
+                        var empresa = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
+                        _view.MostrarEntidades(empresa);
+                        break;
+                    case "tractor":
+                        var tractores = await _tractorRepositorio.ObtenerTodosLosTractoresDto();
                         _view.MostrarEntidades(tractores);
                         break;
 
@@ -107,6 +116,15 @@ namespace GestionOperativa.Presenters
                     });
                     break;
 
+                case "tractor":
+                    MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
+                    {
+                        ("patente", 0), // Columna "Nombre" en la posición 0
+                        ("empresa_cuit", 2), // Columna "Apellido" en la posición 1
+                        ("empresa_nombre", 1)  // Columna "Licencia" en la posición 2
+                    });
+                    break;
+
                 default:
                     // Si no hay columnas configuradas, puedes decidir mostrar todas o ninguna
                     foreach (DataGridViewColumn column in gridView.Columns)
@@ -164,6 +182,16 @@ namespace GestionOperativa.Presenters
                             await AbrirFormularioAsync<AgregarEditarEmpresaForm>(async form =>
                             {
                                 await form._presenter.CargarDatosParaMostrarAsync(empresa.IdEmpresa);
+                            });
+                        }
+                        break;
+
+                    case "tractor":
+                        if (entidadSeleccionada is TractorDto tractor)
+                        {
+                            await AbrirFormularioAsync<AgregarEditarTractorForm>(async form =>
+                            {
+                                await form._presenter.CargarDatosParaMostrarAsync(tractor.IdTractor);
                             });
                         }
                         break;

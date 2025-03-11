@@ -43,6 +43,11 @@ namespace GestionOperativa.Views.AdministracionDocumental
             LRegistrosContabilizados.Text = $"Relevado: {cantidad}";
         }
 
+        private void bTractores_Click(object sender, EventArgs e)
+        {
+            _presenter.CargarMenuEntidad("tractor");
+        }
+
         private async void bPdfChoferes_Click(object sender, EventArgs e)
         {
             await _presenter.VerificarLegajosChoferesAsync();
@@ -61,5 +66,7 @@ namespace GestionOperativa.Views.AdministracionDocumental
         private void bPdfUnidades_Click(object sender, EventArgs e)
         {
         }
+
+       
     }
 }

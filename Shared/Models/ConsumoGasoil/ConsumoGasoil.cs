@@ -13,6 +13,8 @@
         public decimal PrecioTotal { get; set; } // Precio total (nullable)
         public string? Observaciones { get; set; } // Observaciones adicionales
         public bool Activo { get; set; } = true; // Estado del consumo (por defecto activo)
+
+        public bool Dolar { get; set; }
         public DateTime FechaCarga { get; set; } // Fecha en que se cargó el combustible
     }
 }

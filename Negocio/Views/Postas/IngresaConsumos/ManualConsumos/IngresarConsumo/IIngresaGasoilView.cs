@@ -11,6 +11,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
         string Observaciones { get; }
         DateTime FechaCarga { get; }
 
+        bool Dolar { get; }
+
         void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros);
 
         void InicializarParaEdicion(ConsumoGasoil consumo);

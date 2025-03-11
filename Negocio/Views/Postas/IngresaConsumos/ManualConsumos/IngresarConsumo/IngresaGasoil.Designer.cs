@@ -96,6 +96,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             lblAnterior = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbTipoGasoil = new Guna.UI2.WinForms.Guna2ComboBox();
+            dolarCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTotales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAnteriores).BeginInit();
@@ -362,7 +363,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtLitros.PlaceholderText = "Ingrese litros";
             txtLitros.SelectedText = "";
             txtLitros.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            txtLitros.Size = new Size(163, 35);
+            txtLitros.Size = new Size(149, 35);
             txtLitros.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtLitros.TabIndex = 3;
             // 
@@ -440,7 +441,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtTotal.PlaceholderText = "Ingrese precio o calcule";
             txtTotal.SelectedText = "";
             txtTotal.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            txtTotal.Size = new Size(219, 35);
+            txtTotal.Size = new Size(149, 35);
             txtTotal.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtTotal.TabIndex = 5;
             // 
@@ -453,7 +454,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
             guna2ImageButton2.ImageSize = new Size(50, 38);
-            guna2ImageButton2.Location = new Point(298, 191);
+            guna2ImageButton2.Location = new Point(290, 191);
             guna2ImageButton2.Name = "guna2ImageButton2";
             guna2ImageButton2.PressedState.ImageSize = new Size(55, 40);
             guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges9;
@@ -638,12 +639,33 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             cmbTipoGasoil.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             cmbTipoGasoil.TabIndex = 1;
             // 
+            // dolarCheck
+            // 
+            dolarCheck.AutoSize = true;
+            dolarCheck.CheckedState.BorderColor = Color.Transparent;
+            dolarCheck.CheckedState.BorderRadius = 0;
+            dolarCheck.CheckedState.BorderThickness = 0;
+            dolarCheck.CheckedState.FillColor = Color.Transparent;
+            dolarCheck.CheckMarkColor = Color.LimeGreen;
+            dolarCheck.Font = new Font("Century Gothic", 10F);
+            dolarCheck.ForeColor = Color.LimeGreen;
+            dolarCheck.Location = new Point(284, 299);
+            dolarCheck.Name = "dolarCheck";
+            dolarCheck.Size = new Size(64, 23);
+            dolarCheck.TabIndex = 50;
+            dolarCheck.Text = "Dolar";
+            dolarCheck.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            dolarCheck.UncheckedState.BorderRadius = 0;
+            dolarCheck.UncheckedState.BorderThickness = 0;
+            dolarCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
             // IngresaGasoil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 600);
+            Controls.Add(dolarCheck);
             Controls.Add(cmbTipoGasoil);
             Controls.Add(lblTotal);
             Controls.Add(lblAnterior);
@@ -719,5 +741,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTotal;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAnterior;
         private Guna.UI2.WinForms.Guna2ComboBox cmbTipoGasoil;
+        private Guna.UI2.WinForms.Guna2CheckBox dolarCheck;
     }
 }
