@@ -62,8 +62,6 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<ChoferDto>(query, new { IdChofer = idChofer }));
         }
 
-       
-
         public async Task<List<ChoferDto>> ObtenerTodosLosChoferesDto()
         {
             var query = "SELECT * FROM vw_ChoferesDetalles";

@@ -42,6 +42,18 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
+
+
+            //CODIGO PARA PASAR PARAMETRO DE FECHA, IMPORTANTE
+
+            //string desdeFechaString = Microsoft.VisualBasic.Interaction.InputBox("Por favor ingrese la fecha de inicio (formato: dd/mm/yyyy):", "Ingrese Fecha Desde", "");
+
+            //if (string.IsNullOrEmpty(desdeFechaString) || !DateTime.TryParse(desdeFechaString, out DateTime desdeFecha))
+            //{
+            //    MessageBox.Show("Por favor ingrese una fecha válida para 'Desde Fecha'.");
+            //    return;
+            //}
+
             try
             {
                 await _presenter.BuscarEntidadesAsync();
@@ -84,6 +96,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void btnEditar_Click(object sender, EventArgs e)
         {
+
             if (dataGridViewEntidades.SelectedRows.Count > 0)
             {
                 var entidadSeleccionada = dataGridViewEntidades.SelectedRows[0].DataBoundItem;
@@ -94,5 +107,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                 MostrarMensaje("Debe seleccionar un registro para editar.");
             }
         }
+     
     }
 }

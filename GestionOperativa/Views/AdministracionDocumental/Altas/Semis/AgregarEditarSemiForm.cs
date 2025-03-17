@@ -1,7 +1,13 @@
-﻿using System;
+﻿using GestionOperativa.Presenters;
+using GestionOperativa.Presenters.Tractor;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using Guna.UI2.WinForms;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,11 +16,179 @@ using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 {
-    public partial class AgregarEditarSemiForm: Form, IAgregarEditarSemiView
+    public partial class AgregarEditarSemiForm : Form, IAgregarEditarSemiView
     {
-        public AgregarEditarSemiForm()
+        public AgregarEditarSemiPresenter _presenter;
+        private string? _rutaFotoSemi;
+        private readonly Dictionary<string, string?> _rutasDocumentos = new();
+
+        public int IdSemi { get; private set; }
+
+        public AgregarEditarSemiForm(AgregarEditarSemiPresenter presenter)
         {
             InitializeComponent();
+            _presenter = presenter;
+            _presenter.SetView(this);
+        }
+
+        public async Task CargarDatos(int idSemi)
+        {
+            await _presenter.CargarDatosParaMostrarAsync(idSemi);
+        }
+
+        public void MostrarDatosSemi(SemiDto semi)
+        {
+            IdSemi = semi.IdSemi;
+            IPatente.Text = semi.Patente;
+            IAnio.Text = semi.Anio?.ToShortDateString() ?? "N/A";
+            IMarca.Text = semi.Marca;
+            IModelo.Text = semi.Modelo;
+            ITara.Text = semi.Tara.ToString();
+            ICisternas.Text = semi.Compartimientos.ToString();
+            IMaterial.Text = semi.Material;
+            ITipoCarga.Text = semi.Tipo_Carga;
+            IConfiguracion.Text = semi.Configuracion;
+            IEmpresa.Text = semi.Empresa_Nombre;
+            IEmpresaCuit.Text = semi.Empresa_Cuit;
+            ITipo.Text = semi.Empresa_Tipo;
+            IConfeccion.Text = semi.LitrosDetalle + " = " + semi.LitrosTotal;
+            IFechaAlta.Text = semi.FechaAlta?.ToShortDateString() ?? "N/A";
+            IRuta.Text = semi.Ruta?.ToShortDateString() ?? "N/A";
+            IVtv.Text = semi.Vtv?.ToShortDateString() ?? "N/A";
+            IEstanqueidad.Text = semi.Estanqueidad?.ToShortDateString();
+            IltrosNominales.Text = semi.LitroNominal.ToString();
+            ICubicacion.Text = semi.Cubicacion.ToString();
+            IInv.Text = semi.Inv.ToString();
+            IVisualInterna.Text = semi.VisualInterna?.ToShortDateString();
+            IEspesor.Text = semi.Espesor.ToString();
+            IFechaEspesor.Text = semi.CisternaEspesor?.ToShortDateString();
+            IVisualExt.Text = semi.VisualExterna?.ToShortDateString();
+
+        }
+
+        public void ConfigurarFotoSemi(bool habilitar, string? rutaArchivo)
+        {
+            bFotoSemi.Enabled = habilitar;
+            _rutaFotoSemi = rutaArchivo;
+            picBoxFotoSemi.BackgroundImage = habilitar && rutaArchivo != null ? Image.FromFile(rutaArchivo) : null;
+        }
+
+        public void ConfigurarFotoConfiguracion(bool habilitar, string? rutaArchivo)
+        {
+            picBoxConfiguracion.BackgroundImage = habilitar && rutaArchivo != null ? Image.FromFile(rutaArchivo) : null;
+        }
+        private void AbrirArchivo(string? rutaArchivo)
+        {
+            if (!string.IsNullOrEmpty(rutaArchivo) && File.Exists(rutaArchivo))
+            {
+                System.Diagnostics.Process.Start("explorer", rutaArchivo);
+            }
+            else
+            {
+                MostrarMensaje("El archivo no existe o la ruta no es válida.");
+            }
+        }
+
+        public void ConfigurarBotonCedula(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCedula, habilitar, rutaArchivo);
+        public void ConfigurarBotonTitulo(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bTitulo, habilitar, rutaArchivo);
+        public void ConfigurarBotonRuta(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bRuta, habilitar, rutaArchivo);
+        public void ConfigurarBotonVTV(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVtv, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonInv(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bInv, habilitar, rutaArchivo);
+        public void ConfigurarBotonEstanqueidad(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEstanqueidad, habilitar, rutaArchivo);
+        public void ConfigurarBotonLitrosNominales(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLitrosNom, habilitar, rutaArchivo);
+        public void ConfigurarBotonCubicacion(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCubicacion, habilitar, rutaArchivo);
+        public void ConfigurarBotonEspesor(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEspesor, habilitar, rutaArchivo);
+        public void ConfigurarBotonVisualInt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualInt, habilitar, rutaArchivo);
+        public void ConfigurarBotonVisualExt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualExt, habilitar, rutaArchivo);
+
+
+        private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)
+        {
+            boton.Enabled = habilitar;
+            if (habilitar && rutaArchivo != null)
+            {
+                _rutasDocumentos[boton.Name] = rutaArchivo;
+            }
+        }
+
+        public void MostrarVencimiento(string anioVencimiento)
+        {
+            IVencimiento.Text = anioVencimiento;
+        }
+
+        public void MostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void bTitulo_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bTitulo"]);
+        }
+
+        private void bCedula_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bCedula"]);
+        }
+
+        private void bRuta_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bRuta"]);
+
+        }
+
+        private void bVtv_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bVtv"]);
+
+        }
+
+        private void bFotoSemi_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutaFotoSemi);
+        }
+
+        private void bEstanqueidad_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bEstanqueidad"]);
+
+        }
+
+        private void bLitrosNom_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bLitrosNom"]);
+
+        }
+
+        private void bCubicacion_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bCubicacion"]);
+
+        }
+
+        private void bVisualInt_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bVisualInt"]);
+
+        }
+
+        private void bInv_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bInv"]);
+
+        }
+
+        private void bEspesor_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bEspesor"]);
+
+        }
+
+        private void bVisualExt_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bVisualExt"]);
+
         }
     }
 }

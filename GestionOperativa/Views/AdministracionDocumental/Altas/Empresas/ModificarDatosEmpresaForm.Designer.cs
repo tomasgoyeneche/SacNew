@@ -285,7 +285,7 @@
             txtDomicilio.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDomicilio.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDomicilio.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDomicilio.Location = new Point(177, 302);
+            txtDomicilio.Location = new Point(171, 302);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.PasswordChar = '\0';
             txtDomicilio.PlaceholderText = "";
@@ -331,7 +331,7 @@
             txtTelefono.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTelefono.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTelefono.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefono.Location = new Point(177, 347);
+            txtTelefono.Location = new Point(171, 347);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PasswordChar = '\0';
             txtTelefono.PlaceholderText = "";
@@ -352,7 +352,7 @@
             cmbLocalidad.ForeColor = Color.FromArgb(68, 88, 112);
             cmbLocalidad.IntegralHeight = false;
             cmbLocalidad.ItemHeight = 30;
-            cmbLocalidad.Location = new Point(177, 248);
+            cmbLocalidad.Location = new Point(171, 248);
             cmbLocalidad.Name = "cmbLocalidad";
             cmbLocalidad.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cmbLocalidad.Size = new Size(304, 36);
@@ -370,7 +370,7 @@
             cmbProvincia.ForeColor = Color.FromArgb(68, 88, 112);
             cmbProvincia.IntegralHeight = false;
             cmbProvincia.ItemHeight = 30;
-            cmbProvincia.Location = new Point(177, 198);
+            cmbProvincia.Location = new Point(171, 198);
             cmbProvincia.Name = "cmbProvincia";
             cmbProvincia.ShadowDecoration.CustomizableEdges = customizableEdges12;
             cmbProvincia.Size = new Size(304, 36);
@@ -388,7 +388,7 @@
             txtCuit.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCuit.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCuit.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCuit.Location = new Point(177, 153);
+            txtCuit.Location = new Point(171, 153);
             txtCuit.Name = "txtCuit";
             txtCuit.PasswordChar = '\0';
             txtCuit.PlaceholderText = "";
@@ -408,7 +408,7 @@
             txtNombreFantasia.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNombreFantasia.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombreFantasia.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombreFantasia.Location = new Point(177, 108);
+            txtNombreFantasia.Location = new Point(171, 108);
             txtNombreFantasia.Name = "txtNombreFantasia";
             txtNombreFantasia.PasswordChar = '\0';
             txtNombreFantasia.PlaceholderText = "";
@@ -428,7 +428,7 @@
             txtRazonSocial.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtRazonSocial.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRazonSocial.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtRazonSocial.Location = new Point(177, 63);
+            txtRazonSocial.Location = new Point(171, 63);
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.PasswordChar = '\0';
             txtRazonSocial.PlaceholderText = "";
@@ -448,7 +448,7 @@
             cmbEmpresaTipo.Font = new Font("Segoe UI", 10F);
             cmbEmpresaTipo.ForeColor = Color.FromArgb(68, 88, 112);
             cmbEmpresaTipo.ItemHeight = 30;
-            cmbEmpresaTipo.Location = new Point(487, 153);
+            cmbEmpresaTipo.Location = new Point(481, 153);
             cmbEmpresaTipo.Name = "cmbEmpresaTipo";
             cmbEmpresaTipo.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cmbEmpresaTipo.Size = new Size(212, 36);
@@ -465,7 +465,7 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(177, 392);
+            txtEmail.Location = new Point(171, 392);
             txtEmail.Name = "txtEmail";
             txtEmail.PasswordChar = '\0';
             txtEmail.PlaceholderText = "";

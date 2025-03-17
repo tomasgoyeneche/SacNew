@@ -71,6 +71,7 @@
             // 
             // guna2Elipse1
             // 
+            guna2Elipse1.BorderRadius = 0;
             guna2Elipse1.TargetControl = this;
             // 
             // guna2Panel9
@@ -130,6 +131,7 @@
             btnBuscar.Size = new Size(132, 37);
             btnBuscar.TabIndex = 48;
             btnBuscar.Text = "Buscar";
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // guna2HtmlLabel1
             // 
@@ -240,6 +242,8 @@
             // 
             // dataGridViewEntidades
             // 
+            dataGridViewEntidades.AllowUserToAddRows = false;
+            dataGridViewEntidades.AllowUserToDeleteRows = false;
             dataGridViewEntidades.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -248,15 +252,14 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewEntidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 128, 0);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewEntidades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewEntidades.ColumnHeadersHeight = 25;
-            dataGridViewEntidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -268,6 +271,7 @@
             dataGridViewEntidades.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewEntidades.Location = new Point(13, 155);
             dataGridViewEntidades.Name = "dataGridViewEntidades";
+            dataGridViewEntidades.ReadOnly = true;
             dataGridViewEntidades.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.White;
@@ -291,9 +295,9 @@
             dataGridViewEntidades.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewEntidades.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewEntidades.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dataGridViewEntidades.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewEntidades.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewEntidades.ThemeStyle.HeaderStyle.Height = 25;
-            dataGridViewEntidades.ThemeStyle.ReadOnly = false;
+            dataGridViewEntidades.ThemeStyle.ReadOnly = true;
             dataGridViewEntidades.ThemeStyle.RowsStyle.BackColor = Color.White;
             dataGridViewEntidades.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewEntidades.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);

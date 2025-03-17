@@ -22,6 +22,8 @@ namespace App
 
             try
             {
+                //ReportSchemaGenerator.GenerarEsquemaReportes();
+
                 //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 var serviceProvider = Startup.ConfigureServices();
                 var loginForm = serviceProvider.GetRequiredService<Login>();

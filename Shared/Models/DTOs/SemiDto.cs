@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class SemiDto
     {
@@ -26,9 +20,8 @@ namespace Shared.Models
         public string Tipo_Carga { get; set; }
         public string Configuracion { get; set; }
         public string Material { get; set; }
-        
-        public int Espesor { get; set; }
 
+        public int Espesor { get; set; }
 
         public string Satelital_Descripcion { get; set; }
         public string Satelital_usuario { get; set; }
@@ -40,13 +33,12 @@ namespace Shared.Models
 
         public DateTime? FechaAlta { get; set; }
 
-        public int Inv { get; set;  }
+        public int Inv { get; set; }
         public DateTime? Ruta { get; set; }
         public DateTime? Vtv { get; set; }
         public DateTime? CisternaEspesor { get; set; }
         public DateTime? VisualInterna { get; set; }
         public DateTime? VisualExterna { get; set; }
         public DateTime? Estanqueidad { get; set; }
-
     }
 }

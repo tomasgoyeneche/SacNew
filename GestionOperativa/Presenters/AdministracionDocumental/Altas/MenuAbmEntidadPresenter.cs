@@ -1,9 +1,11 @@
-﻿using Core.Base;
+﻿using App.Views;
+using Core.Base;
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 using Shared.Models;
 
@@ -14,7 +16,12 @@ namespace GestionOperativa.Presenters
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly IEmpresaRepositorio _empresaRepositorio;
         private readonly ITractorRepositorio _tractorRepositorio;
+        private readonly ISemiRepositorio _semiRepositorio;
 
+        // reporte
+        private readonly IUnidadRepositorio _unidadRepositorio;
+
+        private readonly IReportService _reportService;
 
         private string? _entidad;
 
@@ -22,6 +29,11 @@ namespace GestionOperativa.Presenters
             IChoferRepositorio choferRepositorio,
             IEmpresaRepositorio empresaRepositorio,
             ITractorRepositorio tractorRepositorio,
+            ISemiRepositorio semiRepositorio,
+
+            IUnidadRepositorio unidadRepositorio,
+            IReportService reportService,
+
             ISesionService sesionService,
             INavigationService navigationService)
             : base(sesionService, navigationService)
@@ -29,6 +41,10 @@ namespace GestionOperativa.Presenters
             _tractorRepositorio = tractorRepositorio;
             _empresaRepositorio = empresaRepositorio;
             _choferRepositorio = choferRepositorio;
+            _semiRepositorio = semiRepositorio;
+
+            _unidadRepositorio = unidadRepositorio;
+            _reportService = reportService;
         }
 
         public void SetEntidad(string entidad)
@@ -51,9 +67,15 @@ namespace GestionOperativa.Presenters
                         var empresa = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
                         _view.MostrarEntidades(empresa);
                         break;
+
                     case "tractor":
                         var tractores = await _tractorRepositorio.ObtenerTodosLosTractoresDto();
                         _view.MostrarEntidades(tractores);
+                        break;
+
+                    case "semi":
+                        var semis = await _semiRepositorio.ObtenerTodosLosSemisDto();
+                        _view.MostrarEntidades(semis);
                         break;
 
                     default:
@@ -84,6 +106,16 @@ namespace GestionOperativa.Presenters
                         case "empresa":
                             var empresas = await _empresaRepositorio.BuscarEmpresasAsync(textoBusqueda);
                             _view.MostrarEntidades(empresas);
+                            break;
+
+                        case "tractor":
+                            var tractores = await _tractorRepositorio.BuscarTractoresAsync(textoBusqueda);
+                            _view.MostrarEntidades(tractores);
+                            break;
+
+                        case "semi":
+                            var semis = await _semiRepositorio.BuscarSemisAsync(textoBusqueda);
+                            _view.MostrarEntidades(semis);
                             break;
 
                         default:
@@ -117,6 +149,15 @@ namespace GestionOperativa.Presenters
                     break;
 
                 case "tractor":
+                    MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
+                    {
+                        ("patente", 0), // Columna "Nombre" en la posición 0
+                        ("empresa_cuit", 2), // Columna "Apellido" en la posición 1
+                        ("empresa_nombre", 1)  // Columna "Licencia" en la posición 2
+                    });
+                    break;
+
+                case "semi":
                     MostrarColumnasEspecificas(gridView, new List<(string columna, int orden)>
                     {
                         ("patente", 0), // Columna "Nombre" en la posición 0
@@ -196,6 +237,16 @@ namespace GestionOperativa.Presenters
                         }
                         break;
 
+                    case "semi":
+                        if (entidadSeleccionada is SemiDto semi)
+                        {
+                            await AbrirFormularioAsync<AgregarEditarSemiForm>(async form =>
+                            {
+                                await form._presenter.CargarDatosParaMostrarAsync(semi.IdSemi);
+                            });
+                        }
+                        break;
+
                     default:
                         throw new ArgumentException("Entidad no soportada para edición.");
                 }
@@ -234,6 +285,20 @@ namespace GestionOperativa.Presenters
                         if (entidadSeleccionada is EmpresaDto empresa)
                         {
                             await _empresaRepositorio.EliminarEmpresaAsync(empresa.IdEmpresa);
+                        }
+                        break;
+
+                    case "tractor":
+                        if (entidadSeleccionada is TractorDto tractor)
+                        {
+                            await _tractorRepositorio.EliminarTractorAsync(tractor.IdTractor);
+                        }
+                        break;
+
+                    case "semi":
+                        if (entidadSeleccionada is SemiDto semi)
+                        {
+                            await _semiRepositorio.EliminarSemiAsync(semi.IdSemi);
                         }
                         break;
 

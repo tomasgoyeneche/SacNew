@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -15,23 +10,41 @@ namespace Core.Repositories
         public TractorRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-
         public async Task<TractorDto> ObtenerPorIdDtoAsync(int idTractor)
         {
             var query = "SELECT * FROM vw_TractoresDetalles WHERE idTractor = @IdTractor";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<TractorDto>(query, new { IdTractor = idTractor }));
         }
 
-
-
         public async Task<List<TractorDto>> ObtenerTodosLosTractoresDto()
         {
-            var query = "SELECT * FROM vw_TractoresDetalles";
+            var query = "SELECT * FROM vw_TractoresDetalles order by patente";
 
             return await ConectarAsync(async connection =>
             {
                 var tractores = await connection.QueryAsync<TractorDto>(query);
                 return tractores.ToList();
+            });
+        }
+
+        public async Task EliminarTractorAsync(int idTractor)
+        {
+            var query = "Update Tractor set Activo = 0 WHERE idTractor = @idTractor";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, new { idTractor = idTractor });
+            });
+        }
+
+        public async Task<List<TractorDto>> BuscarTractoresAsync(string textoBusqueda)
+        {
+            var query = "SELECT * FROM vw_TractoresDetalles WHERE Patente LIKE @TextoBusqueda OR Empresa_Nombre LIKE @TextoBusqueda order by patente";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryAsync<TractorDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
+                                 .ContinueWith(task => task.Result.ToList());
             });
         }
     }

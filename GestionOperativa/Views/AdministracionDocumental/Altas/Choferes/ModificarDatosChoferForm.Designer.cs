@@ -190,7 +190,7 @@
             cmdEmpresaId.ForeColor = Color.FromArgb(68, 88, 112);
             cmdEmpresaId.IntegralHeight = false;
             cmdEmpresaId.ItemHeight = 30;
-            cmdEmpresaId.Location = new Point(553, 198);
+            cmdEmpresaId.Location = new Point(543, 198);
             cmdEmpresaId.Name = "cmdEmpresaId";
             cmdEmpresaId.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmdEmpresaId.Size = new Size(197, 36);
@@ -219,7 +219,7 @@
             dtpFecha.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFecha.ForeColor = SystemColors.ActiveCaptionText;
             dtpFecha.Format = DateTimePickerFormat.Custom;
-            dtpFecha.Location = new Point(553, 108);
+            dtpFecha.Location = new Point(543, 108);
             dtpFecha.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpFecha.MinDate = new DateTime(1940, 1, 1, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
@@ -239,7 +239,7 @@
             dtpFechaNac.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaNac.ForeColor = SystemColors.ActiveCaptionText;
             dtpFechaNac.Format = DateTimePickerFormat.Custom;
-            dtpFechaNac.Location = new Point(171, 392);
+            dtpFechaNac.Location = new Point(165, 392);
             dtpFechaNac.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpFechaNac.MinDate = new DateTime(1940, 1, 1, 0, 0, 0, 0);
             dtpFechaNac.Name = "dtpFechaNac";
@@ -367,7 +367,7 @@
             txtDomicilio.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDomicilio.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDomicilio.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDomicilio.Location = new Point(171, 302);
+            txtDomicilio.Location = new Point(165, 302);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.PasswordChar = '\0';
             txtDomicilio.PlaceholderText = "";
@@ -413,7 +413,7 @@
             txtTelefono.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTelefono.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTelefono.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefono.Location = new Point(171, 347);
+            txtTelefono.Location = new Point(165, 347);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PasswordChar = '\0';
             txtTelefono.PlaceholderText = "";
@@ -434,7 +434,7 @@
             cmbLocalidad.ForeColor = Color.FromArgb(68, 88, 112);
             cmbLocalidad.IntegralHeight = false;
             cmbLocalidad.ItemHeight = 30;
-            cmbLocalidad.Location = new Point(171, 248);
+            cmbLocalidad.Location = new Point(165, 248);
             cmbLocalidad.Name = "cmbLocalidad";
             cmbLocalidad.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbLocalidad.Size = new Size(236, 36);
@@ -452,7 +452,7 @@
             cmbProvincia.ForeColor = Color.FromArgb(68, 88, 112);
             cmbProvincia.IntegralHeight = false;
             cmbProvincia.ItemHeight = 30;
-            cmbProvincia.Location = new Point(171, 198);
+            cmbProvincia.Location = new Point(165, 198);
             cmbProvincia.Name = "cmbProvincia";
             cmbProvincia.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cmbProvincia.Size = new Size(236, 36);
@@ -470,7 +470,7 @@
             txtNombres.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNombres.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombres.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombres.Location = new Point(171, 153);
+            txtNombres.Location = new Point(165, 153);
             txtNombres.Name = "txtNombres";
             txtNombres.PasswordChar = '\0';
             txtNombres.PlaceholderText = "";
@@ -490,7 +490,7 @@
             txtApellido.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtApellido.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtApellido.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtApellido.Location = new Point(171, 108);
+            txtApellido.Location = new Point(165, 108);
             txtApellido.Name = "txtApellido";
             txtApellido.PasswordChar = '\0';
             txtApellido.PlaceholderText = "";
@@ -510,7 +510,7 @@
             txtDoc.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDoc.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDoc.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDoc.Location = new Point(171, 63);
+            txtDoc.Location = new Point(165, 63);
             txtDoc.Name = "txtDoc";
             txtDoc.PasswordChar = '\0';
             txtDoc.PlaceholderText = "";

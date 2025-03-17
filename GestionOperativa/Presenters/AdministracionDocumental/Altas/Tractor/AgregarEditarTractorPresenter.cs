@@ -32,11 +32,8 @@ namespace GestionOperativa.Presenters.Tractor
                 int añoBase = tractor.Anio.HasValue ? tractor.Anio.Value.Year : 0;
                 int añoFinal = añoBase > 0 ? añoBase + añosVencimiento : 0;
 
-
-
                 _view.MostrarDatosTractor(tractor);
                 _view.MostrarVencimiento(añoFinal > 0 ? añoFinal.ToString() : "Sin fecha");
-
             });
         }
 
@@ -52,8 +49,6 @@ namespace GestionOperativa.Presenters.Tractor
 
             var rutaManual = await ObtenerRutaPorIdAsync(3, $"{marca}", modeloguiones + ".pdf");
             _view.ConfigurarFotoManual(!string.IsNullOrEmpty(rutaManual) && File.Exists(rutaManual), rutaManual);
-
-
 
             var subCarpetas = new Dictionary<string, Action<bool, string?>>
         {

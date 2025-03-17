@@ -95,7 +95,7 @@
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bTractores = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            bSemi = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bMenuConceptos = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -168,7 +168,7 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel10);
             guna2Panel1.Controls.Add(bTractores);
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
-            guna2Panel1.Controls.Add(guna2Button4);
+            guna2Panel1.Controls.Add(bSemi);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
             guna2Panel1.Controls.Add(bMenuConceptos);
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
@@ -299,24 +299,25 @@
             guna2HtmlLabel9.TabIndex = 15;
             guna2HtmlLabel9.Text = "Tractores";
             // 
-            // guna2Button4
+            // bSemi
             // 
-            guna2Button4.BackColor = Color.Transparent;
-            guna2Button4.BorderRadius = 5;
-            guna2Button4.CustomizableEdges = customizableEdges51;
-            guna2Button4.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button4.FillColor = Color.ForestGreen;
-            guna2Button4.Font = new Font("Century Gothic", 9F);
-            guna2Button4.ForeColor = Color.White;
-            guna2Button4.Location = new Point(223, 161);
-            guna2Button4.Name = "guna2Button4";
-            guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges52;
-            guna2Button4.Size = new Size(83, 29);
-            guna2Button4.TabIndex = 14;
-            guna2Button4.Text = "Ingresar";
+            bSemi.BackColor = Color.Transparent;
+            bSemi.BorderRadius = 5;
+            bSemi.CustomizableEdges = customizableEdges51;
+            bSemi.DisabledState.BorderColor = Color.DarkGray;
+            bSemi.DisabledState.CustomBorderColor = Color.DarkGray;
+            bSemi.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bSemi.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bSemi.FillColor = Color.ForestGreen;
+            bSemi.Font = new Font("Century Gothic", 9F);
+            bSemi.ForeColor = Color.White;
+            bSemi.Location = new Point(223, 161);
+            bSemi.Name = "bSemi";
+            bSemi.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            bSemi.Size = new Size(83, 29);
+            bSemi.TabIndex = 14;
+            bSemi.Text = "Ingresar";
+            bSemi.Click += bSemi_Click;
             // 
             // guna2HtmlLabel3
             // 
@@ -1028,7 +1029,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2Button bTractores;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button bSemi;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;

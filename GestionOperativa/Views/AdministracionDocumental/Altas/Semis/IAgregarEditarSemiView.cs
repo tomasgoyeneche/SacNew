@@ -10,8 +10,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
     public interface IAgregarEditarSemiView
     {
         Task CargarDatos(int idSemi);
-        void MostrarDatosTractor(SemiDto semi);
-        void ConfigurarFotoTractor(bool habilitar, string? rutaArchivo);
+        void MostrarDatosSemi(SemiDto semi);
+        void ConfigurarFotoSemi(bool habilitar, string? rutaArchivo);
         void ConfigurarFotoConfiguracion(bool habilitar, string? rutaArchivo);
         void ConfigurarBotonCedula(bool habilitar, string? rutaArchivo);
         void ConfigurarBotonTitulo(bool habilitar, string? rutaArchivo);

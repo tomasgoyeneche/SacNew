@@ -816,13 +816,14 @@
             bAgregarSatelital.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             bAgregarSatelital.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             bAgregarSatelital.FillColor = Color.ForestGreen;
-            bAgregarSatelital.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bAgregarSatelital.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bAgregarSatelital.ForeColor = Color.White;
             bAgregarSatelital.Location = new Point(81, 200);
             bAgregarSatelital.Name = "bAgregarSatelital";
             bAgregarSatelital.ShadowDecoration.CustomizableEdges = customizableEdges10;
             bAgregarSatelital.Size = new Size(62, 30);
             bAgregarSatelital.TabIndex = 48;
+            bAgregarSatelital.Text = "+";
             bAgregarSatelital.Click += bAgregarSatelital_Click;
             // 
             // bEliminarSatelital
@@ -833,13 +834,14 @@
             bEliminarSatelital.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             bEliminarSatelital.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             bEliminarSatelital.FillColor = Color.Brown;
-            bEliminarSatelital.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEliminarSatelital.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bEliminarSatelital.ForeColor = Color.White;
             bEliminarSatelital.Location = new Point(12, 200);
             bEliminarSatelital.Name = "bEliminarSatelital";
             bEliminarSatelital.ShadowDecoration.CustomizableEdges = customizableEdges12;
             bEliminarSatelital.Size = new Size(62, 30);
             bEliminarSatelital.TabIndex = 46;
+            bEliminarSatelital.Text = "-";
             bEliminarSatelital.Click += bEliminarSatelital_Click;
             // 
             // guna2Panel7
@@ -955,13 +957,14 @@
             bAgregarPaisAuto.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             bAgregarPaisAuto.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             bAgregarPaisAuto.FillColor = Color.ForestGreen;
-            bAgregarPaisAuto.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bAgregarPaisAuto.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bAgregarPaisAuto.ForeColor = Color.White;
             bAgregarPaisAuto.Location = new Point(81, 202);
             bAgregarPaisAuto.Name = "bAgregarPaisAuto";
             bAgregarPaisAuto.ShadowDecoration.CustomizableEdges = customizableEdges2;
             bAgregarPaisAuto.Size = new Size(62, 30);
             bAgregarPaisAuto.TabIndex = 50;
+            bAgregarPaisAuto.Text = "+";
             bAgregarPaisAuto.Click += bAgregarPaisAuto_Click;
             // 
             // bEliminarPaisAut
@@ -972,13 +975,14 @@
             bEliminarPaisAut.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             bEliminarPaisAut.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             bEliminarPaisAut.FillColor = Color.Brown;
-            bEliminarPaisAut.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEliminarPaisAut.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bEliminarPaisAut.ForeColor = Color.White;
             bEliminarPaisAut.Location = new Point(12, 202);
             bEliminarPaisAut.Name = "bEliminarPaisAut";
             bEliminarPaisAut.ShadowDecoration.CustomizableEdges = customizableEdges4;
             bEliminarPaisAut.Size = new Size(62, 30);
             bEliminarPaisAut.TabIndex = 49;
+            bEliminarPaisAut.Text = "-";
             // 
             // guna2Panel11
             // 

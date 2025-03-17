@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class TractorDto
     {
@@ -19,7 +13,6 @@ namespace Shared.Models
         public int Combustible { get; set; }
         public int Cmt { get; set; }
         public string Configuracion { get; set; }
-
 
         public string Satelital_Descripcion { get; set; }
         public string Satelital_usuario { get; set; }

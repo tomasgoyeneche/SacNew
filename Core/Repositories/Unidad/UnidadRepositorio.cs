@@ -68,5 +68,16 @@ namespace Core.Repositories
             return await ConectarAsync(async conn =>
                 await conn.QuerySingleOrDefaultAsync<int?>(query, new { IdTractor = idTractor }));
         }
+
+        public async Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActiva()
+        {
+            var query = "SELECT * FROM vw_NominaMetanol where activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<NominaMetanolActivaDto>(query);
+                return chofers.ToList();
+            });
+        }
     }
 }
