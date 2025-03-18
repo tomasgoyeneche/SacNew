@@ -48,7 +48,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             IFechaAlta.Text = tractor.FechaAlta?.ToShortDateString() ?? "N/A";
             IRuta.Text = tractor.Ruta?.ToShortDateString() ?? "N/A";
             IVtv.Text = tractor.Vtv?.ToShortDateString() ?? "N/A";
-
         }
 
         public void ConfigurarFotoTractor(bool habilitar, string? rutaArchivo)
@@ -82,8 +81,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         }
 
         public void ConfigurarBotonCedula(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCedula, habilitar, rutaArchivo);
+
         public void ConfigurarBotonTitulo(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bTitulo, habilitar, rutaArchivo);
+
         public void ConfigurarBotonRuta(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bRuta, habilitar, rutaArchivo);
+
         public void ConfigurarBotonVTV(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVtv, habilitar, rutaArchivo);
 
         private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)
@@ -118,13 +120,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         private void bRuta_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bRuta"]);
-
         }
 
         private void bVtv_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bVtv"]);
-
         }
 
         private void bFotoTractor_Click(object sender, EventArgs e)
@@ -150,12 +150,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
                     UseShellExecute = true
                 });
             }
-
         }
 
         private void bFotoManual_Click(object sender, EventArgs e)
         {
-            AbrirArchivo(_rutaManual);  
+            AbrirArchivo(_rutaManual);
         }
     }
 }

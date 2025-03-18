@@ -42,8 +42,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-
-
             //CODIGO PARA PASAR PARAMETRO DE FECHA, IMPORTANTE
 
             //string desdeFechaString = Microsoft.VisualBasic.Interaction.InputBox("Por favor ingrese la fecha de inicio (formato: dd/mm/yyyy):", "Ingrese Fecha Desde", "");
@@ -96,7 +94,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void btnEditar_Click(object sender, EventArgs e)
         {
-
             if (dataGridViewEntidades.SelectedRows.Count > 0)
             {
                 var entidadSeleccionada = dataGridViewEntidades.SelectedRows[0].DataBoundItem;
@@ -107,6 +104,5 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                 MostrarMensaje("Debe seleccionar un registro para editar.");
             }
         }
-     
     }
 }

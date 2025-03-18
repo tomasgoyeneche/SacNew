@@ -1,18 +1,6 @@
 ﻿using GestionOperativa.Presenters;
-using GestionOperativa.Presenters.Tractor;
-using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 using Guna.UI2.WinForms;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 {
@@ -63,7 +51,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             IEspesor.Text = semi.Espesor.ToString();
             IFechaEspesor.Text = semi.CisternaEspesor?.ToShortDateString();
             IVisualExt.Text = semi.VisualExterna?.ToShortDateString();
-
         }
 
         public void ConfigurarFotoSemi(bool habilitar, string? rutaArchivo)
@@ -77,6 +64,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         {
             picBoxConfiguracion.BackgroundImage = habilitar && rutaArchivo != null ? Image.FromFile(rutaArchivo) : null;
         }
+
         private void AbrirArchivo(string? rutaArchivo)
         {
             if (!string.IsNullOrEmpty(rutaArchivo) && File.Exists(rutaArchivo))
@@ -90,18 +78,26 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         }
 
         public void ConfigurarBotonCedula(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCedula, habilitar, rutaArchivo);
+
         public void ConfigurarBotonTitulo(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bTitulo, habilitar, rutaArchivo);
+
         public void ConfigurarBotonRuta(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bRuta, habilitar, rutaArchivo);
+
         public void ConfigurarBotonVTV(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVtv, habilitar, rutaArchivo);
 
         public void ConfigurarBotonInv(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bInv, habilitar, rutaArchivo);
-        public void ConfigurarBotonEstanqueidad(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEstanqueidad, habilitar, rutaArchivo);
-        public void ConfigurarBotonLitrosNominales(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLitrosNom, habilitar, rutaArchivo);
-        public void ConfigurarBotonCubicacion(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCubicacion, habilitar, rutaArchivo);
-        public void ConfigurarBotonEspesor(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEspesor, habilitar, rutaArchivo);
-        public void ConfigurarBotonVisualInt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualInt, habilitar, rutaArchivo);
-        public void ConfigurarBotonVisualExt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualExt, habilitar, rutaArchivo);
 
+        public void ConfigurarBotonEstanqueidad(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEstanqueidad, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonLitrosNominales(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLitrosNom, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonCubicacion(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCubicacion, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonEspesor(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEspesor, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonVisualInt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualInt, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonVisualExt(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVisualExt, habilitar, rutaArchivo);
 
         private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)
         {
@@ -135,13 +131,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         private void bRuta_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bRuta"]);
-
         }
 
         private void bVtv_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bVtv"]);
-
         }
 
         private void bFotoSemi_Click(object sender, EventArgs e)
@@ -152,43 +146,36 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         private void bEstanqueidad_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bEstanqueidad"]);
-
         }
 
         private void bLitrosNom_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bLitrosNom"]);
-
         }
 
         private void bCubicacion_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bCubicacion"]);
-
         }
 
         private void bVisualInt_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bVisualInt"]);
-
         }
 
         private void bInv_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bInv"]);
-
         }
 
         private void bEspesor_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bEspesor"]);
-
         }
 
         private void bVisualExt_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutasDocumentos["bVisualExt"]);
-
         }
     }
 }

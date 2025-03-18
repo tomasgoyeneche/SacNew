@@ -2,13 +2,7 @@
 using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using GestionOperativa.Processor;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -36,8 +30,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             _empresaRepositorio = empresaRepositorio;
             _unidadRepositorio = unidadRepositorio;
         }
-
-
 
         public async Task GenerarReporteFlotaAsync()
         {

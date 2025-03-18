@@ -1,5 +1,4 @@
-﻿using App.Views;
-using Core.Base;
+﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;

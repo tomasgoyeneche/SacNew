@@ -15,6 +15,8 @@ namespace GestionOperativa.Presenters
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly IEmpresaRepositorio _empresaRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
+        private readonly ITractorRepositorio _tractorRepositorio;
+        private readonly ISemiRepositorio _semiRepositorio;
 
         public MenuAdministracionDocumentalPresenter(
             ISesionService sesionService,
@@ -23,7 +25,9 @@ namespace GestionOperativa.Presenters
             IConfRepositorio confRepositorio,
             IChoferRepositorio choferRepositorio,
             IUnidadRepositorio unidadRepositorio,
-            IEmpresaRepositorio empresaRepositorio
+            IEmpresaRepositorio empresaRepositorio,
+            ITractorRepositorio tractorRepositorio,
+            ISemiRepositorio semiRepositorio
         ) : base(sesionService, navigationService)
         {
             _documentacionService = documentacionService;
@@ -31,6 +35,8 @@ namespace GestionOperativa.Presenters
             _choferRepositorio = choferRepositorio;
             _empresaRepositorio = empresaRepositorio;
             _unidadRepositorio = unidadRepositorio;
+            _semiRepositorio = semiRepositorio;
+            _tractorRepositorio = tractorRepositorio;
         }
 
         public async Task CargarMenuEntidad(string numeroEntidad)
@@ -41,10 +47,16 @@ namespace GestionOperativa.Presenters
             });
         }
 
+        private async Task<string?> ObtenerRutaAsync(int idRuta)
+        {
+            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(idRuta);
+            return rutaBase?.Ruta;
+        }
+
         public async Task VerificarFotosChoferesAsync()
         {
-            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(1);
-            if (rutaBase == null || string.IsNullOrEmpty(rutaBase.Ruta))
+            string? rutaBase = await ObtenerRutaAsync(1);
+            if (string.IsNullOrEmpty(rutaBase))
             {
                 _view.MostrarMensaje("No se encontró la ruta de los archivos de choferes.");
                 return;
@@ -52,154 +64,136 @@ namespace GestionOperativa.Presenters
 
             string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\FotosChoferes.csv";
 
-            await _documentacionService.VerificarArchivosFaltantesAsync(
-                _choferRepositorio.ObtenerTodosLosChoferesDto,
-                chofer => Path.Combine(rutaBase.Ruta, $"{chofer.Documento}.jpg"),
-                rutaCsv,
-                chofer => new
-                {
-                    Empresa = chofer.Empresa_Nombre,
-                    CuitEmpresa = chofer.Empresa_Cuit,
-                    Nombre = $"{chofer.Apellido}, {chofer.Nombre}",
-                    chofer.Documento,
-                    ArchivoFaltante = $"Q:\\Choferes\\{chofer.Documento}.jpg"
-                },
-                _view.MostrarRelevamiento
-            );
+            await _documentacionService.VerificarArchivosFaltantesAsync<ChoferDto>(
+                 async () => await _choferRepositorio.ObtenerTodosLosChoferesDto(),
+                 chofer => Path.Combine(rutaBase, $"{chofer.Documento}.jpg"),
+                 rutaCsv,
+                 chofer => new
+                 {
+                     chofer.Empresa_Nombre,
+                     chofer.Empresa_Cuit,
+                     Nombre = $"{chofer.Apellido}, {chofer.Nombre}",
+                     chofer.Documento,
+                     ArchivoFaltante = $"Q:\\Choferes\\{chofer.Documento}.jpg"
+                 },
+                 _view.MostrarRelevamiento
+             );
         }
 
         public async Task VerificarLegajosChoferesAsync()
         {
-            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(5);
-            if (rutaBase == null || string.IsNullOrEmpty(rutaBase.Ruta))
+            string? rutaBase = await ObtenerRutaAsync(5);
+            if (string.IsNullOrEmpty(rutaBase))
             {
                 _view.MostrarMensaje("No se encontró la ruta de los legajos de choferes.");
                 return;
             }
 
-            string rutaRaiz = Path.Combine(rutaBase.Ruta, "Chofer");
-            string rutaSeguroEmpresa = Path.Combine(rutaBase.Ruta, "EMPRESA", "ART");
+            string rutaRaiz = Path.Combine(rutaBase, "Chofer");
             string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\LegajosChoferes.csv";
 
             var subCarpetas = new Dictionary<string, string>
-            {
-                { "Alta Temprana", "AltaTemprana" },
-                { "Apto", "Apto" },
-                { "Curso", "Curso" },
-                { "DNI", "DNI" },
-                { "Licencia", "Licencia" }
-            };
+        {
+            { "Alta Temprana", "AltaTemprana" },
+            { "Apto", "Apto" },
+            { "Curso", "Curso" },
+            { "DNI", "DNI" },
+            { "Licencia", "Licencia" }
+        };
 
-            Func<ChoferDto, List<string>> obtenerArchivosFaltantes = chofer =>
-            {
-                var archivosFaltantes = subCarpetas
-                    .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{chofer.Documento}.pdf")))
-                    .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
-                    .ToList();
+            await _documentacionService.VerificarArchivosFaltantesAsync<ChoferDto>(
+             async () => await _choferRepositorio.ObtenerTodosLosChoferesDto(),
+             chofer =>
+             {
+                 var archivosFaltantes = subCarpetas
+                     .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{chofer.Documento}.pdf")))
+                     .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
+                     .ToList();
 
-                string rutaSeguro = chofer.CoberturaCentralizada
-                    ? Path.Combine(rutaSeguroEmpresa, $"{chofer.Empresa_Cuit}.pdf")
-                    : Path.Combine(rutaRaiz, "Seguro", $"{chofer.Documento}.pdf");
-
-                if (!File.Exists(rutaSeguro))
-                {
-                    string carpetaSeguro = chofer.CoberturaCentralizada ? "EMPRESA\\ART" : "Chofer\\Seguro";
-                    archivosFaltantes.Add($"Seguro: Q:\\LegajosDigitalizados\\{carpetaSeguro}\\{Path.GetFileName(rutaSeguro)}");
-                }
-
-                return archivosFaltantes;
-            };
-
-            await _documentacionService.VerificarArchivosFaltantesAsync(
-                _choferRepositorio.ObtenerTodosLosChoferesDto,
-                chofer =>
-                {
-                    var archivosFaltantes = obtenerArchivosFaltantes(chofer);
-                    return archivosFaltantes.Count > 0 ? string.Join(" | ", archivosFaltantes) : null;
-                },
-                rutaCsv,
-                chofer => new
-                {
-                    chofer.Empresa_Nombre,
-                    chofer.Empresa_Cuit,
-                    Nombre = $"{chofer.Apellido}, {chofer.Nombre}",
-                    chofer.Documento,
-                    ArchivosFaltantes = obtenerArchivosFaltantes(chofer).Count > 0
-                        ? string.Join(" | ", obtenerArchivosFaltantes(chofer))
-                        : "Completo"
-                },
-                _view.MostrarRelevamiento
-            );
+                 return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
+             },
+             rutaCsv,
+             chofer => new
+             {
+                 chofer.Empresa_Nombre,
+                 chofer.Empresa_Cuit,
+                 Nombre = $"{chofer.Apellido}, {chofer.Nombre}",
+                 chofer.Documento,
+                 ArchivosFaltantes = subCarpetas
+                     .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{chofer.Documento}.pdf")))
+                     .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
+                     .DefaultIfEmpty("Completo")
+                     .Aggregate((a, b) => $"{a} | {b}")
+             },
+             _view.MostrarRelevamiento
+         );
         }
 
         public async Task VerificarLegajosEmpresasAsync()
         {
-            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(5);
-            if (rutaBase == null || string.IsNullOrEmpty(rutaBase.Ruta))
+            string? rutaBase = await ObtenerRutaAsync(5);
+            if (string.IsNullOrEmpty(rutaBase))
             {
                 _view.MostrarMensaje("No se encontró la ruta de los legajos de empresas.");
                 return;
             }
 
-            string rutaRaiz = Path.Combine(rutaBase.Ruta, "EMPRESA");
+            string rutaRaiz = Path.Combine(rutaBase, "EMPRESA");
             string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\LegajosEmpresas.csv";
 
             var subCarpetas = new Dictionary<string, string>
-            {
-                { "ART", "ART" },
-                { "CUIT", "CUIT" }
-            };
+        {
+            { "ART", "ART" },
+            { "CUIT", "CUIT" }
+        };
 
-            Func<EmpresaDto, List<string>> obtenerArchivosFaltantes = empresa =>
-            {
-                return subCarpetas
-                    .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{empresa.Cuit}.pdf")))
-                    .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\EMPRESA\\{sub.Value}\\{empresa.Cuit}.pdf")
-                    .ToList();
-            };
+            await _documentacionService.VerificarArchivosFaltantesAsync<EmpresaDto>(
+              async () => await _empresaRepositorio.ObtenerTodasLasEmpresasAsync(),
+              empresa =>
+              {
+                  var archivosFaltantes = subCarpetas
+                      .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{empresa.Cuit}.pdf")))
+                      .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\EMPRESA\\{sub.Value}\\{empresa.Cuit}.pdf")
+                      .ToList();
 
-            await _documentacionService.VerificarArchivosFaltantesAsync(
-                _empresaRepositorio.ObtenerTodasLasEmpresasAsync,
-                empresa =>
-                {
-                    var archivosFaltantes = obtenerArchivosFaltantes(empresa);
-                    return archivosFaltantes.Count > 0 ? string.Join(" | ", archivosFaltantes) : null;
-                },
-                rutaCsv,
-                empresa => new
-                {
-                    empresa.RazonSocial,
-                    empresa.NombreFantasia,
-                    empresa.Cuit,
-                    ArchivosFaltantes = obtenerArchivosFaltantes(empresa).Count > 0
-                        ? string.Join(" | ", obtenerArchivosFaltantes(empresa))
-                        : "Completo"
-                },
-                _view.MostrarRelevamiento
-            );
+                  return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
+              },
+              rutaCsv,
+              empresa => new
+              {
+                  empresa.RazonSocial,
+                  empresa.NombreFantasia,
+                  empresa.Cuit,
+                  ArchivosFaltantes = subCarpetas
+                      .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{empresa.Cuit}.pdf")))
+                      .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\EMPRESA\\{sub.Value}\\{empresa.Cuit}.pdf")
+                      .DefaultIfEmpty("Completo")
+                      .Aggregate((a, b) => $"{a} | {b}")
+              },
+              _view.MostrarRelevamiento
+          );
         }
 
         public async Task VerificarFotosUnidadesAsync()
         {
-            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(6);
-            if (rutaBase == null || string.IsNullOrEmpty(rutaBase.Ruta))
+            string? rutaBase = await ObtenerRutaAsync(6);
+            if (string.IsNullOrEmpty(rutaBase))
             {
                 _view.MostrarMensaje("No se encontró la ruta de las fotos de unidades.");
                 return;
             }
 
-            string rutaRaiz = rutaBase.Ruta;
             string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\FotosUnidades.csv";
 
             var subCarpetas = new Dictionary<string, Func<UnidadDto, string>>
             {
-                { "Tractor", unidad => Path.Combine(rutaRaiz, "Tractor", $"{unidad.Tractor_Patente}.jpg") },
-                { "Semi", unidad => Path.Combine(rutaRaiz, "Semi", $"{unidad.Semirremolque_Patente}.jpg") },
-                { "Nomina", unidad => Path.Combine(rutaRaiz, "Nomina", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.jpg") }
+                { "Tractor", unidad => Path.Combine(rutaBase, "Tractor", $"{unidad.Tractor_Patente}.jpg") },
+                { "Semi", unidad => Path.Combine(rutaBase, "Semi", $"{unidad.Semirremolque_Patente}.jpg") },
+                { "Nomina", unidad => Path.Combine(rutaBase, "Nomina", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.jpg") }
             };
 
-            await _documentacionService.VerificarArchivosFaltantesAsync(
-                _unidadRepositorio.ObtenerUnidadesDtoAsync,
+            await _documentacionService.VerificarArchivosFaltantesAsync<UnidadDto>(
+                async () => await _unidadRepositorio.ObtenerUnidadesDtoAsync(),
                 unidad =>
                 {
                     var archivosFaltantes = subCarpetas
@@ -207,7 +201,7 @@ namespace GestionOperativa.Presenters
                         .Select(sub => $"{sub.Key}: Q:\\Fotos\\{sub.Key}\\{Path.GetFileName(sub.Value(unidad))}")
                         .ToList();
 
-                    return archivosFaltantes.Count > 0 ? string.Join(" | ", archivosFaltantes) : null;
+                    return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
                 },
                 rutaCsv,
                 unidad => new
@@ -227,46 +221,41 @@ namespace GestionOperativa.Presenters
 
         public async Task VerificarDocumentosUnidadesAsync()
         {
-            var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(5); // Ruta base de legajos digitalizados
-            if (rutaBase == null || string.IsNullOrEmpty(rutaBase.Ruta))
+            string? rutaBase = await ObtenerRutaAsync(5);
+            if (string.IsNullOrEmpty(rutaBase))
             {
                 _view.MostrarMensaje("No se encontró la ruta de los documentos de unidades.");
                 return;
             }
 
-            string rutaRaiz = rutaBase.Ruta;
             string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\DocumentosUnidades.csv";
 
-            // 🔹 Definir subcarpetas y cómo construir los nombres de archivo
             var subCarpetas = new Dictionary<string, Func<UnidadDto, string>>
             {
-                // 📂 Documentos de NOMINA (Basados en patente tractor + semi)
-                { "Nomina - Calibrado", unidad => Path.Combine(rutaRaiz, "Nomina", "Calibrado", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
-                { "Nomina - Checklist", unidad => Path.Combine(rutaRaiz, "Nomina", "Checklist", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
-                { "Nomina - MAS", unidad => Path.Combine(rutaRaiz, "Nomina", "Mas", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
-                { "Nomina - Tara", unidad => Path.Combine(rutaRaiz, "Nomina", "Tara", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
+              //  { "Nomina - Calibrado", unidad => Path.Combine(rutaBase, "Nomina", "Calibrado", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
+                { "Nomina - Checklist", unidad => Path.Combine(rutaBase, "Nomina", "Checklist", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
+                { "Nomina - MAS", unidad => Path.Combine(rutaBase, "Nomina", "Mas", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
+                { "Nomina - Tara", unidad => Path.Combine(rutaBase, "Nomina", "Tara", $"{unidad.Tractor_Patente}_{unidad.Semirremolque_Patente}.pdf") },
 
-                // 📂 Documentos de TRACTOR (Basados en patente del tractor)
-                { "Tractor - Cédula", unidad => Path.Combine(rutaRaiz, "Tractor", "Cedula", $"{unidad.Tractor_Patente}.pdf") },
-                { "Tractor - Ruta", unidad => Path.Combine(rutaRaiz, "Tractor", "Ruta", $"{unidad.Tractor_Patente}.pdf") },
-                { "Tractor - Título", unidad => Path.Combine(rutaRaiz, "Tractor", "Titulo", $"{unidad.Tractor_Patente}.pdf") },
-                { "Tractor - VTV", unidad => Path.Combine(rutaRaiz, "Tractor", "VTV", $"{unidad.Tractor_Patente}.pdf") },
+                { "Tractor - Cédula", unidad => Path.Combine(rutaBase, "Tractor", "Cedula", $"{unidad.Tractor_Patente}.pdf") },
+                { "Tractor - Ruta", unidad => Path.Combine(rutaBase, "Tractor", "Ruta", $"{unidad.Tractor_Patente}.pdf") },
+                { "Tractor - Título", unidad => Path.Combine(rutaBase, "Tractor", "Titulo", $"{unidad.Tractor_Patente}.pdf") },
+                { "Tractor - VTV", unidad => Path.Combine(rutaBase, "Tractor", "VTV", $"{unidad.Tractor_Patente}.pdf") },
 
-                // 📂 Documentos de SEMIRREMOLQUE (Basados en patente del semi)
-                { "Semi - Cédula", unidad => Path.Combine(rutaRaiz, "Semi", "Cedula", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Cubicación", unidad => Path.Combine(rutaRaiz, "Semi", "Cubicacion", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Espesor", unidad => Path.Combine(rutaRaiz, "Semi", "Espesor", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Estanqueidad", unidad => Path.Combine(rutaRaiz, "Semi", "Estanqueidad", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Litros nominales", unidad => Path.Combine(rutaRaiz, "Semi", "Litros_Nominales", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Ruta", unidad => Path.Combine(rutaRaiz, "Semi", "Ruta", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Título", unidad => Path.Combine(rutaRaiz, "Semi", "Titulo", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Visual Interna", unidad => Path.Combine(rutaRaiz, "Semi", "Visual_Interna", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - Visual Externa", unidad => Path.Combine(rutaRaiz, "Semi", "Visual_Externa", $"{unidad.Semirremolque_Patente}.pdf") },
-                { "Semi - VTV", unidad => Path.Combine(rutaRaiz, "Semi", "VTV", $"{unidad.Semirremolque_Patente}.pdf") }
+                { "Semi - Cédula", unidad => Path.Combine(rutaBase, "Semi", "Cedula", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Cubicación", unidad => Path.Combine(rutaBase, "Semi", "Cubicacion", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Espesor", unidad => Path.Combine(rutaBase, "Semi", "Espesor", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Estanqueidad", unidad => Path.Combine(rutaBase, "Semi", "Estanqueidad", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Litros nominales", unidad => Path.Combine(rutaBase, "Semi", "Litros_Nominales", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Ruta", unidad => Path.Combine(rutaBase, "Semi", "Ruta", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Título", unidad => Path.Combine(rutaBase, "Semi", "Titulo", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Visual Interna", unidad => Path.Combine(rutaBase, "Semi", "Visual_Interna", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - Visual Externa", unidad => Path.Combine(rutaBase, "Semi", "Visual_Externa", $"{unidad.Semirremolque_Patente}.pdf") },
+                { "Semi - VTV", unidad => Path.Combine(rutaBase, "Semi", "VTV", $"{unidad.Semirremolque_Patente}.pdf") }
             };
 
-            await _documentacionService.VerificarArchivosFaltantesAsync(
-                _unidadRepositorio.ObtenerUnidadesDtoAsync,
+            await _documentacionService.VerificarArchivosFaltantesAsync<UnidadDto>(
+                async () => await _unidadRepositorio.ObtenerUnidadesDtoAsync(),
                 unidad =>
                 {
                     var archivosFaltantes = subCarpetas
@@ -274,7 +263,7 @@ namespace GestionOperativa.Presenters
                         .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\{sub.Key.Replace(" - ", "\\")}\\{Path.GetFileName(sub.Value(unidad))}")
                         .ToList();
 
-                    return archivosFaltantes.Count > 0 ? string.Join(" | ", archivosFaltantes) : null;
+                    return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
                 },
                 rutaCsv,
                 unidad => new
@@ -289,6 +278,121 @@ namespace GestionOperativa.Presenters
                         .Aggregate((a, b) => $"{a} | {b}")
                 },
                 _view.MostrarRelevamiento
+            );
+        }
+
+        //Vencimientos de la base de datos
+
+        public async Task VerificarVencimientosChoferesAsync()
+        {
+            string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\VencimientosChoferes.csv";
+
+            var camposBase = new Dictionary<string, Func<ChoferDto, object>>
+    {
+        { "NombreFantasia", chofer => chofer.Empresa_Nombre },
+        { "CUIT", chofer => chofer.Empresa_Cuit },
+        { "Nombre", chofer => $"{chofer.Apellido}, {chofer.Nombre}" },
+        { "Documento", chofer => chofer.Documento }
+    };
+
+            var camposVencimiento = new Dictionary<string, Func<ChoferDto, DateTime?>>
+    {
+        { "PsicofisicoApto", chofer => chofer.PsicofisicoApto },
+        { "PsicofisicoCurso", chofer => chofer.PsicofisicoCurso },
+        { "Licencia", chofer => chofer.Licencia },
+        { "VigenciaHasta", chofer => chofer.VigenciaHasta }
+    };
+
+            await _documentacionService.ExportarVencimientosAsync<ChoferDto>(
+                async () => await _choferRepositorio.ObtenerTodosLosChoferesDto(),
+                rutaCsv,
+                camposBase,
+                camposVencimiento,
+                _view.MostrarRelevamientoVencimientos
+            );
+        }
+
+        public async Task VerificarVencimientosTractoresAsync()
+        {
+            string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\VencimientosTractores.csv";
+
+            var camposBase = new Dictionary<string, Func<TractorDto, object>>
+            {
+                { "NombreFantasia", unidad => unidad.Empresa_Nombre },
+                { "CUIT", unidad => unidad.Empresa_Cuit },
+                { "Patente", unidad => unidad.Patente }
+            };
+
+            var camposVencimiento = new Dictionary<string, Func<TractorDto, DateTime?>>
+            {
+                { "Ruta", unidad => unidad.Ruta },
+                { "VTV", unidad => unidad.Vtv }
+            };
+
+            await _documentacionService.ExportarVencimientosAsync<TractorDto>(
+                async () => await _tractorRepositorio.ObtenerTodosLosTractoresDto(),
+                rutaCsv,
+                camposBase,
+                camposVencimiento,
+                _view.MostrarRelevamientoVencimientos
+            );
+        }
+
+        public async Task VerificarVencimientosSemisAsync()
+        {
+            string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\VencimientosSemiremolques.csv";
+
+            var camposBase = new Dictionary<string, Func<SemiDto, object>>
+        {
+            { "NombreFantasia", unidad => unidad.Empresa_Nombre },
+            { "CUIT", unidad => unidad.Empresa_Cuit },
+            { "Patente", unidad => unidad.Patente }
+        };
+
+            var camposVencimiento = new Dictionary<string, Func<SemiDto, DateTime?>>
+        {
+            { "Ruta", unidad => unidad.Ruta },
+            { "VTV", unidad => unidad.Vtv },
+            { "CisternaEspesor", unidad => unidad.CisternaEspesor },
+            { "VisualInterna", unidad => unidad.VisualInterna },
+            { "VisualExterna", unidad => unidad.VisualExterna },
+            { "Estanqueidad", unidad => unidad.Estanqueidad }
+        };
+
+            await _documentacionService.ExportarVencimientosAsync<SemiDto>(
+                async () => await _semiRepositorio.ObtenerTodosLosSemisDto(),
+                rutaCsv,
+                camposBase,
+                camposVencimiento,
+                _view.MostrarRelevamientoVencimientos
+            );
+        }
+
+        public async Task VerificarVencimientosUnidadesAsync()
+        {
+            string rutaCsv = "C:\\Compartida\\SAC\\Exportaciones\\VencimientosUnidades.csv";
+
+            var camposBase = new Dictionary<string, Func<UnidadDto, object>>
+            {
+                { "NombreFantasia", unidad => unidad.Empresa_Unidad },
+                { "CUIT", unidad => unidad.Cuit_Unidad },
+                { "PatenteTractor", unidad => unidad.Tractor_Patente },
+                { "PatenteSemi", unidad => unidad.Semirremolque_Patente },
+            };
+
+            var camposVencimiento = new Dictionary<string, Func<UnidadDto, DateTime?>>
+            {
+                { "Calibrado", unidad => unidad.Calibrado },
+                { "Checklist", unidad => unidad.Checklist },
+                { "MasYPF", unidad => unidad.MasYPF }
+            };
+
+            await _documentacionService.ExportarVencimientosAsync<UnidadDto>(
+                async () => await _unidadRepositorio.ObtenerUnidadesDtoAsync(),
+                rutaCsv,
+                camposBase,
+                camposVencimiento,
+                _view.MostrarRelevamientoVencimientos
             );
         }
     }
