@@ -85,5 +85,15 @@ namespace Core.Repositories
                 return chofers.ToList();
             });
         }
+
+        public async Task EliminarUnidadAsync(int idUnidad)
+        {
+            var query = "Update Unidad set Activo = 0 WHERE idUnidad = @idUnidad";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, new { IdUnidad = idUnidad });
+            });
+        }
     }
 }

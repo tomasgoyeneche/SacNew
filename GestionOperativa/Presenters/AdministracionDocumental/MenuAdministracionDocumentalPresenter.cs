@@ -47,6 +47,14 @@ namespace GestionOperativa.Presenters
             });
         }
 
+        public async Task CargarMenuConfeccionNominas()
+        {
+            await AbrirFormularioAsync<MenuAltaNominaForm>(async form =>
+            {
+                await form._presenter.CargarEmpresasAsync();
+            });
+        }
+
         private async Task<string?> ObtenerRutaAsync(int idRuta)
         {
             var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(idRuta);

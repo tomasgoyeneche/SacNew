@@ -13,6 +13,8 @@ namespace Core.Repositories
 
         Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad);
 
+        Task EliminarUnidadAsync(int idUnidad);
+
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 
         Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);

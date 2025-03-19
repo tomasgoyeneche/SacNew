@@ -82,12 +82,12 @@
             ITipo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresaCuit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            IEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel42 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel44 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel45 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel46 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            IEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -99,16 +99,16 @@
             lPatenteSemi = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lEmpresaTractor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lEmpresaCuitSemi = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            ITara = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lEmpresaCuitTractor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IPatenteTractor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lEmpresaCuitTractor = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            labelEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lEmpresaTractor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             bVerifMensual = new Guna.UI2.WinForms.Guna2ImageButton();
             lVerifMensual = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -215,11 +215,11 @@
             guna2Panel7.Controls.Add(ITipo);
             guna2Panel7.Controls.Add(IEmpresaCuit);
             guna2Panel7.Controls.Add(guna2HtmlLabel32);
-            guna2Panel7.Controls.Add(IEmpresa);
             guna2Panel7.Controls.Add(guna2Panel10);
             guna2Panel7.Controls.Add(guna2HtmlLabel44);
             guna2Panel7.Controls.Add(guna2HtmlLabel45);
             guna2Panel7.Controls.Add(guna2HtmlLabel46);
+            guna2Panel7.Controls.Add(IEmpresa);
             guna2Panel7.CustomizableEdges = customizableEdges38;
             guna2Panel7.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel7.ForeColor = SystemColors.ControlLight;
@@ -234,7 +234,7 @@
             ITipo.BackColor = Color.Transparent;
             ITipo.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ITipo.ForeColor = SystemColors.ControlLight;
-            ITipo.Location = new Point(424, 38);
+            ITipo.Location = new Point(407, 38);
             ITipo.Name = "ITipo";
             ITipo.Size = new Size(27, 19);
             ITipo.TabIndex = 59;
@@ -261,17 +261,6 @@
             guna2HtmlLabel32.Size = new Size(61, 19);
             guna2HtmlLabel32.TabIndex = 40;
             guna2HtmlLabel32.Text = "Direccion";
-            // 
-            // IEmpresa
-            // 
-            IEmpresa.BackColor = Color.Transparent;
-            IEmpresa.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            IEmpresa.ForeColor = SystemColors.ControlLight;
-            IEmpresa.Location = new Point(177, 38);
-            IEmpresa.Name = "IEmpresa";
-            IEmpresa.Size = new Size(53, 19);
-            IEmpresa.TabIndex = 35;
-            IEmpresa.Text = "Empresa";
             // 
             // guna2Panel10
             // 
@@ -328,12 +317,24 @@
             guna2HtmlLabel46.BackColor = Color.Gray;
             guna2HtmlLabel46.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel46.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel46.Location = new Point(321, 37);
+            guna2HtmlLabel46.Location = new Point(304, 37);
             guna2HtmlLabel46.Name = "guna2HtmlLabel46";
             guna2HtmlLabel46.Size = new Size(97, 20);
             guna2HtmlLabel46.TabIndex = 25;
             guna2HtmlLabel46.Text = "Tipo:";
             guna2HtmlLabel46.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // IEmpresa
+            // 
+            IEmpresa.AutoSize = false;
+            IEmpresa.BackColor = Color.Transparent;
+            IEmpresa.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            IEmpresa.ForeColor = SystemColors.ControlLight;
+            IEmpresa.Location = new Point(177, 38);
+            IEmpresa.Name = "IEmpresa";
+            IEmpresa.Size = new Size(121, 19);
+            IEmpresa.TabIndex = 35;
+            IEmpresa.Text = "Empresa";
             // 
             // guna2Panel5
             // 
@@ -417,15 +418,15 @@
             lRazonSocial.Controls.Add(lPatenteSemi);
             lRazonSocial.Controls.Add(guna2HtmlLabel6);
             lRazonSocial.Controls.Add(guna2HtmlLabel9);
-            lRazonSocial.Controls.Add(lEmpresaTractor);
             lRazonSocial.Controls.Add(lEmpresaCuitSemi);
-            lRazonSocial.Controls.Add(ITara);
+            lRazonSocial.Controls.Add(lEmpresaCuitTractor);
             lRazonSocial.Controls.Add(IPatenteTractor);
             lRazonSocial.Controls.Add(guna2Panel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel1);
-            lRazonSocial.Controls.Add(lEmpresaCuitTractor);
+            lRazonSocial.Controls.Add(labelEmpresa);
             lRazonSocial.Controls.Add(guna2HtmlLabel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel3);
+            lRazonSocial.Controls.Add(lEmpresaTractor);
             lRazonSocial.CustomizableEdges = customizableEdges27;
             lRazonSocial.FillColor = Color.FromArgb(42, 48, 56);
             lRazonSocial.ForeColor = SystemColors.ControlLight;
@@ -437,12 +438,13 @@
             // 
             // lEmpresaSemi
             // 
+            lEmpresaSemi.AutoSize = false;
             lEmpresaSemi.BackColor = Color.Transparent;
             lEmpresaSemi.Font = new Font("Century Gothic", 9F);
             lEmpresaSemi.ForeColor = SystemColors.ControlLight;
-            lEmpresaSemi.Location = new Point(424, 63);
+            lEmpresaSemi.Location = new Point(424, 62);
             lEmpresaSemi.Name = "lEmpresaSemi";
-            lEmpresaSemi.Size = new Size(60, 19);
+            lEmpresaSemi.Size = new Size(116, 19);
             lEmpresaSemi.TabIndex = 70;
             lEmpresaSemi.Text = "EmpresaS";
             // 
@@ -451,7 +453,7 @@
             lPatenteSemi.BackColor = Color.Transparent;
             lPatenteSemi.Font = new Font("Century Gothic", 9F);
             lPatenteSemi.ForeColor = SystemColors.ControlLight;
-            lPatenteSemi.Location = new Point(424, 34);
+            lPatenteSemi.Location = new Point(424, 35);
             lPatenteSemi.Name = "lPatenteSemi";
             lPatenteSemi.Size = new Size(80, 19);
             lPatenteSemi.TabIndex = 59;
@@ -463,9 +465,9 @@
             guna2HtmlLabel6.BackColor = Color.Gray;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel6.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel6.Location = new Point(268, 34);
+            guna2HtmlLabel6.Location = new Point(321, 34);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(150, 20);
+            guna2HtmlLabel6.Size = new Size(97, 20);
             guna2HtmlLabel6.TabIndex = 57;
             guna2HtmlLabel6.Text = "Patente Semi";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.TopCenter;
@@ -476,52 +478,41 @@
             guna2HtmlLabel9.BackColor = Color.Gray;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(268, 89);
+            guna2HtmlLabel9.Location = new Point(321, 88);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(150, 20);
+            guna2HtmlLabel9.Size = new Size(97, 20);
             guna2HtmlLabel9.TabIndex = 54;
             guna2HtmlLabel9.Text = "CUIT";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // lEmpresaTractor
-            // 
-            lEmpresaTractor.BackColor = Color.Transparent;
-            lEmpresaTractor.Font = new Font("Century Gothic", 9F);
-            lEmpresaTractor.ForeColor = SystemColors.ControlLight;
-            lEmpresaTractor.Location = new Point(177, 62);
-            lEmpresaTractor.Name = "lEmpresaTractor";
-            lEmpresaTractor.Size = new Size(58, 19);
-            lEmpresaTractor.TabIndex = 42;
-            lEmpresaTractor.Text = "EmpresaT";
             // 
             // lEmpresaCuitSemi
             // 
             lEmpresaCuitSemi.BackColor = Color.Transparent;
             lEmpresaCuitSemi.Font = new Font("Century Gothic", 9F);
             lEmpresaCuitSemi.ForeColor = SystemColors.ControlLight;
-            lEmpresaCuitSemi.Location = new Point(424, 90);
+            lEmpresaCuitSemi.Location = new Point(424, 89);
             lEmpresaCuitSemi.Name = "lEmpresaCuitSemi";
             lEmpresaCuitSemi.Size = new Size(106, 19);
             lEmpresaCuitSemi.TabIndex = 40;
             lEmpresaCuitSemi.Text = "EmpresaCuitSemi";
             // 
-            // ITara
+            // lEmpresaCuitTractor
             // 
-            ITara.BackColor = Color.Transparent;
-            ITara.Font = new Font("Century Gothic", 9F);
-            ITara.ForeColor = SystemColors.ControlLight;
-            ITara.Location = new Point(177, 89);
-            ITara.Name = "ITara";
-            ITara.Size = new Size(82, 19);
-            ITara.TabIndex = 39;
-            ITara.Text = "EmpresaCuitT";
+            lEmpresaCuitTractor.BackColor = Color.Transparent;
+            lEmpresaCuitTractor.Font = new Font("Century Gothic", 9F);
+            lEmpresaCuitTractor.ForeColor = SystemColors.ControlLight;
+            lEmpresaCuitTractor.Location = new Point(177, 89);
+            lEmpresaCuitTractor.Name = "lEmpresaCuitTractor";
+            lEmpresaCuitTractor.Size = new Size(82, 19);
+            lEmpresaCuitTractor.TabIndex = 39;
+            lEmpresaCuitTractor.Text = "EmpresaCuitT";
             // 
             // IPatenteTractor
             // 
             IPatenteTractor.BackColor = Color.Transparent;
             IPatenteTractor.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             IPatenteTractor.ForeColor = SystemColors.ControlLight;
-            IPatenteTractor.Location = new Point(177, 34);
+            IPatenteTractor.Location = new Point(177, 36);
             IPatenteTractor.Name = "IPatenteTractor";
             IPatenteTractor.Size = new Size(47, 18);
             IPatenteTractor.TabIndex = 35;
@@ -556,25 +547,25 @@
             guna2HtmlLabel1.BackColor = Color.Gray;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(21, 33);
+            guna2HtmlLabel1.Location = new Point(21, 34);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(150, 20);
             guna2HtmlLabel1.TabIndex = 22;
             guna2HtmlLabel1.Text = "Patente Tractor";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // lEmpresaCuitTractor
+            // labelEmpresa
             // 
-            lEmpresaCuitTractor.AutoSize = false;
-            lEmpresaCuitTractor.BackColor = Color.Gray;
-            lEmpresaCuitTractor.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            lEmpresaCuitTractor.ForeColor = SystemColors.ControlLight;
-            lEmpresaCuitTractor.Location = new Point(21, 89);
-            lEmpresaCuitTractor.Name = "lEmpresaCuitTractor";
-            lEmpresaCuitTractor.Size = new Size(150, 20);
-            lEmpresaCuitTractor.TabIndex = 26;
-            lEmpresaCuitTractor.Text = "CUIT";
-            lEmpresaCuitTractor.TextAlignment = ContentAlignment.TopCenter;
+            labelEmpresa.AutoSize = false;
+            labelEmpresa.BackColor = Color.Gray;
+            labelEmpresa.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            labelEmpresa.ForeColor = SystemColors.ControlLight;
+            labelEmpresa.Location = new Point(21, 88);
+            labelEmpresa.Name = "labelEmpresa";
+            labelEmpresa.Size = new Size(150, 20);
+            labelEmpresa.TabIndex = 26;
+            labelEmpresa.Text = "CUIT";
+            labelEmpresa.TextAlignment = ContentAlignment.TopCenter;
             // 
             // guna2HtmlLabel4
             // 
@@ -595,12 +586,24 @@
             guna2HtmlLabel3.BackColor = Color.Gray;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(268, 61);
+            guna2HtmlLabel3.Location = new Point(321, 61);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(150, 20);
+            guna2HtmlLabel3.Size = new Size(97, 20);
             guna2HtmlLabel3.TabIndex = 24;
             guna2HtmlLabel3.Text = "Empresa";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // lEmpresaTractor
+            // 
+            lEmpresaTractor.AutoSize = false;
+            lEmpresaTractor.BackColor = Color.Transparent;
+            lEmpresaTractor.Font = new Font("Century Gothic", 9F);
+            lEmpresaTractor.ForeColor = SystemColors.ControlLight;
+            lEmpresaTractor.Location = new Point(177, 62);
+            lEmpresaTractor.Name = "lEmpresaTractor";
+            lEmpresaTractor.Size = new Size(138, 19);
+            lEmpresaTractor.TabIndex = 42;
+            lEmpresaTractor.Text = "EmpresaT";
             // 
             // guna2Panel1
             // 
@@ -1108,7 +1111,7 @@
             picBoxTractor.CustomizableEdges = customizableEdges1;
             picBoxTractor.FillColor = Color.Transparent;
             picBoxTractor.ImageRotate = 0F;
-            picBoxTractor.Location = new Point(677, 475);
+            picBoxTractor.Location = new Point(677, 474);
             picBoxTractor.Name = "picBoxTractor";
             picBoxTractor.ShadowDecoration.CustomizableEdges = customizableEdges2;
             picBoxTractor.Size = new Size(111, 108);
@@ -1206,12 +1209,12 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel lEmpresaTractor;
         private Guna.UI2.WinForms.Guna2HtmlLabel lEmpresaCuitSemi;
-        private Guna.UI2.WinForms.Guna2HtmlLabel ITara;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lEmpresaCuitTractor;
         private Guna.UI2.WinForms.Guna2HtmlLabel IPatenteTractor;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lEmpresaCuitTractor;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelEmpresa;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;

@@ -102,5 +102,10 @@ namespace GestionOperativa.Views.AdministracionDocumental
         {
             await _presenter.CargarMenuEntidad(entidad);
         }
+
+        private async void bConfeccionNominas_Click(object sender, EventArgs e)
+        {
+            await _presenter.CargarMenuConfeccionNominas();
+        }
     }
 }

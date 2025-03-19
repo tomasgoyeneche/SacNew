@@ -1,15 +1,8 @@
 ﻿using Core.Base;
-using Core.Interfaces;
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Unidades;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -66,9 +59,9 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             var subCarpetas = new Dictionary<string, Action<bool, string?>>
             {
                 { "Tara", _view.ConfigurarBotonTaraTotal },
-            { "MasYPF", _view.ConfigurarBotonMasYPF },
+            { "Mas", _view.ConfigurarBotonMasYPF },
             { "Checklist", _view.ConfigurarBotonChecklist },
-            { "Calibrado", _view.ConfigurarBotonCalibrado }
+            { "verfmensual", _view.ConfigurarBotonCalibrado }
         };
 
             foreach (var (subCarpeta, accion) in subCarpetas)

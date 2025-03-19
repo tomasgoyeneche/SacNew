@@ -2,15 +2,6 @@
 using GestionOperativa.Views.AdministracionDocumental.Altas.Unidades;
 using Guna.UI2.WinForms;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -60,6 +51,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             _rutaFotoUnidad = rutaArchivo;
             picBoxFotoUnidad.BackgroundImage = habilitar && rutaArchivo != null ? Image.FromFile(rutaArchivo) : null;
         }
+
         public void ConfigurarFotoConfiguracionTractor(bool habilitar, string? rutaArchivo)
         {
             picBoxTractor.BackgroundImage = habilitar && rutaArchivo != null ? Image.FromFile(rutaArchivo) : null;
@@ -92,11 +84,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         }
 
         public void ConfigurarBotonTaraTotal(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bTara, habilitar, rutaArchivo);
+
         public void ConfigurarBotonMasYPF(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bMasYpf, habilitar, rutaArchivo);
+
         public void ConfigurarBotonChecklist(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bChecklist, habilitar, rutaArchivo);
+
         public void ConfigurarBotonCalibrado(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bVerifMensual, habilitar, rutaArchivo);
-
-
 
         public void MostrarMensaje(string mensaje)
         {
@@ -105,12 +98,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void bTara_Click(object sender, EventArgs e)
         {
-            AbrirArchivo(_rutasDocumentos["bTaraTotal"]);
+            AbrirArchivo(_rutasDocumentos["bTara"]);
         }
 
         private void bMasYpf_Click(object sender, EventArgs e)
         {
-            AbrirArchivo(_rutasDocumentos["bMasYPF"]);
+            AbrirArchivo(_rutasDocumentos["bMasYpf"]);
         }
 
         private void bChecklist_Click(object sender, EventArgs e)
@@ -120,7 +113,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void bVerifMensual_Click(object sender, EventArgs e)
         {
-            AbrirArchivo(_rutasDocumentos["bCalibrado"]);
+            AbrirArchivo(_rutasDocumentos["bVerifMensual"]);
         }
 
         private void bFotoUnidad_Click(object sender, EventArgs e)
