@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 
 namespace GestionOperativa.Presenters
@@ -78,6 +79,15 @@ namespace GestionOperativa.Presenters
         {
             var conf = await _confRepositorio.ObtenerRutaPorIdAsync(8);
             return conf != null && int.TryParse(conf.Ruta, out int años) ? años : 16; // 🔹 Si falla, por defecto 10 años
+        }
+
+        public async Task EditarDatos(int idSemi)
+        {
+            await AbrirFormularioAsync<ModificarDatosSemiForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idSemi);
+            });
+            await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
         }
     }
 }

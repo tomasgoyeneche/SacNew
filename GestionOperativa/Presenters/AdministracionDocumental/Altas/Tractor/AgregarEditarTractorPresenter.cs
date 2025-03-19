@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 
 namespace GestionOperativa.Presenters.Tractor
@@ -76,6 +77,15 @@ namespace GestionOperativa.Presenters.Tractor
         {
             var conf = await _confRepositorio.ObtenerRutaPorIdAsync(7);
             return conf != null && int.TryParse(conf.Ruta, out int años) ? años : 10; // 🔹 Si falla, por defecto 10 años
+        }
+
+        public async Task EditarDatos(int idTractor, string SatelitalNombre)
+        {
+            await AbrirFormularioAsync<ModificarDatosTractorForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(idTractor, SatelitalNombre);
+            });
+            await CargarDatosParaMostrarAsync(idTractor); // Refrescar la vista después de agregar
         }
     }
 }

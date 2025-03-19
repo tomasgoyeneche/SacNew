@@ -886,6 +886,7 @@
             btnEditarDatos.Size = new Size(608, 18);
             btnEditarDatos.TabIndex = 52;
             btnEditarDatos.Text = "Editar";
+            btnEditarDatos.Click += btnEditarDatos_Click;
             // 
             // IMarca
             // 

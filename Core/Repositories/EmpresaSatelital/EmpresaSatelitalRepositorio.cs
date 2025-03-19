@@ -60,5 +60,18 @@ namespace Core.Repositories
                 new { Activo = 0 }
             );
         }
+
+        public async Task<int?> ObtenerIdEmpresaSatelitalAsync(int idEmpresa, int idSatelital)
+        {
+            var query = @"
+            SELECT IdEmpresaSatelital 
+            FROM EmpresaSatelital 
+            WHERE IdEmpresa = @IdEmpresa AND IdSatelital = @IdSatelital";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<int?>(query, new { IdEmpresa = idEmpresa, IdSatelital = idSatelital });
+            });
+        }
     }
 }

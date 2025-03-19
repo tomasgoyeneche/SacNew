@@ -47,5 +47,41 @@ namespace Core.Repositories
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
+
+
+
+
+
+
+
+
+
+        public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
+        {
+            var query = @"
+            SELECT *
+            FROM Tractor
+            WHERE IdTractor = @IdTractor";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<Tractor>(query, new { IdTractor = idTractor });
+            });
+        }
+
+        public async Task ActualizarTractorAsync(Tractor tractor)
+        {
+            var query = @"
+            UPDATE Tractor 
+            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo, 
+                Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt, 
+                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta
+            WHERE IdTractor = @IdTractor";
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync(query, tractor);
+            });
+        }
     }
 }

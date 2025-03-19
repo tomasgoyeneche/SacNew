@@ -177,5 +177,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         {
             AbrirArchivo(_rutasDocumentos["bVisualExt"]);
         }
+
+        private void btnEditarDatos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatos(IdSemi);
+        }
     }
 }

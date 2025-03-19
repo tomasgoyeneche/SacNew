@@ -11,5 +11,8 @@ namespace Core.Repositories
         Task EliminarTractorAsync(int idTractor);
 
         Task<List<TractorDto>> BuscarTractoresAsync(string textoBusqueda);
+
+        Task<Tractor> ObtenerTractorPorIdAsync(int idTractor);
+        Task ActualizarTractorAsync(Tractor tractor);
     }
 }

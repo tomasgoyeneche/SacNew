@@ -9,5 +9,8 @@ namespace Core.Repositories
         Task AgregarAsync(EmpresaSatelital empresaSatelital);
 
         Task EliminarAsync(int idEmpresaSatelital);
+
+        Task<int?> ObtenerIdEmpresaSatelitalAsync(int idEmpresa, int idSatelital);
+
     }
 }

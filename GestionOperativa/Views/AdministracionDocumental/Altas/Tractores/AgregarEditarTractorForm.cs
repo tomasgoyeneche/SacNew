@@ -10,10 +10,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         public AgregarEditarTractorPresenter _presenter;
         private string? _rutaFotoTractor;
         private string? _rutaManual;
-
         private readonly Dictionary<string, string?> _rutasDocumentos = new();
-
         public int IdTractor { get; private set; }
+        public string SatelitalNombre { get; private set; }
 
         public AgregarEditarTractorForm(AgregarEditarTractorPresenter presenter)
         {
@@ -48,6 +47,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             IFechaAlta.Text = tractor.FechaAlta?.ToShortDateString() ?? "N/A";
             IRuta.Text = tractor.Ruta?.ToShortDateString() ?? "N/A";
             IVtv.Text = tractor.Vtv?.ToShortDateString() ?? "N/A";
+
+            SatelitalNombre = tractor.Satelital_Descripcion;    
         }
 
         public void ConfigurarFotoTractor(bool habilitar, string? rutaArchivo)
@@ -155,6 +156,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         private void bFotoManual_Click(object sender, EventArgs e)
         {
             AbrirArchivo(_rutaManual);
+        }
+
+        private void btnEditarDatos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatos(IdTractor, SatelitalNombre);
         }
     }
 }

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Tractor\" />
     <Folder Include="Models\ReportModels\" />
   </ItemGroup>
 
