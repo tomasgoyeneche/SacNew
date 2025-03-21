@@ -97,6 +97,8 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
                     if (VerificarCreditoInsuficiente(nuevoPrecioTotal - consumoAnterior.ImporteTotal)) return;
 
+                    ActualizarCredito(nuevoPrecioTotal, consumoAnterior.ImporteTotal); // Ajustar crédito
+
                     consumoAnterior.IdConsumo = tipoSeleccionado.IdConsumo;
                     consumoAnterior.NumeroVale = _view.RemitoExterno;
                     consumoAnterior.Cantidad = _view.Cantidad.Value;
@@ -106,7 +108,6 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     consumoAnterior.Dolar = _view.Dolar;
 
                     await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoAnterior);
-                    ActualizarCredito(nuevoPrecioTotal, consumoAnterior.ImporteTotal); // Ajustar crédito
                 }
 
                 _view.MostrarMensaje("Consumo de gasoil guardado correctamente.");

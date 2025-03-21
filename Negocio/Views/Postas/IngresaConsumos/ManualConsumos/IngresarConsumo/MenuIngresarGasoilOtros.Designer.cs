@@ -233,7 +233,7 @@
             txtCreditoTotal.DefaultText = "";
             txtCreditoTotal.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCreditoTotal.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCreditoTotal.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCreditoTotal.DisabledState.ForeColor = Color.Black;
             txtCreditoTotal.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtCreditoTotal.Enabled = false;
             txtCreditoTotal.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -254,7 +254,7 @@
             txtCreditoConsumido.DefaultText = "";
             txtCreditoConsumido.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCreditoConsumido.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCreditoConsumido.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCreditoConsumido.DisabledState.ForeColor = Color.Black;
             txtCreditoConsumido.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtCreditoConsumido.Enabled = false;
             txtCreditoConsumido.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -275,7 +275,7 @@
             txtConsumoEnPoc.DefaultText = "";
             txtConsumoEnPoc.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtConsumoEnPoc.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtConsumoEnPoc.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtConsumoEnPoc.DisabledState.ForeColor = Color.Black;
             txtConsumoEnPoc.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtConsumoEnPoc.Enabled = false;
             txtConsumoEnPoc.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -296,7 +296,7 @@
             txtCreditoDisponible.DefaultText = "";
             txtCreditoDisponible.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCreditoDisponible.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCreditoDisponible.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCreditoDisponible.DisabledState.ForeColor = Color.Black;
             txtCreditoDisponible.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtCreditoDisponible.Enabled = false;
             txtCreditoDisponible.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);

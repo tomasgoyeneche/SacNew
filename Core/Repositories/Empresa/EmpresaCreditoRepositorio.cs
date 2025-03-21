@@ -14,7 +14,7 @@ namespace Core.Repositories
 
         public async Task<EmpresaCredito?> ObtenerPorEmpresaAsync(int idEmpresa)
         {
-            var query = "SELECT * FROM EmpresaCredito WHERE IdEmpresa = @IdEmpresa AND Activo = 1";
+            var query = "SELECT * FROM EmpresaCredito WHERE IdEmpresa = @IdEmpresa AND Estado = 'Activo'";
 
             return await ConectarAsync(connection =>
             {
@@ -27,8 +27,7 @@ namespace Core.Repositories
             var query = @"
             UPDATE EmpresaCredito
             SET CreditoAsignado = @CreditoAsignado,
-                CreditoConsumido = @CreditoConsumido,
-                FechaModificacion = @FechaModificacion
+                CreditoConsumido = @CreditoConsumido
             WHERE IdCredito = @IdCredito";
 
             await EjecutarConAuditoriaAsync(connection =>
@@ -39,18 +38,42 @@ namespace Core.Repositories
                 Newtonsoft.Json.JsonConvert.SerializeObject(empresaCredito));
         }
 
-        public async Task AgregarCreditoAsync(EmpresaCredito empresaCredito)
+        public async Task<decimal?> ObtenerCreditoPorEmpresaYPeriodoAsync(int idEmpresa, int idPeriodo)
         {
             var query = @"
-            INSERT INTO EmpresaCredito (IdEmpresa, Mes, CreditoAsignado, CreditoConsumido, CreditoDisponible, Activo, FechaModificacion)
-            VALUES (@IdEmpresa, @Mes, @CreditoAsignado, @CreditoConsumido, @CreditoDisponible, @Activo, @FechaModificacion)";
+            SELECT CreditoAsignado 
+            FROM EmpresaCredito 
+            WHERE IdEmpresa = @IdEmpresa AND IdPeriodo = @IdPeriodo AND Estado = 'Activo'";
 
-            await EjecutarConAuditoriaAsync(connection =>
-                connection.ExecuteAsync(query, empresaCredito),
-                "EmpresaCredito",
-                "INSERT",
-                null,
-                Newtonsoft.Json.JsonConvert.SerializeObject(empresaCredito));
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<decimal?>(query, new { IdEmpresa = idEmpresa, IdPeriodo = idPeriodo });
+            });
+        }
+
+        public async Task InsertarCreditoAsync(int idEmpresa, int idPeriodo, decimal credito)
+        {
+            var query = @"
+            INSERT INTO EmpresaCredito (IdEmpresa, IdPeriodo, CreditoAsignado) 
+            VALUES (@IdEmpresa, @IdPeriodo, @CreditoAsignado)";
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync(query, new { IdEmpresa = idEmpresa, IdPeriodo = idPeriodo, CreditoAsignado = credito });
+            });
+        }
+
+        public async Task ActualizarCreditoPeriodoAsync(int idEmpresa, int idPeriodo, decimal credito)
+        {
+            var query = @"
+            UPDATE EmpresaCredito 
+            SET CreditoAsignado = @CreditoAsignado
+            WHERE IdEmpresa = @IdEmpresa AND IdPeriodo = @IdPeriodo AND Estado = 'Activo'";
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync(query, new { IdEmpresa = idEmpresa, IdPeriodo = idPeriodo, CreditoAsignado = credito });
+            });
         }
     }
 }

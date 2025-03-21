@@ -417,6 +417,7 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.AnimatedGIF = true;
             btnGuardar.CustomizableEdges = customizableEdges5;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;

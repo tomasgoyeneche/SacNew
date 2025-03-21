@@ -47,12 +47,29 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             cmbPeriodo.DataSource = periodos;
             cmbPeriodo.DisplayMember = "NombrePeriodo";
             cmbPeriodo.ValueMember = "idPeriodo";
-            cmbPeriodo.SelectedValue = _presenter.PocActual?.IdPeriodo ?? -1;
+
+            var fechaActual = DateTime.Today;
+            int mesActual = fechaActual.Month;
+            int anioActual = fechaActual.Year;
+            int quincenaActual = fechaActual.Day <= 15 ? 1 : 2;
+
+            var periodoActual = periodos.FirstOrDefault(p => p.Anio == anioActual && p.Mes == mesActual && p.Quincena == quincenaActual);
+
+            if (periodoActual != null)
+            {
+                cmbPeriodo.SelectedValue = periodoActual.IdPeriodo;
+            }
 
             if (_presenter.PocActual == null)
             {
                 dtpFechaCreacion.Value = DateTime.Now;
             }
+            else
+            {
+                cmbPeriodo.SelectedValue = _presenter.PocActual?.IdPeriodo ?? -1;
+            }
+
+
         }
 
         public void MostrarDatosPOC(POC poc)

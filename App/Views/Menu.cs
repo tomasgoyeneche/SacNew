@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using GestionDocumental.Views;
 using GestionOperativa.Views.AdministracionDocumental;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.Configuraciones.AbmUsuarios;
@@ -50,6 +51,11 @@ namespace SacNew.Views
         private void bAdminDocumental_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<MenuAdministracionDocumental>();
+        }
+
+        private void bGuardia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

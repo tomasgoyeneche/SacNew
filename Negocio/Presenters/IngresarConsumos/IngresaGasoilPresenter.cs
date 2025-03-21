@@ -13,6 +13,9 @@ namespace GestionFlota.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
 
+
+
+        private decimal _consumoPrecioAnterior; 
         private int? _idConsumo;
         private int _idPoc;
         private int _idPrograma;
@@ -67,10 +70,10 @@ namespace GestionFlota.Presenters
                 var consumo = await _consumoGasoilRepositorio.ObtenerPorIdAsync(idConsumo);
                 if (consumo == null)
                 {
-                    _view.MostrarMensaje("No se encontró el consumo seleccionado.");
+                    _view.MostrarMensajeGuna("No se encontró el consumo seleccionado.");
                     return;
                 }
-
+                _consumoPrecioAnterior = consumo.PrecioTotal;
                 _autorizado = consumo.LitrosAutorizados;
                 _idPrograma = consumo.IdPrograma;
                 (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_idPoc);
@@ -94,7 +97,7 @@ namespace GestionFlota.Presenters
                 var tipoSeleccionado = _view.TipoGasoilSeleccionado;
                 var nuevoPrecioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual;
 
-                if (VerificarCreditoInsuficiente(nuevoPrecioTotal)) return;
+                if (VerificarCreditoInsuficiente(nuevoPrecioTotal - _consumoPrecioAnterior)) return;
 
                 ConsumoGasoil consumo;
 
@@ -115,8 +118,10 @@ namespace GestionFlota.Presenters
 
                 if (consumo != null)
                 {
-                    await ActualizarCreditoAsync(nuevoPrecioTotal, _idConsumo == null ? 0 : consumo.PrecioTotal);
-                    _view.MostrarMensaje("Consumo guardado correctamente.");
+                    await ActualizarCreditoAsync(nuevoPrecioTotal, _idConsumo == null ? 0 : _consumoPrecioAnterior);
+                    _view.MostrarMensajeGuna("Consumo guardado correctamente.");
+                  
+
                     _view.Cerrar();
                 }
             });
@@ -229,7 +234,6 @@ namespace GestionFlota.Presenters
         {
             var consumo = await _consumoGasoilRepositorio.ObtenerPorIdAsync(_idConsumo.Value);
             if (consumo == null) return null;
-
             consumo.IdConsumo = idConsumo;
             consumo.NumeroVale = _view.NumeroVale;
             consumo.LitrosCargados = _view.Litros.Value;
@@ -280,7 +284,7 @@ namespace GestionFlota.Presenters
         {
             if (precioTotal > _empresaCredito.CreditoDisponible)
             {
-                _view.MostrarMensaje($"El crédito disponible ({_empresaCredito.CreditoDisponible:C}) no es suficiente.");
+                _view.MostrarMensajeGuna($"El crédito disponible ({_empresaCredito.CreditoDisponible:C}) no es suficiente.");
                 return true;
             }
             return false;

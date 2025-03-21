@@ -100,7 +100,7 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            bLimiteCredito = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -316,7 +316,7 @@ namespace SacNew.Views.GestionFlota.Postas
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(guna2PictureBox3);
-            guna2Panel2.Controls.Add(guna2Button3);
+            guna2Panel2.Controls.Add(bLimiteCredito);
             guna2Panel2.Controls.Add(guna2HtmlLabel5);
             guna2Panel2.Controls.Add(guna2HtmlLabel6);
             guna2Panel2.CustomizableEdges = customizableEdges17;
@@ -341,24 +341,25 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2PictureBox3.TabIndex = 12;
             guna2PictureBox3.TabStop = false;
             // 
-            // guna2Button3
+            // bLimiteCredito
             // 
-            guna2Button3.BackColor = Color.Transparent;
-            guna2Button3.BorderRadius = 5;
-            guna2Button3.CustomizableEdges = customizableEdges15;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.Coral;
-            guna2Button3.Font = new Font("Century Gothic", 9F);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(31, 179);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Button3.Size = new Size(129, 30);
-            guna2Button3.TabIndex = 12;
-            guna2Button3.Text = "Ingresar";
+            bLimiteCredito.BackColor = Color.Transparent;
+            bLimiteCredito.BorderRadius = 5;
+            bLimiteCredito.CustomizableEdges = customizableEdges15;
+            bLimiteCredito.DisabledState.BorderColor = Color.DarkGray;
+            bLimiteCredito.DisabledState.CustomBorderColor = Color.DarkGray;
+            bLimiteCredito.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bLimiteCredito.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bLimiteCredito.FillColor = Color.Coral;
+            bLimiteCredito.Font = new Font("Century Gothic", 9F);
+            bLimiteCredito.ForeColor = Color.White;
+            bLimiteCredito.Location = new Point(31, 179);
+            bLimiteCredito.Name = "bLimiteCredito";
+            bLimiteCredito.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            bLimiteCredito.Size = new Size(129, 30);
+            bLimiteCredito.TabIndex = 12;
+            bLimiteCredito.Text = "Ingresar";
+            bLimiteCredito.Click += bLimiteCredito_Click;
             // 
             // guna2HtmlLabel5
             // 
@@ -901,7 +902,7 @@ namespace SacNew.Views.GestionFlota.Postas
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button bLimiteCredito;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;

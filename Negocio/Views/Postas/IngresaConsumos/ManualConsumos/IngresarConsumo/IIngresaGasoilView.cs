@@ -32,6 +32,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
 
         void ActualizarLabelTotal(decimal restante);
 
+        void MostrarMensajeGuna(string mensaje);
+
         void Cerrar();
     }
 }

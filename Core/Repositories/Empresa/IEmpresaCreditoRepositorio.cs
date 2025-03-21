@@ -6,8 +6,10 @@ namespace Core.Repositories
     {
         Task<EmpresaCredito> ObtenerPorEmpresaAsync(int idEmpresa);
 
-        Task ActualizarCreditoAsync(EmpresaCredito empresaCredito);
+        Task<decimal?> ObtenerCreditoPorEmpresaYPeriodoAsync(int idEmpresa, int idPeriodo);
+        Task InsertarCreditoAsync(int idEmpresa, int idPeriodo, decimal credito);
 
-        Task AgregarCreditoAsync(EmpresaCredito empresaCredito);
+        Task ActualizarCreditoAsync(EmpresaCredito empresaCredito);
+        Task ActualizarCreditoPeriodoAsync(int idEmpresa, int idPeriodo, decimal credito);
     }
 }

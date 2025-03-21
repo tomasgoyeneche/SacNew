@@ -56,7 +56,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Informacion de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void MostrarMensajeGuna(string mensaje)
+        {
+            MensajeDialogo.Show(mensaje);
         }
 
         public bool ConfirmarGuardado(string mensaje)
@@ -78,7 +83,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             }
             else
             {
-                MostrarMensaje("Debe ingresar un valor válido para los litros.");
+                MostrarMensajeGuna("Debe ingresar un valor válido para los litros.");
             }
         }
 

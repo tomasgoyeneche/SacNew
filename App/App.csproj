@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GestionOperativa\GestionOperativa.csproj" />
+    <ProjectReference Include="..\GestionDocumental\GestionDocumental.csproj" />
   </ItemGroup>
 
   <ItemGroup>
