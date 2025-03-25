@@ -13,9 +13,7 @@ namespace GestionFlota.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
 
-
-
-        private decimal _consumoPrecioAnterior; 
+        private decimal _consumoPrecioAnterior;
         private int? _idConsumo;
         private int _idPoc;
         private int _idPrograma;
@@ -52,10 +50,8 @@ namespace GestionFlota.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                await CargarTiposGasoilAsync();
                 await CalcularLitrosAutorizadosAsync();
-                await CargarAutorizacionAnteriorAsync();
-                await CargarAutorizacionActualAsync();
+                await CargarDatosComunesAsync();
             });
         }
 
@@ -78,10 +74,8 @@ namespace GestionFlota.Presenters
                 _idPrograma = consumo.IdPrograma;
                 (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_idPoc);
 
-                await CargarTiposGasoilAsync();
+                await CargarDatosComunesAsync();
                 _view.InicializarParaEdicion(consumo);
-                await CargarAutorizacionAnteriorAsync();
-                await CargarAutorizacionActualAsync();
             });
         }
 
@@ -103,7 +97,7 @@ namespace GestionFlota.Presenters
 
                 if (_idConsumo == null)
                 {
-                    consumo = await CrearNuevoConsumoAsync(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
+                    consumo = CrearNuevoConsumo(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
                     if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado))
                         return;
                     await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
@@ -120,16 +114,17 @@ namespace GestionFlota.Presenters
                 {
                     await ActualizarCreditoAsync(nuevoPrecioTotal, _idConsumo == null ? 0 : _consumoPrecioAnterior);
                     _view.MostrarMensajeGuna("Consumo guardado correctamente.");
-                  
-
                     _view.Cerrar();
                 }
             });
         }
 
-        // ==========================
-        // MÉTODOS PRIVADOS DE CÁLCULO Y UTILIDAD
-        // ==========================
+        private async Task CargarDatosComunesAsync()
+        {
+            await CargarTiposGasoilAsync();
+            await CargarAutorizacionAnteriorAsync();
+            await CargarAutorizacionActualAsync();
+        }
 
         private async Task CalcularLitrosAutorizadosAsync()
         {
@@ -138,16 +133,12 @@ namespace GestionFlota.Presenters
             bool validaPorBahiaBlanca = false;
             bool programaValido = programa?.Kilometros > 0;
 
-            // Validar si estamos en Bahía Blanca y el último consumo fue en Bahía Blanca
-
-            if (_sesionService.IdPosta == 2 /*si el programa no es nulo -> && programa != null*/)
+            if (_sesionService.IdPosta == 2)
             {
                 var ultimoConsumo = await _consumoGasoilRepositorio.ObtenerUltimoConsumoPorPatenteAsync(_patente);
 
                 if (ultimoConsumo != null && ultimoConsumo.NumeroPoc.StartsWith("BB"))
                 {
-                    // Usar el programa anterior
-
                     _idPrograma = ultimoConsumo.IdPrograma;
                     _autorizado = ultimoConsumo.LitrosAutorizados - ultimoConsumo.LitrosCargados;
                     _view.MostrarLitrosAutorizados(_autorizado, 640);
@@ -171,7 +162,6 @@ namespace GestionFlota.Presenters
 
             if (!programaValido && !validaPorBahiaBlanca)
             {
-                // Caso sin programa válido y sin Bahía Blanca
                 _autorizado = _capacidadTanque;
                 _idPrograma = 0;
                 _view.MostrarMensaje("No se encontró un programa válido. Se usará como máximo la capacidad del tanque.");
@@ -208,9 +198,9 @@ namespace GestionFlota.Presenters
             _view.ActualizarLabelTotal(restanteTotal);
         }
 
-        private async Task<ConsumoGasoil> CrearNuevoConsumoAsync(decimal precioTotal, int idConsumo)
+        private ConsumoGasoil CrearNuevoConsumo(decimal precioTotal, int idConsumo)
         {
-            var nuevoConsumo = new ConsumoGasoil
+            return new ConsumoGasoil
             {
                 IdPOC = _idPoc,
                 IdConsumo = idConsumo,
@@ -224,10 +214,6 @@ namespace GestionFlota.Presenters
                 Dolar = _view.Dolar,
                 Activo = true
             };
-
-            // Guardar en la base de datos
-
-            return nuevoConsumo;
         }
 
         private async Task<ConsumoGasoil?> ActualizarConsumoExistente(decimal nuevoPrecioTotal, int idConsumo)

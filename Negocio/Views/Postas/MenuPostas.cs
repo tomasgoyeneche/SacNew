@@ -70,7 +70,7 @@ namespace SacNew.Views.GestionFlota.Postas
 
         private void bLimiteCredito_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<LimiteCreditoForm>(); 
+            _navigationService.ShowDialog<LimiteCreditoForm>();
         }
     }
 }

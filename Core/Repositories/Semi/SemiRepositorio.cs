@@ -48,15 +48,10 @@ namespace Core.Repositories
             });
         }
 
-
-
-
-
-
         public async Task<ModificarSemiDto?> ObtenerSemiPorIdAsync(int idSemi)
         {
             var query = @"
-            SELECT 
+            SELECT
                 s.IdSemi, s.Patente, s.Anio, s.IdMarca, s.IdModelo, s.Tara, s.FechaAlta,
                 c.IdTipoCarga, c.Compartimientos, c.IdMaterial
             FROM Semi s
@@ -72,13 +67,13 @@ namespace Core.Repositories
         public async Task ActualizarSemiAsync(ModificarSemiDto semi)
         {
             var querySemi = @"
-            UPDATE Semi 
-            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo, 
+            UPDATE Semi
+            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
                 Tara = @Tara, FechaAlta = @FechaAlta
             WHERE IdSemi = @IdSemi";
 
             var querySemiCisterna = @"
-            UPDATE SemiCisterna 
+            UPDATE SemiCisterna
             SET IdTipoCarga = @IdTipoCarga, Compartimientos = @Compartimientos, IdMaterial = @IdMaterial
             WHERE IdSemi = @IdSemi";
 

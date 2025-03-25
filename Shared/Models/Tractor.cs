@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class Tractor
     {
@@ -12,6 +6,7 @@ namespace Shared.Models
 
         // Datos de `Tractor`
         public string Patente { get; set; } = string.Empty;
+
         public DateTime Anio { get; set; }
         public int IdMarca { get; set; }
         public int IdModelo { get; set; }

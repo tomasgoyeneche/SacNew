@@ -1,14 +1,5 @@
 ﻿using GestionOperativa.Presenters.AdministracionDocumental;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
@@ -25,7 +16,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             // 🔹 Evento para actualizar modelos cuando cambia la marca
 
             // 🔹 Cargar opciones del ComboBox Satelital
-           
         }
 
         public int IdTractor { get; private set; }
@@ -43,13 +33,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 
         public void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre)
         {
-
             if (cmbSatelital.Items.Count == 0)
             {
                 cmbSatelital.Items.Add("Megatrans");
                 cmbSatelital.Items.Add("Sitrack");
             }
-
 
             IdTractor = tractor.IdTractor;
             IdEmpresa = tractor.IdEmpresa; // 🔹 Se guarda para buscar EmpresaSatelital

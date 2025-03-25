@@ -41,8 +41,8 @@ namespace Core.Repositories
         public async Task<decimal?> ObtenerCreditoPorEmpresaYPeriodoAsync(int idEmpresa, int idPeriodo)
         {
             var query = @"
-            SELECT CreditoAsignado 
-            FROM EmpresaCredito 
+            SELECT CreditoAsignado
+            FROM EmpresaCredito
             WHERE IdEmpresa = @IdEmpresa AND IdPeriodo = @IdPeriodo AND Estado = 'Activo'";
 
             return await ConectarAsync(async conn =>
@@ -54,7 +54,7 @@ namespace Core.Repositories
         public async Task InsertarCreditoAsync(int idEmpresa, int idPeriodo, decimal credito)
         {
             var query = @"
-            INSERT INTO EmpresaCredito (IdEmpresa, IdPeriodo, CreditoAsignado) 
+            INSERT INTO EmpresaCredito (IdEmpresa, IdPeriodo, CreditoAsignado)
             VALUES (@IdEmpresa, @IdPeriodo, @CreditoAsignado)";
 
             await ConectarAsync(async conn =>
@@ -66,7 +66,7 @@ namespace Core.Repositories
         public async Task ActualizarCreditoPeriodoAsync(int idEmpresa, int idPeriodo, decimal credito)
         {
             var query = @"
-            UPDATE EmpresaCredito 
+            UPDATE EmpresaCredito
             SET CreditoAsignado = @CreditoAsignado
             WHERE IdEmpresa = @IdEmpresa AND IdPeriodo = @IdPeriodo AND Estado = 'Activo'";
 

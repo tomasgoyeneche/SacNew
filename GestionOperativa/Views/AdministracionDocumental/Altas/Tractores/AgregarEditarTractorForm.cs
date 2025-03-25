@@ -48,7 +48,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             IRuta.Text = tractor.Ruta?.ToShortDateString() ?? "N/A";
             IVtv.Text = tractor.Vtv?.ToShortDateString() ?? "N/A";
 
-            SatelitalNombre = tractor.Satelital_Descripcion;    
+            SatelitalNombre = tractor.Satelital_Descripcion;
         }
 
         public void ConfigurarFotoTractor(bool habilitar, string? rutaArchivo)

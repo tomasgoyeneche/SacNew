@@ -1,14 +1,5 @@
 ﻿using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views.Postas.LimiteDeCredito
 {
@@ -34,6 +25,8 @@ namespace GestionFlota.Views.Postas.LimiteDeCredito
             cmbEmpresas.DataSource = empresas;
             cmbEmpresas.DisplayMember = "NombreFantasia";
             cmbEmpresas.ValueMember = "IdEmpresa";
+
+            dtpPeriodo.Value = DateTime.Now;
         }
 
         public void MostrarCreditoActual(decimal? credito)
@@ -57,6 +50,11 @@ namespace GestionFlota.Views.Postas.LimiteDeCredito
         }
 
         private async void dtpPeriodo_ValueChanged(object sender, EventArgs e)
+        {
+            await _presenter.VerificarCreditoExistente();
+        }
+
+        private async void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
             await _presenter.VerificarCreditoExistente();
         }

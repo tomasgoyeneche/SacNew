@@ -1,9 +1,4 @@
 ﻿using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
@@ -23,8 +18,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         DateTime FechaAlta { get; }
 
         void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre);
+
         void CargarModelos(List<VehiculoModelo> modelos);
+
         void MostrarMensaje(string mensaje);
     }
-
 }

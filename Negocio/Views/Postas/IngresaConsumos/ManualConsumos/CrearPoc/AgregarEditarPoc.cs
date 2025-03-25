@@ -68,8 +68,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             {
                 cmbPeriodo.SelectedValue = _presenter.PocActual?.IdPeriodo ?? -1;
             }
-
-
         }
 
         public void MostrarDatosPOC(POC poc)

@@ -1,7 +1,6 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 
 namespace GestionOperativa.Presenters.Tractor

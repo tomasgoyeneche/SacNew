@@ -12,9 +12,9 @@ namespace Core.Repositories
 
         Task<List<SemiDto>> BuscarSemisAsync(string textoBusqueda);
 
-
         //Actualizar Documental
         Task<ModificarSemiDto> ObtenerSemiPorIdAsync(int idSemi);
+
         Task ActualizarSemiAsync(ModificarSemiDto semi);
     }
 }

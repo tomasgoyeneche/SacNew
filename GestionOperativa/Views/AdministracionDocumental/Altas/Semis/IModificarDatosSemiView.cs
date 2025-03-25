@@ -1,16 +1,10 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 {
     public interface IModificarDatosSemiView : IViewConMensajes
     {
-
         int IdSemi { get; }
         string Patente { get; }
         DateTime Anio { get; }

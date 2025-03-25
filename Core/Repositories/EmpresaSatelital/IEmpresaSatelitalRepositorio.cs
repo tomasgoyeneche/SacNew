@@ -11,6 +11,5 @@ namespace Core.Repositories
         Task EliminarAsync(int idEmpresaSatelital);
 
         Task<int?> ObtenerIdEmpresaSatelitalAsync(int idEmpresa, int idSatelital);
-
     }
 }

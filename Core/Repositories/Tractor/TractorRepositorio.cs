@@ -48,14 +48,6 @@ namespace Core.Repositories
             });
         }
 
-
-
-
-
-
-
-
-
         public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
         {
             var query = @"
@@ -72,9 +64,9 @@ namespace Core.Repositories
         public async Task ActualizarTractorAsync(Tractor tractor)
         {
             var query = @"
-            UPDATE Tractor 
-            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo, 
-                Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt, 
+            UPDATE Tractor
+            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
+                Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt,
                 IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta
             WHERE IdTractor = @IdTractor";
 

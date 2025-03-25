@@ -9,6 +9,5 @@ namespace Core.Repositories
         Task<List<Periodo>> ObtenerPeriodosActivosAsync();
 
         Task<int?> ObtenerIdPeriodoPorMesAnioAsync(int mes, int anio);
-
     }
 }

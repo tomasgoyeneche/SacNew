@@ -173,6 +173,7 @@
             cmbEmpresas.ShadowDecoration.CustomizableEdges = customizableEdges12;
             cmbEmpresas.Size = new Size(361, 36);
             cmbEmpresas.TabIndex = 64;
+            cmbEmpresas.SelectedIndexChanged += cmbEmpresas_SelectedIndexChanged;
             // 
             // guna2Button1
             // 
@@ -184,10 +185,10 @@
             guna2Button1.FillColor = Color.DimGray;
             guna2Button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(26, 523);
+            guna2Button1.Location = new Point(26, 513);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button1.Size = new Size(167, 39);
+            guna2Button1.Size = new Size(170, 50);
             guna2Button1.TabIndex = 66;
             guna2Button1.Text = "Cancelar";
             // 
@@ -201,10 +202,10 @@
             btnAgregar.FillColor = Color.ForestGreen;
             btnAgregar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(214, 523);
+            btnAgregar.Location = new Point(217, 513);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnAgregar.Size = new Size(173, 39);
+            btnAgregar.Size = new Size(170, 50);
             btnAgregar.TabIndex = 65;
             btnAgregar.Text = "Guardar";
             btnAgregar.Click += btnGuardar_Click;
@@ -220,6 +221,7 @@
             txtCredito.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCredito.Font = new Font("Segoe UI", 9F);
             txtCredito.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCredito.IconLeft = Properties.Resources.simboloPesosPng;
             txtCredito.Location = new Point(26, 410);
             txtCredito.Name = "txtCredito";
             txtCredito.PasswordChar = '\0';

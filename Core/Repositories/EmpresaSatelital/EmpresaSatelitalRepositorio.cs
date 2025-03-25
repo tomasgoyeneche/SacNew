@@ -64,8 +64,8 @@ namespace Core.Repositories
         public async Task<int?> ObtenerIdEmpresaSatelitalAsync(int idEmpresa, int idSatelital)
         {
             var query = @"
-            SELECT IdEmpresaSatelital 
-            FROM EmpresaSatelital 
+            SELECT IdEmpresaSatelital
+            FROM EmpresaSatelital
             WHERE IdEmpresa = @IdEmpresa AND IdSatelital = @IdSatelital";
 
             return await ConectarAsync(async conn =>

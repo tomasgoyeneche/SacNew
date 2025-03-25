@@ -19,7 +19,7 @@ namespace Core.Repositories
 
             // 🔹 Obtener los tres períodos necesarios
             var query = @"
-            SELECT * FROM Periodo 
+            SELECT * FROM Periodo
             WHERE (Anio = @AnioActual AND Mes = @MesActual AND Quincena = @QuincenaActual)
                OR (Anio = @AnioAnterior AND Mes = @MesAnterior AND Quincena = @QuincenaAnterior)
                OR (Anio = @AnioSiguiente AND Mes = @MesSiguiente AND Quincena = @QuincenaSiguiente)
@@ -47,7 +47,6 @@ namespace Core.Repositories
             });
         }
 
-
         public Task<List<Periodo>> ObtenerPeriodosActivosAsync()
         {
             var query = "SELECT * FROM Periodo WHERE Activo = 1";
@@ -62,14 +61,14 @@ namespace Core.Repositories
         public async Task<int?> ObtenerIdPeriodoPorMesAnioAsync(int mes, int anio)
         {
             var query = @"
-            SELECT IdPeriodo 
-            FROM Periodo 
-            WHERE Mes = @Mes AND Anio = @Anio AND Quincena = 1"; 
+            SELECT IdPeriodo
+            FROM Periodo
+            WHERE Mes = @Mes AND Anio = @Anio AND Quincena = 1";
 
-        return await ConectarAsync(async conn =>
-        {
-            return await conn.QueryFirstOrDefaultAsync<int?>(query, new { Mes = mes, Anio = anio });
-        });
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<int?>(query, new { Mes = mes, Anio = anio });
+            });
         }
     }
 }
