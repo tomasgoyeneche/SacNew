@@ -54,5 +54,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

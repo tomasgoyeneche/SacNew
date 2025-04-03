@@ -219,6 +219,7 @@
             btnCancelar.Size = new Size(170, 40);
             btnCancelar.TabIndex = 73;
             btnCancelar.Text = "Cancelar";
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtClave
             // 

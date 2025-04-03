@@ -97,5 +97,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
                 await _presenter.CargarModelos(idMarca);
             }
         }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

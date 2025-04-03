@@ -16,7 +16,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         int Compartimientos { get; }
         int IdMaterial { get; }
 
-        void CargarDatosSemi(ModificarSemiDto semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
+        void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
                              List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales);
 
         void CargarModelos(List<VehiculoModelo> modelos);

@@ -243,9 +243,39 @@ namespace GestionFlota.Presenters
 
         private List<Concepto> FiltrarTiposGasoil(IEnumerable<Concepto> tiposGasoil)
         {
-            return _empresaCredito?.IdEmpresa == 1
-                ? tiposGasoil.Where(tipo => tipo.Descripcion.Contains("Chenyi", StringComparison.OrdinalIgnoreCase)).ToList()
-                : tiposGasoil.Where(tipo => tipo.Descripcion.Contains("Autorizado", StringComparison.OrdinalIgnoreCase)).ToList();
+            if (_empresaCredito?.IdEmpresa == 1)
+            {
+                return tiposGasoil
+                    .Where(tipo => tipo.Descripcion.Contains("Chenyi", StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+
+            // Empresas que NO son Chenyi
+            var resultado = tiposGasoil
+                .Where(tipo => tipo.Descripcion.Contains("Autorizado", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            // Agregar Transito Especial según la posta
+            string? transitoEspecial = _sesionService.IdPosta switch
+            {
+                2 => "Comb. Transito Especial BB",
+                3 => "Comb. Transito Especial PH",
+                _ => null
+            };
+
+            if (transitoEspecial != null)
+            {
+                var especial = tiposGasoil
+                    .FirstOrDefault(tipo => tipo.Descripcion.Equals(transitoEspecial, StringComparison.OrdinalIgnoreCase));
+
+                if (especial != null)
+                {
+                    resultado.Add(especial);
+                }
+            }
+
+            return resultado;
+
         }
 
         public void CalcularTotal(decimal litros)

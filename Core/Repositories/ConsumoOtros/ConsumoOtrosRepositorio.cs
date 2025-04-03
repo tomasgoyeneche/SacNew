@@ -78,5 +78,45 @@ namespace Core.Repositories
                 consumo
             );
         }
+
+
+        public async Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(
+                int? idConcepto,
+                int? idPosta,
+                int? idEmpresa,
+                int? idUnidad,
+                int? idChofer,
+                string numeroPOC,
+                string estado,
+                DateTime? fechaCreacionDesde,
+                DateTime? fechaCreacionHasta,
+                DateTime? fechaCierreDesde,
+                DateTime? fechaCierreHasta)
+                    {
+                        var filtros = new Dictionary<string, object?>
+                {
+                    { "idconsumo", idConcepto },
+                    { "idposta", idPosta },
+                    { "idempresa", idEmpresa },
+                    { "idunidad", idUnidad },
+                    { "idchofer", idChofer },
+                    { "numeropoc_like", string.IsNullOrWhiteSpace(numeroPOC) ? null : numeroPOC },
+                    { "estado", estado == "Todas" ? null : estado },
+                    { "fechacreacion_desde", fechaCreacionDesde },
+                    { "fechacreacion_hasta", fechaCreacionHasta },
+                    { "fechacierre_desde", fechaCierreDesde },
+                    { "fechacierre_hasta", fechaCierreHasta },
+                };
+
+                        var (whereClause, parametros) = ConstruirFiltroDinamico(filtros);
+
+                        var query = $"SELECT * FROM vw_InformeConsumoPoc {whereClause}";
+
+                        return await ConectarAsync(async connection =>
+                        {
+                            var resultados = await connection.QueryAsync<InformeConsumoPocDto>(query, parametros);
+                            return resultados.ToList();
+                        });
+        }
     }
 }

@@ -4,6 +4,9 @@ namespace Core.Repositories
 {
     public interface IPeriodoRepositorio
     {
+
+        Task<Periodo> ObtenerPorIdAsync(int idPeriodo); 
+
         Task<List<Periodo>> ObtenerPeriodosParaSeleccionAsync();
 
         Task<List<Periodo>> ObtenerPeriodosActivosAsync();

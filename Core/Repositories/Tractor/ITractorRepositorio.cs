@@ -15,5 +15,8 @@ namespace Core.Repositories
         Task<Tractor> ObtenerTractorPorIdAsync(int idTractor);
 
         Task ActualizarTractorAsync(Tractor tractor);
+
+        Task ActualizarEmpresaTractorAsync(int idTractor, int idEmpresa);
+
     }
 }

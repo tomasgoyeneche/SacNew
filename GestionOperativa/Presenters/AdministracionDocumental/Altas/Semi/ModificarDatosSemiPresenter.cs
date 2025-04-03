@@ -13,7 +13,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly ISemiCisternaTipoCargaRepositorio _tipoCargaRepositorio;
         private readonly ISemiCisternaMaterialRepositorio _materialRepositorio;
-
+        public Semi Semi { get; private set; }
         public ModificarDatosSemiPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
@@ -35,19 +35,19 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var semi = await _semiRepositorio.ObtenerSemiPorIdAsync(idSemi);
-                if (semi == null)
+                Semi = await _semiRepositorio.ObtenerSemiPorIdAsync(idSemi);
+                if (Semi == null)
                 {
                     _view.MostrarMensaje("No se encontró el semirremolque.");
                     return;
                 }
 
                 var marcas = await _marcaRepositorio.ObtenerMarcasPorTipoAsync(2);
-                var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(semi.IdMarca);
+                var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(Semi.IdMarca);
                 var tiposCarga = await _tipoCargaRepositorio.ObtenerTiposCargaAsync();
                 var materiales = await _materialRepositorio.ObtenerMaterialesAsync();
 
-                _view.CargarDatosSemi(semi, marcas, modelos, tiposCarga, materiales);
+                _view.CargarDatosSemi(Semi, marcas, modelos, tiposCarga, materiales);
             });
         }
 
@@ -59,23 +59,21 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
 
         public async Task GuardarCambios()
         {
-            var semi = new ModificarSemiDto
-            {
-                IdSemi = _view.IdSemi,
-                Patente = _view.Patente,
-                Anio = _view.Anio,
-                IdMarca = _view.IdMarca,
-                IdModelo = _view.IdModelo,
-                Tara = _view.Tara,
-                FechaAlta = _view.FechaAlta,
-                IdTipoCarga = _view.IdTipoCarga,
-                Compartimientos = _view.Compartimientos,
-                IdMaterial = _view.IdMaterial
-            };
+            Semi.IdSemi = _view.IdSemi;
+            Semi.Patente = _view.Patente;
+            Semi.Anio = _view.Anio;
+            Semi.IdMarca = _view.IdMarca;
+            Semi.IdModelo = _view.IdModelo;
+            Semi.Tara = _view.Tara;
+            Semi.FechaAlta = _view.FechaAlta;
+            Semi.IdTipoCarga = _view.IdTipoCarga;
+            Semi.Compartimientos = _view.Compartimientos;
+            Semi.IdMaterial = _view.IdMaterial;
+            
 
             await EjecutarConCargaAsync(async () =>
             {
-                await _semiRepositorio.ActualizarSemiAsync(semi);
+                await _semiRepositorio.ActualizarSemiAsync(Semi);
                 _view.MostrarMensaje("Datos del semirremolque actualizados correctamente.");
             });
         }

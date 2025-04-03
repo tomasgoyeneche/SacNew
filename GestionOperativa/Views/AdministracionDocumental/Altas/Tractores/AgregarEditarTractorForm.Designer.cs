@@ -92,7 +92,7 @@
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             ITipo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresaCuit = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            bEditarTransportista = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
@@ -206,6 +206,7 @@
             IConfiguracion.TabIndex = 64;
             IConfiguracion.Text = "Configuracion";
             IConfiguracion.TextAlignment = ContentAlignment.TopCenter;
+     
             // 
             // picBoxConfiguracion
             // 
@@ -219,6 +220,7 @@
             picBoxConfiguracion.Size = new Size(154, 108);
             picBoxConfiguracion.TabIndex = 75;
             picBoxConfiguracion.TabStop = false;
+            picBoxConfiguracion.Click += picBoxConfiguracion_Click;
             // 
             // guna2Panel12
             // 
@@ -262,7 +264,7 @@
             // 
             guna2Panel7.Controls.Add(ITipo);
             guna2Panel7.Controls.Add(IEmpresaCuit);
-            guna2Panel7.Controls.Add(guna2Button3);
+            guna2Panel7.Controls.Add(bEditarTransportista);
             guna2Panel7.Controls.Add(guna2HtmlLabel32);
             guna2Panel7.Controls.Add(IEmpresa);
             guna2Panel7.Controls.Add(guna2Panel10);
@@ -300,23 +302,24 @@
             IEmpresaCuit.TabIndex = 58;
             IEmpresaCuit.Text = "CUIT";
             // 
-            // guna2Button3
+            // bEditarTransportista
             // 
-            guna2Button3.CustomizableEdges = customizableEdges23;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.Dock = DockStyle.Bottom;
-            guna2Button3.FillColor = Color.Orange;
-            guna2Button3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(0, 85);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Button3.Size = new Size(608, 21);
-            guna2Button3.TabIndex = 57;
-            guna2Button3.Text = "Editar";
+            bEditarTransportista.CustomizableEdges = customizableEdges23;
+            bEditarTransportista.DisabledState.BorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarTransportista.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarTransportista.Dock = DockStyle.Bottom;
+            bEditarTransportista.FillColor = Color.Orange;
+            bEditarTransportista.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarTransportista.ForeColor = Color.White;
+            bEditarTransportista.Location = new Point(0, 85);
+            bEditarTransportista.Name = "bEditarTransportista";
+            bEditarTransportista.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            bEditarTransportista.Size = new Size(608, 21);
+            bEditarTransportista.TabIndex = 57;
+            bEditarTransportista.Text = "Editar";
+            bEditarTransportista.Click += bEditarTransportista_Click;
             // 
             // guna2HtmlLabel32
             // 
@@ -1335,7 +1338,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel ITipo;
         private Guna.UI2.WinForms.Guna2HtmlLabel IEmpresaCuit;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button bEditarTransportista;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel32;
         private Guna.UI2.WinForms.Guna2HtmlLabel IEmpresa;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;

@@ -14,5 +14,18 @@ namespace Core.Repositories
         Task<ConsumoOtros> ObtenerPorIdAsync(int idConsumoOtros);
 
         Task<List<ConsumosUnificadosDto>> ObtenerPorPocAsync(int idPoc);
+
+        Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(
+                int? idConcepto,
+                int? idPosta,
+                int? idEmpresa,
+                int? idUnidad,
+                int? idChofer,
+                string numeroPOC,
+                string estado,
+                DateTime? fechaCreacionDesde,
+                DateTime? fechaCreacionHasta,
+                DateTime? fechaCierreDesde,
+                DateTime? fechaCierreHasta);
     }
 }

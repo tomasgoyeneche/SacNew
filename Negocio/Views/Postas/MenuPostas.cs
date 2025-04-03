@@ -1,5 +1,6 @@
 ﻿using Core.Services;
 using GestionFlota.Views.Postas.LimiteDeCredito;
+using GestionFlota.Views.Postas.Modificaciones;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.DatosVolvo;
@@ -71,6 +72,11 @@ namespace SacNew.Views.GestionFlota.Postas
         private void bLimiteCredito_Click(object sender, EventArgs e)
         {
             _navigationService.ShowDialog<LimiteCreditoForm>();
+        }
+
+        private void bModificaTablas_Click(object sender, EventArgs e)
+        {
+            _navigationService.ShowDialog<MenuModificacionesTablasForm>();    
         }
     }
 }

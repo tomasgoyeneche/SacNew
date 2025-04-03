@@ -25,7 +25,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         public int Compartimientos => Convert.ToInt32(txtCisternas.Text);
         public int IdMaterial => (int)cmbMaterial.SelectedValue;
 
-        public void CargarDatosSemi(ModificarSemiDto semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
+        public void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
                                     List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales)
         {
             IdSemi = semi.IdSemi;
@@ -80,6 +80,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         public void MostrarMensaje(string mensaje)
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

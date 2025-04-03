@@ -67,12 +67,22 @@ namespace Core.Repositories
             UPDATE Tractor
             SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
                 Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt,
-                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta
+                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta, Configuracion = @Configuracion  
             WHERE IdTractor = @IdTractor";
 
             await ConectarAsync(async conn =>
             {
                 await conn.ExecuteAsync(query, tractor);
+            });
+        }
+
+        public async Task ActualizarEmpresaTractorAsync(int idTractor, int idEmpresa)
+        {
+            const string query = "UPDATE Tractor SET IdEmpresa = @idEmpresa WHERE IdTractor = @idTractor";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new { idTractor, idEmpresa });
             });
         }
     }

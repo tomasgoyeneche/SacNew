@@ -1,10 +1,11 @@
 ﻿using GestionFlota.Presenters;
 using SacNew.Interfaces;
+using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 using Shared.Models.DTOs;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 {
-    public partial class MenuIngresaConsumos : Form, IMenuIngresaConsumosView
+    public partial class MenuIngresaConsumos : Form,  IMenuIngresaConsumosView
     {
         private readonly MenuIngresaConsumosPresenter _presenter;
 

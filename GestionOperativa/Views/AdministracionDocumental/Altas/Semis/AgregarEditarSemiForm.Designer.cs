@@ -106,7 +106,7 @@
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             ITipo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresaCuit = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            bEditarTransportista = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
@@ -420,6 +420,7 @@
             picBoxConfiguracion.Size = new Size(154, 108);
             picBoxConfiguracion.TabIndex = 75;
             picBoxConfiguracion.TabStop = false;
+            picBoxConfiguracion.Click += picBoxConfiguracion_Click;
             // 
             // guna2Panel12
             // 
@@ -463,7 +464,7 @@
             // 
             guna2Panel7.Controls.Add(ITipo);
             guna2Panel7.Controls.Add(IEmpresaCuit);
-            guna2Panel7.Controls.Add(guna2Button3);
+            guna2Panel7.Controls.Add(bEditarTransportista);
             guna2Panel7.Controls.Add(guna2HtmlLabel32);
             guna2Panel7.Controls.Add(IEmpresa);
             guna2Panel7.Controls.Add(guna2Panel10);
@@ -501,23 +502,24 @@
             IEmpresaCuit.TabIndex = 58;
             IEmpresaCuit.Text = "CUIT";
             // 
-            // guna2Button3
+            // bEditarTransportista
             // 
-            guna2Button3.CustomizableEdges = customizableEdges21;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.Dock = DockStyle.Bottom;
-            guna2Button3.FillColor = Color.Orange;
-            guna2Button3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(0, 85);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Button3.Size = new Size(608, 21);
-            guna2Button3.TabIndex = 57;
-            guna2Button3.Text = "Editar";
+            bEditarTransportista.CustomizableEdges = customizableEdges21;
+            bEditarTransportista.DisabledState.BorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarTransportista.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarTransportista.Dock = DockStyle.Bottom;
+            bEditarTransportista.FillColor = Color.Orange;
+            bEditarTransportista.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarTransportista.ForeColor = Color.White;
+            bEditarTransportista.Location = new Point(0, 85);
+            bEditarTransportista.Name = "bEditarTransportista";
+            bEditarTransportista.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            bEditarTransportista.Size = new Size(608, 21);
+            bEditarTransportista.TabIndex = 57;
+            bEditarTransportista.Text = "Editar";
+            bEditarTransportista.Click += bEditarTransportista_Click;
             // 
             // guna2HtmlLabel32
             // 
@@ -1190,7 +1192,7 @@
             IConfeccion.BackColor = Color.Transparent;
             IConfeccion.Font = new Font("Century Gothic", 9F);
             IConfeccion.ForeColor = SystemColors.ControlLight;
-            IConfeccion.Location = new Point(448, 164);
+            IConfeccion.Location = new Point(417, 164);
             IConfeccion.Name = "IConfeccion";
             IConfeccion.Size = new Size(73, 19);
             IConfeccion.TabIndex = 72;
@@ -1202,7 +1204,7 @@
             guna2HtmlLabel15.BackColor = Color.Gray;
             guna2HtmlLabel15.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel15.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel15.Location = new Point(320, 163);
+            guna2HtmlLabel15.Location = new Point(289, 163);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             guna2HtmlLabel15.Size = new Size(122, 20);
             guna2HtmlLabel15.TabIndex = 71;
@@ -1223,11 +1225,11 @@
             // ITipoCarga
             // 
             ITipoCarga.BackColor = Color.Transparent;
-            ITipoCarga.Font = new Font("Century Gothic", 9F);
+            ITipoCarga.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ITipoCarga.ForeColor = SystemColors.ControlLight;
-            ITipoCarga.Location = new Point(448, 188);
+            ITipoCarga.Location = new Point(417, 190);
             ITipoCarga.Name = "ITipoCarga";
-            ITipoCarga.Size = new Size(64, 19);
+            ITipoCarga.Size = new Size(60, 18);
             ITipoCarga.TabIndex = 63;
             ITipoCarga.Text = "TipoCarga";
             // 
@@ -1237,7 +1239,7 @@
             guna2HtmlLabel13.BackColor = Color.Gray;
             guna2HtmlLabel13.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel13.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel13.Location = new Point(320, 188);
+            guna2HtmlLabel13.Location = new Point(289, 188);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(122, 20);
             guna2HtmlLabel13.TabIndex = 62;
@@ -1249,7 +1251,7 @@
             IModelo.BackColor = Color.Transparent;
             IModelo.Font = new Font("Century Gothic", 9F);
             IModelo.ForeColor = SystemColors.ControlLight;
-            IModelo.Location = new Point(448, 137);
+            IModelo.Location = new Point(417, 137);
             IModelo.Name = "IModelo";
             IModelo.Size = new Size(49, 19);
             IModelo.TabIndex = 61;
@@ -1260,7 +1262,7 @@
             IVencimiento.BackColor = Color.Transparent;
             IVencimiento.Font = new Font("Century Gothic", 9F);
             IVencimiento.ForeColor = SystemColors.ControlLight;
-            IVencimiento.Location = new Point(448, 60);
+            IVencimiento.Location = new Point(417, 60);
             IVencimiento.Name = "IVencimiento";
             IVencimiento.Size = new Size(80, 19);
             IVencimiento.TabIndex = 60;
@@ -1283,7 +1285,7 @@
             guna2HtmlLabel11.BackColor = Color.Gray;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(320, 85);
+            guna2HtmlLabel11.Location = new Point(289, 85);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(122, 20);
             guna2HtmlLabel11.TabIndex = 58;
@@ -1313,7 +1315,7 @@
             bTitulo.ImageOffset = new Point(0, 0);
             bTitulo.ImageRotate = 0F;
             bTitulo.ImageSize = new Size(25, 20);
-            bTitulo.Location = new Point(444, 85);
+            bTitulo.Location = new Point(413, 85);
             bTitulo.Name = "bTitulo";
             bTitulo.PressedState.ImageSize = new Size(27, 21);
             bTitulo.ShadowDecoration.CustomizableEdges = customizableEdges47;
@@ -1420,7 +1422,7 @@
             IApellido.BackColor = Color.Transparent;
             IApellido.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             IApellido.ForeColor = SystemColors.ControlLight;
-            IApellido.Location = new Point(476, 35);
+            IApellido.Location = new Point(445, 35);
             IApellido.Name = "IApellido";
             IApellido.Size = new Size(95, 19);
             IApellido.TabIndex = 36;
@@ -1466,7 +1468,7 @@
             guna2HtmlLabel7.BackColor = Color.Gray;
             guna2HtmlLabel7.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(320, 59);
+            guna2HtmlLabel7.Location = new Point(289, 59);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(122, 20);
             guna2HtmlLabel7.TabIndex = 28;
@@ -1479,7 +1481,7 @@
             guna2HtmlLabel8.BackColor = Color.Gray;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(320, 137);
+            guna2HtmlLabel8.Location = new Point(289, 137);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(122, 20);
             guna2HtmlLabel8.TabIndex = 30;
@@ -1531,7 +1533,7 @@
             guna2HtmlLabel2.BackColor = Color.Gray;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(320, 34);
+            guna2HtmlLabel2.Location = new Point(289, 34);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(150, 20);
             guna2HtmlLabel2.TabIndex = 23;
@@ -1634,7 +1636,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel ITipo;
         private Guna.UI2.WinForms.Guna2HtmlLabel IEmpresaCuit;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button bEditarTransportista;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel32;
         private Guna.UI2.WinForms.Guna2HtmlLabel IEmpresa;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;

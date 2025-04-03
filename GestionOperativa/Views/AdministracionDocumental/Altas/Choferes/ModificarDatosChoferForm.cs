@@ -80,5 +80,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

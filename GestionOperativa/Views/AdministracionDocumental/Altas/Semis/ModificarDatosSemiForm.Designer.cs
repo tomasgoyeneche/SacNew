@@ -507,6 +507,7 @@
             bCancelar.Size = new Size(366, 39);
             bCancelar.TabIndex = 56;
             bCancelar.Text = "Cancelar";
+            bCancelar.Click += bCancelar_Click;
             // 
             // guna2Button2
             // 

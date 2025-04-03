@@ -121,7 +121,34 @@
   <data name="iconoOk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconoOk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MANUAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MANUAL.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DDS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DDS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SSS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SSS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cambiarTransportistaEmpresa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cambiarTransportistaEmpresa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AUTOMATICO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AUTOMATICO.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_D.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sateliteEmpresaPng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sateliteEmpresaPng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SDS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SDS.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

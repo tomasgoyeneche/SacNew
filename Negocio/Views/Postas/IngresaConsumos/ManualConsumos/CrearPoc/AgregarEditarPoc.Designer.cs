@@ -90,6 +90,7 @@
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbChofer = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            DialogoMensaje = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2Panel9.SuspendLayout();
             SuspendLayout();
             // 
@@ -481,6 +482,15 @@
             guna2GradientPanel1.Size = new Size(416, 572);
             guna2GradientPanel1.TabIndex = 41;
             // 
+            // DialogoMensaje
+            // 
+            DialogoMensaje.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            DialogoMensaje.Caption = "Informacion De Sistema";
+            DialogoMensaje.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+            DialogoMensaje.Parent = this;
+            DialogoMensaje.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            DialogoMensaje.Text = null;
+            // 
             // AgregarEditarPoc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -546,5 +556,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChofer;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2MessageDialog DialogoMensaje;
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
+using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 
 namespace GestionOperativa.Presenters
 {
@@ -87,6 +89,28 @@ namespace GestionOperativa.Presenters
                 await form._presenter.InicializarAsync(idSemi);
             });
             await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
+        }
+
+        public async void CambiarTransportista(int idSemi, string tipoEntidad)
+        {
+            await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
+            {
+                await form.CargarDatosAsync(idSemi, tipoEntidad);
+            });
+
+            // 🔄 Refrescar vista una vez cambiado el transportista
+            await CargarDatosParaMostrarAsync(idSemi);
+        }
+
+        public async void CambiarConfiguracion(int idSemi, string entidad)
+        {
+            await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idSemi, entidad);
+            });
+
+            // 🔄 Refrescar vista una vez cambiado el transportista
+            await CargarDatosParaMostrarAsync(idSemi);
         }
     }
 }

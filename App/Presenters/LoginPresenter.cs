@@ -40,7 +40,7 @@ namespace App.Presenters
                 }
 
                 // Obtener permisos
-                List<int> permisos = await _permisoRepositorio.ObtenerPermisosPorUsuarioAsync(usuario.IdUsuario);
+                List<String> permisos = await _permisoRepositorio.ObtenerPermisosPorUsuarioAsync(usuario.IdUsuario);
 
                 // Iniciar sesión
                 _sesionService.IniciarSesion(usuario, permisos);

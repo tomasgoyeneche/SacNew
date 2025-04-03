@@ -40,7 +40,7 @@ namespace GestionFlota.Presenters
         public async Task BuscarPOCAsync(string criterio)
         {
             await EjecutarConCargaAsync(
-                () => _repositorioPOC.BuscarPOCAsync(criterio),
+                () => _repositorioPOC.BuscarPOCAsync(criterio, _sesionService.IdPosta),
                 _view.MostrarPOC
             );
         }

@@ -26,7 +26,7 @@ namespace SacNew.Views
 
         private void bMenuPostas_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains(2) && !_sesionService.Permisos.Contains(3))
+            if (_sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
                 _navigationService.ShowDialog<MenuPostas>();
             }
@@ -49,7 +49,15 @@ namespace SacNew.Views
 
         private void bAdminDocumental_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<MenuAdministracionDocumental>();
+            if (_sesionService.Permisos.Contains("0002-AdministracionDocumental"))
+            {
+                _navigationService.ShowDialog<MenuAdministracionDocumental>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a la Administración Documental.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bGuardia_Click(object sender, EventArgs e)

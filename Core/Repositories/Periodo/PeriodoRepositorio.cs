@@ -70,5 +70,14 @@ namespace Core.Repositories
                 return await conn.QueryFirstOrDefaultAsync<int?>(query, new { Mes = mes, Anio = anio });
             });
         }
+
+        public async Task<Periodo> ObtenerPorIdAsync(int idPeriodo)
+        {
+            var query = "SELECT * FROM Periodo WHERE IdPeriodo = @IdPeriodo";
+            return await ConectarAsync(async connection =>
+            {
+                return await connection.QueryFirstOrDefaultAsync<Periodo>(query, new { IdPeriodo = idPeriodo });
+            });
+        }
     }
 }

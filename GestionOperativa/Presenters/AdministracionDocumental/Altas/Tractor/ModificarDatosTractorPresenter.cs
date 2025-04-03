@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using Shared.Models;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -11,7 +12,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IVehiculoMarcaRepositorio _marcaRepositorio;
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly IEmpresaSatelitalRepositorio _empresaSatelitalRepositorio;
-
+        private Shared.Models.Tractor Tractor { get; set; }
         public ModificarDatosTractorPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
@@ -31,17 +32,17 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(idTractor);
-                if (tractor == null)
+                Tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(idTractor);
+                if (Tractor == null)
                 {
                     _view.MostrarMensaje("No se encontró el tractor.");
                     return;
                 }
 
                 var marcas = await _marcaRepositorio.ObtenerMarcasPorTipoAsync(1);
-                var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(tractor.IdMarca);
+                var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(Tractor.IdMarca);
 
-                _view.CargarDatosTractor(tractor, marcas, modelos, SatelitalNombre);
+                _view.CargarDatosTractor(Tractor, marcas, modelos, SatelitalNombre);
             });
         }
 
@@ -53,28 +54,27 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
 
         public async Task GuardarCambios()
         {
-            var tractore = new Shared.Models.Tractor
-            {
-                IdTractor = _view.IdTractor,
-                Patente = _view.Patente,
-                Anio = _view.Anio,
-                IdMarca = _view.IdMarca,
-                IdModelo = _view.IdModelo,
-                Tara = _view.Tara,
-                Hp = _view.Hp,
-                Combustible = _view.Combustible,
-                Cmt = _view.Cmt,
-                FechaAlta = _view.FechaAlta,
-                IdEmpresa = _view.IdEmpresa // 🔹 Se usa para buscar EmpresaSatelital
-            };
+
+            Tractor.IdTractor = _view.IdTractor;
+            Tractor.Patente = _view.Patente;
+            Tractor.Anio = _view.Anio;
+            Tractor.IdMarca = _view.IdMarca;
+            Tractor.IdModelo = _view.IdModelo;
+            Tractor.Tara = _view.Tara;
+            Tractor.Hp = _view.Hp;
+            Tractor.Combustible = _view.Combustible;
+            Tractor.Cmt = _view.Cmt;
+            Tractor.FechaAlta = _view.FechaAlta;
+            Tractor.IdEmpresa = _view.IdEmpresa; // 🔹 Se usa para buscar EmpresaSatelital
+            
 
             // 🔹 Obtener IdEmpresaSatelital si existe
             int idSatelital = _view.SatelitalSeleccionado == "Megatrans" ? 2 : 1;
-            tractore.IdEmpresaSatelital = await _empresaSatelitalRepositorio.ObtenerIdEmpresaSatelitalAsync(tractore.IdEmpresa, idSatelital);
+            Tractor.IdEmpresaSatelital = await _empresaSatelitalRepositorio.ObtenerIdEmpresaSatelitalAsync(Tractor.IdEmpresa, idSatelital);
 
             await EjecutarConCargaAsync(async () =>
             {
-                await _tractorRepositorio.ActualizarTractorAsync(tractore);
+                await _tractorRepositorio.ActualizarTractorAsync(Tractor);
                 _view.MostrarMensaje("Datos del tractor actualizados correctamente.");
             });
         }

@@ -110,7 +110,7 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            bModificaTablas = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -463,7 +463,7 @@ namespace SacNew.Views.GestionFlota.Postas
             // 
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.Controls.Add(guna2PictureBox5);
-            guna2Panel5.Controls.Add(guna2Button5);
+            guna2Panel5.Controls.Add(bModificaTablas);
             guna2Panel5.Controls.Add(guna2HtmlLabel9);
             guna2Panel5.Controls.Add(guna2HtmlLabel10);
             guna2Panel5.CustomizableEdges = customizableEdges29;
@@ -488,24 +488,25 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2PictureBox5.TabIndex = 12;
             guna2PictureBox5.TabStop = false;
             // 
-            // guna2Button5
+            // bModificaTablas
             // 
-            guna2Button5.BackColor = Color.Transparent;
-            guna2Button5.BorderRadius = 5;
-            guna2Button5.CustomizableEdges = customizableEdges27;
-            guna2Button5.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button5.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button5.FillColor = Color.Coral;
-            guna2Button5.Font = new Font("Century Gothic", 9F);
-            guna2Button5.ForeColor = Color.White;
-            guna2Button5.Location = new Point(30, 180);
-            guna2Button5.Name = "guna2Button5";
-            guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            guna2Button5.Size = new Size(129, 30);
-            guna2Button5.TabIndex = 12;
-            guna2Button5.Text = "Ingresar";
+            bModificaTablas.BackColor = Color.Transparent;
+            bModificaTablas.BorderRadius = 5;
+            bModificaTablas.CustomizableEdges = customizableEdges27;
+            bModificaTablas.DisabledState.BorderColor = Color.DarkGray;
+            bModificaTablas.DisabledState.CustomBorderColor = Color.DarkGray;
+            bModificaTablas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bModificaTablas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bModificaTablas.FillColor = Color.Coral;
+            bModificaTablas.Font = new Font("Century Gothic", 9F);
+            bModificaTablas.ForeColor = Color.White;
+            bModificaTablas.Location = new Point(30, 180);
+            bModificaTablas.Name = "bModificaTablas";
+            bModificaTablas.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            bModificaTablas.Size = new Size(129, 30);
+            bModificaTablas.TabIndex = 12;
+            bModificaTablas.Text = "Ingresar";
+            bModificaTablas.Click += bModificaTablas_Click;
             // 
             // guna2HtmlLabel9
             // 
@@ -517,7 +518,7 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(129, 54);
             guna2HtmlLabel9.TabIndex = 13;
-            guna2HtmlLabel9.Text = "Realiza modificaciones.";
+            guna2HtmlLabel9.Text = "Realiza modificaciones sobre tablas.";
             // 
             // guna2HtmlLabel10
             // 
@@ -892,7 +893,7 @@ namespace SacNew.Views.GestionFlota.Postas
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button bModificaTablas;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;

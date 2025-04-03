@@ -22,6 +22,16 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<EmpresaCredito?> ObtenerPorEmpresaYPeriodoAsync(int idEmpresa, int? idPeriodo)
+        {
+            var query = "SELECT * FROM EmpresaCredito WHERE IdEmpresa = @IdEmpresa AND  idPeriodo = @IdPeriodo";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<EmpresaCredito>(query, new { IdEmpresa = idEmpresa, IdPeriodo = idPeriodo });
+            });
+        }
+
         public async Task ActualizarCreditoAsync(EmpresaCredito empresaCredito)
         {
             var query = @"

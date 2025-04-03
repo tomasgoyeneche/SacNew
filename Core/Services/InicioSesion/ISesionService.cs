@@ -6,11 +6,11 @@ namespace Core.Services
     {
         int IdUsuario { get; }
         string NombreCompleto { get; }
-        List<int> Permisos { get; }
+        List<String> Permisos { get; }
 
         int IdPosta { get; }
 
-        void IniciarSesion(Usuario usuario, List<int> permisos);
+        void IniciarSesion(Usuario usuario, List<String> permisos);
 
         void CerrarSesion();
     }

@@ -33,6 +33,7 @@ namespace Core.Services
         }
 
         // Exportar lista de objetos a Excel
+
         public async Task ExportarAExcelAsync<T>(
             IEnumerable<T> datos,
             string filePath,
@@ -43,6 +44,8 @@ namespace Core.Services
                 var worksheet = package.Workbook.Worksheets.Add(nombreHoja);
                 EscribirEncabezados(worksheet, typeof(T));
                 EscribirDatos(worksheet, datos);
+
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); // Ajuste automático de columnas
 
                 await package.SaveAsAsync(new FileInfo(filePath));
             }
@@ -61,27 +64,24 @@ namespace Core.Services
             return worksheet;
         }
 
-        // Método privado para escribir encabezados en el Excel
         private void EscribirEncabezados(ExcelWorksheet worksheet, Type tipo)
         {
             var propiedades = tipo.GetProperties();
-            var headerRange = worksheet.Cells[1, 1, 1, propiedades.Length]; // Rango de encabezados
+            var headerRange = worksheet.Cells[1, 1, 1, propiedades.Length];
 
-            // Establecer los valores de los encabezados
             for (int col = 0; col < propiedades.Length; col++)
             {
                 worksheet.Cells[1, col + 1].Value = propiedades[col].Name;
             }
 
-            // Aplicar estilo a los encabezados
-            headerRange.Style.Font.Bold = true; // Negrita
-            headerRange.Style.Font.Size = 12; // Tamaño de letra más grande
-            headerRange.Style.Font.Color.SetColor(System.Drawing.Color.White); // Color del texto
-            headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid; // Relleno sólido
-            headerRange.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.DarkBlue); // Color de fondo
-            headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; // Alineación centrada
-            headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center; // Alineación vertical centrada
-            worksheet.Row(1).Height = 20; // Ajustar altura de la fila
+            headerRange.Style.Font.Bold = true;
+            headerRange.Style.Font.Size = 12;
+            headerRange.Style.Font.Color.SetColor(System.Drawing.Color.White);
+            headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            headerRange.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.DimGray); // 🔸 Fondo gris oscuro
+            headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            worksheet.Row(1).Height = 20;
         }
 
         // Método privado para escribir datos en el Excel
@@ -94,8 +94,27 @@ namespace Core.Services
             {
                 for (int col = 0; col < propiedades.Length; col++)
                 {
-                    worksheet.Cells[row, col + 1].Value = propiedades[col].GetValue(item);
+                    var value = propiedades[col].GetValue(item);
+                    var cell = worksheet.Cells[row, col + 1];
+
+                    if (value is DateTime fecha)
+                    {
+                        cell.Value = fecha;
+                        cell.Style.Numberformat.Format = "dd/MM/yyyy"; // 🔸 Formato de fecha
+                    }
+                    else
+                    {
+                        cell.Value = value;
+                    }
                 }
+
+                // 🔸 Estilo alternado de fondo gris claro
+                if (row % 2 == 0)
+                {
+                    worksheet.Cells[row, 1, row, propiedades.Length].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[row, 1, row, propiedades.Length].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                }
+
                 row++;
             }
         }

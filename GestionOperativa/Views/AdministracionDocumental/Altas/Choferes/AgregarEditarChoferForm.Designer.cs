@@ -69,14 +69,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -150,6 +150,7 @@
             guna2HtmlLabel40 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel41 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            bEditarTransportista = new Guna.UI2.WinForms.Guna2Button();
             ITipo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IEmpresaCuit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -167,7 +168,6 @@
             guna2HtmlLabel49 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel51 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel52 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            bEditarTransportista = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
@@ -1169,6 +1169,25 @@
             guna2Panel7.Size = new Size(570, 97);
             guna2Panel7.TabIndex = 61;
             // 
+            // bEditarTransportista
+            // 
+            bEditarTransportista.CustomizableEdges = customizableEdges7;
+            bEditarTransportista.DisabledState.BorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarTransportista.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarTransportista.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarTransportista.Dock = DockStyle.Bottom;
+            bEditarTransportista.FillColor = Color.Orange;
+            bEditarTransportista.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarTransportista.ForeColor = Color.White;
+            bEditarTransportista.Location = new Point(0, 78);
+            bEditarTransportista.Name = "bEditarTransportista";
+            bEditarTransportista.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            bEditarTransportista.Size = new Size(570, 19);
+            bEditarTransportista.TabIndex = 60;
+            bEditarTransportista.Text = "Editar";
+            bEditarTransportista.Click += bEditarTransportista_Click;
+            // 
             // ITipo
             // 
             ITipo.BackColor = Color.Transparent;
@@ -1373,24 +1392,6 @@
             guna2HtmlLabel52.TabIndex = 23;
             guna2HtmlLabel52.Text = "Consume";
             guna2HtmlLabel52.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // bEditarTransportista
-            // 
-            bEditarTransportista.CustomizableEdges = customizableEdges7;
-            bEditarTransportista.DisabledState.BorderColor = Color.DarkGray;
-            bEditarTransportista.DisabledState.CustomBorderColor = Color.DarkGray;
-            bEditarTransportista.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            bEditarTransportista.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            bEditarTransportista.Dock = DockStyle.Bottom;
-            bEditarTransportista.FillColor = Color.Orange;
-            bEditarTransportista.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bEditarTransportista.ForeColor = Color.White;
-            bEditarTransportista.Location = new Point(0, 78);
-            bEditarTransportista.Name = "bEditarTransportista";
-            bEditarTransportista.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            bEditarTransportista.Size = new Size(570, 19);
-            bEditarTransportista.TabIndex = 60;
-            bEditarTransportista.Text = "Editar";
             // 
             // guna2Panel13
             // 

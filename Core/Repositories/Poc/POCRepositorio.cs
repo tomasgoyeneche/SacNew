@@ -39,19 +39,19 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<POCDto>> BuscarPOCAsync(string criterio)
+        public async Task<List<POCDto>> BuscarPOCAsync(string criterio, int idPosta)
         {
             var query = @"
         SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer
         FROM POC_UnidadDetalle
-        WHERE Estado = 'abierta'
+        WHERE Estado = 'abierta' and IdPosta = @IdPosta
         AND (NumeroPOC LIKE @Criterio OR PatenteTractor LIKE @Criterio
         OR PatenteSemi LIKE @Criterio OR NombreFantasia LIKE @Criterio
         OR NombreCompletoChofer LIKE @Criterio)";
 
             return await ConectarAsync(connection =>
             {
-                return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%" }).ContinueWith(task => task.Result.ToList());
+                return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta}).ContinueWith(task => task.Result.ToList());
             });
         }
 
@@ -98,6 +98,7 @@ namespace Core.Repositories
             IdPosta = @IdPosta,
             IdUnidad = @IdUnidad,
             IdChofer = @IdChofer,
+            IdPeriodo = @IdPeriodo,
             Odometro = @Odometro,
             Comentario = @Comentario,
             FechaCreacion = @FechaCreacion,
@@ -139,6 +140,28 @@ namespace Core.Repositories
 
                 return await connection.QuerySingleAsync<(string, decimal)>(query, new { IdPoc = idPoc });
             });
+        }
+
+
+        public async Task<POC?> ObtenerPorNumeroAsync(string numeroPoc)
+        {
+            var query = "SELECT * FROM POC WHERE NumeroPoc = @NumeroPoc";
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<POC>(query, new { NumeroPoc = numeroPoc }));
+        }
+
+        public async Task<POC?> ObtenerAbiertaPorUnidadAsync(int idUnidad)
+        {
+            var query = "SELECT * FROM POC WHERE IdUnidad = @IdUnidad AND Estado = 'Abierta'";
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<POC>(query, new { IdUnidad = idUnidad }));
+        }
+
+        public async Task<POC?> ObtenerAbiertaPorChoferAsync(int idChofer)
+        {
+            var query = "SELECT * FROM POC WHERE IdChofer = @IdChofer AND Estado = 'Abierta'";
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<POC>(query, new { IdChofer = idChofer }));
         }
     }
 }

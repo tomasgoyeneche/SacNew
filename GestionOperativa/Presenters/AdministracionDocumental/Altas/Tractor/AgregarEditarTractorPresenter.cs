@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
 
 namespace GestionOperativa.Presenters.Tractor
@@ -85,6 +86,28 @@ namespace GestionOperativa.Presenters.Tractor
                 await form._presenter.InicializarAsync(idTractor, SatelitalNombre);
             });
             await CargarDatosParaMostrarAsync(idTractor); // Refrescar la vista después de agregar
+        }
+
+        public async void CambiarTransportista(int idTractor, string tipoEntidad)
+        {
+            await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
+            {
+                await form.CargarDatosAsync(idTractor, tipoEntidad);
+            });
+
+            // 🔄 Refrescar vista una vez cambiado el transportista
+            await CargarDatosParaMostrarAsync(idTractor);
+        }
+
+        public async void CambiarConfiguracion(int idTractor, string entidad)
+        {
+            await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(idTractor, entidad);
+            });
+
+            // 🔄 Refrescar vista una vez cambiado el transportista
+            await CargarDatosParaMostrarAsync(idTractor);
         }
     }
 }

@@ -144,5 +144,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         {
             _presenter.EditarDatosChofer(IdChofer);
         }
+
+        private void bEditarTransportista_Click(object sender, EventArgs e)
+        {
+            _presenter.CambiarTransportista(IdChofer, "chofer");
+        }
     }
 }

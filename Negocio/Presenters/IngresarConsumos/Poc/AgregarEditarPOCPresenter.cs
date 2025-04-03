@@ -65,10 +65,8 @@ namespace GestionFlota.Presenters
                 var poc = PocActual ?? new POC { Estado = "Abierta" };
 
                 // Validaciones antes de guardar
-                if (string.IsNullOrWhiteSpace(_view.NumeroPOC))
-                {
-                    throw new InvalidOperationException("El número de POC es requerido.");
-                }
+
+                
 
                 // Obtener el código de la posta
                 var posta = await _postaRepositorio.ObtenerPorIdAsync(_sesionService.IdPosta);
@@ -92,6 +90,10 @@ namespace GestionFlota.Presenters
                 poc.Comentario = _view.Comentario;
                 poc.FechaCreacion = _view.FechaCreacion;
                 poc.IdUsuario = _view.IdUsuario;
+
+
+                if (!await ValidarAsync(poc, PocActual?.IdPoc ?? 0))
+                    return;
 
                 if (PocActual == null)
                 {

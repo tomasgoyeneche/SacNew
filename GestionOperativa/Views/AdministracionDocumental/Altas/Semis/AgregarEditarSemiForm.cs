@@ -182,5 +182,15 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         {
             _presenter.EditarDatos(IdSemi);
         }
+
+        private void bEditarTransportista_Click(object sender, EventArgs e)
+        {
+            _presenter.CambiarTransportista(IdSemi, "semi");
+        }
+
+        private void picBoxConfiguracion_Click(object sender, EventArgs e)
+        {
+            _presenter.CambiarConfiguracion(IdSemi, "semi");
+        }
     }
 }

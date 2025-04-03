@@ -125,6 +125,7 @@
             guna2Button1.Size = new Size(353, 39);
             guna2Button1.TabIndex = 59;
             guna2Button1.Text = "Cancelar";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // btnAgregar
             // 

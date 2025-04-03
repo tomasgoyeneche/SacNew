@@ -71,19 +71,13 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dataGridViewTotales = new Guna.UI2.WinForms.Guna2DataGridView();
             dataGridViewAnteriores = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpFechaCarga = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtLitros = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtNumeroVale = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTotal = new Guna.UI2.WinForms.Guna2TextBox();
             guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtObservaciones = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -98,6 +92,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dolarCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             MensajeDialogo = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTotales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAnteriores).BeginInit();
@@ -193,7 +193,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewTotales.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewTotales.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewTotales.Location = new Point(393, 108);
+            dataGridViewTotales.Location = new Point(393, 116);
             dataGridViewTotales.Name = "dataGridViewTotales";
             dataGridViewTotales.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -260,7 +260,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
             dataGridViewAnteriores.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewAnteriores.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewAnteriores.Location = new Point(393, 383);
+            dataGridViewAnteriores.Location = new Point(393, 391);
             dataGridViewAnteriores.Name = "dataGridViewAnteriores";
             dataGridViewAnteriores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -298,21 +298,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(413, 311);
+            guna2Separator1.Location = new Point(413, 319);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(340, 26);
             guna2Separator1.TabIndex = 23;
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(26, 90);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(58, 23);
-            guna2HtmlLabel1.TabIndex = 24;
-            guna2HtmlLabel1.Text = "¿Cual?";
             // 
             // dtpFechaCarga
             // 
@@ -321,25 +310,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dtpFechaCarga.FillColor = Color.WhiteSmoke;
             dtpFechaCarga.Font = new Font("Segoe UI", 9F);
             dtpFechaCarga.Format = DateTimePickerFormat.Long;
-            dtpFechaCarga.Location = new Point(129, 133);
+            dtpFechaCarga.Location = new Point(26, 161);
             dtpFechaCarga.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFechaCarga.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpFechaCarga.Name = "dtpFechaCarga";
             dtpFechaCarga.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpFechaCarga.Size = new Size(219, 36);
+            dtpFechaCarga.Size = new Size(322, 36);
             dtpFechaCarga.TabIndex = 2;
             dtpFechaCarga.Value = new DateTime(2024, 10, 15, 11, 40, 3, 413);
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(26, 146);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(56, 23);
-            guna2HtmlLabel2.TabIndex = 27;
-            guna2HtmlLabel2.Text = "Fecha:";
             // 
             // txtLitros
             // 
@@ -352,38 +330,16 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtLitros.FocusedState.BorderColor = Color.Orange;
             txtLitros.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtLitros.HoverState.BorderColor = Color.Orange;
-            txtLitros.Location = new Point(129, 191);
+            txtLitros.Location = new Point(26, 232);
             txtLitros.MaxLength = 4;
             txtLitros.Name = "txtLitros";
             txtLitros.PasswordChar = '\0';
             txtLitros.PlaceholderText = "Ingrese litros";
             txtLitros.SelectedText = "";
             txtLitros.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtLitros.Size = new Size(149, 35);
+            txtLitros.Size = new Size(252, 30);
             txtLitros.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtLitros.TabIndex = 3;
-            // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(26, 203);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(45, 23);
-            guna2HtmlLabel3.TabIndex = 29;
-            guna2HtmlLabel3.Text = "Litros:";
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(26, 362);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(82, 23);
-            guna2HtmlLabel4.TabIndex = 30;
-            guna2HtmlLabel4.Text = "Vale NRO:";
             // 
             // txtNumeroVale
             // 
@@ -396,27 +352,16 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtNumeroVale.FocusedState.BorderColor = Color.Orange;
             txtNumeroVale.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNumeroVale.HoverState.BorderColor = Color.Orange;
-            txtNumeroVale.Location = new Point(129, 350);
+            txtNumeroVale.Location = new Point(26, 399);
             txtNumeroVale.MaxLength = 10;
             txtNumeroVale.Name = "txtNumeroVale";
             txtNumeroVale.PasswordChar = '\0';
             txtNumeroVale.PlaceholderText = "Ingrese numero de vale";
             txtNumeroVale.SelectedText = "";
             txtNumeroVale.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtNumeroVale.Size = new Size(219, 35);
+            txtNumeroVale.Size = new Size(322, 30);
             txtNumeroVale.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtNumeroVale.TabIndex = 6;
-            // 
-            // guna2HtmlLabel5
-            // 
-            guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(26, 305);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(97, 23);
-            guna2HtmlLabel5.TabIndex = 32;
-            guna2HtmlLabel5.Text = "Precio Total:";
             // 
             // txtTotal
             // 
@@ -430,14 +375,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtTotal.FocusedState.BorderColor = Color.Orange;
             txtTotal.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTotal.HoverState.BorderColor = Color.Orange;
-            txtTotal.Location = new Point(129, 293);
+            txtTotal.Location = new Point(26, 338);
             txtTotal.MaxLength = 10;
             txtTotal.Name = "txtTotal";
             txtTotal.PasswordChar = '\0';
             txtTotal.PlaceholderText = "Ingrese precio";
             txtTotal.SelectedText = "";
             txtTotal.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtTotal.Size = new Size(149, 35);
+            txtTotal.Size = new Size(252, 30);
             txtTotal.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtTotal.TabIndex = 5;
             // 
@@ -450,11 +395,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
             guna2ImageButton2.ImageSize = new Size(50, 38);
-            guna2ImageButton2.Location = new Point(290, 191);
+            guna2ImageButton2.Location = new Point(290, 223);
             guna2ImageButton2.Name = "guna2ImageButton2";
             guna2ImageButton2.PressedState.ImageSize = new Size(55, 40);
             guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            guna2ImageButton2.Size = new Size(50, 36);
+            guna2ImageButton2.Size = new Size(50, 39);
             guna2ImageButton2.TabIndex = 4;
             guna2ImageButton2.Click += btnCalcular_Click;
             // 
@@ -480,17 +425,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel6.TabIndex = 37;
             guna2HtmlLabel6.Text = "Entrega Gasoil Autorizado MV";
             // 
-            // guna2HtmlLabel7
-            // 
-            guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Font = new Font("Century Gothic", 12F);
-            guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(26, 404);
-            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(93, 23);
-            guna2HtmlLabel7.TabIndex = 37;
-            guna2HtmlLabel7.Text = "Aclaracion:";
-            // 
             // txtObservaciones
             // 
             txtObservaciones.CustomizableEdges = customizableEdges20;
@@ -502,15 +436,16 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtObservaciones.FocusedState.BorderColor = Color.Orange;
             txtObservaciones.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtObservaciones.HoverState.BorderColor = Color.Orange;
-            txtObservaciones.Location = new Point(26, 433);
+            txtObservaciones.Location = new Point(26, 462);
             txtObservaciones.MaxLength = 255;
+            txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.PasswordChar = '\0';
             txtObservaciones.PlaceholderText = "Ingrese aclaracion si es necesario";
             txtObservaciones.RightToLeft = RightToLeft.No;
             txtObservaciones.SelectedText = "";
             txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges21;
-            txtObservaciones.Size = new Size(322, 83);
+            txtObservaciones.Size = new Size(322, 67);
             txtObservaciones.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtObservaciones.TabIndex = 7;
             // 
@@ -524,7 +459,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2Button1.FillColor = Color.ForestGreen;
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(26, 531);
+            guna2Button1.Location = new Point(26, 539);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges23;
             guna2Button1.Size = new Size(322, 45);
@@ -537,7 +472,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel8.BackColor = Color.Transparent;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(393, 339);
+            guna2HtmlLabel8.Location = new Point(393, 347);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(164, 21);
             guna2HtmlLabel8.TabIndex = 40;
@@ -548,7 +483,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel9.BackColor = Color.Transparent;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(393, 361);
+            guna2HtmlLabel9.Location = new Point(393, 369);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(178, 19);
             guna2HtmlLabel9.TabIndex = 41;
@@ -559,7 +494,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel10.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel10.Location = new Point(393, 63);
+            guna2HtmlLabel10.Location = new Point(393, 71);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(176, 21);
             guna2HtmlLabel10.TabIndex = 42;
@@ -570,7 +505,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel11.BackColor = Color.Transparent;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(393, 84);
+            guna2HtmlLabel11.Location = new Point(393, 92);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(230, 19);
             guna2HtmlLabel11.TabIndex = 43;
@@ -578,7 +513,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             // 
             // guna2vSeparator1
             // 
-            guna2vSeparator1.Location = new Point(366, 193);
+            guna2vSeparator1.Location = new Point(366, 201);
             guna2vSeparator1.Name = "guna2vSeparator1";
             guna2vSeparator1.Size = new Size(10, 200);
             guna2vSeparator1.TabIndex = 44;
@@ -589,7 +524,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtLitrosAutorizados.BackColor = Color.Transparent;
             txtLitrosAutorizados.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtLitrosAutorizados.ForeColor = SystemColors.ControlLight;
-            txtLitrosAutorizados.Location = new Point(26, 244);
+            txtLitrosAutorizados.Location = new Point(26, 271);
             txtLitrosAutorizados.Name = "txtLitrosAutorizados";
             txtLitrosAutorizados.Size = new Size(320, 33);
             txtLitrosAutorizados.TabIndex = 47;
@@ -600,7 +535,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             lblAnterior.BackColor = Color.Transparent;
             lblAnterior.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAnterior.ForeColor = SystemColors.ControlLight;
-            lblAnterior.Location = new Point(577, 361);
+            lblAnterior.Location = new Point(577, 369);
             lblAnterior.Name = "lblAnterior";
             lblAnterior.Size = new Size(41, 18);
             lblAnterior.TabIndex = 48;
@@ -611,7 +546,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             lblTotal.BackColor = Color.Transparent;
             lblTotal.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotal.ForeColor = SystemColors.ControlLight;
-            lblTotal.Location = new Point(626, 84);
+            lblTotal.Location = new Point(626, 92);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(41, 18);
             lblTotal.TabIndex = 49;
@@ -628,11 +563,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             cmbTipoGasoil.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbTipoGasoil.ForeColor = Color.FromArgb(68, 88, 112);
             cmbTipoGasoil.ItemHeight = 30;
-            cmbTipoGasoil.Location = new Point(129, 77);
+            cmbTipoGasoil.Location = new Point(26, 92);
             cmbTipoGasoil.Name = "cmbTipoGasoil";
             cmbTipoGasoil.ShadowDecoration.CustomizableEdges = customizableEdges25;
-            cmbTipoGasoil.Size = new Size(219, 36);
-            cmbTipoGasoil.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            cmbTipoGasoil.Size = new Size(322, 36);
             cmbTipoGasoil.TabIndex = 1;
             // 
             // dolarCheck
@@ -645,7 +579,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dolarCheck.CheckMarkColor = Color.LimeGreen;
             dolarCheck.Font = new Font("Century Gothic", 10F);
             dolarCheck.ForeColor = Color.LimeGreen;
-            dolarCheck.Location = new Point(284, 299);
+            dolarCheck.Location = new Point(284, 343);
             dolarCheck.Name = "dolarCheck";
             dolarCheck.Size = new Size(64, 23);
             dolarCheck.TabIndex = 50;
@@ -669,12 +603,96 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2Elipse1.BorderRadius = 0;
             guna2Elipse1.TargetControl = this;
             // 
+            // guna2HtmlLabel12
+            // 
+            guna2HtmlLabel12.AutoSize = false;
+            guna2HtmlLabel12.BackColor = Color.Gray;
+            guna2HtmlLabel12.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel12.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel12.Location = new Point(26, 439);
+            guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            guna2HtmlLabel12.Size = new Size(322, 24);
+            guna2HtmlLabel12.TabIndex = 51;
+            guna2HtmlLabel12.Text = "Aclaracion:";
+            guna2HtmlLabel12.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.AutoSize = false;
+            guna2HtmlLabel4.BackColor = Color.Gray;
+            guna2HtmlLabel4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel4.Location = new Point(26, 377);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(322, 24);
+            guna2HtmlLabel4.TabIndex = 52;
+            guna2HtmlLabel4.Text = "Numero Vale:";
+            guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.AutoSize = false;
+            guna2HtmlLabel5.BackColor = Color.Gray;
+            guna2HtmlLabel5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel5.Location = new Point(26, 315);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(252, 24);
+            guna2HtmlLabel5.TabIndex = 53;
+            guna2HtmlLabel5.Text = "Precio:";
+            guna2HtmlLabel5.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.AutoSize = false;
+            guna2HtmlLabel3.BackColor = Color.Gray;
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel3.Location = new Point(26, 209);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(252, 24);
+            guna2HtmlLabel3.TabIndex = 54;
+            guna2HtmlLabel3.Text = "Litros:";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.BackColor = Color.Gray;
+            guna2HtmlLabel2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel2.Location = new Point(26, 141);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(322, 24);
+            guna2HtmlLabel2.TabIndex = 55;
+            guna2HtmlLabel2.Text = "Fecha:";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Gray;
+            guna2HtmlLabel1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel1.Location = new Point(26, 73);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(322, 24);
+            guna2HtmlLabel1.TabIndex = 56;
+            guna2HtmlLabel1.Text = "Tipo:";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // IngresaGasoil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 600);
+            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(guna2HtmlLabel2);
+            Controls.Add(guna2HtmlLabel3);
+            Controls.Add(guna2HtmlLabel5);
+            Controls.Add(guna2HtmlLabel4);
+            Controls.Add(guna2HtmlLabel12);
             Controls.Add(dolarCheck);
             Controls.Add(cmbTipoGasoil);
             Controls.Add(lblTotal);
@@ -687,18 +705,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(guna2Button1);
             Controls.Add(txtObservaciones);
-            Controls.Add(guna2HtmlLabel7);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2ImageButton2);
             Controls.Add(txtTotal);
-            Controls.Add(guna2HtmlLabel5);
             Controls.Add(txtNumeroVale);
-            Controls.Add(guna2HtmlLabel4);
-            Controls.Add(guna2HtmlLabel3);
             Controls.Add(txtLitros);
-            Controls.Add(guna2HtmlLabel2);
             Controls.Add(dtpFechaCarga);
-            Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2Separator1);
             Controls.Add(dataGridViewAnteriores);
             Controls.Add(dataGridViewTotales);
@@ -726,17 +738,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewAnteriores;
         private Guna.UI2.WinForms.Guna2TextBox txtNumeroVale;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox txtLitros;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaCarga;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2TextBox txtTotal;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2TextBox txtObservaciones;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
@@ -752,5 +758,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         private Guna.UI2.WinForms.Guna2CheckBox dolarCheck;
         private Guna.UI2.WinForms.Guna2MessageDialog MensajeDialogo;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

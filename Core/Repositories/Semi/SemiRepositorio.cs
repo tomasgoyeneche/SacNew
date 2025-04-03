@@ -48,43 +48,39 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<ModificarSemiDto?> ObtenerSemiPorIdAsync(int idSemi)
+        public async Task<Semi?> ObtenerSemiPorIdAsync(int idSemi)
         {
             var query = @"
-            SELECT
-                s.IdSemi, s.Patente, s.Anio, s.IdMarca, s.IdModelo, s.Tara, s.FechaAlta,
-                c.IdTipoCarga, c.Compartimientos, c.IdMaterial
-            FROM Semi s
-            INNER JOIN SemiCisterna c ON s.IdSemi = c.IdSemi
-            WHERE s.IdSemi = @IdSemi";
+            select * from Semi WHERE idSemi = @idSemi";
 
             return await ConectarAsync(async conn =>
             {
-                return await conn.QueryFirstOrDefaultAsync<ModificarSemiDto>(query, new { IdSemi = idSemi });
+                return await conn.QueryFirstOrDefaultAsync<Semi>(query, new { IdSemi = idSemi });
             });
         }
 
-        public async Task ActualizarSemiAsync(ModificarSemiDto semi)
+        public async Task ActualizarSemiAsync(Semi semi)
         {
-            var querySemi = @"
+            var query = @"
             UPDATE Semi
             SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
-                Tara = @Tara, FechaAlta = @FechaAlta
-            WHERE IdSemi = @IdSemi";
-
-            var querySemiCisterna = @"
-            UPDATE SemiCisterna
-            SET IdTipoCarga = @IdTipoCarga, Compartimientos = @Compartimientos, IdMaterial = @IdMaterial
+                Tara = @Tara, FechaAlta = @FechaAlta, IdTipoCarga = @IdTipoCarga, Compartimientos = @Compartimientos, IdMaterial = @IdMaterial,
+                CertificadoCompatibilidad = @CertificadoCompatibilidad, Cubicacion = @Cubicacion, Configuracion = @Configuracion, Espesor = @Espesor, Inv = @Inv
             WHERE IdSemi = @IdSemi";
 
             await ConectarAsync(async conn =>
             {
-                using (var transaction = conn.BeginTransaction())
-                {
-                    await conn.ExecuteAsync(querySemi, semi, transaction);
-                    await conn.ExecuteAsync(querySemiCisterna, semi, transaction);
-                    transaction.Commit();
-                }
+                await conn.ExecuteAsync(query, semi);
+            });
+        }
+
+        public async Task ActualizarEmpresaSemiAsync(int idSemi, int idEmpresa)
+        {
+            const string query = "UPDATE Semi SET IdEmpresa = @idEmpresa WHERE IdSemi = @idSemi";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new { idSemi, idEmpresa });
             });
         }
     }

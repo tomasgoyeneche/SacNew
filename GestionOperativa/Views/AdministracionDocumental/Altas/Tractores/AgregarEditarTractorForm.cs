@@ -162,5 +162,15 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         {
             _presenter.EditarDatos(IdTractor, SatelitalNombre);
         }
+
+        private void bEditarTransportista_Click(object sender, EventArgs e)
+        {
+            _presenter.CambiarTransportista(IdTractor, "tractor");
+        }
+
+        private void picBoxConfiguracion_Click(object sender, EventArgs e)
+        {
+            _presenter.CambiarConfiguracion(IdTractor, "tractor");
+        }
     }
 }

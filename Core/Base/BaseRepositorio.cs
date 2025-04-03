@@ -123,5 +123,45 @@ namespace Core.Base
                 throw new ApplicationException("Error al registrar auditoría.", ex);
             }
         }
+
+
+
+        protected (string whereClause, DynamicParameters parameters) ConstruirFiltroDinamico(Dictionary<string, object?> filtros)
+        {
+            var condiciones = new List<string>();
+            var parametros = new DynamicParameters();
+
+            foreach (var filtro in filtros)
+            {
+                if (filtro.Value == null) continue;
+
+                if (filtro.Key.EndsWith("_like", StringComparison.OrdinalIgnoreCase))
+                {
+                    var key = filtro.Key.Replace("_like", "");
+                    condiciones.Add($"{key} LIKE @{key}");
+                    parametros.Add(key, $"%{filtro.Value}%");
+                }
+                else if (filtro.Key.EndsWith("_desde", StringComparison.OrdinalIgnoreCase))
+                {
+                    var key = filtro.Key.Replace("_desde", "");
+                    condiciones.Add($"{key} >= @{filtro.Key}");
+                    parametros.Add(filtro.Key, filtro.Value);
+                }
+                else if (filtro.Key.EndsWith("_hasta", StringComparison.OrdinalIgnoreCase))
+                {
+                    var key = filtro.Key.Replace("_hasta", "");
+                    condiciones.Add($"{key} <= @{filtro.Key}");
+                    parametros.Add(filtro.Key, filtro.Value);
+                }
+                else
+                {
+                    condiciones.Add($"{filtro.Key} = @{filtro.Key}");
+                    parametros.Add(filtro.Key, filtro.Value);
+                }
+            }
+
+            var whereClause = condiciones.Count > 0 ? "WHERE " + string.Join(" AND ", condiciones) : "";
+            return (whereClause, parametros);
+        }
     }
 }

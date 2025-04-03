@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 
 namespace GestionOperativa.Presenters.Choferes
@@ -70,6 +71,17 @@ namespace GestionOperativa.Presenters.Choferes
                 await form._presenter.InicializarAsync(idChofer);
             });
             await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
+        }
+
+        public async void CambiarTransportista(int idChofer, string tipoEntidad)
+        {
+            await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
+            {
+                await form.CargarDatosAsync(idChofer, tipoEntidad);
+            });
+
+            // 🔄 Refrescar vista una vez cambiado el transportista
+            await CargarDatosParaMostrarAsync(idChofer);
         }
     }
 }

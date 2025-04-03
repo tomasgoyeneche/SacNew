@@ -16,6 +16,8 @@ namespace GestionFlota.Presenters
         private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
         private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
+        private readonly IPeriodoRepositorio _periodoRepositorio;
+
         private EmpresaCredito _amount;
 
         public MenuIngresaGasoilOtrosPresenter(
@@ -25,6 +27,7 @@ namespace GestionFlota.Presenters
             ISesionService sesionService,
             IConsumoOtrosRepositorio consumoOtrosRepositorio,
             IConsumoGasoilRepositorio consumoGasoilRepositorio,
+            IPeriodoRepositorio periodoRepositorio,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
@@ -33,6 +36,7 @@ namespace GestionFlota.Presenters
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));
             _unidadRepositorio = unidadRepositorio ?? throw new ArgumentNullException(nameof(unidadRepositorio));
             _consumoGasoilRepositorio = consumoGasoilRepositorio;
+            _periodoRepositorio = periodoRepositorio;   
         }
 
         public async Task CargarDatosAsync(int idPoc)
@@ -54,7 +58,11 @@ namespace GestionFlota.Presenters
                 var unidad = await _unidadRepositorio.ObtenerPorIdAsync(poc.IdUnidad)
                              ?? throw new Exception("No se encontró la nomina asociada al POC.");
 
-                _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaAsync(unidad.idEmpresa);
+                
+                Periodo periodo = await _periodoRepositorio.ObtenerPorIdAsync(poc.IdPeriodo);   
+                int? periodoFinal = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(periodo.Mes, periodo.Anio);
+
+                _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaYPeriodoAsync(unidad.idEmpresa, periodoFinal);
                 var consumos = await _consumoOtrosRepositorio.ObtenerPorPocAsync(idPoc);
                 var total = consumos.Sum(c => c.ImporteTotal ?? 0);
 

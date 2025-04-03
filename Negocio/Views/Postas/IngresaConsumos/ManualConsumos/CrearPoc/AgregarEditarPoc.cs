@@ -83,7 +83,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarPOCAsync();
-            Close();
+            Dispose();
         }
 
         private async void AgregarEditarPOC_Load(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            DialogoMensaje.Show(mensaje);
         }
 
         private void txtOdometro_TextChanged(object sender, EventArgs e)

@@ -99,5 +99,15 @@ namespace Core.Repositories
                 chofer
             );
         }
+
+        public async Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa)
+        {
+            const string query = "UPDATE Chofer SET IdEmpresa = @idEmpresa WHERE IdChofer = @idChofer";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new { idChofer, idEmpresa });
+            });
+        }
     }
 }

@@ -10,13 +10,13 @@ namespace Core.Repositories
         public PermisoRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-        public async Task<List<int>> ObtenerPermisosPorUsuarioAsync(int idUsuario)
+        public async Task<List<string>> ObtenerPermisosPorUsuarioAsync(int idUsuario)
         {
-            var query = "SELECT idPermiso FROM UsuarioPermiso WHERE idUsuario = @IdUsuario";
+            var query = "SELECT p.nombrepermiso FROM permiso p JOIN usuariopermiso up ON p.idpermiso = up.idpermiso WHERE up.idusuario = @idusuario;";
 
             return await ConectarAsync(async connection =>
             {
-                var permisos = await connection.QueryAsync<int>(query, new { IdUsuario = idUsuario });
+                var permisos = await connection.QueryAsync<string>(query, new { IdUsuario = idUsuario });
                 return permisos.ToList(); // Dapper devuelve IEnumerable, lo convertimos a List
             });
         }

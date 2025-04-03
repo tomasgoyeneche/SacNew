@@ -19,5 +19,8 @@ namespace Core.Repositories
         Task EliminarChoferAsync(int idChofer);
 
         Task ActualizarAsync(Chofer chofer);
+
+
+        Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa);
     }
 }

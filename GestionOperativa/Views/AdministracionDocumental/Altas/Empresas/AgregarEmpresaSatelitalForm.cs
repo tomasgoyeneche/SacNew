@@ -40,5 +40,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
