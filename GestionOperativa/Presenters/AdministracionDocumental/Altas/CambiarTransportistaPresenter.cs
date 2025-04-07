@@ -2,12 +2,6 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
 {
@@ -46,7 +40,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                 _ => 0
             };
 
-       
             _view.SeleccionarEmpresaActual(idEmpresaActual);
         }
 
@@ -61,12 +54,15 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     case "chofer":
                         await _choferRepositorio.ActualizarEmpresaChoferAsync(idEntidad, idEmpresaNueva);
                         break;
+
                     case "tractor":
                         await _tractorRepositorio.ActualizarEmpresaTractorAsync(idEntidad, idEmpresaNueva);
                         break;
+
                     case "semi":
                         await _semiRepositorio.ActualizarEmpresaSemiAsync(idEntidad, idEmpresaNueva);
                         break;
+
                     default:
                         _view.MostrarMensaje("Entidad no reconocida.");
                         return;

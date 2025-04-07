@@ -105,7 +105,7 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            bMenuInformesPostas = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
@@ -134,6 +134,7 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            mensajeError = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
@@ -389,7 +390,7 @@ namespace SacNew.Views.GestionFlota.Postas
             // guna2Panel3
             // 
             guna2Panel3.Controls.Add(guna2PictureBox4);
-            guna2Panel3.Controls.Add(guna2Button4);
+            guna2Panel3.Controls.Add(bMenuInformesPostas);
             guna2Panel3.Controls.Add(guna2HtmlLabel7);
             guna2Panel3.Controls.Add(guna2HtmlLabel8);
             guna2Panel3.CustomizableEdges = customizableEdges23;
@@ -414,25 +415,25 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2PictureBox4.TabIndex = 12;
             guna2PictureBox4.TabStop = false;
             // 
-            // guna2Button4
+            // bMenuInformesPostas
             // 
-            guna2Button4.BackColor = Color.Transparent;
-            guna2Button4.BorderRadius = 5;
-            guna2Button4.CustomizableEdges = customizableEdges21;
-            guna2Button4.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button4.FillColor = Color.Coral;
-            guna2Button4.Font = new Font("Century Gothic", 9F);
-            guna2Button4.ForeColor = Color.White;
-            guna2Button4.Location = new Point(30, 179);
-            guna2Button4.Name = "guna2Button4";
-            guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Button4.Size = new Size(129, 30);
-            guna2Button4.TabIndex = 12;
-            guna2Button4.Text = "Ingresar";
-            guna2Button4.Click += guna2Button4_Click;
+            bMenuInformesPostas.BackColor = Color.Transparent;
+            bMenuInformesPostas.BorderRadius = 5;
+            bMenuInformesPostas.CustomizableEdges = customizableEdges21;
+            bMenuInformesPostas.DisabledState.BorderColor = Color.DarkGray;
+            bMenuInformesPostas.DisabledState.CustomBorderColor = Color.DarkGray;
+            bMenuInformesPostas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bMenuInformesPostas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bMenuInformesPostas.FillColor = Color.Coral;
+            bMenuInformesPostas.Font = new Font("Century Gothic", 9F);
+            bMenuInformesPostas.ForeColor = Color.White;
+            bMenuInformesPostas.Location = new Point(30, 179);
+            bMenuInformesPostas.Name = "bMenuInformesPostas";
+            bMenuInformesPostas.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            bMenuInformesPostas.Size = new Size(129, 30);
+            bMenuInformesPostas.TabIndex = 12;
+            bMenuInformesPostas.Text = "Ingresar";
+            bMenuInformesPostas.Click += bMenuInformesPostas_Click;
             // 
             // guna2HtmlLabel7
             // 
@@ -827,6 +828,15 @@ namespace SacNew.Views.GestionFlota.Postas
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 37;
             // 
+            // mensajeError
+            // 
+            mensajeError.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mensajeError.Caption = "Mensaje de Error";
+            mensajeError.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            mensajeError.Parent = this;
+            mensajeError.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            mensajeError.Text = null;
+            // 
             // MenuPostas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -898,7 +908,7 @@ namespace SacNew.Views.GestionFlota.Postas
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button bMenuInformesPostas;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -917,5 +927,6 @@ namespace SacNew.Views.GestionFlota.Postas
         private Guna.UI2.WinForms.Guna2ControlBox bMinimize;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2MessageDialog mensajeError;
     }
 }

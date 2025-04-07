@@ -8,6 +8,7 @@ namespace Core.Validators
     {
         private decimal _capacidadTanque;
         private decimal _autorizado;
+        private DateTime _fechaCreacion;
         private IConsumoGasoilRepositorio _consumoGasoilRepositorio;
 
         public ConsumoGasoilValidator(IConsumoGasoilRepositorio consumoGasoilRepositorio)
@@ -40,13 +41,16 @@ namespace Core.Validators
 
         public void Configurar(params object[] parametros)
         {
-            if (parametros.Length >= 2)
+            if (parametros.Length >= 3)
             {
                 _capacidadTanque = (decimal)parametros[0];
                 _autorizado = (decimal)parametros[1];
+                _fechaCreacion = (DateTime)parametros[2];
 
                 RuleFor(c => c.LitrosCargados)
                     .LessThanOrEqualTo(_capacidadTanque).WithMessage($"Los litros no pueden exceder la capacidad del tanque ({_capacidadTanque}).");
+                RuleFor(c => c.FechaCarga)
+                   .GreaterThanOrEqualTo(_fechaCreacion).WithMessage($"La fecha del consumo no puede ser menor a la de la POC ({_fechaCreacion}).");
                 // .LessThanOrEqualTo(_autorizado).WithMessage($"Los litros no pueden exceder el límite autorizado ({_autorizado}).");
             }
         }

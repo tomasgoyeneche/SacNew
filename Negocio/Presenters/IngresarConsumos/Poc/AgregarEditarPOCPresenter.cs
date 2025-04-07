@@ -66,8 +66,6 @@ namespace GestionFlota.Presenters
 
                 // Validaciones antes de guardar
 
-                
-
                 // Obtener el código de la posta
                 var posta = await _postaRepositorio.ObtenerPorIdAsync(_sesionService.IdPosta);
                 if (posta == null)
@@ -81,6 +79,12 @@ namespace GestionFlota.Presenters
                     throw new InvalidOperationException("La posta asociada no tiene un código definido.");
                 }
 
+                if (string.IsNullOrEmpty(_view.NumeroPOC))
+                {
+                    _view.MostrarMensaje("El número de POC no puede estar vacío.");
+                    return;
+                }
+
                 poc.NumeroPoc = $"{codigoPosta}-{_view.NumeroPOC}";
                 poc.IdUnidad = _view.IdUnidad;
                 poc.IdPosta = _sesionService.IdPosta;
@@ -90,7 +94,6 @@ namespace GestionFlota.Presenters
                 poc.Comentario = _view.Comentario;
                 poc.FechaCreacion = _view.FechaCreacion;
                 poc.IdUsuario = _view.IdUsuario;
-
 
                 if (!await ValidarAsync(poc, PocActual?.IdPoc ?? 0))
                     return;
@@ -106,6 +109,8 @@ namespace GestionFlota.Presenters
                     await _pocRepositorio.ActualizarPOCAsync(poc);
                     _view.MostrarMensaje("POC actualizada exitosamente.");
                 }
+
+                _view.Close();
             });
         }
     }

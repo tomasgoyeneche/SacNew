@@ -42,7 +42,7 @@ namespace Core.Repositories
 
         public async Task EliminarChoferAsync(int idChofer)
         {
-            var query = "Update Chofer set Activo = 0 WHERE IdChofer = @IdChofer";
+            var query = "EXEC sp_DarDeBajaChofer @IdChofer;";
 
             await ConectarAsync(connection =>
             {

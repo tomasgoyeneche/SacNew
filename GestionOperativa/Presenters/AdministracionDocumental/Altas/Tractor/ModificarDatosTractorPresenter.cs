@@ -2,7 +2,6 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
-using Shared.Models;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -13,6 +12,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly IEmpresaSatelitalRepositorio _empresaSatelitalRepositorio;
         private Shared.Models.Tractor Tractor { get; set; }
+
         public ModificarDatosTractorPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
@@ -54,7 +54,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
 
         public async Task GuardarCambios()
         {
-
             Tractor.IdTractor = _view.IdTractor;
             Tractor.Patente = _view.Patente;
             Tractor.Anio = _view.Anio;
@@ -66,7 +65,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             Tractor.Cmt = _view.Cmt;
             Tractor.FechaAlta = _view.FechaAlta;
             Tractor.IdEmpresa = _view.IdEmpresa; // 🔹 Se usa para buscar EmpresaSatelital
-            
 
             // 🔹 Obtener IdEmpresaSatelital si existe
             int idSatelital = _view.SatelitalSeleccionado == "Megatrans" ? 2 : 1;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class InformeConsumoPocDto
     {
@@ -44,6 +38,5 @@ namespace Shared.Models
         public string Observaciones { get; set; }
         public bool Dolar { get; set; }
         public DateTime FechaCarga { get; set; }
-       
     }
 }

@@ -38,9 +38,6 @@
     <Compile Update="Views\Postas\Informes\MenuInformesPostas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Postas\IngresaConsumos\ImportConsumos\ImportaDatosMv.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\CrearPoc\AgregarEditarPoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,9 +51,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\MenuIngresaConsumos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Postas\IngresaConsumos\MenuFormaIngresarConsumos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Postas\MenuPostas.cs">
@@ -77,6 +71,10 @@
   <ItemGroup>
     <Folder Include="Presenters\Modificaciones\" />
     <Folder Include="Views\Postas\Modificaciones\ReabrirPoc\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
   </ItemGroup>
 
 </Project>

@@ -40,10 +40,23 @@ namespace Configuraciones
                     .AsSelf()
                     .WithTransientLifetime()
 
-                .AddClasses(classes => classes.Where(type => type.IsSubclassOf(typeof(Form))))
-                    .AsSelf()
-                    .AsImplementedInterfaces()
-                    .WithTransientLifetime()
+
+                .AddClasses(classes =>
+                classes.Where(type =>
+                    type.IsSubclassOf(typeof(Form)) &&
+                    !type.IsGenericTypeDefinition &&
+                    !type.Assembly.GetName().Name.StartsWith("DevExpress")
+                ))
+                .AsSelf()
+                .AsImplementedInterfaces()
+                .WithTransientLifetime()
+
+
+
+                //.AddClasses(classes => classes.Where(type => type.IsSubclassOf(typeof(Form))))
+                //    .AsSelf()
+                //    .AsImplementedInterfaces()
+                //    .WithTransientLifetime()
 
                 .AddClasses(classes => classes.AssignableTo(typeof(IValidator<>)))
                     .AsImplementedInterfaces()

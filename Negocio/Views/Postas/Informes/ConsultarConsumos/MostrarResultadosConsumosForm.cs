@@ -1,14 +1,5 @@
 ﻿using GestionFlota.Presenters.Informes;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 {
@@ -31,9 +22,7 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 
             ConfigurarColumnas();
             _presenter.CalcularYMostrarTotales(resultados);
-
         }
-
 
         public void MostrarTotales(List<TotalConsumoDto> totales)
         {
@@ -53,12 +42,10 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
             return _resultados;
         }
 
-
         private async void btnExportar_Click(object sender, EventArgs e)
         {
             await _presenter.ExportarAExcelAsync();
         }
-
 
         private void ConfigurarColumnas()
         {

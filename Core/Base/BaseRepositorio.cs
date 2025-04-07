@@ -124,8 +124,6 @@ namespace Core.Base
             }
         }
 
-
-
         protected (string whereClause, DynamicParameters parameters) ConstruirFiltroDinamico(Dictionary<string, object?> filtros)
         {
             var condiciones = new List<string>();

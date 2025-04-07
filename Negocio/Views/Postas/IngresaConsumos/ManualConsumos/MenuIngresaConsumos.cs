@@ -1,11 +1,10 @@
 ﻿using GestionFlota.Presenters;
 using SacNew.Interfaces;
-using SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc;
 using Shared.Models.DTOs;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 {
-    public partial class MenuIngresaConsumos : Form,  IMenuIngresaConsumosView
+    public partial class MenuIngresaConsumos : DevExpress.XtraEditors.XtraForm, IMenuIngresaConsumosView
     {
         private readonly MenuIngresaConsumosPresenter _presenter;
 
@@ -21,12 +20,24 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
         // Implementación de IMenuIngresaConsumosView
         public void MostrarPOC(List<POCDto> listaPOC)
         {
-            dataGridViewPOC.DataSource = listaPOC;
-            dataGridViewPOC.Columns["IdPoc"].Visible = false;
-            dataGridViewPOC.Columns["IdPosta"].Visible = false;
-            dataGridViewPOC.Columns["CapacidadTanque"].Visible = false;
+            gridControlPOC.DataSource = listaPOC;
 
-            dataGridViewPOC.Columns["Estado"].Visible = false;
+            // Ocultamos columnas no deseadas desde el GridView
+            var view = gridViewPOC;
+            view.Columns["IdPoc"].Visible = false;
+            view.Columns["IdPosta"].Visible = false;
+            view.Columns["CapacidadTanque"].Visible = false;
+            view.Columns["Estado"].Visible = false;
+
+
+            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
+
+            gridViewPOC.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewPOC.OptionsView.EnableAppearanceOddRow = true;
+            gridViewPOC.Appearance.Row.Font = new Font("Segoe UI", 9);
+            gridViewPOC.Appearance.HeaderPanel.Font = new Font("Segoe UI Semibold", 9.75f);
+            gridViewPOC.Appearance.HeaderPanel.Options.UseFont = true;
+            gridViewPOC.Appearance.Row.Options.UseFont = true;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -57,11 +68,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPOC.SelectedRows.Count > 0)
+            var row = gridViewPOC.GetFocusedRow() as POCDto;
+            if (row != null)
             {
-                int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-
-                await _presenter.EliminarPOCAsync(idPoc); // Llamar al presenter para eliminar
+                await _presenter.EliminarPOCAsync(row.IdPoc);
             }
             else
             {
@@ -76,11 +86,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 
         private async void btnEditarPOC_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPOC.SelectedRows.Count > 0)
+            var row = gridViewPOC.GetFocusedRow() as POCDto;
+            if (row != null)
             {
-                int idPoc = Convert.ToInt32(dataGridViewPOC.SelectedRows[0].Cells["IdPoc"].Value);
-
-                await _presenter.EditarPOCAsync(idPoc);  // Editar usando el idPoc
+                await _presenter.EditarPOCAsync(row.IdPoc);
             }
             else
             {
@@ -88,14 +97,18 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             }
         }
 
-        private async void dataGridViewPOC_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                int idPoc = Convert.ToInt32(dataGridViewPOC.Rows[e.RowIndex].Cells["IdPoc"].Value);
 
-                await _presenter.AbrirMenuIngresaGasoilOtrosAsync(idPoc);
-                _presenter.InicializarAsync();
+        private async void gridControlPOC_DoubleClick(object sender, EventArgs e)
+        {
+            var view = gridViewPOC;
+            if (view.FocusedRowHandle >= 0)
+            {
+                var row = view.GetRow(view.FocusedRowHandle) as POCDto;
+                if (row != null)
+                {
+                    await _presenter.AbrirMenuIngresaGasoilOtrosAsync(row.IdPoc);
+                    await _presenter.InicializarAsync();
+                }
             }
         }
     }

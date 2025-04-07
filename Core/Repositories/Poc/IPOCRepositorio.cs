@@ -7,6 +7,8 @@ namespace Core.Repositories
     {
         Task<List<POCDto>> ObtenerTodosAsync();
 
+        Task<POCDto?> ObtenerPorIdDtoAsync(int idPoc);
+
         Task<List<POCDto>> BuscarPOCAsync(string criterio, int idPosta);
 
         Task EliminarPOCAsync(int id);
@@ -24,7 +26,9 @@ namespace Core.Repositories
         Task<(string PatenteTractor, decimal CapacidadTanque)> ObtenerUnidadPorPocAsync(int idPoc);
 
         Task<POC?> ObtenerPorNumeroAsync(string numeroPoc);
+
         Task<POC?> ObtenerAbiertaPorUnidadAsync(int idUnidad);
+
         Task<POC?> ObtenerAbiertaPorChoferAsync(int idChofer);
     }
 }

@@ -20,7 +20,6 @@ namespace Core.Repositories
 
         Task ActualizarAsync(Chofer chofer);
 
-
         Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa);
     }
 }

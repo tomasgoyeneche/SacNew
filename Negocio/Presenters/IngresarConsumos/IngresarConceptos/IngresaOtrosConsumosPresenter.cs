@@ -12,7 +12,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
         private int? _idConsumo; // Null si es un nuevo consumo, valor si es edición
-        private int _idPoc;
+        private POC _Poc;
         private EmpresaCredito _empresaCredito;
 
         public IngresaOtrosConsumosPresenter(
@@ -28,9 +28,9 @@ namespace GestionFlota.Presenters.IngresarConsumos
             _consumoOtrosRepositorio = consumoOtrosRepositorio;
         }
 
-        public async Task CargarDatosAsync(int idPoc, EmpresaCredito empresaCredito)
+        public async Task CargarDatosAsync(POC poc, EmpresaCredito empresaCredito)
         {
-            _idPoc = idPoc;
+            _Poc = poc;
             _empresaCredito = empresaCredito;
 
             await EjecutarConCargaAsync(async () =>
@@ -72,7 +72,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
                     var nuevoConsumo = new ConsumoOtros
                     {
-                        IdPOC = _idPoc,
+                        IdPOC = _Poc.IdPoc,
                         IdConsumo = tipoSeleccionado.IdConsumo,
                         NumeroVale = _view.RemitoExterno,
                         Cantidad = _view.Cantidad.Value,
@@ -117,6 +117,15 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
         private bool ValidarDatos()
         {
+            _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
+
+
+            if (_view.FechaRemito < _Poc.FechaCreacion)
+            {
+                _view.MostrarMensaje("La fecha de remito no puede ser menor a la de la POC");
+                return false;
+            }
+
             if (_view.TipoConsumoSeleccionado == null)
             {
                 _view.MostrarMensaje("Debe seleccionar un tipo de gasoil.");
@@ -158,9 +167,9 @@ namespace GestionFlota.Presenters.IngresarConsumos
             await _empresaCreditoRepositorio.ActualizarCreditoAsync(_empresaCredito);
         }
 
-        public async Task CargarDatosParaEditarAsync(int idPoc, int idConsumo, EmpresaCredito empresaCredito)
+        public async Task CargarDatosParaEditarAsync(POC poc, int idConsumo, EmpresaCredito empresaCredito)
         {
-            _idPoc = idPoc;
+            _Poc = poc;
             _empresaCredito = empresaCredito;
 
             await EjecutarConCargaAsync(async () =>

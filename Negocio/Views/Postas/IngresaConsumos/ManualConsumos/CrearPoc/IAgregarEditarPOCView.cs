@@ -21,6 +21,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         void CargarPeriodo(List<Periodo> periodos);
 
+        void Close();
+
         void MostrarDatosPOC(POC poc);
     }
 }

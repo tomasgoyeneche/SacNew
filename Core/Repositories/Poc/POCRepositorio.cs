@@ -51,7 +51,7 @@ namespace Core.Repositories
 
             return await ConectarAsync(connection =>
             {
-                return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta}).ContinueWith(task => task.Result.ToList());
+                return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta }).ContinueWith(task => task.Result.ToList());
             });
         }
 
@@ -75,6 +75,18 @@ namespace Core.Repositories
             return await ConectarAsync(connection =>
             {
                 return connection.QueryFirstOrDefaultAsync<POC>(query, new { IdPoc = idPoc });
+            });
+        }
+
+        public async Task<POCDto?> ObtenerPorIdDtoAsync(int idPoc)
+        {
+            var query = @"
+        SELECT * FROM POC_UnidadDetalle
+        WHERE IdPoc = @IdPoc AND Estado = 'abierta'";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<POCDto>(query, new { IdPoc = idPoc });
             });
         }
 
@@ -141,7 +153,6 @@ namespace Core.Repositories
                 return await connection.QuerySingleAsync<(string, decimal)>(query, new { IdPoc = idPoc });
             });
         }
-
 
         public async Task<POC?> ObtenerPorNumeroAsync(string numeroPoc)
         {

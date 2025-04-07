@@ -29,7 +29,7 @@ namespace Core.Repositories
 
         public async Task EliminarTractorAsync(int idTractor)
         {
-            var query = "Update Tractor set Activo = 0 WHERE idTractor = @idTractor";
+            var query = "EXEC sp_DarDeBajaTractor @idTractor;";
 
             await ConectarAsync(connection =>
             {
@@ -67,7 +67,7 @@ namespace Core.Repositories
             UPDATE Tractor
             SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
                 Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt,
-                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta, Configuracion = @Configuracion  
+                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta, Configuracion = @Configuracion
             WHERE IdTractor = @IdTractor";
 
             await ConectarAsync(async conn =>

@@ -59,7 +59,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaGasoil_Click(object sender, EventArgs e)
         {
-            await _presenter.AbrirGasoilAutorizadoAsync(IdPoc);
+            await _presenter.AbrirGasoilAutorizadoAsync();
         }
 
         private async void bIngresaYpfRuta_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         private async void bIngresaOtrosConsumos_Click(object sender, EventArgs e)
         {
-            await _presenter.AbrirOtrosConsumos(IdPoc);
+            await _presenter.AbrirOtrosConsumos();
         }
 
         public void MostrarConsumos(List<ConsumosUnificadosDto> consumos)
@@ -208,7 +208,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
                 int idConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["IdConsumo"].Value);
                 int tipoConsumo = Convert.ToInt32(dataGridViewConsumos.SelectedRows[0].Cells["tipoConsumo"].Value);
 
-                await _presenter.EditarConsumoOtros(IdPoc, idConsumo, tipoConsumo);
+                await _presenter.EditarConsumoOtros(idConsumo, tipoConsumo);
             }
             else
             {

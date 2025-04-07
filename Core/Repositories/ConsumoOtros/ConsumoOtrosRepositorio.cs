@@ -79,7 +79,6 @@ namespace Core.Repositories
             );
         }
 
-
         public async Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(
                 int? idConcepto,
                 int? idPosta,
@@ -92,8 +91,8 @@ namespace Core.Repositories
                 DateTime? fechaCreacionHasta,
                 DateTime? fechaCierreDesde,
                 DateTime? fechaCierreHasta)
-                    {
-                        var filtros = new Dictionary<string, object?>
+        {
+            var filtros = new Dictionary<string, object?>
                 {
                     { "idconsumo", idConcepto },
                     { "idposta", idPosta },
@@ -108,15 +107,15 @@ namespace Core.Repositories
                     { "fechacierre_hasta", fechaCierreHasta },
                 };
 
-                        var (whereClause, parametros) = ConstruirFiltroDinamico(filtros);
+            var (whereClause, parametros) = ConstruirFiltroDinamico(filtros);
 
-                        var query = $"SELECT * FROM vw_InformeConsumoPoc {whereClause}";
+            var query = $"SELECT * FROM vw_InformeConsumoPoc {whereClause}";
 
-                        return await ConectarAsync(async connection =>
-                        {
-                            var resultados = await connection.QueryAsync<InformeConsumoPocDto>(query, parametros);
-                            return resultados.ToList();
-                        });
+            return await ConectarAsync(async connection =>
+            {
+                var resultados = await connection.QueryAsync<InformeConsumoPocDto>(query, parametros);
+                return resultados.ToList();
+            });
         }
     }
 }

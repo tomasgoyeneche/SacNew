@@ -2,6 +2,10 @@ using Configuraciones;
 using Microsoft.Extensions.DependencyInjection;
 using SacNew;
 using System.Globalization;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
+using System.Globalization;
 
 namespace App
 {
@@ -16,14 +20,17 @@ namespace App
             ConfigurarCultura();
             ConfigurarManejoGlobalExcepciones();
 
+            BonusSkins.Register();
+            SkinManager.EnableFormSkins();
+            UserLookAndFeel.Default.SetSkinStyle("WXI"); // Cambiá por el que quieras
+
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             try
             {
                 //ReportSchemaGenerator.GenerarEsquemaReportes();
-
                 //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 var serviceProvider = Startup.ConfigureServices();
                 var loginForm = serviceProvider.GetRequiredService<Login>();

@@ -2,12 +2,6 @@
 using Core.Services;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Presenters.Informes
 {
@@ -77,6 +71,7 @@ namespace GestionFlota.Presenters.Informes
                 _view.MostrarMensaje($"Error al exportar: {ex.Message}");
             }
         }
+
         public void CalcularYMostrarTotales(List<InformeConsumoPocDto> resultados)
         {
             var totales = resultados

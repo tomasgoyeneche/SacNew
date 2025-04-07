@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters.Informes
 {

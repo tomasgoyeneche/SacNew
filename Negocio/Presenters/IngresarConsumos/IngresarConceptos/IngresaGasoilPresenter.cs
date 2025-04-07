@@ -15,7 +15,7 @@ namespace GestionFlota.Presenters
 
         private decimal _consumoPrecioAnterior;
         private int? _idConsumo;
-        private int _idPoc;
+        private POC _Poc;
         private int _idPrograma;
         private decimal _capacidadTanque;
         private string _patente;
@@ -43,9 +43,9 @@ namespace GestionFlota.Presenters
         // MÉTODOS PÚBLICOS PRINCIPALES
         // ==========================
 
-        public async Task CargarDatosAsync(int idPoc, EmpresaCredito empresaCredito)
+        public async Task CargarDatosAsync(POC poc, EmpresaCredito empresaCredito)
         {
-            _idPoc = idPoc;
+            _Poc = poc;
             _empresaCredito = empresaCredito;
 
             await EjecutarConCargaAsync(async () =>
@@ -55,9 +55,9 @@ namespace GestionFlota.Presenters
             });
         }
 
-        public async Task CargarDatosParaEditarAsync(int idPoc, int idConsumo, EmpresaCredito empresaCredito)
+        public async Task CargarDatosParaEditarAsync(POC poc, int idConsumo, EmpresaCredito empresaCredito)
         {
-            _idPoc = idPoc;
+            _Poc = poc;
             _idConsumo = idConsumo;
             _empresaCredito = empresaCredito;
 
@@ -72,7 +72,7 @@ namespace GestionFlota.Presenters
                 _consumoPrecioAnterior = consumo.PrecioTotal;
                 _autorizado = consumo.LitrosAutorizados;
                 _idPrograma = consumo.IdPrograma;
-                (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_idPoc);
+                (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_Poc.IdPoc);
 
                 await CargarDatosComunesAsync();
                 _view.InicializarParaEdicion(consumo);
@@ -95,17 +95,19 @@ namespace GestionFlota.Presenters
 
                 ConsumoGasoil consumo;
 
+                _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
+
                 if (_idConsumo == null)
                 {
                     consumo = CrearNuevoConsumo(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
-                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado))
+                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
                         return;
                     await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
                 }
                 else
                 {
                     consumo = await ActualizarConsumoExistente(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
-                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado))
+                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
                         return;
                     await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
                 }
@@ -128,7 +130,7 @@ namespace GestionFlota.Presenters
 
         private async Task CalcularLitrosAutorizadosAsync()
         {
-            (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_idPoc);
+            (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_Poc.IdPoc);
             var programa = await _consumoGasoilRepositorio.ObtenerProgramaPorPatenteAsync(_patente);
             bool validaPorBahiaBlanca = false;
             bool programaValido = programa?.Kilometros > 0;
@@ -202,7 +204,7 @@ namespace GestionFlota.Presenters
         {
             return new ConsumoGasoil
             {
-                IdPOC = _idPoc,
+                IdPOC = _Poc.IdPoc,
                 IdConsumo = idConsumo,
                 IdPrograma = _idPrograma,
                 LitrosAutorizados = _autorizado,
@@ -275,7 +277,6 @@ namespace GestionFlota.Presenters
             }
 
             return resultado;
-
         }
 
         public void CalcularTotal(decimal litros)

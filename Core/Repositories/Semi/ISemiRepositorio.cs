@@ -18,7 +18,5 @@ namespace Core.Repositories
         Task ActualizarSemiAsync(Semi semi);
 
         Task ActualizarEmpresaSemiAsync(int idSemi, int idEmpresa);
-
-
     }
 }

@@ -26,7 +26,7 @@ namespace SacNew.Views
 
         private void bMenuPostas_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0000-SuperAdmin"))
+            if (_sesionService.Permisos.Contains("0003-Postas") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
                 _navigationService.ShowDialog<MenuPostas>();
             }
@@ -39,17 +39,33 @@ namespace SacNew.Views
 
         private void bAbmUsuar_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<MenuUsuariosForm>();
+            if (_sesionService.Permisos.Contains("0020-AbmUsuarios") || _sesionService.Permisos.Contains("0000 -SuperAdmin"))
+            {
+                _navigationService.ShowDialog<MenuUsuariosForm>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a la Administración de Usuarios.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bAbmLocaciones_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<MenuLocaciones>();
+            if (_sesionService.Permisos.Contains("0021-AbmLocaciones") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
+            {
+                _navigationService.ShowDialog<MenuLocaciones>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a la Administración de Locaciones.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bAdminDocumental_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0002-AdministracionDocumental"))
+            if (_sesionService.Permisos.Contains("0002-AdministracionDocumental") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
                 _navigationService.ShowDialog<MenuAdministracionDocumental>();
             }

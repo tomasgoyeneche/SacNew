@@ -5,6 +5,7 @@ using GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual;
 using Shared.Models;
+using Shared.Models.DTOs;
 using System.Globalization;
 
 namespace GestionFlota.Presenters
@@ -18,6 +19,9 @@ namespace GestionFlota.Presenters
         private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
         private readonly IPeriodoRepositorio _periodoRepositorio;
 
+
+        private POCDto _pocDto;
+        private POC _poc;
         private EmpresaCredito _amount;
 
         public MenuIngresaGasoilOtrosPresenter(
@@ -36,7 +40,7 @@ namespace GestionFlota.Presenters
             _pocRepositorio = pocRepositorio ?? throw new ArgumentNullException(nameof(pocRepositorio));
             _unidadRepositorio = unidadRepositorio ?? throw new ArgumentNullException(nameof(unidadRepositorio));
             _consumoGasoilRepositorio = consumoGasoilRepositorio;
-            _periodoRepositorio = periodoRepositorio;   
+            _periodoRepositorio = periodoRepositorio;
         }
 
         public async Task CargarDatosAsync(int idPoc)
@@ -49,17 +53,19 @@ namespace GestionFlota.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                var poc = await _pocRepositorio.ObtenerPorIdAsync(idPoc)
+                _poc = await _pocRepositorio.ObtenerPorIdAsync(idPoc)
                            ?? throw new Exception("No se encontró el POC seleccionado.");
 
-                _view.NumeroPoc = poc.NumeroPoc;
-                _view.IdPoc = poc.IdPoc;
+                _pocDto = await _pocRepositorio.ObtenerPorIdDtoAsync(idPoc)
+                           ?? throw new Exception("No se encontró el POC seleccionado.");
 
-                var unidad = await _unidadRepositorio.ObtenerPorIdAsync(poc.IdUnidad)
+                _view.NumeroPoc = _poc.NumeroPoc;
+                _view.IdPoc = _poc.IdPoc;
+
+                var unidad = await _unidadRepositorio.ObtenerPorIdAsync(_poc.IdUnidad)
                              ?? throw new Exception("No se encontró la nomina asociada al POC.");
 
-                
-                Periodo periodo = await _periodoRepositorio.ObtenerPorIdAsync(poc.IdPeriodo);   
+                Periodo periodo = await _periodoRepositorio.ObtenerPorIdAsync(_poc.IdPeriodo);
                 int? periodoFinal = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(periodo.Mes, periodo.Anio);
 
                 _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaYPeriodoAsync(unidad.idEmpresa, periodoFinal);
@@ -82,14 +88,25 @@ namespace GestionFlota.Presenters
             });
         }
 
-        public async Task AbrirGasoilAutorizadoAsync(int idPoc)
+        public async Task AbrirGasoilAutorizadoAsync()
         {
             await AbrirFormularioAsync<IngresaGasoil>(async form =>
             {
-                await form._presenter.CargarDatosAsync(idPoc, _amount);
+                await form._presenter.CargarDatosAsync(_poc, _amount);
             });
             await CargarDatosAsync(_view.IdPoc);
         }
+
+        public async Task AbrirOtrosConsumos()
+        {
+            await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
+            {
+                await form._presenter.CargarDatosAsync(_poc, _amount);
+            });
+
+            await CargarDatosAsync(_view.IdPoc);
+        }
+
 
         public async Task AbrirConsumosenYpfEnRutaAsync(int idPoc)
         {
@@ -118,15 +135,6 @@ namespace GestionFlota.Presenters
             });
         }
 
-        public async Task AbrirOtrosConsumos(int idPoc)
-        {
-            await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
-            {
-                await form._presenter.CargarDatosAsync(idPoc, _amount);
-            });
-
-            await CargarDatosAsync(_view.IdPoc);
-        }
 
         public async Task EliminarConsumo(int idConsumo, int tipoConsumo, decimal importeTotal)
         {
@@ -162,20 +170,20 @@ namespace GestionFlota.Presenters
             });
         }
 
-        public async Task EditarConsumoOtros(int idPoc, int idConsumo, int tipoConsumo)
+        public async Task EditarConsumoOtros(int idConsumo, int tipoConsumo)
         {
             if (tipoConsumo == 2)
             {
                 await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
                 {
-                    await form._presenter.CargarDatosParaEditarAsync(idPoc, idConsumo, _amount);
+                    await form._presenter.CargarDatosParaEditarAsync(_poc, idConsumo, _amount);
                 });
             }
             else if (tipoConsumo == 1)
             {
                 await AbrirFormularioAsync<IngresaGasoil>(async form =>
                 {
-                    await form._presenter.CargarDatosParaEditarAsync(idPoc, idConsumo, _amount);
+                    await form._presenter.CargarDatosParaEditarAsync(_poc, idConsumo, _amount);
                 });
             }
 

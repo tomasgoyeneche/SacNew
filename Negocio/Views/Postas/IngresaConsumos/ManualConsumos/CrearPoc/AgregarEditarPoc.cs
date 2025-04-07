@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors.Controls;
+using GestionFlota.Presenters;
 using Shared.Models;
 using Shared.Models.DTOs;
 
@@ -15,8 +16,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             _presenter.SetView(this);
         }
 
-        public int IdUnidad => Convert.ToInt32(cmbNomina.SelectedValue);
-        public int IdChofer => Convert.ToInt32(cmbChofer.SelectedValue);
+        public int IdUnidad => Convert.ToInt32(cmbNomina.EditValue);
+        public int IdChofer => Convert.ToInt32(cmbChofer.EditValue);
         public int IdPeriodo => Convert.ToInt32(cmbPeriodo.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
         public double Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToDouble(txtOdometro.Text.Trim());
@@ -26,20 +27,26 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public void CargarNominas(List<UnidadPatenteDto> unidades)
         {
-            cmbNomina.DataSource = unidades;
-            cmbNomina.DisplayMember = "DescripcionUnidad";
-            cmbNomina.ValueMember = "IdUnidad";
+            cmbNomina.Properties.DataSource = unidades;
+            cmbNomina.Properties.DisplayMember = "DescripcionUnidad";
+            cmbNomina.Properties.ValueMember = "IdUnidad";
 
-            cmbNomina.SelectedValue = _presenter.PocActual?.IdUnidad ?? -1;
+            cmbNomina.Properties.Columns.Clear(); // 🔥 Borra todo
+            cmbNomina.Properties.Columns.Add(new LookUpColumnInfo("DescripcionUnidad", "Unidad"));
+
+            cmbNomina.EditValue = _presenter.PocActual?.IdUnidad ?? -1;
         }
 
         public void CargarChoferes(List<Chofer> choferes)
         {
-            cmbChofer.DataSource = choferes;
-            cmbChofer.DisplayMember = "NombreApellido";
-            cmbChofer.ValueMember = "IdChofer";
+            cmbChofer.Properties.DataSource = choferes;
+            cmbChofer.Properties.DisplayMember = "NombreApellido";
+            cmbChofer.Properties.ValueMember = "IdChofer";
 
-            cmbChofer.SelectedValue = _presenter.PocActual?.IdChofer ?? -1;
+            cmbChofer.Properties.Columns.Clear();
+            cmbChofer.Properties.Columns.Add(new LookUpColumnInfo("NombreApellido", "Chofer"));
+
+            cmbChofer.EditValue = _presenter.PocActual?.IdChofer ?? -1;
         }
 
         public void CargarPeriodo(List<Periodo> periodos)
@@ -75,7 +82,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
             txtNumeroPOC.Text = poc.NumeroPoc;
             txtOdometro.Text = poc.Odometro.ToString();
             txtComentario.Text = poc.Comentario;
-            cmbNomina.SelectedValue = poc.IdUnidad;
+            cmbNomina.EditValue = poc.IdUnidad;
             cmbPeriodo.SelectedValue = poc.IdPeriodo;
             dtpFechaCreacion.Value = poc.FechaCreacion;
         }
@@ -83,7 +90,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarPOCAsync();
-            Dispose();
         }
 
         private async void AgregarEditarPOC_Load(object sender, EventArgs e)
@@ -93,12 +99,17 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Close();
         }
 
         public void MostrarMensaje(string mensaje)
         {
             DialogoMensaje.Show(mensaje);
+        }
+
+        public void Close()
+        {
+            Dispose();  
         }
 
         private void txtOdometro_TextChanged(object sender, EventArgs e)

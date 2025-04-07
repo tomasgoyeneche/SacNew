@@ -29,7 +29,7 @@ namespace Core.Repositories
 
         public async Task EliminarSemiAsync(int idSemi)
         {
-            var query = "Update Semi set Activo = 0 WHERE idSemi = @idSemi";
+            var query = "EXEC sp_DarDeBajaSemi @idsemi";
 
             await ConectarAsync(connection =>
             {

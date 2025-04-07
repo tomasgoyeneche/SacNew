@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -39,14 +43,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -76,7 +72,6 @@
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtOdometro = new Guna.UI2.WinForms.Guna2TextBox();
-            cmbNomina = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbPeriodo = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -88,10 +83,13 @@
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cmbChofer = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             DialogoMensaje = new Guna.UI2.WinForms.Guna2MessageDialog();
+            cmbNomina = new DevExpress.XtraEditors.LookUpEdit();
+            cmbChofer = new DevExpress.XtraEditors.LookUpEdit();
             guna2Panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbNomina.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cmbChofer.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Elipse1
@@ -107,97 +105,104 @@
             guna2Panel9.Controls.Add(guna2ControlBox4);
             guna2Panel9.Controls.Add(guna2ControlBox2);
             guna2Panel9.Controls.Add(guna2ControlBox1);
-            guna2Panel9.CustomizableEdges = customizableEdges33;
+            guna2Panel9.CustomizableEdges = customizableEdges29;
             guna2Panel9.Dock = DockStyle.Top;
             guna2Panel9.FillColor = Color.Transparent;
             guna2Panel9.Location = new Point(0, 0);
+            guna2Panel9.Margin = new Padding(4, 3, 4, 3);
             guna2Panel9.Name = "guna2Panel9";
-            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            guna2Panel9.Size = new Size(900, 27);
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            guna2Panel9.Size = new Size(800, 27);
             guna2Panel9.TabIndex = 18;
             // 
             // bMinimize
             // 
             bMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            bMinimize.CustomizableEdges = customizableEdges21;
+            bMinimize.CustomizableEdges = customizableEdges17;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
-            bMinimize.Location = new Point(837, -1);
+            bMinimize.Location = new Point(737, -1);
+            bMinimize.Margin = new Padding(4, 3, 4, 3);
             bMinimize.Name = "bMinimize";
-            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            bMinimize.Size = new Size(32, 27);
+            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            bMinimize.Size = new Size(31, 27);
             bMinimize.TabIndex = 22;
             // 
             // bClose
             // 
             bClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bClose.Animated = true;
-            bClose.CustomizableEdges = customizableEdges23;
+            bClose.CustomizableEdges = customizableEdges19;
             bClose.FillColor = Color.Transparent;
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
-            bClose.Location = new Point(869, -1);
+            bClose.Location = new Point(770, -1);
+            bClose.Margin = new Padding(4, 3, 4, 3);
             bClose.Name = "bClose";
-            bClose.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            bClose.Size = new Size(32, 27);
+            bClose.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            bClose.Size = new Size(31, 27);
             bClose.TabIndex = 21;
             // 
             // guna2ControlBox3
             // 
             guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox3.CustomizableEdges = customizableEdges25;
+            guna2ControlBox3.CustomizableEdges = customizableEdges21;
             guna2ControlBox3.FillColor = Color.Transparent;
             guna2ControlBox3.IconColor = Color.WhiteSmoke;
-            guna2ControlBox3.Location = new Point(1536, -1);
+            guna2ControlBox3.Location = new Point(1437, -1);
+            guna2ControlBox3.Margin = new Padding(4, 3, 4, 3);
             guna2ControlBox3.Name = "guna2ControlBox3";
-            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            guna2ControlBox3.Size = new Size(32, 27);
+            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2ControlBox3.Size = new Size(31, 27);
             guna2ControlBox3.TabIndex = 20;
             // 
             // guna2ControlBox4
             // 
             guna2ControlBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox4.Animated = true;
-            guna2ControlBox4.CustomizableEdges = customizableEdges27;
+            guna2ControlBox4.CustomizableEdges = customizableEdges23;
             guna2ControlBox4.FillColor = Color.Transparent;
             guna2ControlBox4.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox4.HoverState.IconColor = Color.White;
             guna2ControlBox4.IconColor = Color.WhiteSmoke;
-            guna2ControlBox4.Location = new Point(1568, -1);
+            guna2ControlBox4.Location = new Point(1469, -1);
+            guna2ControlBox4.Margin = new Padding(4, 3, 4, 3);
             guna2ControlBox4.Name = "guna2ControlBox4";
-            guna2ControlBox4.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            guna2ControlBox4.Size = new Size(32, 27);
+            guna2ControlBox4.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            guna2ControlBox4.Size = new Size(31, 27);
             guna2ControlBox4.TabIndex = 19;
             // 
             // guna2ControlBox2
             // 
             guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox2.CustomizableEdges = customizableEdges29;
+            guna2ControlBox2.CustomizableEdges = customizableEdges25;
             guna2ControlBox2.FillColor = Color.Transparent;
             guna2ControlBox2.IconColor = Color.WhiteSmoke;
-            guna2ControlBox2.Location = new Point(2136, -1);
+            guna2ControlBox2.Location = new Point(2037, -1);
+            guna2ControlBox2.Margin = new Padding(4, 3, 4, 3);
             guna2ControlBox2.Name = "guna2ControlBox2";
-            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2ControlBox2.Size = new Size(32, 27);
+            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            guna2ControlBox2.Size = new Size(31, 27);
             guna2ControlBox2.TabIndex = 18;
             // 
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.Animated = true;
-            guna2ControlBox1.CustomizableEdges = customizableEdges31;
+            guna2ControlBox1.CustomizableEdges = customizableEdges27;
             guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.HoverState.FillColor = Color.IndianRed;
             guna2ControlBox1.HoverState.IconColor = Color.White;
             guna2ControlBox1.IconColor = Color.WhiteSmoke;
-            guna2ControlBox1.Location = new Point(2168, -1);
+            guna2ControlBox1.Location = new Point(2069, -1);
+            guna2ControlBox1.Margin = new Padding(4, 3, 4, 3);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            guna2ControlBox1.Size = new Size(32, 27);
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2ControlBox1.Size = new Size(31, 27);
             guna2ControlBox1.TabIndex = 17;
             // 
             // guna2HtmlLabel1
@@ -206,9 +211,10 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 20F);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(100, 10);
+            guna2HtmlLabel1.Location = new Point(92, 24);
+            guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(278, 33);
+            guna2HtmlLabel1.Size = new Size(278, 53);
             guna2HtmlLabel1.TabIndex = 37;
             guna2HtmlLabel1.Text = "Agregar/Editar POC";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
@@ -218,17 +224,18 @@
             dtpFechaCreacion.BackColor = Color.Transparent;
             dtpFechaCreacion.Checked = true;
             dtpFechaCreacion.CustomFormat = "dd/MM/yyyy HH:mm";
-            dtpFechaCreacion.CustomizableEdges = customizableEdges19;
+            dtpFechaCreacion.CustomizableEdges = customizableEdges15;
             dtpFechaCreacion.FillColor = Color.WhiteSmoke;
             dtpFechaCreacion.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaCreacion.Format = DateTimePickerFormat.Custom;
-            dtpFechaCreacion.Location = new Point(229, 162);
+            dtpFechaCreacion.Location = new Point(224, 169);
+            dtpFechaCreacion.Margin = new Padding(4, 3, 4, 3);
             dtpFechaCreacion.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpFechaCreacion.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dtpFechaCreacion.Name = "dtpFechaCreacion";
-            dtpFechaCreacion.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            dtpFechaCreacion.ShadowDecoration.CustomizableEdges = customizableEdges16;
             dtpFechaCreacion.ShowUpDown = true;
-            dtpFechaCreacion.Size = new Size(224, 38);
+            dtpFechaCreacion.Size = new Size(211, 38);
             dtpFechaCreacion.TabIndex = 3;
             dtpFechaCreacion.Value = new DateTime(2024, 10, 4, 0, 0, 0, 0);
             // 
@@ -237,7 +244,8 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(27, 177);
+            guna2HtmlLabel2.Location = new Point(22, 184);
+            guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(194, 23);
             guna2HtmlLabel2.TabIndex = 21;
@@ -248,7 +256,8 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(28, 236);
+            guna2HtmlLabel3.Location = new Point(23, 244);
+            guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(89, 23);
             guna2HtmlLabel3.TabIndex = 22;
@@ -256,7 +265,7 @@
             // 
             // txtOdometro
             // 
-            txtOdometro.CustomizableEdges = customizableEdges17;
+            txtOdometro.CustomizableEdges = customizableEdges13;
             txtOdometro.DefaultText = "";
             txtOdometro.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtOdometro.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -265,41 +274,25 @@
             txtOdometro.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtOdometro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOdometro.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtOdometro.Location = new Point(224, 221);
+            txtOdometro.Location = new Point(154, 225);
+            txtOdometro.Margin = new Padding(4, 3, 4, 3);
             txtOdometro.MaxLength = 6;
             txtOdometro.Name = "txtOdometro";
             txtOdometro.PasswordChar = '\0';
             txtOdometro.PlaceholderText = "Ingrese el Odometro";
             txtOdometro.SelectedText = "";
-            txtOdometro.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtOdometro.Size = new Size(229, 41);
+            txtOdometro.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtOdometro.Size = new Size(281, 42);
             txtOdometro.TabIndex = 4;
             txtOdometro.TextChanged += txtOdometro_TextChanged;
-            // 
-            // cmbNomina
-            // 
-            cmbNomina.BackColor = Color.Transparent;
-            cmbNomina.CustomizableEdges = customizableEdges15;
-            cmbNomina.DrawMode = DrawMode.OwnerDrawFixed;
-            cmbNomina.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbNomina.FocusedColor = Color.FromArgb(94, 148, 255);
-            cmbNomina.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbNomina.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbNomina.ForeColor = Color.FromArgb(68, 88, 112);
-            cmbNomina.IntegralHeight = false;
-            cmbNomina.ItemHeight = 30;
-            cmbNomina.Location = new Point(101, 282);
-            cmbNomina.Name = "cmbNomina";
-            cmbNomina.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cmbNomina.Size = new Size(352, 36);
-            cmbNomina.TabIndex = 5;
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(27, 295);
+            guna2HtmlLabel4.Location = new Point(23, 291);
+            guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(68, 23);
             guna2HtmlLabel4.TabIndex = 25;
@@ -310,7 +303,8 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel5.Location = new Point(27, 76);
+            guna2HtmlLabel5.Location = new Point(22, 91);
+            guna2HtmlLabel5.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(65, 23);
             guna2HtmlLabel5.TabIndex = 27;
@@ -319,7 +313,7 @@
             // cmbPeriodo
             // 
             cmbPeriodo.BackColor = Color.Transparent;
-            cmbPeriodo.CustomizableEdges = customizableEdges13;
+            cmbPeriodo.CustomizableEdges = customizableEdges11;
             cmbPeriodo.DrawMode = DrawMode.OwnerDrawFixed;
             cmbPeriodo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPeriodo.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -327,10 +321,11 @@
             cmbPeriodo.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbPeriodo.ForeColor = Color.FromArgb(68, 88, 112);
             cmbPeriodo.ItemHeight = 30;
-            cmbPeriodo.Location = new Point(28, 105);
+            cmbPeriodo.Location = new Point(23, 115);
+            cmbPeriodo.Margin = new Padding(4, 3, 4, 3);
             cmbPeriodo.Name = "cmbPeriodo";
-            cmbPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cmbPeriodo.Size = new Size(267, 36);
+            cmbPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbPeriodo.Size = new Size(218, 36);
             cmbPeriodo.TabIndex = 1;
             // 
             // guna2HtmlLabel6
@@ -338,7 +333,8 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel6.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel6.Location = new Point(321, 76);
+            guna2HtmlLabel6.Location = new Point(259, 91);
+            guna2HtmlLabel6.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(109, 23);
             guna2HtmlLabel6.TabIndex = 29;
@@ -346,7 +342,7 @@
             // 
             // txtNumeroPOC
             // 
-            txtNumeroPOC.CustomizableEdges = customizableEdges11;
+            txtNumeroPOC.CustomizableEdges = customizableEdges9;
             txtNumeroPOC.DefaultText = "";
             txtNumeroPOC.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtNumeroPOC.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -355,14 +351,15 @@
             txtNumeroPOC.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNumeroPOC.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNumeroPOC.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNumeroPOC.Location = new Point(321, 105);
+            txtNumeroPOC.Location = new Point(259, 115);
+            txtNumeroPOC.Margin = new Padding(4, 3, 4, 3);
             txtNumeroPOC.MaxLength = 15;
             txtNumeroPOC.Name = "txtNumeroPOC";
             txtNumeroPOC.PasswordChar = '\0';
             txtNumeroPOC.PlaceholderText = "Ingrese Numero";
             txtNumeroPOC.SelectedText = "";
-            txtNumeroPOC.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtNumeroPOC.Size = new Size(131, 36);
+            txtNumeroPOC.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtNumeroPOC.Size = new Size(176, 36);
             txtNumeroPOC.TabIndex = 2;
             // 
             // guna2HtmlLabel7
@@ -370,7 +367,8 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(27, 391);
+            guna2HtmlLabel7.Location = new Point(22, 382);
+            guna2HtmlLabel7.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(201, 23);
             guna2HtmlLabel7.TabIndex = 31;
@@ -378,7 +376,8 @@
             // 
             // txtComentario
             // 
-            txtComentario.CustomizableEdges = customizableEdges9;
+            txtComentario.BackColor = Color.FromArgb(26, 29, 35);
+            txtComentario.CustomizableEdges = customizableEdges7;
             txtComentario.DefaultText = "";
             txtComentario.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtComentario.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -387,20 +386,21 @@
             txtComentario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtComentario.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtComentario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtComentario.Location = new Point(27, 420);
+            txtComentario.Location = new Point(22, 411);
+            txtComentario.Margin = new Padding(4, 3, 4, 3);
             txtComentario.MaxLength = 255;
             txtComentario.Name = "txtComentario";
             txtComentario.PasswordChar = '\0';
             txtComentario.PlaceholderText = "Ingrese un comentario adicional si es necesario.";
             txtComentario.RightToLeft = RightToLeft.No;
             txtComentario.SelectedText = "";
-            txtComentario.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtComentario.Size = new Size(426, 102);
+            txtComentario.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtComentario.Size = new Size(413, 102);
             txtComentario.TabIndex = 7;
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges7;
+            btnCancelar.CustomizableEdges = customizableEdges5;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -408,10 +408,11 @@
             btnCancelar.FillColor = Color.Gray;
             btnCancelar.Font = new Font("Segoe UI", 9F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(27, 544);
+            btnCancelar.Location = new Point(23, 536);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnCancelar.Size = new Size(180, 35);
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnCancelar.Size = new Size(193, 50);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
@@ -419,7 +420,7 @@
             // btnGuardar
             // 
             btnGuardar.AnimatedGIF = true;
-            btnGuardar.CustomizableEdges = customizableEdges5;
+            btnGuardar.CustomizableEdges = customizableEdges3;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -427,17 +428,19 @@
             btnGuardar.FillColor = Color.ForestGreen;
             btnGuardar.Font = new Font("Segoe UI", 9F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(273, 544);
+            btnGuardar.Location = new Point(243, 536);
+            btnGuardar.Margin = new Padding(4, 3, 4, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnGuardar.Size = new Size(180, 35);
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnGuardar.Size = new Size(192, 50);
             btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(136, 53);
+            guna2Separator1.Location = new Point(128, 66);
+            guna2Separator1.Margin = new Padding(4, 3, 4, 3);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(200, 10);
             guna2Separator1.TabIndex = 38;
@@ -447,39 +450,23 @@
             guna2HtmlLabel8.BackColor = Color.Transparent;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(27, 353);
+            guna2HtmlLabel8.Location = new Point(23, 335);
+            guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(60, 23);
             guna2HtmlLabel8.TabIndex = 40;
             guna2HtmlLabel8.Text = "Chofer:";
-            // 
-            // cmbChofer
-            // 
-            cmbChofer.BackColor = Color.Transparent;
-            cmbChofer.CustomizableEdges = customizableEdges3;
-            cmbChofer.DrawMode = DrawMode.OwnerDrawFixed;
-            cmbChofer.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbChofer.FocusedColor = Color.FromArgb(94, 148, 255);
-            cmbChofer.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbChofer.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbChofer.ForeColor = Color.FromArgb(68, 88, 112);
-            cmbChofer.IntegralHeight = false;
-            cmbChofer.ItemHeight = 30;
-            cmbChofer.Location = new Point(101, 340);
-            cmbChofer.Name = "cmbChofer";
-            cmbChofer.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbChofer.Size = new Size(352, 36);
-            cmbChofer.TabIndex = 6;
             // 
             // guna2GradientPanel1
             // 
             guna2GradientPanel1.CustomizableEdges = customizableEdges1;
             guna2GradientPanel1.Dock = DockStyle.Right;
             guna2GradientPanel1.FillColor2 = Color.Orange;
-            guna2GradientPanel1.Location = new Point(484, 27);
+            guna2GradientPanel1.Location = new Point(448, 27);
+            guna2GradientPanel1.Margin = new Padding(4, 3, 4, 3);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2GradientPanel1.Size = new Size(416, 572);
+            guna2GradientPanel1.Size = new Size(352, 573);
             guna2GradientPanel1.TabIndex = 41;
             // 
             // DialogoMensaje
@@ -491,15 +478,38 @@
             DialogoMensaje.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
             DialogoMensaje.Text = null;
             // 
+            // cmbNomina
+            // 
+            cmbNomina.Location = new Point(113, 288);
+            cmbNomina.Margin = new Padding(4, 3, 4, 3);
+            cmbNomina.Name = "cmbNomina";
+            cmbNomina.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbNomina.Properties.Appearance.Options.UseFont = true;
+            cmbNomina.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbNomina.Size = new Size(322, 26);
+            cmbNomina.TabIndex = 42;
+            // 
+            // cmbChofer
+            // 
+            cmbChofer.Location = new Point(113, 332);
+            cmbChofer.Margin = new Padding(4, 3, 4, 3);
+            cmbChofer.Name = "cmbChofer";
+            cmbChofer.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbChofer.Properties.Appearance.Options.UseFont = true;
+            cmbChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbChofer.Size = new Size(322, 26);
+            cmbChofer.TabIndex = 43;
+            // 
             // AgregarEditarPoc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(41, 44, 53);
-            ClientSize = new Size(900, 599);
+            BackColor = Color.FromArgb(26, 29, 35);
+            ClientSize = new Size(800, 600);
+            Controls.Add(cmbChofer);
+            Controls.Add(cmbNomina);
             Controls.Add(guna2GradientPanel1);
             Controls.Add(guna2HtmlLabel8);
-            Controls.Add(cmbChofer);
             Controls.Add(guna2Separator1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(btnGuardar);
@@ -511,18 +521,20 @@
             Controls.Add(cmbPeriodo);
             Controls.Add(guna2HtmlLabel5);
             Controls.Add(guna2HtmlLabel4);
-            Controls.Add(cmbNomina);
             Controls.Add(txtOdometro);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(dtpFechaCreacion);
             Controls.Add(guna2Panel9);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
             Name = "AgregarEditarPoc";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarPoc";
             Load += AgregarEditarPOC_Load;
             guna2Panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)cmbNomina.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cmbChofer.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -542,7 +554,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbNomina;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2TextBox txtComentario;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
@@ -554,8 +565,9 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbChofer;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2MessageDialog DialogoMensaje;
+        private DevExpress.XtraEditors.LookUpEdit cmbChofer;
+        private DevExpress.XtraEditors.LookUpEdit cmbNomina;
     }
 }

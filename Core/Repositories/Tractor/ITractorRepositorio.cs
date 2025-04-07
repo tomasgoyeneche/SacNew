@@ -17,6 +17,5 @@ namespace Core.Repositories
         Task ActualizarTractorAsync(Tractor tractor);
 
         Task ActualizarEmpresaTractorAsync(int idTractor, int idEmpresa);
-
     }
 }

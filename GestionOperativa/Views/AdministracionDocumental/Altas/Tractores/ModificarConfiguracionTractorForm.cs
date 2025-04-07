@@ -1,14 +1,4 @@
 ﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas.Tractor;
-using GestionOperativa.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
@@ -46,13 +36,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
                 lDdsSss.Text = "DDS";
                 lSdsDd_d.Text = "SDS";
 
-
                 picBoxAutomatico.BackgroundImage = Properties.Resources.AUTOMATICO;
                 picBoxManual.BackgroundImage = Properties.Resources.MANUAL;
                 picBoxDsDd.BackgroundImage = Properties.Resources.DS;
                 picBoxDdsSss.BackgroundImage = Properties.Resources.DDS;
                 picBoxSdsDd_d.BackgroundImage = Properties.Resources.SDS;
-
             }
             else if (_tipoEntidad == "semi")
             {

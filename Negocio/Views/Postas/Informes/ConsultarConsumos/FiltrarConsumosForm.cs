@@ -1,16 +1,7 @@
-﻿using Shared.Models.DTOs;
-using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
-using GestionFlota.Presenters.Informes;
+using Shared.Models;
+using Shared.Models.DTOs;
 
 namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
 {

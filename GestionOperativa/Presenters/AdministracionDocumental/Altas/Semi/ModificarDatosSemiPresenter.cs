@@ -14,6 +14,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly ISemiCisternaTipoCargaRepositorio _tipoCargaRepositorio;
         private readonly ISemiCisternaMaterialRepositorio _materialRepositorio;
         public Semi Semi { get; private set; }
+
         public ModificarDatosSemiPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
@@ -69,7 +70,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             Semi.IdTipoCarga = _view.IdTipoCarga;
             Semi.Compartimientos = _view.Compartimientos;
             Semi.IdMaterial = _view.IdMaterial;
-            
 
             await EjecutarConCargaAsync(async () =>
             {

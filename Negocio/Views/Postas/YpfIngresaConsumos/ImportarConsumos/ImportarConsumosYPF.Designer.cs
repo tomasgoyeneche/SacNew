@@ -305,9 +305,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
-        private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnExportarExcel;
         private Guna.UI2.WinForms.Guna2Button btnImportar;
         private Guna.UI2.WinForms.Guna2DataGridView dgvConsumos;
+        private Guna.UI2.WinForms.Guna2Button btnGuardar;
     }
 }

@@ -1,10 +1,5 @@
-﻿using Shared.Models.DTOs;
-using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shared.Models;
+using Shared.Models.DTOs;
 
 namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 {
@@ -16,16 +11,20 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
         int? IdUnidad { get; }
         int? IdChofer { get; }
         string NumeroPoc { get; }
-        string Estado{ get; }
+        string Estado { get; }
         DateTime? FechaCreacionDesde { get; }
         DateTime? FechaCreacionHasta { get; }
         DateTime? FechaCierreDesde { get; }
         DateTime? FechaCierreHasta { get; }
 
         void CargarConceptos(List<Concepto> conceptos);
+
         void CargarPostas(List<Posta> postas);
+
         void CargarEmpresas(List<EmpresaDto> empresas);
+
         void CargarUnidades(List<UnidadPatenteDto> unidades);
+
         void CargarChoferes(List<Chofer> choferes);
 
         void MostrarMensaje(string mensaje);
