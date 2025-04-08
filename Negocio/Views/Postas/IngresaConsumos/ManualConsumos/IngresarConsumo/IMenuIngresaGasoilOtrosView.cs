@@ -11,7 +11,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         string CreditoDisponible { get; set; }
         string CreditoConsumido { get; set; }
 
-        void MostrarConsumos(List<ConsumosUnificadosDto> consumos);
+        void MostrarConsumos(List<ConsumosUnificadosDto> consumos, POCDto poc);
 
         string CreditoEnPoc { get; set; }
     }

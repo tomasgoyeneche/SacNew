@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using Shared.Models;
+using System.Windows.Forms;
 
 namespace GestionFlota.Presenters
 {
@@ -92,7 +93,6 @@ namespace GestionFlota.Presenters
                 var nuevoPrecioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual;
 
                 if (VerificarCreditoInsuficiente(nuevoPrecioTotal - _consumoPrecioAnterior)) return;
-
                 ConsumoGasoil consumo;
 
                 _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
@@ -100,6 +100,10 @@ namespace GestionFlota.Presenters
                 if (_idConsumo == null)
                 {
                     consumo = CrearNuevoConsumo(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
+                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
+                    {
+                        consumo.TransitoEspecial = true;
+                    }
                     if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
                         return;
                     await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
@@ -107,10 +111,16 @@ namespace GestionFlota.Presenters
                 else
                 {
                     consumo = await ActualizarConsumoExistente(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
+                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
+                    {
+                        consumo.TransitoEspecial = true;
+                    }
                     if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
                         return;
                     await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
                 }
+
+               
 
                 if (consumo != null)
                 {
@@ -240,7 +250,7 @@ namespace GestionFlota.Presenters
                 _conceptoRepositorio.ObtenerPorTipoAsync(2)
             )).SelectMany(x => x).ToList();
 
-            _view.CargarTiposGasoil(FiltrarTiposGasoil(tiposGasoil));
+            _view.CargarTiposGasoil(FiltrarTiposGasoil(tiposGasoil), _Poc.NumeroPoc);
         }
 
         private List<Concepto> FiltrarTiposGasoil(IEnumerable<Concepto> tiposGasoil)

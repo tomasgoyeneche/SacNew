@@ -5,7 +5,6 @@ namespace Core.Repositories
 {
     public interface IPOCRepositorio
     {
-        Task<List<POCDto>> ObtenerTodosAsync();
 
         Task<POCDto?> ObtenerPorIdDtoAsync(int idPoc);
 
@@ -19,9 +18,9 @@ namespace Core.Repositories
 
         Task ActualizarPOCAsync(POC poc);
 
-        Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime fechaCierre, string estado);
+        Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime? fechaCierre, string estado);
 
-        Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta);
+        Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta, string Estado);
 
         Task<(string PatenteTractor, decimal CapacidadTanque)> ObtenerUnidadPorPocAsync(int idPoc);
 

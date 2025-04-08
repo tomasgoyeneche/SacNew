@@ -11,6 +11,7 @@
         public int CapacidadTanque { get; set; }
         public string? NombreFantasia { get; set; }
         public string? NombreCompletoChofer { get; set; }
+        public DateTime FechaCreacion { get; set; }
         public string? Estado { get; set; }
     }
 }

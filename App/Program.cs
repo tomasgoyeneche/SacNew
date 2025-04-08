@@ -22,7 +22,7 @@ namespace App
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("WXI"); // Cambiá por el que quieras
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier"); // Cambiá por el que quieras
 
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
@@ -44,6 +44,9 @@ namespace App
 
         private static void ConfigurarCultura()
         {
+ 
+
+
             var cultura = new System.Globalization.CultureInfo("es-AR");
             CultureInfo.DefaultThreadCurrentCulture = cultura;
             CultureInfo.DefaultThreadCurrentUICulture = cultura;

@@ -5,15 +5,17 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 {
     public interface IOtrosConsumosView : IViewConMensajes
     {
-        Concepto TipoConsumoSeleccionado { get; }
+        int TipoConsumoSeleccionado { get; }
         string RemitoExterno { get; }
         DateTime FechaRemito { get; }
         decimal? Cantidad { get; }
+
+        decimal? PrecioManual { get; }
         string Aclaraciones { get; }
 
         bool Dolar { get; }
 
-        void CargarTiposConsumo(List<Concepto> tiposConsumo);
+        void CargarTiposConsumo(List<Concepto> tiposConsumo, string poc);
 
         void MostrarTotalCalculado(decimal total);
 

@@ -166,6 +166,7 @@
             bReabrirPoc.Size = new Size(132, 28);
             bReabrirPoc.TabIndex = 0;
             bReabrirPoc.Text = "Ingresar";
+            bReabrirPoc.Click += bReabrirPoc_Click;
             // 
             // guna2HtmlLabel1
             // 

@@ -17,5 +17,10 @@ namespace GestionFlota.Views.Postas
         {
             InitializeComponent();
         }
+
+        private void officeNavigationBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

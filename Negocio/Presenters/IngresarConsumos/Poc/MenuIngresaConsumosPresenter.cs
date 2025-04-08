@@ -32,7 +32,7 @@ namespace GestionFlota.Presenters
         public async Task CargarPOCAsync()
         {
             await EjecutarConCargaAsync(
-                () => _repositorioPOC.ObtenerTodosPorPostaAsync(_sesionService.IdPosta),
+                () => _repositorioPOC.ObtenerTodosPorPostaAsync(_sesionService.IdPosta, "abierta"),
                 _view.MostrarPOC
             );
         }

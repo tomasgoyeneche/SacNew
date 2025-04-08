@@ -17,8 +17,9 @@ namespace Core.Repositories
 
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 
+        Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActiva();
+
         Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
 
-        Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActiva();
     }
 }

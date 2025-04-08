@@ -17,7 +17,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
 
         void InicializarParaEdicion(ConsumoGasoil consumo);
 
-        void CargarTiposGasoil(List<Concepto> tiposGasoil);
+        void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc);
 
         bool ConfirmarGuardado(string mensaje);
 

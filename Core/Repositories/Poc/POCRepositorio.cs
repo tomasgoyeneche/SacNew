@@ -12,29 +12,16 @@ namespace Core.Repositories
             : base(connectionStrings, sesionService)
         { }
 
-        public async Task<List<POCDto>> ObtenerTodosAsync()
+        public async Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta, string Estado)
         {
             var query = @"
-        SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
-        FROM POC_UnidadDetalle
-        WHERE Estado = 'Abierta'";
-
-            return await ConectarAsync(connection =>
-            {
-                return connection.QueryAsync<POCDto>(query).ContinueWith(task => task.Result.ToList());
-            });
-        }
-
-        public async Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta)
-        {
-            var query = @"
-    SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado
+    SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado, FechaCreacion
     FROM POC_UnidadDetalle
-    WHERE Estado = 'Abierta' AND IdPosta = @idPosta";
+    WHERE Estado = @Estado AND IdPosta = @idPosta";
 
             return await ConectarAsync(async connection =>
             {
-                var result = await connection.QueryAsync<POCDto>(query, new { idPosta });
+                var result = await connection.QueryAsync<POCDto>(query, new { idPosta, Estado });
                 return result.ToList();
             });
         }
@@ -82,7 +69,7 @@ namespace Core.Repositories
         {
             var query = @"
         SELECT * FROM POC_UnidadDetalle
-        WHERE IdPoc = @IdPoc AND Estado = 'abierta'";
+        WHERE IdPoc = @IdPoc";
 
             return await ConectarAsync(connection =>
             {
@@ -123,7 +110,7 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime fechaCierre, string estado)
+        public async Task ActualizarFechaCierreYEstadoAsync(int idPoc, DateTime? fechaCierre, string estado)
         {
             await ConectarAsync(async connection =>
             {

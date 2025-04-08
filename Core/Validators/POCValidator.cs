@@ -39,6 +39,7 @@ namespace Core.Validators
                 .MaximumLength(250).WithMessage("El comentario no debe exceder los 250 caracteres.");
 
             RuleFor(p => p.Odometro)
+                .NotEmpty().WithMessage("El odometro es obligatorio.")
                 .GreaterThanOrEqualTo(0).When(p => p.Odometro.HasValue)
                 .WithMessage("El odómetro no puede ser negativo.");
         }

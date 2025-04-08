@@ -23,10 +23,10 @@ namespace Core.Repositories
             var query = @"
             INSERT INTO ConsumoGasoil
             (idPOC, idConsumo, NumeroVale, LitrosAutorizados, idPrograma, LitrosCargados,
-             PrecioTotal, Observaciones, Activo, FechaCarga, Dolar)
+             PrecioTotal, Observaciones, Activo, FechaCarga, Dolar, TransitoEspecial)
             VALUES
             (@IdPOC, @IdConsumo, @NumeroVale, @LitrosAutorizados, @idPrograma, @LitrosCargados,
-             @PrecioTotal, @Observaciones, @Activo, @FechaCarga, @Dolar)";
+             @PrecioTotal, @Observaciones, @Activo, @FechaCarga, @Dolar, @TransitoEspecial)";
 
             await EjecutarConAuditoriaAsync(
                 async conn => await conn.ExecuteAsync(query, consumoGasoil),
@@ -42,7 +42,7 @@ namespace Core.Repositories
             var query = @"
         UPDATE ConsumoGasoil
         SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, LitrosCargados = @LitrosCargados,
-            PrecioTotal = @PrecioTotal, Observaciones = @Observaciones, FechaCarga = @FechaCarga, Dolar = @Dolar
+            PrecioTotal = @PrecioTotal, Observaciones = @Observaciones, FechaCarga = @FechaCarga, Dolar = @Dolar, TransitoEspecial = @TransitoEspecial
         WHERE IdConsumoGasoil = @IdConsumoGasoil";
 
             await EjecutarConAuditoriaAsync(

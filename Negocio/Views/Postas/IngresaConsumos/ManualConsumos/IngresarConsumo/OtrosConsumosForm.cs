@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters.IngresarConsumos;
+﻿using DevExpress.XtraEditors.Controls;
+using GestionFlota.Presenters.IngresarConsumos;
 using Shared.Models;
 
 namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo
@@ -14,7 +15,9 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             InitializeComponent();
         }
 
-        public Concepto TipoConsumoSeleccionado => cmbTipoConsumo.SelectedItem as Concepto;
+        public decimal? PrecioManual =>
+    decimal.TryParse(txtImporteTotal.Text, out var p) ? p : null;
+        public int TipoConsumoSeleccionado => Convert.ToInt32(cmbTipoConsumo.EditValue);
         public string RemitoExterno => txtRemitoExterno.Text.Trim();
         public DateTime FechaRemito => dtpFechaRemito.Value;
         public decimal? Cantidad => decimal.TryParse(txtCantidad.Text, out var result) ? result : null;
@@ -22,13 +25,18 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 
         public bool Dolar => dolarCheck.Checked;
 
-        public void CargarTiposConsumo(List<Concepto> tiposConsumo)
+        public void CargarTiposConsumo(List<Concepto> tiposConsumo, string poc)
         {
-            cmbTipoConsumo.DataSource = tiposConsumo;
-            cmbTipoConsumo.DisplayMember = "Descripcion";
-            cmbTipoConsumo.ValueMember = "IdConsumo";
+            cmbTipoConsumo.Properties.DataSource = tiposConsumo;
+            cmbTipoConsumo.Properties.DisplayMember = "Descripcion";
+            cmbTipoConsumo.Properties.ValueMember = "IdConsumo";
 
+            cmbTipoConsumo.Properties.Columns.Clear();
+            cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Consumo"));
+
+            cmbTipoConsumo.EditValue = -1;
             dtpFechaRemito.Value = DateTime.Now;
+            labelPoc.Text = poc;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -70,13 +78,43 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 
         public void InicializarParaEdicion(ConsumoOtros consumo)
         {
-            cmbTipoConsumo.SelectedValue = consumo.IdConsumo;
+            cmbTipoConsumo.EditValue = consumo.IdConsumo;
             txtRemitoExterno.Text = consumo.NumeroVale;
             dtpFechaRemito.Value = consumo.FechaRemito;
             txtCantidad.Text = consumo.Cantidad?.ToString("N2") ?? "0.00";
             txtImporteTotal.Text = $"{consumo.ImporteTotal:C}";
             txtAclaracion.Text = consumo.Aclaracion;
             dolarCheck.Checked = consumo.Dolar;
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (Cantidad.HasValue)
+            {
+                _presenter.CalcularTotal(Cantidad.Value);
+            }
+        }
+
+        private void cmbTipoConsumo_EditValueChanged(object sender, EventArgs e)
+        {
+            var concepto = cmbTipoConsumo.GetSelectedDataRow() as Concepto;
+            if (concepto == null)
+                return;
+
+            if (concepto.IdConsumoTipo == 3)
+            {
+                txtImporteTotal.Enabled = false;
+                txtImporteTotal.Text = concepto.PrecioActual.ToString("N2");
+
+                if (Cantidad.HasValue)
+                    _presenter.CalcularTotal(Cantidad.Value); // Usa el precio del concepto
+            }
+            else
+            {
+                txtImporteTotal.Enabled = true;
+                txtImporteTotal.Text = ""; // o un valor sugerido si tenés
+                txtImporteTotal.Text = "";   // limpiar total hasta que el usuario ingrese precio
+            }
         }
     }
 }

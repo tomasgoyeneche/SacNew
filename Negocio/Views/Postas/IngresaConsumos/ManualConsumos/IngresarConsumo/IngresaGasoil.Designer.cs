@@ -98,6 +98,8 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            labelPoc = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTotales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAnteriores).BeginInit();
@@ -340,6 +342,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             txtLitros.Size = new Size(252, 30);
             txtLitros.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtLitros.TabIndex = 3;
+            txtLitros.TextChanged += txtLitros_TextChanged;
             // 
             // txtNumeroVale
             // 
@@ -681,12 +684,36 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             guna2HtmlLabel1.Text = "Tipo:";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // labelPoc
+            // 
+            labelPoc.BackColor = Color.Transparent;
+            labelPoc.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPoc.ForeColor = SystemColors.ControlLight;
+            labelPoc.Location = new Point(435, 38);
+            labelPoc.Name = "labelPoc";
+            labelPoc.Size = new Size(81, 23);
+            labelPoc.TabIndex = 85;
+            labelPoc.Text = "Consumo:";
+            // 
+            // guna2HtmlLabel7
+            // 
+            guna2HtmlLabel7.BackColor = Color.Transparent;
+            guna2HtmlLabel7.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel7.Location = new Point(393, 40);
+            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            guna2HtmlLabel7.Size = new Size(36, 21);
+            guna2HtmlLabel7.TabIndex = 86;
+            guna2HtmlLabel7.Text = "Poc:";
+            // 
             // IngresaGasoil
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
             ClientSize = new Size(800, 600);
+            Controls.Add(guna2HtmlLabel7);
+            Controls.Add(labelPoc);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2HtmlLabel3);
@@ -764,5 +791,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelPoc;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
     }
 }

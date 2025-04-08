@@ -84,7 +84,7 @@ namespace GestionFlota.Presenters
                     _view.MostrarMensaje("No se encontraron créditos para esta empresa.");
                 }
 
-                _view.MostrarConsumos(consumos);
+                _view.MostrarConsumos(consumos, _pocDto);
             });
         }
 

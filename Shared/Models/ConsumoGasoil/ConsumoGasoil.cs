@@ -15,6 +15,7 @@
         public bool Activo { get; set; } = true; // Estado del consumo (por defecto activo)
 
         public bool Dolar { get; set; }
+        public bool TransitoEspecial { get; set; }
         public DateTime FechaCarga { get; set; } // Fecha en que se cargó el combustible
     }
 }

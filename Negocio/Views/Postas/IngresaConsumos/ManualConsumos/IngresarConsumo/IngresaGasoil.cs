@@ -23,13 +23,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public bool Dolar => dolarCheck.Checked;
 
-        public void CargarTiposGasoil(List<Concepto> tiposGasoil)
+        public void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc    )
         {
             cmbTipoGasoil.DataSource = tiposGasoil;
             cmbTipoGasoil.DisplayMember = "Descripcion";
             cmbTipoGasoil.ValueMember = "IdConsumo";
             //cmbTipoGasoil.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //cmbTipoGasoil.AutoCompleteSource = AutoCompleteSource.ListItems;
+            labelPoc.Text = poc;
             dtpFechaCarga.Value = DateTime.Now;
         }
 
@@ -87,6 +88,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             }
         }
 
+        private void txtLitros_TextChanged(object sender, EventArgs e)
+        {
+            if (Litros.HasValue)
+            {
+                _presenter.CalcularTotal(Litros.Value);
+            }
+        }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarConsumoAsync();
@@ -102,11 +111,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dataGridViewAnteriores.DataSource = consumos.Select(c => new
             {
                 c.NumeroPoc,
-                c.NumeroVale,
+                c.FechaCarga,
                 c.LitrosAutorizados,
                 c.LitrosCargados,
                 c.Observaciones,
-                c.FechaCarga
+                c.NumeroVale
             }).ToList();
         }
 
@@ -115,11 +124,12 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             dataGridViewTotales.DataSource = consumos.Select(c => new
             {
                 c.NumeroPoc,
-                c.NumeroVale,
+                c.FechaCarga,
                 c.LitrosAutorizados,
                 c.LitrosCargados,
                 c.Observaciones,
-                c.FechaCarga
+                c.NumeroVale,
+              
             }).ToList();
         }
 
@@ -162,5 +172,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             Dispose();
         }
+
+        
     }
 }

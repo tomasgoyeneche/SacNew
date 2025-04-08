@@ -72,9 +72,15 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             await _presenter.AbrirOtrosConsumos();
         }
 
-        public void MostrarConsumos(List<ConsumosUnificadosDto> consumos)
+        public void MostrarConsumos(List<ConsumosUnificadosDto> consumos, POCDto poc)
         {
             dtpCierrePoc.Value = DateTime.Now;
+            txtTractor.Text = poc.PatenteTractor;
+            txtNombreChofer.Text = poc.NombreCompletoChofer;    
+            txtSemi.Text = poc.PatenteSemi; 
+            txtTanque.Text = poc.CapacidadTanque.ToString();
+            labelEstado.Text = poc.Estado.ToUpper();
+
 
             dataGridViewConsumos.DataSource = consumos.Select(c => new
             {

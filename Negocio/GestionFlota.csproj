@@ -70,7 +70,6 @@
 
   <ItemGroup>
     <Folder Include="Presenters\Modificaciones\" />
-    <Folder Include="Views\Postas\Modificaciones\ReabrirPoc\" />
   </ItemGroup>
 
   <ItemGroup>

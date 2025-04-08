@@ -13,6 +13,7 @@ namespace App.Views
         {
             // Asegúrate de maximizar la ventana cada vez
             this.WindowState = FormWindowState.Maximized;
+            reportViewer.LocalReport.EnableExternalImages = true;
 
             // Configurar el modo de impresión y ocultar la barra de herramientas
             reportViewer.SetDisplayMode(DisplayMode.PrintLayout);

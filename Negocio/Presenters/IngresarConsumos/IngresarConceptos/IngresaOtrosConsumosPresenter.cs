@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using Shared.Models;
+using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters.IngresarConsumos
 {
@@ -11,7 +12,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
-        private int? _idConsumo; // Null si es un nuevo consumo, valor si es edición
+        public int? _idConsumo; // Null si es un nuevo consumo, valor si es edición
         private POC _Poc;
         private EmpresaCredito _empresaCredito;
 
@@ -41,20 +42,23 @@ namespace GestionFlota.Presenters.IngresarConsumos
                 );
 
                 var todosLosTiposConsumo = tiposConsumo.SelectMany(x => x).ToList();
-                _view.CargarTiposConsumo(todosLosTiposConsumo);
+                _view.CargarTiposConsumo(todosLosTiposConsumo , poc.NumeroPoc);
             });
         }
 
-        public void CalcularTotal(decimal litros)
+        public async Task CalcularTotal(decimal litros)
         {
-            var tipoSeleccionado = _view.TipoConsumoSeleccionado;
-            if (tipoSeleccionado == null)
+            Concepto concepto = await _conceptoRepositorio.ObtenerPorIdAsync(_view.TipoConsumoSeleccionado);
+            if (concepto == null)
             {
-                _view.MostrarMensaje("Debe seleccionar un tipo de gasoil.");
+                _view.MostrarMensaje("Debe seleccionar un tipo de consumo.");
                 return;
             }
 
-            _view.MostrarTotalCalculado(litros * tipoSeleccionado.PrecioActual);
+            if (concepto.IdConsumoTipo == 3)
+            {
+                _view.MostrarTotalCalculado(litros * concepto.PrecioActual);
+            }
         }
 
         public async Task GuardarConsumoAsync()
@@ -63,9 +67,28 @@ namespace GestionFlota.Presenters.IngresarConsumos
             {
                 if (!ValidarDatos()) return;
 
-                var tipoSeleccionado = _view.TipoConsumoSeleccionado;
-                var nuevoPrecioTotal = _view.Cantidad.Value * tipoSeleccionado.PrecioActual;
+                Concepto concepto = await _conceptoRepositorio.ObtenerPorIdAsync(_view.TipoConsumoSeleccionado);
 
+                decimal nuevoPrecioTotal = 0;
+
+               
+
+                if (concepto.IdConsumoTipo == 3)
+                {
+                    nuevoPrecioTotal = _view.Cantidad.Value * concepto.PrecioActual;
+                }
+                else
+                {
+                    if (!_view.PrecioManual.HasValue || _view.PrecioManual < 0)
+                    {
+                        _view.MostrarMensaje("Debe ingresar un valor para el precio.");
+                        return;
+                    }
+
+                    nuevoPrecioTotal = _view.PrecioManual.Value * _view.Cantidad.Value;
+                }
+
+               
                 if (_idConsumo == null) // Nuevo consumo
                 {
                     if (VerificarCreditoInsuficiente(nuevoPrecioTotal)) return;
@@ -73,7 +96,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     var nuevoConsumo = new ConsumoOtros
                     {
                         IdPOC = _Poc.IdPoc,
-                        IdConsumo = tipoSeleccionado.IdConsumo,
+                        IdConsumo = concepto.IdConsumo,
                         NumeroVale = _view.RemitoExterno,
                         Cantidad = _view.Cantidad.Value,
                         ImporteTotal = nuevoPrecioTotal,
@@ -99,7 +122,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
                     ActualizarCredito(nuevoPrecioTotal, consumoAnterior.ImporteTotal); // Ajustar crédito
 
-                    consumoAnterior.IdConsumo = tipoSeleccionado.IdConsumo;
+                    consumoAnterior.IdConsumo = concepto.IdConsumo;
                     consumoAnterior.NumeroVale = _view.RemitoExterno;
                     consumoAnterior.Cantidad = _view.Cantidad.Value;
                     consumoAnterior.ImporteTotal = nuevoPrecioTotal;
@@ -110,7 +133,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoAnterior);
                 }
 
-                _view.MostrarMensaje("Consumo de gasoil guardado correctamente.");
+                _view.MostrarMensaje("Consumo guardado correctamente.");
                 _view.Cerrar();
             });
         }
@@ -119,16 +142,15 @@ namespace GestionFlota.Presenters.IngresarConsumos
         {
             _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
 
-
             if (_view.FechaRemito < _Poc.FechaCreacion)
             {
                 _view.MostrarMensaje("La fecha de remito no puede ser menor a la de la POC");
                 return false;
             }
 
-            if (_view.TipoConsumoSeleccionado == null)
+            if (_view.TipoConsumoSeleccionado < 0)
             {
-                _view.MostrarMensaje("Debe seleccionar un tipo de gasoil.");
+                _view.MostrarMensaje("Debe seleccionar un tipo de consumo.");
                 return false;
             }
 
@@ -186,9 +208,11 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     _conceptoRepositorio.ObtenerPorTipoAsync(5)
                 );
 
+              
                 var todosLosTiposConsumo = tiposConsumo.SelectMany(x => x).ToList();
-                _view.CargarTiposConsumo(todosLosTiposConsumo);
                 _idConsumo = idConsumo;
+                _view.CargarTiposConsumo(todosLosTiposConsumo, poc.NumeroPoc);
+                
                 _view.InicializarParaEdicion(consumo);
             });
         }
