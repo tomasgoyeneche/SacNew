@@ -68,7 +68,7 @@ namespace Core.Repositories
         UPDATE ConsumoOtros
         SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, Cantidad = @Cantidad,
             ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito, Dolar = @Dolar
-        WHERE IdConsumo = @IdConsumo";
+        WHERE IdConsumoOtros = @IdConsumoOtros";
 
             await EjecutarConAuditoriaAsync(
                 connection => connection.ExecuteAsync(query, consumo),
@@ -77,6 +77,18 @@ namespace Core.Repositories
                 consumo,
                 consumo
             );
+        }
+
+        public async Task<List<InformeConsumoPocDto>> ObtenerPorFechaCargaAsync(DateTime fechaCarga, int idPosta)
+        {
+            var query = @"
+        SELECT * 
+        FROM vw_InformeConsumoPoc 
+        WHERE CAST(fechacarga AS DATE) = @fechaCarga and idPosta = @idPosta";
+
+            return await ConectarAsync(conn =>
+                conn.QueryAsync<InformeConsumoPocDto>(query, new { fechaCarga = fechaCarga.Date, idPosta })
+            ).ContinueWith(t => t.Result.ToList());
         }
 
         public async Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(

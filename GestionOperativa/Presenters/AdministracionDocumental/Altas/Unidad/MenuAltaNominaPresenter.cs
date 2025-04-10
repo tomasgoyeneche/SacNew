@@ -1,7 +1,10 @@
 ﻿using App.Views;
+using Configuraciones.Views;
 using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.XtraReports.UI;
+using GestionOperativa.Reports;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using Shared.Models;
 
@@ -136,23 +139,48 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await EjecutarConCargaAsync(async () =>
             {
                 // Obtener los datos desde el repositorio
-                var flotaUnidades = await _unidadRepositorio.ObtenerNominaMetanolActiva();
+                List<NominaMetanolActivaDto> flotaUnidades = await _unidadRepositorio.ObtenerNominaMetanolActiva();
 
-                // Agrupar por empresa para que el RDLC los muestre correctamente
-                var dataSources = new Dictionary<string, object>
+                // Crear una instancia del nuevo reporte DevExpress
+                var reporte = new ReporteNominaMetanolActiva();
+                reporte.DataSource = flotaUnidades;
+                reporte.DataMember = ""; // Dejar vacío si el datasource es una lista de objetos
+
+                // Mostrar el reporte en un visor DevExpress
+
+
+                //var tool = new ReportPrintTool(reporte);
+                //tool.ShowRibbonPreviewDialog(); // Tiene toda la barra de herramientas
+
+                await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
-                    { "NominaMetanolActiva", flotaUnidades }
-                };
-
-                // Crear el reporte con el servicio
-                var report = _reportService.CrearReporte("NominaMetanolActiva", dataSources);
-
-                // Navegar al formulario que muestra el reporte
-                await AbrirFormularioAsync<VisualizadorReportesForm>(async form =>
-                {
-                    await form.MostrarReporte(report);
+                    form.MostrarReporteDevExpress(reporte);
+                    return Task.CompletedTask;
                 });
             });
         }
+        //public async Task GenerarReporteFlotaAsync()
+        //{
+        //    await EjecutarConCargaAsync(async () =>
+        //    {
+        //        // Obtener los datos desde el repositorio
+        //        List<NominaMetanolActivaDto> flotaUnidades = await _unidadRepositorio.ObtenerNominaMetanolActiva();
+
+        //        // Agrupar por empresa para que el RDLC los muestre correctamente
+        //        var dataSources = new Dictionary<string, object>
+        //        {
+        //            { "NominaMetanolActiva", flotaUnidades }
+        //        };
+
+        //        // Crear el reporte con el servicio
+        //        var report = _reportService.CrearReporte("NominaMetanolActiva", dataSources);
+
+        //        // Navegar al formulario que muestra el reporte
+        //        await AbrirFormularioAsync<VisualizadorReportesForm>(async form =>
+        //        {
+        //            await form.MostrarReporte(report);
+        //        });
+        //    });
+        //}
     }
 }

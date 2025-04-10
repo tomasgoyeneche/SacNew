@@ -11,6 +11,7 @@ using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.DatosVolvo;
 using SacNew.Views.GestionFlota.Postas.Informes;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos;
+using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
 
 namespace SacNew.Views.GestionFlota.Postas
 {
@@ -75,7 +76,7 @@ namespace SacNew.Views.GestionFlota.Postas
         {
             if (_sesionService.Permisos.Contains("0024-ImportacionesConsumos") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
-                _navigationService.ShowDialog<PruebasDev>();
+                _navigationService.ShowDialog<ImportarConsumosYPF>();
 
                 //_navigationService.ShowDialog<ImportDatosVolvo>();
             }

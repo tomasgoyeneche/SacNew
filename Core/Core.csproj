@@ -12,8 +12,11 @@
     <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="DevExpress.Data" Version="24.1.7" />
     <PackageReference Include="DevExpress.Utils" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.BonusSkins" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Printing" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Reporting" Version="24.1.7" />
     <PackageReference Include="EPPlus" Version="7.5.2" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />

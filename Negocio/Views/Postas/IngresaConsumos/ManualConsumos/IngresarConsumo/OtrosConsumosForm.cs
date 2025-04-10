@@ -33,6 +33,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 
             cmbTipoConsumo.Properties.Columns.Clear();
             cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Consumo"));
+            cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Proveedor"));
 
             cmbTipoConsumo.EditValue = -1;
             dtpFechaRemito.Value = DateTime.Now;
@@ -82,7 +83,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtRemitoExterno.Text = consumo.NumeroVale;
             dtpFechaRemito.Value = consumo.FechaRemito;
             txtCantidad.Text = consumo.Cantidad?.ToString("N2") ?? "0.00";
-            txtImporteTotal.Text = $"{consumo.ImporteTotal:C}";
+            txtImporteTotal.Text = $"{consumo.ImporteTotal}";
             txtAclaracion.Text = consumo.Aclaracion;
             dolarCheck.Checked = consumo.Dolar;
         }
@@ -112,7 +113,6 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             else
             {
                 txtImporteTotal.Enabled = true;
-                txtImporteTotal.Text = ""; // o un valor sugerido si tenés
                 txtImporteTotal.Text = "";   // limpiar total hasta que el usuario ingrese precio
             }
         }
