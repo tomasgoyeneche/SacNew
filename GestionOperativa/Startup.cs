@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Models;
+using System.IO;
 using System.Reflection;
 
 namespace Configuraciones

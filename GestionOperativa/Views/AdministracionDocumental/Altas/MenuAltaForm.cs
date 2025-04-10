@@ -104,5 +104,16 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                 MostrarMensaje("Debe seleccionar un registro para editar.");
             }
         }
+
+        private async void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (_presenter._entidad == null)
+            {
+                MostrarMensaje("Entidad no válida.");
+                return;
+            }
+
+            await _presenter.AgregarEntidadAsync();
+        }
     }
 }

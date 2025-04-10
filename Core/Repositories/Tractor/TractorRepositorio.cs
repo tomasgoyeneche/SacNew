@@ -2,6 +2,7 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
+using System.Data;
 
 namespace Core.Repositories
 {
@@ -73,6 +74,19 @@ namespace Core.Repositories
             await ConectarAsync(async conn =>
             {
                 await conn.ExecuteAsync(query, tractor);
+            });
+        }
+
+        public async Task AltaTractorAsync(string patente, int idUsuario)
+        {
+            var query = "EXEC sp_AltaTractor @patente, @idusuario"; // o ";" si querés como texto
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(
+                    query,
+                    new { patente = patente, idusuario = idUsuario }
+                );
             });
         }
 

@@ -5,6 +5,7 @@ using GestionOperativa.Processor;
 using GestionOperativa.Views.AdministracionDocumental;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using Shared.Models;
+using System.IO;
 
 namespace GestionOperativa.Presenters
 {

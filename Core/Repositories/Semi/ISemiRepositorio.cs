@@ -16,7 +16,7 @@ namespace Core.Repositories
         Task<Semi> ObtenerSemiPorIdAsync(int idSemi);
 
         Task ActualizarSemiAsync(Semi semi);
-
+        Task AltaSemiAsync(string patente, int idUsuario);
         Task ActualizarEmpresaSemiAsync(int idSemi, int idEmpresa);
     }
 }

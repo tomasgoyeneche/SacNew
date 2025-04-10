@@ -2,6 +2,7 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
+using System.Data;
 
 namespace Core.Repositories
 {
@@ -83,5 +84,20 @@ namespace Core.Repositories
                 await connection.ExecuteAsync(query, new { idSemi, idEmpresa });
             });
         }
+
+
+        public async Task AltaSemiAsync(string patente, int idUsuario)
+        {
+            var query = "EXEC sp_AltaSemi @patente, @idusuario"; // o ";" si querés como texto
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(
+                    query,
+                    new { patente = patente, idusuario = idUsuario }
+                );
+            });
+        }
     }
+
 }

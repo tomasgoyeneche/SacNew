@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
 using Shared.Models;
+using System.IO;
 
 namespace GestionOperativa.Presenters
 {

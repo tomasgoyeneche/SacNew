@@ -55,8 +55,8 @@ namespace Core.Repositories
         public async Task AgregarEmpresaAsync(Empresa nuevaEmpresa)
         {
             var query = @"
-            INSERT INTO Empresa (Codigo, Descripcion, Direccion, idProvincia)
-            VALUES (@Codigo, @Descripcion, @Direccion, @idProvincia)";
+            INSERT INTO Empresa (Cuit, idEmpresaTipo, RazonSocial, idLocalida, Domicilio)
+            VALUES (@Cuit, @idEmpresaTipo, @RazonSocial, @idLocalida, @Domicilio )";
 
             await ConectarAsync(connection =>
             {

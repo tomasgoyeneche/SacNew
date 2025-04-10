@@ -2,6 +2,7 @@
 using GestionOperativa.Views.AdministracionDocumental.Altas.Unidades;
 using Guna.UI2.WinForms;
 using Shared.Models;
+using System.IO;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {

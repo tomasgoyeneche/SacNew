@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using Shared.Models;
 using System.Diagnostics;
+using System.IO;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {

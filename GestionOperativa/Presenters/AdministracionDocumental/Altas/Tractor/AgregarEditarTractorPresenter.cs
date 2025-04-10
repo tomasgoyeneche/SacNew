@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using System.IO;
 
 namespace GestionOperativa.Presenters.Tractor
 {

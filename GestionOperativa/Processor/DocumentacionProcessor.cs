@@ -1,6 +1,7 @@
 ﻿using Core.Services;
 using System.Collections.Concurrent;
 using System.Dynamic;
+using System.IO;
 
 namespace GestionOperativa.Processor
 {

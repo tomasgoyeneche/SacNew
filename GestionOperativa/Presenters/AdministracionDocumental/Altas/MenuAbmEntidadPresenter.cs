@@ -22,7 +22,7 @@ namespace GestionOperativa.Presenters
 
         private readonly IReportService _reportService;
 
-        private string? _entidad;
+        public string? _entidad;
 
         public MenuAbmEntidadPresenter(
             IChoferRepositorio choferRepositorio,
@@ -308,6 +308,20 @@ namespace GestionOperativa.Presenters
                 _view.MostrarMensaje($"Registro eliminado correctamente.");
                 await CargarEntidadesAsync(); // Recargar la lista de entidades
             });
+        }
+
+
+        public async Task AgregarEntidadAsync()
+        {
+            if (string.IsNullOrEmpty(_entidad)) return;
+
+
+            await AbrirFormularioAsync<AltaEntidadForm>(async form =>
+            {
+                form._presenter.SetEntidad(_entidad);
+            });
+
+            await CargarEntidadesAsync();
         }
     }
 }

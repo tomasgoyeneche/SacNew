@@ -203,6 +203,7 @@
             btnAgregar.Size = new Size(101, 32);
             btnAgregar.TabIndex = 52;
             btnAgregar.Text = "Agregar";
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnEditar
             // 

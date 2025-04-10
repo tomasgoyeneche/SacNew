@@ -4,6 +4,8 @@ namespace Core.Repositories
 {
     public interface IEmpresaRepositorio
     {
+
+        // Busqueda y Obtener Por Id
         Task<List<EmpresaDto>> ObtenerTodasLasEmpresasAsync();
 
         Task<Empresa?> ObtenerPorIdAsync(int idEmpresa);
@@ -11,6 +13,12 @@ namespace Core.Repositories
         Task<EmpresaDto> ObtenerPorIdDto(int idEmpresa);
 
         Task<List<EmpresaDto>> BuscarEmpresasAsync(string textoBusqueda);
+
+
+
+
+
+        // Agregar Empresa
 
         Task AgregarEmpresaAsync(Empresa nuevaEmpresa);
 
