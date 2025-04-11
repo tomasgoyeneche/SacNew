@@ -21,8 +21,6 @@
         public string Configuracion { get; set; }
         public string Material { get; set; }
 
-        public int Espesor { get; set; }
-
         public string Satelital_Descripcion { get; set; }
         public string Satelital_usuario { get; set; }
         public string Satelital_clave { get; set; }
@@ -34,7 +32,6 @@
         public DateTime? FechaAlta { get; set; }
 
         public int Inv { get; set; }
-        public DateTime? Ruta { get; set; }
         public DateTime? Vtv { get; set; }
         public DateTime? CisternaEspesor { get; set; }
         public DateTime? VisualInterna { get; set; }

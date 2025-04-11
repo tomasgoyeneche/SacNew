@@ -30,7 +30,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         public string Domicilio => txtDomicilio.Text;
         public string Telefono => txtTelefono.Text;
 
-        public void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias)
+        public async void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia)
         {
             IdChofer = chofer.IdChofer;
             txtNombres.Text = chofer.Nombre;
@@ -52,7 +52,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             cmbProvincia.DataSource = provincias;
             cmbProvincia.DisplayMember = "NombreProvincia";
             cmbProvincia.ValueMember = "IdProvincia";
-            cmbLocalidad.SelectedValue = chofer.IdLocalidad; // Se ajustará luego con las localidades.
+            cmbProvincia.SelectedValue = idProvincia;
+
+            await _presenter.CargarLocalidades(idProvincia);
+            cmbLocalidad.SelectedValue = chofer.IdLocalidad;
         }
 
         public void CargarLocalidades(List<Localidad> localidades)

@@ -107,9 +107,8 @@
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             bVtv = new Guna.UI2.WinForms.Guna2ImageButton();
             IVtv = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            bEditarVencimientos = new Guna.UI2.WinForms.Guna2Button();
             bRuta = new Guna.UI2.WinForms.Guna2ImageButton();
-            IRuta = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -206,7 +205,6 @@
             IConfiguracion.TabIndex = 64;
             IConfiguracion.Text = "Configuracion";
             IConfiguracion.TextAlignment = ContentAlignment.TopCenter;
-     
             // 
             // picBoxConfiguracion
             // 
@@ -463,9 +461,8 @@
             // 
             guna2Panel1.Controls.Add(bVtv);
             guna2Panel1.Controls.Add(IVtv);
-            guna2Panel1.Controls.Add(guna2Button1);
+            guna2Panel1.Controls.Add(bEditarVencimientos);
             guna2Panel1.Controls.Add(bRuta);
-            guna2Panel1.Controls.Add(IRuta);
             guna2Panel1.Controls.Add(guna2Panel2);
             guna2Panel1.Controls.Add(guna2HtmlLabel22);
             guna2Panel1.Controls.Add(guna2HtmlLabel25);
@@ -507,23 +504,24 @@
             IVtv.TabIndex = 55;
             IVtv.Text = "VTV";
             // 
-            // guna2Button1
+            // bEditarVencimientos
             // 
-            guna2Button1.CustomizableEdges = customizableEdges35;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Dock = DockStyle.Bottom;
-            guna2Button1.FillColor = Color.Orange;
-            guna2Button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(0, 59);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            guna2Button1.Size = new Size(768, 19);
-            guna2Button1.TabIndex = 52;
-            guna2Button1.Text = "Editar";
+            bEditarVencimientos.CustomizableEdges = customizableEdges35;
+            bEditarVencimientos.DisabledState.BorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarVencimientos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarVencimientos.Dock = DockStyle.Bottom;
+            bEditarVencimientos.FillColor = Color.Orange;
+            bEditarVencimientos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarVencimientos.ForeColor = Color.White;
+            bEditarVencimientos.Location = new Point(0, 59);
+            bEditarVencimientos.Name = "bEditarVencimientos";
+            bEditarVencimientos.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            bEditarVencimientos.Size = new Size(768, 19);
+            bEditarVencimientos.TabIndex = 52;
+            bEditarVencimientos.Text = "Editar";
+            bEditarVencimientos.Click += bEditarVencimientos_Click;
             // 
             // bRuta
             // 
@@ -542,17 +540,6 @@
             bRuta.Size = new Size(26, 20);
             bRuta.TabIndex = 34;
             bRuta.Click += bRuta_Click;
-            // 
-            // IRuta
-            // 
-            IRuta.BackColor = Color.Transparent;
-            IRuta.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            IRuta.ForeColor = SystemColors.ControlLight;
-            IRuta.Location = new Point(177, 32);
-            IRuta.Name = "IRuta";
-            IRuta.Size = new Size(28, 18);
-            IRuta.TabIndex = 36;
-            IRuta.Text = "Ruta";
             // 
             // guna2Panel2
             // 
@@ -1352,9 +1339,8 @@
         private Guna.UI2.WinForms.Guna2PictureBox picBoxFotoTractor;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel IVtv;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button bEditarVencimientos;
         private Guna.UI2.WinForms.Guna2ImageButton bRuta;
-        private Guna.UI2.WinForms.Guna2HtmlLabel IRuta;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel22;

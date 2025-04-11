@@ -42,14 +42,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             ITipo.Text = semi.Empresa_Tipo;
             IConfeccion.Text = semi.LitrosDetalle + " = " + semi.LitrosTotal;
             IFechaAlta.Text = semi.FechaAlta?.ToShortDateString() ?? "N/A";
-            IRuta.Text = semi.Ruta?.ToShortDateString() ?? "N/A";
             IVtv.Text = semi.Vtv?.ToShortDateString() ?? "N/A";
             IEstanqueidad.Text = semi.Estanqueidad?.ToShortDateString();
             IltrosNominales.Text = semi.LitroNominal.ToString();
             ICubicacion.Text = semi.Cubicacion.ToString();
             IInv.Text = semi.Inv.ToString();
             IVisualInterna.Text = semi.VisualInterna?.ToShortDateString();
-            IEspesor.Text = semi.Espesor.ToString();
             IFechaEspesor.Text = semi.CisternaEspesor?.ToShortDateString();
             IVisualExt.Text = semi.VisualExterna?.ToShortDateString();
         }
@@ -192,6 +190,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         private void picBoxConfiguracion_Click(object sender, EventArgs e)
         {
             _presenter.CambiarConfiguracion(IdSemi, "semi");
+        }
+
+        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarVencimientos(IdSemi);
         }
     }
 }

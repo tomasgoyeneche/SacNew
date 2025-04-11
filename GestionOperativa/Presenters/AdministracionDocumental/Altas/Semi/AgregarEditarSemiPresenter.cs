@@ -103,6 +103,14 @@ namespace GestionOperativa.Presenters
             await CargarDatosParaMostrarAsync(idSemi);
         }
 
+        public async Task EditarVencimientos(int idSemi)
+        {
+            await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("semi", idSemi);
+            });
+            await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
+        }
         public async void CambiarConfiguracion(int idSemi, string entidad)
         {
             await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>

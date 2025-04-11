@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Unidades;
 using Shared.Models;
 using System.IO;
@@ -77,6 +78,15 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         {
             var conf = await _confRepositorio.ObtenerRutaPorIdAsync(idConf);
             return conf?.Ruta != null ? Path.Combine(conf.Ruta, subDirectorio, archivo) : null;
+        }
+
+        public async Task EditarVencimientos(int idUnidad)
+        {
+            await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("unidad", idUnidad);
+            });
+            await CargarDatosUnidadAsync(idUnidad); // Refrescar la vista después de agregar
         }
     }
 }

@@ -46,7 +46,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             IEmpresaCuit.Text = tractor.Empresa_Cuit;
             ITipo.Text = tractor.Empresa_Tipo;
             IFechaAlta.Text = tractor.FechaAlta?.ToShortDateString() ?? "N/A";
-            IRuta.Text = tractor.Ruta?.ToShortDateString() ?? "N/A";
             IVtv.Text = tractor.Vtv?.ToShortDateString() ?? "N/A";
 
             SatelitalNombre = tractor.Satelital_Descripcion;
@@ -172,6 +171,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         private void picBoxConfiguracion_Click(object sender, EventArgs e)
         {
             _presenter.CambiarConfiguracion(IdTractor, "tractor");
+        }
+
+        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarVencimientos(IdTractor);
         }
     }
 }

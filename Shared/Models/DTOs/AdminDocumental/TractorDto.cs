@@ -23,7 +23,6 @@
         public string Empresa_Tipo { get; set; }
 
         public DateTime? FechaAlta { get; set; }
-        public DateTime? Ruta { get; set; }
         public DateTime? Vtv { get; set; }
     }
 }

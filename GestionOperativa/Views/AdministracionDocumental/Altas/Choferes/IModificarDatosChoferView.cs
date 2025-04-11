@@ -20,7 +20,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         string Domicilio { get; }
         string Telefono { get; }
 
-        void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias);
+        void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia);
 
         void CargarLocalidades(List<Localidad> localidades);
 

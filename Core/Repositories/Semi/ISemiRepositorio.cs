@@ -11,13 +11,13 @@ namespace Core.Repositories
 
         Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi);
 
-        Task<Semi> ObtenerSemiPorIdAsync(int idSemi);
+        Task<Shared.Models.Semi> ObtenerSemiPorIdAsync(int idSemi);
 
         //Actualizar, Editar, Eliminar
 
         Task AltaSemiAsync(string patente, int idUsuario);
 
-        Task ActualizarSemiAsync(Semi semi);
+        Task ActualizarSemiAsync(Shared.Models.Semi semi);
 
         Task EliminarSemiAsync(int idSemi);
 

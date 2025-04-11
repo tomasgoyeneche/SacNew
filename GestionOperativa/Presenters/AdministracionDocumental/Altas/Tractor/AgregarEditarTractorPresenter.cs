@@ -110,5 +110,14 @@ namespace GestionOperativa.Presenters.Tractor
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idTractor);
         }
+
+        public async Task EditarVencimientos(int idTractor)
+        {
+            await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("tractor", idTractor);
+            });
+            await CargarDatosParaMostrarAsync(idTractor); // Refrescar la vista después de agregar
+        }
     }
 }

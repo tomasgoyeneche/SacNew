@@ -35,15 +35,14 @@ namespace GestionOperativa.Presenters.Choferes
                 var empresas = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
                 var chofer = await _choferRepositorio.ObtenerPorIdAsync(idChofer);
                 var provincias = await _provinciaRepositorio.ObtenerProvinciasAsync();
+                int idProvincia = await _localidadRepositorio.ObtenerPorIdAsync(chofer.IdLocalidad);
 
                 if (chofer == null)
                 {
                     _view.MostrarMensaje("No se encontró la empresa.");
                     return;
                 }
-
-                _view.CargarDatosChofer(chofer, empresas, provincias);
-                await CargarLocalidades(chofer.IdLocalidad);
+                _view.CargarDatosChofer(chofer, empresas, provincias, idProvincia);
             });
         }
 

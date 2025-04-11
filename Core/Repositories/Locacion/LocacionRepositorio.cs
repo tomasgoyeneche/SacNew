@@ -12,6 +12,8 @@ namespace Core.Repositories
         {
         }
 
+
+        // Obtener por Id, Obtener todas, Buscar por criterio
         public Task<List<Locacion>> ObtenerTodasAsync()
         {
             var query = "SELECT * FROM Locacion WHERE Activo = 1";
@@ -22,7 +24,6 @@ namespace Core.Repositories
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
-
         public Task<Locacion?> ObtenerPorIdAsync(int idLocacion)
         {
             var query = "SELECT * FROM Locacion WHERE IdLocacion = @IdLocacion";
@@ -32,7 +33,6 @@ namespace Core.Repositories
                 return connection.QueryFirstOrDefaultAsync<Locacion?>(query, new { IdLocacion = idLocacion });
             });
         }
-
         public Task<List<Locacion>> BuscarPorCriterioAsync(string criterio)
         {
             var query = "SELECT * FROM Locacion WHERE Activo = 1 AND (Nombre LIKE @Criterio OR Direccion LIKE @Criterio)";
@@ -43,6 +43,11 @@ namespace Core.Repositories
                                  .ContinueWith(task => task.Result.ToList());
             });
         }
+
+
+
+
+        // Actualizar, Editar, Eliminar 
 
         public Task AgregarAsync(Locacion locacion)
         {

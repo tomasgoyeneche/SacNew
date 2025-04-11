@@ -40,14 +40,14 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<Semi?> ObtenerSemiPorIdAsync(int idSemi)
+        public async Task<Shared.Models.Semi?> ObtenerSemiPorIdAsync(int idSemi)
         {
             var query = @"
             select * from Semi WHERE idSemi = @idSemi";
 
             return await ConectarAsync(async conn =>
             {
-                return await conn.QueryFirstOrDefaultAsync<Semi>(query, new { IdSemi = idSemi });
+                return await conn.QueryFirstOrDefaultAsync<Shared.Models.Semi>(query, new { IdSemi = idSemi });
             });
         }
 
@@ -76,13 +76,13 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarSemiAsync(Semi semi)
+        public async Task ActualizarSemiAsync(Shared.Models.Semi semi)
         {
             var query = @"
             UPDATE Semi
             SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
                 Tara = @Tara, FechaAlta = @FechaAlta, IdTipoCarga = @IdTipoCarga, Compartimientos = @Compartimientos, IdMaterial = @IdMaterial,
-                CertificadoCompatibilidad = @CertificadoCompatibilidad, Cubicacion = @Cubicacion, Configuracion = @Configuracion, Espesor = @Espesor, Inv = @Inv
+                CertificadoCompatibilidad = @CertificadoCompatibilidad, LitroNominal = @LitroNominal, Cubicacion = @Cubicacion, Configuracion = @Configuracion, Inv = @Inv
             WHERE IdSemi = @IdSemi";
 
             await ConectarAsync(async conn =>

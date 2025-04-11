@@ -25,6 +25,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         public int Compartimientos => Convert.ToInt32(txtCisternas.Text);
         public int IdMaterial => (int)cmbMaterial.SelectedValue;
 
+        public int Inv => Convert.ToInt32(txtInv.Text);
+        public int LitroNominal => Convert.ToInt32(txtLitrosNom.Text);
+        public int Cubicacion => Convert.ToInt32(txtCubicacion.Text);   
+
         public void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
                                     List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales)
         {
@@ -34,6 +38,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             txtTara.Text = semi.Tara.ToString();
             dtpFechaAlta.Value = semi.FechaAlta;
             txtCisternas.Text = semi.Compartimientos.ToString();
+            txtInv.Text = semi.Inv.ToString();
+            txtCubicacion.Text = semi.Cubicacion.ToString();
+            txtLitrosNom.Text = semi.LitroNominal.ToString();
+
+
 
             cmbMarca.DataSource = marcas;
             cmbMarca.DisplayMember = "NombreMarca";

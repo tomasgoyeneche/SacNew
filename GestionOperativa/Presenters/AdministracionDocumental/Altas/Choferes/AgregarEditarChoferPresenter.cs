@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using System.IO;
@@ -70,6 +71,15 @@ namespace GestionOperativa.Presenters.Choferes
             await AbrirFormularioAsync<ModificarDatosChoferForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idChofer);
+            });
+            await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
+        }
+
+        public async Task EditarVencimientos(int idChofer)
+        {
+            await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("chofer",idChofer);
             });
             await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
         }

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\AdministracionDocumental\Altas\ModificarVencimientosForm.resx~RF5fdffbc.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Negocio\GestionFlota.csproj" />
   </ItemGroup>
 

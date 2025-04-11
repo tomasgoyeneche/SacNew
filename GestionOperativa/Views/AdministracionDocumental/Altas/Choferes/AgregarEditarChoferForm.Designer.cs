@@ -137,7 +137,7 @@
             bPsicofisicoCurso = new Guna.UI2.WinForms.Guna2ImageButton();
             bExamenAnual = new Guna.UI2.WinForms.Guna2ImageButton();
             bLicencia = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            bEditarVencimientos = new Guna.UI2.WinForms.Guna2Button();
             IPsicofisicoApto = new Guna.UI2.WinForms.Guna2HtmlLabel();
             IPsicofisicoCurso = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel31 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -910,7 +910,7 @@
             guna2Panel6.Controls.Add(bPsicofisicoCurso);
             guna2Panel6.Controls.Add(bExamenAnual);
             guna2Panel6.Controls.Add(bLicencia);
-            guna2Panel6.Controls.Add(guna2Button2);
+            guna2Panel6.Controls.Add(bEditarVencimientos);
             guna2Panel6.Controls.Add(IPsicofisicoApto);
             guna2Panel6.Controls.Add(IPsicofisicoCurso);
             guna2Panel6.Controls.Add(guna2HtmlLabel31);
@@ -1001,23 +1001,24 @@
             bLicencia.TabIndex = 57;
             bLicencia.Click += bLicencia_Click;
             // 
-            // guna2Button2
+            // bEditarVencimientos
             // 
-            guna2Button2.CustomizableEdges = customizableEdges17;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.Dock = DockStyle.Bottom;
-            guna2Button2.FillColor = Color.Orange;
-            guna2Button2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(0, 85);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Button2.Size = new Size(768, 20);
-            guna2Button2.TabIndex = 57;
-            guna2Button2.Text = "Editar";
+            bEditarVencimientos.CustomizableEdges = customizableEdges17;
+            bEditarVencimientos.DisabledState.BorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarVencimientos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarVencimientos.Dock = DockStyle.Bottom;
+            bEditarVencimientos.FillColor = Color.Orange;
+            bEditarVencimientos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarVencimientos.ForeColor = Color.White;
+            bEditarVencimientos.Location = new Point(0, 85);
+            bEditarVencimientos.Name = "bEditarVencimientos";
+            bEditarVencimientos.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            bEditarVencimientos.Size = new Size(768, 20);
+            bEditarVencimientos.TabIndex = 57;
+            bEditarVencimientos.Text = "Editar";
+            bEditarVencimientos.Click += bEditarVencimientos_Click;
             // 
             // IPsicofisicoApto
             // 
@@ -1513,7 +1514,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel INumeroPoliza;
         private Guna.UI2.WinForms.Guna2HtmlLabel IPagoHasta;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button bEditarVencimientos;
         private Guna.UI2.WinForms.Guna2HtmlLabel IPsicofisicoApto;
         private Guna.UI2.WinForms.Guna2HtmlLabel IPsicofisicoCurso;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel31;

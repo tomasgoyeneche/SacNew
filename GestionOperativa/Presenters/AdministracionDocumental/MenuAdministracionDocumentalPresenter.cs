@@ -334,7 +334,6 @@ namespace GestionOperativa.Presenters
 
             var camposVencimiento = new Dictionary<string, Func<TractorDto, DateTime?>>
             {
-                { "Ruta", unidad => unidad.Ruta },
                 { "VTV", unidad => unidad.Vtv }
             };
 
@@ -360,7 +359,6 @@ namespace GestionOperativa.Presenters
 
             var camposVencimiento = new Dictionary<string, Func<SemiDto, DateTime?>>
         {
-            { "Ruta", unidad => unidad.Ruta },
             { "VTV", unidad => unidad.Vtv },
             { "CisternaEspesor", unidad => unidad.CisternaEspesor },
             { "VisualInterna", unidad => unidad.VisualInterna },

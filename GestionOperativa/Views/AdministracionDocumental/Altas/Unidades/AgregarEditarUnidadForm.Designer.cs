@@ -119,7 +119,7 @@
             bChecklist = new Guna.UI2.WinForms.Guna2ImageButton();
             lChecklist = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            bEditarVencimientos = new Guna.UI2.WinForms.Guna2Button();
             bTara = new Guna.UI2.WinForms.Guna2ImageButton();
             lTara = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -616,7 +616,7 @@
             guna2Panel1.Controls.Add(bChecklist);
             guna2Panel1.Controls.Add(lChecklist);
             guna2Panel1.Controls.Add(guna2HtmlLabel20);
-            guna2Panel1.Controls.Add(guna2Button1);
+            guna2Panel1.Controls.Add(bEditarVencimientos);
             guna2Panel1.Controls.Add(bTara);
             guna2Panel1.Controls.Add(lTara);
             guna2Panel1.Controls.Add(guna2Panel2);
@@ -756,23 +756,24 @@
             guna2HtmlLabel20.Text = "CheckList";
             guna2HtmlLabel20.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // guna2Button1
+            // bEditarVencimientos
             // 
-            guna2Button1.CustomizableEdges = customizableEdges18;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Dock = DockStyle.Bottom;
-            guna2Button1.FillColor = Color.Orange;
-            guna2Button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(0, 82);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            guna2Button1.Size = new Size(775, 19);
-            guna2Button1.TabIndex = 52;
-            guna2Button1.Text = "Editar";
+            bEditarVencimientos.CustomizableEdges = customizableEdges18;
+            bEditarVencimientos.DisabledState.BorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEditarVencimientos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEditarVencimientos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEditarVencimientos.Dock = DockStyle.Bottom;
+            bEditarVencimientos.FillColor = Color.Orange;
+            bEditarVencimientos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEditarVencimientos.ForeColor = Color.White;
+            bEditarVencimientos.Location = new Point(0, 82);
+            bEditarVencimientos.Name = "bEditarVencimientos";
+            bEditarVencimientos.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            bEditarVencimientos.Size = new Size(775, 19);
+            bEditarVencimientos.TabIndex = 52;
+            bEditarVencimientos.Text = "Editar";
+            bEditarVencimientos.Click += bEditarVencimientos_Click;
             // 
             // bTara
             // 
@@ -1227,7 +1228,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton bChecklist;
         private Guna.UI2.WinForms.Guna2HtmlLabel lChecklist;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button bEditarVencimientos;
         private Guna.UI2.WinForms.Guna2ImageButton bTara;
         private Guna.UI2.WinForms.Guna2HtmlLabel lTara;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;

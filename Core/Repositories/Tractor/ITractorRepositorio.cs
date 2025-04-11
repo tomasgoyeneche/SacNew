@@ -25,6 +25,6 @@ namespace Core.Repositories
 
         Task ActualizarEmpresaTractorAsync(int idTractor, int idEmpresa);
 
-        Task ActualizarVencimientoTractorAsync(int idTractor, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
+        Task ActualizarVencimientoTractorAsync(int idTractor, int idVencimiento, DateTime fechaActualizacion, int idUsuario);
     }
 }

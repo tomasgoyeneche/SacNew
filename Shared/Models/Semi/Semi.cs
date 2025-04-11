@@ -19,15 +19,14 @@
         public DateTime FechaAlta { get; set; }
 
         // Datos de `SemiCisterna`
-        public decimal LitroNominal { get; set; }
+        public int LitroNominal { get; set; }
 
-        public decimal Cubicacion { get; set; }
-        public decimal Espesor { get; set; }
+        public int Cubicacion { get; set; }
         public int IdTipoCarga { get; set; }
         public int Compartimientos { get; set; }
         public int IdMaterial { get; set; }
         public bool CertificadoCompatibilidad { get; set; }
-        public string Inv { get; set; }
+        public int Inv { get; set; }
         public bool Activo { get; set; }
     }
 }
