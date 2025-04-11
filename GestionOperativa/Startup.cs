@@ -41,7 +41,6 @@ namespace Configuraciones
                     .AsSelf()
                     .WithTransientLifetime()
 
-
                 .AddClasses(classes =>
                 classes.Where(type =>
                     type.IsSubclassOf(typeof(Form)) &&
@@ -51,8 +50,6 @@ namespace Configuraciones
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .WithTransientLifetime()
-
-
 
                 //.AddClasses(classes => classes.Where(type => type.IsSubclassOf(typeof(Form))))
                 //    .AsSelf()

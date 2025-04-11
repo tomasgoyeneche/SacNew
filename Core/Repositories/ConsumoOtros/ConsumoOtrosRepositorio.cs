@@ -82,8 +82,8 @@ namespace Core.Repositories
         public async Task<List<InformeConsumoPocDto>> ObtenerPorFechaCargaAsync(DateTime fechaCarga, int idPosta)
         {
             var query = @"
-        SELECT * 
-        FROM vw_InformeConsumoPoc 
+        SELECT *
+        FROM vw_InformeConsumoPoc
         WHERE CAST(fechacarga AS DATE) = @fechaCarga and idPosta = @idPosta";
 
             return await ConectarAsync(conn =>

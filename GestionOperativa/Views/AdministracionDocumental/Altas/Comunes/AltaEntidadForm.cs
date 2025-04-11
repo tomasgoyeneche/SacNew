@@ -1,14 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using GestionOperativa.Presenters.AdministracionDocumental.Altas;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -36,6 +26,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo2.Text = "CUIT:";
                     lblCampo3.Visible = txtCampo3.Visible = false;
                     lblCampo2.Visible = txtCampo2.Visible = true;
+                    picBoxEntidad.BackgroundImage = Properties.Resources.cambiarTransportistaEmpresa;
+                    labelEntidad.Text = "Agregar Empresa";
                     break;
 
                 case "chofer":
@@ -44,6 +36,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo3.Text = "Documento:";
                     lblCampo2.Visible = txtCampo2.Visible = true;
                     lblCampo3.Visible = txtCampo3.Visible = true;
+                    picBoxEntidad.BackgroundImage = Properties.Resources.admDocumentalChofer;
+                    labelEntidad.Text = "Agregar Chofer";
                     break;
 
                 case "tractor":
@@ -51,6 +45,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo1.Text = "Patente:";
                     lblCampo2.Visible = txtCampo2.Visible = false;
                     lblCampo3.Visible = txtCampo3.Visible = false;
+                    picBoxEntidad.BackgroundImage = entidad == "tractor" ? Properties.Resources.admDocumentalTractor : Properties.Resources.admDocumentalCisterna;
+                    labelEntidad.Text = entidad == "tractor" ? "Agregar Tractor" : "Agregar Semi";
                     break;
             }
         }
@@ -60,7 +56,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void Cerrar() => Close();
+        public void Cerrar()
+        {
+            txtCampo1.Clear();
+            txtCampo2.Clear();
+            txtCampo3.Clear();
+            Close();
+        }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -69,7 +71,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            Cerrar();
         }
     }
 }

@@ -109,7 +109,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 
         public void Close()
         {
-            Dispose();  
+            Dispose();
         }
 
         private void txtOdometro_TextChanged(object sender, EventArgs e)

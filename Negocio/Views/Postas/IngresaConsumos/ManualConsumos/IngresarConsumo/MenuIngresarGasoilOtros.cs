@@ -76,11 +76,10 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             dtpCierrePoc.Value = DateTime.Now;
             txtTractor.Text = poc.PatenteTractor;
-            txtNombreChofer.Text = poc.NombreCompletoChofer;    
-            txtSemi.Text = poc.PatenteSemi; 
+            txtNombreChofer.Text = poc.NombreCompletoChofer;
+            txtSemi.Text = poc.PatenteSemi;
             txtTanque.Text = poc.CapacidadTanque.ToString();
             labelEstado.Text = poc.Estado.ToUpper();
-
 
             dataGridViewConsumos.DataSource = consumos.Select(c => new
             {

@@ -23,7 +23,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
 
         public bool Dolar => dolarCheck.Checked;
 
-        public void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc    )
+        public void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc)
         {
             cmbTipoGasoil.DataSource = tiposGasoil;
             cmbTipoGasoil.DisplayMember = "Descripcion";
@@ -129,7 +129,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
                 c.LitrosCargados,
                 c.Observaciones,
                 c.NumeroVale,
-              
             }).ToList();
         }
 
@@ -172,7 +171,5 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
         {
             Dispose();
         }
-
-        
     }
 }

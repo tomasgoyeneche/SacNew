@@ -4,17 +4,11 @@ using Core.Services;
 using GestionFlota.Views.Postas.Informes;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters.Informes
 {
     public class MenuInformesPresenter : BasePresenter<IMenuInformesView>
     {
-
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
 
         public MenuInformesPresenter(

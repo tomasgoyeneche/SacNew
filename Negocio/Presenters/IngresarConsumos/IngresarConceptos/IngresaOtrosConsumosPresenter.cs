@@ -3,7 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using Shared.Models;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters.IngresarConsumos
 {
@@ -42,7 +41,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                 );
 
                 var todosLosTiposConsumo = tiposConsumo.SelectMany(x => x).ToList();
-                _view.CargarTiposConsumo(todosLosTiposConsumo , poc.NumeroPoc);
+                _view.CargarTiposConsumo(todosLosTiposConsumo, poc.NumeroPoc);
             });
         }
 
@@ -71,8 +70,6 @@ namespace GestionFlota.Presenters.IngresarConsumos
 
                 decimal nuevoPrecioTotal = 0;
 
-               
-
                 if (concepto.IdConsumoTipo == 3)
                 {
                     nuevoPrecioTotal = _view.Cantidad.Value * concepto.PrecioActual;
@@ -88,7 +85,6 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     nuevoPrecioTotal = _view.PrecioManual.Value * _view.Cantidad.Value;
                 }
 
-               
                 if (_idConsumo == null) // Nuevo consumo
                 {
                     if (VerificarCreditoInsuficiente(nuevoPrecioTotal)) return;
@@ -208,11 +204,10 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     _conceptoRepositorio.ObtenerPorTipoAsync(5)
                 );
 
-              
                 var todosLosTiposConsumo = tiposConsumo.SelectMany(x => x).ToList();
                 _idConsumo = idConsumo;
                 _view.CargarTiposConsumo(todosLosTiposConsumo, poc.NumeroPoc);
-                
+
                 _view.InicializarParaEdicion(consumo);
             });
         }

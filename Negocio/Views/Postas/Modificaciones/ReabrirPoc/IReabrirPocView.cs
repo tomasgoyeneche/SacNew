@@ -1,10 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
 {
@@ -12,6 +7,6 @@ namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
     {
         void MostrarPOC(List<POCDto> listaPOC);
 
-        DialogResult ConfirmarEliminacion(string mensaje);  
+        DialogResult ConfirmarEliminacion(string mensaje);
     }
 }

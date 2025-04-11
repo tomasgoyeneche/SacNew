@@ -2,12 +2,6 @@
 using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Postas.Modificaciones.ReabrirPoc;
-using SacNew.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -49,6 +43,5 @@ namespace GestionFlota.Presenters
                 }
             }, CargarPOCAsync);
         }
-
     }
 }

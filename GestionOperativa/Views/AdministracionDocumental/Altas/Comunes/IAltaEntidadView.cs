@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestionOperativa.Views.AdministracionDocumental.Altas
+﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
     public interface IAltaEntidadView
     {
@@ -13,7 +7,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         string Campo3 { get; }
 
         void ConfigurarCampos(string entidad);
+
         void MostrarMensaje(string mensaje);
+
         void Cerrar();
     }
 }

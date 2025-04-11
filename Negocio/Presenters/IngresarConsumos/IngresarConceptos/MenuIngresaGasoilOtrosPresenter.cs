@@ -19,7 +19,6 @@ namespace GestionFlota.Presenters
         private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
         private readonly IPeriodoRepositorio _periodoRepositorio;
 
-
         private POCDto _pocDto;
         private POC _poc;
         private EmpresaCredito _amount;
@@ -107,7 +106,6 @@ namespace GestionFlota.Presenters
             await CargarDatosAsync(_view.IdPoc);
         }
 
-
         public async Task AbrirConsumosenYpfEnRutaAsync(int idPoc)
         {
             await AbrirFormularioAsync<IngresoManualYPF>(async form =>
@@ -134,7 +132,6 @@ namespace GestionFlota.Presenters
                 _view.MostrarMensaje("La POC se ha cerrado exitosamente.");
             });
         }
-
 
         public async Task EliminarConsumo(int idConsumo, int tipoConsumo, decimal importeTotal)
         {

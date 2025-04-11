@@ -3,7 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using Shared.Models;
-using System.Windows.Forms;
 
 namespace GestionFlota.Presenters
 {
@@ -119,8 +118,6 @@ namespace GestionFlota.Presenters
                         return;
                     await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
                 }
-
-               
 
                 if (consumo != null)
                 {

@@ -1,19 +1,4 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraCharts.Native;
-using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Design;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraSpreadsheet.PrintLayoutEngine;
-using Microsoft.Reporting.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using DevExpress.XtraReports.UI;
 
 namespace Configuraciones.Views
 {
@@ -28,19 +13,11 @@ namespace Configuraciones.Views
         {
             this.WindowState = FormWindowState.Maximized;
 
-
-
-
             documentViewer1.ShowPageMargins = false;
             documentViewer1.DocumentSource = reporte;
             bbiZoom.EditValue = 82;
 
             reporte.CreateDocument();
-
-        
-
-
-
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -63,7 +40,6 @@ namespace Configuraciones.Views
                     }
                 }
             }
-
         }
     }
 }

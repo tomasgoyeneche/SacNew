@@ -15,7 +15,7 @@ namespace GestionFlota.Views.Postas.Modificaciones
 
         private void bReabrirPoc_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<ReabrirPocForm>();    
+            _navigationService.ShowDialog<ReabrirPocForm>();
         }
     }
 }

@@ -29,7 +29,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
             view.Columns["CapacidadTanque"].Visible = false;
             view.Columns["Estado"].Visible = false;
 
-
             view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
 
             gridViewPOC.OptionsView.EnableAppearanceEvenRow = true;
@@ -96,7 +95,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
                 MostrarMensaje("Seleccione una POC para editar.");
             }
         }
-
 
         private async void gridControlPOC_DoubleClick(object sender, EventArgs e)
         {

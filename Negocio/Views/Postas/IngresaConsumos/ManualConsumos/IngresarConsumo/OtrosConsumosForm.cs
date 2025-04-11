@@ -17,6 +17,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 
         public decimal? PrecioManual =>
     decimal.TryParse(txtImporteTotal.Text, out var p) ? p : null;
+
         public int TipoConsumoSeleccionado => Convert.ToInt32(cmbTipoConsumo.EditValue);
         public string RemitoExterno => txtRemitoExterno.Text.Trim();
         public DateTime FechaRemito => dtpFechaRemito.Value;
@@ -28,12 +29,12 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         public void CargarTiposConsumo(List<Concepto> tiposConsumo, string poc)
         {
             cmbTipoConsumo.Properties.DataSource = tiposConsumo;
-            cmbTipoConsumo.Properties.DisplayMember = "Descripcion";
+            cmbTipoConsumo.Properties.DisplayMember = "Codigo";
             cmbTipoConsumo.Properties.ValueMember = "IdConsumo";
 
             cmbTipoConsumo.Properties.Columns.Clear();
+            cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Codigo", "Proveedor"));
             cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Consumo"));
-            cmbTipoConsumo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Proveedor"));
 
             cmbTipoConsumo.EditValue = -1;
             dtpFechaRemito.Value = DateTime.Now;

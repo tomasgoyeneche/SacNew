@@ -1,10 +1,9 @@
 using Configuraciones;
-using Microsoft.Extensions.DependencyInjection;
-using SacNew;
-using System.Globalization;
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using Microsoft.Extensions.DependencyInjection;
+using SacNew;
 using System.Globalization;
 
 namespace App
@@ -23,7 +22,6 @@ namespace App
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier"); // Cambiá por el que quieras
-
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
@@ -44,9 +42,6 @@ namespace App
 
         private static void ConfigurarCultura()
         {
- 
-
-
             var cultura = new System.Globalization.CultureInfo("es-AR");
             CultureInfo.DefaultThreadCurrentCulture = cultura;
             CultureInfo.DefaultThreadCurrentUICulture = cultura;

@@ -11,6 +11,7 @@ namespace Core.Repositories
         public UnidadRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
+        // Obtener Unidad Por Id
         public async Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync()
         {
             var query = @"
@@ -53,6 +54,8 @@ namespace Core.Repositories
             });
         }
 
+        // Obtener Por Otras Opciones
+
         public async Task<int?> ObtenerIdTractorPorPatenteAsync(string patente)
         {
             var query = @"
@@ -86,6 +89,7 @@ namespace Core.Repositories
             });
         }
 
+        // Actualizar, Editar, Eliminar
         public async Task EliminarUnidadAsync(int idUnidad)
         {
             var query = "Update Unidad set Activo = 0 WHERE idUnidad = @idUnidad";
@@ -93,6 +97,26 @@ namespace Core.Repositories
             await ConectarAsync(connection =>
             {
                 return connection.ExecuteAsync(query, new { IdUnidad = idUnidad });
+            });
+        }
+
+        public async Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario)
+        {
+            var query = @"
+        UPDATE UnidadVencimiento
+        SET FechaVencimiento = @fechaActualizacion,
+            IdUsuario = @idUsuario
+        WHERE IdUnidad = @idUnidad AND idTipoVencimiento = @idTipoVencimiento";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new
+                {
+                    idUnidad,
+                    idTipoVencimiento,
+                    fechaActualizacion,
+                    idUsuario
+                });
             });
         }
     }

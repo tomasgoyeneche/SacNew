@@ -13,14 +13,11 @@ namespace Core.Repositories
 
         Task<Chofer> ObtenerPorIdAsync(int idChofer);
 
-
         // Obtener Por Otras Opciones
 
         Task<int?> ObtenerIdPorDocumentoAsync(string documento);
 
         Task<List<ChoferDto>> BuscarAsync(string textoBusqueda);
-
-
 
         // Actualizar, Editar, Eliminar
 
@@ -31,5 +28,7 @@ namespace Core.Repositories
         Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa);
 
         Task AltaChoferAsync(string nombre, string apellido, string documento, int idUsuario);
+
+        Task ActualizarVencimientoChoferAsync(int idChofer, int idVencimiento, DateTime fechaActualizacion, int idUsuario);
     }
 }

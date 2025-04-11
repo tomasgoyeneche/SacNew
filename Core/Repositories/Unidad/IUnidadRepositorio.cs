@@ -5,21 +5,25 @@ namespace Core.Repositories
 {
     public interface IUnidadRepositorio
     {
-        Task<int?> ObtenerIdTractorPorPatenteAsync(string patente);
-
-        Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor);
-
+        // Obtener Unidad Por Id
         Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync();
 
         Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad);
 
-        Task EliminarUnidadAsync(int idUnidad);
+        Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
 
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 
+        // Obtener Por Otras Opciones
+        Task<int?> ObtenerIdTractorPorPatenteAsync(string patente);
+
+        Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor);
+
         Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActiva();
 
-        Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
+        // Actualizar, Editar, Eliminar
+        Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario);
 
+        Task EliminarUnidadAsync(int idUnidad);
     }
 }

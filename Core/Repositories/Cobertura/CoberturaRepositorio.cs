@@ -10,6 +10,7 @@ namespace Core.Repositories
         public CoberturaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
+        // Metodos de busqueda por id o general
         public async Task<List<Cobertura>> ObtenerTodasAsync()
         {
             var query = "SELECT IdCobertura, TipoCobertura FROM Cobertura";

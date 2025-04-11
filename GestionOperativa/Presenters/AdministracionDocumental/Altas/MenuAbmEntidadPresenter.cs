@@ -310,11 +310,9 @@ namespace GestionOperativa.Presenters
             });
         }
 
-
         public async Task AgregarEntidadAsync()
         {
             if (string.IsNullOrEmpty(_entidad)) return;
-
 
             await AbrirFormularioAsync<AltaEntidadForm>(async form =>
             {

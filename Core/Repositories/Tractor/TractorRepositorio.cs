@@ -2,7 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System.Data;
 
 namespace Core.Repositories
 {
@@ -11,10 +10,24 @@ namespace Core.Repositories
         public TractorRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
+        // Obtener Tractor Por Id
         public async Task<TractorDto> ObtenerPorIdDtoAsync(int idTractor)
         {
             var query = "SELECT * FROM vw_TractoresDetalles WHERE idTractor = @IdTractor";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<TractorDto>(query, new { IdTractor = idTractor }));
+        }
+
+        public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
+        {
+            var query = @"
+            SELECT *
+            FROM Tractor
+            WHERE IdTractor = @IdTractor";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<Tractor>(query, new { IdTractor = idTractor });
+            });
         }
 
         public async Task<List<TractorDto>> ObtenerTodosLosTractoresDto()
@@ -25,16 +38,6 @@ namespace Core.Repositories
             {
                 var tractores = await connection.QueryAsync<TractorDto>(query);
                 return tractores.ToList();
-            });
-        }
-
-        public async Task EliminarTractorAsync(int idTractor)
-        {
-            var query = "EXEC sp_DarDeBajaTractor @idTractor;";
-
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(query, new { idTractor = idTractor });
             });
         }
 
@@ -49,16 +52,18 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
-        {
-            var query = @"
-            SELECT *
-            FROM Tractor
-            WHERE IdTractor = @IdTractor";
+        // Actualizar, Editar, Eliminar
 
-            return await ConectarAsync(async conn =>
+        public async Task AltaTractorAsync(string patente, int idUsuario)
+        {
+            var query = "EXEC sp_AltaTractor @patente, @idusuario"; // o ";" si querés como texto
+
+            await ConectarAsync(connection =>
             {
-                return await conn.QueryFirstOrDefaultAsync<Tractor>(query, new { IdTractor = idTractor });
+                return connection.ExecuteAsync(
+                    query,
+                    new { patente = patente, idusuario = idUsuario }
+                );
             });
         }
 
@@ -77,16 +82,13 @@ namespace Core.Repositories
             });
         }
 
-        public async Task AltaTractorAsync(string patente, int idUsuario)
+        public async Task EliminarTractorAsync(int idTractor)
         {
-            var query = "EXEC sp_AltaTractor @patente, @idusuario"; // o ";" si querés como texto
+            var query = "EXEC sp_DarDeBajaTractor @idTractor;";
 
             await ConectarAsync(connection =>
             {
-                return connection.ExecuteAsync(
-                    query,
-                    new { patente = patente, idusuario = idUsuario }
-                );
+                return connection.ExecuteAsync(query, new { idTractor = idTractor });
             });
         }
 
@@ -97,6 +99,26 @@ namespace Core.Repositories
             await ConectarAsync(async connection =>
             {
                 await connection.ExecuteAsync(query, new { idTractor, idEmpresa });
+            });
+        }
+
+        public async Task ActualizarVencimientoTractorAsync(int idTractor, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
+        {
+            var query = @"
+        UPDATE TractorVencimiento
+        SET FechaVencimiento = @fechaActualizacion,
+            IdUsuario = @idUsuario
+        WHERE IdTractor = @idTractor AND IdVencimiento = @idVencimiento";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new
+                {
+                    idTractor,
+                    idVencimiento,
+                    fechaActualizacion,
+                    idUsuario
+                });
             });
         }
     }

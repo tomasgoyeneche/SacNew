@@ -2,7 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System.Data;
 
 namespace Core.Repositories
 {
@@ -11,11 +10,7 @@ namespace Core.Repositories
         public SemiRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
            : base(connectionStrings, sesionService) { }
 
-        public async Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi)
-        {
-            var query = "SELECT * FROM vw_SemiremolquesDetalles WHERE idSemi = @idSemi";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<SemiDto>(query, new { IdSemi = idSemi }));
-        }
+        // Obtener Semi Por Id
 
         public async Task<List<SemiDto>> ObtenerTodosLosSemisDto()
         {
@@ -28,14 +23,10 @@ namespace Core.Repositories
             });
         }
 
-        public async Task EliminarSemiAsync(int idSemi)
+        public async Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi)
         {
-            var query = "EXEC sp_DarDeBajaSemi @idsemi";
-
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(query, new { IdSemi = idSemi });
-            });
+            var query = "SELECT * FROM vw_SemiremolquesDetalles WHERE idSemi = @idSemi";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<SemiDto>(query, new { IdSemi = idSemi }));
         }
 
         public async Task<List<SemiDto>> BuscarSemisAsync(string textoBusqueda)
@@ -57,6 +48,31 @@ namespace Core.Repositories
             return await ConectarAsync(async conn =>
             {
                 return await conn.QueryFirstOrDefaultAsync<Semi>(query, new { IdSemi = idSemi });
+            });
+        }
+
+        // Actualizar, Editar, Eliminar
+
+        public async Task AltaSemiAsync(string patente, int idUsuario)
+        {
+            var query = "EXEC sp_AltaSemi @patente, @idusuario"; // o ";" si querés como texto
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(
+                    query,
+                    new { patente = patente, idusuario = idUsuario }
+                );
+            });
+        }
+
+        public async Task EliminarSemiAsync(int idSemi)
+        {
+            var query = "EXEC sp_DarDeBajaSemi @idsemi";
+
+            await ConectarAsync(connection =>
+            {
+                return connection.ExecuteAsync(query, new { IdSemi = idSemi });
             });
         }
 
@@ -85,19 +101,24 @@ namespace Core.Repositories
             });
         }
 
-
-        public async Task AltaSemiAsync(string patente, int idUsuario)
+        public async Task ActualizarVencimientoSemiAsync(int idSemi, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
         {
-            var query = "EXEC sp_AltaSemi @patente, @idusuario"; // o ";" si querés como texto
+            var query = @"
+        UPDATE SemiCisternaVencimiento
+        SET FechaVencimiento = @fechaActualizacion,
+            IdUsuario = @idUsuario
+        WHERE IdSemi = @idSemi AND IdVencimiento = @idVencimiento";
 
-            await ConectarAsync(connection =>
+            await ConectarAsync(async connection =>
             {
-                return connection.ExecuteAsync(
-                    query,
-                    new { patente = patente, idusuario = idUsuario }
-                );
+                await connection.ExecuteAsync(query, new
+                {
+                    idSemi,
+                    idVencimiento,
+                    fechaActualizacion,
+                    idUsuario
+                });
             });
         }
     }
-
 }

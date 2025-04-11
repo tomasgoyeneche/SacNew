@@ -5,7 +5,6 @@ namespace Core.Repositories
 {
     public interface IPOCRepositorio
     {
-
         Task<POCDto?> ObtenerPorIdDtoAsync(int idPoc);
 
         Task<List<POCDto>> BuscarPOCAsync(string criterio, int idPosta);

@@ -10,6 +10,7 @@ namespace Core.Repositories
         public CiaRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
+        // Metodos de busqueda general o por id
         public async Task<List<Cia>> ObtenerTodasAsync()
         {
             var query = "SELECT IdCia, NombreFantasia FROM Cia WHERE Activo = 1";
@@ -19,6 +20,7 @@ namespace Core.Repositories
             });
         }
 
+        // Metodos de busqueda especificos
         public async Task<List<Cia>> ObtenerPorTipoAsync(int idTipoCia)
         {
             var query = "SELECT * FROM Cia WHERE idTipoCia = @idTipoCia AND Activo = 1";

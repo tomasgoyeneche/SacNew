@@ -37,9 +37,8 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
                 MessageBox.Show("Por favor ingrese una fecha válida para 'Fecha'.");
                 return;
             }
-           
-            await _presenter.BuscarConsumosAsync(desdeFecha);   
 
+            await _presenter.BuscarConsumosAsync(desdeFecha);
         }
     }
 }

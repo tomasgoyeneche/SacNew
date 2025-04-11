@@ -1,15 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using GestionFlota.Presenters;
+﻿using GestionFlota.Presenters;
 using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
 {
@@ -48,7 +38,6 @@ namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
             view.Columns["CapacidadTanque"].Visible = false;
             view.Columns["Estado"].Visible = false;
 
-
             view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
 
             gridViewPOC.OptionsView.EnableAppearanceEvenRow = true;
@@ -63,7 +52,6 @@ namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
         {
             return MessageBox.Show(mensaje, "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
-
 
         public void MostrarMensaje(string mensaje)
         {

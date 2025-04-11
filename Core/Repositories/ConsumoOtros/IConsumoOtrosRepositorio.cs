@@ -30,5 +30,4 @@ namespace Core.Repositories
                 DateTime? fechaCierreDesde,
                 DateTime? fechaCierreHasta);
     }
-
 }

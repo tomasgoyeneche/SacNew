@@ -63,6 +63,36 @@ namespace GestionOperativa.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admDocumentalChofer {
+            get {
+                object obj = ResourceManager.GetObject("admDocumentalChofer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap admDocumentalCisterna {
+            get {
+                object obj = ResourceManager.GetObject("admDocumentalCisterna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap admDocumentalTractor {
+            get {
+                object obj = ResourceManager.GetObject("admDocumentalTractor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AUTOMATICO {
             get {
                 object obj = ResourceManager.GetObject("AUTOMATICO", resourceCulture);

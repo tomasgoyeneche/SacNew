@@ -1,9 +1,7 @@
-﻿using App.Views;
-using Configuraciones.Views;
+﻿using Configuraciones.Views;
 using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using DevExpress.XtraReports.UI;
 using GestionOperativa.Reports;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using Shared.Models;
@@ -148,7 +146,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
 
                 // Mostrar el reporte en un visor DevExpress
 
-
                 //var tool = new ReportPrintTool(reporte);
                 //tool.ShowRibbonPreviewDialog(); // Tiene toda la barra de herramientas
 
@@ -159,6 +156,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 });
             });
         }
+
         //public async Task GenerarReporteFlotaAsync()
         //{
         //    await EjecutarConCargaAsync(async () =>
