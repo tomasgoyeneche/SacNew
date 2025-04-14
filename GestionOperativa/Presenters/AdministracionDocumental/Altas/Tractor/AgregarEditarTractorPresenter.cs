@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using Shared.Models;
 using System.IO;
 
 namespace GestionOperativa.Presenters.Tractor
@@ -11,16 +12,20 @@ namespace GestionOperativa.Presenters.Tractor
     {
         private readonly ITractorRepositorio _tractorRepositorio;
         private readonly IConfRepositorio _confRepositorio;
+        private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
+
 
         public AgregarEditarTractorPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
             ITractorRepositorio tractorRepositorio,
-            IConfRepositorio confRepositorio)
+            IConfRepositorio confRepositorio,
+            IEmpresaSeguroRepositorio empresaSeguroRepositorio )
             : base(sesionService, navigationService)
         {
             _tractorRepositorio = tractorRepositorio;
             _confRepositorio = confRepositorio;
+            _empresaSeguroRepositorio = empresaSeguroRepositorio;
         }
 
         public async Task CargarDatosParaMostrarAsync(int idTractor)
@@ -36,6 +41,10 @@ namespace GestionOperativa.Presenters.Tractor
 
                 _view.MostrarDatosTractor(tractor);
                 _view.MostrarVencimiento(añoFinal > 0 ? añoFinal.ToString() : "Sin fecha");
+
+                Shared.Models.Tractor tractor1 = await _tractorRepositorio.ObtenerTractorPorIdAsync(idTractor); 
+                List<EmpresaSeguroDto> seguros = await _empresaSeguroRepositorio.ObtenerSeguroPorEmpresaYEntidadAsync(tractor1.IdEmpresa, 2);
+                _view.MostrarSeguros(seguros);
             });
         }
 

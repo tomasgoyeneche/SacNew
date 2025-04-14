@@ -15,6 +15,8 @@ namespace Core.Repositories
 
         // Obtener Por Otras Opciones
 
+        Task<List<Tractor>> ObtenerTractoresLibresAsync();
+
         // Actualizar, Editar, Eliminar
 
         Task AltaTractorAsync(string patente, int idUsuario);

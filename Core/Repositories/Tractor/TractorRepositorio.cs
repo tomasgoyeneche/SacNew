@@ -52,6 +52,30 @@ namespace Core.Repositories
             });
         }
 
+
+        // Otras Busquedas
+
+        public async Task<List<Tractor>> ObtenerTractoresLibresAsync()
+        {
+            const string sql = @"
+        SELECT t.IdTractor, t.Patente, t.Tara
+        FROM Tractor t
+        WHERE t.IdTractor NOT IN (SELECT IdTractor FROM Unidad WHERE Activo = 1) and t.Activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var resultado = await connection.QueryAsync<Tractor>(sql);
+                return resultado.ToList();
+            });
+        }
+
+
+
+
+
+
+
+
         // Actualizar, Editar, Eliminar
 
         public async Task AltaTractorAsync(string patente, int idUsuario)

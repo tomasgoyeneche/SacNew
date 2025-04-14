@@ -25,5 +25,7 @@ namespace Core.Repositories
         Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario);
 
         Task EliminarUnidadAsync(int idUnidad);
+
+        Task AgregarUnidadAsync(Unidad unidad);
     }
 }

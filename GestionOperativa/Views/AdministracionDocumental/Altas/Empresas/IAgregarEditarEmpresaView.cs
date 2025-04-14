@@ -21,5 +21,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         void MostrarSatelitales(List<EmpresaSatelitalDto> satelitales);
 
         void MostrarPaises(List<EmpresaPaisDto> paises);
+
+        void MostrarSeguros(List<EmpresaSeguroDto> seguros);
     }
 }

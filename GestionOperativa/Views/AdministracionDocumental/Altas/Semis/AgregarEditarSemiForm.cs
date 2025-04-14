@@ -52,6 +52,31 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             IVisualExt.Text = semi.VisualExterna?.ToShortDateString();
         }
 
+        public void MostrarSeguros(List<EmpresaSeguroDto> seguros)
+        {
+            dvgSeguroEmpresa.DataSource = seguros;
+
+            // Ocultar columnas técnicas
+            dvgSeguroEmpresa.Columns["idEmpresaSeguro"].Visible = false;
+            dvgSeguroEmpresa.Columns["idEmpresa"].Visible = false;
+            dvgSeguroEmpresa.Columns["idEmpresaSeguroEntidad"].Visible = false;
+
+            dvgSeguroEmpresa.Columns["entidad"].HeaderText = "Tipo";
+            dvgSeguroEmpresa.Columns["cia"].HeaderText = "CIA";
+            dvgSeguroEmpresa.Columns["TipoCobertura"].HeaderText = "Cobertura";
+            dvgSeguroEmpresa.Columns["numeroPoliza"].HeaderText = "Poliza";
+            dvgSeguroEmpresa.Columns["certificadoMensual"].HeaderText = "Certificado Mensual";
+            dvgSeguroEmpresa.Columns["vigenciaAnual"].HeaderText = "Vigencia Anual";
+
+            // Reordenar columnas (DisplayIndex)
+            dvgSeguroEmpresa.Columns["TipoCobertura"].DisplayIndex = 0;
+            dvgSeguroEmpresa.Columns["certificadoMensual"].DisplayIndex = 1;
+            dvgSeguroEmpresa.Columns["vigenciaAnual"].DisplayIndex = 2;
+            dvgSeguroEmpresa.Columns["numeroPoliza"].DisplayIndex = 3;
+            dvgSeguroEmpresa.Columns["cia"].DisplayIndex = 4;
+            dvgSeguroEmpresa.Columns["entidad"].DisplayIndex = 5;
+        }
+
         public void ConfigurarFotoSemi(bool habilitar, string? rutaArchivo)
         {
             bFotoSemi.Enabled = habilitar;

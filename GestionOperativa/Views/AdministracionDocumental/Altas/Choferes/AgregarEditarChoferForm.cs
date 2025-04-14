@@ -39,18 +39,37 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             ITipo.Text = chofer.Empresa_Tipo;
             chkZonaFria.Checked = chofer.ZonaFria;
             IAltaTemprana.Text = chofer.FechaAlta.ToShortDateString();
-            chkCoberturaCentralizada.Checked = chofer.CoberturaCentralizada;
-            ICompania.Text = chofer.Cia_Seguro;
-            ICobertura.Text = chofer.Tipo_Cobertura;
-            INumeroPoliza.Text = chofer.NumeroPoliza;
-            IPagoHasta.Text = chofer.PagoHasta.ToShortDateString();
-            IVigenciaHasta.Text = chofer.VigenciaHasta.ToShortDateString();
             ILicencia.Text = chofer.Licencia.ToShortDateString();
             IExamenAnual.Text = chofer.ExamenAnual.ToShortDateString();
             IPsicofisicoApto.Text = chofer.PsicofisicoApto.ToShortDateString();
             IPsicofisicoCurso.Text = chofer.PsicofisicoCurso.ToShortDateString();
-            ISeguroVida.Text = chofer.SvoSeguroVida.ToShortDateString();
         }
+        public void MostrarSeguros(List<EmpresaSeguroDto> seguros)
+        {
+            dvgSegurosChoferes.DataSource = seguros;
+
+            // Ocultar columnas técnicas
+            dvgSegurosChoferes.Columns["idEmpresaSeguro"].Visible = false;
+            dvgSegurosChoferes.Columns["idEmpresa"].Visible = false;
+            dvgSegurosChoferes.Columns["idEmpresaSeguroEntidad"].Visible = false;
+
+            dvgSegurosChoferes.Columns["entidad"].HeaderText = "Tipo";
+            dvgSegurosChoferes.Columns["cia"].HeaderText = "CIA";
+            dvgSegurosChoferes.Columns["TipoCobertura"].HeaderText = "Cobertura";
+            dvgSegurosChoferes.Columns["numeroPoliza"].HeaderText = "Poliza";
+            dvgSegurosChoferes.Columns["certificadoMensual"].HeaderText = "Certificado Mensual";
+            dvgSegurosChoferes.Columns["vigenciaAnual"].HeaderText = "Vigencia Anual";
+
+            // Reordenar columnas (DisplayIndex)
+            dvgSegurosChoferes.Columns["TipoCobertura"].DisplayIndex = 0;
+            dvgSegurosChoferes.Columns["certificadoMensual"].DisplayIndex = 1;
+            dvgSegurosChoferes.Columns["vigenciaAnual"].DisplayIndex = 2;
+            dvgSegurosChoferes.Columns["numeroPoliza"].DisplayIndex = 3;
+            dvgSegurosChoferes.Columns["cia"].DisplayIndex = 4;
+            dvgSegurosChoferes.Columns["entidad"].DisplayIndex = 5;
+        }
+
+
 
         public void ConfigurarFotoChofer(bool habilitar, string? rutaArchivo)
         {

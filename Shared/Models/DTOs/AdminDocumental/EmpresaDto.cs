@@ -11,11 +11,5 @@
         public string Domicilio { get; set; }               // Dirección específica de la empresa
         public string Telefono { get; set; }                // Teléfono de contacto
         public string Email { get; set; }                   // Correo electrónico de contacto
-        public string NombreCia { get; set; }               // Nombre de la compañía aseguradora
-        public string TipoCobertura { get; set; }           // Tipo de cobertura del seguro
-        public string NumeroPoliza { get; set; }            // Número de póliza del seguro
-        public DateTime VigenciaHasta { get; set; }         // Fecha de vencimiento del seguro
-        public DateTime PagoDesde { get; set; }             // Inicio del período de pago
-        public DateTime PagoHasta { get; set; }             // Fin del período de pago
     }
 }

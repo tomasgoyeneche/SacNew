@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Empresas;
 using Shared.Models;
 using System.IO;
@@ -13,6 +14,8 @@ namespace GestionOperativa.Presenters
         private readonly IEmpresaSatelitalRepositorio _empresaSatelitalRepositorio;
         private readonly IEmpresaPaisRepositorio _empresaPaisRepositorio;
         private readonly IEmpresaRepositorio _empresaRepositorio;
+        private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
+
 
         public AgregarEditarEmpresaPresenter(
             ISesionService sesionService,
@@ -20,13 +23,15 @@ namespace GestionOperativa.Presenters
             IConfRepositorio confRepositorio,
             IEmpresaRepositorio empresaRepositorio,
             IEmpresaSatelitalRepositorio empresaSatelitalRepositorio,
-            IEmpresaPaisRepositorio empresaPaisRepositorio)
+            IEmpresaPaisRepositorio empresaPaisRepositorio,
+            IEmpresaSeguroRepositorio empresaSeguroRepositorio)
             : base(sesionService, navigationService)
         {
             _confRepositorio = confRepositorio;
             _empresaSatelitalRepositorio = empresaSatelitalRepositorio;
             _empresaPaisRepositorio = empresaPaisRepositorio;
             _empresaRepositorio = empresaRepositorio;
+            _empresaSeguroRepositorio = empresaSeguroRepositorio;
         }
 
         public async Task CargarDatosParaMostrarAsync(int empresaId)
@@ -42,6 +47,9 @@ namespace GestionOperativa.Presenters
 
                 var paises = await _empresaPaisRepositorio.ObtenerPaisesPorEmpresaAsync(empresa.IdEmpresa);
                 _view.MostrarPaises(paises);
+
+                List<EmpresaSeguroDto> seguros = await _empresaSeguroRepositorio.ObtenerSegurosPorEmpresaAsync(empresa.IdEmpresa);
+                _view.MostrarSeguros(seguros);
             });
         }
 
@@ -78,14 +86,7 @@ namespace GestionOperativa.Presenters
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
         }
 
-        public async Task EditarDatosSeguro(int idEmpresa)
-        {
-            await AbrirFormularioAsync<ModificarDatosSeguroForm>(async form =>
-            {
-                await form._presenter.InicializarAsync(idEmpresa);
-            });
-            await CargarDatosParaMostrarAsync(idEmpresa);
-        }
+       
 
         public async Task AgregarEmpresaSatelital(int idEmpresa)
         {
@@ -104,6 +105,38 @@ namespace GestionOperativa.Presenters
                 _view.MostrarMensaje("Empresa satelital eliminada correctamente.");
             });
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de eliminar
+        }
+
+        public async Task EliminarSeguroAsync(int idEmpresaSeguro, int idEmpresa)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                await _empresaSeguroRepositorio.EliminarSeguroAsync(idEmpresaSeguro);
+                _view.MostrarMensaje("Seguro eliminado correctamente.");
+               
+            });
+            await CargarDatosParaMostrarAsync(idEmpresa);
+        }
+
+        public async Task EditarDatosSeguro(int idEmpresa, EmpresaSeguroDto empresaSeguro)
+        {
+            if(empresaSeguro != null) {
+                EmpresaSeguro empresa = await _empresaSeguroRepositorio.ObtenerSeguroPorIdAsync(empresaSeguro.idEmpresaSeguro);
+
+                await AbrirFormularioAsync<AgregarEditarSeguro>(async form =>
+                {
+                    await form._presenter.InicializarAsync(empresa, idEmpresa);
+                });
+            }
+            else
+            {
+                await AbrirFormularioAsync<AgregarEditarSeguro>(async form =>
+                {
+                    await form._presenter.InicializarAsync(null, idEmpresa);
+                });
+            }
+           
+            await CargarDatosParaMostrarAsync(idEmpresa);
         }
     }
 }

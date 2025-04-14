@@ -4,6 +4,7 @@ using Core.Services;
 using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
+using Shared.Models;
 using System.IO;
 
 namespace GestionOperativa.Presenters.Choferes
@@ -11,26 +12,33 @@ namespace GestionOperativa.Presenters.Choferes
     public class AgregarEditarChoferPresenter : BasePresenter<IAgregarEditarChoferView>
     {
         private readonly IChoferRepositorio _choferRepositorio;
+        private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
+
         private readonly IConfRepositorio _confRepositorio;
 
         public AgregarEditarChoferPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
             IChoferRepositorio choferRepositorio,
+            IEmpresaSeguroRepositorio empresaSeguroRepositorio,
             IConfRepositorio confRepositorio)
             : base(sesionService, navigationService)
         {
             _choferRepositorio = choferRepositorio;
             _confRepositorio = confRepositorio;
+            _empresaSeguroRepositorio = empresaSeguroRepositorio;
         }
 
         public async Task CargarDatosParaMostrarAsync(int choferId)
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var chofer = await _choferRepositorio.ObtenerPorIdDtoAsync(choferId);
+                ChoferDto chofer = await _choferRepositorio.ObtenerPorIdDtoAsync(choferId);
                 await VerificarArchivosChoferAsync(chofer.Documento);
                 _view.MostrarDatosChofer(chofer);
+                Chofer chofer1 = await _choferRepositorio.ObtenerPorIdAsync(choferId);
+                List<EmpresaSeguroDto> choferesSeguro = await _empresaSeguroRepositorio.ObtenerSeguroPorEmpresaYEntidadAsync(chofer1.IdEmpresa, 1);
+                _view.MostrarSeguros(choferesSeguro);
             });
         }
 

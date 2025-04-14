@@ -51,6 +51,30 @@ namespace Core.Repositories
             });
         }
 
+
+        // Obtener por otras busquedas
+
+        public async Task<List<Shared.Models.Semi>> ObtenerSemisLibresAsync()
+        {
+            const string sql = @"
+        SELECT s.IdSemi, s.Patente, s.Tara
+        FROM Semi s
+        WHERE s.IdSemi NOT IN (SELECT IdSemi FROM Unidad WHERE Activo = 1) and s.Activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var resultado = await connection.QueryAsync<Shared.Models.Semi>(sql);
+                return resultado.ToList();
+            });
+        }
+
+
+
+
+
+
+
+
         // Actualizar, Editar, Eliminar
 
         public async Task AltaSemiAsync(string patente, int idUsuario)

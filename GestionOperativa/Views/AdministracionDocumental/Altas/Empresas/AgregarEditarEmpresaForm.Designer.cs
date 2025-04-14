@@ -29,26 +29,34 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -89,6 +97,7 @@
             lRazonSocial = new Guna.UI2.WinForms.Guna2Panel();
             btnEditarDatos = new Guna.UI2.WinForms.Guna2Button();
             btnLegajoCuit = new Guna.UI2.WinForms.Guna2ImageButton();
+            btnLegajoArt = new Guna.UI2.WinForms.Guna2ImageButton();
             lMail = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lTelefonos = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lDireccion = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -101,22 +110,12 @@
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            bEliminarSeguro = new Guna.UI2.WinForms.Guna2Button();
+            bAgregarSeguro = new Guna.UI2.WinForms.Guna2Button();
+            dvgSeguroEmpresa = new Guna.UI2.WinForms.Guna2DataGridView();
             btnEditarArt = new Guna.UI2.WinForms.Guna2Button();
-            lPagoHasta = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lPagoDesde = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lVigenciaHasta = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lNumPoliza = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lCobertura = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lCompania = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            btnLegajoArt = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -135,6 +134,7 @@
             lRazonSocial.SuspendLayout();
             guna2Panel4.SuspendLayout();
             guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgSeguroEmpresa).BeginInit();
             guna2Panel5.SuspendLayout();
             guna2Panel10.SuspendLayout();
             guna2Panel1.SuspendLayout();
@@ -154,12 +154,12 @@
             // 
             guna2Panel9.Controls.Add(bMinimize);
             guna2Panel9.Controls.Add(bClose);
-            guna2Panel9.CustomizableEdges = customizableEdges30;
+            guna2Panel9.CustomizableEdges = customizableEdges33;
             guna2Panel9.Dock = DockStyle.Top;
             guna2Panel9.FillColor = Color.Transparent;
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
-            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges31;
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges34;
             guna2Panel9.Size = new Size(800, 31);
             guna2Panel9.TabIndex = 21;
             // 
@@ -167,12 +167,12 @@
             // 
             bMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            bMinimize.CustomizableEdges = customizableEdges26;
+            bMinimize.CustomizableEdges = customizableEdges29;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
             bMinimize.Location = new Point(739, 0);
             bMinimize.Name = "bMinimize";
-            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges27;
+            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges30;
             bMinimize.Size = new Size(32, 31);
             bMinimize.TabIndex = 18;
             // 
@@ -180,14 +180,14 @@
             // 
             bClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bClose.Animated = true;
-            bClose.CustomizableEdges = customizableEdges28;
+            bClose.CustomizableEdges = customizableEdges31;
             bClose.FillColor = Color.Transparent;
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
             bClose.Location = new Point(768, 0);
             bClose.Name = "bClose";
-            bClose.ShadowDecoration.CustomizableEdges = customizableEdges29;
+            bClose.ShadowDecoration.CustomizableEdges = customizableEdges32;
             bClose.Size = new Size(32, 31);
             bClose.TabIndex = 17;
             // 
@@ -286,6 +286,7 @@
             // 
             lRazonSocial.Controls.Add(btnEditarDatos);
             lRazonSocial.Controls.Add(btnLegajoCuit);
+            lRazonSocial.Controls.Add(btnLegajoArt);
             lRazonSocial.Controls.Add(lMail);
             lRazonSocial.Controls.Add(lTelefonos);
             lRazonSocial.Controls.Add(lDireccion);
@@ -303,18 +304,18 @@
             lRazonSocial.Controls.Add(guna2HtmlLabel2);
             lRazonSocial.Controls.Add(guna2HtmlLabel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel3);
-            lRazonSocial.CustomizableEdges = customizableEdges37;
+            lRazonSocial.CustomizableEdges = customizableEdges41;
             lRazonSocial.FillColor = Color.FromArgb(42, 48, 56);
             lRazonSocial.ForeColor = SystemColors.ControlLight;
             lRazonSocial.Location = new Point(28, 78);
             lRazonSocial.Name = "lRazonSocial";
-            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges42;
             lRazonSocial.Size = new Size(570, 244);
             lRazonSocial.TabIndex = 29;
             // 
             // btnEditarDatos
             // 
-            btnEditarDatos.CustomizableEdges = customizableEdges32;
+            btnEditarDatos.CustomizableEdges = customizableEdges35;
             btnEditarDatos.DisabledState.BorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -325,7 +326,7 @@
             btnEditarDatos.ForeColor = Color.White;
             btnEditarDatos.Location = new Point(0, 218);
             btnEditarDatos.Name = "btnEditarDatos";
-            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges33;
+            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges36;
             btnEditarDatos.Size = new Size(570, 26);
             btnEditarDatos.TabIndex = 52;
             btnEditarDatos.Text = "Editar";
@@ -344,10 +345,28 @@
             btnLegajoCuit.Location = new Point(21, 85);
             btnLegajoCuit.Name = "btnLegajoCuit";
             btnLegajoCuit.PressedState.ImageSize = new Size(27, 21);
-            btnLegajoCuit.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btnLegajoCuit.ShadowDecoration.CustomizableEdges = customizableEdges37;
             btnLegajoCuit.Size = new Size(26, 20);
             btnLegajoCuit.TabIndex = 34;
             btnLegajoCuit.Click += btnLegajoCuit_Click;
+            // 
+            // btnLegajoArt
+            // 
+            btnLegajoArt.BackColor = Color.Transparent;
+            btnLegajoArt.BackgroundImageLayout = ImageLayout.Stretch;
+            btnLegajoArt.CheckedState.ImageSize = new Size(27, 21);
+            btnLegajoArt.HoverState.ImageSize = new Size(27, 21);
+            btnLegajoArt.Image = Properties.Resources.iconoOk;
+            btnLegajoArt.ImageOffset = new Point(0, 0);
+            btnLegajoArt.ImageRotate = 0F;
+            btnLegajoArt.ImageSize = new Size(25, 20);
+            btnLegajoArt.Location = new Point(377, 189);
+            btnLegajoArt.Name = "btnLegajoArt";
+            btnLegajoArt.PressedState.ImageSize = new Size(27, 21);
+            btnLegajoArt.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            btnLegajoArt.Size = new Size(26, 20);
+            btnLegajoArt.TabIndex = 43;
+            btnLegajoArt.Click += btnLegajoArt_Click;
             // 
             // lMail
             // 
@@ -440,12 +459,12 @@
             // guna2Panel4
             // 
             guna2Panel4.Controls.Add(guna2HtmlLabel10);
-            guna2Panel4.CustomizableEdges = customizableEdges35;
+            guna2Panel4.CustomizableEdges = customizableEdges39;
             guna2Panel4.Dock = DockStyle.Top;
             guna2Panel4.FillColor = Color.ForestGreen;
             guna2Panel4.Location = new Point(0, 0);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges40;
             guna2Panel4.Size = new Size(570, 25);
             guna2Panel4.TabIndex = 31;
             // 
@@ -475,142 +494,149 @@
             // 
             // guna2Panel2
             // 
+            guna2Panel2.Controls.Add(bEliminarSeguro);
+            guna2Panel2.Controls.Add(bAgregarSeguro);
+            guna2Panel2.Controls.Add(dvgSeguroEmpresa);
             guna2Panel2.Controls.Add(btnEditarArt);
-            guna2Panel2.Controls.Add(lPagoHasta);
-            guna2Panel2.Controls.Add(lPagoDesde);
-            guna2Panel2.Controls.Add(lVigenciaHasta);
-            guna2Panel2.Controls.Add(lNumPoliza);
-            guna2Panel2.Controls.Add(lCobertura);
-            guna2Panel2.Controls.Add(lCompania);
-            guna2Panel2.Controls.Add(btnLegajoArt);
             guna2Panel2.Controls.Add(guna2Panel5);
-            guna2Panel2.Controls.Add(guna2HtmlLabel9);
-            guna2Panel2.Controls.Add(guna2HtmlLabel12);
-            guna2Panel2.Controls.Add(guna2HtmlLabel13);
-            guna2Panel2.Controls.Add(guna2HtmlLabel14);
-            guna2Panel2.Controls.Add(guna2HtmlLabel15);
-            guna2Panel2.Controls.Add(guna2HtmlLabel16);
-            guna2Panel2.CustomizableEdges = customizableEdges24;
+            guna2Panel2.CustomizableEdges = customizableEdges27;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel2.ForeColor = SystemColors.ControlLight;
             guna2Panel2.Location = new Point(28, 336);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges25;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel2.Size = new Size(570, 240);
             guna2Panel2.TabIndex = 31;
             // 
+            // bEliminarSeguro
+            // 
+            bEliminarSeguro.CustomizableEdges = customizableEdges19;
+            bEliminarSeguro.DisabledState.BorderColor = Color.DarkGray;
+            bEliminarSeguro.DisabledState.CustomBorderColor = Color.DarkGray;
+            bEliminarSeguro.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bEliminarSeguro.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bEliminarSeguro.FillColor = Color.Brown;
+            bEliminarSeguro.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bEliminarSeguro.ForeColor = Color.White;
+            bEliminarSeguro.Location = new Point(0, 212);
+            bEliminarSeguro.Name = "bEliminarSeguro";
+            bEliminarSeguro.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            bEliminarSeguro.Size = new Size(189, 28);
+            bEliminarSeguro.TabIndex = 72;
+            bEliminarSeguro.Text = "Eliminar";
+            bEliminarSeguro.Click += bEliminarSeguro_Click;
+            // 
+            // bAgregarSeguro
+            // 
+            bAgregarSeguro.CustomizableEdges = customizableEdges21;
+            bAgregarSeguro.DisabledState.BorderColor = Color.DarkGray;
+            bAgregarSeguro.DisabledState.CustomBorderColor = Color.DarkGray;
+            bAgregarSeguro.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bAgregarSeguro.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bAgregarSeguro.FillColor = Color.ForestGreen;
+            bAgregarSeguro.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bAgregarSeguro.ForeColor = Color.White;
+            bAgregarSeguro.Location = new Point(381, 212);
+            bAgregarSeguro.Name = "bAgregarSeguro";
+            bAgregarSeguro.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            bAgregarSeguro.Size = new Size(189, 28);
+            bAgregarSeguro.TabIndex = 71;
+            bAgregarSeguro.Text = "Agregar";
+            bAgregarSeguro.Click += bAgregarSeguro_Click;
+            // 
+            // dvgSeguroEmpresa
+            // 
+            dvgSeguroEmpresa.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dvgSeguroEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dvgSeguroEmpresa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dvgSeguroEmpresa.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle10.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dvgSeguroEmpresa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dvgSeguroEmpresa.ColumnHeadersHeight = 25;
+            dvgSeguroEmpresa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle11.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dvgSeguroEmpresa.DefaultCellStyle = dataGridViewCellStyle11;
+            dvgSeguroEmpresa.GridColor = Color.FromArgb(231, 229, 255);
+            dvgSeguroEmpresa.Location = new Point(13, 43);
+            dvgSeguroEmpresa.Name = "dvgSeguroEmpresa";
+            dvgSeguroEmpresa.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dataGridViewCellStyle12.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dvgSeguroEmpresa.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dvgSeguroEmpresa.RowHeadersVisible = false;
+            dvgSeguroEmpresa.Size = new Size(546, 152);
+            dvgSeguroEmpresa.TabIndex = 70;
+            dvgSeguroEmpresa.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dvgSeguroEmpresa.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dvgSeguroEmpresa.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dvgSeguroEmpresa.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dvgSeguroEmpresa.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dvgSeguroEmpresa.ThemeStyle.BackColor = Color.White;
+            dvgSeguroEmpresa.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dvgSeguroEmpresa.ThemeStyle.HeaderStyle.Height = 25;
+            dvgSeguroEmpresa.ThemeStyle.ReadOnly = false;
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.Height = 25;
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dvgSeguroEmpresa.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
             // btnEditarArt
             // 
-            btnEditarArt.CustomizableEdges = customizableEdges19;
+            btnEditarArt.CustomizableEdges = customizableEdges23;
             btnEditarArt.DisabledState.BorderColor = Color.DarkGray;
             btnEditarArt.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditarArt.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnEditarArt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnEditarArt.Dock = DockStyle.Bottom;
             btnEditarArt.FillColor = Color.Orange;
             btnEditarArt.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEditarArt.ForeColor = Color.White;
-            btnEditarArt.Location = new Point(0, 214);
+            btnEditarArt.Location = new Point(190, 212);
             btnEditarArt.Name = "btnEditarArt";
-            btnEditarArt.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnEditarArt.Size = new Size(570, 26);
+            btnEditarArt.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnEditarArt.Size = new Size(190, 28);
             btnEditarArt.TabIndex = 53;
             btnEditarArt.Text = "Editar";
             btnEditarArt.Click += btnEditarArt_Click;
             // 
-            // lPagoHasta
-            // 
-            lPagoHasta.BackColor = Color.Transparent;
-            lPagoHasta.Font = new Font("Century Gothic", 9F);
-            lPagoHasta.ForeColor = SystemColors.ControlLight;
-            lPagoHasta.Location = new Point(177, 185);
-            lPagoHasta.Name = "lPagoHasta";
-            lPagoHasta.Size = new Size(68, 19);
-            lPagoHasta.TabIndex = 48;
-            lPagoHasta.Text = "PagoHasta";
-            // 
-            // lPagoDesde
-            // 
-            lPagoDesde.BackColor = Color.Transparent;
-            lPagoDesde.Font = new Font("Century Gothic", 9F);
-            lPagoDesde.ForeColor = SystemColors.ControlLight;
-            lPagoDesde.Location = new Point(177, 156);
-            lPagoDesde.Name = "lPagoDesde";
-            lPagoDesde.Size = new Size(72, 19);
-            lPagoDesde.TabIndex = 47;
-            lPagoDesde.Text = "PagoDesde";
-            // 
-            // lVigenciaHasta
-            // 
-            lVigenciaHasta.BackColor = Color.Transparent;
-            lVigenciaHasta.Font = new Font("Century Gothic", 9F);
-            lVigenciaHasta.ForeColor = SystemColors.ControlLight;
-            lVigenciaHasta.Location = new Point(177, 126);
-            lVigenciaHasta.Name = "lVigenciaHasta";
-            lVigenciaHasta.Size = new Size(91, 19);
-            lVigenciaHasta.TabIndex = 46;
-            lVigenciaHasta.Text = "VigenciaHasta";
-            // 
-            // lNumPoliza
-            // 
-            lNumPoliza.BackColor = Color.Transparent;
-            lNumPoliza.Font = new Font("Century Gothic", 9F);
-            lNumPoliza.ForeColor = SystemColors.ControlLight;
-            lNumPoliza.Location = new Point(177, 96);
-            lNumPoliza.Name = "lNumPoliza";
-            lNumPoliza.Size = new Size(87, 19);
-            lNumPoliza.TabIndex = 45;
-            lNumPoliza.Text = "Numero Poliza";
-            // 
-            // lCobertura
-            // 
-            lCobertura.BackColor = Color.Transparent;
-            lCobertura.Font = new Font("Century Gothic", 9F);
-            lCobertura.ForeColor = SystemColors.ControlLight;
-            lCobertura.Location = new Point(177, 66);
-            lCobertura.Name = "lCobertura";
-            lCobertura.Size = new Size(64, 19);
-            lCobertura.TabIndex = 44;
-            lCobertura.Text = "Cobertura";
-            // 
-            // lCompania
-            // 
-            lCompania.BackColor = Color.Transparent;
-            lCompania.Font = new Font("Century Gothic", 9F);
-            lCompania.ForeColor = SystemColors.ControlLight;
-            lCompania.Location = new Point(177, 36);
-            lCompania.Name = "lCompania";
-            lCompania.Size = new Size(65, 19);
-            lCompania.TabIndex = 43;
-            lCompania.Text = "Compania";
-            // 
-            // btnLegajoArt
-            // 
-            btnLegajoArt.BackColor = Color.Transparent;
-            btnLegajoArt.BackgroundImageLayout = ImageLayout.Stretch;
-            btnLegajoArt.CheckedState.ImageSize = new Size(27, 21);
-            btnLegajoArt.HoverState.ImageSize = new Size(27, 21);
-            btnLegajoArt.Image = Properties.Resources.iconoOk;
-            btnLegajoArt.ImageOffset = new Point(0, 0);
-            btnLegajoArt.ImageRotate = 0F;
-            btnLegajoArt.ImageSize = new Size(25, 20);
-            btnLegajoArt.Location = new Point(21, 35);
-            btnLegajoArt.Name = "btnLegajoArt";
-            btnLegajoArt.PressedState.ImageSize = new Size(27, 21);
-            btnLegajoArt.ShadowDecoration.CustomizableEdges = customizableEdges21;
-            btnLegajoArt.Size = new Size(26, 20);
-            btnLegajoArt.TabIndex = 43;
-            btnLegajoArt.Click += btnLegajoArt_Click;
-            // 
             // guna2Panel5
             // 
             guna2Panel5.Controls.Add(guna2HtmlLabel11);
-            guna2Panel5.CustomizableEdges = customizableEdges22;
+            guna2Panel5.CustomizableEdges = customizableEdges25;
             guna2Panel5.Dock = DockStyle.Top;
             guna2Panel5.FillColor = Color.ForestGreen;
             guna2Panel5.Location = new Point(0, 0);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges23;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel5.Size = new Size(570, 25);
             guna2Panel5.TabIndex = 32;
             // 
@@ -619,89 +645,11 @@
             guna2HtmlLabel11.BackColor = Color.Transparent;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(266, 4);
+            guna2HtmlLabel11.Location = new Point(184, 4);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            guna2HtmlLabel11.Size = new Size(27, 18);
+            guna2HtmlLabel11.Size = new Size(213, 18);
             guna2HtmlLabel11.TabIndex = 32;
-            guna2HtmlLabel11.Text = "ART";
-            // 
-            // guna2HtmlLabel9
-            // 
-            guna2HtmlLabel9.AutoSize = false;
-            guna2HtmlLabel9.BackColor = Color.Gray;
-            guna2HtmlLabel9.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(21, 185);
-            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(150, 20);
-            guna2HtmlLabel9.TabIndex = 28;
-            guna2HtmlLabel9.Text = "Pago Hasta";
-            guna2HtmlLabel9.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // guna2HtmlLabel12
-            // 
-            guna2HtmlLabel12.AutoSize = false;
-            guna2HtmlLabel12.BackColor = Color.Gray;
-            guna2HtmlLabel12.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel12.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel12.Location = new Point(53, 35);
-            guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            guna2HtmlLabel12.Size = new Size(118, 20);
-            guna2HtmlLabel12.TabIndex = 22;
-            guna2HtmlLabel12.Text = "Compania";
-            guna2HtmlLabel12.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // guna2HtmlLabel13
-            // 
-            guna2HtmlLabel13.AutoSize = false;
-            guna2HtmlLabel13.BackColor = Color.Gray;
-            guna2HtmlLabel13.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel13.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel13.Location = new Point(21, 155);
-            guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            guna2HtmlLabel13.Size = new Size(150, 20);
-            guna2HtmlLabel13.TabIndex = 26;
-            guna2HtmlLabel13.Text = "Pago desde";
-            guna2HtmlLabel13.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // guna2HtmlLabel14
-            // 
-            guna2HtmlLabel14.AutoSize = false;
-            guna2HtmlLabel14.BackColor = Color.Gray;
-            guna2HtmlLabel14.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel14.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel14.Location = new Point(21, 65);
-            guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            guna2HtmlLabel14.Size = new Size(150, 20);
-            guna2HtmlLabel14.TabIndex = 23;
-            guna2HtmlLabel14.Text = "Cobertura";
-            guna2HtmlLabel14.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // guna2HtmlLabel15
-            // 
-            guna2HtmlLabel15.AutoSize = false;
-            guna2HtmlLabel15.BackColor = Color.Gray;
-            guna2HtmlLabel15.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel15.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel15.Location = new Point(21, 125);
-            guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            guna2HtmlLabel15.Size = new Size(150, 20);
-            guna2HtmlLabel15.TabIndex = 25;
-            guna2HtmlLabel15.Text = "Vigencia Hasta";
-            guna2HtmlLabel15.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // guna2HtmlLabel16
-            // 
-            guna2HtmlLabel16.AutoSize = false;
-            guna2HtmlLabel16.BackColor = Color.Gray;
-            guna2HtmlLabel16.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel16.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel16.Location = new Point(21, 95);
-            guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            guna2HtmlLabel16.Size = new Size(150, 20);
-            guna2HtmlLabel16.TabIndex = 24;
-            guna2HtmlLabel16.Text = "Numero Poliza";
-            guna2HtmlLabel16.TextAlignment = ContentAlignment.TopCenter;
+            guna2HtmlLabel11.Text = "Seguros De Choferes y Unidades";
             // 
             // guna2Panel10
             // 
@@ -752,20 +700,21 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvSatelitales.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            dgvSatelitales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvSatelitales.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle6.ForeColor = Color.White;
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             dgvSatelitales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvSatelitales.ColumnHeadersHeight = 25;
+            dgvSatelitales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = Color.White;
             dataGridViewCellStyle7.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = SystemColors.ControlLight;
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
@@ -797,7 +746,7 @@
             dgvSatelitales.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvSatelitales.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgvSatelitales.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvSatelitales.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvSatelitales.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvSatelitales.ThemeStyle.HeaderStyle.Height = 25;
             dgvSatelitales.ThemeStyle.ReadOnly = true;
             dgvSatelitales.ThemeStyle.RowsStyle.BackColor = Color.White;
@@ -894,19 +843,21 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvPaises.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvPaises.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvPaises.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvPaises.ColumnHeadersHeight = 25;
+            dgvPaises.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlLight;
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
@@ -938,7 +889,7 @@
             dgvPaises.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvPaises.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgvPaises.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvPaises.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvPaises.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvPaises.ThemeStyle.HeaderStyle.Height = 25;
             dgvPaises.ThemeStyle.ReadOnly = true;
             dgvPaises.ThemeStyle.RowsStyle.BackColor = Color.White;
@@ -1030,7 +981,7 @@
             guna2Panel4.ResumeLayout(false);
             guna2Panel4.PerformLayout();
             guna2Panel2.ResumeLayout(false);
-            guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgSeguroEmpresa).EndInit();
             guna2Panel5.ResumeLayout(false);
             guna2Panel5.PerformLayout();
             guna2Panel10.ResumeLayout(false);
@@ -1061,12 +1012,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2Panel lRazonSocial;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
@@ -1093,16 +1038,13 @@
         private Guna.UI2.WinForms.Guna2Button bAgregarPaisAuto;
         private Guna.UI2.WinForms.Guna2Button bEliminarPaisAut;
         private Guna.UI2.WinForms.Guna2Button bAgregarSatelital;
-        private Guna.UI2.WinForms.Guna2ImageButton btnLegajoArt;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lPagoHasta;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lPagoDesde;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lVigenciaHasta;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lNumPoliza;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lCobertura;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lCompania;
         private Guna.UI2.WinForms.Guna2Button btnEditarArt;
         private Guna.UI2.WinForms.Guna2Button btnEditarDatos;
         private Guna.UI2.WinForms.Guna2DataGridView dgvSatelitales;
         private Guna.UI2.WinForms.Guna2DataGridView dgvPaises;
+        private Guna.UI2.WinForms.Guna2DataGridView dvgSeguroEmpresa;
+        private Guna.UI2.WinForms.Guna2ImageButton btnLegajoArt;
+        private Guna.UI2.WinForms.Guna2Button bAgregarSeguro;
+        private Guna.UI2.WinForms.Guna2Button bEliminarSeguro;
     }
 }

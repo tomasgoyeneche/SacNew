@@ -309,7 +309,7 @@ namespace GestionOperativa.Presenters
         { "PsicofisicoApto", chofer => chofer.PsicofisicoApto },
         { "PsicofisicoCurso", chofer => chofer.PsicofisicoCurso },
         { "Licencia", chofer => chofer.Licencia },
-        { "VigenciaHasta", chofer => chofer.VigenciaHasta }
+
     };
 
             await _documentacionService.ExportarVencimientosAsync<ChoferDto>(

@@ -9,6 +9,6 @@ namespace Core.Repositories
 
         // Metodos de busqueda especificos
 
-        Task<List<Cia>> ObtenerPorTipoAsync(int idTipoCia);
+        Task<List<Cia>> ObtenerPorTipoAsync(int idEmpresaSeguroEntidad);
     }
 }

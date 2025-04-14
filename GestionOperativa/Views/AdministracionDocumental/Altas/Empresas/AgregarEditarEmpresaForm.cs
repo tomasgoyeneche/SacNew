@@ -28,18 +28,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             lDireccion.Text = empresa.Domicilio ?? "N/A";
             lTelefonos.Text = empresa.Telefono ?? "N/A";
             lMail.Text = empresa.Email ?? "N/A";
-            lCompania.Text = empresa.NombreCia ?? "N/A";
-            lCobertura.Text = empresa.TipoCobertura ?? "N/A";
-            lNumPoliza.Text = empresa.NumeroPoliza ?? "N/A";
-            lVigenciaHasta.Text = empresa.VigenciaHasta != DateTime.MinValue
-                ? empresa.VigenciaHasta.ToShortDateString()
-                : "Sin Fecha";
-            lPagoDesde.Text = empresa.PagoDesde != DateTime.MinValue
-                ? empresa.PagoDesde.ToShortDateString()
-                : "Sin Fecha";
-            lPagoHasta.Text = empresa.PagoHasta != DateTime.MinValue
-                ? empresa.PagoHasta.ToShortDateString()
-                : "Sin Fecha";
 
             IdEmpresa = empresa.IdEmpresa;
         }
@@ -105,15 +93,37 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             dgvPaises.Columns["idEmpresaPais"].Visible = false;
         }
 
+        public void MostrarSeguros(List<EmpresaSeguroDto> seguros)
+        {
+            dvgSeguroEmpresa.DataSource = seguros;
+
+            // Ocultar columnas técnicas
+            dvgSeguroEmpresa.Columns["idEmpresaSeguro"].Visible = false;
+            dvgSeguroEmpresa.Columns["idEmpresa"].Visible = false;
+            dvgSeguroEmpresa.Columns["idEmpresaSeguroEntidad"].Visible = false;
+
+            dvgSeguroEmpresa.Columns["entidad"].HeaderText = "Tipo";
+            dvgSeguroEmpresa.Columns["cia"].HeaderText = "CIA";
+            dvgSeguroEmpresa.Columns["TipoCobertura"].HeaderText = "Cobertura";
+            dvgSeguroEmpresa.Columns["numeroPoliza"].HeaderText = "Poliza";
+            dvgSeguroEmpresa.Columns["certificadoMensual"].HeaderText = "Certificado Mensual";
+            dvgSeguroEmpresa.Columns["vigenciaAnual"].HeaderText = "Vigencia Anual";
+
+            // Reordenar columnas (DisplayIndex)
+            dvgSeguroEmpresa.Columns["TipoCobertura"].DisplayIndex = 0;
+            dvgSeguroEmpresa.Columns["certificadoMensual"].DisplayIndex = 1;
+            dvgSeguroEmpresa.Columns["vigenciaAnual"].DisplayIndex = 2;
+            dvgSeguroEmpresa.Columns["numeroPoliza"].DisplayIndex = 3;
+            dvgSeguroEmpresa.Columns["cia"].DisplayIndex = 4;
+            dvgSeguroEmpresa.Columns["entidad"].DisplayIndex = 5;
+        }
+
         private void btnEditarDatos_Click(object sender, EventArgs e)
         {
             _presenter.EditarDatosEmpresa(IdEmpresa);
         }
 
-        private void btnEditarArt_Click(object sender, EventArgs e)
-        {
-            _presenter.EditarDatosSeguro(IdEmpresa);
-        }
+
 
         private void bAgregarSatelital_Click(object sender, EventArgs e)
         {
@@ -135,6 +145,44 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         private void bAgregarPaisAuto_Click(object sender, EventArgs e)
         {
+        }
+
+        private void bAgregarSeguro_Click(object sender, EventArgs e)
+        {
+            _presenter.EditarDatosSeguro(IdEmpresa, null);
+        }
+
+        private void btnEditarArt_Click(object sender, EventArgs e)
+        {
+            EmpresaSeguroDto empresaseguro = dvgSeguroEmpresa.SelectedRows[0].DataBoundItem as EmpresaSeguroDto;
+            if (empresaseguro == null)
+            {
+                MostrarMensaje("No se pudo obtener el seguro seleccionado.");
+                return;
+            }
+            _presenter.EditarDatosSeguro(IdEmpresa, empresaseguro);
+        }
+
+        private async void bEliminarSeguro_Click(object sender, EventArgs e)
+        {
+            if (dvgSeguroEmpresa.SelectedRows.Count == 0)
+            {
+                MostrarMensaje("Seleccione un seguro para eliminar.");
+                return;
+            }
+
+            var row = dvgSeguroEmpresa.SelectedRows[0].DataBoundItem as EmpresaSeguroDto;
+            if (row == null)
+            {
+                MostrarMensaje("No se pudo obtener el seguro seleccionado.");
+                return;
+            }
+
+            var confirm = MessageBox.Show("¿Está seguro que desea eliminar el seguro seleccionado?", "Confirmar", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                await _presenter.EliminarSeguroAsync(row.idEmpresaSeguro, IdEmpresa);
+            }
         }
     }
 }

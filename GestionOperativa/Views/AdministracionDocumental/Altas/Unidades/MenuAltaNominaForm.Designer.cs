@@ -169,7 +169,6 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewUnidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewUnidades.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 128, 64);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -254,6 +253,7 @@
             btnAgregar.Size = new Size(145, 40);
             btnAgregar.TabIndex = 55;
             btnAgregar.Text = "Agregar";
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // bConsultarNomina
             // 
@@ -462,9 +462,9 @@
             lTransportista.ForeColor = SystemColors.ControlLight;
             lTransportista.Location = new Point(134, 537);
             lTransportista.Name = "lTransportista";
-            lTransportista.Size = new Size(73, 18);
+            lTransportista.Size = new Size(70, 18);
             lTransportista.TabIndex = 66;
-            lTransportista.Text = "ITransportista";
+            lTransportista.Text = "Transportista";
             // 
             // lSubTransportista
             // 
@@ -473,9 +473,9 @@
             lSubTransportista.ForeColor = SystemColors.ControlLight;
             lSubTransportista.Location = new Point(134, 569);
             lSubTransportista.Name = "lSubTransportista";
-            lSubTransportista.Size = new Size(94, 18);
+            lSubTransportista.Size = new Size(91, 18);
             lSubTransportista.TabIndex = 67;
-            lSubTransportista.Text = "ISubTransportista";
+            lSubTransportista.Text = "SubTransportista";
             // 
             // guna2Button1
             // 
@@ -524,7 +524,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MenuAltaNominaForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MenuAltaNominaForm";
             guna2Panel10.ResumeLayout(false);
             guna2Panel10.PerformLayout();
             guna2Panel9.ResumeLayout(false);

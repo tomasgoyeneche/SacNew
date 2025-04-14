@@ -21,11 +21,14 @@ namespace Core.Repositories
         }
 
         // Metodos de busqueda especificos
-        public async Task<List<Cia>> ObtenerPorTipoAsync(int idTipoCia)
+        public async Task<List<Cia>> ObtenerPorTipoAsync(int idEmpresaSeguroEntidad)
         {
-            var query = "SELECT * FROM Cia WHERE idTipoCia = @idTipoCia AND Activo = 1";
+            var query = @"SELECT idCia, NombreFantasia, idEmpresaSeguroEntidad
+                           FROM Cia 
+                           WHERE Activo = 1 AND idEmpresaSeguroEntidad = @idEmpresaSeguroEntidad
+                           ORDER BY NombreFantasia";
             return (await ConectarAsync(conn =>
-                conn.QueryAsync<Cia>(query, new { idTipoCia })
+                conn.QueryAsync<Cia>(query, new { idEmpresaSeguroEntidad })
             )).ToList();
         }
     }

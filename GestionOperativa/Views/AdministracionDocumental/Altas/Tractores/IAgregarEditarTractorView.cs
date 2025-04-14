@@ -6,6 +6,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
     {
         Task CargarDatos(int idTractor);
 
+        void MostrarSeguros(List<EmpresaSeguroDto> seguros);
         void MostrarDatosTractor(TractorDto tractor);
 
         void ConfigurarFotoTractor(bool habilitar, string? rutaArchivo);

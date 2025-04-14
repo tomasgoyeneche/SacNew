@@ -7,6 +7,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
     {
         void MostrarDatosChofer(ChoferDto chofer);
 
+        void MostrarSeguros(List<EmpresaSeguroDto> seguros);
+
         void ConfigurarFotoChofer(bool habilitar, string? rutaArchivo);
 
         void ConfigurarBotonAltaTemprana(bool habilitar, string? rutaArchivo);

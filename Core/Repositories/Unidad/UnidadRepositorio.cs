@@ -119,5 +119,17 @@ namespace Core.Repositories
                 });
             });
         }
+
+        public async Task AgregarUnidadAsync(Unidad unidad)
+        {
+            const string sql = @"
+        INSERT INTO Unidad (IdTractor, IdSemi, TaraTotal, IdEmpresa, Metanol, Gasoil, LujanCuyo, AptoBo, Activo)
+        VALUES (@IdTractor, @IdSemi, @TaraTotal, @IdEmpresa, @Metanol, @Gasoil, @LujanCuyo, @AptoBo, @Activo)";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(sql, unidad);
+            });
+        }
     }
 }

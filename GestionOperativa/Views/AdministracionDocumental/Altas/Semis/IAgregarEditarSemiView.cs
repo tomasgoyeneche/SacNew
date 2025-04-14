@@ -8,6 +8,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 
         void MostrarDatosSemi(SemiDto semi);
 
+        void MostrarSeguros(List<EmpresaSeguroDto> seguros);
+
         void ConfigurarFotoSemi(bool habilitar, string? rutaArchivo);
 
         void ConfigurarFotoConfiguracion(bool habilitar, string? rutaArchivo);

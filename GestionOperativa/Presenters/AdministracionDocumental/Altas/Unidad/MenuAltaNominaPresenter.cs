@@ -40,11 +40,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await EjecutarConCargaAsync(async () =>
             {
                 var unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
-                var empresas = unidades
-                    .Select(u => new { Nombre = u.Empresa_Unidad, Cuit = u.Cuit_Unidad })
-                    .Distinct()
-                    .Select(e => (object)e)
-                    .ToList();
+                List<EmpresaDto> empresas = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
 
                 _view.CargarEmpresas(empresas);
                 _unidadesCargadas = unidades.ToList();
@@ -56,7 +52,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         {
             var unidadesFiltradas = string.IsNullOrEmpty(nombreEmpresa)
                 ? _unidadesCargadas
-                : _unidadesCargadas.Where(u => u.Empresa_Unidad == nombreEmpresa).ToList();
+                : _unidadesCargadas.Where(u => u.Cuit_Unidad.Equals(nombreEmpresa, StringComparison.OrdinalIgnoreCase)).ToList();
 
             _view.MostrarUnidades(unidadesFiltradas);
         }
@@ -131,6 +127,16 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 await CargarEmpresasAsync(); // 🔹 Recargar lista después de eliminar
             });
         }
+
+        public async Task AgregarUnidad(EmpresaDto empresa)
+        {
+            await AbrirFormularioAsync<AgregarUnidadForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(empresa.IdEmpresa, empresa.NombreFantasia);
+            });
+            await CargarEmpresasAsync(); // Refrescar la vista después de agregar
+        }
+
 
         public async Task GenerarReporteFlotaAsync()
         {

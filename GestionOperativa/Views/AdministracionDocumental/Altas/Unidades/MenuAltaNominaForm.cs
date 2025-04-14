@@ -19,10 +19,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             await _presenter.CargarEmpresasAsync();
         }
 
-        public void CargarEmpresas(List<object> empresas)
+        public void CargarEmpresas(List<EmpresaDto> empresas)
         {
-            cmbEmpresas.DisplayMember = "Nombre";
-            cmbEmpresas.ValueMember = "Cuit";
+            cmbEmpresas.DisplayMember = "NombreFantasia";
+            cmbEmpresas.ValueMember = "IdEmpresa";
             cmbEmpresas.DataSource = empresas;
             cmbEmpresas.SelectedIndex = -1; // Sin selección al inicio
         }
@@ -123,10 +123,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cmbEmpresas.SelectedIndex != -1)
             {
-                var nombreEmpresa = cmbEmpresas.Text;
-                _presenter.FiltrarPorEmpresa(nombreEmpresa);
+                EmpresaDto empresa = cmbEmpresas.SelectedItem as EmpresaDto;
+                _presenter.FiltrarPorEmpresa(empresa.Cuit);
             }
         }
 
@@ -148,6 +149,17 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private async void btnEliminarUnidad_Click(object sender, EventArgs e)
         {
             await _presenter.EliminarUnidadAsync();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if(cmbEmpresas.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione una empresa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            EmpresaDto empresa = cmbEmpresas.SelectedItem as EmpresaDto;
+            _presenter.AgregarUnidad(empresa);
         }
     }
 }

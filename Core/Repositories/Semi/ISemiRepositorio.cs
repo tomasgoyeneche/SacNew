@@ -13,6 +13,11 @@ namespace Core.Repositories
 
         Task<Shared.Models.Semi> ObtenerSemiPorIdAsync(int idSemi);
 
+
+        // Obtener por otras busquedas
+
+        Task<List<Shared.Models.Semi>> ObtenerSemisLibresAsync();
+
         //Actualizar, Editar, Eliminar
 
         Task AltaSemiAsync(string patente, int idUsuario);

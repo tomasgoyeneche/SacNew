@@ -4,6 +4,7 @@ using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using Shared.Models;
 using System.IO;
 
 namespace GestionOperativa.Presenters
@@ -11,17 +12,21 @@ namespace GestionOperativa.Presenters
     public class AgregarEditarSemiPresenter : BasePresenter<IAgregarEditarSemiView>
     {
         private readonly ISemiRepositorio _semiRepositorio;
+        private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
+
         private readonly IConfRepositorio _confRepositorio;
 
         public AgregarEditarSemiPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
             ISemiRepositorio semiRepositorio,
+            IEmpresaSeguroRepositorio empresaSeguroRepositorio,
             IConfRepositorio confRepositorio)
             : base(sesionService, navigationService)
         {
             _semiRepositorio = semiRepositorio;
             _confRepositorio = confRepositorio;
+            _empresaSeguroRepositorio = empresaSeguroRepositorio;
         }
 
         public async Task CargarDatosParaMostrarAsync(int idSemi)
@@ -37,6 +42,10 @@ namespace GestionOperativa.Presenters
 
                 _view.MostrarDatosSemi(semi);
                 _view.MostrarVencimiento(añoFinal > 0 ? añoFinal.ToString() : "Sin fecha");
+
+                Semi semi2 = await _semiRepositorio.ObtenerSemiPorIdAsync(idSemi);
+                List<EmpresaSeguroDto> semisSeguro = await _empresaSeguroRepositorio.ObtenerSeguroPorEmpresaYEntidadAsync(semi2.IdEmpresa, 2);
+                _view.MostrarSeguros(semisSeguro);
             });
         }
 
