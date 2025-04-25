@@ -4,6 +4,7 @@ using Core.Services;
 using GestionOperativa.Processor;
 using GestionOperativa.Views.AdministracionDocumental;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
+using GestionOperativa.Views.AdministracionDocumental.Relevamientos;
 using Shared.Models;
 using System.IO;
 
@@ -56,6 +57,13 @@ namespace GestionOperativa.Presenters
             });
         }
 
+        public async Task CargarMenuFichaTecnica()
+        {
+            await AbrirFormularioAsync<FichaTecnicaUnidades>(async form =>
+            {
+                await form._presenter.InicializarAsync();
+            });
+        }
         private async Task<string?> ObtenerRutaAsync(int idRuta)
         {
             var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(idRuta);
@@ -83,7 +91,7 @@ namespace GestionOperativa.Presenters
                      chofer.Empresa_Cuit,
                      Nombre = $"{chofer.Apellido}, {chofer.Nombre}",
                      chofer.Documento,
-                     ArchivoFaltante = $"Q:\\Choferes\\{chofer.Documento}.jpg"
+                     ArchivoFaltante = $"S:\\Choferes\\{chofer.Documento}.jpg"
                  },
                  _view.MostrarRelevamiento
              );
@@ -116,7 +124,7 @@ namespace GestionOperativa.Presenters
              {
                  var archivosFaltantes = subCarpetas
                      .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{chofer.Documento}.pdf")))
-                     .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
+                     .Select(sub => $"{sub.Key}: S:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
                      .ToList();
 
                  return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
@@ -130,7 +138,7 @@ namespace GestionOperativa.Presenters
                  chofer.Documento,
                  ArchivosFaltantes = subCarpetas
                      .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{chofer.Documento}.pdf")))
-                     .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
+                     .Select(sub => $"{sub.Key}: S:\\LegajosDigitalizados\\Chofer\\{sub.Value}\\{chofer.Documento}.pdf")
                      .DefaultIfEmpty("Completo")
                      .Aggregate((a, b) => $"{a} | {b}")
              },
@@ -175,7 +183,7 @@ namespace GestionOperativa.Presenters
                   empresa.Cuit,
                   ArchivosFaltantes = subCarpetas
                       .Where(sub => !File.Exists(Path.Combine(rutaRaiz, sub.Value, $"{empresa.Cuit}.pdf")))
-                      .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\EMPRESA\\{sub.Value}\\{empresa.Cuit}.pdf")
+                      .Select(sub => $"{sub.Key}: S:\\LegajosDigitalizados\\EMPRESA\\{sub.Value}\\{empresa.Cuit}.pdf")
                       .DefaultIfEmpty("Completo")
                       .Aggregate((a, b) => $"{a} | {b}")
               },
@@ -207,7 +215,7 @@ namespace GestionOperativa.Presenters
                 {
                     var archivosFaltantes = subCarpetas
                         .Where(sub => !File.Exists(sub.Value(unidad)))
-                        .Select(sub => $"{sub.Key}: Q:\\Fotos\\{sub.Key}\\{Path.GetFileName(sub.Value(unidad))}")
+                        .Select(sub => $"{sub.Key}: S:\\Fotos\\{sub.Key}\\{Path.GetFileName(sub.Value(unidad))}")
                         .ToList();
 
                     return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
@@ -220,7 +228,7 @@ namespace GestionOperativa.Presenters
                     NombreUnidad = $"{unidad.Tractor_Patente} - {unidad.Semirremolque_Patente}",
                     ArchivosFaltantes = subCarpetas
                         .Where(sub => !File.Exists(sub.Value(unidad)))
-                        .Select(sub => $"{sub.Key}: Q:\\Fotos\\{sub.Key}\\{Path.GetFileName(sub.Value(unidad))}")
+                        .Select(sub => $"{sub.Key}: S:\\Fotos\\{sub.Key}\\{Path.GetFileName(sub.Value(unidad))}")
                         .DefaultIfEmpty("Completo")
                         .Aggregate((a, b) => $"{a} | {b}")
                 },
@@ -269,7 +277,7 @@ namespace GestionOperativa.Presenters
                 {
                     var archivosFaltantes = subCarpetas
                         .Where(sub => !File.Exists(sub.Value(unidad)))
-                        .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\{sub.Key.Replace(" - ", "\\")}\\{Path.GetFileName(sub.Value(unidad))}")
+                        .Select(sub => $"{sub.Key}: S:\\LegajosDigitalizados\\{sub.Key.Replace(" - ", "\\")}\\{Path.GetFileName(sub.Value(unidad))}")
                         .ToList();
 
                     return archivosFaltantes.Any() ? string.Join(" | ", archivosFaltantes) : null;
@@ -282,7 +290,7 @@ namespace GestionOperativa.Presenters
                     NombreUnidad = $"{unidad.Tractor_Patente} - {unidad.Semirremolque_Patente}",
                     ArchivosFaltantes = subCarpetas
                         .Where(sub => !File.Exists(sub.Value(unidad)))
-                        .Select(sub => $"{sub.Key}: Q:\\LegajosDigitalizados\\{sub.Key.Replace(" - ", "\\")}\\{Path.GetFileName(sub.Value(unidad))}")
+                        .Select(sub => $"{sub.Key}: S:\\LegajosDigitalizados\\{sub.Key.Replace(" - ", "\\")}\\{Path.GetFileName(sub.Value(unidad))}")
                         .DefaultIfEmpty("Completo")
                         .Aggregate((a, b) => $"{a} | {b}")
                 },

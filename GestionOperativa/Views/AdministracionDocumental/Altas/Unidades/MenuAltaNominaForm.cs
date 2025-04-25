@@ -153,13 +153,44 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(cmbEmpresas.SelectedItem == null)
+            if (cmbEmpresas.SelectedItem == null)
             {
                 MessageBox.Show("Seleccione una empresa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             EmpresaDto empresa = cmbEmpresas.SelectedItem as EmpresaDto;
             _presenter.AgregarUnidad(empresa);
+        }
+
+        private void bNominaEnComodato_Click(object sender, EventArgs e)
+        {
+            _presenter.GenerarReporteNominaComodatoAsync();
+        }
+
+        private async void bAltasYBajasNomina_Click(object sender, EventArgs e)
+        {
+            string FechaString = Microsoft.VisualBasic.Interaction.InputBox("Por favor ingrese la fecha (formato: dd/mm/yyyy):", "Ingrese Fecha", "");
+
+            if (string.IsNullOrEmpty(FechaString) || !DateTime.TryParse(FechaString, out DateTime desdeFecha))
+            {
+                MessageBox.Show("Por favor ingrese una fecha válida para 'Fecha'.");
+                return;
+            }
+
+            string hastaString = Microsoft.VisualBasic.Interaction.InputBox("Por favor ingrese hasta la fecha (formato: dd/mm/yyyy):", "Ingrese Fecha", "");
+
+            if (string.IsNullOrEmpty(hastaString) || !DateTime.TryParse(hastaString, out DateTime hastaFecha))
+            {
+                MessageBox.Show("Por favor ingrese una fecha válida para 'Fecha'.");
+                return;
+            }
+
+            await _presenter.ExportarHistorialUnidadesAsync(desdeFecha, hastaFecha);
+        }
+
+        private void bImprimirChecklist_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

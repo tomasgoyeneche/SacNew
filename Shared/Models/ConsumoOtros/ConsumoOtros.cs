@@ -12,5 +12,7 @@
         public DateTime FechaRemito { get; set; }
         public bool Activo { get; set; } = true;
         public bool Dolar { get; set; }
+
+        public decimal PrecioDolar { get; set; }
     }
 }

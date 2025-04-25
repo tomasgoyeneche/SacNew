@@ -75,7 +75,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
 
             await EjecutarConCargaAsync(async () =>
             {
-                await _unidadRepositorio.AgregarUnidadAsync(unidad);
+                await _unidadRepositorio.AgregarUnidadAsync(unidad, _sesionService.IdUsuario);
                 _view.MostrarMensaje("Unidad creada exitosamente.");
                 _view.Cerrar();
             });

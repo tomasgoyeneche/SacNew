@@ -26,10 +26,10 @@ namespace Core.Repositories
             var query = @"
             INSERT INTO ConsumoOtros
             (idPOC, idConsumo, NumeroVale, Cantidad,
-             ImporteTotal, Aclaracion, Activo, FechaRemito, Dolar)
+             ImporteTotal, Aclaracion, Activo, FechaRemito, Dolar, PrecioDolar)
             VALUES
             (@IdPOC, @IdConsumo, @NumeroVale, @Cantidad,
-             @ImporteTotal, @Aclaracion, @Activo, @FechaRemito, @Dolar)";
+             @ImporteTotal, @Aclaracion, @Activo, @FechaRemito, @Dolar, @PrecioDolar)";
 
             await EjecutarConAuditoriaAsync(
                 async conn => await conn.ExecuteAsync(query, consumoOtros),
@@ -67,7 +67,7 @@ namespace Core.Repositories
             var query = @"
         UPDATE ConsumoOtros
         SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, Cantidad = @Cantidad,
-            ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito, Dolar = @Dolar
+            ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito, Dolar = @Dolar, PrecioDolar = @PrecioDolar  
         WHERE IdConsumoOtros = @IdConsumoOtros";
 
             await EjecutarConAuditoriaAsync(

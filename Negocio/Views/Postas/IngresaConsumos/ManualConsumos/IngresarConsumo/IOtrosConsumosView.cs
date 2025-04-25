@@ -13,6 +13,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
         decimal? PrecioManual { get; }
         string Aclaraciones { get; }
 
+        decimal PrecioDolar { get; }
         bool Dolar { get; }
 
         void CargarTiposConsumo(List<Concepto> tiposConsumo, string poc);

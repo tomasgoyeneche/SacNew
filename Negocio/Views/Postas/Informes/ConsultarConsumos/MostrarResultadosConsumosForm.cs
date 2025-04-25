@@ -52,7 +52,7 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
             var columnasVisibles = new List<string>
         {
             "NumeroPoc", "Chofer_Nombre", "Codigo_Posta", "Empresa_Nombre", "Tractor_Patente", "Semi_Patente",
-            "Concepto_Codigo", "Odometro", "Comentario", "FechaCreacion", "FechaCierre", "Usuario", "NumeroVale", "LitrosAutorizados", "LitrosCargados", "Observaciones", "Dolar",
+            "Concepto_Codigo", "Odometro", "Comentario", "FechaCreacion", "FechaCierre", "Usuario", "NumeroVale", "LitrosAutorizados", "LitrosCargados", "Observaciones", "Dolar", "PrecioDolar",
             "PrecioTotal", "FechaCarga", "Estado"
         };
 

@@ -19,5 +19,8 @@ namespace Shared.Models
         public bool AptoBo { get; set; }
         public bool Activo { get; set; }
 
+        public DateTime AltaUnidad { get; set; }
+        public DateTime BajaUnidad { get; set; }
+
     }
 }

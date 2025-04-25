@@ -21,6 +21,17 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Empresa>> ObtenerTodasLasEmpresas()
+        {
+            var query = "SELECT * FROM Empresa";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryAsync<Empresa>(query).ContinueWith(task => task.Result.ToList());
+            });
+        }
+
+
         public async Task<EmpresaDto?> ObtenerPorIdDto(int idEmpresa)
         {
             var query = "SELECT * FROM vw_EmpresaDetalle where idEmpresa = @idEmpresa";

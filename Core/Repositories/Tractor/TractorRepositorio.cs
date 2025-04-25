@@ -41,6 +41,17 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Tractor>> ObtenerTodosLosTractores()
+        {
+            var query = "SELECT * FROM Tractor order by patente";
+
+            return await ConectarAsync(async connection =>
+            {
+                var tractores = await connection.QueryAsync<Tractor>(query);
+                return tractores.ToList();
+            });
+        }
+
         public async Task<List<TractorDto>> BuscarTractoresAsync(string textoBusqueda)
         {
             var query = "SELECT * FROM vw_TractoresDetalles WHERE Patente LIKE @TextoBusqueda OR Empresa_Nombre LIKE @TextoBusqueda order by patente";

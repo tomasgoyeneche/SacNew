@@ -10,9 +10,13 @@ namespace Core.Repositories
 
         Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad);
 
+        Task<Unidad> ObtenerPorUnidadIdAsync(int idUnidad);
+
         Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
 
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
+
+        Task<List<Unidad>> ObtenerUnidadesAsync();
 
         // Obtener Por Otras Opciones
         Task<int?> ObtenerIdTractorPorPatenteAsync(string patente);
@@ -26,6 +30,6 @@ namespace Core.Repositories
 
         Task EliminarUnidadAsync(int idUnidad);
 
-        Task AgregarUnidadAsync(Unidad unidad);
+        Task AgregarUnidadAsync(Unidad unidad, int idUsuario);
     }
 }

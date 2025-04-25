@@ -342,6 +342,7 @@
             bNominaEnComodato.Size = new Size(145, 38);
             bNominaEnComodato.TabIndex = 58;
             bNominaEnComodato.Text = "Nomina Equipos Comodato";
+            bNominaEnComodato.Click += bNominaEnComodato_Click;
             // 
             // bNominaMetanol
             // 
@@ -377,6 +378,7 @@
             bAltasYBajasNomina.Size = new Size(145, 38);
             bAltasYBajasNomina.TabIndex = 60;
             bAltasYBajasNomina.Text = "Altas Y Bajas En Nomina";
+            bAltasYBajasNomina.Click += bAltasYBajasNomina_Click;
             // 
             // bImprimirChecklist
             // 
@@ -394,6 +396,7 @@
             bImprimirChecklist.Size = new Size(145, 38);
             bImprimirChecklist.TabIndex = 61;
             bImprimirChecklist.Text = "Imprimir Checklist";
+            bImprimirChecklist.Click += bImprimirChecklist_Click;
             // 
             // guna2HtmlLabel2
             // 

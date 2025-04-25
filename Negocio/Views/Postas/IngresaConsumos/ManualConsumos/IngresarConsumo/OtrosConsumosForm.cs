@@ -26,6 +26,9 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
 
         public bool Dolar => dolarCheck.Checked;
 
+        public decimal PrecioDolar =>
+            decimal.TryParse(txtCotizacion.Text, out var result) ? result : 0;
+
         public void CargarTiposConsumo(List<Concepto> tiposConsumo, string poc)
         {
             cmbTipoConsumo.Properties.DataSource = tiposConsumo;
@@ -87,6 +90,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtImporteTotal.Text = $"{consumo.ImporteTotal}";
             txtAclaracion.Text = consumo.Aclaracion;
             dolarCheck.Checked = consumo.Dolar;
+            txtCotizacion.Text = consumo.PrecioDolar.ToString("N2");    
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -115,6 +119,20 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             {
                 txtImporteTotal.Enabled = true;
                 txtImporteTotal.Text = "";   // limpiar total hasta que el usuario ingrese precio
+            }
+        }
+
+        private void dolarCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dolarCheck.Checked)
+            {
+                txtCotizacion.Visible = true;
+                lblCotizacion.Visible = true;   
+            }
+            else
+            {
+                txtCotizacion.Visible = false;
+                lblCotizacion.Visible = false;
             }
         }
     }

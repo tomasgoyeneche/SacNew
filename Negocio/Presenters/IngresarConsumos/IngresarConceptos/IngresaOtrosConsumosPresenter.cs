@@ -102,6 +102,15 @@ namespace GestionFlota.Presenters.IngresarConsumos
                         Activo = true
                     };
 
+                    if(_view.Dolar == true)
+                    {
+                        nuevoConsumo.PrecioDolar = _view.PrecioDolar;
+                    }
+                    else
+                    {
+                        nuevoConsumo.PrecioDolar = 0;
+                    }
+
                     await _consumoOtrosRepositorio.AgregarConsumoAsync(nuevoConsumo);
                     ActualizarCredito(nuevoPrecioTotal, 0); // Agregar el nuevo consumo
                 }
@@ -125,6 +134,15 @@ namespace GestionFlota.Presenters.IngresarConsumos
                     consumoAnterior.Aclaracion = _view.Aclaraciones;
                     consumoAnterior.FechaRemito = _view.FechaRemito;
                     consumoAnterior.Dolar = _view.Dolar;
+
+                    if (_view.Dolar == true)
+                    {
+                        consumoAnterior.PrecioDolar = _view.PrecioDolar;
+                    }
+                    else
+                    {
+                        consumoAnterior.PrecioDolar = 0;
+                    }
 
                     await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoAnterior);
                 }

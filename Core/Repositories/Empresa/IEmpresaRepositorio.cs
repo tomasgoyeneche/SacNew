@@ -7,6 +7,7 @@ namespace Core.Repositories
         // Busqueda y Obtener Por Id
         Task<List<EmpresaDto>> ObtenerTodasLasEmpresasAsync();
 
+        Task<List<Empresa>> ObtenerTodasLasEmpresas();
         Task<Empresa?> ObtenerPorIdAsync(int idEmpresa);
 
         Task<EmpresaDto> ObtenerPorIdDto(int idEmpresa);

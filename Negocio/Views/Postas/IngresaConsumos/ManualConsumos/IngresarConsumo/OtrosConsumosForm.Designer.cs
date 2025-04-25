@@ -416,6 +416,7 @@
             dolarCheck.UncheckedState.BorderRadius = 0;
             dolarCheck.UncheckedState.BorderThickness = 0;
             dolarCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            dolarCheck.CheckedChanged += dolarCheck_CheckedChanged;
             // 
             // cmbTipoConsumo
             // 

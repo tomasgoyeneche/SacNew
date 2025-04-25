@@ -46,7 +46,10 @@ namespace Core.Services
                 EscribirEncabezados(worksheet, typeof(T));
                 EscribirDatos(worksheet, datos);
 
-                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns(); // Ajuste automático de columnas
+                if (worksheet.Dimension != null)
+                {
+                    worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+                }
 
                 await package.SaveAsAsync(new FileInfo(filePath));
             }
@@ -68,6 +71,8 @@ namespace Core.Services
         private void EscribirEncabezados(ExcelWorksheet worksheet, Type tipo)
         {
             var propiedades = tipo.GetProperties();
+            if (propiedades.Length == 0)
+                throw new Exception("El objeto no contiene propiedades para exportar.");
             var headerRange = worksheet.Cells[1, 1, 1, propiedades.Length];
 
             for (int col = 0; col < propiedades.Length; col++)

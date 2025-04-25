@@ -23,6 +23,17 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Shared.Models.Semi>> ObtenerTodosLosSemis()
+        {
+            var query = "SELECT * FROM Semi order by patente";
+
+            return await ConectarAsync(async connection =>
+            {
+                var tractores = await connection.QueryAsync<Shared.Models.Semi>(query);
+                return tractores.ToList();
+            });
+        }
+
         public async Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi)
         {
             var query = "SELECT * FROM vw_SemiremolquesDetalles WHERE idSemi = @idSemi";

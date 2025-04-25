@@ -1,6 +1,6 @@
 ﻿namespace GestionOperativa.Reports
 {
-    partial class ReporteNominaMetanolActiva
+    partial class ReporteNominaEquiposEnComodato
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteNominaMetanolActiva));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteNominaEquiposEnComodato));
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.NominaMetanolActivaDto = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.NombreEmpresa = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
@@ -57,7 +57,7 @@
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NominaMetanolActivaDto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -74,85 +74,85 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable1});
-            this.Detail.HeightF = 28.74998F;
+            this.Detail.HeightF = 38.75008F;
             this.Detail.Name = "Detail";
             // 
             // xrTable1
             // 
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(166.4167F, 0F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(166.4166F, 0F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(454.1667F, 25F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(454.1668F, 33.95837F);
             // 
             // xrTableRow1
             // 
             this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell3,
-            this.xrTableCell7});
+            this.xrTableCell1,
+            this.xrTableCell2});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1D;
             // 
-            // xrTableCell3
+            // xrTableCell1
             // 
-            this.xrTableCell3.BorderColor = System.Drawing.Color.DarkGray;
-            this.xrTableCell3.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            this.xrTableCell1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableCell3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Tractor_Patente]")});
-            this.xrTableCell3.Font = new DevExpress.Drawing.DXFont("Century Gothic", 12F);
-            this.xrTableCell3.Multiline = true;
-            this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.StylePriority.UseBorderColor = false;
-            this.xrTableCell3.StylePriority.UseBorders = false;
-            this.xrTableCell3.StylePriority.UseFont = false;
-            this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Text = "Tractor_Patente";
-            this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell3.Weight = 2.0833334589096433D;
+            this.xrTableCell1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Empresa_Tractor] != [Empresa_Unidad], \n    Concat([Tractor_Patente], \' \', [E" +
+                    "mpresa_Tractor]), \n    [Tractor_Patente])")});
+            this.xrTableCell1.Font = new DevExpress.Drawing.DXFont("Century Gothic", 12F);
+            this.xrTableCell1.Multiline = true;
+            this.xrTableCell1.Name = "xrTableCell1";
+            this.xrTableCell1.StylePriority.UseBorders = false;
+            this.xrTableCell1.StylePriority.UseFont = false;
+            this.xrTableCell1.StylePriority.UseTextAlignment = false;
+            this.xrTableCell1.Text = "xrTableCell1";
+            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell1.Weight = 1D;
+            this.xrTableCell1.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrTableCell1_BeforePrint);
             // 
-            // xrTableCell7
+            // xrTableCell2
             // 
-            this.xrTableCell7.BorderColor = System.Drawing.Color.DarkGray;
-            this.xrTableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
+            this.xrTableCell2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Semirremolque_Patente]")});
-            this.xrTableCell7.Font = new DevExpress.Drawing.DXFont("Century Gothic", 12F);
-            this.xrTableCell7.Multiline = true;
-            this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.StylePriority.UseBorderColor = false;
-            this.xrTableCell7.StylePriority.UseBorders = false;
-            this.xrTableCell7.StylePriority.UseFont = false;
-            this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Text = "xrTableCell7";
-            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell7.Weight = 1.9895836443514523D;
+            this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Empresa_Semi] != [Empresa_Unidad], \n    Concat([Semirremolque_Patente], \' \'," +
+                    " [Empresa_Semi]), \n    [Semirremolque_Patente])")});
+            this.xrTableCell2.Font = new DevExpress.Drawing.DXFont("Century Gothic", 12F);
+            this.xrTableCell2.Multiline = true;
+            this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.StylePriority.UseBorders = false;
+            this.xrTableCell2.StylePriority.UseFont = false;
+            this.xrTableCell2.StylePriority.UseTextAlignment = false;
+            this.xrTableCell2.Text = "xrTableCell2";
+            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell2.Weight = 1D;
+            this.xrTableCell2.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrTableCell2_BeforePrint);
             // 
-            // NominaMetanolActivaDto
+            // objectDataSource1
             // 
-            this.NominaMetanolActivaDto.DataSource = typeof(global::Shared.Models.NominaMetanolActivaDto);
-            this.NominaMetanolActivaDto.Name = "NominaMetanolActivaDto";
+            this.objectDataSource1.DataSource = typeof(global::Shared.Models.UnidadDto);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
-            // NombreEmpresa
+            // GroupHeader1
             // 
-            this.NombreEmpresa.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel1});
-            this.NombreEmpresa.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("Empresa_Nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.NombreEmpresa.HeightF = 42.49999F;
-            this.NombreEmpresa.Name = "NombreEmpresa";
+            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Empresa_Unidad", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader1.HeightF = 44.58334F;
+            this.GroupHeader1.Name = "GroupHeader1";
             // 
             // xrLabel1
             // 
             this.xrLabel1.BackColor = System.Drawing.Color.Gray;
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Empresa_Nombre]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Empresa_Unidad]")});
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Century Gothic", 14F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrLabel1.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(166.4167F, 9.166637F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(166.4167F, 11.24999F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -168,7 +168,7 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPanel1});
-            this.PageHeader.HeightF = 111.0417F;
+            this.PageHeader.HeightF = 115F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrPanel1
@@ -186,7 +186,7 @@
             this.xrLine1,
             this.xrLabel2,
             this.xrPictureBox1});
-            this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(18.4375F, 11.77085F);
+            this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(18.4375F, 13.75F);
             this.xrPanel1.Name = "xrPanel1";
             this.xrPanel1.SizeF = new System.Drawing.SizeF(750.125F, 87.5F);
             this.xrPanel1.StylePriority.UseBorders = false;
@@ -264,15 +264,15 @@
             // xrLabel3
             // 
             this.xrLabel3.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Century Gothic", 16F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(234.9583F, 44.99999F);
+            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Century Gothic", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(210.5785F, 49.74998F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(280.2084F, 23.00001F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(331.6715F, 23.00002F);
             this.xrLabel3.StylePriority.UseBorders = false;
             this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "NOMINA FLOTA METANOL";
+            this.xrLabel3.Text = "NOMINA EQUIPOS EN COMODATO";
             // 
             // xrLine1
             // 
@@ -317,7 +317,7 @@
             this.xrLabel5,
             this.xrLabel6,
             this.xrLabel7});
-            this.PageFooter.HeightF = 46.04174F;
+            this.PageFooter.HeightF = 46.24998F;
             this.PageFooter.Name = "PageFooter";
             // 
             // xrLabel4
@@ -327,20 +327,20 @@
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(250F, 22.99997F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(308.9584F, 22.99997F);
             this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.Text = "Archivo: QF71008 Nómina flota metanol. doc";
+            this.xrLabel4.Text = "Archivo: QF71008 Nómina equipos en comodato. doc";
             // 
             // xrLabel5
             // 
             this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(293.9583F, 23.04174F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(318.9583F, 23.25001F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(117.7084F, 22.99997F);
             this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "formulario: QF10.08";
+            this.xrLabel5.Text = "formulario: QF10.09";
             // 
             // xrLabel6
             // 
@@ -364,18 +364,19 @@
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.Text = "fecha: 01/10/16";
             // 
-            // ReporteNominaMetanolActiva
+            // ReporteNominaEquiposEnComodato
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.TopMargin,
             this.BottomMargin,
             this.Detail,
-            this.NombreEmpresa,
+            this.GroupHeader1,
             this.PageHeader,
             this.PageFooter});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.NominaMetanolActivaDto});
-            this.DataSource = this.NominaMetanolActivaDto;
+            this.objectDataSource1});
+            this.DataSource = this.objectDataSource1;
+            this.FilterString = "[Empresa_Tractor] <> [Empresa_Unidad] Or [Empresa_Semi] <> [Empresa_Unidad]";
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(20F, 20F, 20F, 20F);
             this.PageHeight = 1169;
@@ -383,7 +384,7 @@
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
             this.Version = "24.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NominaMetanolActivaDto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -393,12 +394,8 @@
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.DetailBand Detail;
-        private DevExpress.DataAccess.ObjectBinding.ObjectDataSource NominaMetanolActivaDto;
-        private DevExpress.XtraReports.UI.XRTable xrTable1;
-        private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
-        private DevExpress.XtraReports.UI.GroupHeaderBand NombreEmpresa;
+        private DevExpress.DataAccess.ObjectBinding.ObjectDataSource objectDataSource1;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
@@ -411,6 +408,10 @@
         private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
+        private DevExpress.XtraReports.UI.XRTable xrTable1;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;

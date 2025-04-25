@@ -3,6 +3,7 @@ using Core.Services;
 using Dapper;
 using Shared.Models;
 using Shared.Models.DTOs;
+using System.Data;
 
 namespace Core.Repositories
 {
@@ -35,10 +36,27 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Unidad>> ObtenerUnidadesAsync()
+        {
+            var query = "SELECT * FROM Unidad";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<Unidad>(query);
+                return chofers.ToList();
+            });
+        }
+
         public async Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad)
         {
             var query = "SELECT * FROM vw_UnidadesDetalles WHERE IdUnidad = @idUnidad";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<UnidadDto>(query, new { IdUnidad = idUnidad }));
+        }
+
+        public async Task<Unidad> ObtenerPorUnidadIdAsync(int idUnidad)
+        {
+            var query = "SELECT * FROM Unidad WHERE IdUnidad = @idUnidad";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Unidad>(query, new { IdUnidad = idUnidad }));
         }
 
         public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
@@ -92,11 +110,13 @@ namespace Core.Repositories
         // Actualizar, Editar, Eliminar
         public async Task EliminarUnidadAsync(int idUnidad)
         {
-            var query = "Update Unidad set Activo = 0 WHERE idUnidad = @idUnidad";
-
             await ConectarAsync(connection =>
             {
-                return connection.ExecuteAsync(query, new { IdUnidad = idUnidad });
+                return connection.ExecuteAsync(
+                    "sp_DarDeBajaUnidad",
+                    new { IdUnidad = idUnidad },
+                    commandType: CommandType.StoredProcedure
+                );
             });
         }
 
@@ -120,15 +140,27 @@ namespace Core.Repositories
             });
         }
 
-        public async Task AgregarUnidadAsync(Unidad unidad)
+        public async Task AgregarUnidadAsync(Unidad unidad, int idUsuario)
         {
-            const string sql = @"
-        INSERT INTO Unidad (IdTractor, IdSemi, TaraTotal, IdEmpresa, Metanol, Gasoil, LujanCuyo, AptoBo, Activo)
-        VALUES (@IdTractor, @IdSemi, @TaraTotal, @IdEmpresa, @Metanol, @Gasoil, @LujanCuyo, @AptoBo, @Activo)";
-
             await ConectarAsync(async connection =>
             {
-                await connection.ExecuteAsync(sql, unidad);
+                await connection.ExecuteAsync(
+                    "sp_AltaUnidad",
+                    new
+                    {
+                        unidad.IdTractor,
+                        unidad.IdSemi,
+                        unidad.TaraTotal,
+                        unidad.IdEmpresa,
+                        unidad.Metanol,
+                        unidad.Gasoil,
+                        unidad.LujanCuyo,
+                        unidad.AptoBo,
+                        unidad.Activo,
+                         idUsuario = idUsuario
+                    },
+                    commandType: CommandType.StoredProcedure
+                );
             });
         }
     }

@@ -5,6 +5,8 @@ using Core.Services;
 using GestionOperativa.Reports;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using Shared.Models;
+using System.Diagnostics;
+using System.IO;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -13,8 +15,11 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IConfRepositorio _confRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly IEmpresaRepositorio _empresaRepositorio;
+        private readonly ITractorRepositorio _tractorRepositorio;
+        private readonly ISemiRepositorio _semiRepositorio;
+
         private readonly IUnidadRepositorio _unidadRepositorio;
-        private readonly IReportService _reportService;
+        private readonly IExcelService _excelService;
         private List<UnidadDto> _unidadesCargadas;
 
         public MenuAltaNominaPresenter(
@@ -24,14 +29,19 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             IChoferRepositorio choferRepositorio,
             IUnidadRepositorio unidadRepositorio,
             IEmpresaRepositorio empresaRepositorio,
-            IReportService reportService
+            IExcelService excelService,
+            ITractorRepositorio tractorRepositorio,
+            ISemiRepositorio semiRepositorio
         ) : base(sesionService, navigationService)
         {
-            _reportService = reportService;
+            _excelService = excelService;
             _confRepositorio = confRepositorio;
             _choferRepositorio = choferRepositorio;
             _empresaRepositorio = empresaRepositorio;
             _unidadRepositorio = unidadRepositorio;
+            _tractorRepositorio = tractorRepositorio;
+            _semiRepositorio = semiRepositorio;
+
             _unidadesCargadas = new List<UnidadDto>();
         }
 
@@ -148,18 +158,102 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 // Crear una instancia del nuevo reporte DevExpress
                 var reporte = new ReporteNominaMetanolActiva();
                 reporte.DataSource = flotaUnidades;
-                reporte.DataMember = ""; // Dejar vacío si el datasource es una lista de objetos
-
-                // Mostrar el reporte en un visor DevExpress
-
-                //var tool = new ReportPrintTool(reporte);
-                //tool.ShowRibbonPreviewDialog(); // Tiene toda la barra de herramientas
+                reporte.DataMember = "";
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
                 });
+            });
+        }
+
+        public async Task GenerarReporteNominaComodatoAsync()
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                // Obtener los datos desde el repositorio
+                List<UnidadDto> flotaUnidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
+
+                // Crear una instancia del nuevo reporte DevExpress
+                var reporte = new ReporteNominaEquiposEnComodato();
+                reporte.DataSource = flotaUnidades;
+                reporte.DataMember = ""; // Dejar vacío si el datasource es una lista de objetos
+
+                await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+                {
+                    form.MostrarReporteDevExpress(reporte);
+                    return Task.CompletedTask;
+                });
+            });
+        }
+
+        public async Task ExportarHistorialUnidadesAsync(DateTime desde, DateTime hasta)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                List<Unidad> unidades = await _unidadRepositorio.ObtenerUnidadesAsync();
+                List<Empresa> empresas = await _empresaRepositorio.ObtenerTodasLasEmpresas();
+                List<Shared.Models.Tractor> tractores = await _tractorRepositorio.ObtenerTodosLosTractores();
+                List<Semi> semis = await _semiRepositorio.ObtenerTodosLosSemis();
+
+                var historial = new List<HistorialUnidadDto>();
+
+                foreach (var unidad in unidades)
+                {
+                    var empresa = empresas.FirstOrDefault(e => e.IdEmpresa == unidad.IdEmpresa);
+                    var tractor = tractores.FirstOrDefault(t => t.IdTractor == unidad.IdTractor);
+                    var semi = semis.FirstOrDefault(s => s.IdSemi == unidad.IdSemi);
+
+                    if (unidad.AltaUnidad >= desde && unidad.AltaUnidad <= hasta)
+                    {
+                        historial.Add(new HistorialUnidadDto
+                        {
+                            Empresa = empresa?.NombreFantasia ?? "N/A",
+                            Tractor = tractor?.Patente ?? "N/A",
+                            Semi = semi?.Patente ?? "N/A",
+                            Estado = "Alta",
+                            EstadoFecha = unidad.AltaUnidad,
+                            EstadoActual = unidad.Activo ? "Activo" : "Inactivo"
+                        });
+                    }
+
+                    if (unidad.BajaUnidad >= desde && unidad.BajaUnidad <= hasta)
+                    {
+                        historial.Add(new HistorialUnidadDto
+                        {
+                            Empresa = empresa?.NombreFantasia ?? "N/A",
+                            Tractor = tractor?.Patente ?? "N/A",
+                            Semi = semi?.Patente ?? "N/A",
+                            Estado = "Baja",
+                            EstadoFecha = unidad.BajaUnidad,
+                            EstadoActual = unidad.Activo ? "Activo" : "Inactivo"
+                        });
+                    }
+                }
+
+                if (!historial.Any())
+                {
+                    _view.MostrarMensaje("No se encontraron unidades en el rango de fechas seleccionado.");
+                    return;
+                }
+
+                // Crear carpeta si no existe
+                string carpetaExport = @"C:\Compartida\Exportaciones";
+                Directory.CreateDirectory(carpetaExport);
+
+                string filePath = Path.Combine(carpetaExport, "Historial_Unidades.xlsx");
+
+                await _excelService.ExportarAExcelAsync(historial, filePath, "Historial");
+
+                // Abrir el archivo
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+
+                _view.MostrarMensaje("Exportación completada.");
             });
         }
 

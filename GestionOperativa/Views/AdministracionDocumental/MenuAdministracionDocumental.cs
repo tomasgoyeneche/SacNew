@@ -1,5 +1,6 @@
 ﻿using Core.Services;
 using GestionOperativa.Presenters;
+using System.Threading.Tasks;
 
 namespace GestionOperativa.Views.AdministracionDocumental
 {
@@ -106,6 +107,11 @@ namespace GestionOperativa.Views.AdministracionDocumental
         private async void bConfeccionNominas_Click(object sender, EventArgs e)
         {
             await _presenter.CargarMenuConfeccionNominas();
+        }
+
+        private async void bFichaTecnicaUnidades_Click(object sender, EventArgs e)
+        {
+            await _presenter.CargarMenuFichaTecnica();
         }
     }
 }
