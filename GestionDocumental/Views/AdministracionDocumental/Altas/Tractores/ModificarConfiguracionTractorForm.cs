@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas.Tractor;
+﻿using GestionDocumental.Properties;
+using GestionOperativa.Presenters.AdministracionDocumental.Altas.Tractor;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
@@ -36,11 +37,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
                 lDdsSss.Text = "DDS";
                 lSdsDd_d.Text = "SDS";
 
-                picBoxAutomatico.BackgroundImage = Properties.Resources.AUTOMATICO;
-                picBoxManual.BackgroundImage = Properties.Resources.MANUAL;
-                picBoxDsDd.BackgroundImage = Properties.Resources.DS;
-                picBoxDdsSss.BackgroundImage = Properties.Resources.DDS;
-                picBoxSdsDd_d.BackgroundImage = Properties.Resources.SDS;
+                picBoxAutomatico.BackgroundImage = Resources.AUTOMATICO;
+                picBoxManual.BackgroundImage = Resources.MANUAL;
+                picBoxDsDd.BackgroundImage = Resources.DS;
+                picBoxDdsSss.BackgroundImage = Resources.DDS;
+                picBoxSdsDd_d.BackgroundImage = Resources.SDS;
             }
             else if (_tipoEntidad == "semi")
             {
@@ -48,11 +49,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
                 lDdsSss.Text = "SSS";
                 lSdsDd_d.Text = "DD_D";
 
-                picBoxAutomatico.BackgroundImage = Properties.Resources.AUTOMATICO;
-                picBoxManual.BackgroundImage = Properties.Resources.MANUAL;
-                picBoxDsDd.BackgroundImage = Properties.Resources.DD;
-                picBoxDdsSss.BackgroundImage = Properties.Resources.SSS;
-                picBoxSdsDd_d.BackgroundImage = Properties.Resources.DD_D;
+                picBoxAutomatico.BackgroundImage = Resources.AUTOMATICO;
+                picBoxManual.BackgroundImage = Resources.MANUAL;
+                picBoxDsDd.BackgroundImage = Resources.DD;
+                picBoxDdsSss.BackgroundImage = Resources.SSS;
+                picBoxSdsDd_d.BackgroundImage = Resources.DD_D;
             }
         }
 

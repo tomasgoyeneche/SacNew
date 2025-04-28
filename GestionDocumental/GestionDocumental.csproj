@@ -13,8 +13,93 @@
 
   <ItemGroup>
     <Folder Include="Validators\" />
-    <Folder Include="Presenters\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Reports\ReporteFichaTecnicaUnidad.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteFichaTecnicaUnidadVacia.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteNominaEquiposEnComodato.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteNominaMetanolActiva.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Choferes\AgregarEditarChoferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Choferes\ModificarDatosChoferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Comunes\AltaEntidadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Comunes\CambiarTransportistaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Comunes\ModificarVencimientosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Empresas\AgregarEditarEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Empresas\AgregarEditarSeguro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Empresas\AgregarEmpresaSatelitalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Empresas\ModificarDatosEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\MenuAltaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Semis\AgregarEditarSemiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Semis\ModificarDatosSemiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Tractores\AgregarEditarTractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Tractores\ModificarConfiguracionTractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Tractores\ModificarDatosTractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Unidades\AgregarEditarUnidadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Unidades\AgregarUnidadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Altas\Unidades\MenuAltaNominaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\MenuAdministracionDocumental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AdministracionDocumental\Relevamientos\FichaTecnicaUnidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

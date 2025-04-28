@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 {
     partial class AgregarEmpresaSatelitalForm
     {
@@ -264,7 +266,7 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.BackgroundImage = Properties.Resources.sateliteEmpresaPng;
+            guna2Panel1.BackgroundImage = Resources.sateliteEmpresaPng;
             guna2Panel1.BackgroundImageLayout = ImageLayout.Center;
             guna2Panel1.CustomizableEdges = customizableEdges1;
             guna2Panel1.Dock = DockStyle.Right;

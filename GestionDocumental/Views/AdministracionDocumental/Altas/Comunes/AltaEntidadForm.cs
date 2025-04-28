@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas;
+﻿using GestionDocumental.Properties;
+using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -26,7 +27,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo2.Text = "CUIT:";
                     lblCampo3.Visible = txtCampo3.Visible = false;
                     lblCampo2.Visible = txtCampo2.Visible = true;
-                    picBoxEntidad.BackgroundImage = Properties.Resources.cambiarTransportistaEmpresa;
+                    picBoxEntidad.BackgroundImage = Resources.cambiarTransportistaEmpresa;
                     labelEntidad.Text = "Agregar Empresa";
                     break;
 
@@ -36,7 +37,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo3.Text = "Documento:";
                     lblCampo2.Visible = txtCampo2.Visible = true;
                     lblCampo3.Visible = txtCampo3.Visible = true;
-                    picBoxEntidad.BackgroundImage = Properties.Resources.admDocumentalChofer;
+                    picBoxEntidad.BackgroundImage = Resources.admDocumentalChofer;
                     labelEntidad.Text = "Agregar Chofer";
                     break;
 
@@ -45,7 +46,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                     lblCampo1.Text = "Patente:";
                     lblCampo2.Visible = txtCampo2.Visible = false;
                     lblCampo3.Visible = txtCampo3.Visible = false;
-                    picBoxEntidad.BackgroundImage = entidad == "tractor" ? Properties.Resources.admDocumentalTractor : Properties.Resources.admDocumentalCisterna;
+                    picBoxEntidad.BackgroundImage = entidad == "tractor" ? Resources.admDocumentalTractor : Resources.admDocumentalCisterna;
                     labelEntidad.Text = entidad == "tractor" ? "Agregar Tractor" : "Agregar Semi";
                     break;
             }

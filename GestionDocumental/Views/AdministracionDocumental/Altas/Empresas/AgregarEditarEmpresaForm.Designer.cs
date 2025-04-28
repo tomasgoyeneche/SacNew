@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 {
     partial class AgregarEditarEmpresaForm
     {
@@ -338,7 +340,7 @@
             btnLegajoCuit.BackgroundImageLayout = ImageLayout.Stretch;
             btnLegajoCuit.CheckedState.ImageSize = new Size(64, 64);
             btnLegajoCuit.HoverState.ImageSize = new Size(27, 21);
-            btnLegajoCuit.Image = Properties.Resources.iconoOk;
+            btnLegajoCuit.Image = Resources.iconoOk;
             btnLegajoCuit.ImageOffset = new Point(0, 0);
             btnLegajoCuit.ImageRotate = 0F;
             btnLegajoCuit.ImageSize = new Size(25, 20);
@@ -356,7 +358,7 @@
             btnLegajoArt.BackgroundImageLayout = ImageLayout.Stretch;
             btnLegajoArt.CheckedState.ImageSize = new Size(27, 21);
             btnLegajoArt.HoverState.ImageSize = new Size(27, 21);
-            btnLegajoArt.Image = Properties.Resources.iconoOk;
+            btnLegajoArt.Image = Resources.iconoOk;
             btnLegajoArt.ImageOffset = new Point(0, 0);
             btnLegajoArt.ImageRotate = 0F;
             btnLegajoArt.ImageSize = new Size(25, 20);

@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
     partial class AltaEntidadForm
     {
@@ -77,7 +79,7 @@
             // picBoxEntidad
             // 
             picBoxEntidad.BackColor = Color.Transparent;
-            picBoxEntidad.BackgroundImage = Properties.Resources.admDocumentalTractor;
+            picBoxEntidad.BackgroundImage = Resources.admDocumentalTractor;
             picBoxEntidad.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxEntidad.CustomizableEdges = customizableEdges13;
             picBoxEntidad.Dock = DockStyle.Right;

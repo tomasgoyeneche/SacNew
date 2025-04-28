@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 {
     partial class AgregarEditarChoferForm
     {
@@ -274,7 +276,7 @@
             bAltaTemprana.BackgroundImageLayout = ImageLayout.Stretch;
             bAltaTemprana.CheckedState.ImageSize = new Size(64, 64);
             bAltaTemprana.HoverState.ImageSize = new Size(27, 21);
-            bAltaTemprana.Image = Properties.Resources.iconoOk;
+            bAltaTemprana.Image = Resources.iconoOk;
             bAltaTemprana.ImageOffset = new Point(0, 0);
             bAltaTemprana.ImageRotate = 0F;
             bAltaTemprana.ImageSize = new Size(25, 20);
@@ -292,7 +294,7 @@
             bCentralizado.BackgroundImageLayout = ImageLayout.Stretch;
             bCentralizado.CheckedState.ImageSize = new Size(64, 64);
             bCentralizado.HoverState.ImageSize = new Size(27, 21);
-            bCentralizado.Image = Properties.Resources.iconoOk;
+            bCentralizado.Image = Resources.iconoOk;
             bCentralizado.ImageOffset = new Point(0, 0);
             bCentralizado.ImageRotate = 0F;
             bCentralizado.ImageSize = new Size(25, 20);
@@ -334,7 +336,7 @@
             bDocumento.BackgroundImageLayout = ImageLayout.Stretch;
             bDocumento.CheckedState.ImageSize = new Size(64, 64);
             bDocumento.HoverState.ImageSize = new Size(27, 21);
-            bDocumento.Image = Properties.Resources.iconoOk;
+            bDocumento.Image = Resources.iconoOk;
             bDocumento.ImageOffset = new Point(0, 0);
             bDocumento.ImageRotate = 0F;
             bDocumento.ImageSize = new Size(25, 20);
@@ -702,7 +704,7 @@
             bFotoChofer.BackgroundImageLayout = ImageLayout.Stretch;
             bFotoChofer.CheckedState.ImageSize = new Size(64, 64);
             bFotoChofer.HoverState.ImageSize = new Size(27, 21);
-            bFotoChofer.Image = Properties.Resources.iconoOk;
+            bFotoChofer.Image = Resources.iconoOk;
             bFotoChofer.ImageOffset = new Point(0, 0);
             bFotoChofer.ImageRotate = 0F;
             bFotoChofer.ImageSize = new Size(25, 20);
@@ -757,7 +759,7 @@
             bPsicofisicoApto.BackgroundImageLayout = ImageLayout.Stretch;
             bPsicofisicoApto.CheckedState.ImageSize = new Size(64, 64);
             bPsicofisicoApto.HoverState.ImageSize = new Size(27, 21);
-            bPsicofisicoApto.Image = Properties.Resources.iconoOk;
+            bPsicofisicoApto.Image = Resources.iconoOk;
             bPsicofisicoApto.ImageOffset = new Point(0, 0);
             bPsicofisicoApto.ImageRotate = 0F;
             bPsicofisicoApto.ImageSize = new Size(25, 20);
@@ -775,7 +777,7 @@
             bPsicofisicoCurso.BackgroundImageLayout = ImageLayout.Stretch;
             bPsicofisicoCurso.CheckedState.ImageSize = new Size(64, 64);
             bPsicofisicoCurso.HoverState.ImageSize = new Size(27, 21);
-            bPsicofisicoCurso.Image = Properties.Resources.iconoOk;
+            bPsicofisicoCurso.Image = Resources.iconoOk;
             bPsicofisicoCurso.ImageOffset = new Point(0, 0);
             bPsicofisicoCurso.ImageRotate = 0F;
             bPsicofisicoCurso.ImageSize = new Size(25, 20);
@@ -793,7 +795,7 @@
             bExamenAnual.BackgroundImageLayout = ImageLayout.Stretch;
             bExamenAnual.CheckedState.ImageSize = new Size(64, 64);
             bExamenAnual.HoverState.ImageSize = new Size(27, 21);
-            bExamenAnual.Image = Properties.Resources.iconoOk;
+            bExamenAnual.Image = Resources.iconoOk;
             bExamenAnual.ImageOffset = new Point(0, 0);
             bExamenAnual.ImageRotate = 0F;
             bExamenAnual.ImageSize = new Size(25, 20);
@@ -810,7 +812,7 @@
             bLicencia.BackgroundImageLayout = ImageLayout.Stretch;
             bLicencia.CheckedState.ImageSize = new Size(64, 64);
             bLicencia.HoverState.ImageSize = new Size(27, 21);
-            bLicencia.Image = Properties.Resources.iconoOk;
+            bLicencia.Image = Resources.iconoOk;
             bLicencia.ImageOffset = new Point(0, 0);
             bLicencia.ImageRotate = 0F;
             bLicencia.ImageSize = new Size(25, 20);

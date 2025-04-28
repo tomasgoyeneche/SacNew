@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
     partial class CambiarTransportistaForm
     {
@@ -109,7 +111,7 @@
             // 
             // guna2PictureBox1
             // 
-            guna2PictureBox1.BackgroundImage = Properties.Resources.cambiarTransportistaEmpresa;
+            guna2PictureBox1.BackgroundImage = Resources.cambiarTransportistaEmpresa;
             guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox1.CustomizableEdges = customizableEdges9;
             guna2PictureBox1.Dock = DockStyle.Right;

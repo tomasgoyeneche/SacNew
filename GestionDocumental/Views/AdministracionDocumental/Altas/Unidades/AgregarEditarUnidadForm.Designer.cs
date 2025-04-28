@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
     partial class AgregarEditarUnidadForm
     {
@@ -376,7 +378,7 @@
             bFotoUnidad.BackgroundImageLayout = ImageLayout.Stretch;
             bFotoUnidad.CheckedState.ImageSize = new Size(64, 64);
             bFotoUnidad.HoverState.ImageSize = new Size(27, 21);
-            bFotoUnidad.Image = Properties.Resources.iconoOk;
+            bFotoUnidad.Image = Resources.iconoOk;
             bFotoUnidad.ImageOffset = new Point(0, 0);
             bFotoUnidad.ImageRotate = 0F;
             bFotoUnidad.ImageSize = new Size(25, 20);
@@ -636,7 +638,7 @@
             bVerifMensual.BackgroundImageLayout = ImageLayout.Stretch;
             bVerifMensual.CheckedState.ImageSize = new Size(64, 64);
             bVerifMensual.HoverState.ImageSize = new Size(27, 21);
-            bVerifMensual.Image = Properties.Resources.iconoOk;
+            bVerifMensual.Image = Resources.iconoOk;
             bVerifMensual.ImageOffset = new Point(0, 0);
             bVerifMensual.ImageRotate = 0F;
             bVerifMensual.ImageSize = new Size(25, 20);
@@ -678,7 +680,7 @@
             bMasYpf.BackgroundImageLayout = ImageLayout.Stretch;
             bMasYpf.CheckedState.ImageSize = new Size(64, 64);
             bMasYpf.HoverState.ImageSize = new Size(27, 21);
-            bMasYpf.Image = Properties.Resources.iconoOk;
+            bMasYpf.Image = Resources.iconoOk;
             bMasYpf.ImageOffset = new Point(0, 0);
             bMasYpf.ImageRotate = 0F;
             bMasYpf.ImageSize = new Size(25, 20);
@@ -720,7 +722,7 @@
             bChecklist.BackgroundImageLayout = ImageLayout.Stretch;
             bChecklist.CheckedState.ImageSize = new Size(64, 64);
             bChecklist.HoverState.ImageSize = new Size(27, 21);
-            bChecklist.Image = Properties.Resources.iconoOk;
+            bChecklist.Image = Resources.iconoOk;
             bChecklist.ImageOffset = new Point(0, 0);
             bChecklist.ImageRotate = 0F;
             bChecklist.ImageSize = new Size(25, 20);
@@ -781,7 +783,7 @@
             bTara.BackgroundImageLayout = ImageLayout.Stretch;
             bTara.CheckedState.ImageSize = new Size(64, 64);
             bTara.HoverState.ImageSize = new Size(27, 21);
-            bTara.Image = Properties.Resources.iconoOk;
+            bTara.Image = Resources.iconoOk;
             bTara.ImageOffset = new Point(0, 0);
             bTara.ImageRotate = 0F;
             bTara.ImageSize = new Size(25, 20);

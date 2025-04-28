@@ -1,4 +1,6 @@
-﻿namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
+﻿using GestionDocumental.Properties;
+
+namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 {
     partial class ModificarConfiguracionSemiForm
     {
@@ -176,7 +178,7 @@
             // 
             // picBoxManual
             // 
-            picBoxManual.BackgroundImage = Properties.Resources.MANUAL;
+            picBoxManual.BackgroundImage = Resources.MANUAL;
             picBoxManual.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxManual.CustomizableEdges = customizableEdges17;
             picBoxManual.FillColor = Color.Transparent;
@@ -236,7 +238,7 @@
             // 
             // picBoxAutomatico
             // 
-            picBoxAutomatico.BackgroundImage = Properties.Resources.AUTOMATICO;
+            picBoxAutomatico.BackgroundImage = Resources.AUTOMATICO;
             picBoxAutomatico.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxAutomatico.CustomizableEdges = customizableEdges7;
             picBoxAutomatico.FillColor = Color.Transparent;
@@ -285,7 +287,7 @@
             // 
             // picBoxDdsSss
             // 
-            picBoxDdsSss.BackgroundImage = Properties.Resources.SSS;
+            picBoxDdsSss.BackgroundImage = Resources.SSS;
             picBoxDdsSss.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxDdsSss.CustomizableEdges = customizableEdges9;
             picBoxDdsSss.FillColor = Color.Transparent;
@@ -299,7 +301,7 @@
             // 
             // picBoxSdsDd_d
             // 
-            picBoxSdsDd_d.BackgroundImage = Properties.Resources.DD_D;
+            picBoxSdsDd_d.BackgroundImage = Resources.DD_D;
             picBoxSdsDd_d.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxSdsDd_d.CustomizableEdges = customizableEdges11;
             picBoxSdsDd_d.FillColor = Color.Transparent;
@@ -324,7 +326,7 @@
             // 
             // picBoxDsDd
             // 
-            picBoxDsDd.BackgroundImage = Properties.Resources.DD;
+            picBoxDsDd.BackgroundImage = Resources.DD;
             picBoxDsDd.BackgroundImageLayout = ImageLayout.Stretch;
             picBoxDsDd.CustomizableEdges = customizableEdges13;
             picBoxDsDd.FillColor = Color.Transparent;
