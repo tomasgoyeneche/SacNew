@@ -6,13 +6,10 @@ namespace GestionOperativa.Views.AdministracionDocumental
 {
     public partial class MenuAdministracionDocumental : Form, IMenuAdministracionDocumentalView
     {
-        private readonly INavigationService _navigationService;
         private readonly MenuAdministracionDocumentalPresenter _presenter;
 
-        public MenuAdministracionDocumental(MenuAdministracionDocumentalPresenter presenter, INavigationService navigationService)
+        public MenuAdministracionDocumental(MenuAdministracionDocumentalPresenter presenter)
         {
-            _navigationService = navigationService;
-
             _presenter = presenter;
             _presenter.SetView(this);
             InitializeComponent();

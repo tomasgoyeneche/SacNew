@@ -20,6 +20,8 @@ namespace Shared.Models.DTOs
 
         public int IdPreguntaRespuestaTipo { get; set; }
 
+        public string Orden { get; set; }
+
         public bool Conforme { get; set; }
 
         public bool NoConforme { get; set; }

@@ -7,4 +7,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestionDocumental\GestionDocumental.csproj" />
+  </ItemGroup>
+
 </Project>

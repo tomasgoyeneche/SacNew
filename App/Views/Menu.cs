@@ -1,5 +1,6 @@
 ﻿using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental;
+using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.Configuraciones.AbmUsuarios;
 using SacNew.Views.GestionFlota.Postas;
@@ -78,6 +79,19 @@ namespace SacNew.Views
 
         private void bGuardia_Click(object sender, EventArgs e)
         {
+        }
+
+        private void bInformes_Click(object sender, EventArgs e)
+        {
+            if (_sesionService.Permisos.Contains("0016-Informes") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
+            {
+                _navigationService.ShowDialog<MenuInformesEst>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a la Administración Documental.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
