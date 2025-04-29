@@ -66,14 +66,14 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuInformesEst));
             tabControlMenu = new Guna.UI2.WinForms.Guna2TabControl();
             tabPageGestOpe = new TabPage();
@@ -119,14 +119,14 @@
             guna2vSeparator5 = new Guna.UI2.WinForms.Guna2VSeparator();
             guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tabPage1 = new TabPage();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             bResumenNomMetanol = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tabControlMenu.SuspendLayout();
             tabPageGestOpe.SuspendLayout();
             guna2Panel2.SuspendLayout();
@@ -142,9 +142,9 @@
             guna2Panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox4).BeginInit();
             tabPage1.SuspendLayout();
-            guna2Panel1.SuspendLayout();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlMenu
@@ -789,27 +789,15 @@
             tabPage1.Text = "Auditoria";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // guna2Panel1
+            // guna2HtmlLabel4
             // 
-            guna2Panel1.Controls.Add(guna2HtmlLabel9);
-            guna2Panel1.CustomizableEdges = customizableEdges45;
-            guna2Panel1.FillColor = Color.Coral;
-            guna2Panel1.Location = new Point(0, 15);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges46;
-            guna2Panel1.Size = new Size(253, 31);
-            guna2Panel1.TabIndex = 41;
-            // 
-            // guna2HtmlLabel9
-            // 
-            guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(13, 4);
-            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(141, 21);
-            guna2HtmlLabel9.TabIndex = 0;
-            guna2HtmlLabel9.Text = "Menu de Informes";
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.Location = new Point(173, 17);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(256, 34);
+            guna2HtmlLabel4.TabIndex = 47;
+            guna2HtmlLabel4.Text = "Informes de Auditoria";
             // 
             // guna2Panel5
             // 
@@ -830,7 +818,7 @@
             // guna2PictureBox1
             // 
             guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.BackgroundImage = Properties.Resources.menuEstadoFlota;
+            guna2PictureBox1.BackgroundImage = Properties.Resources.menuInformes;
             guna2PictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2PictureBox1.CustomizableEdges = customizableEdges39;
             guna2PictureBox1.FillColor = Color.FromArgb(100, 0, 0, 0);
@@ -886,15 +874,27 @@
             guna2HtmlLabel3.Text = "Res. Nomina Met";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel4
+            // guna2Panel1
             // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.Location = new Point(173, 17);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(256, 34);
-            guna2HtmlLabel4.TabIndex = 47;
-            guna2HtmlLabel4.Text = "Informes de Auditoria";
+            guna2Panel1.Controls.Add(guna2HtmlLabel9);
+            guna2Panel1.CustomizableEdges = customizableEdges45;
+            guna2Panel1.FillColor = Color.Coral;
+            guna2Panel1.Location = new Point(0, 15);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            guna2Panel1.Size = new Size(253, 31);
+            guna2Panel1.TabIndex = 41;
+            // 
+            // guna2HtmlLabel9
+            // 
+            guna2HtmlLabel9.BackColor = Color.Transparent;
+            guna2HtmlLabel9.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel9.Location = new Point(13, 4);
+            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            guna2HtmlLabel9.Size = new Size(141, 21);
+            guna2HtmlLabel9.TabIndex = 0;
+            guna2HtmlLabel9.Text = "Menu de Informes";
             // 
             // MenuInformesEst
             // 
@@ -927,10 +927,10 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox4).EndInit();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            guna2Panel1.ResumeLayout(false);
-            guna2Panel1.PerformLayout();
             guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            guna2Panel1.ResumeLayout(false);
+            guna2Panel1.PerformLayout();
             ResumeLayout(false);
         }
 
