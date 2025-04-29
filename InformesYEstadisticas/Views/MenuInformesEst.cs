@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Import.OpenXml;
 using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes;
 using GestionOperativa.Presenters;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 
 namespace InformesYEstadisticas
 {
-    public partial class MenuInformesEst : DevExpress.XtraEditors.XtraForm , IMenuInformesEstView 
+    public partial class MenuInformesEst : DevExpress.XtraEditors.XtraForm, IMenuInformesEstView
     {
 
         private readonly MenuInformesEstPresenter _presenter;
@@ -34,9 +35,19 @@ namespace InformesYEstadisticas
             throw new NotImplementedException();
         }
 
-        private void bRelevamientoInicial_Click(object sender, EventArgs e)
+        private async void bRelevamientoInicial_Click(object sender, EventArgs e)
         {
-            _presenter.GenerarFichaVacia();
+            await _presenter.GenerarFichaVacia();
+        }
+
+        private async void bVerifMensual_Click(object sender, EventArgs e)
+        {
+            await _presenter.GenerarVerifMensual();
+        }
+
+        private async void bControlOpCons_Click(object sender, EventArgs e)
+        {
+            await _presenter.GenerarReporteConsumos();  
         }
     }
 }

@@ -28,6 +28,6 @@ namespace Shared.Models.DTOs
 
         public string Observaciones { get; set; }
 
-
+        public bool EsEncabezado { get; set; }
     }
 }
