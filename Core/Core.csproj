@@ -16,8 +16,10 @@
     <PackageReference Include="DevExpress.Utils.es" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.BonusSkins" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.BonusSkins.es" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Design.es" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.es" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Printing" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Printing.es" Version="24.1.7" />
     <PackageReference Include="DevExpress.Win.Reporting.es" Version="24.1.7" />

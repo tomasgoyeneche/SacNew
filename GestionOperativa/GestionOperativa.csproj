@@ -11,9 +11,4 @@
     <ProjectReference Include="..\Negocio\GestionFlota.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
-    <PackageReference Include="DevExpress.Win.Design.es" Version="24.1.7" />
-  </ItemGroup>
-
 </Project>

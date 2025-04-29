@@ -72,8 +72,4 @@
     <Folder Include="Presenters\Modificaciones\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
-  </ItemGroup>
-
 </Project>
