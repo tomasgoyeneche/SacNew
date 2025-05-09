@@ -5,15 +5,9 @@ using Core.Services;
 using GestionDocumental.Reports;
 using GestionOperativa.Processor;
 using GestionOperativa.Reports;
-using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas.Views;
 using Shared.Models;
 using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InformesYEstadisticas.Presenters
 {
@@ -36,12 +30,10 @@ namespace InformesYEstadisticas.Presenters
             _planillaRepositorio = planillaRepositorio;
         }
 
-
         public async Task GenerarFichaVacia()
         {
             await EjecutarConCargaAsync(async () =>
             {
-
                 Planilla planilla = await _planillaRepositorio.ObtenerPorIdAsync(1);
                 // Obtener los datos desde el repositorio
                 List<PlanillaPreguntaDto> preguntas = await _planillaRepositorio.ObtenerPreguntasPorPlanilla(1);
@@ -57,7 +49,6 @@ namespace InformesYEstadisticas.Presenters
                 reporte.DetailReportPreg.DataSource = listaOrdenada;
                 reporte.DetailReportPreg.DataMember = ""; // si es lista directa
 
-
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
                     form.MostrarReporteDevExpress(reporte);
@@ -66,13 +57,10 @@ namespace InformesYEstadisticas.Presenters
             });
         }
 
-
-
         public async Task GenerarVerifMensual()
         {
             await EjecutarConCargaAsync(async () =>
             {
-
                 Planilla planilla = await _planillaRepositorio.ObtenerPorIdAsync(2);
                 // Obtener los datos desde el repositorio
                 List<PlanillaPreguntaDto> preguntas = await _planillaRepositorio.ObtenerPreguntasPorPlanilla(2);
@@ -89,15 +77,12 @@ namespace InformesYEstadisticas.Presenters
                 }).OrderBy(p => p.Orden, new AlfanumericStringComparer())
                 .ToList();
 
-
-
                 ReporteVerifMensual reporte = new ReporteVerifMensual();
                 reporte.DataSource = new List<Planilla> { planilla };
                 reporte.DataMember = "";
 
                 reporte.PreguntasPlanilla.DataSource = preguntasReporte;
                 reporte.PreguntasPlanilla.DataMember = ""; // si es lista directa
-
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
@@ -107,12 +92,10 @@ namespace InformesYEstadisticas.Presenters
             });
         }
 
-
         public async Task GenerarReporteConsumos()
         {
             await EjecutarConCargaAsync(async () =>
             {
-
                 Planilla planilla = await _planillaRepositorio.ObtenerPorIdAsync(3);
                 // Obtener los datos desde el repositorio
                 List<PlanillaPreguntaDto> preguntas = await _planillaRepositorio.ObtenerPreguntasPorPlanilla(3);
@@ -129,15 +112,12 @@ namespace InformesYEstadisticas.Presenters
                 }).OrderBy(p => p.Orden, new AlfanumericStringComparer())
                 .ToList();
 
-
-
                 ReporteControlOperativoConsumos reporte = new ReporteControlOperativoConsumos();
                 reporte.DataSource = new List<Planilla> { planilla };
                 reporte.DataMember = "";
 
                 reporte.DetailReport.DataSource = preguntasReporte;
                 reporte.DetailReport.DataMember = ""; // si es lista directa
-
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
@@ -177,7 +157,6 @@ namespace InformesYEstadisticas.Presenters
                 return observaciones.TrimEnd('-').Replace("-", " | ");
             }
         }
-
 
         private bool EsEntero(string orden)
         {

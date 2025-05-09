@@ -123,8 +123,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             _presenter.EditarDatosEmpresa(IdEmpresa);
         }
 
-
-
         private void bAgregarSatelital_Click(object sender, EventArgs e)
         {
             _presenter.AgregarEmpresaSatelital(IdEmpresa);

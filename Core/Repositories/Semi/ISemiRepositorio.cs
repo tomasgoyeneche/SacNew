@@ -8,12 +8,12 @@ namespace Core.Repositories
         Task<List<SemiDto>> BuscarSemisAsync(string textoBusqueda);
 
         Task<List<SemiDto>> ObtenerTodosLosSemisDto();
+
         Task<List<Shared.Models.Semi>> ObtenerTodosLosSemis();
 
         Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi);
 
         Task<Shared.Models.Semi> ObtenerSemiPorIdAsync(int idSemi);
-
 
         // Obtener por otras busquedas
 

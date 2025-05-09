@@ -44,6 +44,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             IPsicofisicoApto.Text = chofer.PsicofisicoApto.ToShortDateString();
             IPsicofisicoCurso.Text = chofer.PsicofisicoCurso.ToShortDateString();
         }
+
         public void MostrarSeguros(List<EmpresaSeguroDto> seguros)
         {
             dvgSegurosChoferes.DataSource = seguros;
@@ -68,8 +69,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             dvgSegurosChoferes.Columns["cia"].DisplayIndex = 4;
             dvgSegurosChoferes.Columns["entidad"].DisplayIndex = 5;
         }
-
-
 
         public void ConfigurarFotoChofer(bool habilitar, string? rutaArchivo)
         {
@@ -172,7 +171,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 
         private void bEditarVencimientos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarVencimientos(IdChofer);  
+            _presenter.EditarVencimientos(IdChofer);
         }
     }
 }

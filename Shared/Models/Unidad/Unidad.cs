@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class Unidad
     {
-        public int IdUnidad { get;set; }
+        public int IdUnidad { get; set; }
         public int IdTractor { get; set; }
         public int IdSemi { get; set; }
         public int TaraTotal { get; set; }
@@ -21,6 +15,5 @@ namespace Shared.Models
 
         public DateTime AltaUnidad { get; set; }
         public DateTime BajaUnidad { get; set; }
-
     }
 }

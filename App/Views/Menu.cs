@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using GestionDocumental.Views;
 using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
@@ -40,7 +41,7 @@ namespace SacNew.Views
 
         private void bAbmUsuar_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0020-AbmUsuarios") || _sesionService.Permisos.Contains("0000 -SuperAdmin"))
+            if (_sesionService.Permisos.Contains("0020-AbmUsuarios") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
                 _navigationService.ShowDialog<MenuUsuariosForm>();
             }
@@ -90,6 +91,19 @@ namespace SacNew.Views
             else
             {
                 MessageBox.Show("No tienes permisos para acceder a la Administración Documental.", "Permiso Denegado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bNovedadesChoferes_Click(object sender, EventArgs e)
+        {
+            if (_sesionService.Permisos.Contains("0014-NovedadesChoferes") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
+            {
+                _navigationService.ShowDialog<NovedadesChoferesForm>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a las Novedades Choferes.", "Permiso Denegado",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

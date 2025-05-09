@@ -39,11 +39,13 @@ namespace GestionFlota.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                var unidades = await _unidadRepositorio.ObtenerUnidadesPatenteDtoAsync();
+                var unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
                 var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
                 var periodos = await _periodoRepositorio.ObtenerPeriodosParaSeleccionAsync();
 
-                var unidadesOrdenadas = unidades.OrderBy(n => n.DescripcionUnidad).ToList();
+                var unidadesOrdenadas = unidades
+                 .OrderBy(n => $"{n.Tractor_Patente} - {n.Semirremolque_Patente}")
+                 .ToList();
                 var choferesOrdenados = choferes.OrderBy(c => c.Apellido).ToList();
 
                 _view.CargarChoferes(choferesOrdenados);

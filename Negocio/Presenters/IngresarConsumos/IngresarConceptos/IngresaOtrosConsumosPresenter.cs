@@ -102,7 +102,7 @@ namespace GestionFlota.Presenters.IngresarConsumos
                         Activo = true
                     };
 
-                    if(_view.Dolar == true)
+                    if (_view.Dolar == true)
                     {
                         nuevoConsumo.PrecioDolar = _view.PrecioDolar;
                     }

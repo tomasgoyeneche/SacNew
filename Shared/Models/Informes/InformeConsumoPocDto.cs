@@ -37,7 +37,7 @@
 
         public string Observaciones { get; set; }
         public bool Dolar { get; set; }
-        public decimal PrecioDolar { get; set; }    
+        public decimal PrecioDolar { get; set; }
         public DateTime FechaCarga { get; set; }
     }
 }

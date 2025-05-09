@@ -5,14 +5,17 @@ namespace Core.Repositories
 {
     public interface IUnidadRepositorio
     {
-        // Obtener Unidad Por Id
-        Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync();
+
+
+
+
+
 
         Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad);
 
         Task<Unidad> ObtenerPorUnidadIdAsync(int idUnidad);
 
-        Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad);
+     
 
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 

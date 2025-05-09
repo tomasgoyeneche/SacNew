@@ -147,7 +147,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await CargarEmpresasAsync(); // Refrescar la vista después de agregar
         }
 
-
         public async Task GenerarReporteFlotaAsync()
         {
             await EjecutarConCargaAsync(async () =>

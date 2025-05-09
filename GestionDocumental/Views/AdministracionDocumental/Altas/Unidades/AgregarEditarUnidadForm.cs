@@ -12,6 +12,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private readonly Dictionary<string, string?> _rutasDocumentos = new();
         private string? _rutaFotoUnidad;
         private int _idUnidad;
+
         public AgregarEditarUnidadForm(AgregarEditarUnidadPresenter presenter)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         public void MostrarDatosUnidad(UnidadDto unidad)
         {
-            _idUnidad = unidad.IdUnidad;    
+            _idUnidad = unidad.IdUnidad;
             IPatenteTractor.Text = unidad.Tractor_Patente;
             lEmpresaTractor.Text = unidad.Empresa_Tractor;
             lEmpresaCuitTractor.Text = unidad.Cuit_Tractor;

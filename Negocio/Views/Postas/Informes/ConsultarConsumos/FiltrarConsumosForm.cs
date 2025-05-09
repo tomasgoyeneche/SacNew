@@ -65,10 +65,11 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
             cmbEmpresa.SelectedIndex = -1;
         }
 
-        public void CargarUnidades(List<UnidadPatenteDto> unidades)
+        public void CargarUnidades(List<UnidadDto> unidades)
         {
             cmbUnidad.DataSource = unidades;
-            cmbUnidad.DisplayMember = "DescripcionUnidad";
+
+            cmbUnidad.DisplayMember = "Tractor_Patente";
             cmbUnidad.ValueMember = "IdUnidad";
             cmbUnidad.SelectedIndex = -1;
         }

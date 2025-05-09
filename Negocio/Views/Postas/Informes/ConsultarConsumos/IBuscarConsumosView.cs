@@ -23,7 +23,7 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 
         void CargarEmpresas(List<EmpresaDto> empresas);
 
-        void CargarUnidades(List<UnidadPatenteDto> unidades);
+        void CargarUnidades(List<UnidadDto> unidades);
 
         void CargarChoferes(List<Chofer> choferes);
 

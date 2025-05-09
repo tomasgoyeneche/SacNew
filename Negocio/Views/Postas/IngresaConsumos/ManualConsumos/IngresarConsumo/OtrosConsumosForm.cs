@@ -90,7 +90,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtImporteTotal.Text = $"{consumo.ImporteTotal}";
             txtAclaracion.Text = consumo.Aclaracion;
             dolarCheck.Checked = consumo.Dolar;
-            txtCotizacion.Text = consumo.PrecioDolar.ToString("N2");    
+            txtCotizacion.Text = consumo.PrecioDolar.ToString("N2");
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             if (dolarCheck.Checked)
             {
                 txtCotizacion.Visible = true;
-                lblCotizacion.Visible = true;   
+                lblCotizacion.Visible = true;
             }
             else
             {

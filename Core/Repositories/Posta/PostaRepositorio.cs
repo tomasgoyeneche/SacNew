@@ -22,12 +22,7 @@ namespace Core.Repositories
 
         public async Task<Posta?> ObtenerPorIdAsync(int idPosta)
         {
-            var query = "SELECT * FROM Posta where idPosta = @idPosta";
-
-            return await ConectarAsync(connection =>
-            {
-                return connection.QueryFirstOrDefaultAsync<Posta>(query, new { idPosta = idPosta });
-            });
+            return await ObtenerPorIdGenericoAsync<Posta>("Posta", "idPosta", idPosta);
         }
 
         public async Task<List<Posta>> BuscarPostasAsync(string textoBusqueda)

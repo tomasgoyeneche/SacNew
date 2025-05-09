@@ -67,7 +67,7 @@ namespace Core.Repositories
             var query = @"
         UPDATE ConsumoOtros
         SET IdConsumo = @IdConsumo, NumeroVale = @NumeroVale, Cantidad = @Cantidad,
-            ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito, Dolar = @Dolar, PrecioDolar = @PrecioDolar  
+            ImporteTotal = @ImporteTotal, Aclaracion = @Aclaracion, FechaRemito = @FechaRemito, Dolar = @Dolar, PrecioDolar = @PrecioDolar
         WHERE IdConsumoOtros = @IdConsumoOtros";
 
             await EjecutarConAuditoriaAsync(

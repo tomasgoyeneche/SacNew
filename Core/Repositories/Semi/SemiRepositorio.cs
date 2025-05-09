@@ -62,7 +62,6 @@ namespace Core.Repositories
             });
         }
 
-
         // Obtener por otras busquedas
 
         public async Task<List<Shared.Models.Semi>> ObtenerSemisLibresAsync()
@@ -78,13 +77,6 @@ namespace Core.Repositories
                 return resultado.ToList();
             });
         }
-
-
-
-
-
-
-
 
         // Actualizar, Editar, Eliminar
 

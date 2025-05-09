@@ -15,7 +15,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         DateTime FechaCreacion { get; }  // La fecha y hora que se ingresa manualmente
         int IdUsuario { get; }
 
-        void CargarNominas(List<UnidadPatenteDto> unidades);
+        void CargarNominas(List<UnidadDto> unidades);
 
         void CargarChoferes(List<Chofer> choferes);
 

@@ -70,9 +70,9 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             Semi.IdTipoCarga = _view.IdTipoCarga;
             Semi.Compartimientos = _view.Compartimientos;
             Semi.IdMaterial = _view.IdMaterial;
-            Semi.Inv = _view.Inv;   
+            Semi.Inv = _view.Inv;
             Semi.LitroNominal = _view.LitroNominal;
-            Semi.Cubicacion = _view.Cubicacion; 
+            Semi.Cubicacion = _view.Cubicacion;
 
             await EjecutarConCargaAsync(async () =>
             {

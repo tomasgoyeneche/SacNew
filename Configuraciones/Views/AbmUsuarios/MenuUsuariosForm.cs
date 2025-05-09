@@ -83,5 +83,18 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
         {
             await _presenter.AgregarUsuario();
         }
+
+        private async void btnPermisos_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsuarios.SelectedRows.Count > 0)
+            {
+                int IdUsuario = Convert.ToInt32(dataGridViewUsuarios.SelectedRows[0].Cells["IdUsuario"].Value);
+                await _presenter.AbrirPermiso(IdUsuario);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un usuario para editar.");
+            }
+        }
     }
 }

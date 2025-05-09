@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
 {
@@ -32,7 +27,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
 
         public async Task InicializarAsync(int idEmpresa, string nombreEmpresa)
         {
-            _view.MostrarEmpresa(nombreEmpresa, idEmpresa); 
+            _view.MostrarEmpresa(nombreEmpresa, idEmpresa);
             await EjecutarConCargaAsync(async () =>
             {
                 var tractores = await _tractorRepositorio.ObtenerTractoresLibresAsync();

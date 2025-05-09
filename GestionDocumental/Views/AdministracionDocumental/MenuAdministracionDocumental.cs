@@ -1,6 +1,4 @@
-﻿using Core.Services;
-using GestionOperativa.Presenters;
-using System.Threading.Tasks;
+﻿using GestionOperativa.Presenters;
 
 namespace GestionOperativa.Views.AdministracionDocumental
 {

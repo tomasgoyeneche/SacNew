@@ -16,7 +16,6 @@ namespace GestionOperativa.Presenters
         private readonly IEmpresaRepositorio _empresaRepositorio;
         private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
 
-
         public AgregarEditarEmpresaPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
@@ -86,8 +85,6 @@ namespace GestionOperativa.Presenters
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
         }
 
-       
-
         public async Task AgregarEmpresaSatelital(int idEmpresa)
         {
             await AbrirFormularioAsync<AgregarEmpresaSatelitalForm>(async form =>
@@ -113,14 +110,14 @@ namespace GestionOperativa.Presenters
             {
                 await _empresaSeguroRepositorio.EliminarSeguroAsync(idEmpresaSeguro);
                 _view.MostrarMensaje("Seguro eliminado correctamente.");
-               
             });
             await CargarDatosParaMostrarAsync(idEmpresa);
         }
 
         public async Task EditarDatosSeguro(int idEmpresa, EmpresaSeguroDto empresaSeguro)
         {
-            if(empresaSeguro != null) {
+            if (empresaSeguro != null)
+            {
                 EmpresaSeguro empresa = await _empresaSeguroRepositorio.ObtenerSeguroPorIdAsync(empresaSeguro.idEmpresaSeguro);
 
                 await AbrirFormularioAsync<AgregarEditarSeguro>(async form =>
@@ -135,7 +132,7 @@ namespace GestionOperativa.Presenters
                     await form._presenter.InicializarAsync(null, idEmpresa);
                 });
             }
-           
+
             await CargarDatosParaMostrarAsync(idEmpresa);
         }
     }

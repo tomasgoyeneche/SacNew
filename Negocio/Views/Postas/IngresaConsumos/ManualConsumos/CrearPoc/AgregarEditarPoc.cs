@@ -25,14 +25,14 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public DateTime FechaCreacion => dtpFechaCreacion.Value;
         public int IdUsuario => _presenter.IdUsuario;
 
-        public void CargarNominas(List<UnidadPatenteDto> unidades)
+        public void CargarNominas(List<UnidadDto> unidades)
         {
             cmbNomina.Properties.DataSource = unidades;
-            cmbNomina.Properties.DisplayMember = "DescripcionUnidad";
+            cmbNomina.Properties.DisplayMember = "Tractor_Patente";
             cmbNomina.Properties.ValueMember = "IdUnidad";
 
             cmbNomina.Properties.Columns.Clear(); // 🔥 Borra todo
-            cmbNomina.Properties.Columns.Add(new LookUpColumnInfo("DescripcionUnidad", "Unidad"));
+            cmbNomina.Properties.Columns.Add(new LookUpColumnInfo("Tractor_Patente", "Unidad"));
 
             cmbNomina.EditValue = _presenter.PocActual?.IdUnidad ?? -1;
         }

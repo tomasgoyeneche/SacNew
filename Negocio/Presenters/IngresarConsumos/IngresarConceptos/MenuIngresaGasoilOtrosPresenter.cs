@@ -61,13 +61,13 @@ namespace GestionFlota.Presenters
                 _view.NumeroPoc = _poc.NumeroPoc;
                 _view.IdPoc = _poc.IdPoc;
 
-                var unidad = await _unidadRepositorio.ObtenerPorIdAsync(_poc.IdUnidad)
-                             ?? throw new Exception("No se encontró la nomina asociada al POC.");
+                Unidad unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(_poc.IdUnidad)
+                             ?? throw new Exception("No se encontró la nomina asociada al POC.");   
 
                 Periodo periodo = await _periodoRepositorio.ObtenerPorIdAsync(_poc.IdPeriodo);
                 int? periodoFinal = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(periodo.Mes, periodo.Anio);
 
-                _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaYPeriodoAsync(unidad.idEmpresa, periodoFinal);
+                _amount = await _empresaCreditoRepositorio.ObtenerPorEmpresaYPeriodoAsync(unidad.IdEmpresa, periodoFinal);
                 var consumos = await _consumoOtrosRepositorio.ObtenerPorPocAsync(idPoc);
                 var total = consumos.Sum(c => c.ImporteTotal ?? 0);
 

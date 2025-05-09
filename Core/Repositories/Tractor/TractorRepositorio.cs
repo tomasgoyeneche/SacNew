@@ -63,7 +63,6 @@ namespace Core.Repositories
             });
         }
 
-
         // Otras Busquedas
 
         public async Task<List<Tractor>> ObtenerTractoresLibresAsync()
@@ -79,13 +78,6 @@ namespace Core.Repositories
                 return resultado.ToList();
             });
         }
-
-
-
-
-
-
-
 
         // Actualizar, Editar, Eliminar
 

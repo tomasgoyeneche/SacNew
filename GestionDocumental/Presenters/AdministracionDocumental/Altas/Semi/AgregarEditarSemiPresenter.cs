@@ -120,6 +120,7 @@ namespace GestionOperativa.Presenters
             });
             await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
         }
+
         public async void CambiarConfiguracion(int idSemi, string entidad)
         {
             await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>

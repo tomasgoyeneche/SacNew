@@ -27,6 +27,21 @@ namespace Core.Services
             }
         }
 
+        public async Task ExportarFilasSeparadasAsync(IEnumerable<string[]> filas, string filePath)
+        {
+            if (EstaArchivoEnUso(filePath))
+                return;
+
+            using (var writer = new StreamWriter(filePath, false, new UTF8Encoding(true)))
+            {
+                foreach (var fila in filas)
+                {
+                    string linea = string.Join(";", fila);
+                    await writer.WriteLineAsync(linea);
+                }
+            }
+        }
+
         private bool EstaArchivoEnUso(string filePath)
         {
             if (!File.Exists(filePath)) return false;

@@ -24,7 +24,7 @@ namespace Core.Repositories
         public async Task<List<Cia>> ObtenerPorTipoAsync(int idEmpresaSeguroEntidad)
         {
             var query = @"SELECT idCia, NombreFantasia, idEmpresaSeguroEntidad
-                           FROM Cia 
+                           FROM Cia
                            WHERE Activo = 1 AND idEmpresaSeguroEntidad = @idEmpresaSeguroEntidad
                            ORDER BY NombreFantasia";
             return (await ConectarAsync(conn =>

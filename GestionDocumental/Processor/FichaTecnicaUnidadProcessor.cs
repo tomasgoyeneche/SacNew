@@ -1,12 +1,7 @@
 ﻿using Core.Repositories;
 using Shared.Models;
 using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Processor
 {
@@ -121,5 +116,4 @@ namespace GestionOperativa.Processor
             };
         }
     }
-
 }

@@ -1,9 +1,6 @@
 ﻿using DevExpress.XtraReports.UI;
 using Shared.Models;
-using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
 
 namespace GestionOperativa.Reports
 {

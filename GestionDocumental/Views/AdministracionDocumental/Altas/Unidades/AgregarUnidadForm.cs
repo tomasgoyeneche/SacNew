@@ -1,15 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using GestionOperativa.Presenters.AdministracionDocumental.Altas;
+﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -60,6 +50,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             foreach (DataGridViewColumn col in dgvSemis.Columns)
                 col.Visible = col.DataPropertyName == "Patente";
         }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarUnidadAsync();

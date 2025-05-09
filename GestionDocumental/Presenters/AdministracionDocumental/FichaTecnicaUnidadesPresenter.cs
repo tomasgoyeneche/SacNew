@@ -7,11 +7,6 @@ using GestionOperativa.Reports;
 using GestionOperativa.Views.AdministracionDocumental.Relevamientos;
 using Shared.Models;
 using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -49,7 +44,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             List<SemiDto> semis = await _semiRepositorio.ObtenerTodosLosSemisDto();
             List<UnidadDto> unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
 
-
             int totalTractores = tractores.Count;
             int totalSemis = semis.Count;
             int totalUnidades = unidades.Count;
@@ -74,8 +68,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             // Filtro por transportista
 
             unidades = unidades.Where(u => u.Cuit_Unidad == Cuit).ToList();
-               
-  
+
             _view.MostrarUnidades(unidades);
             // Filtro por texto
         }
@@ -84,8 +77,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         {
             await EjecutarConCargaAsync(async () =>
             {
-
-                FichaTecnicaUnidadDto fichaTecnicaDto = await _fichaTecnicaProcessor.ObtenerFichaTecnicaAsync(idUnidad);    
+                FichaTecnicaUnidadDto fichaTecnicaDto = await _fichaTecnicaProcessor.ObtenerFichaTecnicaAsync(idUnidad);
                 // Obtener los datos desde el repositorio
 
                 // Crear una instancia del nuevo reporte DevExpress
@@ -100,6 +92,5 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 });
             });
         }
-
     }
 }

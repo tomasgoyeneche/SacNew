@@ -1,16 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using GestionOperativa.Presenters.AdministracionDocumental;
+﻿using GestionOperativa.Presenters.AdministracionDocumental;
 using Shared.Models;
-using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
 {
@@ -85,6 +74,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         private async void cmbTransportistas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTransportistas.SelectedIndex != -1)
@@ -92,23 +82,19 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
                 EmpresaDto empresa = cmbTransportistas.SelectedItem as EmpresaDto;
                 _presenter.BuscarAsync(empresa.Cuit);
             }
-
         }
 
         private async void bFichaTecnica_Click(object sender, EventArgs e)
         {
-            if(gridViewUnidades.GetFocusedRow() != null)
+            if (gridViewUnidades.GetFocusedRow() != null)
             {
                 var row = gridViewUnidades.GetFocusedRow() as UnidadDto;
                 _presenter.GenerarFichaTecnica(row.IdUnidad);
-
             }
             else
             {
                 MostrarMensaje("Seleccione una unidad");
             }
-
-
         }
     }
 }

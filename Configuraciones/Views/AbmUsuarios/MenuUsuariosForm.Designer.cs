@@ -156,6 +156,7 @@
             btnPermisos.Size = new Size(110, 40);
             btnPermisos.TabIndex = 59;
             btnPermisos.Text = "Permisos";
+            btnPermisos.Click += btnPermisos_Click;
             // 
             // btnAgregar
             // 

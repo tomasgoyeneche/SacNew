@@ -39,7 +39,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas.Empresas
             }
             _idEmpresa = idEmpresa;
 
-
             List<EmpresaSeguroEntidad> entidades = await _entidadRepo.ObtenerTodasAsync();
             List<Cobertura> coberturas = await _coberturaRepo.ObtenerTodasAsync();
 

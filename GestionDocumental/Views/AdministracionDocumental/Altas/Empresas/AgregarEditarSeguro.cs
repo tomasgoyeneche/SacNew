@@ -1,15 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using GestionOperativa.Presenters.AdministracionDocumental.Altas.Empresas;
+﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas.Empresas;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -56,7 +46,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         public void InicializarValores(EmpresaSeguro seguro)
         {
             IdEmpresa = seguro.idEmpresa;
+
+            cmbEntidad.SelectedIndexChanged -= cmbEntidad_SelectedIndexChanged;
             cmbEntidad.SelectedValue = seguro.idEmpresaSeguroEntidad;
+            cmbEntidad.SelectedIndexChanged += cmbEntidad_SelectedIndexChanged;
+
             cmbCobertura.SelectedValue = seguro.idCobertura;
             cmbCia.SelectedValue = seguro.idCia;
             txtNumPoliza.Text = seguro.numeroPoliza;
@@ -83,13 +77,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         public void cerrar()
         {
-            _presenter._seguro = null;  
+            _presenter._seguro = null;
             IdEmpresa = 0;
             txtNumPoliza.Clear();
-            dtpCertificadoMensual.Value = DateTime.Now; 
-            dtpVigenciaAnual.Value = DateTime.Now;    
+            dtpCertificadoMensual.Value = DateTime.Now;
+            dtpVigenciaAnual.Value = DateTime.Now;
             Close();
-        }   
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

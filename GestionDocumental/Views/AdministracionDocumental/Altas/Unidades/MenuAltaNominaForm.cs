@@ -123,7 +123,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (cmbEmpresas.SelectedIndex != -1)
             {
                 EmpresaDto empresa = cmbEmpresas.SelectedItem as EmpresaDto;
@@ -190,7 +189,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private void bImprimirChecklist_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

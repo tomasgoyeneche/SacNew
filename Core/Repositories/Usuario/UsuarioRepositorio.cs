@@ -62,14 +62,9 @@ namespace Core.Repositories
             );
         }
 
-        public Task<Usuario?> ObtenerPorIdAsync(int idUsuario)
+        public async Task<Usuario?> ObtenerPorIdAsync(int idUsuario)
         {
-            var query = "SELECT * FROM Usuario WHERE idUsuario = @idUsuario";
-
-            return ConectarAsync(connection =>
-            {
-                return connection.QueryFirstOrDefaultAsync<Usuario?>(query, new { IdUsuario = idUsuario });
-            });
+            return await ObtenerPorIdGenericoAsync<Usuario>("Usuario", "idUsuario", idUsuario);
         }
 
         public Task AgregarAsync(Usuario usuario)

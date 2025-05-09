@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models.DTOs
+﻿namespace Shared.Models.DTOs
 {
     public class FichaTecnicaUnidadDto
     {
         // Unidad
         public string EmpresaUnidad { get; set; }
+
         public string CuitUnidad { get; set; }
         public string TipoEmpresa { get; set; }
         public decimal TaraTotal { get; set; }
@@ -19,6 +14,7 @@ namespace Shared.Models.DTOs
 
         // Tractor
         public string PatenteTractor { get; set; }
+
         public DateTime? AnioTractor { get; set; }
         public string MarcaTractor { get; set; }
         public string ModeloTractor { get; set; }
@@ -35,6 +31,7 @@ namespace Shared.Models.DTOs
 
         // Semi
         public string PatenteSemi { get; set; }
+
         public DateTime? AnioSemi { get; set; }
         public string MarcaSemi { get; set; }
         public string ModeloSemi { get; set; }
@@ -59,9 +56,9 @@ namespace Shared.Models.DTOs
 
         // Imágenes
         public string RutaFotoNomina { get; set; }
+
         public string RutaConfiguracionTractor { get; set; }
         public string RutaConfiguracionSemi { get; set; }
-
 
         public string SeguroTractor { get; set; }
         public string SeguroSemi { get; set; }

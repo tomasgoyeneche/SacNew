@@ -64,6 +64,7 @@ namespace GestionOperativa.Presenters
                 await form._presenter.InicializarAsync();
             });
         }
+
         private async Task<string?> ObtenerRutaAsync(int idRuta)
         {
             var rutaBase = await _confRepositorio.ObtenerRutaPorIdAsync(idRuta);
@@ -317,7 +318,6 @@ namespace GestionOperativa.Presenters
         { "PsicofisicoApto", chofer => chofer.PsicofisicoApto },
         { "PsicofisicoCurso", chofer => chofer.PsicofisicoCurso },
         { "Licencia", chofer => chofer.Licencia },
-
     };
 
             await _documentacionService.ExportarVencimientosAsync<ChoferDto>(

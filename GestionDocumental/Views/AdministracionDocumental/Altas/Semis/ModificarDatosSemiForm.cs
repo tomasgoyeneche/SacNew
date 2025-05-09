@@ -27,7 +27,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 
         public int Inv => Convert.ToInt32(txtInv.Text);
         public int LitroNominal => Convert.ToInt32(txtLitrosNom.Text);
-        public int Cubicacion => Convert.ToInt32(txtCubicacion.Text);   
+        public int Cubicacion => Convert.ToInt32(txtCubicacion.Text);
 
         public void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
                                     List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales)
@@ -41,8 +41,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             txtInv.Text = semi.Inv.ToString();
             txtCubicacion.Text = semi.Cubicacion.ToString();
             txtLitrosNom.Text = semi.LitroNominal.ToString();
-
-
 
             cmbMarca.DataSource = marcas;
             cmbMarca.DisplayMember = "NombreMarca";

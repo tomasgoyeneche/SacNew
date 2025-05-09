@@ -10,8 +10,6 @@ namespace Core.Repositories
         public EmpresaSeguroRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-
-
         public async Task<List<EmpresaSeguroDto>> ObtenerSegurosPorEmpresaAsync(int idEmpresa)
         {
             var query = @"SELECT * FROM vw_EmpresaSegurosActivos WHERE idEmpresa = @idEmpresa";
@@ -23,7 +21,7 @@ namespace Core.Repositories
 
         public async Task<List<EmpresaSeguroDto?>> ObtenerSeguroPorEmpresaYEntidadAsync(int idEmpresa, int idEmpresaSeguroEntidad)
         {
-            var query = @"SELECT * FROM vw_EmpresaSegurosActivos 
+            var query = @"SELECT * FROM vw_EmpresaSegurosActivos
                   WHERE idEmpresa = @idEmpresa AND idEmpresaSeguroEntidad = @idEmpresaSeguroEntidad";
 
             return await ConectarAsync(async connection =>
@@ -40,6 +38,7 @@ namespace Core.Repositories
                 connection.QuerySingleOrDefaultAsync<EmpresaSeguro>(query, new { idEmpresaSeguro })
             );
         }
+
         public async Task AgregarSeguroAsync(EmpresaSeguro seguro)
         {
             var query = @"

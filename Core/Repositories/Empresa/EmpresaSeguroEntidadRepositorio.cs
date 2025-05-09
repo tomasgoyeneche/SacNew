@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -17,9 +12,9 @@ namespace Core.Repositories
 
         public async Task<List<EmpresaSeguroEntidad>> ObtenerTodasAsync()
         {
-            const string query = @"SELECT idEmpresaSeguroEntidad, Descripcion 
-                           FROM EmpresaSeguroEntidad 
-                           WHERE Activo = 1 
+            const string query = @"SELECT idEmpresaSeguroEntidad, Descripcion
+                           FROM EmpresaSeguroEntidad
+                           WHERE Activo = 1
                            ORDER BY Descripcion";
 
             return await ConectarAsync(connection =>

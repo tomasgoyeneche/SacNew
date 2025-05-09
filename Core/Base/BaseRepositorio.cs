@@ -161,5 +161,16 @@ namespace Core.Base
             var whereClause = condiciones.Count > 0 ? "WHERE " + string.Join(" AND ", condiciones) : "";
             return (whereClause, parametros);
         }
+
+
+        protected async Task<T?> ObtenerPorIdGenericoAsync<T>(string nombreTabla, string campoId, object valorId)
+        {
+            var query = $"SELECT * FROM {nombreTabla} WHERE {campoId} = @valorId";
+
+            return await ConectarAsync(connection =>
+            {
+                return connection.QueryFirstOrDefaultAsync<T>(query, new { valorId });
+            });
+        }
     }
 }

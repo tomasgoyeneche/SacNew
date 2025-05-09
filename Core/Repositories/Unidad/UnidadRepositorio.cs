@@ -12,19 +12,7 @@ namespace Core.Repositories
         public UnidadRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-        // Obtener Unidad Por Id
-        public async Task<List<UnidadPatenteDto>> ObtenerUnidadesPatenteDtoAsync()
-        {
-            var query = @"
-            SELECT * FROM UnidadPatentesEmpresaVista";
-
-            return await ConectarAsync(async connection =>
-            {
-                var unidades = await connection.QueryAsync<UnidadPatenteDto>(query);
-                return unidades.ToList();
-            });
-        }
-
+   
         public async Task<List<UnidadDto>> ObtenerUnidadesDtoAsync()
         {
             var query = "SELECT * FROM vw_UnidadesDetalles";
@@ -59,18 +47,7 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Unidad>(query, new { IdUnidad = idUnidad }));
         }
 
-        public async Task<UnidadPatenteDto?> ObtenerPorIdAsync(int idUnidad)
-        {
-            var query = @"
-            SELECT * FROM UnidadPatentesEmpresaVista
-            WHERE IdUnidad = @IdUnidad";
 
-            return await ConectarAsync(async connection =>
-            {
-                var unidad = await connection.QueryFirstOrDefaultAsync<UnidadPatenteDto>(query, new { IdUnidad = idUnidad });
-                return unidad;
-            });
-        }
 
         // Obtener Por Otras Opciones
 
@@ -157,7 +134,7 @@ namespace Core.Repositories
                         unidad.LujanCuyo,
                         unidad.AptoBo,
                         unidad.Activo,
-                         idUsuario = idUsuario
+                        idUsuario = idUsuario
                     },
                     commandType: CommandType.StoredProcedure
                 );

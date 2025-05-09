@@ -6,6 +6,8 @@ namespace Core.Services
     {
         Task ExportarACsvAsync<T>(IEnumerable<T> datos, string filePath, bool incluirEncabezados = true);
 
+        Task ExportarFilasSeparadasAsync(IEnumerable<string[]> filas, string filePath);
+
         Task<List<T>> LeerCsvAsync<T>(string filePath, bool tieneEncabezados = true);
 
         Task<List<T>> LeerCsvConMapeoAsync<T, TMap>(string filePath) where TMap : ClassMap<T>;

@@ -2,11 +2,6 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
 {
@@ -94,12 +89,15 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     case "chofer":
                         await _choferRepo.ActualizarVencimientoChoferAsync(_idEntidad, idVencimiento, nuevaFecha.Value, _sesionService.IdUsuario);
                         break;
+
                     case "tractor":
                         await _tractorRepo.ActualizarVencimientoTractorAsync(_idEntidad, idVencimiento, nuevaFecha.Value, _sesionService.IdUsuario);
                         break;
+
                     case "semi":
                         await _semiRepo.ActualizarVencimientoSemiAsync(_idEntidad, idVencimiento, nuevaFecha.Value, _sesionService.IdUsuario);
                         break;
+
                     case "unidad":
                         await _unidadRepo.ActualizarVencimientoUnidadAsync(_idEntidad, idVencimiento, nuevaFecha.Value, _sesionService.IdUsuario);
                         break;

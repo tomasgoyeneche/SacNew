@@ -41,7 +41,7 @@ namespace GestionFlota.Presenters.Informes
                 var conceptos = await _conceptoRepositorio.ObtenerTodosLosConceptosAsync();
                 var postas = await _postaRepositorio.ObtenerTodasLasPostasAsync();
                 var empresas = await _empresaRepositorio.ObtenerTodasLasEmpresasAsync();
-                var unidades = await _unidadRepositorio.ObtenerUnidadesPatenteDtoAsync();
+                var unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
                 var choferes = await _choferRepositorio.ObtenerTodosLosChoferes();
 
                 _view.CargarConceptos(conceptos);

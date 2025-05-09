@@ -18,6 +18,7 @@ namespace App.Presenters
         private string NOMBRE_CARPETA_VERSION;
         private string RUTA_REMOTA;
         private const string RUTA_LOCAL = @"C:\Compartida\SACNew";
+
         public LoginPresenter(
             IUsuarioRepositorio usuarioRepositorio,
             IPermisoRepositorio permisoRepositorio,
@@ -33,10 +34,9 @@ namespace App.Presenters
 
         public async Task AutenticarUsuarioAsync()
         {
-
             Versiones versionBD = await _versionRepositorio.ObtenerVersionActivaAsync();
-            NOMBRE_CARPETA_VERSION = "SACNew" + versionBD.NumeroVersion;    
-            RUTA_REMOTA = @"S:\" + NOMBRE_CARPETA_VERSION; 
+            NOMBRE_CARPETA_VERSION = "SACNew" + versionBD.NumeroVersion;
+            RUTA_REMOTA = @"S:\" + NOMBRE_CARPETA_VERSION;
 
             if (versionBD == null || versionBD.NumeroVersion != VERSION_ACTUAL)
             {
@@ -88,27 +88,6 @@ namespace App.Presenters
                 }
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             string nombreUsuario = _view.NombreUsuario;
             string contrasena = _view.Contrasena;
 
@@ -124,7 +103,7 @@ namespace App.Presenters
                 }
 
                 // Obtener permisos
-                List<String> permisos = await _permisoRepositorio.ObtenerPermisosPorUsuarioAsync(usuario.IdUsuario);
+                List<string> permisos = await _permisoRepositorio.ObtenerPermisosParaSesionAsync(usuario.IdUsuario);
 
                 // Iniciar sesión
                 _sesionService.IniciarSesion(usuario, permisos);

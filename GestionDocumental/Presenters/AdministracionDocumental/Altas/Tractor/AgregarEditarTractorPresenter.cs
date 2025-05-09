@@ -14,13 +14,12 @@ namespace GestionOperativa.Presenters.Tractor
         private readonly IConfRepositorio _confRepositorio;
         private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
 
-
         public AgregarEditarTractorPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
             ITractorRepositorio tractorRepositorio,
             IConfRepositorio confRepositorio,
-            IEmpresaSeguroRepositorio empresaSeguroRepositorio )
+            IEmpresaSeguroRepositorio empresaSeguroRepositorio)
             : base(sesionService, navigationService)
         {
             _tractorRepositorio = tractorRepositorio;
@@ -42,7 +41,7 @@ namespace GestionOperativa.Presenters.Tractor
                 _view.MostrarDatosTractor(tractor);
                 _view.MostrarVencimiento(añoFinal > 0 ? añoFinal.ToString() : "Sin fecha");
 
-                Shared.Models.Tractor tractor1 = await _tractorRepositorio.ObtenerTractorPorIdAsync(idTractor); 
+                Shared.Models.Tractor tractor1 = await _tractorRepositorio.ObtenerTractorPorIdAsync(idTractor);
                 List<EmpresaSeguroDto> seguros = await _empresaSeguroRepositorio.ObtenerSeguroPorEmpresaYEntidadAsync(tractor1.IdEmpresa, 2);
                 _view.MostrarSeguros(seguros);
             });
