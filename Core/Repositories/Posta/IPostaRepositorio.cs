@@ -12,7 +12,7 @@ namespace Core.Repositories
 
         Task ActualizarPostaAsync(Posta postaActualizada);
 
-        Task<Posta> ObtenerPorIdAsync(int id);
+        Task<Posta?> ObtenerPorIdAsync(int id);
 
         Task EliminarPostaAsync(int idPosta);
     }

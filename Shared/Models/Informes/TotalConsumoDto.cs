@@ -2,7 +2,7 @@
 {
     public class TotalConsumoDto
     {
-        public string Concepto { get; set; }
+        public string? Concepto { get; set; }
 
         public decimal PrecioTotal { get; set; }
 

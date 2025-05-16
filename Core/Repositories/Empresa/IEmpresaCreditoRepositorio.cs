@@ -4,9 +4,9 @@ namespace Core.Repositories
 {
     public interface IEmpresaCreditoRepositorio
     {
-        Task<EmpresaCredito> ObtenerPorEmpresaAsync(int idEmpresa);
+        Task<EmpresaCredito?> ObtenerPorEmpresaAsync(int idEmpresa);
 
-        Task<EmpresaCredito> ObtenerPorEmpresaYPeriodoAsync(int idEmpresa, int? idPeriodo);
+        Task<EmpresaCredito?> ObtenerPorEmpresaYPeriodoAsync(int idEmpresa, int? idPeriodo);
 
         Task<decimal?> ObtenerCreditoPorEmpresaYPeriodoAsync(int idEmpresa, int idPeriodo);
 

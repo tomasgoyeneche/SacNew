@@ -2,7 +2,7 @@
 {
     public class InformeConsumoUnidad
     {
-        public string PatenteTractor { get; set; }          // Patente del tractor
+        public string? PatenteTractor { get; set; }          // Patente del tractor
         public decimal ConsumoLitrosMes { get; set; }       // Consumo total en litros del mes
         public decimal KilometrosRecorridos { get; set; }   // Kilómetros recorridos en el mes
         public decimal LitrosCienKilometros { get; set; }   // Litros consumidos por cada 100 km

@@ -2,13 +2,7 @@
 using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using SacNew.Views.Configuraciones.AbmLocaciones;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Configuraciones.Presenters
 {

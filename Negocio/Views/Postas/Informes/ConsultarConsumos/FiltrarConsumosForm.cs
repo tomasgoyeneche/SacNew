@@ -1,7 +1,6 @@
 ﻿using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
-using Shared.Models.DTOs;
 
 namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
 {
@@ -69,7 +68,7 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
         {
             cmbUnidad.DataSource = unidades;
 
-            cmbUnidad.DisplayMember = "Tractor_Patente";
+            cmbUnidad.DisplayMember = "PatenteCompleta";
             cmbUnidad.ValueMember = "IdUnidad";
             cmbUnidad.SelectedIndex = -1;
         }

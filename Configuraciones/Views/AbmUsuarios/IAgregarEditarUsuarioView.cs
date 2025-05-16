@@ -11,8 +11,8 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
         string Contrasena { get; }
         int Posta { get; }
 
-        void CargarPostas(List<Posta> postas);
+        void CargarPostas(List<Posta?> postas);
 
-        void MostrarDatosUsuario(Usuario usuario);
+        void MostrarDatosUsuario(Usuario? usuario);
     }
 }

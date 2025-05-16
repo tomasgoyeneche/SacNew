@@ -124,9 +124,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             AbrirArchivo(_rutaFotoUnidad);
         }
 
-        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        private async void bEditarVencimientos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarVencimientos(_idUnidad);
+            await _presenter.EditarVencimientos(_idUnidad);
         }
     }
 }

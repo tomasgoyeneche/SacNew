@@ -4,9 +4,9 @@
     {
         public int IdPlanilla { get; set; }
 
-        public string Titulo { get; set; }
+        public string? Titulo { get; set; }
 
-        public string Pie { get; set; }
+        public string? Pie { get; set; }
 
         public DateTime Fecha { get; set; }
 

@@ -1,6 +1,5 @@
 ﻿using Configuraciones.Presenters;
 using Configuraciones.Views.AbmUsuarios;
-using SacNew.Presenters;
 using Shared.Models;
 
 namespace SacNew.Views.Configuraciones.AbmUsuarios
@@ -15,7 +14,6 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
             _presenter = presenter;
             _presenter.SetView(this);
         }
-
 
         public void MostrarMensaje(string mensaje)
         {

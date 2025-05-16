@@ -11,7 +11,7 @@ namespace Core.Repositories
 
         Task EliminarPOCAsync(int id);
 
-        Task<POC> ObtenerPorIdAsync(int idPoc);
+        Task<POC?> ObtenerPorIdAsync(int idPoc);
 
         Task AgregarPOCAsync(POC poc);
 

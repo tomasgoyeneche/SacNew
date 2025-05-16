@@ -142,7 +142,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         private async void bNominaMetanol_Click(object sender, EventArgs e)
         {
-            _presenter.GenerarReporteFlotaAsync();
+            await _presenter.GenerarReporteFlotaAsync();
         }
 
         private async void btnEliminarUnidad_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             await _presenter.EliminarUnidadAsync();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
             if (cmbEmpresas.SelectedItem == null)
             {
@@ -158,12 +158,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                 return;
             }
             EmpresaDto empresa = cmbEmpresas.SelectedItem as EmpresaDto;
-            _presenter.AgregarUnidad(empresa);
+            await _presenter.AgregarUnidad(empresa);
         }
 
-        private void bNominaEnComodato_Click(object sender, EventArgs e)
+        private async void bNominaEnComodato_Click(object sender, EventArgs e)
         {
-            _presenter.GenerarReporteNominaComodatoAsync();
+            await _presenter.GenerarReporteNominaComodatoAsync();
         }
 
         private async void bAltasYBajasNomina_Click(object sender, EventArgs e)

@@ -183,9 +183,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             AbrirArchivo(_rutaManual);
         }
 
-        private void btnEditarDatos_Click(object sender, EventArgs e)
+        private async void btnEditarDatos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarDatos(IdTractor, SatelitalNombre);
+            await _presenter.EditarDatos(IdTractor, SatelitalNombre);
         }
 
         private void bEditarTransportista_Click(object sender, EventArgs e)
@@ -198,9 +198,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             _presenter.CambiarConfiguracion(IdTractor, "tractor");
         }
 
-        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        private async void bEditarVencimientos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarVencimientos(IdTractor);
+            await _presenter.EditarVencimientos(IdTractor);
         }
     }
 }

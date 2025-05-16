@@ -1,7 +1,6 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.Configuraciones.AbmUsuarios;
 
 namespace SacNew.Presenters.AbmUsuarios

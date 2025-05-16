@@ -202,9 +202,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             AbrirArchivo(_rutasDocumentos["bVisualExt"]);
         }
 
-        private void btnEditarDatos_Click(object sender, EventArgs e)
+        private async void btnEditarDatos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarDatos(IdSemi);
+            await _presenter.EditarDatos(IdSemi);
         }
 
         private void bEditarTransportista_Click(object sender, EventArgs e)
@@ -217,9 +217,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             _presenter.CambiarConfiguracion(IdSemi, "semi");
         }
 
-        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        private async void bEditarVencimientos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarVencimientos(IdSemi);
+            await _presenter.EditarVencimientos(IdSemi);
         }
     }
 }

@@ -2,7 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using Shared.Models.DTOs;
 using System.Data;
 
 namespace Core.Repositories
@@ -12,7 +11,6 @@ namespace Core.Repositories
         public UnidadRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-   
         public async Task<List<UnidadDto>> ObtenerUnidadesDtoAsync()
         {
             var query = "SELECT * FROM vw_UnidadesDetalles";
@@ -35,19 +33,17 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad)
+        public async Task<UnidadDto?> ObtenerPorIdDtoAsync(int idUnidad)
         {
             var query = "SELECT * FROM vw_UnidadesDetalles WHERE IdUnidad = @idUnidad";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<UnidadDto>(query, new { IdUnidad = idUnidad }));
         }
 
-        public async Task<Unidad> ObtenerPorUnidadIdAsync(int idUnidad)
+        public async Task<Unidad?> ObtenerPorUnidadIdAsync(int idUnidad)
         {
             var query = "SELECT * FROM Unidad WHERE IdUnidad = @idUnidad";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Unidad>(query, new { IdUnidad = idUnidad }));
         }
-
-
 
         // Obtener Por Otras Opciones
 

@@ -4,7 +4,7 @@
     {
         public int IdConsumo { get; set; }
         public int IdPoc { get; set; }
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
 
         public string? NumeroVale { get; set; }
 

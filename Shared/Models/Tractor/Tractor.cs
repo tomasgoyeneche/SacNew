@@ -22,7 +22,7 @@
 
         public int IdPais { get; set; }
 
-        public string Configuracion { get; set; }
+        public string? Configuracion { get; set; }
 
         public bool Activo { get; set; }
     }

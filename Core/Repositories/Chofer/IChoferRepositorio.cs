@@ -5,13 +5,13 @@ namespace Core.Repositories
     public interface IChoferRepositorio
     {
         // Obtener Chofer Por Id
-        Task<List<Chofer>> ObtenerTodosLosChoferes();
+        Task<List<Chofer?>> ObtenerTodosLosChoferes();
 
-        Task<List<ChoferDto>> ObtenerTodosLosChoferesDto();
+        Task<List<ChoferDto?>> ObtenerTodosLosChoferesDto();
 
-        Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer);
+        Task<ChoferDto?> ObtenerPorIdDtoAsync(int idChofer);
 
-        Task<Chofer> ObtenerPorIdAsync(int idChofer);
+        Task<Chofer?> ObtenerPorIdAsync(int idChofer);
 
         // Obtener Por Otras Opciones
 

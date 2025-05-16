@@ -23,7 +23,7 @@ namespace App
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("The Bezier"); // Cambiá por el que quieras
 
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             try

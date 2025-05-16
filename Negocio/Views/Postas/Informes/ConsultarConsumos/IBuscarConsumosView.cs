@@ -1,5 +1,4 @@
 ﻿using Shared.Models;
-using Shared.Models.DTOs;
 
 namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 {

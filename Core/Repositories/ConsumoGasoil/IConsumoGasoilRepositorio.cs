@@ -10,7 +10,7 @@ namespace Core.Repositories
 
         Task EliminarConsumoAsync(int idConsumoGasoil);
 
-        Task<ConsumoGasoil> ObtenerPorIdAsync(int idConsumoGasoil);
+        Task<ConsumoGasoil?> ObtenerPorIdAsync(int idConsumoGasoil);
 
         Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor);
 

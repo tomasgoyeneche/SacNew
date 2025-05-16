@@ -64,7 +64,7 @@ namespace Core.Repositories
 
             // Registrar el cambio de estado como "Eliminado" en la auditoría
             await EjecutarConAuditoriaAsync(
-                connection => connection.ExecuteAsync(query,permisoUsuario),
+                connection => connection.ExecuteAsync(query, permisoUsuario),
                 "UsuarioPermiso",
                 "DELETE",
                 null,  // Pasamos los valores anteriores sin serializarlos
@@ -82,6 +82,5 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QuerySingleOrDefaultAsync<UsuarioPermiso>(query, new { IdUsuario = idUsuario, IdPermiso = idPermiso }));
         }
-
     }
 }

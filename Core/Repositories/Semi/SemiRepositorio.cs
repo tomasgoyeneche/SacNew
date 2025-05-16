@@ -34,10 +34,10 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<SemiDto> ObtenerPorIdDtoAsync(int idSemi)
+        public async Task<SemiDto?> ObtenerPorIdDtoAsync(int idSemi)
         {
             var query = "SELECT * FROM vw_SemiremolquesDetalles WHERE idSemi = @idSemi";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<SemiDto>(query, new { IdSemi = idSemi }));
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<SemiDto?>(query, new { IdSemi = idSemi }));
         }
 
         public async Task<List<SemiDto>> BuscarSemisAsync(string textoBusqueda)
@@ -58,7 +58,7 @@ namespace Core.Repositories
 
             return await ConectarAsync(async conn =>
             {
-                return await conn.QueryFirstOrDefaultAsync<Shared.Models.Semi>(query, new { IdSemi = idSemi });
+                return await conn.QueryFirstOrDefaultAsync<Shared.Models.Semi?>(query, new { IdSemi = idSemi });
             });
         }
 

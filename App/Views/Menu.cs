@@ -1,5 +1,6 @@
-﻿using Core.Services;
-using GestionDocumental.Views;
+﻿using App.Presenters;
+using App.Views;
+using GestionOperativa;
 using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
@@ -8,104 +9,80 @@ using SacNew.Views.GestionFlota.Postas;
 
 namespace SacNew.Views
 {
-    public partial class Menu : Form
+    public partial class Menu : Form, IMenuView
     {
-        private readonly ISesionService _sesionService;
-        private readonly INavigationService _navigationService;
+        private readonly MenuPresenter _presenter;
 
-        public Menu(ISesionService sesionService, INavigationService navigationService)
+        public Menu(MenuPresenter presenter)
         {
             InitializeComponent();
-            _sesionService = sesionService;
-            _navigationService = navigationService;
+            _presenter = presenter;
+            _presenter.SetView(this);
         }
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            txtUserName.Text = $"{_sesionService.NombreCompleto}";
-            lDiaDeHoy.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            _presenter.Inicializar();
+        }
+
+        public void MostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void MostrarDiaDeHoy(string dia)
+        {
+            lDiaDeHoy.Text = dia;
+        }
+
+        public void MostrarNombreUsuario(string nombre)
+        {
+            txtUserName.Text = nombre;
         }
 
         private void bMenuPostas_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0003-Postas") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<MenuPostas>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a las Postas.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirFormularioConPermisosAsync<MenuPostas>("0003-Postas");
         }
 
         private void bAbmUsuar_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0020-AbmUsuarios") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<MenuUsuariosForm>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a la Administración de Usuarios.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirFormularioConPermisosAsync<MenuUsuariosForm>("0020-AbmUsuarios");
         }
 
         private void bAbmLocaciones_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0021-AbmLocaciones") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<MenuLocaciones>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a la Administración de Locaciones.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirFormularioConPermisosAsync<MenuLocaciones>("0021-AbmLocaciones");
         }
 
         private void bAdminDocumental_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0002-AdministracionDocumental") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<MenuAdministracionDocumental>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a la Administración Documental.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirFormularioConPermisosAsync<MenuAdministracionDocumental>("0002-AdministracionDocumental");
         }
 
         private void bGuardia_Click(object sender, EventArgs e)
         {
+            _presenter.AbrirFormularioConPermisosAsync<GuardiaForm>("0001-GuardiaBB");
         }
 
         private void bInformes_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0016-Informes") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<MenuInformesEst>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a la Administración Documental.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirFormularioConPermisosAsync<MenuInformesEst>("0016-Informes");
         }
 
         private void bNovedadesChoferes_Click(object sender, EventArgs e)
         {
-            if (_sesionService.Permisos.Contains("0014-NovedadesChoferes") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
-            {
-                _navigationService.ShowDialog<NovedadesChoferesForm>();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permisos para acceder a las Novedades Choferes.", "Permiso Denegado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _presenter.AbrirNovedades("Chofer", "0014-NovedadesChoferes");
+        }
+
+        private void bNovedadesUnidades_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirNovedades("Unidad", "0015-NovedadesUnidades");
+        }
+
+        private void bAlertas_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirAlertas("0009-Alertas");
         }
     }
 }

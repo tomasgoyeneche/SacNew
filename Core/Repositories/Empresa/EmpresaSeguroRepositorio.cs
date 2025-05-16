@@ -25,7 +25,7 @@ namespace Core.Repositories
                   WHERE idEmpresa = @idEmpresa AND idEmpresaSeguroEntidad = @idEmpresaSeguroEntidad";
 
             return await ConectarAsync(async connection =>
-                (await connection.QueryAsync<EmpresaSeguroDto>(query, new { idEmpresa, idEmpresaSeguroEntidad })).ToList()
+                (await connection.QueryAsync<EmpresaSeguroDto?>(query, new { idEmpresa, idEmpresaSeguroEntidad })).ToList()
             );
         }
 

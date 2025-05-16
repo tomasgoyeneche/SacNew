@@ -59,11 +59,11 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtImporteTotal.Text = $"{total:C}";
         }
 
-        private void btnCalcular_Click(object sender, EventArgs e)
+        private async void btnCalcular_Click(object sender, EventArgs e)
         {
             if (Cantidad.HasValue)
             {
-                _presenter.CalcularTotal(Cantidad.Value);
+                await _presenter.CalcularTotal(Cantidad.Value);
             }
             else
             {
@@ -93,15 +93,15 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
             txtCotizacion.Text = consumo.PrecioDolar.ToString("N2");
         }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        private async void txtCantidad_TextChanged(object sender, EventArgs e)
         {
             if (Cantidad.HasValue)
             {
-                _presenter.CalcularTotal(Cantidad.Value);
+                await _presenter.CalcularTotal(Cantidad.Value);
             }
         }
 
-        private void cmbTipoConsumo_EditValueChanged(object sender, EventArgs e)
+        private async void cmbTipoConsumo_EditValueChanged(object sender, EventArgs e)
         {
             var concepto = cmbTipoConsumo.GetSelectedDataRow() as Concepto;
             if (concepto == null)
@@ -113,7 +113,7 @@ namespace GestionFlota.Views.Postas.IngresaConsumos.ManualConsumos.IngresarConsu
                 txtImporteTotal.Text = concepto.PrecioActual.ToString("N2");
 
                 if (Cantidad.HasValue)
-                    _presenter.CalcularTotal(Cantidad.Value); // Usa el precio del concepto
+                    await _presenter.CalcularTotal(Cantidad.Value); // Usa el precio del concepto
             }
             else
             {

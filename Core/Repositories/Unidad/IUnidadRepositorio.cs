@@ -1,21 +1,12 @@
 ﻿using Shared.Models;
-using Shared.Models.DTOs;
 
 namespace Core.Repositories
 {
     public interface IUnidadRepositorio
     {
+        Task<UnidadDto?> ObtenerPorIdDtoAsync(int idUnidad);
 
-
-
-
-
-
-        Task<UnidadDto> ObtenerPorIdDtoAsync(int idUnidad);
-
-        Task<Unidad> ObtenerPorUnidadIdAsync(int idUnidad);
-
-     
+        Task<Unidad?> ObtenerPorUnidadIdAsync(int idUnidad);
 
         Task<List<UnidadDto>> ObtenerUnidadesDtoAsync();
 

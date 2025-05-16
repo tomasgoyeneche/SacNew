@@ -5,8 +5,8 @@ namespace Core.Services
     public interface ISesionService
     {
         int IdUsuario { get; }
-        string NombreCompleto { get; }
-        List<String> Permisos { get; }
+        string? NombreCompleto { get; }
+        List<string>? Permisos { get; }
 
         int IdPosta { get; }
 

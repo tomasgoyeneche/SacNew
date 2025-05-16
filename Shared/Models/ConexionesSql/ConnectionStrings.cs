@@ -2,7 +2,7 @@
 {
     public class ConnectionStrings
     {
-        public string MyDBConnectionString { get; set; }
-        public string FOConnectionString { get; set; }
+        public string? MyDBConnectionString { get; set; }
+        public string? FOConnectionString { get; set; }
     }
 }

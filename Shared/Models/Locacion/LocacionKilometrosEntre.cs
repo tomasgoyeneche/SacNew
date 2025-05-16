@@ -8,6 +8,6 @@
         public decimal Kilometros { get; set; }
 
         // Relación con locaciones
-        public Locacion LocacionDestino { get; set; }  // Locacion destino
+        public Locacion? LocacionDestino { get; set; }  // Locacion destino
     }
 }

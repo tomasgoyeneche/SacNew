@@ -12,7 +12,7 @@
         public int IdModelo { get; set; }
         public decimal Tara { get; set; }
 
-        public string Configuracion { get; set; }
+        public string? Configuracion { get; set; }
 
         public int IdEmpresa { get; set; }
 

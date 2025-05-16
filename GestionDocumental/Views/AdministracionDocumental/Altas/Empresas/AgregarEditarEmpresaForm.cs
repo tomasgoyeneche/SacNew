@@ -118,14 +118,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             dvgSeguroEmpresa.Columns["entidad"].DisplayIndex = 5;
         }
 
-        private void btnEditarDatos_Click(object sender, EventArgs e)
+        private async void btnEditarDatos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarDatosEmpresa(IdEmpresa);
+            await _presenter.EditarDatosEmpresa(IdEmpresa);
         }
 
-        private void bAgregarSatelital_Click(object sender, EventArgs e)
+        private async void bAgregarSatelital_Click(object sender, EventArgs e)
         {
-            _presenter.AgregarEmpresaSatelital(IdEmpresa);
+            await _presenter.AgregarEmpresaSatelital(IdEmpresa);
         }
 
         private async void bEliminarSatelital_Click(object sender, EventArgs e)
@@ -145,12 +145,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         {
         }
 
-        private void bAgregarSeguro_Click(object sender, EventArgs e)
+        private async void bAgregarSeguro_Click(object sender, EventArgs e)
         {
-            _presenter.EditarDatosSeguro(IdEmpresa, null);
+            await _presenter.EditarDatosSeguro(IdEmpresa, null);
         }
 
-        private void btnEditarArt_Click(object sender, EventArgs e)
+        private async void btnEditarArt_Click(object sender, EventArgs e)
         {
             EmpresaSeguroDto empresaseguro = dvgSeguroEmpresa.SelectedRows[0].DataBoundItem as EmpresaSeguroDto;
             if (empresaseguro == null)
@@ -158,7 +158,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
                 MostrarMensaje("No se pudo obtener el seguro seleccionado.");
                 return;
             }
-            _presenter.EditarDatosSeguro(IdEmpresa, empresaseguro);
+            await _presenter.EditarDatosSeguro(IdEmpresa, empresaseguro);
         }
 
         private async void bEliminarSeguro_Click(object sender, EventArgs e)

@@ -80,7 +80,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
             if (cmbTransportistas.SelectedIndex != -1)
             {
                 EmpresaDto empresa = cmbTransportistas.SelectedItem as EmpresaDto;
-                _presenter.BuscarAsync(empresa.Cuit);
+                await _presenter.BuscarAsync(empresa.Cuit);
             }
         }
 
@@ -89,7 +89,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
             if (gridViewUnidades.GetFocusedRow() != null)
             {
                 var row = gridViewUnidades.GetFocusedRow() as UnidadDto;
-                _presenter.GenerarFichaTecnica(row.IdUnidad);
+                await _presenter.GenerarFichaTecnica(row.IdUnidad);
             }
             else
             {

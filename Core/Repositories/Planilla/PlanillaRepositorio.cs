@@ -13,7 +13,7 @@ namespace Core.Repositories
 
         // METODOS DE BUSQUEDA POR ID O GENERAL
 
-        public async Task<Planilla> ObtenerPorIdAsync(int idPlanilla)
+        public async Task<Planilla?> ObtenerPorIdAsync(int idPlanilla)
         {
             var query = "SELECT * FROM planilla WHERE idPlanilla = @IdPlanilla";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Planilla>(query, new { IdPlanilla = idPlanilla }));

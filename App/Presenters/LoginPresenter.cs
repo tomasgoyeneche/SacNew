@@ -34,7 +34,7 @@ namespace App.Presenters
 
         public async Task AutenticarUsuarioAsync()
         {
-            Versiones versionBD = await _versionRepositorio.ObtenerVersionActivaAsync();
+            Versiones? versionBD = await _versionRepositorio.ObtenerVersionActivaAsync();
             NOMBRE_CARPETA_VERSION = "SACNew" + versionBD.NumeroVersion;
             RUTA_REMOTA = @"S:\" + NOMBRE_CARPETA_VERSION;
 
@@ -88,8 +88,8 @@ namespace App.Presenters
                 }
             }
 
-            string nombreUsuario = _view.NombreUsuario;
-            string contrasena = _view.Contrasena;
+            string? nombreUsuario = _view.NombreUsuario;
+            string? contrasena = _view.Contrasena;
 
             await EjecutarConCargaAsync(async () =>
             {
@@ -110,9 +110,10 @@ namespace App.Presenters
 
                 // Redirigir al menú principal
 
-                await AbrirFormularioAsync<Menu>(async form =>
+                await AbrirFormularioAsync<Menu>(form =>
                 {
                     _view.RedirigirAlMenu(form);
+                    return Task.CompletedTask;
                 });
             });
         }

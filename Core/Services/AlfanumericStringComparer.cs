@@ -4,7 +4,7 @@ namespace Core.Services
 {
     public class AlfanumericStringComparer : IComparer<string>
     {
-        public int Compare(string x, string y)
+        public int Compare(string? x, string? y)
         {
             if (x == y)
                 return 0;

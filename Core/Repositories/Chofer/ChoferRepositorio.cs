@@ -12,36 +12,36 @@ namespace Core.Repositories
 
         // METODOS DE BUSQUEDA POR ID O GENERAL
 
-        public async Task<Chofer> ObtenerPorIdAsync(int idChofer)
+        public async Task<Chofer?> ObtenerPorIdAsync(int idChofer)
         {
             var query = "SELECT * FROM chofer WHERE idChofer = @IdChofer";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Chofer>(query, new { IdChofer = idChofer }));
         }
 
-        public async Task<ChoferDto> ObtenerPorIdDtoAsync(int idChofer)
+        public async Task<ChoferDto?> ObtenerPorIdDtoAsync(int idChofer)
         {
             var query = "SELECT * FROM vw_ChoferesDetalles WHERE idChofer = @IdChofer";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<ChoferDto>(query, new { IdChofer = idChofer }));
         }
 
-        public async Task<List<Chofer>> ObtenerTodosLosChoferes()
+        public async Task<List<Chofer?>> ObtenerTodosLosChoferes()
         {
             var query = "SELECT * FROM Chofer WHERE Activo = 1";
 
             return await ConectarAsync(async connection =>
             {
-                var chofers = await connection.QueryAsync<Chofer>(query);
+                var chofers = await connection.QueryAsync<Chofer?>(query);
                 return chofers.ToList();
             });
         }
 
-        public async Task<List<ChoferDto>> ObtenerTodosLosChoferesDto()
+        public async Task<List<ChoferDto?>> ObtenerTodosLosChoferesDto()
         {
             var query = "SELECT * FROM vw_ChoferesDetalles";
 
             return await ConectarAsync(async connection =>
             {
-                var chofers = await connection.QueryAsync<ChoferDto>(query);
+                var chofers = await connection.QueryAsync<ChoferDto?>(query);
                 return chofers.ToList();
             });
         }

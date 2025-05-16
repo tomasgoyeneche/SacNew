@@ -162,7 +162,6 @@ namespace Core.Base
             return (whereClause, parametros);
         }
 
-
         protected async Task<T?> ObtenerPorIdGenericoAsync<T>(string nombreTabla, string campoId, object valorId)
         {
             var query = $"SELECT * FROM {nombreTabla} WHERE {campoId} = @valorId";

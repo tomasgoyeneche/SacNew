@@ -1,6 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using Shared.Models.DTOs;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 {

@@ -9,7 +9,7 @@
         public bool Descarga { get; set; }  // Campo booleano para descarga
         public bool Activo { get; set; }  // Para baja lógica (activo o inactivo)
 
-        public List<LocacionProducto> ProductosCarga { get; set; }  // Relación con productos
-        public List<LocacionKilometrosEntre> EnlacesKilometros { get; set; }  // Relación con distancias
+        public List<LocacionProducto>? ProductosCarga { get; set; }  // Relación con productos
+        public List<LocacionKilometrosEntre>? EnlacesKilometros { get; set; }  // Relación con distancias
     }
 }

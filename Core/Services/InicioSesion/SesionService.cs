@@ -5,15 +5,15 @@ namespace Core.Services
     public class SesionService : ISesionService
     {
         public int IdUsuario { get; private set; }
-        public string? NombreCompleto { get; private set; }
-        public List<String> Permisos { get; private set; }
+        public string? NombreCompleto { get; private set; } // Changed from string? to string
+        public List<string>? Permisos { get; private set; }
 
         public int IdPosta { get; private set; }
 
-        public void IniciarSesion(Usuario usuario, List<String> permisos)
+        public void IniciarSesion(Usuario usuario, List<string> permisos)
         {
             IdUsuario = usuario.IdUsuario;
-            NombreCompleto = usuario.NombreCompleto;
+            NombreCompleto = usuario.NombreCompleto ?? string.Empty; // Ensure non-null value
             Permisos = permisos;
             IdPosta = usuario.idPosta;
         }
@@ -22,7 +22,7 @@ namespace Core.Services
         {
             IdUsuario = 0;
             NombreCompleto = string.Empty;
-            Permisos = new List<String>();
+            Permisos = new List<string>();
         }
     }
 }

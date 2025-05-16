@@ -11,10 +11,10 @@ namespace Core.Repositories
             : base(connectionStrings, sesionService) { }
 
         // Obtener Tractor Por Id
-        public async Task<TractorDto> ObtenerPorIdDtoAsync(int idTractor)
+        public async Task<TractorDto?> ObtenerPorIdDtoAsync(int idTractor)
         {
             var query = "SELECT * FROM vw_TractoresDetalles WHERE idTractor = @IdTractor";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<TractorDto>(query, new { IdTractor = idTractor }));
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<TractorDto?>(query, new { IdTractor = idTractor }));
         }
 
         public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)

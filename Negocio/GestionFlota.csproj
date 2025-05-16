@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Configuraciones\Configuraciones.csproj" />
   </ItemGroup>
 
@@ -66,10 +70,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Presenters\Modificaciones\" />
   </ItemGroup>
 
 </Project>

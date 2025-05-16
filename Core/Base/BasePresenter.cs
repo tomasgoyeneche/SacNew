@@ -53,6 +53,28 @@ namespace Core.Base
             _navigationService.ShowDialog<TForm>();
         }
 
+        public async Task AbrirFormularioConPermisosAsync<TForm>(
+        string permisoRequerido,
+        Func<TForm, Task>? configurarFormulario = null) where TForm : Form
+        {
+            if (_sesionService.Permisos.Contains(permisoRequerido) || _sesionService.Permisos.Contains("0000-SuperAdmin"))
+            {
+                var formulario = _navigationService.ObtenerFormulario<TForm>();
+
+                if (configurarFormulario != null)
+                    await configurarFormulario(formulario);
+
+                _navigationService.ShowDialog<TForm>();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a esta sección.",
+                                "Permiso Denegado",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
         protected async Task EjecutarConCargaAsync(Func<Task> accion, Func<Task>? postAccion = null)
         {
             await ManejarErroresAsync(async () =>

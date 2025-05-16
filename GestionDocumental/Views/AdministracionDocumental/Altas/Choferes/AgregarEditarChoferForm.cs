@@ -159,9 +159,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             AbrirArchivo(_rutasDocumentos["bPsicofisicoCurso"]);
         }
 
-        private void btnEditarDatos_Click(object sender, EventArgs e)
+        private async void btnEditarDatos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarDatosChofer(IdChofer);
+            await _presenter.EditarDatosChofer(IdChofer);
         }
 
         private void bEditarTransportista_Click(object sender, EventArgs e)
@@ -169,9 +169,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             _presenter.CambiarTransportista(IdChofer, "chofer");
         }
 
-        private void bEditarVencimientos_Click(object sender, EventArgs e)
+        private async void bEditarVencimientos_Click(object sender, EventArgs e)
         {
-            _presenter.EditarVencimientos(IdChofer);
+            await _presenter.EditarVencimientos(IdChofer);
         }
     }
 }

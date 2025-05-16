@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters;
 using Shared.Models;
-using Shared.Models.DTOs;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
 {
@@ -28,11 +27,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public void CargarNominas(List<UnidadDto> unidades)
         {
             cmbNomina.Properties.DataSource = unidades;
-            cmbNomina.Properties.DisplayMember = "Tractor_Patente";
+            cmbNomina.Properties.DisplayMember = "PatenteCompleta";
             cmbNomina.Properties.ValueMember = "IdUnidad";
 
             cmbNomina.Properties.Columns.Clear(); // 🔥 Borra todo
-            cmbNomina.Properties.Columns.Add(new LookUpColumnInfo("Tractor_Patente", "Unidad"));
+            cmbNomina.Properties.Columns.Add(new LookUpColumnInfo("PatenteCompleta", "Unidad"));
 
             cmbNomina.EditValue = _presenter.PocActual?.IdUnidad ?? -1;
         }

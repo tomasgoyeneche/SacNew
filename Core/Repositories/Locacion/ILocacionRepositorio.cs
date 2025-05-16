@@ -10,7 +10,7 @@ namespace Core.Repositories
 
         Task EliminarAsync(int idLocacion);
 
-        Task<Locacion> ObtenerPorIdAsync(int idLocacion);
+        Task<Locacion?> ObtenerPorIdAsync(int idLocacion);
 
         Task AgregarAsync(Locacion locacion);
 

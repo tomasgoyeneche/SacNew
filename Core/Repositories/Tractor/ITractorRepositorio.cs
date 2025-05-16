@@ -11,9 +11,9 @@ namespace Core.Repositories
 
         Task<List<TractorDto>> BuscarTractoresAsync(string textoBusqueda);
 
-        Task<TractorDto> ObtenerPorIdDtoAsync(int idTractor);
+        Task<TractorDto?> ObtenerPorIdDtoAsync(int idTractor);
 
-        Task<Tractor> ObtenerTractorPorIdAsync(int idTractor);
+        Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor);
 
         // Obtener Por Otras Opciones
 

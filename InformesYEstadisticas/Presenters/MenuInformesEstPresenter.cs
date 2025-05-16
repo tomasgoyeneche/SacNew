@@ -78,7 +78,7 @@ namespace InformesYEstadisticas.Presenters
                 .ToList();
 
                 ReporteVerifMensual reporte = new ReporteVerifMensual();
-                reporte.DataSource = new List<Planilla> { planilla };
+                reporte.DataSource = new List<Planilla?> { planilla };
                 reporte.DataMember = "";
 
                 reporte.PreguntasPlanilla.DataSource = preguntasReporte;
@@ -96,7 +96,7 @@ namespace InformesYEstadisticas.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                Planilla planilla = await _planillaRepositorio.ObtenerPorIdAsync(3);
+                Planilla? planilla = await _planillaRepositorio.ObtenerPorIdAsync(3);
                 // Obtener los datos desde el repositorio
                 List<PlanillaPreguntaDto> preguntas = await _planillaRepositorio.ObtenerPreguntasPorPlanilla(3);
                 // Crear una instancia del nuevo reporte DevExpress
@@ -113,7 +113,7 @@ namespace InformesYEstadisticas.Presenters
                 .ToList();
 
                 ReporteControlOperativoConsumos reporte = new ReporteControlOperativoConsumos();
-                reporte.DataSource = new List<Planilla> { planilla };
+                reporte.DataSource = new List<Planilla?> { planilla };
                 reporte.DataMember = "";
 
                 reporte.DetailReport.DataSource = preguntasReporte;

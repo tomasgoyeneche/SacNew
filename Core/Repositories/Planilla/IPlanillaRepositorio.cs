@@ -7,6 +7,6 @@ namespace Core.Repositories
     {
         Task<List<PlanillaPreguntaDto>> ObtenerPreguntasPorPlanilla(int idPlanilla);
 
-        Task<Planilla> ObtenerPorIdAsync(int idChofer);
+        Task<Planilla?> ObtenerPorIdAsync(int idChofer);
     }
 }
