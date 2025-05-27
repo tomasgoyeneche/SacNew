@@ -19,5 +19,7 @@ namespace Core.Repositories
         Task<List<NovedadesChoferesDto>> ObtenerPorMesYAnioAsync(int mes, int anio);
 
         Task<List<NovedadesChoferesDto>> ObtenerPorAnioAsync(int anio);
+
+        Task<List<NovedadesChoferesDto>> ObtenerPorChoferAsync(int idChofer);
     }
 }

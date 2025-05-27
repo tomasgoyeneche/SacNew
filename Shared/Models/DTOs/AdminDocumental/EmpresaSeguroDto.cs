@@ -11,5 +11,6 @@
         public DateTime certificadoMensual { get; set; }
         public DateTime vigenciaAnual { get; set; }
         public int idEmpresaSeguroEntidad { get; set; }
+        public string Centralizado { get; set; }
     }
 }

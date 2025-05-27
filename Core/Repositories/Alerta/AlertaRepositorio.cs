@@ -63,5 +63,14 @@ namespace Core.Repositories
                 return connection.ExecuteAsync(query, new { IdAlerta = idAlerta });
             });
         }
+
+        public async Task<List<AlertaDto>> ObtenerAlertasPorIdNominaAsync(int idNomina)
+        {
+            const string query = "SELECT * FROM vw_AlertaDetalle WHERE IdNomina = @idNomina";
+
+            return await ConectarAsync(conn =>
+                conn.QueryAsync<AlertaDto>(query, new { idNomina }))
+                .ContinueWith(t => t.Result.ToList());
+        }
     }
 }

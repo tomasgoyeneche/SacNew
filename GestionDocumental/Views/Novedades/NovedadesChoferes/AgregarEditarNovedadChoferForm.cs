@@ -49,6 +49,11 @@ namespace GestionDocumental.Views
             cmbChofer.EditValue = _presenter.NovedadActual?.idChofer ?? -1;
         }
 
+        public void MostrarMantenimientosUnidad(string texto)
+        {
+            lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
         public void CargarEstados(List<ChoferTipoEstado> estados)
         {
             cmbEstado.Properties.DataSource = estados;
@@ -108,6 +113,18 @@ namespace GestionDocumental.Views
         private void dtpFechaFinal_ValueChanged(object sender, EventArgs e)
         {
             _presenter.CalcularAusencia();
+        }
+
+        private async void cmbChofer_EditValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(cmbChofer.EditValue?.ToString(), out int idChofer) && idChofer > 0)
+            {
+                await _presenter.MostrarMantenimientosUnidadDelChoferAsync(idChofer);
+            }
+            else
+            {
+                await _presenter.MostrarMantenimientosUnidadDelChoferAsync(0); // Limpiar si no hay chofer
+            }
         }
     }
 }

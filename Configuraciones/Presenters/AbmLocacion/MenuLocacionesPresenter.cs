@@ -20,7 +20,6 @@ namespace SacNew.Presenters
 
         public async Task InicializarAsync()
         {
-            MostrarNombreUsuario();
             await CargarLocacionesAsync();
         }
 

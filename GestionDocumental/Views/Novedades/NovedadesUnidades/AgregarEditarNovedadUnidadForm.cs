@@ -38,6 +38,10 @@ namespace GestionDocumental.Views.Novedades
 
         public int Odometro => Convert.ToInt32(txtOdometro.Text);
 
+        public void MostrarAusenciasChofer(string texto)
+        {
+            lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
         public void CargarUnidades(List<UnidadDto> unidades)
         {
             cmbUnidad.Properties.DataSource = unidades;
@@ -103,6 +107,18 @@ namespace GestionDocumental.Views.Novedades
         private void dtpFechaFinal_ValueChanged(object sender, EventArgs e)
         {
             _presenter.CalcularAusencia();
+        }
+
+        private async void cmbUnidad_EditValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(cmbUnidad.EditValue?.ToString(), out int idUnidad) && idUnidad > 0)
+            {
+                await _presenter.MostrarAusenciasDelChoferAsync(idUnidad);
+            }
+            else
+            {
+                await _presenter.MostrarAusenciasDelChoferAsync(0); // Limpiar si no hay chofer
+            }
         }
     }
 }

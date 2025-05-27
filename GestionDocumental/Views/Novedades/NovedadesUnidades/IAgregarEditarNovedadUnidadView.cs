@@ -22,6 +22,8 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
 
         void MostrarDiasAusente(int dias);
 
+        void MostrarAusenciasChofer(string texto);
+
         void MostrarFechaReincorporacion(DateTime fecha);
     }
 }

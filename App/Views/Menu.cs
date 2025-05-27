@@ -1,6 +1,5 @@
 ﻿using App.Presenters;
 using App.Views;
-using GestionOperativa;
 using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
@@ -62,7 +61,7 @@ namespace SacNew.Views
 
         private void bGuardia_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirFormularioConPermisosAsync<GuardiaForm>("0001-GuardiaBB");
+            _presenter.AbrirGuardia("0001 - GuardiaBB", 2);
         }
 
         private void bInformes_Click(object sender, EventArgs e)
@@ -83,6 +82,21 @@ namespace SacNew.Views
         private void bAlertas_Click(object sender, EventArgs e)
         {
             _presenter.AbrirAlertas("0009-Alertas");
+        }
+
+        private void bGuardiaPh_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirGuardia("0004-GuardiaPH", 3);
+        }
+
+        private void bAdministracionBb_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirAdministracion("0005-AdministracionBB", 2);
+        }
+
+        private void bAdministracionPh_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirAdministracion("0027 - AdministracionPH", 3);
         }
     }
 }

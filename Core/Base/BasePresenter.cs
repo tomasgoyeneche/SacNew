@@ -119,13 +119,5 @@ namespace Core.Base
                 viewConMensajes.MostrarMensaje(mensaje);
             }
         }
-
-        protected void MostrarNombreUsuario()
-        {
-            if (_view is IViewConUsuario viewConUsuario)
-            {
-                viewConUsuario.MostrarNombreUsuario(_sesionService.NombreCompleto);
-            }
-        }
     }
 }

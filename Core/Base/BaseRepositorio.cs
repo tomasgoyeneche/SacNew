@@ -162,6 +162,10 @@ namespace Core.Base
             return (whereClause, parametros);
         }
 
+
+
+
+
         protected async Task<T?> ObtenerPorIdGenericoAsync<T>(string nombreTabla, string campoId, object valorId)
         {
             var query = $"SELECT * FROM {nombreTabla} WHERE {campoId} = @valorId";
@@ -170,6 +174,85 @@ namespace Core.Base
             {
                 return connection.QueryFirstOrDefaultAsync<T>(query, new { valorId });
             });
+        }
+
+        private static string ObtenerCampoId<T>()
+        {
+            var tipo = typeof(T);
+            var nombreEsperado = "Id" + tipo.Name;
+            // Permite encontrarlo ignorando mayúsculas/minúsculas
+            var prop = tipo.GetProperties()
+                .FirstOrDefault(p => string.Equals(p.Name, nombreEsperado, StringComparison.OrdinalIgnoreCase));
+            if (prop == null)
+                throw new InvalidOperationException($"No se encontró la propiedad {nombreEsperado} en el tipo {tipo.Name}");
+            return prop.Name;
+        }
+
+        public async Task<int> AgregarGenéricoAsync<T>(string nombreTabla, T entidad)
+        {
+            var campoId = ObtenerCampoId<T>();
+
+            var propiedades = typeof(T).GetProperties()
+                .Where(p => p.CanRead && !string.Equals(p.Name, campoId, StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            var columnas = string.Join(", ", propiedades.Select(p => p.Name));
+            var valores = string.Join(", ", propiedades.Select(p => "@" + p.Name));
+            var query = $"INSERT INTO {nombreTabla} ({columnas}) VALUES ({valores}); SELECT CAST(SCOPE_IDENTITY() as int);";
+
+            return await EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteScalarAsync<int>(query, entidad),
+                nombreTabla,
+                "INSERT",
+                null,
+                entidad
+            );
+        }
+
+
+        public async Task<int> ActualizarGenéricoAsync<T>(string nombreTabla, T entidad)
+        {
+            var campoId = ObtenerCampoId<T>();
+
+            // Obtener el valor del id
+            var idProp = typeof(T).GetProperty(campoId);
+            var valorId = idProp?.GetValue(entidad);
+            if (valorId == null)
+                throw new InvalidOperationException($"No se pudo obtener el valor de la propiedad clave {campoId}");
+
+            var valoresAnteriores = await ObtenerPorIdGenericoAsync<T>(nombreTabla, campoId, valorId);
+
+            var propiedades = typeof(T).GetProperties()
+                .Where(p => p.CanRead && !string.Equals(p.Name, campoId, StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            var sets = string.Join(", ", propiedades.Select(p => $"{p.Name} = @{p.Name}"));
+            var query = $"UPDATE {nombreTabla} SET {sets} WHERE {campoId} = @{campoId}";
+
+            return await EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, entidad),
+                nombreTabla,
+                "UPDATE",
+                valoresAnteriores,
+                entidad
+            );
+        }
+
+
+        public async Task<int> EliminarGenéricoAsync<T>(string nombreTabla, object valorId)
+        {
+            var campoId = ObtenerCampoId<T>();
+            var valoresAnteriores = await ObtenerPorIdGenericoAsync<T>(nombreTabla, campoId, valorId);
+
+            var query = $"UPDATE {nombreTabla} SET ACTIVO = 0 WHERE {campoId} = @valorId";
+
+            return await EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, new { valorId }),
+                nombreTabla,
+                "DELETE",
+                valoresAnteriores,
+                null
+            );
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Core.Repositories
 
         Task<Alerta?> ObtenerPorIdAsync(int idAlerta);
 
+        Task<List<AlertaDto>> ObtenerAlertasPorIdNominaAsync(int idNomina);
+
         Task AgregarAlertaAsync(Alerta nuevaAlerta, int idUsuario);
 
         Task ActualizarAlertaAsync(Alerta alertaActualizada, int idUsuario);

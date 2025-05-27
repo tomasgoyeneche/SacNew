@@ -237,5 +237,19 @@ namespace Core.Repositories
                 return novedades.ToList();
             });
         }
+
+        public async Task<List<UnidadMantenimientoDto>> ObtenerPorUnidadAsync(int idUnidad)
+        {
+            var query = @"
+        SELECT *
+        FROM vw_NovedadesUnidades
+        WHERE idUnidad = @idUnidad and FechaFin >= CAST(GETDATE() AS DATE)";
+
+            return await ConectarAsync(async connection =>
+            {
+                var novedades = await connection.QueryAsync<UnidadMantenimientoDto>(query, new { IdUnidad = idUnidad });
+                return novedades.ToList();
+            });
+        }
     }
 }

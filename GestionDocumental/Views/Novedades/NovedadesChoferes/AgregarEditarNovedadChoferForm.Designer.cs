@@ -28,21 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbChofer = new DevExpress.XtraEditors.LookUpEdit();
@@ -60,36 +57,21 @@
             dtpFechaFinal = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblDiasAusente = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblReincorporacion = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            ((System.ComponentModel.ISupportInitialize)picBoxEntidad).BeginInit();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cmbChofer.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbEstado.Properties).BeginInit();
             SuspendLayout();
             // 
-            // picBoxEntidad
-            // 
-            picBoxEntidad.BackColor = Color.Transparent;
-            picBoxEntidad.BackgroundImage = Properties.Resources.admDocumentalChofer;
-            picBoxEntidad.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxEntidad.CustomizableEdges = customizableEdges1;
-            picBoxEntidad.Dock = DockStyle.Right;
-            picBoxEntidad.FillColor = Color.FromArgb(120, 0, 0, 0);
-            picBoxEntidad.ImageRotate = 0F;
-            picBoxEntidad.Location = new Point(425, 0);
-            picBoxEntidad.Name = "picBoxEntidad";
-            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            picBoxEntidad.Size = new Size(373, 568);
-            picBoxEntidad.TabIndex = 2;
-            picBoxEntidad.TabStop = false;
-            // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel23);
-            guna2Panel10.CustomizableEdges = customizableEdges3;
+            guna2Panel10.CustomizableEdges = customizableEdges13;
             guna2Panel10.FillColor = Color.Coral;
             guna2Panel10.Location = new Point(0, 24);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel10.Size = new Size(253, 31);
             guna2Panel10.TabIndex = 47;
             // 
@@ -106,7 +88,7 @@
             // 
             // cmbChofer
             // 
-            cmbChofer.Location = new Point(33, 106);
+            cmbChofer.Location = new Point(33, 111);
             cmbChofer.Margin = new Padding(4, 3, 4, 3);
             cmbChofer.Name = "cmbChofer";
             cmbChofer.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -114,6 +96,7 @@
             cmbChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbChofer.Size = new Size(354, 26);
             cmbChofer.TabIndex = 49;
+            cmbChofer.EditValueChanged += cmbChofer_EditValueChanged;
             // 
             // guna2HtmlLabel8
             // 
@@ -121,7 +104,7 @@
             guna2HtmlLabel8.BackColor = Color.Gray;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(33, 83);
+            guna2HtmlLabel8.Location = new Point(33, 88);
             guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(354, 23);
@@ -135,7 +118,7 @@
             guna2HtmlLabel1.BackColor = Color.Gray;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(33, 151);
+            guna2HtmlLabel1.Location = new Point(33, 154);
             guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(167, 23);
@@ -149,7 +132,7 @@
             guna2HtmlLabel2.BackColor = Color.Gray;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(220, 151);
+            guna2HtmlLabel2.Location = new Point(220, 154);
             guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(167, 23);
@@ -160,7 +143,7 @@
             // btnGuardar
             // 
             btnGuardar.AnimatedGIF = true;
-            btnGuardar.CustomizableEdges = customizableEdges5;
+            btnGuardar.CustomizableEdges = customizableEdges15;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -168,18 +151,18 @@
             btnGuardar.FillColor = Color.ForestGreen;
             btnGuardar.Font = new Font("Segoe UI", 9F);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(220, 492);
+            btnGuardar.Location = new Point(220, 507);
             btnGuardar.Margin = new Padding(4, 3, 4, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnGuardar.Size = new Size(167, 50);
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnGuardar.Size = new Size(167, 35);
             btnGuardar.TabIndex = 56;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges7;
+            btnCancelar.CustomizableEdges = customizableEdges17;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -187,11 +170,11 @@
             btnCancelar.FillColor = Color.Gray;
             btnCancelar.Font = new Font("Segoe UI", 9F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(33, 492);
+            btnCancelar.Location = new Point(33, 507);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnCancelar.Size = new Size(167, 50);
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnCancelar.Size = new Size(167, 35);
             btnCancelar.TabIndex = 55;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
@@ -199,7 +182,7 @@
             // txtObservaciones
             // 
             txtObservaciones.BackColor = Color.FromArgb(26, 29, 35);
-            txtObservaciones.CustomizableEdges = customizableEdges9;
+            txtObservaciones.CustomizableEdges = customizableEdges19;
             txtObservaciones.DefaultText = "";
             txtObservaciones.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtObservaciones.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -208,7 +191,7 @@
             txtObservaciones.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtObservaciones.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtObservaciones.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtObservaciones.Location = new Point(33, 384);
+            txtObservaciones.Location = new Point(33, 387);
             txtObservaciones.Margin = new Padding(4, 3, 4, 3);
             txtObservaciones.MaxLength = 255;
             txtObservaciones.Multiline = true;
@@ -217,8 +200,8 @@
             txtObservaciones.PlaceholderText = "";
             txtObservaciones.RightToLeft = RightToLeft.No;
             txtObservaciones.SelectedText = "";
-            txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtObservaciones.Size = new Size(354, 86);
+            txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtObservaciones.Size = new Size(354, 98);
             txtObservaciones.TabIndex = 54;
             // 
             // guna2HtmlLabel7
@@ -226,7 +209,7 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel7.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel7.Location = new Point(33, 355);
+            guna2HtmlLabel7.Location = new Point(33, 358);
             guna2HtmlLabel7.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             guna2HtmlLabel7.Size = new Size(123, 23);
@@ -235,7 +218,7 @@
             // 
             // cmbEstado
             // 
-            cmbEstado.Location = new Point(33, 316);
+            cmbEstado.Location = new Point(33, 315);
             cmbEstado.Margin = new Padding(4, 3, 4, 3);
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -250,7 +233,7 @@
             guna2HtmlLabel3.BackColor = Color.Gray;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(33, 293);
+            guna2HtmlLabel3.Location = new Point(33, 292);
             guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(354, 23);
@@ -268,7 +251,7 @@
             dispoCheck.CheckMarkColor = Color.LimeGreen;
             dispoCheck.Font = new Font("Century Gothic", 10F);
             dispoCheck.ForeColor = Color.LimeGreen;
-            dispoCheck.Location = new Point(288, 229);
+            dispoCheck.Location = new Point(288, 221);
             dispoCheck.Name = "dispoCheck";
             dispoCheck.Size = new Size(99, 23);
             dispoCheck.TabIndex = 83;
@@ -281,16 +264,16 @@
             // dtpFechaInicio
             // 
             dtpFechaInicio.Checked = true;
-            dtpFechaInicio.CustomizableEdges = customizableEdges11;
+            dtpFechaInicio.CustomizableEdges = customizableEdges21;
             dtpFechaInicio.FillColor = Color.Gainsboro;
             dtpFechaInicio.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaInicio.Format = DateTimePickerFormat.Short;
-            dtpFechaInicio.Location = new Point(33, 174);
+            dtpFechaInicio.Location = new Point(33, 177);
             dtpFechaInicio.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFechaInicio.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpFechaInicio.Name = "dtpFechaInicio";
-            dtpFechaInicio.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpFechaInicio.Size = new Size(167, 38);
+            dtpFechaInicio.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            dtpFechaInicio.Size = new Size(167, 21);
             dtpFechaInicio.TabIndex = 85;
             dtpFechaInicio.Value = new DateTime(2025, 5, 6, 9, 41, 5, 367);
             dtpFechaInicio.ValueChanged += dtpFechaInicio_ValueChanged;
@@ -298,16 +281,16 @@
             // dtpFechaFinal
             // 
             dtpFechaFinal.Checked = true;
-            dtpFechaFinal.CustomizableEdges = customizableEdges13;
+            dtpFechaFinal.CustomizableEdges = customizableEdges23;
             dtpFechaFinal.FillColor = Color.Gainsboro;
             dtpFechaFinal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaFinal.Format = DateTimePickerFormat.Short;
-            dtpFechaFinal.Location = new Point(220, 174);
+            dtpFechaFinal.Location = new Point(220, 177);
             dtpFechaFinal.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFechaFinal.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpFechaFinal.Name = "dtpFechaFinal";
-            dtpFechaFinal.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            dtpFechaFinal.Size = new Size(167, 38);
+            dtpFechaFinal.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            dtpFechaFinal.Size = new Size(167, 21);
             dtpFechaFinal.TabIndex = 86;
             dtpFechaFinal.Value = new DateTime(2025, 5, 6, 9, 41, 5, 367);
             dtpFechaFinal.ValueChanged += dtpFechaFinal_ValueChanged;
@@ -317,7 +300,7 @@
             lblDiasAusente.BackColor = Color.Transparent;
             lblDiasAusente.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDiasAusente.ForeColor = SystemColors.ControlLight;
-            lblDiasAusente.Location = new Point(33, 229);
+            lblDiasAusente.Location = new Point(33, 221);
             lblDiasAusente.Margin = new Padding(4, 3, 4, 3);
             lblDiasAusente.Name = "lblDiasAusente";
             lblDiasAusente.Size = new Size(97, 18);
@@ -329,12 +312,39 @@
             lblReincorporacion.BackColor = Color.Transparent;
             lblReincorporacion.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblReincorporacion.ForeColor = SystemColors.ControlLight;
-            lblReincorporacion.Location = new Point(33, 258);
+            lblReincorporacion.Location = new Point(33, 254);
             lblReincorporacion.Margin = new Padding(4, 3, 4, 3);
             lblReincorporacion.Name = "lblReincorporacion";
             lblReincorporacion.Size = new Size(87, 18);
             lblReincorporacion.TabIndex = 88;
             lblReincorporacion.Text = "Reincorpora:";
+            // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.AutoSize = false;
+            guna2HtmlLabel4.BackColor = Color.Gray;
+            guna2HtmlLabel4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel4.Location = new Point(410, 87);
+            guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(354, 24);
+            guna2HtmlLabel4.TabIndex = 89;
+            guna2HtmlLabel4.Text = "Mantenimientos Unidad";
+            guna2HtmlLabel4.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // lblMantenimientosUnidad
+            // 
+            lblMantenimientosUnidad.AutoSize = false;
+            lblMantenimientosUnidad.BackColor = Color.FromArgb(42, 48, 56);
+            lblMantenimientosUnidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMantenimientosUnidad.ForeColor = Color.Red;
+            lblMantenimientosUnidad.Location = new Point(410, 110);
+            lblMantenimientosUnidad.Margin = new Padding(4, 3, 4, 3);
+            lblMantenimientosUnidad.Name = "lblMantenimientosUnidad";
+            lblMantenimientosUnidad.Size = new Size(354, 432);
+            lblMantenimientosUnidad.TabIndex = 90;
+            lblMantenimientosUnidad.Text = "Mantenimiento";
             // 
             // AgregarEditarNovedadChoferForm
             // 
@@ -342,6 +352,8 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(798, 568);
+            Controls.Add(lblMantenimientosUnidad);
+            Controls.Add(guna2HtmlLabel4);
             Controls.Add(lblReincorporacion);
             Controls.Add(lblDiasAusente);
             Controls.Add(dtpFechaFinal);
@@ -358,13 +370,11 @@
             Controls.Add(cmbChofer);
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(guna2Panel10);
-            Controls.Add(picBoxEntidad);
             MaximizeBox = false;
             Name = "AgregarEditarNovedadChoferForm";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarNovedadChoferForm";
-            ((System.ComponentModel.ISupportInitialize)picBoxEntidad).EndInit();
             guna2Panel10.ResumeLayout(false);
             guna2Panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)cmbChofer.Properties).EndInit();
@@ -374,8 +384,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2PictureBox picBoxEntidad;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
         private DevExpress.XtraEditors.LookUpEdit cmbChofer;
@@ -394,5 +402,7 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaFinal;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblDiasAusente;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblReincorporacion;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
     }
 }

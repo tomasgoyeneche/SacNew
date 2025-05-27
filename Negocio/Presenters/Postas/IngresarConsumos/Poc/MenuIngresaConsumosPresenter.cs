@@ -24,8 +24,7 @@ namespace GestionFlota.Presenters
         {
             await ManejarErroresAsync(async () =>
             {
-                MostrarNombreUsuario();
-                await CargarPOCAsync();
+                CargarPOCAsync();
             });
         }
 

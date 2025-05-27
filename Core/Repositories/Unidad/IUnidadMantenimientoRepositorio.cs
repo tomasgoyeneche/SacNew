@@ -19,5 +19,7 @@ namespace Core.Repositories
         Task<List<UnidadMantenimientoDto>> ObtenerPorMesYAnioAsync(int mes, int anio);
 
         Task<List<UnidadMantenimientoDto>> ObtenerPorAnioAsync(int anio);
+
+        Task<List<UnidadMantenimientoDto>> ObtenerPorUnidadAsync(int idUnidad);
     }
 }

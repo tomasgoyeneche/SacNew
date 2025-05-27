@@ -25,18 +25,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Update="Reports\ReporteFichaTecnicaUnidad.cs">
-      <SubType>XtraReport</SubType>
-    </Compile>
-    <Compile Update="Reports\ReporteFichaTecnicaUnidadVacia.cs">
-      <SubType>XtraReport</SubType>
-    </Compile>
-    <Compile Update="Reports\ReporteNominaEquiposEnComodato.cs">
-      <SubType>XtraReport</SubType>
-    </Compile>
-    <Compile Update="Reports\ReporteNominaMetanolActiva.cs">
-      <SubType>XtraReport</SubType>
-    </Compile>
     <Compile Update="Views\AdministracionDocumental\Altas\Choferes\AgregarEditarChoferForm.cs">
       <SubType>Form</SubType>
     </Compile>

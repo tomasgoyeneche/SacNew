@@ -237,5 +237,21 @@ namespace Core.Repositories
                 return novedades.ToList();
             });
         }
-    }
+
+
+        public async Task<List<NovedadesChoferesDto>> ObtenerPorChoferAsync(int idChofer)
+        {
+            var query = @"
+        SELECT *
+        FROM vw_NovedadesChoferes
+          WHERE idChofer = @idChofer and FechaFin >= CAST(GETDATE() AS DATE)";
+
+            return await ConectarAsync(async connection =>
+            {
+                var novedades = await connection.QueryAsync<NovedadesChoferesDto>(query, new { IdChofer = idChofer });
+                return novedades.ToList();
+            });
+
+        }        
+    }  
 }

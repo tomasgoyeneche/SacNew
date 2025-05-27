@@ -39,4 +39,28 @@
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Reports\ReporteControlOperativoConsumos.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteFichaTecnicaUnidad.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteFichaTecnicaUnidadVacia.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteIngresoTe.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteNominaEquiposEnComodato.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteNominaMetanolActiva.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+    <Compile Update="Reports\ReporteVerifMensual.cs">
+      <SubType>XtraReport</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -225,6 +225,7 @@
             dtpFechaCreacion.Checked = true;
             dtpFechaCreacion.CustomFormat = "dd/MM/yyyy HH:mm";
             dtpFechaCreacion.CustomizableEdges = customizableEdges15;
+            dtpFechaCreacion.Enabled = false;
             dtpFechaCreacion.FillColor = Color.WhiteSmoke;
             dtpFechaCreacion.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpFechaCreacion.Format = DateTimePickerFormat.Custom;
@@ -348,6 +349,7 @@
             txtNumeroPOC.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtNumeroPOC.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtNumeroPOC.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtNumeroPOC.Enabled = false;
             txtNumeroPOC.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNumeroPOC.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNumeroPOC.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -480,6 +482,7 @@
             // 
             // cmbNomina
             // 
+            cmbNomina.Enabled = false;
             cmbNomina.Location = new Point(113, 288);
             cmbNomina.Margin = new Padding(4, 3, 4, 3);
             cmbNomina.Name = "cmbNomina";
@@ -491,6 +494,7 @@
             // 
             // cmbChofer
             // 
+            cmbChofer.Enabled = false;
             cmbChofer.Location = new Point(113, 332);
             cmbChofer.Margin = new Padding(4, 3, 4, 3);
             cmbChofer.Name = "cmbChofer";
