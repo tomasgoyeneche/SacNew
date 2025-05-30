@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GestionDocumental\GestionDocumental.csproj" />
+    <ProjectReference Include="..\GestionOperativa\GestionOperativa.csproj" />
   </ItemGroup>
 
   <ItemGroup>

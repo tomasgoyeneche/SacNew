@@ -8,15 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GestionOperativa\GestionOperativa.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Validators\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Servicios\Servicios.csproj" />
   </ItemGroup>
 
   <ItemGroup>

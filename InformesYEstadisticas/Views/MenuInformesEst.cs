@@ -33,5 +33,10 @@ namespace InformesYEstadisticas
         {
             await _presenter.GenerarReporteConsumos();
         }
+
+        private void bResumenNomMetanol_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,12 +9,15 @@ namespace GestionOperativa.Presenters
     public class CambiarEstadoPresenter : BasePresenter<ICambiarEstadoView>
     {
         private readonly IGuardiaRepositorio _guardiaRepositorio;
+        private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
+
         private GuardiaDto _guardia;
 
-        public CambiarEstadoPresenter(ISesionService sesion, INavigationService nav, IGuardiaRepositorio guardiaRepositorio)
+        public CambiarEstadoPresenter(ISesionService sesion, INavigationService nav, IGuardiaRepositorio guardiaRepositorio, IVaporizadoRepositorio vaporizadoRepositorio)
             : base(sesion, nav)
         {
             _guardiaRepositorio = guardiaRepositorio;
+            _vaporizadoRepositorio = vaporizadoRepositorio;
         }
 
         public Task InicializarAsync(GuardiaDto guardia, bool admin)
@@ -59,12 +62,38 @@ namespace GestionOperativa.Presenters
                 case 6:
                     fecha = manual ? _view.FechaReingreso.GetValueOrDefault() : DateTime.Now;
                     break;
-
+                case 7:
+                    RegistrarVaporizadoDesdeGuardiaAsync(_guardia);
+                    fecha = DateTime.Now;
+                    break;
                 default:
                     fecha = DateTime.Now;
                     break;
             }
             await CambiarEstadoAsync(Estado, fecha, observacion + (manual ? " - Manual" : ""));
+        }
+
+        public async Task RegistrarVaporizadoDesdeGuardiaAsync(GuardiaDto guardia)
+        {
+            var vaporizado = new Vaporizado
+            {
+                NroCertificado = null, // Si lo tenés en otro lado, asignalo
+                RemitoDanes = null,
+                IdPosta = guardia.IdPosta,
+                CantidadCisternas = null, // Cambialo si tenés otro origen
+                IdVaporizadoMotivo = null, // O lo que corresponda
+                FechaInicio = null,
+                FechaFin = null,
+                IdVaporizadoZona = null, // O lo que corresponda
+                TipoIngreso = guardia.TipoIngreso,
+                EsExterno = false,
+                IdNomina = guardia.TipoIngreso == 1 ? guardia.IdEntidad : null,
+                IdTe = guardia.TipoIngreso == 2 ? guardia.IdEntidad : null,
+                Observaciones = null,
+                Activo = true
+            };
+
+            await _vaporizadoRepositorio.AgregarAsync(vaporizado, _sesionService.IdUsuario);
         }
     }
 }

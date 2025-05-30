@@ -848,6 +848,7 @@
             bResumenNomMetanol.Size = new Size(254, 30);
             bResumenNomMetanol.TabIndex = 12;
             bResumenNomMetanol.Text = "Generar";
+            bResumenNomMetanol.Click += bResumenNomMetanol_Click;
             // 
             // guna2HtmlLabel2
             // 

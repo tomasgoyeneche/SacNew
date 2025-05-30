@@ -89,9 +89,9 @@ namespace GestionOperativa.Views
             await _presenter.RegistrarCambio(false, 6, "Reingreso");
         }
 
-        private void bVaporizado_Click(object sender, EventArgs e)
+        private async void bVaporizado_Click(object sender, EventArgs e)
         {
-            // En Desarrollo
+            await _presenter.RegistrarCambio(false, 7, "Vaporizado");
         }
 
         private async void bReparacion_Click(object sender, EventArgs e)

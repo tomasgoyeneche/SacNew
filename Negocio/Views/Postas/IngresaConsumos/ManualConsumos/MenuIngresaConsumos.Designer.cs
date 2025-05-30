@@ -184,6 +184,7 @@
             btnAgregarPOC.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAgregarPOC.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAgregarPOC.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAgregarPOC.Enabled = false;
             btnAgregarPOC.FillColor = Color.ForestGreen;
             btnAgregarPOC.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregarPOC.ForeColor = Color.White;

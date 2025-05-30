@@ -7,6 +7,7 @@ using GestionDocumental.Reports;
 using GestionOperativa.Processor;
 using GestionOperativa.Views;
 using GestionOperativa.Views.AgregarGuardia;
+using Servicios;
 using Shared.Models;
 
 namespace GestionOperativa.Presenters
@@ -25,6 +26,8 @@ namespace GestionOperativa.Presenters
         private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IReporteNominasProcessor _reporteNominasProcessor;
 
+        private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
+
 
 
         private int _idPosta;
@@ -42,6 +45,7 @@ namespace GestionOperativa.Presenters
             IPostaRepositorio postaRepositorio,
             IPeriodoRepositorio periodoRepositorio,
             IReporteNominasProcessor reporteNominasProcessor,
+            IVaporizadoRepositorio vaporizadoRepositorio,
             IUnidadRepositorio unidadRepositorio)
             : base(sesionService, navigationService)
         {
@@ -56,6 +60,7 @@ namespace GestionOperativa.Presenters
             _periodoRepositorio = periodoRepositorio;
             _consumoNomTeProcessor = consumoNomTeProcessor;
             _reporteNominasProcessor = reporteNominasProcessor;
+            _vaporizadoRepositorio = vaporizadoRepositorio;
         }
 
         public async Task InicializarAsync(int idPosta)
@@ -261,6 +266,59 @@ namespace GestionOperativa.Presenters
                 return;
             }
 
+            List<GuardiaHistorialDto> historial = await _guardiaRepositorio.ObtenerHistorialPorIngresoAsync(guardia.IdGuardiaIngreso);
+
+            // 2. Verificar si hay evento de vaporizado (id 7)
+            bool tuvoVaporizado = historial.Any(h => h.IdGuardiaEstado == 7);
+
+            if (tuvoVaporizado)
+            {
+                // 3. Buscar vaporizado relacionado (según tipo de ingreso)
+                Vaporizado? vaporizado = null;
+                if (guardia.TipoIngreso == 1) // Nomina
+                    vaporizado = await _vaporizadoRepositorio.ObtenerPorNominaAsync(guardia.IdEntidad);
+                else if (guardia.TipoIngreso == 2) // TE
+                    vaporizado = await _vaporizadoRepositorio.ObtenerPorTeAsync(guardia.IdEntidad);
+
+                // 4. Validar campos obligatorios (podés adaptar este helper a tu modelo)
+                if (vaporizado == null || !VaporizadoCompleto(vaporizado))
+                {
+                    // Abrir el form para completar los datos del vaporizado
+                    await AbrirFormularioAsync<AgregarEditarVaporizadoForm>(async form =>
+                    {
+                        await form._presenter.CargarDatosAsync(vaporizado, guardia);
+                    });
+
+                    Vaporizado? vaporizadoActualizado = (guardia.TipoIngreso == 1)
+                    ? await _vaporizadoRepositorio.ObtenerPorNominaAsync(guardia.IdEntidad)
+                    : await _vaporizadoRepositorio.ObtenerPorTeAsync(guardia.IdEntidad);
+
+                    if (vaporizadoActualizado == null || !VaporizadoCompleto(vaporizadoActualizado))
+                    {
+                        _view.MostrarMensaje("No se completaron todos los datos obligatorios del vaporizado. No se puede registrar la salida.");
+                        return;
+                    }
+                }
+            }
+
+            if(guardia.TipoIngreso == 1)
+            {
+                // 1. Obtener la Posta
+                Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(guardia.IdPosta);
+                if (posta != null)
+                {
+                    // 2. Armar número de POC y buscar el POC
+                    string numeroPoc = $"{posta.Codigo}-{guardia.IdGuardiaIngreso}";
+                    POC? poc = await _pocRepositorio.ObtenerPorNumeroAsync(numeroPoc);
+
+                    // 3. Si existe, cerrar el POC
+                    if (poc != null)
+                    {
+                        await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
+                    }
+                }
+            }
+
             await _guardiaRepositorio.RegistrarSalidaAsync(
                 guardia.IdGuardiaIngreso,
                 _sesionService.IdUsuario,
@@ -270,6 +328,20 @@ namespace GestionOperativa.Presenters
 
             _view.MostrarMensaje(esManual ? "Salida manual registrada correctamente." : "Salida registrada correctamente.");
             await InicializarAsync(_idPosta);
+        }
+
+        private bool VaporizadoCompleto(Vaporizado vap)
+        {
+            // Adaptá la validación según tus reglas reales
+            return
+                !string.IsNullOrWhiteSpace(vap.NroCertificado)
+                && !string.IsNullOrWhiteSpace(vap.RemitoDanes)
+                && vap.CantidadCisternas.HasValue && vap.CantidadCisternas > 0
+                && vap.IdVaporizadoMotivo.HasValue && vap.IdVaporizadoMotivo > 0
+                && vap.FechaInicio.HasValue
+                && vap.FechaFin.HasValue
+                && vap.IdVaporizadoZona.HasValue && vap.IdVaporizadoZona > 0;
+            // Sumá los campos que sean obligatorios para vos
         }
 
         public async Task AbrirCambioEstadoAsync(GuardiaDto guardia)

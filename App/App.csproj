@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Servicios\Servicios.csproj" />
+    <ProjectReference Include="..\GestionOperativa\GestionOperativa.csproj" />
+    <ProjectReference Include="..\InformesYEstadisticas\InformesYEstadisticas.csproj" />
   </ItemGroup>
 
   <ItemGroup>
