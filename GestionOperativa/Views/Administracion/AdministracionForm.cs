@@ -271,7 +271,7 @@ namespace GestionOperativa.Views
 
         private async void bTelefonos_Click(object sender, EventArgs e)
         {
-            await _presenter.GenerarReporteTelefonosNomina();    
+            await _presenter.GenerarReporteTelefonosNomina();
         }
     }
 }

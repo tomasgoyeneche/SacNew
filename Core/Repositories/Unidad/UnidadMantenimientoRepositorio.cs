@@ -74,7 +74,7 @@ namespace Core.Repositories
             VALUES (
                 @idEstadoUnidadSito,
                 @idUnidad,
-                'Alta Novedad',
+                'Alta Mantenimiento',
                 @FechaInicio,
                 @FechaFin,
                 @Observaciones,

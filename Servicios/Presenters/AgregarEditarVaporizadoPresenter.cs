@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -110,7 +105,7 @@ namespace Servicios.Presenters
             Vaporizado vap = VaporizadoActual ?? new Vaporizado();
             vap.CantidadCisternas = _view.CantidadCisternas;
             vap.IdVaporizadoMotivo = _view.IdMotivo;
-            vap.IdPosta = GuardiaActual?.IdPosta ?? 0; // Asignar posta de la guardia actual
+            vap.IdPosta = VaporizadoActual?.IdPosta ?? 0; // Asignar posta de la guardia actual
             vap.FechaInicio = _view.FechaInicio;
             vap.FechaFin = _view.FechaFin;
             vap.IdVaporizadoZona = _view.IdPlanta;

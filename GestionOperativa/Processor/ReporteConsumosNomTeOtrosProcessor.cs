@@ -143,7 +143,6 @@ namespace GestionOperativa.Processor
             return reporte;
         }
 
-
         public async Task<ReporteVerifMensual?> ObtenerReporteVerifMensual(int idNomina, int idPoc, DateTime fecha)
         {
             ReporteVerifMensual reporte = new ReporteVerifMensual();
@@ -185,7 +184,6 @@ namespace GestionOperativa.Processor
                 EsEncabezado = EsEntero(p.Orden)
             }).OrderBy(p => p.Orden, new AlfanumericStringComparer())
             .ToList();
-
 
             reporte.DataSource = new List<Planilla?> { planilla };
             reporte.DataMember = "";

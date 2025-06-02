@@ -28,8 +28,6 @@ namespace GestionOperativa.Presenters
 
         private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
 
-
-
         private int _idPosta;
 
         public GuardiaPresenter(
@@ -189,6 +187,7 @@ namespace GestionOperativa.Presenters
                 {
                     await form._presenter.InicializarAsync(fecha, patente);
                 });
+                _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
                 await InicializarAsync(_idPosta);
                 return;
             }
@@ -222,24 +221,24 @@ namespace GestionOperativa.Presenters
 
             int idPoc = await _guardiaRepositorio.RegistrarIngresoAsync(ingreso, _sesionService.IdUsuario, esManual ? "Ingreso - Manual" : "Ingreso");
 
-
             Posta posta = await _postaRepositorio.ObtenerPorIdAsync(_idPosta);
             int? idPeriodo = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(fecha.Month, fecha.Year);  // Esta mal ya que te devuelve siempre primera quincena corregir
 
             POC poc = new POC()
             {
-                NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),  
+                NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),
                 IdPosta = posta.IdPosta,
                 IdUnidad = nomina.IdUnidad,
-                IdChofer = nomina.IdChofer, 
+                IdChofer = nomina.IdChofer,
                 Odometro = 0, // ver si tomar del satelital
                 FechaCreacion = fecha,
                 FechaCierre = null,
-                IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto  
-                IdUsuario = _sesionService.IdUsuario,   
+                IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto
+                IdUsuario = _sesionService.IdUsuario,
                 Estado = "Abierta"
             };
 
+            _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
             await _pocRepositorio.AgregarPOCAsync(poc);
             ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
             _view.MostrarMensaje(esManual ? "Ingreso manual registrado correctamente." : "Ingreso registrado correctamente.");
@@ -301,7 +300,7 @@ namespace GestionOperativa.Presenters
                 }
             }
 
-            if(guardia.TipoIngreso == 1)
+            if (guardia.TipoIngreso == 1)
             {
                 // 1. Obtener la Posta
                 Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(guardia.IdPosta);

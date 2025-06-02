@@ -2,11 +2,6 @@
 using Core.Repositories;
 using GestionOperativa.Reports;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Processor
 {
@@ -52,10 +47,9 @@ namespace GestionOperativa.Processor
 
             reporte.DetailReport1.DataSource = choferes;
             reporte.DetailReport1.DataMember = "";
-            
-            return reporte; 
-        }
 
+            return reporte;
+        }
 
         public async Task<ReporteNominaMetanolActiva?> ObtenerReporteNominaMetanol()
         {
@@ -68,6 +62,5 @@ namespace GestionOperativa.Processor
 
             return reporte;
         }
-
     }
 }

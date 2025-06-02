@@ -62,10 +62,12 @@ namespace GestionOperativa.Presenters
                 case 6:
                     fecha = manual ? _view.FechaReingreso.GetValueOrDefault() : DateTime.Now;
                     break;
+
                 case 7:
                     RegistrarVaporizadoDesdeGuardiaAsync(_guardia);
                     fecha = DateTime.Now;
                     break;
+
                 default:
                     fecha = DateTime.Now;
                     break;
@@ -90,7 +92,8 @@ namespace GestionOperativa.Presenters
                 IdNomina = guardia.TipoIngreso == 1 ? guardia.IdEntidad : null,
                 IdTe = guardia.TipoIngreso == 2 ? guardia.IdEntidad : null,
                 Observaciones = null,
-                Activo = true
+                Activo = true,
+                IdGuardiaIngreso = guardia.IdGuardiaIngreso // Asignar el ID de la Guardia
             };
 
             await _vaporizadoRepositorio.AgregarAsync(vaporizado, _sesionService.IdUsuario);

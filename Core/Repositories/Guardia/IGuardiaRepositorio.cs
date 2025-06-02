@@ -10,6 +10,8 @@ namespace Core.Repositories
 
         Task<List<GuardiaDto>> ObtenerGuardiasPorPostaAsync(int idPosta);
 
+        Task<GuardiaDto?> ObtenerGuardiaDtoPorId(int? idGuardiaIngreso);
+
         Task EliminarIngresoCompletoAsync(int idIngreso);
 
         Task ActualizarEstadoIngresoAsync(int idIngreso, int nuevoEstado);

@@ -1,17 +1,7 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Servicios.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios
 {
@@ -47,6 +37,7 @@ namespace Servicios
             txtNroDanes.Text = vaporizado.RemitoDanes;
             txtObservaciones.Text = vaporizado.Observaciones;
         }
+
         public void CargarPlantas(List<VaporizadoZona> plantas)
         {
             cmbPlanta.Properties.DataSource = plantas;
@@ -55,6 +46,7 @@ namespace Servicios
             cmbPlanta.Properties.Columns.Clear();
             cmbPlanta.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Planta"));
         }
+
         public void CargarMotivos(List<VaporizadoMotivo> motivos)
         {
             cmbMotivo.Properties.DataSource = motivos;
@@ -66,14 +58,17 @@ namespace Servicios
 
         // Propiedades de entrada/salida
         public int CantidadCisternas => int.TryParse(txtCisterna.Text, out int n) ? n : 0;
+
         public int? IdMotivo => cmbMotivo.EditValue is int v ? v : (int?)null;
         public DateTime? FechaInicio => dtpInicio.EditValue as DateTime?;
         public DateTime? FechaFin => dtpFin.EditValue as DateTime?;
+
         public string TiempoVaporizado
         {
             get => txtTiempoVaporizado.Text;
             set => txtTiempoVaporizado.Text = value;
         }
+
         public string NroCertificado => txtNroCertificado.Text.Trim();
         public int? IdPlanta => cmbPlanta.EditValue is int v ? v : (int?)null;
         public string RemitoDanes => txtNroDanes.Text.Trim();
@@ -85,11 +80,13 @@ namespace Servicios
         {
             lblNroPres.Visible = txtNroPres.Visible = visible;
         }
+
         public void SetNroImporteVisible(bool visible)
         {
-            lblImporte.Visible = txtImporte.Visible = visible; 
+            lblImporte.Visible = txtImporte.Visible = visible;
             panelPresupuesto.Visible = visible;
         }
+
         public void SetTiempoVaporizado(string tiempo)
         {
             txtTiempoVaporizado.Text = tiempo;
@@ -99,6 +96,7 @@ namespace Servicios
         {
             MessageBox.Show(mensaje);
         }
+
         public void Cerrar()
         {
             this.Close();
@@ -108,6 +106,7 @@ namespace Servicios
         {
             await _presenter.GuardarAsync();
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

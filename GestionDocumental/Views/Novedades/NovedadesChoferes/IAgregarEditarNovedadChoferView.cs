@@ -20,7 +20,6 @@ namespace GestionDocumental.Views
 
         void MostrarMantenimientosUnidad(string texto);
 
-
         void MostrarDatosNovedad(NovedadesChoferesDto novedadChofer);
 
         void MostrarDiasAusente(int dias);

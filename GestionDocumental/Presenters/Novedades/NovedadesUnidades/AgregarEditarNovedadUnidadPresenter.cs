@@ -129,7 +129,6 @@ namespace GestionDocumental.Presenters.Novedades
 
         private async Task<bool> ValidarFechasDentroDeAusenciaAsync()
         {
-
             //if (_view.IdEstado != 1 && _view.IdEstado != 2)
             //    return true; // No requiere validación especial
 

@@ -42,6 +42,7 @@ namespace GestionDocumental.Views.Novedades
         {
             lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
         }
+
         public void CargarUnidades(List<UnidadDto> unidades)
         {
             cmbUnidad.Properties.DataSource = unidades;

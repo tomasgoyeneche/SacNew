@@ -98,5 +98,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirAdministracion("0027 - AdministracionPH", 3);
         }
+
+        private void bVaporizados_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirVaporizados("0011-Vaporizados");
+        }
     }
 }

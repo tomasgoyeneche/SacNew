@@ -28,7 +28,6 @@ namespace GestionOperativa.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IReporteNominasProcessor _reporteNominasProcessor;
 
-
         private int _idPosta;
 
         public AdministracionPresenter(
@@ -204,7 +203,7 @@ namespace GestionOperativa.Presenters
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-            });
+                });
         }
 
         public async Task GenerarNominaActual()
@@ -232,8 +231,6 @@ namespace GestionOperativa.Presenters
                 return Task.CompletedTask;
             });
         }
-
-
 
         public async Task ReimprimirPoc(GuardiaDto guardia)
         {
@@ -288,13 +285,12 @@ namespace GestionOperativa.Presenters
 
         public async Task VerifMensual(GuardiaDto guardia)
         {
-             ReporteVerifMensual? reporte = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteVerifMensual(guardia.IdEntidad, guardia.IdGuardiaIngreso, guardia.Ingreso);
-             await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
-             {
-                 form.MostrarReporteDevExpress(reporte);
-                 return Task.CompletedTask;
-             });
-            
+            ReporteVerifMensual? reporte = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteVerifMensual(guardia.IdEntidad, guardia.IdGuardiaIngreso, guardia.Ingreso);
+            await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+            {
+                form.MostrarReporteDevExpress(reporte);
+                return Task.CompletedTask;
+            });
         }
     }
 }

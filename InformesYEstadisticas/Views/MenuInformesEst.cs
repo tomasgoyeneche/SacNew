@@ -36,7 +36,6 @@ namespace InformesYEstadisticas
 
         private void bResumenNomMetanol_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -2,7 +2,6 @@
 using GestionOperativa.Presenters;
 using Shared.Models;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace GestionOperativa
 {
@@ -10,7 +9,11 @@ namespace GestionOperativa
     {
         public readonly GuardiaPresenter _presenter;
 
-        public string PatenteIngresada => txtPatente.Text;
+        public string PatenteIngresada
+        {
+            get => txtPatente.Text;
+            set => txtPatente.Text = value;
+        }
 
         public DateTime? FechaManual =>
             dtpIngreso.EditValue is DateTime fecha ? fecha : null;

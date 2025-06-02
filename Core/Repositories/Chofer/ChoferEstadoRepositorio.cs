@@ -238,7 +238,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<List<NovedadesChoferesDto>> ObtenerPorChoferAsync(int idChofer)
         {
             var query = @"
@@ -251,7 +250,6 @@ namespace Core.Repositories
                 var novedades = await connection.QueryAsync<NovedadesChoferesDto>(query, new { IdChofer = idChofer });
                 return novedades.ToList();
             });
-
-        }        
-    }  
+        }
+    }
 }

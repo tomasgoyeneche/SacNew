@@ -130,7 +130,6 @@ namespace GestionDocumental.Presenters
 
         private async Task<bool> ValidarFechasDentroDeMantenimientoAsync()
         {
-
             if (_view.IdEstado != 1 && _view.IdEstado != 2)
                 return true; // No requiere validación especial
 

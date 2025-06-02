@@ -162,10 +162,6 @@ namespace Core.Base
             return (whereClause, parametros);
         }
 
-
-
-
-
         protected async Task<T?> ObtenerPorIdGenericoAsync<T>(string nombreTabla, string campoId, object valorId)
         {
             var query = $"SELECT * FROM {nombreTabla} WHERE {campoId} = @valorId";
@@ -209,7 +205,6 @@ namespace Core.Base
             );
         }
 
-
         public async Task<int> ActualizarGenéricoAsync<T>(string nombreTabla, T entidad)
         {
             var campoId = ObtenerCampoId<T>();
@@ -237,7 +232,6 @@ namespace Core.Base
                 entidad
             );
         }
-
 
         public async Task<int> EliminarGenéricoAsync<T>(string nombreTabla, object valorId)
         {

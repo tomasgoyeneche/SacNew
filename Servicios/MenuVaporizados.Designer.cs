@@ -48,7 +48,7 @@
             gridControlVaporizados.Location = new Point(13, 65);
             gridControlVaporizados.MainView = gridViewVaporizados;
             gridControlVaporizados.Name = "gridControlVaporizados";
-            gridControlVaporizados.Size = new Size(776, 442);
+            gridControlVaporizados.Size = new Size(1068, 442);
             gridControlVaporizados.TabIndex = 30;
             gridControlVaporizados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewVaporizados });
             // 
@@ -62,6 +62,7 @@
             gridViewVaporizados.Name = "gridViewVaporizados";
             gridViewVaporizados.OptionsBehavior.Editable = false;
             gridViewVaporizados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewVaporizados.OptionsView.ColumnAutoWidth = false;
             gridViewVaporizados.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVaporizados.OptionsView.EnableAppearanceOddRow = true;
             // 
@@ -71,11 +72,11 @@
             simpleButton1.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             simpleButton1.Appearance.Options.UseBackColor = true;
             simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Location = new Point(657, 520);
+            simpleButton1.Location = new Point(949, 520);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(132, 37);
             simpleButton1.TabIndex = 31;
-            simpleButton1.Text = "Agregar";
+            simpleButton1.Text = "Agregar Externo";
             // 
             // simpleButton2
             // 
@@ -88,6 +89,7 @@
             simpleButton2.Size = new Size(132, 37);
             simpleButton2.TabIndex = 32;
             simpleButton2.Text = "Eliminar";
+            simpleButton2.Click += btnEliminar_Click;
             // 
             // simpleButton3
             // 
@@ -100,6 +102,7 @@
             simpleButton3.Size = new Size(132, 37);
             simpleButton3.TabIndex = 33;
             simpleButton3.Text = "Editar";
+            simpleButton3.Click += btnEditarVaporizado_Click;
             // 
             // guna2Panel10
             // 
@@ -128,7 +131,7 @@
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(803, 573);
+            ClientSize = new Size(1093, 573);
             Controls.Add(guna2Panel10);
             Controls.Add(simpleButton3);
             Controls.Add(simpleButton2);

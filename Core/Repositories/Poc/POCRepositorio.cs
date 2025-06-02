@@ -41,6 +41,7 @@ namespace Core.Repositories
                 return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta }).ContinueWith(task => task.Result.ToList());
             });
         }
+
         public async Task EliminarPOCAsync(int id)
         {
             var query = "UPDATE POC SET Estado = 'cancelada' WHERE IdPoc = @Id";
