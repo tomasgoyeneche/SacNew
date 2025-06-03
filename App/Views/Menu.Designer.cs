@@ -1048,6 +1048,7 @@
             bRuteo.Size = new Size(129, 30);
             bRuteo.TabIndex = 12;
             bRuteo.Text = "Ingresar";
+            bRuteo.Click += bRuteo_Click;
             // 
             // guna2HtmlLabel7
             // 

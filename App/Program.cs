@@ -21,7 +21,7 @@ namespace App
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("The Bezier"); // Cambiá por el que quieras
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");  // Cambiá por el que quieras // WXI bastante bien
 
             Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.EnableVisualStyles();

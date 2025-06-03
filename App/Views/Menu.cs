@@ -103,5 +103,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirVaporizados("0011-Vaporizados");
         }
+
+        private void bRuteo_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirRuteo("0006-Ruteo");
+        }
     }
 }

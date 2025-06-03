@@ -2,6 +2,7 @@
 using Core.Base;
 using Core.Services;
 using GestionDocumental.Views;
+using GestionFlota.Views;
 using GestionFlota.Views.Alertas;
 using GestionOperativa;
 using GestionOperativa.Views;
@@ -61,6 +62,14 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<MenuVaporizados>(tipoPermiso, async form =>
             {
                 await form._presenter.CargarVaporizadosAsync(_sesionService.IdPosta);
+            });
+        }
+
+        public async void AbrirRuteo(string tipoPermiso)
+        {
+            await AbrirFormularioConPermisosAsync<RuteoForm>(tipoPermiso, async form =>
+            {
+                await form._presenter.InicializarAsync();
             });
         }
     }
