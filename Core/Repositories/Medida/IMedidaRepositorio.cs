@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
-    public interface IProgramaRepositorio
+    public interface IMedidaRepositorio
     {
-        Task<List<Ruteo>> ObtenerRuteoAsync();
+        Task<List<Medida>> ObtenerTodosAsync();
     }
 }

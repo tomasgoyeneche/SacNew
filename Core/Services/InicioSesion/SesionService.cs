@@ -6,6 +6,8 @@ namespace Core.Services
     {
         public int IdUsuario { get; private set; }
         public string? NombreCompleto { get; private set; } // Changed from string? to string
+        public string? NombreUsuario{ get; private set; } // Changed from string? to string
+
         public List<string>? Permisos { get; private set; }
 
         public int IdPosta { get; private set; }
@@ -14,6 +16,7 @@ namespace Core.Services
         {
             IdUsuario = usuario.IdUsuario;
             NombreCompleto = usuario.NombreCompleto ?? string.Empty; // Ensure non-null value
+            NombreUsuario = usuario.NombreUsuario ?? string.Empty; // Ensure non-null value
             Permisos = permisos;
             IdPosta = usuario.idPosta;
         }

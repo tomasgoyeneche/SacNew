@@ -10,10 +10,10 @@ namespace GestionFlota.Views
 {
     public interface IRuteoView : IViewConMensajes
     {
-        void MostrarRuteoCargados(List<Ruteo> cargados);
-        void MostrarRuteoVacios(List<Ruteo> vacios);
+        void MostrarRuteoCargados(List<Shared.Models.Ruteo> cargados);
+        void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios);
 
-        //void MostrarResumen(List<RuteoResumen> resumen);
+        void MostrarResumen(List<RuteoResumen> resumen);
 
         //void MostrarHistorial(List<NominaHistorial> historial);
 

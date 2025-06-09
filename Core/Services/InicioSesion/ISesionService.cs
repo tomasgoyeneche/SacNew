@@ -6,6 +6,8 @@ namespace Core.Services
     {
         int IdUsuario { get; }
         string? NombreCompleto { get; }
+        string? NombreUsuario { get; }
+
         List<string>? Permisos { get; }
 
         int IdPosta { get; }

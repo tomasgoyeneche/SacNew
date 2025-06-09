@@ -15,17 +15,17 @@ namespace GestionFlota.Views
             _presenter.SetView(this);
         }
 
-        public void MostrarRuteoCargados(List<Ruteo> cargados)
+        public void MostrarRuteoCargados(List<Shared.Models.Ruteo> cargados)
         {
             gridControlCargados.DataSource = cargados;
 
             var view = gridViewCargados;
-           
+
             view.BestFitColumns();
         }
 
 
-        public void MostrarRuteoVacios(List<Ruteo> vacios)
+        public void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios)
         {
             gridControlVacios.DataSource = vacios;
 
@@ -37,15 +37,6 @@ namespace GestionFlota.Views
         public void MostrarMensaje(string mensaje)
         {
             MessageBox.Show(mensaje);
-        }
-
-        public void MostrarResumen(List<RuteoResumen> resumen)
-        {
-            gridControlResumen.DataSource = resumen
-                .Select(r => new { r.Estado, r.Cantidad })
-                .ToList();
-
-            gridViewResumen.BestFitColumns();
         }
 
         public void MostrarHistorial(List<GuardiaHistorialDto> historial)
@@ -132,7 +123,7 @@ namespace GestionFlota.Views
                 gridViewVacios.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             }
 
-            if (gridViewCargados.GetFocusedRow() is Ruteo ruteo)
+            if (gridViewCargados.GetFocusedRow() is Shared.Models.Ruteo ruteo)
             {
                 //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
                 await _presenter.CargarVencimientosYAlertasAsync(ruteo);
@@ -148,11 +139,56 @@ namespace GestionFlota.Views
                 gridViewCargados.ClearSelection();
                 gridViewCargados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             }
-            if (gridViewVacios.GetFocusedRow() is Ruteo ruteo)
+            if (gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo)
             {
                 //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
                 await _presenter.CargarVencimientosYAlertasAsync(ruteo);
             }
+        }
+
+        public void MostrarResumen(List<RuteoResumen> resumen)
+        {
+            if (resumen == null || resumen.Count == 0)
+            {
+                gridControlResumen.DataSource = null;
+                return;
+            }
+
+            int total = resumen.Sum(r => r.Cantidad);
+
+            var lista = resumen
+                .OrderBy(r => r.Orden)
+                .Select(r => new RuteoResumen
+                {
+                    Estado = r.Estado,
+                    Cantidad = r.Cantidad,
+                    Orden = r.Orden,
+                    Porcentaje = total > 0 ? Math.Round((decimal)r.Cantidad * 100 / total, 2) : 0
+                })
+                .ToList();
+
+            // Agregar la fila de total al final
+            lista.Add(new RuteoResumen
+            {
+                Estado = "Total",
+                Cantidad = total,
+                Orden = int.MaxValue,
+                Porcentaje = 100
+            });
+
+            gridControlResumen.DataSource = lista;
+        }
+
+        private async void gridViewCargados_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewCargados.GetFocusedRow() is Shared.Models.Ruteo ruteo)
+                await _presenter.AbrirEdicionDePrograma(ruteo);
+        }
+
+        private async void gridViewVacios_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo)
+                await _presenter.AbrirEdicionDePrograma(ruteo);
         }
     }
 }

@@ -74,6 +74,9 @@
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlResumen = new DevExpress.XtraGrid.GridControl();
             gridViewResumen = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlCargados = new DevExpress.XtraGrid.GridControl();
@@ -153,7 +156,7 @@
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.AutoSize = false;
-            guna2HtmlLabel4.BackColor = Color.DarkGray;
+            guna2HtmlLabel4.BackColor = Color.Goldenrod;
             guna2HtmlLabel4.Dock = DockStyle.Top;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = Color.Black;
@@ -188,6 +191,7 @@
             gridViewVacios.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewVacios.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVacios.FocusedRowChanged += gridViewVacios_FocusedRowChanged;
+            gridViewVacios.DoubleClick += gridViewVacios_DoubleClick;
             // 
             // gridColumn13
             // 
@@ -277,7 +281,7 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.AutoSize = false;
-            guna2HtmlLabel1.BackColor = Color.DarkGray;
+            guna2HtmlLabel1.BackColor = Color.Goldenrod;
             guna2HtmlLabel1.Dock = DockStyle.Top;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = Color.Black;
@@ -329,7 +333,7 @@
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.AutoSize = false;
-            guna2HtmlLabel2.BackColor = Color.DarkGray;
+            guna2HtmlLabel2.BackColor = Color.Goldenrod;
             guna2HtmlLabel2.Dock = DockStyle.Top;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = Color.Black;
@@ -381,7 +385,7 @@
             // guna2HtmlLabel6
             // 
             guna2HtmlLabel6.AutoSize = false;
-            guna2HtmlLabel6.BackColor = Color.DarkGray;
+            guna2HtmlLabel6.BackColor = Color.Goldenrod;
             guna2HtmlLabel6.Dock = DockStyle.Top;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel6.ForeColor = Color.Black;
@@ -434,7 +438,7 @@
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.AutoSize = false;
-            guna2HtmlLabel5.BackColor = Color.DarkGray;
+            guna2HtmlLabel5.BackColor = Color.Goldenrod;
             guna2HtmlLabel5.Dock = DockStyle.Top;
             guna2HtmlLabel5.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel5.ForeColor = Color.Black;
@@ -461,6 +465,7 @@
             gridViewResumen.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridViewResumen.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewResumen.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewResumen.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn22, gridColumn23, gridColumn24 });
             gridViewResumen.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             gridViewResumen.GridControl = gridControlResumen;
             gridViewResumen.Name = "gridViewResumen";
@@ -469,6 +474,32 @@
             gridViewResumen.OptionsView.EnableAppearanceEvenRow = true;
             gridViewResumen.OptionsView.EnableAppearanceOddRow = true;
             gridViewResumen.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn22
+            // 
+            gridColumn22.Caption = "%";
+            gridColumn22.DisplayFormat.FormatString = "n2";
+            gridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridColumn22.FieldName = "Porcentaje";
+            gridColumn22.Name = "gridColumn22";
+            gridColumn22.Visible = true;
+            gridColumn22.VisibleIndex = 2;
+            // 
+            // gridColumn23
+            // 
+            gridColumn23.Caption = "Estado";
+            gridColumn23.FieldName = "Estado";
+            gridColumn23.Name = "gridColumn23";
+            gridColumn23.Visible = true;
+            gridColumn23.VisibleIndex = 0;
+            // 
+            // gridColumn24
+            // 
+            gridColumn24.Caption = "Cantidad";
+            gridColumn24.FieldName = "Cantidad";
+            gridColumn24.Name = "gridColumn24";
+            gridColumn24.Visible = true;
+            gridColumn24.VisibleIndex = 1;
             // 
             // guna2Panel5
             // 
@@ -486,7 +517,7 @@
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.AutoSize = false;
-            guna2HtmlLabel3.BackColor = Color.DarkGray;
+            guna2HtmlLabel3.BackColor = Color.Goldenrod;
             guna2HtmlLabel3.Dock = DockStyle.Top;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = Color.Black;
@@ -521,6 +552,7 @@
             gridViewCargados.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewCargados.OptionsView.EnableAppearanceEvenRow = true;
             gridViewCargados.FocusedRowChanged += gridViewCargados_FocusedRowChanged;
+            gridViewCargados.DoubleClick += gridViewCargados_DoubleClick;
             // 
             // gridColumn1
             // 
@@ -691,7 +723,9 @@
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel10);
+            MaximizeBox = false;
             Name = "RuteoForm";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuteoForm";
             guna2Panel10.ResumeLayout(false);
@@ -768,5 +802,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
     }
 }

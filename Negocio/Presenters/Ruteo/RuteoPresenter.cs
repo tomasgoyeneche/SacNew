@@ -52,8 +52,8 @@ namespace GestionFlota.Presenters
 
            await EjecutarConCargaAsync(async () =>
            {
-                    List<Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
-                   // List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
+                    List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
+                    List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
 
                     var cargados = ruteos
                         .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
@@ -65,6 +65,8 @@ namespace GestionFlota.Presenters
 
                     _view.MostrarRuteoCargados(cargados);
                     _view.MostrarRuteoVacios(vacios);
+                    _view.MostrarResumen(resumen);
+
            });
 
         }
@@ -75,7 +77,7 @@ namespace GestionFlota.Presenters
         //    _view.MostrarHistorial(historial);
         //}
 
-        public async Task CargarVencimientosYAlertasAsync(Ruteo ruteo)
+        public async Task CargarVencimientosYAlertasAsync(Shared.Models.Ruteo ruteo)
         {
             List<VencimientosDto> vencimientos = new();
             List<AlertaDto> alertas = new();
@@ -92,17 +94,17 @@ namespace GestionFlota.Presenters
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
             _view.MostrarAlertas(alertas);
         }
-        
 
-       
-        //public async Task AbrirEdicionDePrograma(Ruteo ruteo)
-        //{
-        //    await AbrirFormularioAsync<ModificarProgramaForm>(async form =>
-        //    {
-        //        await form._presenter.InicializarAsync(ruteo, false);
-        //    });
-        //    await InicializarAsync();
-        //}
+
+
+        public async Task AbrirEdicionDePrograma(Shared.Models.Ruteo ruteo)
+        {
+            await AbrirFormularioAsync<EditarProgramaForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(ruteo);
+            });
+            await InicializarAsync();
+        }
     }
 }
 
