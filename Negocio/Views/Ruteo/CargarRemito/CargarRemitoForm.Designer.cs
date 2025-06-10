@@ -63,6 +63,7 @@
             dtpFechaRemito = new DevExpress.XtraEditors.DateEdit();
             lblRemitoCarga = new Label();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            txtRemito = new DevExpress.XtraEditors.TextEdit();
             label3 = new Label();
             cmbMedida = new DevExpress.XtraEditors.LookUpEdit();
             lblFecha = new Label();
@@ -72,7 +73,6 @@
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
             txtTotal = new DevExpress.XtraEditors.TextEdit();
-            txtRemito = new DevExpress.XtraEditors.TextEdit();
             guna2Panel10.SuspendLayout();
             pCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtAlbaran.Properties).BeginInit();
@@ -82,10 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties.CalendarTimeProperties).BeginInit();
             guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbMedida.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBoxEntidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
@@ -258,7 +258,7 @@
             // dtpFechaRemito
             // 
             dtpFechaRemito.EditValue = null;
-            dtpFechaRemito.Location = new Point(83, 29);
+            dtpFechaRemito.Location = new Point(83, 35);
             dtpFechaRemito.Name = "dtpFechaRemito";
             dtpFechaRemito.Properties.Appearance.BackColor = Color.WhiteSmoke;
             dtpFechaRemito.Properties.Appearance.Options.UseBackColor = true;
@@ -276,7 +276,7 @@
             // 
             lblRemitoCarga.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRemitoCarga.ForeColor = Color.WhiteSmoke;
-            lblRemitoCarga.Location = new Point(9, 125);
+            lblRemitoCarga.Location = new Point(9, 131);
             lblRemitoCarga.Name = "lblRemitoCarga";
             lblRemitoCarga.Size = new Size(67, 27);
             lblRemitoCarga.TabIndex = 62;
@@ -286,6 +286,7 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.Controls.Add(txtTotal);
             guna2Panel1.Controls.Add(txtRemito);
             guna2Panel1.Controls.Add(label3);
             guna2Panel1.Controls.Add(cmbMedida);
@@ -302,11 +303,18 @@
             guna2Panel1.Size = new Size(342, 172);
             guna2Panel1.TabIndex = 114;
             // 
+            // txtRemito
+            // 
+            txtRemito.Location = new Point(83, 90);
+            txtRemito.Name = "txtRemito";
+            txtRemito.Size = new Size(245, 20);
+            txtRemito.TabIndex = 124;
+            // 
             // label3
             // 
             label3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.WhiteSmoke;
-            label3.Location = new Point(196, 125);
+            label3.Location = new Point(196, 131);
             label3.Name = "label3";
             label3.Size = new Size(40, 27);
             label3.TabIndex = 117;
@@ -315,7 +323,7 @@
             // 
             // cmbMedida
             // 
-            cmbMedida.Location = new Point(83, 126);
+            cmbMedida.Location = new Point(83, 132);
             cmbMedida.Margin = new Padding(4, 3, 4, 3);
             cmbMedida.Name = "cmbMedida";
             cmbMedida.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -328,7 +336,7 @@
             // 
             lblFecha.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFecha.ForeColor = Color.WhiteSmoke;
-            lblFecha.Location = new Point(9, 29);
+            lblFecha.Location = new Point(9, 35);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(67, 35);
             lblFecha.TabIndex = 73;
@@ -339,7 +347,7 @@
             // 
             label2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.WhiteSmoke;
-            label2.Location = new Point(9, 76);
+            label2.Location = new Point(9, 82);
             label2.Name = "label2";
             label2.Size = new Size(67, 35);
             label2.TabIndex = 70;
@@ -417,17 +425,10 @@
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(280, 462);
+            txtTotal.Location = new Point(242, 135);
             txtTotal.Name = "txtTotal";
             txtTotal.Size = new Size(86, 20);
             txtTotal.TabIndex = 123;
-            // 
-            // txtRemito
-            // 
-            txtRemito.Location = new Point(83, 84);
-            txtRemito.Name = "txtRemito";
-            txtRemito.Size = new Size(245, 20);
-            txtRemito.TabIndex = 124;
             // 
             // CargarRemitoForm
             // 
@@ -436,7 +437,6 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 568);
-            Controls.Add(txtTotal);
             Controls.Add(picBoxEntidad);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);
@@ -459,10 +459,10 @@
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties).EndInit();
             guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cmbMedida.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBoxEntidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).EndInit();
             ResumeLayout(false);
         }
 

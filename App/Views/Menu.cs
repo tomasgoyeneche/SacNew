@@ -108,5 +108,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirRuteo("0006-Ruteo");
         }
+
+        private void bDisponibilidad_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirDisponibilidad("0007-Disponibilidad");
+        }
     }
 }

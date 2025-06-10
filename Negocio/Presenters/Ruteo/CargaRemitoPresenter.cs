@@ -55,7 +55,7 @@ namespace GestionFlota.Presenters.Ruteo
             _view.CargarMedidas(medidas);
 
             // Albarán y demás datos según tipo de remito
-            _view.CargarDatosIniciales(_programa, _ruteo.IdDestino, _tipoRemito);
+            _view.CargarDatosIniciales(_programa, _ruteo, _tipoRemito);
         }
 
         public async Task GuardarAsync()

@@ -77,6 +77,8 @@ namespace GestionFlota.Views
 
             // Paneles visibles según existencia de programa
             pCarga.Visible = pEntrega.Visible =
+                pAduanaArg.Visible =
+                pAduanaExt.Visible =
                 bSubirRemitoCargaPdf.Visible =
                 bSubirRemitoEntregaPdf.Visible =
                 bSubirOtrosDocs.Visible =

@@ -989,6 +989,7 @@
             bDisponibilidad.Size = new Size(129, 30);
             bDisponibilidad.TabIndex = 12;
             bDisponibilidad.Text = "Ingresar";
+            bDisponibilidad.Click += bDisponibilidad_Click;
             // 
             // guna2HtmlLabel5
             // 

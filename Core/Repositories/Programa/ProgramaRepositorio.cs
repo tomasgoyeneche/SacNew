@@ -43,11 +43,11 @@ namespace Core.Repositories
 
 
         public async Task ActualizarFechaYRegistrarAsync(
-    int idPrograma,
-    string campo,           // Ej: "CargaLlegada"
-    DateTime? fechaNueva,
-    int idNomina,         // null si elimina
-    int idUsuario)
+        int idPrograma,
+        string campo,           // Ej: "CargaLlegada"
+        DateTime? fechaNueva,
+        int idNomina,         // null si elimina
+        int idUsuario)
         {
             // 1. Obtener programa actual antes de modificar
             Programa? programa = await ObtenerPorIdAsync(idPrograma);

@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisponibilidadForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlDisponibles = new DevExpress.XtraGrid.GridControl();
             gridViewDisponibles = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlResumen = new DevExpress.XtraGrid.GridControl();
@@ -83,13 +83,13 @@
             gridViewAlertas = new DevExpress.XtraGrid.Views.Grid.GridView();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dtpLicencia = new DevExpress.XtraEditors.DateEdit();
-            bControlDemorados = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            dateEditFecha = new DevExpress.XtraEditors.DateEdit();
+            bBuscarDisponibles = new DevExpress.XtraEditors.SimpleButton();
+            bCancelarDisponible = new DevExpress.XtraEditors.SimpleButton();
             bAgregarDispo = new DevExpress.XtraEditors.SimpleButton();
             bDisponibilidadYpf = new DevExpress.XtraEditors.SimpleButton();
-            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblCheck = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblNoCheck = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDisponibles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewDisponibles).BeginInit();
@@ -106,8 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).BeginInit();
             guna2Panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtpLicencia.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtpLicencia.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties.CalendarTimeProperties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel5
@@ -115,12 +115,12 @@
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.Controls.Add(guna2HtmlLabel3);
             guna2Panel5.Controls.Add(gridControlDisponibles);
-            guna2Panel5.CustomizableEdges = customizableEdges13;
+            guna2Panel5.CustomizableEdges = customizableEdges1;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel5.Location = new Point(272, 164);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel5.Size = new Size(984, 458);
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel5.Size = new Size(1141, 458);
             guna2Panel5.TabIndex = 44;
             // 
             // guna2HtmlLabel3
@@ -132,7 +132,7 @@
             guna2HtmlLabel3.ForeColor = Color.Black;
             guna2HtmlLabel3.Location = new Point(0, 0);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(984, 20);
+            guna2HtmlLabel3.Size = new Size(1141, 20);
             guna2HtmlLabel3.TabIndex = 50;
             guna2HtmlLabel3.Text = "Equipos Cargados";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -144,7 +144,7 @@
             gridControlDisponibles.Location = new Point(0, 26);
             gridControlDisponibles.MainView = gridViewDisponibles;
             gridControlDisponibles.Name = "gridControlDisponibles";
-            gridControlDisponibles.Size = new Size(984, 432);
+            gridControlDisponibles.Size = new Size(1141, 432);
             gridControlDisponibles.TabIndex = 39;
             gridControlDisponibles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewDisponibles });
             // 
@@ -153,13 +153,23 @@
             gridViewDisponibles.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridViewDisponibles.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewDisponibles.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            gridViewDisponibles.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12 });
+            gridViewDisponibles.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn4, gridColumn1, gridColumn2, gridColumn3, gridColumn5, gridColumn6, gridColumn7, gridColumn12, gridColumn8, gridColumn9, gridColumn10, gridColumn11 });
             gridViewDisponibles.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             gridViewDisponibles.GridControl = gridControlDisponibles;
             gridViewDisponibles.Name = "gridViewDisponibles";
             gridViewDisponibles.OptionsBehavior.Editable = false;
             gridViewDisponibles.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewDisponibles.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewDisponibles.RowCellClick += gridViewDisponibles_RowCellClick;
+            gridViewDisponibles.FocusedRowChanged += gridViewDisponibles_FocusedRowChanged;
+            // 
+            // gridColumn4
+            // 
+            gridColumn4.Caption = "T";
+            gridColumn4.FieldName = "Tipo";
+            gridColumn4.Name = "gridColumn4";
+            gridColumn4.Visible = true;
+            gridColumn4.VisibleIndex = 0;
             // 
             // gridColumn1
             // 
@@ -167,7 +177,7 @@
             gridColumn1.FieldName = "Tractor";
             gridColumn1.Name = "gridColumn1";
             gridColumn1.Visible = true;
-            gridColumn1.VisibleIndex = 0;
+            gridColumn1.VisibleIndex = 1;
             // 
             // gridColumn2
             // 
@@ -175,7 +185,7 @@
             gridColumn2.FieldName = "Empresa";
             gridColumn2.Name = "gridColumn2";
             gridColumn2.Visible = true;
-            gridColumn2.VisibleIndex = 1;
+            gridColumn2.VisibleIndex = 2;
             // 
             // gridColumn3
             // 
@@ -183,71 +193,31 @@
             gridColumn3.FieldName = "Chofer";
             gridColumn3.Name = "gridColumn3";
             gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            gridColumn4.Caption = "Entrega";
-            gridColumn4.FieldName = "FechaEntrega";
-            gridColumn4.Name = "gridColumn4";
-            gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 3;
+            gridColumn3.VisibleIndex = 3;
             // 
             // gridColumn5
             // 
-            gridColumn5.Caption = "Producto";
-            gridColumn5.FieldName = "Nombre";
+            gridColumn5.Caption = "Ultimo Producto";
+            gridColumn5.FieldName = "Producto";
             gridColumn5.Name = "gridColumn5";
             gridColumn5.Visible = true;
             gridColumn5.VisibleIndex = 4;
             // 
             // gridColumn6
             // 
-            gridColumn6.Caption = "Albaran";
-            gridColumn6.FieldName = "AlbaranDespacho";
+            gridColumn6.Caption = "Pool - Ultimo Destino";
+            gridColumn6.FieldName = "Destino";
             gridColumn6.Name = "gridColumn6";
             gridColumn6.Visible = true;
             gridColumn6.VisibleIndex = 5;
             // 
             // gridColumn7
             // 
-            gridColumn7.Caption = "Origen";
-            gridColumn7.FieldName = "Origen";
+            gridColumn7.Caption = "Lugar Satelital";
+            gridColumn7.FieldName = "Location";
             gridColumn7.Name = "gridColumn7";
             gridColumn7.Visible = true;
             gridColumn7.VisibleIndex = 6;
-            // 
-            // gridColumn8
-            // 
-            gridColumn8.Caption = "S Origen";
-            gridColumn8.FieldName = "CargaSalida";
-            gridColumn8.Name = "gridColumn8";
-            gridColumn8.Visible = true;
-            gridColumn8.VisibleIndex = 7;
-            // 
-            // gridColumn9
-            // 
-            gridColumn9.Caption = "KM";
-            gridColumn9.FieldName = "Odometer";
-            gridColumn9.Name = "gridColumn9";
-            gridColumn9.Visible = true;
-            gridColumn9.VisibleIndex = 8;
-            // 
-            // gridColumn10
-            // 
-            gridColumn10.Caption = "Llegada";
-            gridColumn10.FieldName = "EntregaLlegada";
-            gridColumn10.Name = "gridColumn10";
-            gridColumn10.Visible = true;
-            gridColumn10.VisibleIndex = 9;
-            // 
-            // gridColumn11
-            // 
-            gridColumn11.Caption = "Destino";
-            gridColumn11.FieldName = "Destino";
-            gridColumn11.Name = "gridColumn11";
-            gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 10;
             // 
             // gridColumn12
             // 
@@ -255,18 +225,50 @@
             gridColumn12.FieldName = "Sat";
             gridColumn12.Name = "gridColumn12";
             gridColumn12.Visible = true;
-            gridColumn12.VisibleIndex = 11;
+            gridColumn12.VisibleIndex = 7;
+            // 
+            // gridColumn8
+            // 
+            gridColumn8.Caption = "Estado";
+            gridColumn8.FieldName = "Estado";
+            gridColumn8.Name = "gridColumn8";
+            gridColumn8.Visible = true;
+            gridColumn8.VisibleIndex = 8;
+            // 
+            // gridColumn9
+            // 
+            gridColumn9.Caption = "Origen";
+            gridColumn9.FieldName = "DisOrigen";
+            gridColumn9.Name = "gridColumn9";
+            gridColumn9.Visible = true;
+            gridColumn9.VisibleIndex = 9;
+            // 
+            // gridColumn10
+            // 
+            gridColumn10.Caption = "Cupo";
+            gridColumn10.FieldName = "Cupo";
+            gridColumn10.Name = "gridColumn10";
+            gridColumn10.Visible = true;
+            gridColumn10.VisibleIndex = 10;
+            // 
+            // gridColumn11
+            // 
+            gridColumn11.Caption = "Destino";
+            gridColumn11.FieldName = "DisDestino";
+            gridColumn11.Name = "gridColumn11";
+            gridColumn11.Visible = true;
+            gridColumn11.VisibleIndex = 11;
             // 
             // guna2Panel4
             // 
             guna2Panel4.BackColor = Color.Transparent;
             guna2Panel4.Controls.Add(guna2HtmlLabel5);
             guna2Panel4.Controls.Add(gridControlResumen);
-            guna2Panel4.CustomizableEdges = customizableEdges15;
+            guna2Panel4.CustomizableEdges = customizableEdges3;
             guna2Panel4.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel4.Location = new Point(17, 164);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel4.Size = new Size(241, 216);
             guna2Panel4.TabIndex = 47;
             // 
@@ -341,11 +343,11 @@
             guna2Panel6.BackColor = Color.Transparent;
             guna2Panel6.Controls.Add(guna2HtmlLabel6);
             guna2Panel6.Controls.Add(gridControlVencimientos);
-            guna2Panel6.CustomizableEdges = customizableEdges17;
+            guna2Panel6.CustomizableEdges = customizableEdges5;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel6.Location = new Point(17, 386);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel6.Size = new Size(241, 236);
             guna2Panel6.TabIndex = 46;
             // 
@@ -387,18 +389,19 @@
             gridViewVencimientos.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVencimientos.OptionsView.EnableAppearanceOddRow = true;
             gridViewVencimientos.OptionsView.ShowGroupPanel = false;
+            gridViewVencimientos.RowCellStyle += gridViewVencimientos_RowCellStyle;
             // 
             // guna2Panel3
             // 
             guna2Panel3.BackColor = Color.Transparent;
             guna2Panel3.Controls.Add(guna2HtmlLabel2);
             guna2Panel3.Controls.Add(gridControlHistorico);
-            guna2Panel3.CustomizableEdges = customizableEdges19;
+            guna2Panel3.CustomizableEdges = customizableEdges7;
             guna2Panel3.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel3.Location = new Point(807, 12);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel3.Size = new Size(449, 146);
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel3.Size = new Size(606, 146);
             guna2Panel3.TabIndex = 49;
             // 
             // guna2HtmlLabel2
@@ -410,7 +413,7 @@
             guna2HtmlLabel2.ForeColor = Color.Black;
             guna2HtmlLabel2.Location = new Point(0, 0);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(449, 20);
+            guna2HtmlLabel2.Size = new Size(606, 20);
             guna2HtmlLabel2.TabIndex = 50;
             guna2HtmlLabel2.Text = "Historico";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -422,7 +425,7 @@
             gridControlHistorico.Location = new Point(0, 26);
             gridControlHistorico.MainView = gridViewHistorico;
             gridControlHistorico.Name = "gridControlHistorico";
-            gridControlHistorico.Size = new Size(449, 120);
+            gridControlHistorico.Size = new Size(606, 120);
             gridControlHistorico.TabIndex = 39;
             gridControlHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewHistorico });
             // 
@@ -445,11 +448,11 @@
             guna2Panel2.BackColor = Color.Transparent;
             guna2Panel2.Controls.Add(guna2HtmlLabel1);
             guna2Panel2.Controls.Add(gridControlAlertas);
-            guna2Panel2.CustomizableEdges = customizableEdges21;
+            guna2Panel2.CustomizableEdges = customizableEdges9;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel2.Location = new Point(272, 12);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel2.Size = new Size(529, 146);
             guna2Panel2.TabIndex = 48;
             // 
@@ -491,15 +494,16 @@
             gridViewAlertas.OptionsView.EnableAppearanceEvenRow = true;
             gridViewAlertas.OptionsView.EnableAppearanceOddRow = true;
             gridViewAlertas.OptionsView.ShowGroupPanel = false;
+            gridViewAlertas.DoubleClick += gridViewAlertas_DoubleClick;
             // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges23;
+            guna2Panel10.CustomizableEdges = customizableEdges11;
             guna2Panel10.FillColor = Color.SteelBlue;
             guna2Panel10.Location = new Point(0, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 50;
             // 
@@ -515,62 +519,64 @@
             guna2HtmlLabel17.TabIndex = 14;
             guna2HtmlLabel17.Text = "Disponibilidad";
             // 
-            // dtpLicencia
+            // dateEditFecha
             // 
-            dtpLicencia.EditValue = null;
-            dtpLicencia.Location = new Point(17, 60);
-            dtpLicencia.Name = "dtpLicencia";
-            dtpLicencia.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dtpLicencia.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpLicencia.Properties.Appearance.Options.UseBackColor = true;
-            dtpLicencia.Properties.Appearance.Options.UseFont = true;
-            editorButtonImageOptions2.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions2.SvgImage");
-            dtpLicencia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dtpLicencia.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dtpLicencia.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
-            dtpLicencia.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dtpLicencia.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dtpLicencia.Properties.MaskSettings.Set("mask", "d");
-            dtpLicencia.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dtpLicencia.Size = new Size(241, 36);
-            dtpLicencia.TabIndex = 79;
+            dateEditFecha.EditValue = null;
+            dateEditFecha.Location = new Point(17, 66);
+            dateEditFecha.Name = "dateEditFecha";
+            dateEditFecha.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dateEditFecha.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateEditFecha.Properties.Appearance.Options.UseBackColor = true;
+            dateEditFecha.Properties.Appearance.Options.UseFont = true;
+            editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
+            dateEditFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dateEditFecha.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.False;
+            dateEditFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEditFecha.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dateEditFecha.Properties.MaskSettings.Set("mask", "d");
+            dateEditFecha.Properties.MinDate = new DateOnly(2025, 6, 10);
+            dateEditFecha.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dateEditFecha.Size = new Size(241, 40);
+            dateEditFecha.TabIndex = 79;
             // 
-            // bControlDemorados
+            // bBuscarDisponibles
             // 
-            bControlDemorados.Appearance.BackColor = Color.LightGray;
-            bControlDemorados.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bControlDemorados.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlDemorados.Appearance.Options.UseBackColor = true;
-            bControlDemorados.Appearance.Options.UseFont = true;
-            bControlDemorados.Appearance.Options.UseForeColor = true;
-            bControlDemorados.Appearance.Options.UseTextOptions = true;
-            bControlDemorados.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bControlDemorados.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlDemorados.AppearanceDisabled.Options.UseForeColor = true;
-            bControlDemorados.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bControlDemorados.ImageOptions.SvgImage");
-            bControlDemorados.Location = new Point(17, 104);
-            bControlDemorados.Name = "bControlDemorados";
-            bControlDemorados.Size = new Size(241, 30);
-            bControlDemorados.TabIndex = 80;
-            bControlDemorados.Text = "Buscar Disponibles";
+            bBuscarDisponibles.Appearance.BackColor = Color.LightGray;
+            bBuscarDisponibles.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bBuscarDisponibles.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bBuscarDisponibles.Appearance.Options.UseBackColor = true;
+            bBuscarDisponibles.Appearance.Options.UseFont = true;
+            bBuscarDisponibles.Appearance.Options.UseForeColor = true;
+            bBuscarDisponibles.Appearance.Options.UseTextOptions = true;
+            bBuscarDisponibles.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bBuscarDisponibles.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bBuscarDisponibles.AppearanceDisabled.Options.UseForeColor = true;
+            bBuscarDisponibles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bBuscarDisponibles.ImageOptions.SvgImage");
+            bBuscarDisponibles.Location = new Point(17, 116);
+            bBuscarDisponibles.Name = "bBuscarDisponibles";
+            bBuscarDisponibles.Size = new Size(241, 30);
+            bBuscarDisponibles.TabIndex = 80;
+            bBuscarDisponibles.Text = "Buscar Disponibles";
+            bBuscarDisponibles.Click += bBuscarDisponibles_Click;
             // 
-            // simpleButton1
+            // bCancelarDisponible
             // 
-            simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            simpleButton1.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Appearance.Options.UseForeColor = true;
-            simpleButton1.Appearance.Options.UseTextOptions = true;
-            simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton1.Location = new Point(272, 632);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(241, 46);
-            simpleButton1.TabIndex = 81;
-            simpleButton1.Text = "Cancelar Disponible";
+            bCancelarDisponible.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bCancelarDisponible.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bCancelarDisponible.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bCancelarDisponible.Appearance.Options.UseBackColor = true;
+            bCancelarDisponible.Appearance.Options.UseFont = true;
+            bCancelarDisponible.Appearance.Options.UseForeColor = true;
+            bCancelarDisponible.Appearance.Options.UseTextOptions = true;
+            bCancelarDisponible.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bCancelarDisponible.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bCancelarDisponible.AppearanceDisabled.Options.UseForeColor = true;
+            bCancelarDisponible.Location = new Point(272, 632);
+            bCancelarDisponible.Name = "bCancelarDisponible";
+            bCancelarDisponible.Size = new Size(241, 46);
+            bCancelarDisponible.TabIndex = 81;
+            bCancelarDisponible.Text = "Cancelar Disponible";
+            bCancelarDisponible.Click += bCancelarDisponible_Click;
             // 
             // bAgregarDispo
             // 
@@ -584,11 +590,12 @@
             bAgregarDispo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bAgregarDispo.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bAgregarDispo.AppearanceDisabled.Options.UseForeColor = true;
-            bAgregarDispo.Location = new Point(1015, 632);
+            bAgregarDispo.Location = new Point(1172, 632);
             bAgregarDispo.Name = "bAgregarDispo";
             bAgregarDispo.Size = new Size(241, 46);
             bAgregarDispo.TabIndex = 82;
             bAgregarDispo.Text = "Agregar Disponible";
+            bAgregarDispo.Click += bAgregarDispo_Click;
             // 
             // bDisponibilidadYpf
             // 
@@ -602,39 +609,39 @@
             bDisponibilidadYpf.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bDisponibilidadYpf.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bDisponibilidadYpf.AppearanceDisabled.Options.UseForeColor = true;
-            bDisponibilidadYpf.Location = new Point(768, 632);
+            bDisponibilidadYpf.Location = new Point(925, 632);
             bDisponibilidadYpf.Name = "bDisponibilidadYpf";
             bDisponibilidadYpf.Size = new Size(241, 46);
             bDisponibilidadYpf.TabIndex = 83;
             bDisponibilidadYpf.Text = "Disponibilidad YPF";
             // 
-            // guna2HtmlLabel9
+            // lblCheck
             // 
-            guna2HtmlLabel9.AutoSize = false;
-            guna2HtmlLabel9.BackColor = Color.Gray;
-            guna2HtmlLabel9.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(17, 632);
-            guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
-            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(241, 23);
-            guna2HtmlLabel9.TabIndex = 86;
-            guna2HtmlLabel9.Text = "Check:";
-            guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleCenter;
+            lblCheck.AutoSize = false;
+            lblCheck.BackColor = Color.Gray;
+            lblCheck.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCheck.ForeColor = SystemColors.ControlLight;
+            lblCheck.Location = new Point(17, 632);
+            lblCheck.Margin = new Padding(4, 3, 4, 3);
+            lblCheck.Name = "lblCheck";
+            lblCheck.Size = new Size(241, 23);
+            lblCheck.TabIndex = 86;
+            lblCheck.Text = "Check:";
+            lblCheck.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2HtmlLabel4
+            // lblNoCheck
             // 
-            guna2HtmlLabel4.AutoSize = false;
-            guna2HtmlLabel4.BackColor = Color.Gray;
-            guna2HtmlLabel4.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(17, 655);
-            guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(241, 23);
-            guna2HtmlLabel4.TabIndex = 87;
-            guna2HtmlLabel4.Text = "No Check:";
-            guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
+            lblNoCheck.AutoSize = false;
+            lblNoCheck.BackColor = Color.Gray;
+            lblNoCheck.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNoCheck.ForeColor = SystemColors.ControlLight;
+            lblNoCheck.Location = new Point(17, 655);
+            lblNoCheck.Margin = new Padding(4, 3, 4, 3);
+            lblNoCheck.Name = "lblNoCheck";
+            lblNoCheck.Size = new Size(241, 23);
+            lblNoCheck.TabIndex = 87;
+            lblNoCheck.Text = "No Check:";
+            lblNoCheck.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // DisponibilidadForm
             // 
@@ -642,21 +649,23 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1268, 688);
-            Controls.Add(guna2HtmlLabel4);
-            Controls.Add(guna2HtmlLabel9);
+            ClientSize = new Size(1425, 688);
+            Controls.Add(lblNoCheck);
+            Controls.Add(lblCheck);
             Controls.Add(bDisponibilidadYpf);
             Controls.Add(bAgregarDispo);
-            Controls.Add(simpleButton1);
-            Controls.Add(bControlDemorados);
-            Controls.Add(dtpLicencia);
+            Controls.Add(bCancelarDisponible);
+            Controls.Add(bBuscarDisponibles);
+            Controls.Add(dateEditFecha);
             Controls.Add(guna2Panel10);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel6);
             Controls.Add(guna2Panel5);
+            MaximizeBox = false;
             Name = "DisponibilidadForm";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DisponibilidadForm";
             guna2Panel5.ResumeLayout(false);
@@ -675,8 +684,8 @@
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).EndInit();
             guna2Panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtpLicencia.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtpLicencia.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -689,7 +698,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
@@ -719,12 +727,13 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewAlertas;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private DevExpress.XtraEditors.DateEdit dtpLicencia;
-        private DevExpress.XtraEditors.SimpleButton bControlDemorados;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.DateEdit dateEditFecha;
+        private DevExpress.XtraEditors.SimpleButton bBuscarDisponibles;
+        private DevExpress.XtraEditors.SimpleButton bCancelarDisponible;
         private DevExpress.XtraEditors.SimpleButton bAgregarDispo;
         private DevExpress.XtraEditors.SimpleButton bDisponibilidadYpf;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblCheck;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNoCheck;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

@@ -13,7 +13,7 @@ namespace GestionFlota.Views.Ruteo
         void CargarLocaciones(List<Locacion> locaciones);
         void CargarProductos(List<Producto> productos);
         void CargarMedidas(List<Medida> medidas);
-        void CargarDatosIniciales(Programa programa, int idDestino, string tipoRemito);
+        void CargarDatosIniciales(Programa programa, Shared.Models.Ruteo ruteo, string tipoRemito);
         string RemitoNumero { get; }
         DateTime? FechaRemito { get; }
         int? IdMedida { get; }

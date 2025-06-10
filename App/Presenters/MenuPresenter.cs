@@ -72,5 +72,13 @@ namespace App.Presenters
                 await form._presenter.InicializarAsync();
             });
         }
+
+        public async void AbrirDisponibilidad(string tipoPermiso)
+        {
+            await AbrirFormularioConPermisosAsync<DisponibilidadForm>(tipoPermiso, async form =>
+            {
+                await form._presenter.InicializarAsync();
+            });
+        }
     }
 }

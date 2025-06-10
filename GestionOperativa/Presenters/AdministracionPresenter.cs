@@ -7,6 +7,7 @@ using GestionDocumental.Reports;
 using GestionOperativa.Processor;
 using GestionOperativa.Reports;
 using GestionOperativa.Views;
+using Servicios;
 using Shared.Models;
 using System.IO;
 
@@ -290,6 +291,14 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
+            });
+        }
+
+        public async Task AbrirVaporizados(string tipoPermiso)
+        {
+            await AbrirFormularioConPermisosAsync<MenuVaporizados>(tipoPermiso, async form =>
+            {
+                await form._presenter.CargarVaporizadosAsync(_sesionService.IdPosta);
             });
         }
     }

@@ -32,11 +32,8 @@ namespace GestionFlota.Presenters
 
         public async Task InicializarAsync(Shared.Models.Ruteo ruteo)
         {
-            if (_Ruteo == null)
-            {
-                _Ruteo = ruteo;
-            }
-
+            _Ruteo = ruteo;
+           
             Programa? programa = null;
             if (ruteo.IdPrograma > 0)
             {

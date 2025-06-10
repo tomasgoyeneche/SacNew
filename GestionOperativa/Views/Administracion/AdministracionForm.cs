@@ -273,5 +273,10 @@ namespace GestionOperativa.Views
         {
             await _presenter.GenerarReporteTelefonosNomina();
         }
+
+        private async void bVaporizados_Click(object sender, EventArgs e)
+        {
+            await _presenter.AbrirVaporizados("0011-Vaporizados");
+        }
     }
 }

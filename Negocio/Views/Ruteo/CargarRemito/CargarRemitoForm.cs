@@ -63,14 +63,18 @@ namespace GestionFlota.Views
             cmbEntrega.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Destino"));
         }
 
-        public void CargarDatosIniciales(Programa programa, int idDestino, string tipoRemito)
+        public void CargarDatosIniciales(Programa programa, Shared.Models.Ruteo ruteo, string tipoRemito)
         {
-            if(tipoRemito == "Carga")
+            lblChofer.Text = ruteo.Chofer ?? "No asignado";
+            lblTractor.Text = $"{ruteo.Tractor}-{ruteo.Semi}";
+
+
+            if (tipoRemito == "Carga")
             {
                 txtRemito.Text = programa.CargaRemito?.ToString() ?? "0";
                 txtTotal.Text = programa.CargaRemitoKg?.ToString() ?? "0";
                 cmbCarga.EditValue = programa.IdOrigen;
-                cmbEntrega.EditValue = idDestino;
+                cmbEntrega.EditValue = ruteo.IdDestino;
                 txtAlbaran.Text = programa.AlbaranDespacho.ToString() ?? string.Empty;
                 cmbProducto.EditValue = programa.IdProducto;
                 cmbMedida.EditValue = programa.CargaRemitoUnidad;
@@ -81,7 +85,7 @@ namespace GestionFlota.Views
                 txtRemito.Text = programa.EntregaRemito?.ToString() ?? "0";
                 txtTotal.Text = programa.EntregaRemitoKg?.ToString() ?? "0";
                 cmbCarga.EditValue = programa.IdOrigen; // Origen es el destino del ruteo
-                cmbEntrega.EditValue = idDestino;
+                cmbEntrega.EditValue = ruteo.IdDestino;
                 txtAlbaran.Text = programa.AlbaranDespacho.ToString() ?? string.Empty;
                 cmbProducto.EditValue = programa.IdProducto;
                 cmbMedida.EditValue = programa.EntregoRemitoUnidad;
