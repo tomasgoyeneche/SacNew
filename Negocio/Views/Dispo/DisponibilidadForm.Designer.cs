@@ -614,6 +614,7 @@
             bDisponibilidadYpf.Size = new Size(241, 46);
             bDisponibilidadYpf.TabIndex = 83;
             bDisponibilidadYpf.Text = "Disponibilidad YPF";
+            bDisponibilidadYpf.Click += bDisponibilidadYpf_Click;
             // 
             // lblCheck
             // 

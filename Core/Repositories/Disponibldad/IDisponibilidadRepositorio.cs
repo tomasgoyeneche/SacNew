@@ -15,5 +15,9 @@ namespace Core.Repositories
         Task<List<DisponibleEstado>> ObtenerEstadosDeBajaAsync();
         Task ActualizarDisponibleAsync(Disponible disp);
         Task AgregarDisponibleAsync(Disponible disp);
+
+        Task<DisponibleEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
+        Task<List<DisponibilidadYPF>> ObtenerDisponibilidadYPFPorFechaAsync(DateTime dispoFecha);
+        Task<List<DisponibleFecha>> ObtenerProximasFechasDisponiblesAsync(DateTime desde, int cantidad);
     }
 }

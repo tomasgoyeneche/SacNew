@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            SuspendLayout();
+            // 
+            // MotivoBajaSelectorControl
+            // 
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Name = "MotivoBajaSelectorControl";
+            Size = new Size(187, 166);
+            ResumeLayout(false);
         }
 
         #endregion

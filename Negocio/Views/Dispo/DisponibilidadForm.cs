@@ -136,7 +136,7 @@ namespace GestionFlota.Views
             }
         }
 
-      
+
 
         private async void bAgregarDispo_Click(object sender, EventArgs e)
         {
@@ -169,6 +169,11 @@ namespace GestionFlota.Views
             {
                 await _presenter.IntentarEditarDisponibilidadAsync(dispo);
             }
+        }
+
+        private async void bDisponibilidadYpf_Click(object sender, EventArgs e)
+        {
+            await _presenter.MostrarSelectorFechasYPFAsync();
         }
     }
 }

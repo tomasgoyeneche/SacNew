@@ -1,14 +1,15 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraEditors;
 
 namespace GestionFlota.Presenters
 {
@@ -17,10 +18,13 @@ namespace GestionFlota.Presenters
         private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
+        private readonly IExcelService _excelService;
+
         public DisponibilidadPresenter(
             IDisponibilidadRepositorio disponibilidadRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
+            , IExcelService excelService
             , INominaRepositorio nominaRepositorio
             , IAlertaRepositorio alertaRepositorio
         ) : base(sesionService, navigationService)
@@ -28,6 +32,7 @@ namespace GestionFlota.Presenters
             _disponibilidadRepositorio = disponibilidadRepositorio;
             _nominaRepositorio = nominaRepositorio;
             _alertaRepositorio = alertaRepositorio;
+            _excelService = excelService;
         }
 
         public async Task InicializarAsync()
@@ -105,29 +110,84 @@ namespace GestionFlota.Presenters
             await BuscarDisponibilidadesAsync(); // Refrescar lista después de editar
         }
 
-        public async Task MostrarSelectorDeMotivoBajaAsync(Disponibilidad disponibilidad)
-        {
-            var disponible = await _disponibilidadRepositorio.ObtenerDisponiblePorNominaYFechaAsync(disponibilidad.IdNomina, disponibilidad.DispoFecha);
-
-            if (disponible == null)
+            public async Task MostrarSelectorDeMotivoBajaAsync(Disponibilidad disponibilidad)
             {
-                _view.MostrarMensaje("No se encontró ningún disponible para la fecha seleccionada.");
+                var disponible = await _disponibilidadRepositorio.ObtenerDisponiblePorNominaYFechaAsync(disponibilidad.IdNomina, disponibilidad.DispoFecha);
+
+                if (disponible == null)
+                {
+                    _view.MostrarMensaje("No se encontró ningún disponible para la fecha seleccionada.");
+                    return;
+                }
+
+                var motivos = await _disponibilidadRepositorio.ObtenerEstadosDeBajaAsync();
+                var control = new MotivoBajaSelectorControl(motivos);
+                var dialogResult = XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel);
+
+                if (dialogResult == DialogResult.OK && control.MotivoSeleccionado.HasValue)
+                    await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value);
+            }
+
+            public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int idMotivo)
+            {
+                disponible.IdDisponibleEstado = idMotivo;
+                await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
+
+                // Obtener motivo para descripción
+                DisponibleEstado? motivo = await _disponibilidadRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
+
+                await _nominaRepositorio.RegistrarNominaAsync(
+                    disponible.IdNomina,
+                    "Cancela Disponible",
+                    motivo?.Descripcion ?? "Sin motivo",
+                    _sesionService.IdUsuario
+                );
+
+                await BuscarDisponibilidadesAsync(); // Refrescar lista después de cambiar estado
+            }
+
+
+
+        public async Task MostrarSelectorFechasYPFAsync()
+        {
+            var fechas = await _disponibilidadRepositorio.ObtenerProximasFechasDisponiblesAsync(DateTime.Today.AddDays(1), 5);
+            var control = new DispoYPFSelectorControl();
+            control.CargarFechas(fechas);
+
+            control.FechaSeleccionada += async (s, fechaSeleccionada) =>
+            {
+                await ExportarDisponibilidadYPF(fechaSeleccionada);
+                // Cerrar ventana:
+                ((control.ParentForm) as Form)?.Close();
+            };
+
+            // Mostralo modal
+            XtraDialog.Show(control, "Seleccione una fecha de disponibilidad YPF", MessageBoxButtons.OK);
+        }
+
+        private async Task ExportarDisponibilidadYPF(DateTime dispoFecha)
+        {
+            var lista = await _disponibilidadRepositorio.ObtenerDisponibilidadYPFPorFechaAsync(dispoFecha);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para exportar para la fecha seleccionada.");
                 return;
             }
 
-            var motivos = await _disponibilidadRepositorio.ObtenerEstadosDeBajaAsync();
-            var control = new MotivoBajaSelectorControl(motivos);
-            var dialogResult = XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel);
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
 
-            if (dialogResult == DialogResult.OK && control.MotivoSeleccionado.HasValue)
-                await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value);
-        }
+            string fileName = Path.Combine(carpeta, $"DispoYPF-{dispoFecha:yyyyMMdd}.xlsx");
 
-        public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int? idMotivo)
-        {
-            disponible.IdDisponibleEstado = idMotivo;
-            await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
-            await BuscarDisponibilidadesAsync(); // Refrescar lista después de cambiar estado
+            await _excelService.ExportarAExcelAsync(lista, fileName, "DispoYPF");
+
+            // Abrir el archivo con el programa por defecto
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = fileName,
+                UseShellExecute = true
+            });
         }
     }
 }

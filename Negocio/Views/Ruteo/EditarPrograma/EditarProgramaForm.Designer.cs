@@ -175,7 +175,7 @@
             lblEntregaControl = new Label();
             bControlarEntrega = new DevExpress.XtraEditors.SimpleButton();
             bCambiarChofer = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            bObservacion = new DevExpress.XtraEditors.SimpleButton();
             simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             lblEditarPrograma = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -1133,17 +1133,18 @@
             bCambiarChofer.TabIndex = 104;
             bCambiarChofer.Text = "Cambiar Chofer";
             // 
-            // simpleButton13
+            // bObservacion
             // 
-            simpleButton13.Appearance.BackColor = Color.DimGray;
-            simpleButton13.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton13.Appearance.Options.UseBackColor = true;
-            simpleButton13.Appearance.Options.UseFont = true;
-            simpleButton13.Location = new Point(621, 68);
-            simpleButton13.Name = "simpleButton13";
-            simpleButton13.Size = new Size(496, 26);
-            simpleButton13.TabIndex = 105;
-            simpleButton13.Text = "Observaciones";
+            bObservacion.Appearance.BackColor = Color.DimGray;
+            bObservacion.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bObservacion.Appearance.Options.UseBackColor = true;
+            bObservacion.Appearance.Options.UseFont = true;
+            bObservacion.Location = new Point(621, 68);
+            bObservacion.Name = "bObservacion";
+            bObservacion.Size = new Size(496, 26);
+            bObservacion.TabIndex = 105;
+            bObservacion.Text = "Observaciones";
+            bObservacion.Click += bObservacion_Click;
             // 
             // simpleButton14
             // 
@@ -1440,7 +1441,7 @@
             Controls.Add(lblChofer);
             Controls.Add(guna2Panel10);
             Controls.Add(simpleButton14);
-            Controls.Add(simpleButton13);
+            Controls.Add(bObservacion);
             Controls.Add(bCambiarChofer);
             Controls.Add(bControlarEntrega);
             Controls.Add(lblEntregaControl);
@@ -1553,7 +1554,7 @@
         private DevExpress.XtraEditors.SimpleButton bEliminarLlegadaEntrega;
         private DevExpress.XtraEditors.SimpleButton bEliminarIngresoEntrega;
         private DevExpress.XtraEditors.SimpleButton bCambiarChofer;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton bObservacion;
         private DevExpress.XtraEditors.SimpleButton simpleButton14;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblEditarPrograma;

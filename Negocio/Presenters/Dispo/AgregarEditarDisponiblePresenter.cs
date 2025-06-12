@@ -102,6 +102,17 @@ namespace GestionFlota.Presenters
             return disponibles;
         }
 
+        public async Task RegistrarComentarioAsync(string comentario)
+        {
+            await _nominaRepositorio.RegistrarNominaAsync(
+                IdNomina, // o el disponible.IdNomina según contexto
+                "Comentario",
+                comentario,
+                _sesionService.IdUsuario
+            );
+            _view.MostrarMensaje("Comentario registrado correctamente.");
+        }
+
         public async Task GuardarAsync()
         {
             var disponible = _view.ObtenerDisponible();
@@ -112,15 +123,39 @@ namespace GestionFlota.Presenters
 
             if (await ValidarAsync(disponible))
             {
+                // Origen y destino (consultas siempre, porque descripción la necesitás para ambos casos)
+                var origen = await _locacionRepositorio.ObtenerPorIdAsync(disponible.IdOrigen);
+                var destino = disponible.IdDestino.HasValue
+                    ? await _locacionRepositorio.ObtenerPorIdAsync(disponible.IdDestino.Value)
+                    : null;
+
+                string descripcion = $"{disponible.FechaDisponible:dd/MM/yyyy} - {origen.Nombre} - {(destino?.Nombre ?? "Sin Destino")}";
+
                 if (DisponibleActual != null)
                 {
                     disponible.IdDisponible = DisponibleActual.IdDisponible;
                     await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
+
+                    await _nominaRepositorio.RegistrarNominaAsync(
+                        disponible.IdNomina,
+                        "Edita Disponibilidad",
+                        descripcion,
+                        _sesionService.IdUsuario
+                    );
+
                     _view.MostrarMensaje("Disponible actualizado correctamente.");
                 }
                 else
                 {
                     await _disponibilidadRepositorio.AgregarDisponibleAsync(disponible);
+
+                    await _nominaRepositorio.RegistrarNominaAsync(
+                        disponible.IdNomina,
+                        "Alta Disponibilidad",
+                        descripcion,
+                        _sesionService.IdUsuario
+                    );
+
                     _view.MostrarMensaje("Disponible agregado correctamente.");
                 }
                 _view.Cerrar();

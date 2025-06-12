@@ -60,7 +60,7 @@
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblAusenciasChofer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            bAgregarObservacion = new DevExpress.XtraEditors.SimpleButton();
             bCambiarChofer = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cmbDestino.Properties).BeginInit();
@@ -374,17 +374,18 @@
             guna2HtmlLabel6.Text = "Ausencias Chofer";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // simpleButton13
+            // bAgregarObservacion
             // 
-            simpleButton13.Appearance.BackColor = Color.DimGray;
-            simpleButton13.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton13.Appearance.Options.UseBackColor = true;
-            simpleButton13.Appearance.Options.UseFont = true;
-            simpleButton13.Location = new Point(427, 508);
-            simpleButton13.Name = "simpleButton13";
-            simpleButton13.Size = new Size(364, 40);
-            simpleButton13.TabIndex = 112;
-            simpleButton13.Text = "Observaciones";
+            bAgregarObservacion.Appearance.BackColor = Color.DimGray;
+            bAgregarObservacion.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarObservacion.Appearance.Options.UseBackColor = true;
+            bAgregarObservacion.Appearance.Options.UseFont = true;
+            bAgregarObservacion.Location = new Point(427, 508);
+            bAgregarObservacion.Name = "bAgregarObservacion";
+            bAgregarObservacion.Size = new Size(364, 40);
+            bAgregarObservacion.TabIndex = 112;
+            bAgregarObservacion.Text = "Observaciones";
+            bAgregarObservacion.Click += bAgregarObservacion_Click;
             // 
             // bCambiarChofer
             // 
@@ -405,7 +406,7 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(827, 572);
-            Controls.Add(simpleButton13);
+            Controls.Add(bAgregarObservacion);
             Controls.Add(bCambiarChofer);
             Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2HtmlLabel6);
@@ -461,7 +462,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAusenciasChofer;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton bAgregarObservacion;
         private DevExpress.XtraEditors.SimpleButton bCambiarChofer;
     }
 }

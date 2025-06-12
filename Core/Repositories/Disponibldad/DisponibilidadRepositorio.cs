@@ -81,5 +81,37 @@ namespace Core.Repositories
                 await conn.ExecuteAsync(query, disp);
             });
         }
+
+
+
+
+
+
+
+        public async Task<List<DisponibleFecha>> ObtenerProximasFechasDisponiblesAsync(DateTime desde, int cantidad)
+        {
+            var query = @"
+                SELECT TOP (@cantidad) IdDisponibleFecha, dispoFecha
+                FROM DisponibleFecha
+                WHERE dispoFecha >= @desde
+                ORDER BY dispoFecha
+            ";
+            return (await ConectarAsync(conn =>
+                conn.QueryAsync<DisponibleFecha>(query, new { desde, cantidad }))).ToList();
+        }
+
+        public async Task<List<DisponibilidadYPF>> ObtenerDisponibilidadYPFPorFechaAsync(DateTime dispoFecha)
+        {
+            var query = "SELECT * FROM vw_DisponibilidadYPF WHERE dispoFecha = @dispoFecha";
+            return (await ConectarAsync(conn => conn.QueryAsync<DisponibilidadYPF>(query, new { dispoFecha }))).ToList();
+        }
+
+        public async Task<DisponibleEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo)
+        {
+            var query = "SELECT * FROM DisponibleEstado WHERE IdDisponibleEstado = @idMotivo";
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<DisponibleEstado>(query, new { idMotivo }));
+        }
     }
 }
+

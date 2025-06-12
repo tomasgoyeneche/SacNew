@@ -16,6 +16,7 @@ namespace GestionFlota.Presenters
     {
         private readonly IProgramaRepositorio _programaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
+        private readonly INominaRepositorio _nominaRepositorio;
 
 
         private Shared.Models.Ruteo _Ruteo;
@@ -23,11 +24,14 @@ namespace GestionFlota.Presenters
             ISesionService sesionService,
             IProgramaRepositorio programaRepositorio,
             IAlertaRepositorio alertaRepositorio,
+            INominaRepositorio nominaRepositorio,
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
             _programaRepositorio = programaRepositorio;
             _alertaRepositorio = alertaRepositorio;
+            _nominaRepositorio = nominaRepositorio;
+
         }
 
         public async Task InicializarAsync(Shared.Models.Ruteo ruteo)
@@ -121,6 +125,17 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.InicializarAsync(programa, _Ruteo, tipoRemito);
             });
+        }
+
+        public async Task RegistrarComentarioAsync(string comentario)
+        {
+            await _nominaRepositorio.RegistrarNominaAsync(
+                _Ruteo.IdNomina, // o el disponible.IdNomina según contexto
+                "Comentario",
+                comentario,
+                _sesionService.IdUsuario
+            );
+            _view.MostrarMensaje("Comentario registrado correctamente.");
         }
 
         public async Task ControlarAsync(string campoCheck)

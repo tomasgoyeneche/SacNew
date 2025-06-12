@@ -374,5 +374,20 @@ namespace GestionFlota.Views
         {
             await _presenter.AbrirCargaRemitoFormAsync("Entrega");
         }
+
+        private async void bObservacion_Click(object sender, EventArgs e)
+        {
+            string comentario = XtraInputBox.Show(
+            "Ingrese el comentario:",
+            "Comentario",
+            ""
+        );
+
+            // Si canceló o dejó vacío, no guardes nada
+            if (string.IsNullOrWhiteSpace(comentario)) return;
+
+            // Guardar el comentario en NominaRegistro
+            await _presenter.RegistrarComentarioAsync(comentario);
+        }
     }
 }

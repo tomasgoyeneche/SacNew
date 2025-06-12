@@ -10,6 +10,8 @@ namespace Core.Repositories
 
         Task<Nomina?> ObtenerPorIdAsync(int idNomina);
 
+        Task RegistrarNominaAsync(int idNomina, string evento, string descripcion, int idUsuario);
+
         Task<List<VencimientosDto>> ObtenerVencimientosPorNominaAsync(Nomina nomina);
     }
 }

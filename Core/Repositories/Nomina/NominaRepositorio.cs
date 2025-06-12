@@ -74,5 +74,23 @@ namespace Core.Repositories
 
             return vencimientos;
         }
+
+
+        public async Task RegistrarNominaAsync(int idNomina, string evento, string descripcion, int idUsuario)
+        {
+            var query = @"INSERT INTO NominaRegistro (idNomina, Evento, Descripcion, idUsuario, Fecha)
+                  VALUES (@idNomina, @Evento, @Descripcion, @idUsuario, GETDATE())";
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync(query, new
+                {
+                    idNomina,
+                    Evento = evento,
+                    Descripcion = descripcion,
+                    idUsuario
+                });
+            });
+        }
     }
 }
