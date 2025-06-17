@@ -146,5 +146,13 @@ namespace GestionFlota.Presenters
             // Refrescá los datos en la UI
             await InicializarAsync(_Ruteo);
         }
+
+        public async Task CambiarChoferAsync()
+        {
+            await AbrirFormularioAsync<CambioChoferForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(_Ruteo.IdNomina);
+            });
+        }
     }
 }

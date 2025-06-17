@@ -148,7 +148,7 @@ namespace GestionOperativa.Presenters
             switch (guardia.TipoIngreso)
             {
                 case 1: // Nómina
-                    Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(guardia.IdEntidad, guardia.Fecha);
+                    Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(guardia.IdEntidad);
                     UnidadDto? unidadDto = await _unidadRepositorio.ObtenerPorIdDtoAsync(nomina.IdUnidad);
                     Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(nomina.IdUnidad);
                     ChoferDto? chofer = await _choferRepositorio.ObtenerPorIdDtoAsync(nomina.IdChofer);

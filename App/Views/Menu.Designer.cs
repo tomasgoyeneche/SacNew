@@ -751,6 +751,7 @@
             bCupos.Size = new Size(129, 30);
             bCupos.TabIndex = 12;
             bCupos.Text = "Ingresar";
+            bCupos.Click += bCupos_Click;
             // 
             // guna2HtmlLabel3
             // 

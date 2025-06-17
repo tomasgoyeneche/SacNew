@@ -18,6 +18,8 @@ namespace GestionFlota.Presenters
         private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
+        private readonly IProductoRepositorio _productoRepositorio;
 
 
         public Disponible? DisponibleActual { get; private set; }
@@ -26,7 +28,9 @@ namespace GestionFlota.Presenters
 
         public AgregarEditarDisponiblePresenter(
             IDisponibilidadRepositorio disponibilidadRepositorio,
+            ILocacionProductoRepositorio locacionProductoRepositorio,
             ILocacionRepositorio locacionRepositorio,
+            IProductoRepositorio productoRepositorio,
             ISesionService sesionService,
             IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
             INominaRepositorio nominaRepositorio,
@@ -37,8 +41,10 @@ namespace GestionFlota.Presenters
             _disponibilidadRepositorio = disponibilidadRepositorio;
             _locacionRepositorio = locacionRepositorio;
             _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
+            _locacionProductoRepositorio = locacionProductoRepositorio;
             _choferEstadoRepositorio = choferEstadoRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _productoRepositorio = productoRepositorio;
         }
 
         public async Task InicializarAsync(Disponibilidad dispo, DateTime fechaSeleccionada)
@@ -74,15 +80,28 @@ namespace GestionFlota.Presenters
         public async Task ActualizarCuposDisponiblesAsync(int idOrigen)
         {
             var cuposUsados = await _disponibilidadRepositorio.ObtenerCuposUsadosAsync(idOrigen, FechaDisponible);
+            var locacionProductos = await _locacionProductoRepositorio.ObtenerPorLocacionIdAsync(idOrigen);
+            List<int> productosId = locacionProductos.Select(p => p.IdProducto).ToList();
+            List<Producto> productos = new List<Producto>();
 
+            foreach (int idProducto in productosId)
+            {
+                Producto? producto = await _productoRepositorio.ObtenerPorIdAsync(idProducto);
+                if (producto != null)
+                {
+                    productos.Add(producto);
+                }
+            }
             // Rango: 1..7, quitando los ya usados (y el del actual si se está editando)
             var cuposDisponibles = CalcularCuposDisponibles(cuposUsados);
+            
 
             // Si edita y su propio cupo está en la lista usada, debe poder verlo
             if (DisponibleActual != null && !cuposDisponibles.Contains(DisponibleActual.Cupo))
                 cuposDisponibles.Add(DisponibleActual.Cupo);
 
             _view.CargarCupos(cuposDisponibles.OrderBy(x => x).ToList());
+            _view.CargarProductos(productos);
         }
 
         public List<int> CalcularCuposDisponibles(List<int> cuposOcupados)
@@ -185,6 +204,15 @@ namespace GestionFlota.Presenters
                 )
                 : "Sin francos asignados";
             _view.MostrarAusenciasChofer(textoAusencias);
+        }
+
+        public async Task AbrirCambiarChoferAsync()
+        {
+            await AbrirFormularioAsync<CambioChoferForm>(async form =>
+            {
+                await form._presenter.InicializarAsync(IdNomina);
+            });
+            _view.Cerrar();
         }
 
     }

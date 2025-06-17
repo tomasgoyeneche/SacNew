@@ -22,8 +22,14 @@ namespace Core.Repositories
      int idNomina,         // null si elimina
      int idUsuario);
 
+        Task RegistrarProgramaAsync(int idPrograma, string motivo, string descripcion, int idUsuario);
         Task ActualizarProgramaAsync(Programa programa);
         Task ActualizarCheck(int idPrograma, string campoCheck, string nombreUsuario);
-         Task ActualizarRutaRemitoAsync(int idPrograma, string campoRuta, string ruta);
+        Task ActualizarRutaRemitoAsync(int idPrograma, string campoRuta, string ruta);
+
+        Task ActualizarProgramaOrigenProductoAsync(int idPrograma, int idOrigen, int idProducto);
+        Task ActualizarProgramaTramoDestinoAsync(int idPrograma, int idDestino);
+        Task<int> InsertarProgramaRetornandoIdAsync(Programa programa);
+        Task InsertarProgramaTramoAsync(ProgramaTramo tramo);
     }
 }

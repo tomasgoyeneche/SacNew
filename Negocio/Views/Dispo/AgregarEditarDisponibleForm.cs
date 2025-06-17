@@ -51,6 +51,14 @@ namespace GestionFlota.Views
 
         }
 
+        public void CargarProductos(List<Producto> productos)
+        {
+            // Si tenés un combo para productos, lo cargás así:
+            dataGridProductos.DataSource = productos;
+
+            dataGridProductos.Columns["IdProducto"].Visible = false;
+            dataGridProductos.Columns["Activo"].Visible = false;
+        }
         public void MostrarDisponible(Disponible disponible)
         {
             // Setea los valores en los combos/campos del form
@@ -102,6 +110,7 @@ namespace GestionFlota.Views
             if (cmbOrigen.EditValue is int idOrigen)
             {
                 await _presenter.ActualizarCuposDisponiblesAsync(idOrigen);
+
             }
         }
 
@@ -117,17 +126,22 @@ namespace GestionFlota.Views
 
         private async void bAgregarObservacion_Click(object sender, EventArgs e)
         {
-          string comentario = XtraInputBox.Show(
-             "Ingrese el comentario:",
-             "Comentario",
-             ""
-         );
+            string comentario = XtraInputBox.Show(
+               "Ingrese el comentario:",
+               "Comentario",
+               ""
+           );
 
             // Si canceló o dejó vacío, no guardes nada
             if (string.IsNullOrWhiteSpace(comentario)) return;
 
             // Guardar el comentario en NominaRegistro
             await _presenter.RegistrarComentarioAsync(comentario);
+        }
+
+        private async void bCambiarChofer_Click(object sender, EventArgs e)
+        {
+            await _presenter.AbrirCambiarChoferAsync();
         }
     }
 }

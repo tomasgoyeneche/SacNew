@@ -16,6 +16,8 @@ namespace GestionFlota.Views
         void MostrarDisponible(Disponible disponible);
         void MostrarAusenciasChofer(string texto);
         void MostrarMantenimientosUnidad(string texto);
+
+        void CargarProductos(List<Producto> productos);
         Disponible ObtenerDisponible();
         void Cerrar();
     }

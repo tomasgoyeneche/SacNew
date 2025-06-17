@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             gridControlVaporizados = new DevExpress.XtraGrid.GridControl();
             gridViewVaporizados = new DevExpress.XtraGrid.Views.Grid.GridView();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            bAgregarExterno = new DevExpress.XtraEditors.SimpleButton();
             simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
@@ -66,17 +66,17 @@
             gridViewVaporizados.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVaporizados.OptionsView.EnableAppearanceOddRow = true;
             // 
-            // simpleButton1
+            // bAgregarExterno
             // 
-            simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton1.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Location = new Point(949, 520);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(132, 37);
-            simpleButton1.TabIndex = 31;
-            simpleButton1.Text = "Agregar Externo";
+            bAgregarExterno.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bAgregarExterno.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarExterno.Appearance.Options.UseBackColor = true;
+            bAgregarExterno.Appearance.Options.UseFont = true;
+            bAgregarExterno.Location = new Point(949, 520);
+            bAgregarExterno.Name = "bAgregarExterno";
+            bAgregarExterno.Size = new Size(132, 37);
+            bAgregarExterno.TabIndex = 31;
+            bAgregarExterno.Text = "Agregar Externo";
             // 
             // simpleButton2
             // 
@@ -107,11 +107,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(labelNovedades);
-            guna2Panel10.CustomizableEdges = customizableEdges1;
+            guna2Panel10.CustomizableEdges = customizableEdges3;
             guna2Panel10.FillColor = Color.LightCoral;
             guna2Panel10.Location = new Point(0, 15);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel10.Size = new Size(253, 31);
             guna2Panel10.TabIndex = 47;
             // 
@@ -135,7 +135,7 @@
             Controls.Add(guna2Panel10);
             Controls.Add(simpleButton3);
             Controls.Add(simpleButton2);
-            Controls.Add(simpleButton1);
+            Controls.Add(bAgregarExterno);
             Controls.Add(gridControlVaporizados);
             MaximizeBox = false;
             Name = "MenuVaporizados";
@@ -153,7 +153,7 @@
 
         private DevExpress.XtraGrid.GridControl gridControlVaporizados;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewVaporizados;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton bAgregarExterno;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;

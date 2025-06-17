@@ -65,35 +65,39 @@
             gridControlAlertas = new DevExpress.XtraGrid.GridControl();
             gridViewAlertas = new DevExpress.XtraGrid.Views.Grid.GridView();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            gridControlCargados = new DevExpress.XtraGrid.GridControl();
-            gridViewCargados = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridControlDisp = new DevExpress.XtraGrid.GridControl();
+            gridViewDisp = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            gridControlVacios = new DevExpress.XtraGrid.GridControl();
-            gridViewVacios = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridControlAsignados = new DevExpress.XtraGrid.GridControl();
+            gridViewAsignados = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            bControlSatelital = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            bImportarPrograma = new DevExpress.XtraEditors.SimpleButton();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10.SuspendLayout();
             guna2Panel4.SuspendLayout();
@@ -109,11 +113,11 @@
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).BeginInit();
             guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridControlCargados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewCargados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlDisp).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewDisp).BeginInit();
             guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridControlVacios).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewVacios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlAsignados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewAsignados).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
@@ -269,6 +273,7 @@
             gridViewVencimientos.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVencimientos.OptionsView.EnableAppearanceOddRow = true;
             gridViewVencimientos.OptionsView.ShowGroupPanel = false;
+            gridViewVencimientos.RowCellStyle += gridViewVencimientos_RowCellStyle;
             // 
             // guna2Panel3
             // 
@@ -377,8 +382,8 @@
             // guna2Panel5
             // 
             guna2Panel5.BackColor = Color.Transparent;
+            guna2Panel5.Controls.Add(gridControlDisp);
             guna2Panel5.Controls.Add(guna2HtmlLabel3);
-            guna2Panel5.Controls.Add(gridControlCargados);
             guna2Panel5.CustomizableEdges = customizableEdges11;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel5.Location = new Point(311, 172);
@@ -386,6 +391,119 @@
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel5.Size = new Size(1102, 246);
             guna2Panel5.TabIndex = 51;
+            // 
+            // gridControlDisp
+            // 
+            gridControlDisp.Dock = DockStyle.Bottom;
+            gridControlDisp.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControlDisp.Location = new Point(0, 30);
+            gridControlDisp.MainView = gridViewDisp;
+            gridControlDisp.Name = "gridControlDisp";
+            gridControlDisp.Size = new Size(1102, 216);
+            gridControlDisp.TabIndex = 51;
+            gridControlDisp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewDisp });
+            // 
+            // gridViewDisp
+            // 
+            gridViewDisp.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridViewDisp.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridViewDisp.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewDisp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn9, gridColumn6, gridColumn7, gridColumn8, gridColumn10, gridColumn29 });
+            gridViewDisp.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewDisp.GridControl = gridControlDisp;
+            gridViewDisp.Name = "gridViewDisp";
+            gridViewDisp.OptionsBehavior.Editable = false;
+            gridViewDisp.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewDisp.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewDisp.FocusedRowChanged += gridViewDisp_FocusedRowChanged;
+            // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "Disp";
+            gridColumn1.FieldName = "FechaCarga";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            gridColumn2.Caption = "Tractor";
+            gridColumn2.FieldName = "Tractor";
+            gridColumn2.Name = "gridColumn2";
+            gridColumn2.Visible = true;
+            gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            gridColumn3.Caption = "Semi";
+            gridColumn3.FieldName = "Semi";
+            gridColumn3.Name = "gridColumn3";
+            gridColumn3.Visible = true;
+            gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            gridColumn4.Caption = "Empresa";
+            gridColumn4.FieldName = "RazonSocial";
+            gridColumn4.Name = "gridColumn4";
+            gridColumn4.Visible = true;
+            gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            gridColumn5.Caption = "Chofer";
+            gridColumn5.FieldName = "Chofer";
+            gridColumn5.Name = "gridColumn5";
+            gridColumn5.Visible = true;
+            gridColumn5.VisibleIndex = 4;
+            // 
+            // gridColumn9
+            // 
+            gridColumn9.Caption = "Producto";
+            gridColumn9.FieldName = "Producto";
+            gridColumn9.Name = "gridColumn9";
+            gridColumn9.Visible = true;
+            gridColumn9.VisibleIndex = 5;
+            // 
+            // gridColumn6
+            // 
+            gridColumn6.Caption = "Origen";
+            gridColumn6.FieldName = "Estado";
+            gridColumn6.Name = "gridColumn6";
+            gridColumn6.Visible = true;
+            gridColumn6.VisibleIndex = 6;
+            // 
+            // gridColumn7
+            // 
+            gridColumn7.Caption = "Cupo";
+            gridColumn7.FieldName = "Cupo";
+            gridColumn7.Name = "gridColumn7";
+            gridColumn7.Visible = true;
+            gridColumn7.VisibleIndex = 7;
+            // 
+            // gridColumn8
+            // 
+            gridColumn8.Caption = "Destino";
+            gridColumn8.FieldName = "Destino";
+            gridColumn8.Name = "gridColumn8";
+            gridColumn8.Visible = true;
+            gridColumn8.VisibleIndex = 8;
+            // 
+            // gridColumn10
+            // 
+            gridColumn10.Caption = "Lugar Satelital";
+            gridColumn10.FieldName = "Location";
+            gridColumn10.Name = "gridColumn10";
+            gridColumn10.Visible = true;
+            gridColumn10.VisibleIndex = 9;
+            // 
+            // gridColumn29
+            // 
+            gridColumn29.Caption = "Sat";
+            gridColumn29.FieldName = "Sat";
+            gridColumn29.Name = "gridColumn29";
+            gridColumn29.Visible = true;
+            gridColumn29.VisibleIndex = 10;
             // 
             // guna2HtmlLabel3
             // 
@@ -401,131 +519,11 @@
             guna2HtmlLabel3.Text = "Equipos Disponibles";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // gridControlCargados
-            // 
-            gridControlCargados.Dock = DockStyle.Bottom;
-            gridControlCargados.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlCargados.Location = new Point(0, 30);
-            gridControlCargados.MainView = gridViewCargados;
-            gridControlCargados.Name = "gridControlCargados";
-            gridControlCargados.Size = new Size(1102, 216);
-            gridControlCargados.TabIndex = 39;
-            gridControlCargados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewCargados });
-            // 
-            // gridViewCargados
-            // 
-            gridViewCargados.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            gridViewCargados.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridViewCargados.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            gridViewCargados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12 });
-            gridViewCargados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridViewCargados.GridControl = gridControlCargados;
-            gridViewCargados.Name = "gridViewCargados";
-            gridViewCargados.OptionsBehavior.Editable = false;
-            gridViewCargados.OptionsSelection.EnableAppearanceFocusedCell = false;
-            gridViewCargados.OptionsView.EnableAppearanceEvenRow = true;
-            // 
-            // gridColumn1
-            // 
-            gridColumn1.Caption = "Tractor";
-            gridColumn1.FieldName = "Tractor";
-            gridColumn1.Name = "gridColumn1";
-            gridColumn1.Visible = true;
-            gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            gridColumn2.Caption = "Empresa";
-            gridColumn2.FieldName = "Empresa";
-            gridColumn2.Name = "gridColumn2";
-            gridColumn2.Visible = true;
-            gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            gridColumn3.Caption = "Chofer";
-            gridColumn3.FieldName = "Chofer";
-            gridColumn3.Name = "gridColumn3";
-            gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            gridColumn4.Caption = "Entrega";
-            gridColumn4.FieldName = "FechaEntrega";
-            gridColumn4.Name = "gridColumn4";
-            gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 3;
-            // 
-            // gridColumn5
-            // 
-            gridColumn5.Caption = "Producto";
-            gridColumn5.FieldName = "Nombre";
-            gridColumn5.Name = "gridColumn5";
-            gridColumn5.Visible = true;
-            gridColumn5.VisibleIndex = 4;
-            // 
-            // gridColumn6
-            // 
-            gridColumn6.Caption = "Albaran";
-            gridColumn6.FieldName = "AlbaranDespacho";
-            gridColumn6.Name = "gridColumn6";
-            gridColumn6.Visible = true;
-            gridColumn6.VisibleIndex = 5;
-            // 
-            // gridColumn7
-            // 
-            gridColumn7.Caption = "Origen";
-            gridColumn7.FieldName = "Origen";
-            gridColumn7.Name = "gridColumn7";
-            gridColumn7.Visible = true;
-            gridColumn7.VisibleIndex = 6;
-            // 
-            // gridColumn8
-            // 
-            gridColumn8.Caption = "S Origen";
-            gridColumn8.FieldName = "CargaSalida";
-            gridColumn8.Name = "gridColumn8";
-            gridColumn8.Visible = true;
-            gridColumn8.VisibleIndex = 7;
-            // 
-            // gridColumn9
-            // 
-            gridColumn9.Caption = "KM";
-            gridColumn9.FieldName = "Odometer";
-            gridColumn9.Name = "gridColumn9";
-            gridColumn9.Visible = true;
-            gridColumn9.VisibleIndex = 8;
-            // 
-            // gridColumn10
-            // 
-            gridColumn10.Caption = "Llegada";
-            gridColumn10.FieldName = "EntregaLlegada";
-            gridColumn10.Name = "gridColumn10";
-            gridColumn10.Visible = true;
-            gridColumn10.VisibleIndex = 9;
-            // 
-            // gridColumn11
-            // 
-            gridColumn11.Caption = "Destino";
-            gridColumn11.FieldName = "Destino";
-            gridColumn11.Name = "gridColumn11";
-            gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 10;
-            // 
-            // gridColumn12
-            // 
-            gridColumn12.Caption = "Sat";
-            gridColumn12.FieldName = "Sat";
-            gridColumn12.Name = "gridColumn12";
-            gridColumn12.Visible = true;
-            gridColumn12.VisibleIndex = 11;
-            // 
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
-            guna2Panel1.Controls.Add(gridControlVacios);
+            guna2Panel1.Controls.Add(gridControlAsignados);
             guna2Panel1.CustomizableEdges = customizableEdges13;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(311, 430);
@@ -548,29 +546,39 @@
             guna2HtmlLabel4.Text = "Cargas Asignadas";
             guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // gridControlVacios
+            // gridControlAsignados
             // 
-            gridControlVacios.Dock = DockStyle.Bottom;
-            gridControlVacios.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlVacios.Location = new Point(0, 30);
-            gridControlVacios.MainView = gridViewVacios;
-            gridControlVacios.Name = "gridControlVacios";
-            gridControlVacios.Size = new Size(1102, 216);
-            gridControlVacios.TabIndex = 39;
-            gridControlVacios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewVacios });
+            gridControlAsignados.Dock = DockStyle.Bottom;
+            gridControlAsignados.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControlAsignados.Location = new Point(0, 30);
+            gridControlAsignados.MainView = gridViewAsignados;
+            gridControlAsignados.Name = "gridControlAsignados";
+            gridControlAsignados.Size = new Size(1102, 216);
+            gridControlAsignados.TabIndex = 39;
+            gridControlAsignados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewAsignados });
             // 
-            // gridViewVacios
+            // gridViewAsignados
             // 
-            gridViewVacios.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            gridViewVacios.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridViewVacios.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            gridViewVacios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn13, gridColumn14, gridColumn15, gridColumn16, gridColumn17, gridColumn18, gridColumn19, gridColumn20, gridColumn21 });
-            gridViewVacios.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridViewVacios.GridControl = gridControlVacios;
-            gridViewVacios.Name = "gridViewVacios";
-            gridViewVacios.OptionsBehavior.Editable = false;
-            gridViewVacios.OptionsSelection.EnableAppearanceFocusedCell = false;
-            gridViewVacios.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewAsignados.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridViewAsignados.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridViewAsignados.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewAsignados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn25, gridColumn13, gridColumn26, gridColumn14, gridColumn15, gridColumn17, gridColumn18, gridColumn19, gridColumn16, gridColumn20, gridColumn27, gridColumn28, gridColumn21, gridColumn30 });
+            gridViewAsignados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewAsignados.GridControl = gridControlAsignados;
+            gridViewAsignados.Name = "gridViewAsignados";
+            gridViewAsignados.OptionsBehavior.Editable = false;
+            gridViewAsignados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewAsignados.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewAsignados.FocusedRowChanged += gridViewAsignados_FocusedRowChanged;
+            gridViewAsignados.DoubleClick += gridViewAsignados_DoubleClick;
+            // 
+            // gridColumn25
+            // 
+            gridColumn25.Caption = "Disp";
+            gridColumn25.FieldName = "FechaCarga";
+            gridColumn25.Name = "gridColumn25";
+            gridColumn25.Visible = true;
+            gridColumn25.VisibleIndex = 0;
             // 
             // gridColumn13
             // 
@@ -578,15 +586,23 @@
             gridColumn13.FieldName = "Tractor";
             gridColumn13.Name = "gridColumn13";
             gridColumn13.Visible = true;
-            gridColumn13.VisibleIndex = 0;
+            gridColumn13.VisibleIndex = 1;
+            // 
+            // gridColumn26
+            // 
+            gridColumn26.Caption = "Semi";
+            gridColumn26.FieldName = "Semi";
+            gridColumn26.Name = "gridColumn26";
+            gridColumn26.Visible = true;
+            gridColumn26.VisibleIndex = 2;
             // 
             // gridColumn14
             // 
             gridColumn14.Caption = "Empresa";
-            gridColumn14.FieldName = "Empresa";
+            gridColumn14.FieldName = "RazonSocial";
             gridColumn14.Name = "gridColumn14";
             gridColumn14.Visible = true;
-            gridColumn14.VisibleIndex = 1;
+            gridColumn14.VisibleIndex = 3;
             // 
             // gridColumn15
             // 
@@ -594,47 +610,63 @@
             gridColumn15.FieldName = "Chofer";
             gridColumn15.Name = "gridColumn15";
             gridColumn15.Visible = true;
-            gridColumn15.VisibleIndex = 2;
+            gridColumn15.VisibleIndex = 4;
+            // 
+            // gridColumn17
+            // 
+            gridColumn17.Caption = "Origen";
+            gridColumn17.FieldName = "Estado";
+            gridColumn17.Name = "gridColumn17";
+            gridColumn17.Visible = true;
+            gridColumn17.VisibleIndex = 5;
+            // 
+            // gridColumn18
+            // 
+            gridColumn18.Caption = "Entrega";
+            gridColumn18.FieldName = "FechaEntrega";
+            gridColumn18.Name = "gridColumn18";
+            gridColumn18.Visible = true;
+            gridColumn18.VisibleIndex = 6;
+            // 
+            // gridColumn19
+            // 
+            gridColumn19.Caption = "Destino";
+            gridColumn19.FieldName = "Destino";
+            gridColumn19.Name = "gridColumn19";
+            gridColumn19.Visible = true;
+            gridColumn19.VisibleIndex = 7;
             // 
             // gridColumn16
             // 
             gridColumn16.Caption = "Producto";
-            gridColumn16.FieldName = "Nombre";
+            gridColumn16.FieldName = "Producto";
             gridColumn16.Name = "gridColumn16";
             gridColumn16.Visible = true;
-            gridColumn16.VisibleIndex = 3;
-            // 
-            // gridColumn17
-            // 
-            gridColumn17.Caption = "Estado";
-            gridColumn17.FieldName = "Estado";
-            gridColumn17.Name = "gridColumn17";
-            gridColumn17.Visible = true;
-            gridColumn17.VisibleIndex = 4;
-            // 
-            // gridColumn18
-            // 
-            gridColumn18.Caption = "Fin Ausencia";
-            gridColumn18.FieldName = "FechaCarga";
-            gridColumn18.Name = "gridColumn18";
-            gridColumn18.Visible = true;
-            gridColumn18.VisibleIndex = 5;
-            // 
-            // gridColumn19
-            // 
-            gridColumn19.Caption = "Locacion";
-            gridColumn19.FieldName = "Destino";
-            gridColumn19.Name = "gridColumn19";
-            gridColumn19.Visible = true;
-            gridColumn19.VisibleIndex = 6;
+            gridColumn16.VisibleIndex = 8;
             // 
             // gridColumn20
             // 
-            gridColumn20.Caption = "Lugar Satelital";
-            gridColumn20.FieldName = "Location";
+            gridColumn20.Caption = "Albaran";
+            gridColumn20.FieldName = "AlbaranDespacho";
             gridColumn20.Name = "gridColumn20";
             gridColumn20.Visible = true;
-            gridColumn20.VisibleIndex = 7;
+            gridColumn20.VisibleIndex = 9;
+            // 
+            // gridColumn27
+            // 
+            gridColumn27.Caption = "Pedido";
+            gridColumn27.FieldName = "PedidoOr";
+            gridColumn27.Name = "gridColumn27";
+            gridColumn27.Visible = true;
+            gridColumn27.VisibleIndex = 10;
+            // 
+            // gridColumn28
+            // 
+            gridColumn28.Caption = "Obs";
+            gridColumn28.FieldName = "Observaciones";
+            gridColumn28.Name = "gridColumn28";
+            gridColumn28.Visible = true;
+            gridColumn28.VisibleIndex = 11;
             // 
             // gridColumn21
             // 
@@ -642,26 +674,35 @@
             gridColumn21.FieldName = "Sat";
             gridColumn21.Name = "gridColumn21";
             gridColumn21.Visible = true;
-            gridColumn21.VisibleIndex = 8;
+            gridColumn21.VisibleIndex = 12;
             // 
-            // bControlSatelital
+            // gridColumn30
             // 
-            bControlSatelital.Appearance.BackColor = Color.Silver;
-            bControlSatelital.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bControlSatelital.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlSatelital.Appearance.Options.UseBackColor = true;
-            bControlSatelital.Appearance.Options.UseFont = true;
-            bControlSatelital.Appearance.Options.UseForeColor = true;
-            bControlSatelital.Appearance.Options.UseTextOptions = true;
-            bControlSatelital.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bControlSatelital.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlSatelital.AppearanceDisabled.Options.UseForeColor = true;
-            bControlSatelital.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bControlSatelital.ImageOptions.SvgImage");
-            bControlSatelital.Location = new Point(12, 74);
-            bControlSatelital.Name = "bControlSatelital";
-            bControlSatelital.Size = new Size(281, 30);
-            bControlSatelital.TabIndex = 52;
-            bControlSatelital.Text = "Importar Programa";
+            gridColumn30.Caption = "-";
+            gridColumn30.FieldName = "Confirmado";
+            gridColumn30.Name = "gridColumn30";
+            gridColumn30.Visible = true;
+            gridColumn30.VisibleIndex = 13;
+            // 
+            // bImportarPrograma
+            // 
+            bImportarPrograma.Appearance.BackColor = Color.Silver;
+            bImportarPrograma.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bImportarPrograma.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bImportarPrograma.Appearance.Options.UseBackColor = true;
+            bImportarPrograma.Appearance.Options.UseFont = true;
+            bImportarPrograma.Appearance.Options.UseForeColor = true;
+            bImportarPrograma.Appearance.Options.UseTextOptions = true;
+            bImportarPrograma.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bImportarPrograma.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bImportarPrograma.AppearanceDisabled.Options.UseForeColor = true;
+            bImportarPrograma.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bImportarPrograma.ImageOptions.SvgImage");
+            bImportarPrograma.Location = new Point(12, 74);
+            bImportarPrograma.Name = "bImportarPrograma";
+            bImportarPrograma.Size = new Size(281, 30);
+            bImportarPrograma.TabIndex = 52;
+            bImportarPrograma.Text = "Importar Programa";
+            bImportarPrograma.Click += bImportarPrograma_Click;
             // 
             // simpleButton1
             // 
@@ -690,7 +731,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
             Controls.Add(simpleButton1);
-            Controls.Add(bControlSatelital);
+            Controls.Add(bImportarPrograma);
             Controls.Add(guna2Panel5);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel4);
@@ -717,11 +758,11 @@
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).EndInit();
             guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridControlCargados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewCargados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlDisp).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewDisp).EndInit();
             guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridControlVacios).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewVacios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlAsignados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewAsignados).EndInit();
             ResumeLayout(false);
         }
 
@@ -750,24 +791,10 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewAlertas;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private DevExpress.XtraGrid.GridControl gridControlCargados;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCargados;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private DevExpress.XtraGrid.GridControl gridControlVacios;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewVacios;
+        private DevExpress.XtraGrid.GridControl gridControlAsignados;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewAsignados;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
@@ -777,7 +804,25 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
-        private DevExpress.XtraEditors.SimpleButton bControlSatelital;
+        private DevExpress.XtraEditors.SimpleButton bImportarPrograma;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
+        private DevExpress.XtraGrid.GridControl gridControlDisp;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDisp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
     }
 }

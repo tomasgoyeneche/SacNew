@@ -47,5 +47,18 @@ namespace Core.Repositories
         {
             return EliminarGenéricoAsync<Locacion>("Locacion", idLocacion);
         }
+
+        public async Task<List<LocacionSinonimo>> ObtenerTodosSinonimosAsync()
+        {
+            var query = "SELECT * FROM LocacionSinonimo where Activo = 1";
+            return (await ConectarAsync(conn =>
+                conn.QueryAsync<LocacionSinonimo>(query))).ToList();
+        }
+
+        public async Task AgregarSinonimoAsync(LocacionSinonimo sinonimo)
+        {
+            var query = "INSERT INTO LocacionSinonimo (IdLocacion, Sinonimo) VALUES (@IdLocacion, @Sinonimo)";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, sinonimo));
+        }
     }
 }

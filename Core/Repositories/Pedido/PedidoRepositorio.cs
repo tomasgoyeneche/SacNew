@@ -1,0 +1,44 @@
+﻿using Core.Base;
+using Core.Services;
+using Dapper;
+using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Repositories
+{
+    internal class PedidoRepositorio : BaseRepositorio, IPedidoRepositorio
+    {
+        public PedidoRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
+            : base(connectionStrings, sesionService) { }
+
+        public async Task<List<Cupeo>> ObtenerCupeoAsync()
+        {
+            var query = "SELECT * FROM vw_Cupeo";
+
+            return await ConectarAsync(async connection =>
+            {
+                var cupeo = await connection.QueryAsync<Cupeo>(query);
+                return cupeo.ToList();
+            });
+        }
+
+        public async Task InsertarPedidosAsync(IEnumerable<Pedido> pedidos)
+        {
+            var query = @"
+        INSERT INTO Pedido
+        (IdProducto, AlbaranDespacho, PedidoOr, IdLocacion, FechaEntrega, FechaCarga, Cantidad, IdChofer, IdUnidad, Observaciones, IdUsuario, Fecha, Activo)
+        VALUES
+        (@IdProducto, @AlbaranDespacho, @PedidoOr, @IdLocacion, @FechaEntrega, @FechaCarga, @Cantidad, @IdChofer, @IdUnidad, @Observaciones, @IdUsuario, @Fecha, @Activo)";
+
+            await ConectarAsync(async conn =>
+            {
+                // Usa ExecuteAsync para batch insert
+                await conn.ExecuteAsync(query, pedidos);
+            });
+        }
+    }
+}

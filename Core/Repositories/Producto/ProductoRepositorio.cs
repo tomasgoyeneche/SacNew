@@ -22,5 +22,24 @@ namespace Core.Repositories
                 return productos.ToList();
             });
         }
+
+        public Task<Producto?> ObtenerPorIdAsync(int idProducto)
+        {
+            return ObtenerPorIdGenericoAsync<Producto>("Producto", "IdProducto", idProducto);
+        }
+
+
+        public async Task<List<ProductoSinonimo>> ObtenerTodosSinonimosAsync()
+        {
+            var query = "SELECT * FROM ProductoSinonimo where Activo = 1";
+            return (await ConectarAsync(conn =>
+                conn.QueryAsync<ProductoSinonimo>(query))).ToList();
+        }
+
+        public async Task AgregarSinonimoAsync(ProductoSinonimo sinonimo)
+        {
+            var query = "INSERT INTO ProductoSinonimo (IdProducto, Sinonimo, IdUsuario) VALUES (@IdProducto, @Sinonimo, @IdUsuario)";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, sinonimo));
+        }
     }
 }

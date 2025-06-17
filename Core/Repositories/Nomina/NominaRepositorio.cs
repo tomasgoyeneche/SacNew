@@ -2,6 +2,7 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
+using System.Data;
 
 namespace Core.Repositories
 {
@@ -90,6 +91,19 @@ namespace Core.Repositories
                     Descripcion = descripcion,
                     idUsuario
                 });
+            });
+        }
+
+        public async Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@idChofer", idChofer);
+            parameters.Add("@idUnidad", idUnidad);
+            parameters.Add("@fecha", fecha);
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync("sp_CambiarChoferUnidad", parameters, commandType: CommandType.StoredProcedure);
             });
         }
     }

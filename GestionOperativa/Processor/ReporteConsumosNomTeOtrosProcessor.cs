@@ -44,7 +44,7 @@ namespace GestionOperativa.Processor
 
             if (idNomina != 0)
             {
-                Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(idNomina, fecha);
+                Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
                 UnidadDto? unidadDto = await _unidadRepositorio.ObtenerPorIdDtoAsync(nomina.IdUnidad);
                 Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(nomina.IdUnidad);
                 TractorDto? tractorDto = await _tractorRepositorio.ObtenerPorIdDtoAsync(unidad.IdTractor);
@@ -149,7 +149,7 @@ namespace GestionOperativa.Processor
 
             if (idNomina != 0)
             {
-                Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(idNomina, fecha);
+                Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
                 UnidadDto? unidadDto = await _unidadRepositorio.ObtenerPorIdDtoAsync(nomina.IdUnidad);
                 Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(nomina.IdUnidad);
                 TractorDto? tractorDto = await _tractorRepositorio.ObtenerPorIdDtoAsync(unidad.IdTractor);

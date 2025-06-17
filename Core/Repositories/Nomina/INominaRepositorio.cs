@@ -13,5 +13,7 @@ namespace Core.Repositories
         Task RegistrarNominaAsync(int idNomina, string evento, string descripcion, int idUsuario);
 
         Task<List<VencimientosDto>> ObtenerVencimientosPorNominaAsync(Nomina nomina);
+
+        Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha);
     }
 }

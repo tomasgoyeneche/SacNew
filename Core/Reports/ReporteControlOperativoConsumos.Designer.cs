@@ -251,9 +251,9 @@
             this.xrLabel50 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel53 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel52 = new DevExpress.XtraReports.UI.XRLabel();
+            this.DatosUnidad = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.fechaPoc = new DevExpress.XtraReports.Parameters.Parameter();
             this.numeroPoc = new DevExpress.XtraReports.Parameters.Parameter();
-            this.DatosUnidad = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlanillaPreguntaDto)).BeginInit();
@@ -2865,6 +2865,11 @@
             this.xrLabel52.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel52.TextFormatString = "{0:dd/MM/yyyy}";
             // 
+            // DatosUnidad
+            // 
+            this.DatosUnidad.DataSource = typeof(global::Shared.Models.DTOs.Reports.PlanillaNominaConsumosDto);
+            this.DatosUnidad.Name = "DatosUnidad";
+            // 
             // fechaPoc
             // 
             this.fechaPoc.AllowNull = true;
@@ -2882,11 +2887,6 @@
             this.numeroPoc.Type = typeof(int);
             this.numeroPoc.ValueInfo = "0";
             this.numeroPoc.Visible = false;
-            // 
-            // DatosUnidad
-            // 
-            this.DatosUnidad.DataSource = typeof(global::Shared.Models.DTOs.Reports.PlanillaNominaConsumosDto);
-            this.DatosUnidad.Name = "DatosUnidad";
             // 
             // ReporteControlOperativoConsumos
             // 

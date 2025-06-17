@@ -41,6 +41,23 @@ namespace Core.Repositories
             return await ObtenerPorIdGenericoAsync<Programa>("Programa", "IdPrograma",idPrograma );
         }
 
+        public async Task RegistrarProgramaAsync(int idPrograma, string motivo, string descripcion, int idUsuario)
+        {
+            var query = @"
+        INSERT INTO ProgramaRegistro (IdPrograma, Motivo, Descripcion, IdUsuario, Fecha)
+        VALUES (@IdPrograma, @Motivo, @Descripcion, @IdUsuario, GETDATE())";
+
+            await ConectarAsync(async conn =>
+            {
+                await conn.ExecuteAsync(query, new
+                {
+                    IdPrograma = idPrograma,
+                    Motivo = motivo,
+                    Descripcion = descripcion,
+                    IdUsuario = idUsuario
+                });
+            });
+        }
 
         public async Task ActualizarFechaYRegistrarAsync(
         int idPrograma,
@@ -158,6 +175,36 @@ namespace Core.Repositories
         public Task ActualizarProgramaAsync(Programa programa)
         {
             return ActualizarGenéricoAsync("Programa", programa);
+        }
+
+        public async Task ActualizarProgramaOrigenProductoAsync(int idPrograma, int idOrigen, int idProducto)
+        {
+            var query = @"UPDATE Programa SET IdOrigen = @IdOrigen, IdProducto = @IdProducto WHERE IdPrograma = @IdPrograma";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma, IdOrigen = idOrigen, IdProducto = idProducto }));
+        }
+
+        public async Task ActualizarProgramaTramoDestinoAsync(int idPrograma, int idDestino)
+        {
+            var query = @"UPDATE ProgramaTramo SET IdDestino = @IdDestino WHERE IdPrograma = @IdPrograma";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma, IdDestino = idDestino }));
+        }
+
+        public async Task<int> InsertarProgramaRetornandoIdAsync(Programa programa)
+        {
+            var query = @"
+        INSERT INTO Programa
+        (IdDisponible, IdPedido, IdOrigen, IdProducto, Cupo, AlbaranDespacho, PedidoOr, Observaciones, IdProgramaEstado, FechaCarga, FechaEntrega)
+        VALUES
+        (@IdDisponible, @IdPedido, @IdOrigen, @IdProducto, @Cupo, @AlbaranDespacho, @PedidoOr, @Observaciones, @IdProgramaEstado, @FechaCarga, @FechaEntrega);
+        SELECT CAST(SCOPE_IDENTITY() AS int);";
+            return await ConectarAsync(conn => conn.ExecuteScalarAsync<int>(query, programa));
+        }
+
+        public async Task InsertarProgramaTramoAsync(ProgramaTramo tramo)
+        {
+            var query = @"INSERT INTO ProgramaTramo (IdPrograma, IdNomina, IdDestino, FechaInicio, FechaFin)
+                  VALUES (@IdPrograma, @IdNomina, @IdDestino, @FechaInicio, @FechaFin)";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, tramo));
         }
     }
 }

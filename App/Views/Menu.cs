@@ -113,5 +113,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirDisponibilidad("0007-Disponibilidad");
         }
+
+        private void bCupos_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirCupeo("0008-Cupos");
+        }
     }
 }
