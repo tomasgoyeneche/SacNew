@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbProducto = new DevExpress.XtraEditors.LookUpEdit();
@@ -41,7 +41,7 @@
             cmbOrigen = new DevExpress.XtraEditors.LookUpEdit();
             lblOrigen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bAgregarObservacion = new DevExpress.XtraEditors.SimpleButton();
-            bCambiarChofer = new DevExpress.XtraEditors.SimpleButton();
+            bOrdenCarga = new DevExpress.XtraEditors.SimpleButton();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             btnConfirmar = new DevExpress.XtraEditors.SimpleButton();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -55,11 +55,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges13;
+            guna2Panel10.CustomizableEdges = customizableEdges5;
             guna2Panel10.FillColor = Color.MediumSeaGreen;
             guna2Panel10.Location = new Point(1, 14);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel10.Size = new Size(293, 38);
             guna2Panel10.TabIndex = 40;
             // 
@@ -163,17 +163,18 @@
             bAgregarObservacion.Text = "Observaciones";
             bAgregarObservacion.Click += bAgregarObservacion_Click;
             // 
-            // bCambiarChofer
+            // bOrdenCarga
             // 
-            bCambiarChofer.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            bCambiarChofer.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bCambiarChofer.Appearance.Options.UseBackColor = true;
-            bCambiarChofer.Appearance.Options.UseFont = true;
-            bCambiarChofer.Location = new Point(25, 101);
-            bCambiarChofer.Name = "bCambiarChofer";
-            bCambiarChofer.Size = new Size(161, 40);
-            bCambiarChofer.TabIndex = 113;
-            bCambiarChofer.Text = "Orden Carga";
+            bOrdenCarga.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            bOrdenCarga.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bOrdenCarga.Appearance.Options.UseBackColor = true;
+            bOrdenCarga.Appearance.Options.UseFont = true;
+            bOrdenCarga.Location = new Point(25, 101);
+            bOrdenCarga.Name = "bOrdenCarga";
+            bOrdenCarga.Size = new Size(161, 40);
+            bOrdenCarga.TabIndex = 113;
+            bOrdenCarga.Text = "Orden Carga";
+            bOrdenCarga.Click += bOrdenCarga_Click;
             // 
             // simpleButton1
             // 
@@ -205,13 +206,13 @@
             picBoxEntidad.BackColor = Color.Transparent;
             picBoxEntidad.BackgroundImage = Properties.Resources.menuPostasConceptoConsumos;
             picBoxEntidad.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxEntidad.CustomizableEdges = customizableEdges15;
+            picBoxEntidad.CustomizableEdges = customizableEdges7;
             picBoxEntidad.Dock = DockStyle.Right;
             picBoxEntidad.FillColor = Color.FromArgb(120, 0, 0, 0);
             picBoxEntidad.ImageRotate = 0F;
             picBoxEntidad.Location = new Point(408, 0);
             picBoxEntidad.Name = "picBoxEntidad";
-            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges8;
             picBoxEntidad.Size = new Size(390, 568);
             picBoxEntidad.TabIndex = 117;
             picBoxEntidad.TabStop = false;
@@ -227,7 +228,7 @@
             Controls.Add(btnConfirmar);
             Controls.Add(simpleButton1);
             Controls.Add(bAgregarObservacion);
-            Controls.Add(bCambiarChofer);
+            Controls.Add(bOrdenCarga);
             Controls.Add(cmbProducto);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(cmbDestino);
@@ -257,7 +258,7 @@
         private DevExpress.XtraEditors.LookUpEdit cmbOrigen;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblOrigen;
         private DevExpress.XtraEditors.SimpleButton bAgregarObservacion;
-        private DevExpress.XtraEditors.SimpleButton bCambiarChofer;
+        private DevExpress.XtraEditors.SimpleButton bOrdenCarga;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton btnConfirmar;
         private Guna.UI2.WinForms.Guna2PictureBox picBoxEntidad;

@@ -39,22 +39,17 @@ namespace GestionFlota.Views
             MessageBox.Show(mensaje);
         }
 
-        public void MostrarHistorial(List<GuardiaHistorialDto> historial)
+        public void MostrarHistorial(List<HistorialGeneralDto> historial)
         {
             gridControlHistorico.DataSource = historial;
 
             var view = gridViewHistorico;
-            foreach (var col in new[] { "IdGuardiaIngreso", "IdGuardiaEstado", "IdGuardiaRegistro" })
-            {
-                if (view.Columns[col] != null)
-                    view.Columns[col].Visible = false;
-            }
 
-            if (view.Columns["FechaGuardia"] != null)
-            {
-                view.Columns["FechaGuardia"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-                view.Columns["FechaGuardia"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
-            }
+            //if (view.Columns["Fecha"] != null)
+            //{
+            //    view.Columns["Fecha"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            //    view.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            //}
 
             view.BestFitColumns();
         }

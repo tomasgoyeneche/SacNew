@@ -96,6 +96,9 @@
             bControlDemorados = new DevExpress.XtraEditors.SimpleButton();
             bControlKm = new DevExpress.XtraEditors.SimpleButton();
             bControlSatelital = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlVacios).BeginInit();
@@ -360,6 +363,7 @@
             gridViewHistorico.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridViewHistorico.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewHistorico.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn25, gridColumn26, gridColumn27 });
             gridViewHistorico.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             gridViewHistorico.GridControl = gridControlHistorico;
             gridViewHistorico.Name = "gridViewHistorico";
@@ -707,6 +711,30 @@
             bControlSatelital.TabIndex = 48;
             bControlSatelital.Text = "Control Satelital";
             // 
+            // gridColumn25
+            // 
+            gridColumn25.Caption = "Descripcion";
+            gridColumn25.FieldName = "Descripcion";
+            gridColumn25.Name = "gridColumn25";
+            gridColumn25.Visible = true;
+            gridColumn25.VisibleIndex = 0;
+            // 
+            // gridColumn26
+            // 
+            gridColumn26.Caption = "Usuario";
+            gridColumn26.FieldName = "NombreUsuario";
+            gridColumn26.Name = "gridColumn26";
+            gridColumn26.Visible = true;
+            gridColumn26.VisibleIndex = 1;
+            // 
+            // gridColumn27
+            // 
+            gridColumn27.Caption = "Fecha";
+            gridColumn27.FieldName = "Fecha";
+            gridColumn27.Name = "gridColumn27";
+            gridColumn27.Visible = true;
+            gridColumn27.VisibleIndex = 2;
+            // 
             // RuteoForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -805,5 +833,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
     }
 }

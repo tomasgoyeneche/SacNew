@@ -68,11 +68,7 @@ namespace GestionFlota.Presenters
 
         }
 
-        //public async Task MostrarHistorialAsync(int idGuardiaIngreso)
-        //{
-        //    var historial = await _nominaRepositorio.ObtenerHistorial(idGuardiaIngreso);
-        //    _view.MostrarHistorial(historial);
-        //}
+
 
         public async Task CargarVencimientosYAlertasAsync(Cupeo cupeo)
         {
@@ -87,7 +83,10 @@ namespace GestionFlota.Presenters
             List<AlertaDto> alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(cupeo.IdNomina);
             alertas.AddRange(alertasNomina);
 
+            var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(cupeo.IdNomina);
 
+
+            _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
             _view.MostrarAlertas(alertas);
         }

@@ -18,7 +18,7 @@ namespace GestionFlota.Views
 
         //void MostrarResumen(List<DispoResumen> resumen);
 
-        //void MostrarHistorial(List<NominaHistorial> historial);
+        void MostrarHistorial(List<HistorialGeneralDto> historial);
 
         void MostrarVencimientos(List<VencimientosDto> vencimientos);
 

@@ -95,5 +95,10 @@ namespace GestionFlota.Views
             // Guardar el comentario en NominaRegistro
             await _presenter.RegistrarComentarioAsync(comentario);
         }
+
+        private async void bOrdenCarga_Click(object sender, EventArgs e)
+        {
+            await _presenter.AbrirOrdenCarga();
+        }
     }
 }

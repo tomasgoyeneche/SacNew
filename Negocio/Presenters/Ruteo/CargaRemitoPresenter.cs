@@ -63,6 +63,10 @@ namespace GestionFlota.Presenters.Ruteo
             // Validaciones
             // ...
 
+
+            string motivo;
+            string descripcion;
+
             // Actualizar los campos según tipo de remito
             if (_tipoRemito == "Carga")
             {
@@ -72,17 +76,27 @@ namespace GestionFlota.Presenters.Ruteo
                 _programa.CargaRemitoUnidad = _view.IdMedida ?? _programa.CargaRemitoUnidad;
                 _programa.CargaRemitoKg = _view.Cantidad ?? _programa.CargaRemitoKg;
                 _programa.IdProducto = _view.IdProducto ?? _programa.IdProducto;
+                motivo = "Remito/Recibo de Carga";
+                descripcion = $"Nro: {_view.RemitoNumero}, Cantidad: {_view.Cantidad}, Fecha: {_view.FechaRemito:dd/MM/yyyy}";
             }
-            else if (_tipoRemito == "Entrega")
+            else
             {
                 _programa.EntregaRemito = int.TryParse(_view.RemitoNumero, out int nroRemito) ? nroRemito : (int?)null;
                 _programa.EntregaRemitoFecha = _view.FechaRemito;
                 _programa.EntregoRemitoUnidad = _view.IdMedida ?? _programa.EntregoRemitoUnidad;
                 _programa.EntregaRemitoKg = _view.Cantidad ?? _programa.EntregaRemitoKg;
                 _programa.IdProducto = _view.IdProducto ?? _programa.IdProducto;
+                motivo = "Remito/Recibo de Entrega";
+                descripcion = $"Nro: {_view.RemitoNumero}, Cantidad: {_view.Cantidad}, Fecha: {_view.FechaRemito:dd/MM/yyyy}";
             }
 
             await _programaRepositorio.ActualizarProgramaAsync(_programa);
+
+            await _programaRepositorio.RegistrarProgramaAsync(
+              _programa.IdPrograma,
+              motivo,
+              descripcion,
+              _sesionService.IdUsuario);
 
             _view.MostrarMensaje("Remito actualizado correctamente.");
             _view.Close();

@@ -1,9 +1,13 @@
-﻿using Core.Base;
+﻿using Configuraciones.Views;
+using Core.Base;
+using Core.Reports;
 using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
+using GestionOperativa.Reports;
 using Shared;
 using Shared.Models;
+using Shared.Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,6 +117,25 @@ namespace GestionFlota.Presenters
                 _sesionService.IdUsuario
             );
             _view.MostrarMensaje("Comentario registrado correctamente.");
+        }
+
+        public async Task AbrirOrdenCarga()
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                // Obtener los datos desde el repositorio
+
+                // Crear una instancia del nuevo reporte DevExpress
+                var reporte = new ReporteOrdenCarga();
+                reporte.DataSource = new List<Cupeo> { _cupeoActual };
+                reporte.DataMember = "";
+
+                await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+                {
+                    form.MostrarReporteDevExpress(reporte);
+                    return Task.CompletedTask;
+                });
+            });
         }
     }
 }

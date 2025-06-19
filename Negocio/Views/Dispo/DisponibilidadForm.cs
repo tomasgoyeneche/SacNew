@@ -93,6 +93,21 @@ namespace GestionFlota.Views
             gridViewAlertas.BestFitColumns();
         }
 
+        public void MostrarHistorial(List<HistorialGeneralDto> historial)
+        {
+            gridControlHistorico.DataSource = historial;
+
+            var view = gridViewHistorico;
+
+            //if (view.Columns["Fecha"] != null)
+            //{
+            //    view.Columns["Fecha"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            //    view.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            //}
+
+            view.BestFitColumns();
+        }
+
         private void gridViewVencimientos_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             if (e.RowHandle < 0) return;

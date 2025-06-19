@@ -47,6 +47,16 @@ namespace Core.Repositories
             );
         }
 
+        public async Task<List<HistorialGeneralDto>> ObtenerHistorialPorNomina(int idNomina)
+        {
+            const string query = "SELECT * FROM vw_HistorialGeneral WHERE IdNomina = @idNomina  order by Fecha desc";
+
+            return await ConectarAsync(conn =>
+                conn.QueryAsync<HistorialGeneralDto>(query, new { idNomina }))
+                .ContinueWith(t => t.Result.ToList());
+        }
+
+
         public async Task<Nomina?> ObtenerPorIdAsync(int idNomina)
         {
             var query = "SELECT * FROM Nomina WHERE idNomina = @idNomina";

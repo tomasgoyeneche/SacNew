@@ -62,6 +62,10 @@ namespace GestionFlota.Presenters
             alertas.AddRange(alertasNomina);
 
 
+            var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(dispo.IdNomina);
+
+
+            _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
             _view.MostrarAlertas(alertas);
         }

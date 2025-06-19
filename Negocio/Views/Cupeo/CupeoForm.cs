@@ -49,6 +49,21 @@ namespace GestionFlota.Views
             MessageBox.Show(mensaje);
         }
 
+        public void MostrarHistorial(List<HistorialGeneralDto> historial)
+        {
+            gridControlHistorico.DataSource = historial;
+
+            var view = gridViewHistorico;
+
+            //if (view.Columns["Fecha"] != null)
+            //{
+            //    view.Columns["Fecha"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            //    view.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            //}
+
+            view.BestFitColumns();
+        }
+
         public void MostrarVencimientos(List<VencimientosDto> vencimientos)
         {
             gridControlVencimientos.DataSource = vencimientos;
