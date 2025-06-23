@@ -16,11 +16,11 @@ namespace Core.Repositories
         Task<Programa?> ObtenerPorIdAsync(int idPrograma);
 
         Task ActualizarFechaYRegistrarAsync(
-     int idPrograma,
-     string campo,           // Ej: "CargaLlegada"
-     DateTime? fechaNueva,
-     int idNomina,         // null si elimina
-     int idUsuario);
+         int idPrograma,
+         string campo,           // Ej: "CargaLlegada"
+         DateTime? fechaNueva,
+         int idNomina,         // null si elimina
+         int idUsuario);
 
         Task RegistrarProgramaAsync(int idPrograma, string motivo, string descripcion, int idUsuario);
         Task ActualizarProgramaAsync(Programa programa);
@@ -31,5 +31,9 @@ namespace Core.Repositories
         Task ActualizarProgramaTramoDestinoAsync(int idPrograma, int idDestino);
         Task<int> InsertarProgramaRetornandoIdAsync(Programa programa);
         Task InsertarProgramaTramoAsync(ProgramaTramo tramo);
+
+        Task CerrarTramosActivosPorProgramaAsync(int idPrograma);
+        Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
+        Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
     }
 }

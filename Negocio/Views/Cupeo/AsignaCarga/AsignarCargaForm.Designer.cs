@@ -42,7 +42,7 @@
             lblOrigen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bAgregarObservacion = new DevExpress.XtraEditors.SimpleButton();
             bOrdenCarga = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            bCancelarAsignado = new DevExpress.XtraEditors.SimpleButton();
             btnConfirmar = new DevExpress.XtraEditors.SimpleButton();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel10.SuspendLayout();
@@ -176,17 +176,18 @@
             bOrdenCarga.Text = "Orden Carga";
             bOrdenCarga.Click += bOrdenCarga_Click;
             // 
-            // simpleButton1
+            // bCancelarAsignado
             // 
-            simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            simpleButton1.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Location = new Point(25, 469);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(161, 40);
-            simpleButton1.TabIndex = 115;
-            simpleButton1.Text = "Cancelar Asignado";
+            bCancelarAsignado.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bCancelarAsignado.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bCancelarAsignado.Appearance.Options.UseBackColor = true;
+            bCancelarAsignado.Appearance.Options.UseFont = true;
+            bCancelarAsignado.Location = new Point(25, 469);
+            bCancelarAsignado.Name = "bCancelarAsignado";
+            bCancelarAsignado.Size = new Size(161, 40);
+            bCancelarAsignado.TabIndex = 115;
+            bCancelarAsignado.Text = "Cancelar Asignado";
+            bCancelarAsignado.Click += bCancelarAsignado_Click;
             // 
             // btnConfirmar
             // 
@@ -226,7 +227,7 @@
             ClientSize = new Size(798, 568);
             Controls.Add(picBoxEntidad);
             Controls.Add(btnConfirmar);
-            Controls.Add(simpleButton1);
+            Controls.Add(bCancelarAsignado);
             Controls.Add(bAgregarObservacion);
             Controls.Add(bOrdenCarga);
             Controls.Add(cmbProducto);
@@ -259,7 +260,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblOrigen;
         private DevExpress.XtraEditors.SimpleButton bAgregarObservacion;
         private DevExpress.XtraEditors.SimpleButton bOrdenCarga;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton bCancelarAsignado;
         private DevExpress.XtraEditors.SimpleButton btnConfirmar;
         private Guna.UI2.WinForms.Guna2PictureBox picBoxEntidad;
     }

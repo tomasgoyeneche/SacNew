@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using GestionFlota.Presenters;
 using Shared.Models;
 
@@ -36,7 +37,7 @@ namespace GestionFlota.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarHistorial(List<HistorialGeneralDto> historial)
@@ -184,6 +185,14 @@ namespace GestionFlota.Views
         {
             if (gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo)
                 await _presenter.AbrirEdicionDePrograma(ruteo);
+        }
+
+        private void gridViewHistorico_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewHistorico.GetFocusedRow() is HistorialGeneralDto historico)
+            {
+                MostrarMensaje($"Mensaje: {historico.Descripcion}");
+            }
         }
     }
 }

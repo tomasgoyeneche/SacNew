@@ -14,6 +14,7 @@ namespace Core.Repositories
         Task<List<int>> ObtenerCuposUsadosAsync(int idOrigen, DateTime fechaDisponible);
         Task<List<DisponibleEstado>> ObtenerEstadosDeBajaAsync();
         Task ActualizarDisponibleAsync(Disponible disp);
+        Task<Disponible?> ObtenerPorIdAsync(int idDisponible);
         Task AgregarDisponibleAsync(Disponible disp);
 
         Task<DisponibleEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);

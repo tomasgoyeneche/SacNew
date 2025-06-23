@@ -100,5 +100,10 @@ namespace GestionFlota.Views
         {
             await _presenter.AbrirOrdenCarga();
         }
+
+        private async void bCancelarAsignado_Click(object sender, EventArgs e)
+        {
+            await _presenter.CancelarAsignacionAsync();
+        }
     }
 }

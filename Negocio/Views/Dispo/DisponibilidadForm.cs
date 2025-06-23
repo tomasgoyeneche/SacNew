@@ -190,5 +190,13 @@ namespace GestionFlota.Views
         {
             await _presenter.MostrarSelectorFechasYPFAsync();
         }
+
+        private void gridControlHistorico_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewHistorico.GetFocusedRow() is HistorialGeneralDto historico)
+            {
+                MostrarMensaje($"Mensaje: {historico.Descripcion}");
+            }
+        }
     }
 }

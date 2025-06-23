@@ -3,7 +3,10 @@ using Core.Base;
 using Core.Reports;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.Office.Utils;
+using DevExpress.XtraEditors;
 using GestionFlota.Views;
+using GestionFlota.Views.Cupeo;
 using GestionOperativa.Reports;
 using Shared;
 using Shared.Models;
@@ -21,6 +24,7 @@ namespace GestionFlota.Presenters
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly IProductoRepositorio _productoRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
 
         private readonly IProgramaRepositorio _programaRepositorio;
         private Cupeo _cupeoActual;
@@ -31,6 +35,7 @@ namespace GestionFlota.Presenters
             ILocacionRepositorio locacionRepositorio,
             IProductoRepositorio productoRepositorio,
             INominaRepositorio nominaRepositorio,
+            IDisponibilidadRepositorio disponibilidadRepositorio,
             IProgramaRepositorio programaRepositorio
             )
             : base(sesionService, navigationService)
@@ -39,6 +44,7 @@ namespace GestionFlota.Presenters
             _productoRepositorio = productoRepositorio;
             _programaRepositorio = programaRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _disponibilidadRepositorio = disponibilidadRepositorio;
         }
 
         public async Task InicializarAsync(Cupeo cupeo)
@@ -104,6 +110,24 @@ namespace GestionFlota.Presenters
 
             await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
 
+            var origenes = await _locacionRepositorio.ObtenerTodasAsync();
+            var productos = await _productoRepositorio.ObtenerTodosAsync();
+            var destinos = await _locacionRepositorio.ObtenerTodasAsync();
+
+            var nombreOrigen = origenes.FirstOrDefault(o => o.IdLocacion == _view.IdOrigenSeleccionado)?.Nombre ?? "";
+            var nombreDestino = destinos.FirstOrDefault(d => d.IdLocacion == _view.IdDestinoSeleccionado)?.Nombre ?? "";
+            var nombreProducto = productos.FirstOrDefault(p => p.IdProducto == _view.IdProductoSeleccionado)?.Nombre ?? "";
+
+            string motivo = "Asignado";
+            string descripcion = $"{nombreOrigen} => {nombreDestino} | {nombreProducto} {_cupeoActual.AlbaranDespacho}";
+
+            await _nominaRepositorio.RegistrarNominaAsync(
+                _cupeoActual.IdNomina,
+                motivo,
+                descripcion,
+                _sesionService.IdUsuario
+            );
+
             _view.MostrarMensaje("Carga asignada correctamente.");
             _view.Cerrar();
         }
@@ -137,5 +161,80 @@ namespace GestionFlota.Presenters
                 });
             });
         }
+
+        public async Task CancelarAsignacionAsync()
+        {
+            // Si está confirmado (ya existe programa)
+            if (_cupeoActual.Confirmado?.ToUpper() == "OK")
+            {
+                var programa = await _programaRepositorio.ObtenerPorIdAsync(_cupeoActual.IdPrograma.Value);
+                if (programa == null)
+                {
+                    _view.MostrarMensaje("No se encontró ningún Programa para la fecha seleccionada.");
+                    return;
+                }
+
+                // Seleccionar motivo de baja para programa
+                var motivos = await _programaRepositorio.ObtenerEstadosDeBajaAsync();
+                var control = new MotivoBajaAsignadoControl(motivos);
+                if (XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel) == DialogResult.OK
+                    && control.MotivoSeleccionado.HasValue)
+                {
+                    await CambiarEstadoDeBajaProgramaAsync(programa, control.MotivoSeleccionado.Value);
+                    _view.Cerrar();
+                }
+                return;
+            }
+
+            // Si no está confirmado: cancelar disponible
+            var disponible = await _disponibilidadRepositorio.ObtenerPorIdAsync(_cupeoActual.IdDisponible.Value);
+            if (disponible == null)
+            {
+                _view.MostrarMensaje("No se encontró ningún disponible para la fecha seleccionada.");
+                return;
+            }
+
+            var motivosDisp = await _disponibilidadRepositorio.ObtenerEstadosDeBajaAsync();
+            var controlDisp = new MotivoBajaSelectorControl(motivosDisp);
+            if (XtraDialog.Show(controlDisp, "Seleccione motivo de baja", MessageBoxButtons.OKCancel) == DialogResult.OK
+                && controlDisp.MotivoSeleccionado.HasValue)
+            {
+                await CambiarEstadoDeBajaDisponibleAsync(disponible, controlDisp.MotivoSeleccionado.Value);
+                _view.Cerrar();
+            }
+        }
+
+        private async Task CambiarEstadoDeBajaDisponibleAsync(Disponible disponible, int idMotivo)
+        {
+            disponible.IdDisponibleEstado = idMotivo;
+            await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
+
+            // Log en NominaRegistro
+            var motivo = await _disponibilidadRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
+            await _nominaRepositorio.RegistrarNominaAsync(
+                disponible.IdNomina,
+                "Cancela Disponible",
+                motivo?.Descripcion ?? "Sin motivo",
+                _sesionService.IdUsuario
+            );
+        }
+
+        private async Task CambiarEstadoDeBajaProgramaAsync(Programa programa, int idMotivo)
+        {
+            programa.IdProgramaEstado = idMotivo;
+            await _programaRepositorio.ActualizarProgramaAsync(programa);
+
+            await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(programa.IdPrograma);
+
+            // Log en ProgramaRegistro
+            var motivo = await _programaRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
+            await _programaRepositorio.RegistrarProgramaAsync(
+                programa.IdPrograma,
+                "Cancela Asignado",
+                motivo?.Descripcion ?? "Sin motivo",
+                _sesionService.IdUsuario
+            );
+        }
+
     }
 }

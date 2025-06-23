@@ -66,6 +66,9 @@
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlHistorico = new DevExpress.XtraGrid.GridControl();
             gridViewHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlVencimientos = new DevExpress.XtraGrid.GridControl();
@@ -96,9 +99,6 @@
             bControlDemorados = new DevExpress.XtraEditors.SimpleButton();
             bControlKm = new DevExpress.XtraEditors.SimpleButton();
             bControlSatelital = new DevExpress.XtraEditors.SimpleButton();
-            gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlVacios).BeginInit();
@@ -372,6 +372,31 @@
             gridViewHistorico.OptionsView.EnableAppearanceEvenRow = true;
             gridViewHistorico.OptionsView.EnableAppearanceOddRow = true;
             gridViewHistorico.OptionsView.ShowGroupPanel = false;
+            gridViewHistorico.DoubleClick += gridViewHistorico_DoubleClick;
+            // 
+            // gridColumn25
+            // 
+            gridColumn25.Caption = "Descripcion";
+            gridColumn25.FieldName = "Descripcion";
+            gridColumn25.Name = "gridColumn25";
+            gridColumn25.Visible = true;
+            gridColumn25.VisibleIndex = 0;
+            // 
+            // gridColumn26
+            // 
+            gridColumn26.Caption = "Usuario";
+            gridColumn26.FieldName = "NombreUsuario";
+            gridColumn26.Name = "gridColumn26";
+            gridColumn26.Visible = true;
+            gridColumn26.VisibleIndex = 1;
+            // 
+            // gridColumn27
+            // 
+            gridColumn27.Caption = "Fecha";
+            gridColumn27.FieldName = "Fecha";
+            gridColumn27.Name = "gridColumn27";
+            gridColumn27.Visible = true;
+            gridColumn27.VisibleIndex = 2;
             // 
             // guna2Panel6
             // 
@@ -710,30 +735,6 @@
             bControlSatelital.Size = new Size(241, 30);
             bControlSatelital.TabIndex = 48;
             bControlSatelital.Text = "Control Satelital";
-            // 
-            // gridColumn25
-            // 
-            gridColumn25.Caption = "Descripcion";
-            gridColumn25.FieldName = "Descripcion";
-            gridColumn25.Name = "gridColumn25";
-            gridColumn25.Visible = true;
-            gridColumn25.VisibleIndex = 0;
-            // 
-            // gridColumn26
-            // 
-            gridColumn26.Caption = "Usuario";
-            gridColumn26.FieldName = "NombreUsuario";
-            gridColumn26.Name = "gridColumn26";
-            gridColumn26.Visible = true;
-            gridColumn26.VisibleIndex = 1;
-            // 
-            // gridColumn27
-            // 
-            gridColumn27.Caption = "Fecha";
-            gridColumn27.FieldName = "Fecha";
-            gridColumn27.Name = "gridColumn27";
-            gridColumn27.Visible = true;
-            gridColumn27.VisibleIndex = 2;
             // 
             // RuteoForm
             // 

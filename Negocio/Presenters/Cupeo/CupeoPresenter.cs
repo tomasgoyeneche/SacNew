@@ -53,11 +53,11 @@ namespace GestionFlota.Presenters
                 //List<Cupeo> resumen = await _cupeoRepositorio.ObtenerResumenAsync();
 
                 var disp = cupeos
-                    .Where(r => r.IdPedido == 0)
+                    .Where(r => r.IdDestino == null)
                     .ToList();
 
                 var asignados = cupeos
-                    .Where(r => r.IdPedido != 0)
+                    .Where(r => r.IdDestino != null)
                     .ToList();
 
                 _view.MostrarCupeoDisp(disp);
@@ -104,6 +104,12 @@ namespace GestionFlota.Presenters
         public async Task AbrirAsignarCargaAsync(Cupeo cupeo)
         {
             await AbrirFormularioAsync<AsignarCargaForm>(async f => await f._presenter.InicializarAsync(cupeo));
+            await InicializarAsync();
+        }
+
+        public async Task AbrirAsignarManual(Cupeo cupeo)
+        {
+            await AbrirFormularioAsync<AgregarProgramaManual>(async f => await f._presenter.InicializarAsync(cupeo));
             await InicializarAsync();
         }
     }

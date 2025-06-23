@@ -206,5 +206,30 @@ namespace Core.Repositories
                   VALUES (@IdPrograma, @IdNomina, @IdDestino, @FechaInicio, @FechaFin)";
             await ConectarAsync(conn => conn.ExecuteAsync(query, tramo));
         }
+
+        public async Task CerrarTramosActivosPorProgramaAsync(int idPrograma)
+        {
+            var query = @"
+        UPDATE ProgramaTramo
+        SET FechaFin = GETDATE()
+        WHERE IdPrograma = @IdPrograma AND FechaFin IS NULL";
+            await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma }));
+        }
+
+
+
+
+        public async Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync()
+        {
+            var query = "SELECT * FROM ProgramaEstado WHERE IdProgramaEstado >= 5 and Activo = 1";
+            return (await ConectarAsync(conn => conn.QueryAsync<ProgramaEstado>(query))).ToList();
+        }
+
+        public async Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo)
+        {
+            var query = "SELECT * FROM ProgramaEstado WHERE IdProgramaEstado = @idMotivo";
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<ProgramaEstado>(query, new { idMotivo }));
+        }
     }
 }

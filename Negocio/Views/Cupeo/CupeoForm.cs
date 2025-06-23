@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.DirectXPaint.Svg;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using GestionFlota.Presenters;
 using Shared.Models;
@@ -25,7 +26,7 @@ namespace GestionFlota.Views
             _presenter.SetView(this);
         }
 
-        public void MostrarCupeoDisp(List<Cupeo> cargados)
+        public void MostrarCupeoDisp(List<Shared.Models.Cupeo> cargados)
         {
             gridControlDisp.DataSource = cargados;
 
@@ -35,7 +36,7 @@ namespace GestionFlota.Views
         }
 
 
-        public void MostrarCupeoAsignados(List<Cupeo> vacios)
+        public void MostrarCupeoAsignados(List<Shared.Models.Cupeo> vacios)
         {
             gridControlAsignados.DataSource = vacios;
 
@@ -46,7 +47,7 @@ namespace GestionFlota.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarHistorial(List<HistorialGeneralDto> historial)
@@ -128,7 +129,7 @@ namespace GestionFlota.Views
                 gridViewDisp.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             }
 
-            if (gridViewAsignados.GetFocusedRow() is Cupeo cupeo)
+            if (gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo)
             {
                 //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
                 await _presenter.CargarVencimientosYAlertasAsync(cupeo);
@@ -144,7 +145,7 @@ namespace GestionFlota.Views
                 gridViewAsignados.ClearSelection();
                 gridViewAsignados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             }
-            if (gridViewDisp.GetFocusedRow() is Cupeo cupeo)
+            if (gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo)
             {
                 //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
                 await _presenter.CargarVencimientosYAlertasAsync(cupeo);
@@ -158,8 +159,22 @@ namespace GestionFlota.Views
 
         private async void gridViewAsignados_DoubleClick(object sender, EventArgs e)
         {
-            if (gridViewAsignados.GetFocusedRow() is Cupeo cupeo)
+            if (gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo)
                 await _presenter.AbrirAsignarCargaAsync(cupeo);
+        }
+
+        private void gridViewHistorico_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewHistorico.GetFocusedRow() is HistorialGeneralDto historico)
+            {
+                MostrarMensaje($"Mensaje: {historico.Descripcion}");
+            }
+        }
+
+        private async void gridViewDisp_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo)
+                await _presenter.AbrirAsignarManual(cupeo);
         }
 
         //private async void gridViewVacios_DoubleClick(object sender, EventArgs e)

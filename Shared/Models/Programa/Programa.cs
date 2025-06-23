@@ -10,7 +10,7 @@ namespace Shared.Models
     {
         public int IdPrograma { get; set; }
         public int IdDisponible { get; set; }
-        public int IdPedido { get; set; }
+        public int? IdPedido { get; set; }
         public int IdOrigen { get; set; }
         public int IdProducto { get; set; }
         public int Cupo { get; set; }

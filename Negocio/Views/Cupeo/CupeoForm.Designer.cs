@@ -57,6 +57,11 @@
             gridControlVencimientos = new DevExpress.XtraGrid.GridControl();
             gridViewVencimientos = new DevExpress.XtraGrid.Views.Grid.GridView();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            gridControlHistorico = new DevExpress.XtraGrid.GridControl();
+            gridViewHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -97,11 +102,6 @@
             gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             bImportarPrograma = new DevExpress.XtraEditors.SimpleButton();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            gridControlHistorico = new DevExpress.XtraGrid.GridControl();
-            gridViewHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
-            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlResumen).BeginInit();
@@ -110,6 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)gridControlVencimientos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewVencimientos).BeginInit();
             guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControlHistorico).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewHistorico).BeginInit();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).BeginInit();
@@ -119,8 +121,6 @@
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAsignados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAsignados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridControlHistorico).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewHistorico).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
@@ -291,6 +291,57 @@
             guna2Panel3.Size = new Size(488, 150);
             guna2Panel3.TabIndex = 47;
             // 
+            // gridControlHistorico
+            // 
+            gridControlHistorico.Dock = DockStyle.Bottom;
+            gridControlHistorico.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControlHistorico.Location = new Point(0, 26);
+            gridControlHistorico.MainView = gridViewHistorico;
+            gridControlHistorico.Name = "gridControlHistorico";
+            gridControlHistorico.Size = new Size(488, 124);
+            gridControlHistorico.TabIndex = 51;
+            gridControlHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewHistorico });
+            // 
+            // gridViewHistorico
+            // 
+            gridViewHistorico.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridViewHistorico.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridViewHistorico.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn11, gridColumn12, gridColumn31 });
+            gridViewHistorico.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewHistorico.GridControl = gridControlHistorico;
+            gridViewHistorico.Name = "gridViewHistorico";
+            gridViewHistorico.OptionsBehavior.Editable = false;
+            gridViewHistorico.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewHistorico.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewHistorico.OptionsView.EnableAppearanceOddRow = true;
+            gridViewHistorico.OptionsView.ShowGroupPanel = false;
+            gridViewHistorico.DoubleClick += gridViewHistorico_DoubleClick;
+            // 
+            // gridColumn11
+            // 
+            gridColumn11.Caption = "Descripcion";
+            gridColumn11.FieldName = "Descripcion";
+            gridColumn11.Name = "gridColumn11";
+            gridColumn11.Visible = true;
+            gridColumn11.VisibleIndex = 0;
+            // 
+            // gridColumn12
+            // 
+            gridColumn12.Caption = "Usuario";
+            gridColumn12.FieldName = "NombreUsuario";
+            gridColumn12.Name = "gridColumn12";
+            gridColumn12.Visible = true;
+            gridColumn12.VisibleIndex = 1;
+            // 
+            // gridColumn31
+            // 
+            gridColumn31.Caption = "Fecha";
+            gridColumn31.FieldName = "Fecha";
+            gridColumn31.Name = "gridColumn31";
+            gridColumn31.Visible = true;
+            gridColumn31.VisibleIndex = 2;
+            // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.AutoSize = false;
@@ -394,6 +445,7 @@
             gridViewDisp.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewDisp.OptionsView.EnableAppearanceEvenRow = true;
             gridViewDisp.FocusedRowChanged += gridViewDisp_FocusedRowChanged;
+            gridViewDisp.DoubleClick += gridViewDisp_DoubleClick;
             // 
             // gridColumn1
             // 
@@ -701,56 +753,6 @@
             simpleButton1.TabIndex = 53;
             simpleButton1.Text = "Ver Programa";
             // 
-            // gridControlHistorico
-            // 
-            gridControlHistorico.Dock = DockStyle.Bottom;
-            gridControlHistorico.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlHistorico.Location = new Point(0, 26);
-            gridControlHistorico.MainView = gridViewHistorico;
-            gridControlHistorico.Name = "gridControlHistorico";
-            gridControlHistorico.Size = new Size(488, 124);
-            gridControlHistorico.TabIndex = 51;
-            gridControlHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewHistorico });
-            // 
-            // gridViewHistorico
-            // 
-            gridViewHistorico.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            gridViewHistorico.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridViewHistorico.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            gridViewHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn11, gridColumn12, gridColumn31 });
-            gridViewHistorico.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridViewHistorico.GridControl = gridControlHistorico;
-            gridViewHistorico.Name = "gridViewHistorico";
-            gridViewHistorico.OptionsBehavior.Editable = false;
-            gridViewHistorico.OptionsSelection.EnableAppearanceFocusedCell = false;
-            gridViewHistorico.OptionsView.EnableAppearanceEvenRow = true;
-            gridViewHistorico.OptionsView.EnableAppearanceOddRow = true;
-            gridViewHistorico.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn11
-            // 
-            gridColumn11.Caption = "Descripcion";
-            gridColumn11.FieldName = "Descripcion";
-            gridColumn11.Name = "gridColumn11";
-            gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 0;
-            // 
-            // gridColumn12
-            // 
-            gridColumn12.Caption = "Usuario";
-            gridColumn12.FieldName = "NombreUsuario";
-            gridColumn12.Name = "gridColumn12";
-            gridColumn12.Visible = true;
-            gridColumn12.VisibleIndex = 1;
-            // 
-            // gridColumn31
-            // 
-            gridColumn31.Caption = "Fecha";
-            gridColumn31.FieldName = "Fecha";
-            gridColumn31.Name = "gridColumn31";
-            gridColumn31.Visible = true;
-            gridColumn31.VisibleIndex = 2;
-            // 
             // CupeoForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -780,6 +782,8 @@
             ((System.ComponentModel.ISupportInitialize)gridControlVencimientos).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewVencimientos).EndInit();
             guna2Panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControlHistorico).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewHistorico).EndInit();
             guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).EndInit();
@@ -789,8 +793,6 @@
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlAsignados).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAsignados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridControlHistorico).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewHistorico).EndInit();
             ResumeLayout(false);
         }
 

@@ -39,6 +39,12 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Disponible>(query, new { idNomina, fecha = fechaDisponible }));
         }
 
+        public async Task<Disponible?> ObtenerPorIdAsync(int idDisponible)
+        {
+            var query = "SELECT * FROM Disponible WHERE idDisponible = @idDisponible";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Disponible>(query, new { IdDisponible = idDisponible }));
+        }
+
         public async Task<List<int>> ObtenerCuposUsadosAsync(int idOrigen, DateTime fechaDisponible)
         {
             var query = "SELECT Cupo FROM Disponible WHERE IdOrigen = @idOrigen AND FechaDisponible = @fecha AND IdDisponibleEstado = 1";
@@ -47,7 +53,7 @@ namespace Core.Repositories
 
         public async Task<List<DisponibleEstado>> ObtenerEstadosDeBajaAsync()
         {
-            var query = "SELECT * FROM DisponibleEstado WHERE IdDisponibleEstado >= 5";
+            var query = "SELECT * FROM DisponibleEstado WHERE IdDisponibleEstado >= 5 and Activo = 1";
             return (await ConectarAsync(conn => conn.QueryAsync<DisponibleEstado>(query))).ToList();
         }
 
