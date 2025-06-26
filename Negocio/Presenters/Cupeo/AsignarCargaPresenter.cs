@@ -3,19 +3,10 @@ using Core.Base;
 using Core.Reports;
 using Core.Repositories;
 using Core.Services;
-using DevExpress.Office.Utils;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using GestionFlota.Views.Cupeo;
-using GestionOperativa.Reports;
-using Shared;
 using Shared.Models;
-using Shared.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -235,6 +226,5 @@ namespace GestionFlota.Presenters
                 _sesionService.IdUsuario
             );
         }
-
     }
 }

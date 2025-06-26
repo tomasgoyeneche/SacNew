@@ -17,6 +17,7 @@ namespace Core.Repositories
         Task ActualizarAsync(Locacion locacion);
 
         Task<List<LocacionSinonimo>> ObtenerTodosSinonimosAsync();
+
         Task AgregarSinonimoAsync(LocacionSinonimo sinonimo);
     }
 }

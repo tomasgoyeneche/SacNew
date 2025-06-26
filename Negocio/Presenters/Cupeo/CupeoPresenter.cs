@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -46,7 +41,6 @@ namespace GestionFlota.Presenters
 
         public async Task InicializarAsync()
         {
-
             await EjecutarConCargaAsync(async () =>
             {
                 List<Cupeo> cupeos = await _pedidoRepositorio.ObtenerCupeoAsync();
@@ -63,12 +57,8 @@ namespace GestionFlota.Presenters
                 _view.MostrarCupeoDisp(disp);
                 _view.MostrarCupeoAsignados(asignados);
                 //_view.MostrarResumen(resumen);
-
             });
-
         }
-
-
 
         public async Task CargarVencimientosYAlertasAsync(Cupeo cupeo)
         {
@@ -85,18 +75,16 @@ namespace GestionFlota.Presenters
 
             var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(cupeo.IdNomina);
 
-
             _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
             _view.MostrarAlertas(alertas);
         }
 
-
         public async Task ImportarProgramaAsync()
         {
             await AbrirFormularioAsync<ImportarPrograma>(async form =>
             {
-               // await form._presenter.InicializarAsync();
+                // await form._presenter.InicializarAsync();
             });
             await InicializarAsync();
         }

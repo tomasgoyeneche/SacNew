@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -42,7 +33,6 @@ namespace GestionFlota.Views
             cmbDestino.Properties.DataSource = destinos;
             cmbDestino.Properties.DisplayMember = "Nombre";
             cmbDestino.Properties.ValueMember = "IdLocacion";
-
 
             cmbDestino.Properties.Columns.Clear();
             cmbDestino.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Destino"));

@@ -22,6 +22,7 @@ namespace Core.Repositories.Semi
                   VALUES (@IdSemi, @NumeroCompartimiento, @CapacidadLitros, 1)";
             await ConectarAsync(conn => conn.ExecuteAsync(query, compartimiento));
         }
+
         public async Task EliminarCompartimientoAsync(int idCompartimiento)
         {
             var query = "UPDATE SemiCisternaCompartimiento SET Activo = 0 WHERE IdCompartimiento = @IdCompartimiento";

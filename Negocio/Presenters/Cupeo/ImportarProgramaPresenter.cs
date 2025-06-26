@@ -4,11 +4,6 @@ using Core.Services;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -211,7 +206,7 @@ namespace GestionFlota.Presenters
                         {
                             IdProducto = seleccionado.IdProducto,
                             Sinonimo = error.Detalle.Trim(),
-                            IdUsuario = _sesionService.IdUsuario    
+                            IdUsuario = _sesionService.IdUsuario
                         });
                         _view.MostrarMensaje($"Sinónimo '{error.Detalle}' agregado al producto '{seleccionado.Nombre}'. Vuelva a revisar para validar el dato.");
                     }
@@ -237,6 +232,4 @@ namespace GestionFlota.Presenters
             }
         }
     }
-
 }
-

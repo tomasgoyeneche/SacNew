@@ -1,18 +1,7 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
-using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters.Ruteo;
 using GestionFlota.Views.Ruteo;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -44,7 +33,6 @@ namespace GestionFlota.Views
         public int? Cantidad => Convert.ToInt32(txtTotal.Text.Trim());
         public DateTime? FechaRemito => dtpFechaRemito.EditValue as DateTime?;
 
-
         public void CargarLocaciones(List<Locacion> locaciones)
         {
             cmbEntrega.Properties.DataSource = locaciones;
@@ -58,7 +46,6 @@ namespace GestionFlota.Views
             cmbCarga.Properties.Columns.Clear();
             cmbCarga.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Origen"));
 
-
             cmbEntrega.Properties.Columns.Clear();
             cmbEntrega.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Destino"));
         }
@@ -67,7 +54,6 @@ namespace GestionFlota.Views
         {
             lblChofer.Text = ruteo.Chofer ?? "No asignado";
             lblTractor.Text = $"{ruteo.Tractor}-{ruteo.Semi}";
-
 
             if (tipoRemito == "Carga")
             {
@@ -80,7 +66,7 @@ namespace GestionFlota.Views
                 cmbMedida.EditValue = programa.CargaRemitoUnidad;
                 dtpFechaRemito.EditValue = programa.CargaRemitoFecha ?? DateTime.Now; // Asignar fecha actual si no hay
             }
-            else if(tipoRemito == "Entrega")
+            else if (tipoRemito == "Entrega")
             {
                 txtRemito.Text = programa.EntregaRemito?.ToString() ?? "0";
                 txtTotal.Text = programa.EntregaRemitoKg?.ToString() ?? "0";
@@ -90,7 +76,6 @@ namespace GestionFlota.Views
                 cmbProducto.EditValue = programa.IdProducto;
                 cmbMedida.EditValue = programa.EntregoRemitoUnidad;
                 dtpFechaRemito.EditValue = programa.EntregaRemitoFecha ?? DateTime.Now; // Asignar fecha actual si no hay
-
             }
         }
 

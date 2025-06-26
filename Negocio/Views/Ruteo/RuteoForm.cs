@@ -25,7 +25,6 @@ namespace GestionFlota.Views
             view.BestFitColumns();
         }
 
-
         public void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios)
         {
             gridControlVacios.DataSource = vacios;
@@ -124,7 +123,6 @@ namespace GestionFlota.Views
                 //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
                 await _presenter.CargarVencimientosYAlertasAsync(ruteo);
             }
-
         }
 
         private async void gridViewVacios_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

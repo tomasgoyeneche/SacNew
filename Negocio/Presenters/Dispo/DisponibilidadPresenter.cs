@@ -4,12 +4,7 @@ using Core.Services;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -43,9 +38,9 @@ namespace GestionFlota.Presenters
 
         public async Task BuscarDisponibilidadesAsync()
         {
-           DateTime fecha = _view.FechaSeleccionada;
-           List<Disponibilidad> disponibilidades = await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
-           _view.CargarDisponibilidades(disponibilidades);
+            DateTime fecha = _view.FechaSeleccionada;
+            List<Disponibilidad> disponibilidades = await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
+            _view.CargarDisponibilidades(disponibilidades);
         }
 
         public async Task CargarVencimientosYAlertasAsync(Disponibilidad dispo)
@@ -61,9 +56,7 @@ namespace GestionFlota.Presenters
             List<AlertaDto> alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(dispo.IdNomina);
             alertas.AddRange(alertasNomina);
 
-
             var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(dispo.IdNomina);
-
 
             _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
@@ -114,43 +107,41 @@ namespace GestionFlota.Presenters
             await BuscarDisponibilidadesAsync(); // Refrescar lista después de editar
         }
 
-            public async Task MostrarSelectorDeMotivoBajaAsync(Disponibilidad disponibilidad)
+        public async Task MostrarSelectorDeMotivoBajaAsync(Disponibilidad disponibilidad)
+        {
+            var disponible = await _disponibilidadRepositorio.ObtenerDisponiblePorNominaYFechaAsync(disponibilidad.IdNomina, disponibilidad.DispoFecha);
+
+            if (disponible == null)
             {
-                var disponible = await _disponibilidadRepositorio.ObtenerDisponiblePorNominaYFechaAsync(disponibilidad.IdNomina, disponibilidad.DispoFecha);
-
-                if (disponible == null)
-                {
-                    _view.MostrarMensaje("No se encontró ningún disponible para la fecha seleccionada.");
-                    return;
-                }
-
-                var motivos = await _disponibilidadRepositorio.ObtenerEstadosDeBajaAsync();
-                var control = new MotivoBajaSelectorControl(motivos);
-                var dialogResult = XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel);
-
-                if (dialogResult == DialogResult.OK && control.MotivoSeleccionado.HasValue)
-                    await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value);
+                _view.MostrarMensaje("No se encontró ningún disponible para la fecha seleccionada.");
+                return;
             }
 
-            public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int idMotivo)
-            {
-                disponible.IdDisponibleEstado = idMotivo;
-                await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
+            var motivos = await _disponibilidadRepositorio.ObtenerEstadosDeBajaAsync();
+            var control = new MotivoBajaSelectorControl(motivos);
+            var dialogResult = XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel);
 
-                // Obtener motivo para descripción
-                DisponibleEstado? motivo = await _disponibilidadRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
+            if (dialogResult == DialogResult.OK && control.MotivoSeleccionado.HasValue)
+                await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value);
+        }
 
-                await _nominaRepositorio.RegistrarNominaAsync(
-                    disponible.IdNomina,
-                    "Cancela Disponible",
-                    motivo?.Descripcion ?? "Sin motivo",
-                    _sesionService.IdUsuario
-                );
+        public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int idMotivo)
+        {
+            disponible.IdDisponibleEstado = idMotivo;
+            await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
 
-                await BuscarDisponibilidadesAsync(); // Refrescar lista después de cambiar estado
-            }
+            // Obtener motivo para descripción
+            DisponibleEstado? motivo = await _disponibilidadRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
 
+            await _nominaRepositorio.RegistrarNominaAsync(
+                disponible.IdNomina,
+                "Cancela Disponible",
+                motivo?.Descripcion ?? "Sin motivo",
+                _sesionService.IdUsuario
+            );
 
+            await BuscarDisponibilidadesAsync(); // Refrescar lista después de cambiar estado
+        }
 
         public async Task MostrarSelectorFechasYPFAsync()
         {

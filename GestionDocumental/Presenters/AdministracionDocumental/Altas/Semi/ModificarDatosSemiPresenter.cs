@@ -87,7 +87,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             });
         }
 
-
         public async Task AgregarCompartimientoAsync()
         {
             // Validar que no supere la cantidad máxima de compartimientos
@@ -153,6 +152,5 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             string confeccion = string.Join(" + ", compartimientos.OrderBy(c => c.NumeroCompartimiento).Select(c => c.CapacidadLitros));
             _view.ActualizarConfeccion(confeccion);
         }
-
     }
 }

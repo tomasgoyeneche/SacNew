@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -70,7 +65,6 @@ namespace GestionFlota.Presenters
             return "";
         }
 
-
         public async Task<Shared.Models.Ruteo?> MapearARuteoAsync(int idPrograma)
         {
             // Obtener la vistaPrograma original (podrías hacer un método extra en el repo)
@@ -114,9 +108,6 @@ namespace GestionFlota.Presenters
                 // Odometer, Location, Sat, Estado => vacíos o valores por defecto
             };
         }
-
-
-
 
         public async Task AbrirEditarProgramaAsync(Shared.Models.Ruteo ruteo)
         {

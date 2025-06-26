@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class Cupeo
     {
@@ -33,7 +27,5 @@ namespace Shared.Models
         public string? Location { get; set; } = string.Empty;
         public int? Sat { get; set; }
         public string? Confirmado { get; set; } = string.Empty;
-
-
     }
 }

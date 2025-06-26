@@ -1,15 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -18,7 +9,6 @@ namespace GestionFlota.Views
         public MotivoBajaSelectorControl(List<DisponibleEstado> motivos)
         {
             InitializeComponent();
-
 
             var combo = new LookUpEdit
             {

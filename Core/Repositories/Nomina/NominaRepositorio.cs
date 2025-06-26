@@ -56,7 +56,6 @@ namespace Core.Repositories
                 .ContinueWith(t => t.Result.ToList());
         }
 
-
         public async Task<Nomina?> ObtenerPorIdAsync(int idNomina)
         {
             var query = "SELECT * FROM Nomina WHERE idNomina = @idNomina";
@@ -85,7 +84,6 @@ namespace Core.Repositories
 
             return vencimientos;
         }
-
 
         public async Task RegistrarNominaAsync(int idNomina, string evento, string descripcion, int idUsuario)
         {

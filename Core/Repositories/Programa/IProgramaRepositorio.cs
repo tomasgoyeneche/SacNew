@@ -1,9 +1,4 @@
 ﻿using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -23,17 +18,25 @@ namespace Core.Repositories
          int idUsuario);
 
         Task RegistrarProgramaAsync(int idPrograma, string motivo, string descripcion, int idUsuario);
+
         Task ActualizarProgramaAsync(Programa programa);
+
         Task ActualizarCheck(int idPrograma, string campoCheck, string nombreUsuario);
+
         Task ActualizarRutaRemitoAsync(int idPrograma, string campoRuta, string ruta);
 
         Task ActualizarProgramaOrigenProductoAsync(int idPrograma, int idOrigen, int idProducto);
+
         Task ActualizarProgramaTramoDestinoAsync(int idPrograma, int idDestino);
+
         Task<int> InsertarProgramaRetornandoIdAsync(Programa programa);
+
         Task InsertarProgramaTramoAsync(ProgramaTramo tramo);
 
         Task CerrarTramosActivosPorProgramaAsync(int idPrograma);
+
         Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
+
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
 
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();

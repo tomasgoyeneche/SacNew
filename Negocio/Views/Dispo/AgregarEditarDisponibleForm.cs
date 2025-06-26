@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -48,7 +39,6 @@ namespace GestionFlota.Views
         {
             cmbCupo.Properties.DataSource = cupos;
             cmbCupo.Properties.Columns.Clear();
-
         }
 
         public void CargarProductos(List<Producto> productos)
@@ -59,6 +49,7 @@ namespace GestionFlota.Views
             dataGridProductos.Columns["IdProducto"].Visible = false;
             dataGridProductos.Columns["Activo"].Visible = false;
         }
+
         public void MostrarDisponible(Disponible disponible)
         {
             // Setea los valores en los combos/campos del form
@@ -110,7 +101,6 @@ namespace GestionFlota.Views
             if (cmbOrigen.EditValue is int idOrigen)
             {
                 await _presenter.ActualizarCuposDisponiblesAsync(idOrigen);
-
             }
         }
 

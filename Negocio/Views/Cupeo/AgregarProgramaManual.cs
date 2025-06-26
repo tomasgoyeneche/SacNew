@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -66,6 +57,7 @@ namespace GestionFlota.Views
             cmbCupo.Properties.DataSource = cupos;
             cmbCupo.Properties.Columns.Clear();
         }
+
         public void CargarProductos(List<Producto> productos)
         {
             cmbProducto.Properties.DataSource = productos;
@@ -132,7 +124,6 @@ namespace GestionFlota.Views
             await _presenter.CancelarDisponibleAsync();
         }
 
-
         private async void bFrancos_Click(object sender, EventArgs e)
         {
             // await _presenter.AbrirNovedades("Chofer", "0014-NovedadesChoferes");
@@ -143,7 +134,6 @@ namespace GestionFlota.Views
             if (cmbOrigen.EditValue is int idOrigen)
             {
                 await _presenter.ActualizarCuposDisponiblesAsync(idOrigen);
-
             }
         }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class Disponibilidad
     {
@@ -18,17 +12,13 @@ namespace Shared.Models
         public DateTime FechaEntrega { get; set; }
 
         public string? Location { get; set; }
-        public int Sat { get; set; }    
+        public int Sat { get; set; }
         public string? Estado { get; set; }
-
 
         public string? DisOrigen { get; set; }
         public int Cupo { get; set; }
         public string? DisDestino { get; set; }
 
         public char? Tipo { get; set; }
-
-
-
     }
 }

@@ -3,12 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -18,8 +13,8 @@ namespace GestionFlota.Presenters
         private readonly IAlertaRepositorio _alertaRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
 
-
         private Shared.Models.Ruteo _Ruteo;
+
         public EditarProgramaPresenter(
             ISesionService sesionService,
             IProgramaRepositorio programaRepositorio,
@@ -31,13 +26,12 @@ namespace GestionFlota.Presenters
             _programaRepositorio = programaRepositorio;
             _alertaRepositorio = alertaRepositorio;
             _nominaRepositorio = nominaRepositorio;
-
         }
 
         public async Task InicializarAsync(Shared.Models.Ruteo ruteo)
         {
             _Ruteo = ruteo;
-           
+
             Programa? programa = null;
             if (ruteo.IdPrograma > 0)
             {

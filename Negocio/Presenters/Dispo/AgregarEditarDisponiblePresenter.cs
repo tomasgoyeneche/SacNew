@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -20,7 +15,6 @@ namespace GestionFlota.Presenters
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly IProductoRepositorio _productoRepositorio;
-
 
         public Disponible? DisponibleActual { get; private set; }
         public int IdNomina { get; private set; }
@@ -94,7 +88,6 @@ namespace GestionFlota.Presenters
             }
             // Rango: 1..7, quitando los ya usados (y el del actual si se está editando)
             var cuposDisponibles = CalcularCuposDisponibles(cuposUsados);
-            
 
             // Si edita y su propio cupo está en la lista usada, debe poder verlo
             if (DisponibleActual != null && !cuposDisponibles.Contains(DisponibleActual.Cupo))
@@ -214,6 +207,5 @@ namespace GestionFlota.Presenters
             });
             _view.Cerrar();
         }
-
     }
 }

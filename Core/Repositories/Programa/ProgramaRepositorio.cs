@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -38,7 +33,7 @@ namespace Core.Repositories
 
         public async Task<Programa?> ObtenerPorIdAsync(int idPrograma)
         {
-            return await ObtenerPorIdGenericoAsync<Programa>("Programa", "IdPrograma",idPrograma );
+            return await ObtenerPorIdGenericoAsync<Programa>("Programa", "IdPrograma", idPrograma);
         }
 
         public async Task RegistrarProgramaAsync(int idPrograma, string motivo, string descripcion, int idUsuario)
@@ -117,8 +112,8 @@ namespace Core.Repositories
                     odometer = await ObtenerOdometerPorNomina(idNomina);
                 }
 
-                sql = $@"UPDATE Programa 
-                 SET {campo} = @fechaNueva, {campoOdometer} = @odometer 
+                sql = $@"UPDATE Programa
+                 SET {campo} = @fechaNueva, {campoOdometer} = @odometer
                  WHERE IdPrograma = @idPrograma";
 
                 parametros = new { fechaNueva, odometer, idPrograma };
@@ -140,17 +135,16 @@ namespace Core.Repositories
                 IdUsuario = idUsuario,
                 Fecha = DateTime.Now
             };
-                var insert = @"INSERT INTO ProgramaRegistro
+            var insert = @"INSERT INTO ProgramaRegistro
             (IdPrograma, Motivo, Descripcion, IdUsuario, Fecha)
             VALUES (@IdPrograma, @Motivo, @Descripcion, @IdUsuario, @Fecha)";
             await ConectarAsync(conn => conn.ExecuteAsync(insert, registro));
         }
 
-
         public async Task ActualizarRutaRemitoAsync(int idPrograma, string campoRuta, string ruta)
         {
-                var sql = $"UPDATE Programa SET {campoRuta} = @ruta WHERE IdPrograma = @idPrograma";
-                await ConectarAsync(conn => conn.ExecuteAsync(sql, new { ruta, idPrograma }));
+            var sql = $"UPDATE Programa SET {campoRuta} = @ruta WHERE IdPrograma = @idPrograma";
+            await ConectarAsync(conn => conn.ExecuteAsync(sql, new { ruta, idPrograma }));
         }
 
         public async Task ActualizarCheck(int idPrograma, string campoCheck, string nombreUsuario)
@@ -164,11 +158,11 @@ namespace Core.Repositories
         {
             // Busca el odometer más reciente ANTES o IGUAL a la fecha indicada
             var sql = @"
-        SELECT TOP 1 odometer 
-        FROM wsSitrackNomina 
+        SELECT TOP 1 odometer
+        FROM wsSitrackNomina
         WHERE idNomina = @idNomina";
             return await ConectarAsync(async conn =>
-                await conn.ExecuteScalarAsync<decimal?>(sql, new { idNomina})
+                await conn.ExecuteScalarAsync<decimal?>(sql, new { idNomina })
             );
         }
 
@@ -216,9 +210,6 @@ namespace Core.Repositories
             await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma }));
         }
 
-
-
-
         public async Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync()
         {
             var query = "SELECT * FROM ProgramaEstado WHERE IdProgramaEstado >= 5 and Activo = 1";
@@ -231,7 +222,6 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QueryFirstOrDefaultAsync<ProgramaEstado>(query, new { idMotivo }));
         }
-
 
         public async Task<List<VistaPrograma>> ObtenerVistaProgramasAsync()
         {

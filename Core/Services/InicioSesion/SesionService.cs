@@ -6,7 +6,7 @@ namespace Core.Services
     {
         public int IdUsuario { get; private set; }
         public string? NombreCompleto { get; private set; } // Changed from string? to string
-        public string? NombreUsuario{ get; private set; } // Changed from string? to string
+        public string? NombreUsuario { get; private set; } // Changed from string? to string
 
         public List<string>? Permisos { get; private set; }
 

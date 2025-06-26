@@ -2,15 +2,6 @@
 using DevExpress.XtraGrid.Views.Grid;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -151,8 +142,6 @@ namespace GestionFlota.Views
             }
         }
 
-
-
         private async void bAgregarDispo_Click(object sender, EventArgs e)
         {
             if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
@@ -174,7 +163,6 @@ namespace GestionFlota.Views
             if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo) // Es doble click sobre una celda válida
             {
                 await _presenter.IntentarEditarDisponibilidadAsync(dispo);
-
             }
         }
 

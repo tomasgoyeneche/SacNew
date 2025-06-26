@@ -1,15 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -53,7 +45,6 @@ namespace GestionFlota.Views
                 gridControlPrograma.DataSource = DataHelper.GetData(0);
             }
             gridViewPrograma.PasteFromClipboard();
-
         }
 
         private void ImportarPrograma_Load(object sender, EventArgs e)
@@ -92,7 +83,5 @@ namespace GestionFlota.Views
         {
             gridControlPrograma.DataSource = new BindingList<PedidoImportacion>();
         }
-
-
     }
 }

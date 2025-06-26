@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Ruteo;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters.Ruteo
 {
@@ -48,7 +43,6 @@ namespace GestionFlota.Presenters.Ruteo
             List<Producto> productos = await _productoRepositorio.ObtenerTodosAsync();
             List<Medida> medidas = await _medidaRepositorio.ObtenerTodosAsync();
 
-
             // Origen para cmbCarga, Destino para cmbDestino (solo mostrar, no editar)
             _view.CargarLocaciones(locaciones);
             _view.CargarProductos(productos);
@@ -62,7 +56,6 @@ namespace GestionFlota.Presenters.Ruteo
         {
             // Validaciones
             // ...
-
 
             string motivo;
             string descripcion;

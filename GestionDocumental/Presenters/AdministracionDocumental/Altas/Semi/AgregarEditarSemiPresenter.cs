@@ -13,7 +13,7 @@ namespace GestionOperativa.Presenters
     {
         private readonly ISemiRepositorio _semiRepositorio;
         private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
-        private string _litros;   
+        private string _litros;
         private readonly IConfRepositorio _confRepositorio;
 
         public AgregarEditarSemiPresenter(

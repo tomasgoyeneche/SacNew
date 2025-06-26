@@ -3,13 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
-using GestionFlota.Views.Cupeo;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -76,10 +70,11 @@ namespace GestionFlota.Presenters
                 FechaEntrega = _view.FechaEntrega
             };
 
-            if(_view.IdOrigenSeleccionado == _cupeo.IdOrigen)
+            if (_view.IdOrigenSeleccionado == _cupeo.IdOrigen)
             {
                 programa.Cupo = _cupeo.Cupo ?? 0;
-            }else
+            }
+            else
             {
                 programa.Cupo = _view.Cupo.Value;
             }
@@ -131,8 +126,6 @@ namespace GestionFlota.Presenters
             return disponibles;
         }
 
-
-
         public async Task RegistrarComentarioAsync(string comentario)
         {
             await _nominaRepositorio.RegistrarNominaAsync(
@@ -152,7 +145,6 @@ namespace GestionFlota.Presenters
             });
             _view.Cerrar();
         }
-
 
         public async Task CancelarDisponibleAsync()
         {
@@ -188,7 +180,6 @@ namespace GestionFlota.Presenters
                 _sesionService.IdUsuario
             );
         }
-
 
         //public async void AbrirNovedades(string tipoNovedad, string tipoPermiso)
         //{

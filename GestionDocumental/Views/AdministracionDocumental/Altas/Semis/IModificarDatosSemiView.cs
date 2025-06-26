@@ -24,7 +24,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
                              List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros);
 
         void CargarModelos(List<VehiculoModelo> modelos);
+
         void ActualizarConfeccion(string confeccion);
+
         void MostrarMensaje(string mensaje);
     }
 }

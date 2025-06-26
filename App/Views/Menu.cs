@@ -121,7 +121,7 @@ namespace SacNew.Views
 
         private void bViajesRemitos_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirViajesYRemitos("0010 - ViajesYRemitos");    
+            _presenter.AbrirViajesYRemitos("0010 - ViajesYRemitos");
         }
     }
 }

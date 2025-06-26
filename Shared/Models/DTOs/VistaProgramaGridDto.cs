@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class VistaProgramaGridDto
     {
@@ -26,5 +20,4 @@ namespace Shared.Models
         public string HoraEntrega { get; set; }
         public string Recorrido { get; set; }
     }
-
 }

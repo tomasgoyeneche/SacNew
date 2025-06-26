@@ -15,6 +15,7 @@ namespace Core.Repositories
         Task<List<VencimientosDto>> ObtenerVencimientosPorNominaAsync(Nomina nomina);
 
         Task<List<HistorialGeneralDto>> ObtenerHistorialPorNomina(int idNomina);
+
         Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha, string Observaciones);
     }
 }

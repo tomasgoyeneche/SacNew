@@ -1,16 +1,8 @@
-﻿using Configuraciones.Views;
-using Core.Base;
-using Core.Reports;
+﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using GestionDocumental.Reports;
 using GestionFlota.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionFlota.Presenters
 {
@@ -49,26 +41,23 @@ namespace GestionFlota.Presenters
 
         public async Task InicializarAsync()
         {
+            await EjecutarConCargaAsync(async () =>
+            {
+                List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
+                List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
 
-           await EjecutarConCargaAsync(async () =>
-           {
-                    List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
-                    List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
+                var cargados = ruteos
+                   .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
+                   .ToList();
 
-                    var cargados = ruteos
-                        .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
-                        .ToList();
+                var vacios = ruteos
+                   .Where(r => r.Estado != "En Viaje" && r.Estado != "Descargando")
+                   .ToList();
 
-                    var vacios = ruteos
-                        .Where(r => r.Estado != "En Viaje" && r.Estado != "Descargando")
-                        .ToList();
-
-                    _view.MostrarRuteoCargados(cargados);
-                    _view.MostrarRuteoVacios(vacios);
-                    _view.MostrarResumen(resumen);
-
-           });
-
+                _view.MostrarRuteoCargados(cargados);
+                _view.MostrarRuteoVacios(vacios);
+                _view.MostrarResumen(resumen);
+            });
         }
 
         public async Task CargarVencimientosYAlertasAsync(Shared.Models.Ruteo ruteo)
@@ -85,14 +74,11 @@ namespace GestionFlota.Presenters
             alertas.AddRange(alertasNomina);
 
             var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(ruteo.IdNomina);
-            
-            
+
             _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());
             _view.MostrarAlertas(alertas);
         }
-
-
 
         public async Task AbrirEdicionDePrograma(Shared.Models.Ruteo ruteo)
         {
@@ -104,4 +90,3 @@ namespace GestionFlota.Presenters
         }
     }
 }
-

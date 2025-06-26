@@ -1,16 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using GestionFlota.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionFlota.Views
 {
@@ -37,7 +28,6 @@ namespace GestionFlota.Views
 
             // Label Tractor - Semi
             lblTractor.Text = $"{ruteo.Tractor} - {ruteo.Semi}";
-
 
             bEliminarLlegadaCarga.Enabled = programa?.CargaLlegada != null;
             bEliminarIngresoCarga.Enabled = programa?.CargaIngreso != null;
@@ -73,7 +63,6 @@ namespace GestionFlota.Views
             dateEditLlegadaEntrega.EditValueChanged += dateEditLlegadaEntrega_EditValueChanged;
             dateEditEntregaIngreso.EditValueChanged += dateEditEntregaIngreso_EditValueChanged;
             dateEditEntregaSalida.EditValueChanged += dateEditEntregaSalida_EditValueChanged;
-
 
             // Paneles visibles según existencia de programa
             pCarga.Visible = pEntrega.Visible =
@@ -167,7 +156,6 @@ namespace GestionFlota.Views
             if (result != DialogResult.Yes) return;
 
             await _presenter.GuardarFechaProgramaAsync("CargaLlegada", null);
-
         }
 
         private async void bEliminarIngresoCarga_Click(object sender, EventArgs e)
@@ -255,7 +243,6 @@ namespace GestionFlota.Views
 
         private async void bSubirOtrosDocs_Click(object sender, EventArgs e)
         {
-
             using (var ofd = new OpenFileDialog()
             {
                 Title = "Seleccione el documento a subir"
@@ -318,7 +305,6 @@ namespace GestionFlota.Views
 
         private void gridViewDocumentos_DoubleClick(object sender, EventArgs e)
         {
-
             var archivoGrid = gridViewDocumentos.GetFocusedRow() as ArchivoDocRuteo;
             if (archivoGrid == null)
                 return;
@@ -352,7 +338,6 @@ namespace GestionFlota.Views
                     }
                 }
             }
-
         }
 
         private async void bControlarEntrega_Click(object sender, EventArgs e)
