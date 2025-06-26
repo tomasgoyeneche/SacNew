@@ -38,12 +38,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         {
             MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        public void HabilitarBotonLegajoArt(bool habilitar)
-        {
-            btnLegajoArt.Enabled = habilitar;
-        }
-
         public void ConfigurarRutaArchivoArt(string rutaArchivo)
         {
             _rutaArchivoArt = rutaArchivo;

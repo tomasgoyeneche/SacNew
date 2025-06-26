@@ -94,8 +94,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 
         public void ConfigurarBotonLicencia(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLicencia, habilitar, rutaArchivo);
 
-        public void ConfigurarBotonSeguro(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCentralizado, habilitar, rutaArchivo);
-
         public void ConfigurarBotonExamenAnual(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bExamenAnual, habilitar, rutaArchivo);
 
         private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)

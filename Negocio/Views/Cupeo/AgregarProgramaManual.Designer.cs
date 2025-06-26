@@ -86,7 +86,6 @@
             gridControlRemitosPendientes = new DevExpress.XtraGrid.GridControl();
             gridViewRemitosPendientes = new DevExpress.XtraGrid.Views.Grid.GridView();
             bCambioChofer = new DevExpress.XtraEditors.SimpleButton();
-            bFrancos = new DevExpress.XtraEditors.SimpleButton();
             bObservaciones = new DevExpress.XtraEditors.SimpleButton();
             bCancelarDisponible = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10.SuspendLayout();
@@ -586,25 +585,12 @@
             bCambioChofer.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bCambioChofer.Appearance.Options.UseBackColor = true;
             bCambioChofer.Appearance.Options.UseFont = true;
-            bCambioChofer.Location = new Point(889, 286);
+            bCambioChofer.Location = new Point(889, 220);
             bCambioChofer.Name = "bCambioChofer";
             bCambioChofer.Size = new Size(281, 40);
             bCambioChofer.TabIndex = 135;
             bCambioChofer.Text = "Cambio Chofer";
             bCambioChofer.Click += bCambioChofer_Click;
-            // 
-            // bFrancos
-            // 
-            bFrancos.Appearance.BackColor = Color.IndianRed;
-            bFrancos.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bFrancos.Appearance.Options.UseBackColor = true;
-            bFrancos.Appearance.Options.UseFont = true;
-            bFrancos.Location = new Point(889, 217);
-            bFrancos.Name = "bFrancos";
-            bFrancos.Size = new Size(281, 40);
-            bFrancos.TabIndex = 137;
-            bFrancos.Text = "Francos";
-            bFrancos.Click += bFrancos_Click;
             // 
             // bObservaciones
             // 
@@ -641,7 +627,6 @@
             ClientSize = new Size(1198, 688);
             Controls.Add(bCancelarDisponible);
             Controls.Add(bObservaciones);
-            Controls.Add(bFrancos);
             Controls.Add(bCambioChofer);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel4);
@@ -732,7 +717,6 @@
         private DevExpress.XtraGrid.GridControl gridControlRemitosPendientes;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewRemitosPendientes;
         private DevExpress.XtraEditors.SimpleButton bCambioChofer;
-        private DevExpress.XtraEditors.SimpleButton bFrancos;
         private DevExpress.XtraEditors.SimpleButton bObservaciones;
         private DevExpress.XtraEditors.SimpleButton bCancelarDisponible;
         private DevExpress.XtraGrid.GridControl gridControlAlertas;

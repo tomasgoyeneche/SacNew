@@ -37,14 +37,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -99,7 +98,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             lRazonSocial = new Guna.UI2.WinForms.Guna2Panel();
             btnEditarDatos = new Guna.UI2.WinForms.Guna2Button();
             btnLegajoCuit = new Guna.UI2.WinForms.Guna2ImageButton();
-            btnLegajoArt = new Guna.UI2.WinForms.Guna2ImageButton();
             lMail = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lTelefonos = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lDireccion = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -288,7 +286,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             // 
             lRazonSocial.Controls.Add(btnEditarDatos);
             lRazonSocial.Controls.Add(btnLegajoCuit);
-            lRazonSocial.Controls.Add(btnLegajoArt);
             lRazonSocial.Controls.Add(lMail);
             lRazonSocial.Controls.Add(lTelefonos);
             lRazonSocial.Controls.Add(lDireccion);
@@ -306,12 +303,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             lRazonSocial.Controls.Add(guna2HtmlLabel2);
             lRazonSocial.Controls.Add(guna2HtmlLabel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel3);
-            lRazonSocial.CustomizableEdges = customizableEdges41;
+            lRazonSocial.CustomizableEdges = customizableEdges40;
             lRazonSocial.FillColor = Color.FromArgb(42, 48, 56);
             lRazonSocial.ForeColor = SystemColors.ControlLight;
             lRazonSocial.Location = new Point(28, 78);
             lRazonSocial.Name = "lRazonSocial";
-            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges41;
             lRazonSocial.Size = new Size(570, 244);
             lRazonSocial.TabIndex = 29;
             // 
@@ -351,24 +348,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             btnLegajoCuit.Size = new Size(26, 20);
             btnLegajoCuit.TabIndex = 34;
             btnLegajoCuit.Click += btnLegajoCuit_Click;
-            // 
-            // btnLegajoArt
-            // 
-            btnLegajoArt.BackColor = Color.Transparent;
-            btnLegajoArt.BackgroundImageLayout = ImageLayout.Stretch;
-            btnLegajoArt.CheckedState.ImageSize = new Size(27, 21);
-            btnLegajoArt.HoverState.ImageSize = new Size(27, 21);
-            btnLegajoArt.Image = Resources.iconoOk;
-            btnLegajoArt.ImageOffset = new Point(0, 0);
-            btnLegajoArt.ImageRotate = 0F;
-            btnLegajoArt.ImageSize = new Size(25, 20);
-            btnLegajoArt.Location = new Point(377, 189);
-            btnLegajoArt.Name = "btnLegajoArt";
-            btnLegajoArt.PressedState.ImageSize = new Size(27, 21);
-            btnLegajoArt.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            btnLegajoArt.Size = new Size(26, 20);
-            btnLegajoArt.TabIndex = 43;
-            btnLegajoArt.Click += btnLegajoArt_Click;
             // 
             // lMail
             // 
@@ -461,12 +440,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             // guna2Panel4
             // 
             guna2Panel4.Controls.Add(guna2HtmlLabel10);
-            guna2Panel4.CustomizableEdges = customizableEdges39;
+            guna2Panel4.CustomizableEdges = customizableEdges38;
             guna2Panel4.Dock = DockStyle.Top;
             guna2Panel4.FillColor = Color.ForestGreen;
             guna2Panel4.Location = new Point(0, 0);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges39;
             guna2Panel4.Size = new Size(570, 25);
             guna2Panel4.TabIndex = 31;
             // 
@@ -556,7 +535,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dvgSeguroEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dvgSeguroEmpresa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dvgSeguroEmpresa.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle10.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -702,7 +680,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvSatelitales.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            dgvSatelitales.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle6.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -845,7 +822,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvPaises.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvPaises.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -1045,7 +1021,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
         private Guna.UI2.WinForms.Guna2DataGridView dgvSatelitales;
         private Guna.UI2.WinForms.Guna2DataGridView dgvPaises;
         private Guna.UI2.WinForms.Guna2DataGridView dvgSeguroEmpresa;
-        private Guna.UI2.WinForms.Guna2ImageButton btnLegajoArt;
         private Guna.UI2.WinForms.Guna2Button bAgregarSeguro;
         private Guna.UI2.WinForms.Guna2Button bEliminarSeguro;
     }

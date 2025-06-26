@@ -104,12 +104,13 @@ namespace Core.Repositories
             });
         }
 
-        public async Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha)
+        public async Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha, string Observaciones)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@idChofer", idChofer);
             parameters.Add("@idUnidad", idUnidad);
             parameters.Add("@fecha", fecha);
+            parameters.Add("@Observacion", Observaciones);
 
             await ConectarAsync(async conn =>
             {

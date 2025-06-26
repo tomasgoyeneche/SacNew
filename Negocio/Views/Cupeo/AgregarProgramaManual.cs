@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters;
 using Shared.Models;
 using System;
@@ -43,6 +44,10 @@ namespace GestionFlota.Views
             cmbOrigen.Properties.DataSource = origenes;
             cmbOrigen.Properties.DisplayMember = "Nombre";
             cmbOrigen.Properties.ValueMember = "IdLocacion";
+
+            cmbOrigen.Properties.Columns.Clear();
+            cmbOrigen.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Origen"));
+
             cmbOrigen.EditValue = idOrigenSeleccionado;
         }
 
@@ -51,6 +56,9 @@ namespace GestionFlota.Views
             cmbDestino.Properties.DataSource = destinos;
             cmbDestino.Properties.DisplayMember = "Nombre";
             cmbDestino.Properties.ValueMember = "IdLocacion";
+
+            cmbDestino.Properties.Columns.Clear();
+            cmbDestino.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Destino"));
         }
 
         public void CargarCupos(List<int> cupos)
@@ -63,6 +71,9 @@ namespace GestionFlota.Views
             cmbProducto.Properties.DataSource = productos;
             cmbProducto.Properties.DisplayMember = "Nombre";
             cmbProducto.Properties.ValueMember = "IdProducto";
+
+            cmbProducto.Properties.Columns.Clear();
+            cmbProducto.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Producto"));
         }
 
         public int? IdOrigenSeleccionado => cmbOrigen.EditValue as int?;
@@ -83,7 +94,7 @@ namespace GestionFlota.Views
 
         public void Cerrar()
         {
-            this.Close();
+            this.Dispose();
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)

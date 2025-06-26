@@ -39,6 +39,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -69,12 +75,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -82,6 +82,12 @@
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            txtInv = new Guna.UI2.WinForms.Guna2TextBox();
+            txtLitrosNom = new Guna.UI2.WinForms.Guna2TextBox();
+            txtCubicacion = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpFechaAlta = new Guna.UI2.WinForms.Guna2DateTimePicker();
             dtpAnio = new Guna.UI2.WinForms.Guna2DateTimePicker();
             cmbMaterial = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -108,12 +114,6 @@
             cmbMarca = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtInv = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtLitrosNom = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtCubicacion = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
             guna2Panel5.SuspendLayout();
             guna2Panel1.SuspendLayout();
@@ -229,6 +229,105 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges38;
             guna2Panel1.Size = new Size(775, 478);
             guna2Panel1.TabIndex = 90;
+            // 
+            // txtInv
+            // 
+            txtInv.CustomizableEdges = customizableEdges1;
+            txtInv.DefaultText = "";
+            txtInv.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtInv.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtInv.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtInv.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtInv.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtInv.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtInv.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtInv.Location = new Point(500, 59);
+            txtInv.Name = "txtInv";
+            txtInv.PasswordChar = '\0';
+            txtInv.PlaceholderText = "";
+            txtInv.SelectedText = "";
+            txtInv.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtInv.Size = new Size(255, 36);
+            txtInv.TabIndex = 89;
+            // 
+            // txtLitrosNom
+            // 
+            txtLitrosNom.CustomizableEdges = customizableEdges3;
+            txtLitrosNom.DefaultText = "";
+            txtLitrosNom.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtLitrosNom.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtLitrosNom.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtLitrosNom.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtLitrosNom.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtLitrosNom.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtLitrosNom.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtLitrosNom.Location = new Point(500, 209);
+            txtLitrosNom.Name = "txtLitrosNom";
+            txtLitrosNom.PasswordChar = '\0';
+            txtLitrosNom.PlaceholderText = "";
+            txtLitrosNom.SelectedText = "";
+            txtLitrosNom.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtLitrosNom.Size = new Size(255, 36);
+            txtLitrosNom.TabIndex = 91;
+            // 
+            // txtCubicacion
+            // 
+            txtCubicacion.CustomizableEdges = customizableEdges5;
+            txtCubicacion.DefaultText = "";
+            txtCubicacion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtCubicacion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtCubicacion.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCubicacion.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtCubicacion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCubicacion.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCubicacion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCubicacion.Location = new Point(500, 259);
+            txtCubicacion.Name = "txtCubicacion";
+            txtCubicacion.PasswordChar = '\0';
+            txtCubicacion.PlaceholderText = "";
+            txtCubicacion.SelectedText = "";
+            txtCubicacion.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtCubicacion.Size = new Size(255, 36);
+            txtCubicacion.TabIndex = 93;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.AutoSize = false;
+            guna2HtmlLabel3.BackColor = Color.Gray;
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel3.Location = new Point(389, 259);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(113, 36);
+            guna2HtmlLabel3.TabIndex = 92;
+            guna2HtmlLabel3.Text = "Cubicacion";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.BackColor = Color.Gray;
+            guna2HtmlLabel2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel2.Location = new Point(389, 209);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(113, 36);
+            guna2HtmlLabel2.TabIndex = 90;
+            guna2HtmlLabel2.Text = "Litros Nom.";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Gray;
+            guna2HtmlLabel1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel1.Location = new Point(389, 59);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(113, 36);
+            guna2HtmlLabel1.TabIndex = 88;
+            guna2HtmlLabel1.Text = "INV";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // dtpFechaAlta
             // 
@@ -358,6 +457,7 @@
             txtConfeccion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtConfeccion.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtConfeccion.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtConfeccion.Enabled = false;
             txtConfeccion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtConfeccion.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtConfeccion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -386,6 +486,7 @@
             bAgregarL.Size = new Size(37, 36);
             bAgregarL.TabIndex = 76;
             bAgregarL.Text = "+";
+            bAgregarL.Click += bAgregarL_Click;
             // 
             // bEliminarL
             // 
@@ -403,6 +504,7 @@
             bEliminarL.Size = new Size(37, 36);
             bEliminarL.TabIndex = 75;
             bEliminarL.Text = "-";
+            bEliminarL.Click += bEliminarL_Click;
             // 
             // guna2HtmlLabel9
             // 
@@ -645,105 +747,6 @@
             guna2HtmlLabel19.Size = new Size(140, 25);
             guna2HtmlLabel19.TabIndex = 32;
             guna2HtmlLabel19.Text = "Datos Del Semi";
-            // 
-            // txtInv
-            // 
-            txtInv.CustomizableEdges = customizableEdges1;
-            txtInv.DefaultText = "";
-            txtInv.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtInv.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtInv.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtInv.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtInv.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtInv.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtInv.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtInv.Location = new Point(500, 59);
-            txtInv.Name = "txtInv";
-            txtInv.PasswordChar = '\0';
-            txtInv.PlaceholderText = "";
-            txtInv.SelectedText = "";
-            txtInv.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtInv.Size = new Size(255, 36);
-            txtInv.TabIndex = 89;
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.AutoSize = false;
-            guna2HtmlLabel1.BackColor = Color.Gray;
-            guna2HtmlLabel1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(389, 59);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(113, 36);
-            guna2HtmlLabel1.TabIndex = 88;
-            guna2HtmlLabel1.Text = "INV";
-            guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
-            // txtLitrosNom
-            // 
-            txtLitrosNom.CustomizableEdges = customizableEdges3;
-            txtLitrosNom.DefaultText = "";
-            txtLitrosNom.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtLitrosNom.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtLitrosNom.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtLitrosNom.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtLitrosNom.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLitrosNom.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLitrosNom.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLitrosNom.Location = new Point(500, 209);
-            txtLitrosNom.Name = "txtLitrosNom";
-            txtLitrosNom.PasswordChar = '\0';
-            txtLitrosNom.PlaceholderText = "";
-            txtLitrosNom.SelectedText = "";
-            txtLitrosNom.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtLitrosNom.Size = new Size(255, 36);
-            txtLitrosNom.TabIndex = 91;
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.AutoSize = false;
-            guna2HtmlLabel2.BackColor = Color.Gray;
-            guna2HtmlLabel2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(389, 209);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(113, 36);
-            guna2HtmlLabel2.TabIndex = 90;
-            guna2HtmlLabel2.Text = "Litros Nom.";
-            guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
-            // txtCubicacion
-            // 
-            txtCubicacion.CustomizableEdges = customizableEdges5;
-            txtCubicacion.DefaultText = "";
-            txtCubicacion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtCubicacion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCubicacion.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtCubicacion.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtCubicacion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCubicacion.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCubicacion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCubicacion.Location = new Point(500, 259);
-            txtCubicacion.Name = "txtCubicacion";
-            txtCubicacion.PasswordChar = '\0';
-            txtCubicacion.PlaceholderText = "";
-            txtCubicacion.SelectedText = "";
-            txtCubicacion.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtCubicacion.Size = new Size(255, 36);
-            txtCubicacion.TabIndex = 93;
-            // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.AutoSize = false;
-            guna2HtmlLabel3.BackColor = Color.Gray;
-            guna2HtmlLabel3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(389, 259);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(113, 36);
-            guna2HtmlLabel3.TabIndex = 92;
-            guna2HtmlLabel3.Text = "Cubicacion";
-            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // ModificarDatosSemiForm
             // 

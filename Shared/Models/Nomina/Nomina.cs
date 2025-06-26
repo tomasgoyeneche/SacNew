@@ -8,6 +8,7 @@
 
         public int IdChofer { get; set; } = 0;
 
+        public string ObsYpf { get; set; } = string.Empty;
         public DateTime FechaAlta { get; set; } = DateTime.Now;
         public DateTime FechaBaja { get; set; }
     }

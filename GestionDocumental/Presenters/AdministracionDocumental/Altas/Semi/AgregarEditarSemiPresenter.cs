@@ -13,7 +13,7 @@ namespace GestionOperativa.Presenters
     {
         private readonly ISemiRepositorio _semiRepositorio;
         private readonly IEmpresaSeguroRepositorio _empresaSeguroRepositorio;
-
+        private string _litros;   
         private readonly IConfRepositorio _confRepositorio;
 
         public AgregarEditarSemiPresenter(
@@ -41,6 +41,8 @@ namespace GestionOperativa.Presenters
                 int añoFinal = añoBase > 0 ? añoBase + añosVencimiento : 0;
 
                 _view.MostrarDatosSemi(semi);
+
+                _litros = semi.LitrosDetalle;
                 _view.MostrarVencimiento(añoFinal > 0 ? añoFinal.ToString() : "Sin fecha");
 
                 Semi semi2 = await _semiRepositorio.ObtenerSemiPorIdAsync(idSemi);
@@ -96,7 +98,7 @@ namespace GestionOperativa.Presenters
         {
             await AbrirFormularioAsync<ModificarDatosSemiForm>(async form =>
             {
-                await form._presenter.InicializarAsync(idSemi);
+                await form._presenter.InicializarAsync(idSemi, _litros);
             });
             await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
         }

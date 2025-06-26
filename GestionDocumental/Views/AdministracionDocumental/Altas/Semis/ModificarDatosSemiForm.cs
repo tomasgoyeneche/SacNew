@@ -30,7 +30,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         public int Cubicacion => Convert.ToInt32(txtCubicacion.Text);
 
         public void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
-                                    List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales)
+                                    List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros)
         {
             IdSemi = semi.IdSemi;
             txtPatente.Text = semi.Patente;
@@ -41,6 +41,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             txtInv.Text = semi.Inv.ToString();
             txtCubicacion.Text = semi.Cubicacion.ToString();
             txtLitrosNom.Text = semi.LitroNominal.ToString();
+            txtConfeccion.Text = litros;
 
             cmbMarca.DataSource = marcas;
             cmbMarca.DisplayMember = "NombreMarca";
@@ -61,6 +62,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             cmbMaterial.DisplayMember = "Descripcion";
             cmbMaterial.ValueMember = "IdMaterial";
             cmbMaterial.SelectedValue = semi.IdMaterial;
+        }
+
+        public void ActualizarConfeccion(string confeccion)
+        {
+            txtConfeccion.Text = confeccion;
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
@@ -92,6 +98,16 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         private void bCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private async void bAgregarL_Click(object sender, EventArgs e)
+        {
+            await _presenter.AgregarCompartimientoAsync();
+        }
+
+        private async void bEliminarL_Click(object sender, EventArgs e)
+        {
+            await _presenter.EliminarCompartimientoAsync();
         }
     }
 }

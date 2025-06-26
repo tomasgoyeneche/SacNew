@@ -1,6 +1,8 @@
 ﻿using Core.Base;
 using Core.Repositories;
+using Core.Repositories.Semi;
 using Core.Services;
+using DevExpress.XtraEditors;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Semis;
 using Shared.Models;
 
@@ -13,6 +15,8 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly ISemiCisternaTipoCargaRepositorio _tipoCargaRepositorio;
         private readonly ISemiCisternaMaterialRepositorio _materialRepositorio;
+        private readonly ISemiCisternaCompartimientoRepositorio _semiCompartimientoRepositorio;
+
         public Semi Semi { get; private set; }
 
         public ModificarDatosSemiPresenter(
@@ -22,6 +26,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             IVehiculoMarcaRepositorio marcaRepositorio,
             IVehiculoModeloRepositorio modeloRepositorio,
             ISemiCisternaTipoCargaRepositorio tipoCargaRepositorio,
+            ISemiCisternaCompartimientoRepositorio semiCompartimientoRepositorio,
             ISemiCisternaMaterialRepositorio materialRepositorio)
             : base(sesionService, navigationService)
         {
@@ -30,9 +35,10 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             _modeloRepositorio = modeloRepositorio;
             _tipoCargaRepositorio = tipoCargaRepositorio;
             _materialRepositorio = materialRepositorio;
+            _semiCompartimientoRepositorio = semiCompartimientoRepositorio;
         }
 
-        public async Task InicializarAsync(int idSemi)
+        public async Task InicializarAsync(int idSemi, string litros)
         {
             await EjecutarConCargaAsync(async () =>
             {
@@ -48,7 +54,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 var tiposCarga = await _tipoCargaRepositorio.ObtenerTiposCargaAsync();
                 var materiales = await _materialRepositorio.ObtenerMaterialesAsync();
 
-                _view.CargarDatosSemi(Semi, marcas, modelos, tiposCarga, materiales);
+                _view.CargarDatosSemi(Semi, marcas, modelos, tiposCarga, materiales, litros);
             });
         }
 
@@ -80,5 +86,73 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 _view.MostrarMensaje("Datos del semirremolque actualizados correctamente.");
             });
         }
+
+
+        public async Task AgregarCompartimientoAsync()
+        {
+            // Validar que no supere la cantidad máxima de compartimientos
+            var compartimientosActivos = await _semiCompartimientoRepositorio.ObtenerCompartimientosActivosAsync(Semi.IdSemi);
+
+            if (compartimientosActivos.Count >= Semi.Compartimientos)
+            {
+                _view.MostrarMensaje($"No se pueden agregar más compartimientos. Máximo: {Semi.Compartimientos}");
+                return;
+            }
+
+            // Pedir al usuario la capacidad
+            string litrosStr = XtraInputBox.Show("Ingrese la capacidad en litros para el nuevo compartimiento:",
+                "Agregar Compartimiento", "0");
+            if (!int.TryParse(litrosStr, out int litros) || litros <= 0)
+            {
+                _view.MostrarMensaje("Ingrese un valor válido y mayor a cero.");
+                return;
+            }
+
+            // Número de compartimiento nuevo (el siguiente disponible)
+            int nuevoNumero = (compartimientosActivos.Any() ? compartimientosActivos.Max(c => c.NumeroCompartimiento) : 0) + 1;
+
+            var nuevoCompartimiento = new SemiCisternaCompartimiento
+            {
+                IdSemi = Semi.IdSemi,
+                NumeroCompartimiento = nuevoNumero,
+                CapacidadLitros = litros,
+                Activo = true
+            };
+
+            await _semiCompartimientoRepositorio.AgregarCompartimientoAsync(nuevoCompartimiento);
+
+            // Refrescar la confección
+            await ActualizarConfeccionAsync();
+            _view.MostrarMensaje("Compartimiento agregado correctamente.");
+        }
+
+        public async Task EliminarCompartimientoAsync()
+        {
+            // Obtener compartimientos activos
+            var compartimientosActivos = await _semiCompartimientoRepositorio.ObtenerCompartimientosActivosAsync(Semi.IdSemi);
+            if (!compartimientosActivos.Any())
+            {
+                _view.MostrarMensaje("No hay compartimientos para eliminar.");
+                return;
+            }
+
+            // Eliminar el de mayor número
+            var paraEliminar = compartimientosActivos.OrderByDescending(c => c.NumeroCompartimiento).First();
+
+            await _semiCompartimientoRepositorio.EliminarCompartimientoAsync(paraEliminar.IdCompartimiento);
+
+            // Refrescar la confección
+            await ActualizarConfeccionAsync();
+            _view.MostrarMensaje($"Compartimiento número {paraEliminar.NumeroCompartimiento} eliminado.");
+        }
+
+        private async Task ActualizarConfeccionAsync()
+        {
+            // Refresca la confección y la muestra en el txtConfeccion
+            var compartimientos = await _semiCompartimientoRepositorio.ObtenerCompartimientosActivosAsync(Semi.IdSemi);
+            string confeccion = string.Join(" + ", compartimientos.OrderBy(c => c.NumeroCompartimiento).Select(c => c.CapacidadLitros));
+            _view.ActualizarConfeccion(confeccion);
+        }
+
     }
 }

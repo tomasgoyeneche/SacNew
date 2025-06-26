@@ -21,10 +21,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         int Cubicacion { get; }
 
         void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
-                             List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales);
+                             List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros);
 
         void CargarModelos(List<VehiculoModelo> modelos);
-
+        void ActualizarConfeccion(string confeccion);
         void MostrarMensaje(string mensaje);
     }
 }

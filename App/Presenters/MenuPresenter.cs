@@ -88,5 +88,13 @@ namespace App.Presenters
                 await form._presenter.InicializarAsync();
             });
         }
+
+        public async void AbrirViajesYRemitos(string tipoPermiso)
+        {
+            await AbrirFormularioConPermisosAsync<ViajesConsolidadosForm>(tipoPermiso, async form =>
+            {
+                await form._presenter.InicializarAsync();
+            });
+        }
     }
 }

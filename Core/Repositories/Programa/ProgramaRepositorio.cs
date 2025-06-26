@@ -231,5 +231,12 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QueryFirstOrDefaultAsync<ProgramaEstado>(query, new { idMotivo }));
         }
+
+
+        public async Task<List<VistaPrograma>> ObtenerVistaProgramasAsync()
+        {
+            var query = "SELECT * FROM vw_Programa";
+            return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query))).ToList();
+        }
     }
 }

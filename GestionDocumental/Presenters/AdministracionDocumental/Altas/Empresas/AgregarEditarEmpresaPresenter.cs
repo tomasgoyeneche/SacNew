@@ -56,7 +56,6 @@ namespace GestionOperativa.Presenters
         {
             var rutas = new Dictionary<string, Action<bool, string?>>
         {
-            { "EMPRESA\\ART", (existe, ruta) => { _view.HabilitarBotonLegajoArt(existe); if (existe) _view.ConfigurarRutaArchivoArt(ruta); } },
             { "EMPRESA\\CUIT", (existe, ruta) => { _view.HabilitarBotonLegajoCuit(existe); if (existe) _view.ConfigurarRutaArchivoCuit(ruta); } }
         };
 

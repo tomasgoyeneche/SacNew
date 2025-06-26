@@ -53,7 +53,7 @@
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             lblOrigen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtDni = new Guna.UI2.WinForms.Guna2TextBox();
+            txtObservacion = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -257,29 +257,29 @@
             guna2HtmlLabel2.Text = "Novedad";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // txtDni
+            // txtObservacion
             // 
-            txtDni.BackColor = Color.FromArgb(26, 29, 35);
-            txtDni.CustomizableEdges = customizableEdges13;
-            txtDni.DefaultText = "";
-            txtDni.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtDni.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtDni.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtDni.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtDni.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDni.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDni.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDni.Location = new Point(24, 338);
-            txtDni.Margin = new Padding(4, 3, 4, 3);
-            txtDni.MaxLength = 255;
-            txtDni.Name = "txtDni";
-            txtDni.PasswordChar = '\0';
-            txtDni.PlaceholderText = "Ingrese Novedad (Opcional)";
-            txtDni.RightToLeft = RightToLeft.No;
-            txtDni.SelectedText = "";
-            txtDni.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtDni.Size = new Size(752, 22);
-            txtDni.TabIndex = 78;
+            txtObservacion.BackColor = Color.FromArgb(26, 29, 35);
+            txtObservacion.CustomizableEdges = customizableEdges13;
+            txtObservacion.DefaultText = "";
+            txtObservacion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtObservacion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtObservacion.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtObservacion.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtObservacion.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtObservacion.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtObservacion.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtObservacion.Location = new Point(24, 338);
+            txtObservacion.Margin = new Padding(4, 3, 4, 3);
+            txtObservacion.MaxLength = 255;
+            txtObservacion.Name = "txtObservacion";
+            txtObservacion.PasswordChar = '\0';
+            txtObservacion.PlaceholderText = "Ingrese Novedad (Opcional)";
+            txtObservacion.RightToLeft = RightToLeft.No;
+            txtObservacion.SelectedText = "";
+            txtObservacion.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtObservacion.Size = new Size(752, 22);
+            txtObservacion.TabIndex = 78;
             // 
             // guna2Panel10
             // 
@@ -315,6 +315,7 @@
             bGuardar.Size = new Size(161, 41);
             bGuardar.TabIndex = 119;
             bGuardar.Text = "Guardar";
+            bGuardar.Click += bGuardar_Click;
             // 
             // bBajarChofer
             // 
@@ -371,7 +372,7 @@
             Controls.Add(bBajarChofer);
             Controls.Add(bCancelar);
             Controls.Add(guna2Panel10);
-            Controls.Add(txtDni);
+            Controls.Add(txtObservacion);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(lblOrigen);
             Controls.Add(guna2Panel1);
@@ -409,7 +410,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblOrigen;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2TextBox txtDni;
+        private Guna.UI2.WinForms.Guna2TextBox txtObservacion;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private DevExpress.XtraEditors.SimpleButton bGuardar;

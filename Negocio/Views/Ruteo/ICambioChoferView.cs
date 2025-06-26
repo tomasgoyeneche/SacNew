@@ -14,6 +14,8 @@ namespace GestionFlota.Views
         void CargarFrancos(List<NovedadesChoferesDto> francos);
         int? IdChoferSeleccionado { get; }
         DateTime FechaCambio { get; }
+
+        string Observacion { get; }
         string NombreChoferSeleccionado { get; } // Para descripción de registro
         void Cerrar();
     }

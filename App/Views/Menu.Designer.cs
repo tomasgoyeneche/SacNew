@@ -871,6 +871,7 @@
             bViajesRemitos.Size = new Size(129, 30);
             bViajesRemitos.TabIndex = 12;
             bViajesRemitos.Text = "Ingresar";
+            bViajesRemitos.Click += bViajesRemitos_Click;
             // 
             // guna2HtmlLabel4
             // 

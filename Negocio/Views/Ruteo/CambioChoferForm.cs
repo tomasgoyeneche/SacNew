@@ -25,7 +25,6 @@ namespace GestionFlota.Views
 
             dateEditFechaCambio.EditValue = DateTime.Now;
             gridViewChoferes.FocusedRowChanged += async (s, e) => await _presenter.ChoferSeleccionadoCambioAsync();
-            bGuardar.Click += async (s, e) => await _presenter.ConfirmarCambioChoferAsync();
             bBajarChofer.Click += async (s, e) => await _presenter.BajarChoferAsync();
         }
 
@@ -61,6 +60,8 @@ namespace GestionFlota.Views
             }
         }
 
+        public string Observacion => txtObservacion.Text.Trim();
+
         public DateTime FechaCambio => dateEditFechaCambio.EditValue as DateTime? ?? DateTime.Today;
 
         public void MostrarMensaje(string mensaje)
@@ -73,6 +74,11 @@ namespace GestionFlota.Views
         private void bCancelar_Click(object sender, EventArgs e)
         {
             Cerrar();
+        }
+
+        private async void bGuardar_Click(object sender, EventArgs e)
+        {
+            await _presenter.ConfirmarCambioChoferAsync();
         }
     }
 }

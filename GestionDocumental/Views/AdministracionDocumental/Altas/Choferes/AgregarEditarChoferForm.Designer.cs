@@ -31,21 +31,20 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
@@ -88,7 +87,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             lRazonSocial = new Guna.UI2.WinForms.Guna2Panel();
             chkZonaFria = new Guna.UI2.WinForms.Guna2CheckBox();
             bAltaTemprana = new Guna.UI2.WinForms.Guna2ImageButton();
-            bCentralizado = new Guna.UI2.WinForms.Guna2ImageButton();
             IAltaTemprana = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bDocumento = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -182,12 +180,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             guna2Panel9.Controls.Add(bMinimize);
             guna2Panel9.Controls.Add(bClose);
-            guna2Panel9.CustomizableEdges = customizableEdges45;
+            guna2Panel9.CustomizableEdges = customizableEdges44;
             guna2Panel9.Dock = DockStyle.Top;
             guna2Panel9.FillColor = Color.Transparent;
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
-            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges45;
             guna2Panel9.Size = new Size(800, 31);
             guna2Panel9.TabIndex = 22;
             // 
@@ -195,12 +193,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             bMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            bMinimize.CustomizableEdges = customizableEdges41;
+            bMinimize.CustomizableEdges = customizableEdges40;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
             bMinimize.Location = new Point(736, 0);
             bMinimize.Name = "bMinimize";
-            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges41;
             bMinimize.Size = new Size(32, 31);
             bMinimize.TabIndex = 18;
             // 
@@ -208,14 +206,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             bClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bClose.Animated = true;
-            bClose.CustomizableEdges = customizableEdges43;
+            bClose.CustomizableEdges = customizableEdges42;
             bClose.FillColor = Color.Transparent;
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
             bClose.Location = new Point(768, 0);
             bClose.Name = "bClose";
-            bClose.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            bClose.ShadowDecoration.CustomizableEdges = customizableEdges43;
             bClose.Size = new Size(32, 31);
             bClose.TabIndex = 17;
             // 
@@ -223,7 +221,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             lRazonSocial.Controls.Add(chkZonaFria);
             lRazonSocial.Controls.Add(bAltaTemprana);
-            lRazonSocial.Controls.Add(bCentralizado);
             lRazonSocial.Controls.Add(IAltaTemprana);
             lRazonSocial.Controls.Add(guna2HtmlLabel9);
             lRazonSocial.Controls.Add(bDocumento);
@@ -244,12 +241,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             lRazonSocial.Controls.Add(guna2HtmlLabel2);
             lRazonSocial.Controls.Add(guna2HtmlLabel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel3);
-            lRazonSocial.CustomizableEdges = customizableEdges39;
+            lRazonSocial.CustomizableEdges = customizableEdges38;
             lRazonSocial.FillColor = Color.FromArgb(42, 48, 56);
             lRazonSocial.ForeColor = SystemColors.ControlLight;
             lRazonSocial.Location = new Point(23, 156);
             lRazonSocial.Name = "lRazonSocial";
-            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges39;
             lRazonSocial.Size = new Size(570, 233);
             lRazonSocial.TabIndex = 30;
             // 
@@ -288,24 +285,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bAltaTemprana.TabIndex = 56;
             bAltaTemprana.Click += bAltaTemprana_Click;
             // 
-            // bCentralizado
-            // 
-            bCentralizado.BackColor = Color.Transparent;
-            bCentralizado.BackgroundImageLayout = ImageLayout.Stretch;
-            bCentralizado.CheckedState.ImageSize = new Size(64, 64);
-            bCentralizado.HoverState.ImageSize = new Size(27, 21);
-            bCentralizado.Image = Resources.iconoOk;
-            bCentralizado.ImageOffset = new Point(0, 0);
-            bCentralizado.ImageRotate = 0F;
-            bCentralizado.ImageSize = new Size(25, 20);
-            bCentralizado.Location = new Point(496, 176);
-            bCentralizado.Name = "bCentralizado";
-            bCentralizado.PressedState.ImageSize = new Size(27, 21);
-            bCentralizado.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            bCentralizado.Size = new Size(26, 20);
-            bCentralizado.TabIndex = 34;
-            bCentralizado.Click += bCentralizado_Click;
-            // 
             // IAltaTemprana
             // 
             IAltaTemprana.BackColor = Color.Transparent;
@@ -343,14 +322,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bDocumento.Location = new Point(21, 34);
             bDocumento.Name = "bDocumento";
             bDocumento.PressedState.ImageSize = new Size(27, 21);
-            bDocumento.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            bDocumento.ShadowDecoration.CustomizableEdges = customizableEdges33;
             bDocumento.Size = new Size(26, 20);
             bDocumento.TabIndex = 53;
             bDocumento.Click += bDocumento_Click;
             // 
             // btnEditarDatos
             // 
-            btnEditarDatos.CustomizableEdges = customizableEdges35;
+            btnEditarDatos.CustomizableEdges = customizableEdges34;
             btnEditarDatos.DisabledState.BorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -361,7 +340,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             btnEditarDatos.ForeColor = Color.White;
             btnEditarDatos.Location = new Point(0, 215);
             btnEditarDatos.Name = "btnEditarDatos";
-            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges35;
             btnEditarDatos.Size = new Size(570, 18);
             btnEditarDatos.TabIndex = 52;
             btnEditarDatos.Text = "Editar";
@@ -447,12 +426,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // guna2Panel4
             // 
             guna2Panel4.Controls.Add(guna2HtmlLabel10);
-            guna2Panel4.CustomizableEdges = customizableEdges37;
+            guna2Panel4.CustomizableEdges = customizableEdges36;
             guna2Panel4.Dock = DockStyle.Top;
             guna2Panel4.FillColor = Color.ForestGreen;
             guna2Panel4.Location = new Point(0, 0);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges37;
             guna2Panel4.Size = new Size(570, 25);
             guna2Panel4.TabIndex = 31;
             // 
@@ -594,7 +573,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dvgSegurosChoferes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dvgSegurosChoferes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dvgSegurosChoferes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -1295,7 +1273,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private Guna.UI2.WinForms.Guna2ControlBox bClose;
         private Guna.UI2.WinForms.Guna2PictureBox picBoxFotoChofer;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2ImageButton bCentralizado;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2Panel lRazonSocial;

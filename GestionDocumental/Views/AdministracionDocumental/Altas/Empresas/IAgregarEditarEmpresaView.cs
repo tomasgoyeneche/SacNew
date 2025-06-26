@@ -10,10 +10,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         void MostrarMensaje(string mensaje); // Muestra mensajes informativos o de error
 
-        void HabilitarBotonLegajoArt(bool habilitar);
-
-        void ConfigurarRutaArchivoArt(string rutaArchivo);
-
         void HabilitarBotonLegajoCuit(bool habilitar);
 
         void ConfigurarRutaArchivoCuit(string rutaArchivo);

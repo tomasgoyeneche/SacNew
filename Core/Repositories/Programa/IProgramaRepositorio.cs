@@ -35,5 +35,7 @@ namespace Core.Repositories
         Task CerrarTramosActivosPorProgramaAsync(int idPrograma);
         Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
+
+        Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();
     }
 }

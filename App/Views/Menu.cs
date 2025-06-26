@@ -118,5 +118,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirCupeo("0008-Cupos");
         }
+
+        private void bViajesRemitos_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirViajesYRemitos("0010 - ViajesYRemitos");    
+        }
     }
 }
