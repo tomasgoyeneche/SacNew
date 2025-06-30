@@ -33,12 +33,6 @@
     <Compile Update="Views\Postas\ConceptoConsumos\MenuConceptos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Postas\DatosVolvo\ImportDatosVolvo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Postas\Informes\ConsumoUnidad\ConsumoPorUnidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\Postas\Informes\MenuInformesPostas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,9 +52,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Postas\MenuPostas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Postas\YpfIngresaConsumos\ImportarConsumos\ImportarConsumosYPF.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

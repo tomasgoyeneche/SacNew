@@ -58,5 +58,10 @@ namespace GestionFlota.Views.Postas.LimiteDeCredito
         {
             await _presenter.VerificarCreditoExistente();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

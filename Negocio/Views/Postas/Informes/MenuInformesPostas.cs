@@ -1,6 +1,7 @@
 ﻿using Core.Services;
 using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes;
+using GestionFlota.Views.Postas.Informes.ConsumoUnidad;
 using GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos;
 
 namespace SacNew.Views.GestionFlota.Postas.Informes
@@ -20,7 +21,7 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
 
         private void bInformeUnidad_Click(object sender, EventArgs e)
         {
-            _navigationService.ShowDialog<ConsumoPorUnidad>();
+            _navigationService.ShowDialog<ConsumoPorUnidadForm>();
         }
 
         private void bConsultarConsumos_Click(object sender, EventArgs e)

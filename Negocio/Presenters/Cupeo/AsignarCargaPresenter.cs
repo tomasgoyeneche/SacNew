@@ -95,7 +95,7 @@ namespace GestionFlota.Presenters
                 IdPrograma = idPrograma,
                 IdNomina = _cupeoActual.IdNomina,
                 IdDestino = _view.IdDestinoSeleccionado ?? 0,
-                FechaInicio = _cupeoActual.FechaCarga,
+                FechaInicio = DateTime.Now,
                 FechaFin = null // vacío
             };
 

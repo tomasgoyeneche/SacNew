@@ -1,13 +1,24 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
+using SacNew.Views.GestionFlota.Postas.Informes;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace SacNew.Views.GestionFlota.Postas.Informes
+namespace GestionFlota.Views.Postas.Informes.ConsumoUnidad
 {
-    public partial class ConsumoPorUnidad : Form, IConsumoUnidadView
+    public partial class ConsumoPorUnidadForm : DevExpress.XtraEditors.XtraForm, IConsumoUnidadView
     {
         private readonly ConsumoPorUnidadPresenter _presenter;
 
-        public ConsumoPorUnidad(ConsumoPorUnidadPresenter presenter)
+        public ConsumoPorUnidadForm(ConsumoPorUnidadPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -30,18 +41,20 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
 
         public void MostrarConsumos(List<InformeConsumoUnidad> consumos)
         {
-            dgvConsumos.DataSource = consumos;
+            gridControlDatos.DataSource = consumos;
 
-            // Ocultar columnas innecesarias
-            dgvConsumos.Columns["idPeriodo"].Visible = false;
+            // Ocultamos columnas no deseadas desde el GridView
+            var view = dgvDatos;
+            view.Columns["idPeriodo"].Visible = false;
 
+            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
             // Formatear las celdas para agregar el símbolo de porcentaje
         }
 
         private void dgvConsumos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Verifica si la columna requiere el símbolo de porcentaje
-            var columnName = dgvConsumos.Columns[e.ColumnIndex].Name;
+            var columnName = dgvDatos.Columns[e.ColumnIndex].Name;
 
             if (columnName.StartsWith("Porcentaje", StringComparison.OrdinalIgnoreCase) && e.Value is decimal decimalValue)
             {
@@ -53,7 +66,7 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
 
         public List<InformeConsumoUnidad> ObtenerConsumos()
         {
-            return (List<InformeConsumoUnidad>)dgvConsumos.DataSource;
+            return (List<InformeConsumoUnidad>)dgvDatos.DataSource;
         }
 
         public void MostrarMensaje(string mensaje)

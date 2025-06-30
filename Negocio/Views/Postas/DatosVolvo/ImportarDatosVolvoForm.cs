@@ -1,13 +1,24 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
+using SacNew.Views.GestionFlota.Postas.DatosVolvo;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace SacNew.Views.GestionFlota.Postas.DatosVolvo
+namespace GestionFlota.Views.Postas.DatosVolvo
 {
-    public partial class ImportDatosVolvo : Form, IImportarVolvoConnectView
+    public partial class ImportarDatosVolvoForm : DevExpress.XtraEditors.XtraForm, IImportarVolvoConnectView
     {
         private readonly ImportarVolvoConnectPresenter _presenter;
 
-        public ImportDatosVolvo(ImportarVolvoConnectPresenter presenter)
+        public ImportarDatosVolvoForm(ImportarVolvoConnectPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -25,8 +36,13 @@ namespace SacNew.Views.GestionFlota.Postas.DatosVolvo
 
         public void MostrarDatos(List<ImportVolvoConnect> datos)
         {
-            dgvDatos.DataSource = datos;
-            dgvDatos.Columns["IdImportVolvoConnect"].Visible = false;
+            gridControlDatos.DataSource = datos;
+
+            // Ocultamos columnas no deseadas desde el GridView
+            var view = dgvDatos;
+            view.Columns["IdImportVolvoConnect"].Visible = false;
+
+            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
         }
 
         public List<ImportVolvoConnect> ObtenerDatos()

@@ -697,6 +697,7 @@
             bControlDemorados.Size = new Size(241, 30);
             bControlDemorados.TabIndex = 46;
             bControlDemorados.Text = "Control Demorados";
+            bControlDemorados.Click += bControlDemorados_Click;
             // 
             // bControlKm
             // 

@@ -1,13 +1,24 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
+using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
+namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
 {
-    public partial class ImportarConsumosYPF : Form, IImportarConsumosYpfView
+    public partial class ImportarConsumosYpfForm : DevExpress.XtraEditors.XtraForm, IImportarConsumosYpfView
     {
         private readonly ImportarConsumosYpfPresenter _presenter;
 
-        public ImportarConsumosYPF(ImportarConsumosYpfPresenter presenter)
+        public ImportarConsumosYpfForm(ImportarConsumosYpfPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -30,15 +41,19 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
 
         public void MostrarConsumos(List<ImportConsumoYpfEnRuta> consumos)
         {
-            dgvConsumos.DataSource = consumos;
+            gridControlDatos.DataSource = consumos;
 
-            dgvConsumos.Columns["idImportConsumoYPF"].Visible = false; // Ocultar columna ID
-            dgvConsumos.Columns["Chequeado"].Visible = false; // Ocultar columna ID
+            // Ocultamos columnas no deseadas desde el GridView
+            var view = dgvDatos;
+            view.Columns["IdImportConsumoYPF"].Visible = false;
+            view.Columns["Chequeado"].Visible = false;
+
+            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
         }
 
         public List<ImportConsumoYpfEnRuta> ObtenerConsumos()
         {
-            return dgvConsumos.DataSource as List<ImportConsumoYpfEnRuta> ?? new List<ImportConsumoYpfEnRuta>();
+            return dgvDatos.DataSource as List<ImportConsumoYpfEnRuta> ?? new List<ImportConsumoYpfEnRuta>();
         }
 
         private async void ImportarConsumosYPF_Load(object sender, EventArgs e)
@@ -72,11 +87,6 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
         {
             await _presenter.GuardarConsumosAsync();
             this.Dispose();
-        }
-
-        private void guna2ControlBox4_Click(object sender, EventArgs e)
-        {
-            dgvConsumos.DataSource = null;
         }
     }
 }

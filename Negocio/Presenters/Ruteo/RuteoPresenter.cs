@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
+using System.IO;
 
 namespace GestionFlota.Presenters
 {
@@ -15,6 +16,7 @@ namespace GestionFlota.Presenters
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IPeriodoRepositorio _periodoRepositorio;
+        private readonly IExcelService _excelService;
 
         private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
 
@@ -27,6 +29,7 @@ namespace GestionFlota.Presenters
             IPostaRepositorio postaRepositorio,
             IPeriodoRepositorio periodoRepositorio,
             IVaporizadoRepositorio vaporizadoRepositorio,
+            IExcelService excelService,
             IUnidadRepositorio unidadRepositorio)
             : base(sesionService, navigationService)
         {
@@ -37,6 +40,7 @@ namespace GestionFlota.Presenters
             _postaRepositorio = postaRepositorio;
             _periodoRepositorio = periodoRepositorio;
             _vaporizadoRepositorio = vaporizadoRepositorio;
+            _excelService = excelService;
         }
 
         public async Task InicializarAsync()
@@ -87,6 +91,34 @@ namespace GestionFlota.Presenters
                 await form._presenter.InicializarAsync(ruteo);
             });
             await InicializarAsync();
+        }
+
+
+        public async Task ExportarDemoradosAsync()
+        {
+            var demorados = await _programaRepositorio.ObtenerProgramasDemoradosAsync();
+            if (demorados == null || !demorados.Any())
+            {
+                _view.MostrarMensaje("No se encontraron programas demorados.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"ControlDemorados-{DateTime.Now:yyyyMMdd-HHmmss}.xlsx");
+
+            await _excelService.ExportarAExcelAsync(demorados, filePath, "Demorados");
+
+            // Abrí el archivo después de exportar
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo exportado y abierto correctamente.");
         }
     }
 }

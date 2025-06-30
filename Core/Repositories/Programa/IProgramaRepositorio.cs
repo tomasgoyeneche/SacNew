@@ -40,5 +40,7 @@ namespace Core.Repositories
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
 
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();
+
+        Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync();
     }
 }

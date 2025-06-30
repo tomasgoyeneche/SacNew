@@ -54,6 +54,12 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync()
+        {
+            string query = "SELECT * FROM vw_ProgramasDemorados";
+            return (await ConectarAsync(conn => conn.QueryAsync<ProgramaDemoradoInforme>(query))).ToList();
+        }
+
         public async Task ActualizarFechaYRegistrarAsync(
         int idPrograma,
         string campo,           // Ej: "CargaLlegada"

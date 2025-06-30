@@ -192,5 +192,11 @@ namespace GestionFlota.Views
                 MostrarMensaje($"Mensaje: {historico.Descripcion}");
             }
         }
+
+        private async void bControlDemorados_Click(object sender, EventArgs e)
+        {
+            await _presenter.ExportarDemoradosAsync();
+
+        }
     }
 }

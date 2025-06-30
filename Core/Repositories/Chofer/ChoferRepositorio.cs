@@ -61,7 +61,7 @@ namespace Core.Repositories
 
         public async Task<int?> ObtenerIdPorDocumentoAsync(string documento)
         {
-            var query = "SELECT IdChofer FROM Chofer WHERE Documento = @Documento AND Activo = 1";
+            var query = "SELECT IdChofer FROM Chofer WHERE Documento = @Documento";
 
             return await ConectarAsync(async conn =>
                 await conn.QuerySingleOrDefaultAsync<int?>(query, new { Documento = documento }));

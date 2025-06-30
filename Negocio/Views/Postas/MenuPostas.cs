@@ -1,6 +1,8 @@
 ﻿using Core.Services;
+using GestionFlota.Views.Postas.DatosVolvo;
 using GestionFlota.Views.Postas.LimiteDeCredito;
 using GestionFlota.Views.Postas.Modificaciones;
+using GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos;
 using SacNew.Views.GestionFlota.Postas.ABMPostas;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.DatosVolvo;
@@ -71,9 +73,7 @@ namespace SacNew.Views.GestionFlota.Postas
         {
             if (_sesionService.Permisos.Contains("0024-ImportacionesConsumos") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
-                _navigationService.ShowDialog<ImportarConsumosYPF>();
-
-                //_navigationService.ShowDialog<ImportDatosVolvo>();
+                _navigationService.ShowDialog<ImportarConsumosYpfForm>();
             }
             else
             {
@@ -85,7 +85,7 @@ namespace SacNew.Views.GestionFlota.Postas
         {
             if (_sesionService.Permisos.Contains("0024-ImportacionesConsumos") || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
-                _navigationService.ShowDialog<ImportDatosVolvo>();
+                _navigationService.ShowDialog<ImportarDatosVolvoForm>();
             }
             else
             {
