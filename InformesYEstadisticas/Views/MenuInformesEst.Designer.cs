@@ -90,11 +90,11 @@
             guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
+            bExpoTransoftMetanol = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel19 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Button17 = new Guna.UI2.WinForms.Guna2Button();
+            bExpoTransoft = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel30 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2vSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
@@ -378,7 +378,7 @@
             // 
             guna2Panel15.BackColor = Color.Transparent;
             guna2Panel15.BorderRadius = 5;
-            guna2Panel15.Controls.Add(guna2Button13);
+            guna2Panel15.Controls.Add(bExpoTransoftMetanol);
             guna2Panel15.Controls.Add(guna2HtmlLabel27);
             guna2Panel15.Controls.Add(guna2HtmlLabel28);
             guna2Panel15.CustomizableEdges = customizableEdges15;
@@ -389,24 +389,25 @@
             guna2Panel15.Size = new Size(150, 158);
             guna2Panel15.TabIndex = 36;
             // 
-            // guna2Button13
+            // bExpoTransoftMetanol
             // 
-            guna2Button13.BackColor = Color.Transparent;
-            guna2Button13.BorderRadius = 5;
-            guna2Button13.CustomizableEdges = customizableEdges13;
-            guna2Button13.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button13.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button13.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button13.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button13.FillColor = Color.ForestGreen;
-            guna2Button13.Font = new Font("Century Gothic", 9F);
-            guna2Button13.ForeColor = Color.White;
-            guna2Button13.Location = new Point(10, 121);
-            guna2Button13.Name = "guna2Button13";
-            guna2Button13.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Button13.Size = new Size(129, 30);
-            guna2Button13.TabIndex = 12;
-            guna2Button13.Text = "Generar";
+            bExpoTransoftMetanol.BackColor = Color.Transparent;
+            bExpoTransoftMetanol.BorderRadius = 5;
+            bExpoTransoftMetanol.CustomizableEdges = customizableEdges13;
+            bExpoTransoftMetanol.DisabledState.BorderColor = Color.DarkGray;
+            bExpoTransoftMetanol.DisabledState.CustomBorderColor = Color.DarkGray;
+            bExpoTransoftMetanol.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bExpoTransoftMetanol.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bExpoTransoftMetanol.FillColor = Color.ForestGreen;
+            bExpoTransoftMetanol.Font = new Font("Century Gothic", 9F);
+            bExpoTransoftMetanol.ForeColor = Color.White;
+            bExpoTransoftMetanol.Location = new Point(10, 121);
+            bExpoTransoftMetanol.Name = "bExpoTransoftMetanol";
+            bExpoTransoftMetanol.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            bExpoTransoftMetanol.Size = new Size(129, 30);
+            bExpoTransoftMetanol.TabIndex = 12;
+            bExpoTransoftMetanol.Text = "Generar";
+            bExpoTransoftMetanol.Click += bExpoTransoftMetanol_Click;
             // 
             // guna2HtmlLabel27
             // 
@@ -437,7 +438,7 @@
             // 
             guna2Panel19.BackColor = Color.Transparent;
             guna2Panel19.BorderRadius = 5;
-            guna2Panel19.Controls.Add(guna2Button17);
+            guna2Panel19.Controls.Add(bExpoTransoft);
             guna2Panel19.Controls.Add(guna2HtmlLabel29);
             guna2Panel19.Controls.Add(guna2HtmlLabel30);
             guna2Panel19.CustomizableEdges = customizableEdges19;
@@ -448,24 +449,25 @@
             guna2Panel19.Size = new Size(150, 158);
             guna2Panel19.TabIndex = 34;
             // 
-            // guna2Button17
+            // bExpoTransoft
             // 
-            guna2Button17.BackColor = Color.Transparent;
-            guna2Button17.BorderRadius = 5;
-            guna2Button17.CustomizableEdges = customizableEdges17;
-            guna2Button17.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button17.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button17.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button17.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button17.FillColor = Color.ForestGreen;
-            guna2Button17.Font = new Font("Century Gothic", 9F);
-            guna2Button17.ForeColor = Color.White;
-            guna2Button17.Location = new Point(10, 121);
-            guna2Button17.Name = "guna2Button17";
-            guna2Button17.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Button17.Size = new Size(129, 30);
-            guna2Button17.TabIndex = 12;
-            guna2Button17.Text = "Generar";
+            bExpoTransoft.BackColor = Color.Transparent;
+            bExpoTransoft.BorderRadius = 5;
+            bExpoTransoft.CustomizableEdges = customizableEdges17;
+            bExpoTransoft.DisabledState.BorderColor = Color.DarkGray;
+            bExpoTransoft.DisabledState.CustomBorderColor = Color.DarkGray;
+            bExpoTransoft.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bExpoTransoft.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bExpoTransoft.FillColor = Color.ForestGreen;
+            bExpoTransoft.Font = new Font("Century Gothic", 9F);
+            bExpoTransoft.ForeColor = Color.White;
+            bExpoTransoft.Location = new Point(10, 121);
+            bExpoTransoft.Name = "bExpoTransoft";
+            bExpoTransoft.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            bExpoTransoft.Size = new Size(129, 30);
+            bExpoTransoft.TabIndex = 12;
+            bExpoTransoft.Text = "Generar";
+            bExpoTransoft.Click += bExpoTransoft_Click;
             // 
             // guna2HtmlLabel29
             // 
@@ -973,11 +975,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel22;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
-        private Guna.UI2.WinForms.Guna2Button guna2Button13;
+        private Guna.UI2.WinForms.Guna2Button bExpoTransoftMetanol;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel19;
-        private Guna.UI2.WinForms.Guna2Button guna2Button17;
+        private Guna.UI2.WinForms.Guna2Button bExpoTransoft;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel30;
         private Guna.UI2.WinForms.Guna2VSeparator guna2vSeparator1;

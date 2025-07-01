@@ -15,6 +15,9 @@ namespace InformesYEstadisticas.Presenters
     {
         private readonly IDocumentacionProcessor _documentacionService;
         private readonly IConfRepositorio _confRepositorio;
+        private readonly IProgramaRepositorio _programaRepositorio;
+        private readonly IExcelService _excelService;
+
         private readonly IPlanillaRepositorio _planillaRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _ReporteConsumosNomTeOtrosProcessor;
 
@@ -23,6 +26,8 @@ namespace InformesYEstadisticas.Presenters
             INavigationService navigationService,
             IDocumentacionProcessor documentacionService,
             IPlanillaRepositorio planillaRepositorio,
+            IProgramaRepositorio programaRepositorio,
+            IExcelService excelService,
             IReporteConsumosNomTeOtrosProcessor ReporteConsumosNomTeOtrosProcessor,
             IConfRepositorio confRepositorio
         ) : base(sesionService, navigationService)
@@ -31,6 +36,8 @@ namespace InformesYEstadisticas.Presenters
             _confRepositorio = confRepositorio;
             _planillaRepositorio = planillaRepositorio;
             _ReporteConsumosNomTeOtrosProcessor = ReporteConsumosNomTeOtrosProcessor;
+            _programaRepositorio = programaRepositorio;
+            _excelService = excelService;
         }
 
         public async Task GenerarFichaVacia()
@@ -87,5 +94,59 @@ namespace InformesYEstadisticas.Presenters
                 });
             });
         }
+
+
+
+        public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _programaRepositorio.ObtenerTransoftAsync(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"Transoft-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "Transoft");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo Transoft exportado y abierto.");
+        }
+
+
+        public async Task ExportarTransoftMetanolAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _programaRepositorio.ObtenerTransoftMetanolAsync(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"TransoftMetanol-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "TransoftMetanol");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
+        }
+
     }
 }

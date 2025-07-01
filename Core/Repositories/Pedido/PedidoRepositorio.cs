@@ -21,6 +21,25 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<PedidoDto>> ObtenerPedidosPendientes()
+        {
+            var query = "SELECT * FROM vw_PedidosPendientes";
+
+            return await ConectarAsync(async connection =>
+            {
+                var cupeo = await connection.QueryAsync<PedidoDto>(query);
+                return cupeo.ToList();
+            });
+        }
+
+        public async Task EliminarPedidoAsync(int idPedido)
+        {
+            await EliminarGenéricoAsync<Pedido>("Pedido", idPedido);
+        }
+
+
+
+
         public async Task InsertarPedidosAsync(IEnumerable<Pedido> pedidos)
         {
             var query = @"

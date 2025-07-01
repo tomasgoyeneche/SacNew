@@ -117,7 +117,7 @@ namespace Core.Repositories
 
         public async Task AltaChoferAsync(string nombre, string apellido, string documento, int idUsuario)
         {
-            var query = "EXEC sp_AltaSemi @nombre, @apellido, @documento, @idusuario"; // o ";" si querés como texto
+            var query = "EXEC sp_AltaChofer @nombre, @apellido, @documento, @idusuario"; // o ";" si querés como texto
 
             await ConectarAsync(connection =>
             {

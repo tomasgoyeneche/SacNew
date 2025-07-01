@@ -165,6 +165,11 @@ namespace GestionFlota.Views
                 await _presenter.AbrirAsignarManual(cupeo);
         }
 
+        private async void bVerPrograma_Click(object sender, EventArgs e)
+        {
+            await _presenter.VerProgramaAsync();
+        }
+
         //private async void gridViewVacios_DoubleClick(object sender, EventArgs e)
         //{
         //    if (gridViewAsignados.GetFocusedRow() is Cupeo cupeo)

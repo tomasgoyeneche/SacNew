@@ -234,5 +234,18 @@ namespace Core.Repositories
             var query = "SELECT * FROM vw_Programa";
             return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query))).ToList();
         }
+
+
+        public async Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_Transoft WHERE Disponible BETWEEN @desde AND @hasta";
+            return (await ConectarAsync(conn => conn.QueryAsync<Transoft>(query, new { desde, hasta }))).ToList();
+        }
+
+        public async Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_TransoftMetanol WHERE Fecha BETWEEN @desde AND @hasta";
+            return (await ConectarAsync(conn => conn.QueryAsync<TransoftMetanol>(query, new { desde, hasta }))).ToList();
+        }
     }
 }

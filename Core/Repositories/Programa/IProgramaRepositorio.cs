@@ -42,5 +42,8 @@ namespace Core.Repositories
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();
 
         Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync();
+
+        Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta);
+        Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta);
     }
 }

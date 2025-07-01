@@ -100,5 +100,12 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<AgregarProgramaManual>(async f => await f._presenter.InicializarAsync(cupeo));
             await InicializarAsync();
         }
+
+        public async Task VerProgramaAsync()
+        {
+            await AbrirFormularioAsync<PedidosForm>(async f => await f._presenter.InicializarAsync());
+            await InicializarAsync();
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using GestionOperativa.Views;
 using GestionOperativa.Views.AgregarGuardia;
 using Servicios;
 using Shared.Models;
+using System.IO;
 
 namespace GestionOperativa.Presenters
 {
@@ -20,6 +21,9 @@ namespace GestionOperativa.Presenters
         private readonly ITeRepositorio _teRepositorio;
         private readonly IGuardiaIngresoOtrosRepositorio _ingresoOtrosRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
+        private readonly IProgramaRepositorio _programaRepositorio;
+        private readonly IExcelService _excelService;
+
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _consumoNomTeProcessor;
         private readonly IPostaRepositorio _postaRepositorio;
@@ -38,6 +42,8 @@ namespace GestionOperativa.Presenters
             IGuardiaIngresoOtrosRepositorio ingresoOtrosRepositorio,
             IAlertaRepositorio alertaRepositorio,
             INominaRepositorio nominaRepositorio,
+            IProgramaRepositorio programaRepositorio,
+            IExcelService excelService,
             IReporteConsumosNomTeOtrosProcessor consumoNomTeProcessor,
             IPOCRepositorio pocRepositorio,
             IPostaRepositorio postaRepositorio,
@@ -55,6 +61,8 @@ namespace GestionOperativa.Presenters
             _unidadRepositorio = unidadRepositorio;
             _pocRepositorio = pocRepositorio;
             _postaRepositorio = postaRepositorio;
+            _programaRepositorio = programaRepositorio;
+            _excelService = excelService;
             _periodoRepositorio = periodoRepositorio;
             _consumoNomTeProcessor = consumoNomTeProcessor;
             _reporteNominasProcessor = reporteNominasProcessor;
@@ -362,5 +370,67 @@ namespace GestionOperativa.Presenters
                 return Task.CompletedTask;
             });
         }
+
+
+
+
+
+
+
+
+
+
+
+        public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _programaRepositorio.ObtenerTransoftAsync(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"Transoft-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "Transoft");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo Transoft exportado y abierto.");
+        }
+
+
+        public async Task ExportarTransoftMetanolAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _programaRepositorio.ObtenerTransoftMetanolAsync(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"TransoftMetanol-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "TransoftMetanol");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
+        }
+
     }
 }
