@@ -229,6 +229,7 @@
             // 
             // ImportarPrograma
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);

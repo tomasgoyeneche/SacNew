@@ -160,6 +160,7 @@
             Controls.Add(gridControlAlertas);
             Controls.Add(guna2Panel10);
             Name = "AlertasForm";
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AlertasForm";
             guna2Panel10.ResumeLayout(false);

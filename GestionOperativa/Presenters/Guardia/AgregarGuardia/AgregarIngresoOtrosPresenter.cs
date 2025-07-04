@@ -13,7 +13,7 @@ namespace GestionOperativa.Presenters.AgregarGuardia
     {
         private readonly IGuardiaIngresoOtrosRepositorio _guardiaRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _reporteConsumoTeOtros;
-
+        private int _idPosta;
         public DateTime _Fecha;
 
         public AgregarIngresoOtrosPresenter(
@@ -27,8 +27,9 @@ namespace GestionOperativa.Presenters.AgregarGuardia
             _reporteConsumoTeOtros = reporteConsumoTeOtros;
         }
 
-        public Task InicializarAsync(DateTime fecha, string patente)
+        public Task InicializarAsync(DateTime fecha, string patente, int idposta)
         {
+            _idPosta = idposta;
             _view.Fecha = fecha;
             _Fecha = fecha;
             _view.Patente = patente;
@@ -51,7 +52,7 @@ namespace GestionOperativa.Presenters.AgregarGuardia
                 Activo = true
             };
 
-            int idPoc = await _guardiaRepositorio.RegistrarIngresoOtrosAsync(ingresoOtros, _sesionService.IdPosta, _Fecha, _sesionService.IdUsuario);
+            int idPoc = await _guardiaRepositorio.RegistrarIngresoOtrosAsync(ingresoOtros, _idPosta, _Fecha, _sesionService.IdUsuario);
             _view.MostrarMensaje("Ingreso de Otros registrado correctamente.");
 
             TransitoEspecial te = new TransitoEspecial

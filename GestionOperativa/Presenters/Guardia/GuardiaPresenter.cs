@@ -69,7 +69,7 @@ namespace GestionOperativa.Presenters
             _vaporizadoRepositorio = vaporizadoRepositorio;
         }
 
-        public async Task InicializarAsync(int idPosta)
+        public async Task InicializarAsync(int idPosta, int? idGuardiaSeleccionada = null)
         {
             _idPosta = idPosta;
 
@@ -94,6 +94,11 @@ namespace GestionOperativa.Presenters
 
                 var resu = await _guardiaRepositorio.ObtenerResumenEnParadorAsync(_idPosta);
                 _view.MostrarResumenParador(resu.unidades, resu.tractores, resu.semis, resu.choferes);
+
+                if (idGuardiaSeleccionada.HasValue)
+                {
+                    _view.SeleccionarGuardiaPorId(idGuardiaSeleccionada.Value);
+                }
             }
         }
 
@@ -165,7 +170,7 @@ namespace GestionOperativa.Presenters
 
             await AbrirFormularioAsync<AgregarIngresoOtrosForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync(fecha, patente);
+                    await form._presenter.InicializarAsync(fecha, patente, _idPosta);
                 });
             await InicializarAsync(_idPosta);
         }
@@ -193,7 +198,7 @@ namespace GestionOperativa.Presenters
             {
                 await AbrirFormularioAsync<AgregarEditarTransitoEspecialForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync(fecha, patente);
+                    await form._presenter.InicializarAsync(fecha, patente, _idPosta);
                 });
                 _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
                 await InicializarAsync(_idPosta);
@@ -214,6 +219,8 @@ namespace GestionOperativa.Presenters
                 _view.MostrarMensaje("No se encontró una nómina activa para la unidad.");
                 return;
             }
+
+            List<AlertaDto> alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(nomina.IdNomina);  
 
             var ingreso = new GuardiaIngreso
             {
@@ -249,6 +256,10 @@ namespace GestionOperativa.Presenters
             _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
             await _pocRepositorio.AgregarPOCAsync(poc);
             ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
+            foreach(AlertaDto ale in alertas)
+            {
+                _view.MostrarMensaje($"Alerta: {ale.Descripcion} eliminar si ya fue resuelta.");
+            }
             _view.MostrarMensaje(esManual ? "Ingreso manual registrado correctamente." : "Ingreso registrado correctamente.");
             await GenerarReporte(reporte);
             await InicializarAsync(_idPosta);
@@ -351,13 +362,13 @@ namespace GestionOperativa.Presenters
             // Sumá los campos que sean obligatorios para vos
         }
 
-        public async Task AbrirCambioEstadoAsync(GuardiaDto guardia)
+        public async Task AbrirCambioEstadoAsync(GuardiaDto guardia, int? idGuardiaSeleccionada = null)
         {
             await AbrirFormularioAsync<CambiarEstadoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(guardia, false);
             });
-            await InicializarAsync(_idPosta);
+            await InicializarAsync(_idPosta, idGuardiaSeleccionada);
         }
 
         public async Task MostrarNominaActualAsync()

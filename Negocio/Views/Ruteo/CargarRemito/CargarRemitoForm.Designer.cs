@@ -63,6 +63,7 @@
             dtpFechaRemito = new DevExpress.XtraEditors.DateEdit();
             lblRemitoCarga = new Label();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            txtTotal = new DevExpress.XtraEditors.TextEdit();
             txtRemito = new DevExpress.XtraEditors.TextEdit();
             label3 = new Label();
             cmbMedida = new DevExpress.XtraEditors.LookUpEdit();
@@ -72,7 +73,6 @@
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
-            txtTotal = new DevExpress.XtraEditors.TextEdit();
             guna2Panel10.SuspendLayout();
             pCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtAlbaran.Properties).BeginInit();
@@ -82,10 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties.CalendarTimeProperties).BeginInit();
             guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbMedida.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBoxEntidad).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
@@ -162,7 +162,7 @@
             txtAlbaran.Location = new Point(143, 134);
             txtAlbaran.Name = "txtAlbaran";
             txtAlbaran.Size = new Size(185, 20);
-            txtAlbaran.TabIndex = 122;
+            txtAlbaran.TabIndex = 3;
             // 
             // cmbCarga
             // 
@@ -173,7 +173,7 @@
             cmbCarga.Properties.Appearance.Options.UseFont = true;
             cmbCarga.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbCarga.Size = new Size(185, 26);
-            cmbCarga.TabIndex = 121;
+            cmbCarga.TabIndex = 1;
             // 
             // cmbEntrega
             // 
@@ -184,7 +184,7 @@
             cmbEntrega.Properties.Appearance.Options.UseFont = true;
             cmbEntrega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbEntrega.Size = new Size(185, 26);
-            cmbEntrega.TabIndex = 120;
+            cmbEntrega.TabIndex = 2;
             // 
             // cmbProducto
             // 
@@ -195,7 +195,7 @@
             cmbProducto.Properties.Appearance.Options.UseFont = true;
             cmbProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbProducto.Size = new Size(185, 26);
-            cmbProducto.TabIndex = 118;
+            cmbProducto.TabIndex = 4;
             // 
             // lblCarga
             // 
@@ -270,7 +270,7 @@
             dtpFechaRemito.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
             dtpFechaRemito.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             dtpFechaRemito.Size = new Size(245, 36);
-            dtpFechaRemito.TabIndex = 63;
+            dtpFechaRemito.TabIndex = 5;
             // 
             // lblRemitoCarga
             // 
@@ -303,12 +303,19 @@
             guna2Panel1.Size = new Size(342, 172);
             guna2Panel1.TabIndex = 114;
             // 
+            // txtTotal
+            // 
+            txtTotal.Location = new Point(242, 135);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new Size(86, 20);
+            txtTotal.TabIndex = 8;
+            // 
             // txtRemito
             // 
             txtRemito.Location = new Point(83, 90);
             txtRemito.Name = "txtRemito";
             txtRemito.Size = new Size(245, 20);
-            txtRemito.TabIndex = 124;
+            txtRemito.TabIndex = 6;
             // 
             // label3
             // 
@@ -330,7 +337,7 @@
             cmbMedida.Properties.Appearance.Options.UseFont = true;
             cmbMedida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbMedida.Size = new Size(100, 26);
-            cmbMedida.TabIndex = 116;
+            cmbMedida.TabIndex = 7;
             // 
             // lblFecha
             // 
@@ -384,7 +391,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnGuardar.Size = new Size(158, 38);
-            btnGuardar.TabIndex = 120;
+            btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -403,7 +410,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnCancelar.Size = new Size(158, 38);
-            btnCancelar.TabIndex = 119;
+            btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -423,19 +430,14 @@
             picBoxEntidad.TabIndex = 121;
             picBoxEntidad.TabStop = false;
             // 
-            // txtTotal
-            // 
-            txtTotal.Location = new Point(242, 135);
-            txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(86, 20);
-            txtTotal.TabIndex = 123;
-            // 
             // CargarRemitoForm
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(798, 568);
             Controls.Add(picBoxEntidad);
             Controls.Add(btnGuardar);
@@ -459,10 +461,10 @@
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaRemito.Properties).EndInit();
             guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtRemito.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cmbMedida.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBoxEntidad).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtTotal.Properties).EndInit();
             ResumeLayout(false);
         }
 

@@ -13,6 +13,7 @@ namespace GestionOperativa.Presenters
         private readonly IGuardiaRepositorio _guardiaRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _reporteConsumoTeOtros;
         public DateTime _Fecha;
+        private int _idPosta;
 
         public AgregarEditarTransitoEspecialPresenter(
             ISesionService sesionService,
@@ -25,8 +26,9 @@ namespace GestionOperativa.Presenters
             _reporteConsumoTeOtros = reporteConsumosNomTeOtrosProcessor;
         }
 
-        public Task InicializarAsync(DateTime fecha, string patente)
+        public Task InicializarAsync(DateTime fecha, string patente, int idPosta)
         {
+            _idPosta = idPosta;
             _view.Fecha = fecha;
             _Fecha = fecha;
             _view.Tractor = patente;
@@ -51,7 +53,7 @@ namespace GestionOperativa.Presenters
                 Activo = true
             };
 
-            int idPoc = await _guardiaRepositorio.RegistrarIngresoTransitoEspecialAsync(te, _sesionService.IdPosta, _Fecha, _sesionService.IdUsuario);
+            int idPoc = await _guardiaRepositorio.RegistrarIngresoTransitoEspecialAsync(te, _idPosta, _Fecha, _sesionService.IdUsuario);
             _view.MostrarMensaje("Ingreso de Tránsito Especial registrado correctamente.");
             ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te);
             await GenerarPocTe(reporte);

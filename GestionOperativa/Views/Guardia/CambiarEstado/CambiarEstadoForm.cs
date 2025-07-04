@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 using Shared.Models;
 
 namespace GestionOperativa.Views
@@ -106,9 +107,17 @@ namespace GestionOperativa.Views
 
         private async void bComentario_Click(object sender, EventArgs e)
         {
-            string Comentario = Microsoft.VisualBasic.Interaction.InputBox("Por favor ingrese comentario:", "Ingrese comentario", "");
+            string comentario = XtraInputBox.Show(
+            "Ingrese el comentario:",
+            "Comentario",
+            ""
+        );
 
-            await _presenter.RegistrarCambio(false, 10, Comentario);
+            // Si canceló o dejó vacío, no guardes nada
+            if (string.IsNullOrWhiteSpace(comentario)) return;
+
+            // Guardar el comentario en NominaRegistro
+            await _presenter.RegistrarCambio(false, 11, comentario);
         }
 
         private async void dtpSalidaCompleta_EditValueChanged(object sender, EventArgs e)

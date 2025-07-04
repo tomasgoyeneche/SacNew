@@ -708,6 +708,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo
             // 
             // IngresaGasoil
             // 
+            AcceptButton = guna2Button1;
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -111,7 +111,7 @@
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.CustomizableEdges = customizableEdges3;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -121,15 +121,15 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(19, 548);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.Size = new Size(353, 39);
-            guna2Button1.TabIndex = 59;
+            guna2Button1.TabIndex = 13;
             guna2Button1.Text = "Cancelar";
             guna2Button1.Click += guna2Button1_Click;
             // 
             // btnAgregar
             // 
-            btnAgregar.CustomizableEdges = customizableEdges3;
+            btnAgregar.CustomizableEdges = customizableEdges1;
             btnAgregar.DisabledState.BorderColor = Color.DarkGray;
             btnAgregar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAgregar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -139,9 +139,9 @@
             btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(432, 548);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAgregar.Size = new Size(347, 39);
-            btnAgregar.TabIndex = 58;
+            btnAgregar.TabIndex = 12;
             btnAgregar.Text = "Guardar";
             btnAgregar.Click += btnGuardar_Click;
             // 
@@ -195,7 +195,7 @@
             cmdEmpresaId.Name = "cmdEmpresaId";
             cmdEmpresaId.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmdEmpresaId.Size = new Size(197, 36);
-            cmdEmpresaId.TabIndex = 65;
+            cmdEmpresaId.TabIndex = 11;
             // 
             // guna2HtmlLabel7
             // 
@@ -227,7 +227,7 @@
             dtpFecha.ShadowDecoration.CustomizableEdges = customizableEdges8;
             dtpFecha.ShowUpDown = true;
             dtpFecha.Size = new Size(197, 29);
-            dtpFecha.TabIndex = 63;
+            dtpFecha.TabIndex = 10;
             dtpFecha.Value = new DateTime(2024, 10, 4, 0, 0, 0, 0);
             // 
             // dtpFechaNac
@@ -247,7 +247,7 @@
             dtpFechaNac.ShadowDecoration.CustomizableEdges = customizableEdges10;
             dtpFechaNac.ShowUpDown = true;
             dtpFechaNac.Size = new Size(236, 29);
-            dtpFechaNac.TabIndex = 62;
+            dtpFechaNac.TabIndex = 8;
             dtpFechaNac.Value = new DateTime(2024, 10, 4, 0, 0, 0, 0);
             // 
             // guna2HtmlLabel4
@@ -273,7 +273,7 @@
             chkZonaFria.Location = new Point(556, 71);
             chkZonaFria.Name = "chkZonaFria";
             chkZonaFria.Size = new Size(15, 14);
-            chkZonaFria.TabIndex = 60;
+            chkZonaFria.TabIndex = 9;
             chkZonaFria.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
             chkZonaFria.UncheckedState.BorderRadius = 0;
             chkZonaFria.UncheckedState.BorderThickness = 0;
@@ -375,7 +375,7 @@
             txtDomicilio.SelectedText = "";
             txtDomicilio.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtDomicilio.Size = new Size(236, 29);
-            txtDomicilio.TabIndex = 53;
+            txtDomicilio.TabIndex = 6;
             // 
             // guna2HtmlLabel6
             // 
@@ -421,7 +421,7 @@
             txtTelefono.SelectedText = "";
             txtTelefono.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtTelefono.Size = new Size(236, 29);
-            txtTelefono.TabIndex = 50;
+            txtTelefono.TabIndex = 7;
             // 
             // cmbLocalidad
             // 
@@ -439,7 +439,7 @@
             cmbLocalidad.Name = "cmbLocalidad";
             cmbLocalidad.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbLocalidad.Size = new Size(236, 36);
-            cmbLocalidad.TabIndex = 49;
+            cmbLocalidad.TabIndex = 5;
             // 
             // cmbProvincia
             // 
@@ -457,7 +457,7 @@
             cmbProvincia.Name = "cmbProvincia";
             cmbProvincia.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cmbProvincia.Size = new Size(236, 36);
-            cmbProvincia.TabIndex = 48;
+            cmbProvincia.TabIndex = 4;
             cmbProvincia.SelectedIndexChanged += cmbProvincia_SelectedIndexChanged;
             // 
             // txtNombres
@@ -478,7 +478,7 @@
             txtNombres.SelectedText = "";
             txtNombres.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtNombres.Size = new Size(235, 29);
-            txtNombres.TabIndex = 47;
+            txtNombres.TabIndex = 3;
             // 
             // txtApellido
             // 
@@ -498,7 +498,7 @@
             txtApellido.SelectedText = "";
             txtApellido.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtApellido.Size = new Size(235, 29);
-            txtApellido.TabIndex = 46;
+            txtApellido.TabIndex = 2;
             // 
             // txtDoc
             // 
@@ -518,7 +518,7 @@
             txtDoc.SelectedText = "";
             txtDoc.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtDoc.Size = new Size(235, 29);
-            txtDoc.TabIndex = 45;
+            txtDoc.TabIndex = 1;
             // 
             // guna2Panel4
             // 
@@ -621,9 +621,11 @@
             // 
             // ModificarDatosChoferForm
             // 
+            AcceptButton = btnAgregar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 29, 35);
+            CancelButton = guna2Button1;
             ClientSize = new Size(800, 600);
             Controls.Add(guna2Button1);
             Controls.Add(btnAgregar);

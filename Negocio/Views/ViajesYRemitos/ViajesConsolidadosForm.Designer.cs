@@ -34,8 +34,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlProgramas = new DevExpress.XtraGrid.GridControl();
@@ -46,16 +44,11 @@
             txtEntrega = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtCarga = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlProgramas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewProgramas).BeginInit();
             guna2Panel10.SuspendLayout();
             guna2Panel3.SuspendLayout();
-            guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // guna2Panel5
@@ -141,7 +134,7 @@
             guna2Panel3.Controls.Add(guna2HtmlLabel11);
             guna2Panel3.CustomizableEdges = customizableEdges5;
             guna2Panel3.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel3.Location = new Point(283, 16);
+            guna2Panel3.Location = new Point(304, 16);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel3.Size = new Size(459, 56);
@@ -187,60 +180,6 @@
             guna2HtmlLabel11.Text = "Remitos Pendientes";
             guna2HtmlLabel11.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // guna2Panel1
-            // 
-            guna2Panel1.BackColor = Color.Transparent;
-            guna2Panel1.Controls.Add(guna2HtmlLabel4);
-            guna2Panel1.Controls.Add(guna2HtmlLabel5);
-            guna2Panel1.Controls.Add(guna2HtmlLabel6);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel1.Location = new Point(758, 16);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(459, 56);
-            guna2Panel1.TabIndex = 104;
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.AutoSize = false;
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.ForeColor = Color.WhiteSmoke;
-            guna2HtmlLabel4.Location = new Point(228, 29);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(219, 20);
-            guna2HtmlLabel4.TabIndex = 51;
-            guna2HtmlLabel4.Text = "Kilos:";
-            guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleLeft;
-            // 
-            // guna2HtmlLabel5
-            // 
-            guna2HtmlLabel5.AutoSize = false;
-            guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.ForeColor = Color.WhiteSmoke;
-            guna2HtmlLabel5.Location = new Point(3, 29);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(219, 20);
-            guna2HtmlLabel5.TabIndex = 50;
-            guna2HtmlLabel5.Text = "Litros:";
-            guna2HtmlLabel5.TextAlignment = ContentAlignment.MiddleLeft;
-            // 
-            // guna2HtmlLabel6
-            // 
-            guna2HtmlLabel6.AutoSize = false;
-            guna2HtmlLabel6.BackColor = Color.DarkSlateGray;
-            guna2HtmlLabel6.Dock = DockStyle.Top;
-            guna2HtmlLabel6.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel6.ForeColor = Color.WhiteSmoke;
-            guna2HtmlLabel6.Location = new Point(0, 0);
-            guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(459, 20);
-            guna2HtmlLabel6.TabIndex = 49;
-            guna2HtmlLabel6.Text = "Totales";
-            guna2HtmlLabel6.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
             // ViajesConsolidadosForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -248,7 +187,6 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1268, 688);
-            Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel10);
             Controls.Add(guna2Panel5);
@@ -262,7 +200,6 @@
             ((System.ComponentModel.ISupportInitialize)gridViewProgramas).EndInit();
             guna2Panel10.ResumeLayout(false);
             guna2Panel3.ResumeLayout(false);
-            guna2Panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -278,9 +215,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtEntrega;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtCarga;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
     }
 }

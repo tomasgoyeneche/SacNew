@@ -145,12 +145,6 @@ namespace GestionFlota.Views
             await _presenter.ImportarProgramaAsync();
         }
 
-        private async void gridViewAsignados_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo)
-                await _presenter.AbrirAsignarCargaAsync(cupeo);
-        }
-
         private void gridViewHistorico_DoubleClick(object sender, EventArgs e)
         {
             if (gridViewHistorico.GetFocusedRow() is HistorialGeneralDto historico)
@@ -159,21 +153,25 @@ namespace GestionFlota.Views
             }
         }
 
-        private async void gridViewDisp_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo)
-                await _presenter.AbrirAsignarManual(cupeo);
-        }
-
         private async void bVerPrograma_Click(object sender, EventArgs e)
         {
             await _presenter.VerProgramaAsync();
         }
 
-        //private async void gridViewVacios_DoubleClick(object sender, EventArgs e)
-        //{
-        //    if (gridViewAsignados.GetFocusedRow() is Cupeo cupeo)
-        //        await _presenter.AbrirModificacionPrograma(cupeo);
-        //}
+        private async void gridViewAsignados_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo) // Es doble click sobre una celda válida
+            {
+                await _presenter.AbrirAsignarCargaAsync(cupeo);
+            }
+        }
+
+        private async void gridViewDisp_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo) // Es doble click sobre una celda válida
+            {
+                await _presenter.AbrirAsignarManual(cupeo);
+            }
+        }
     }
 }

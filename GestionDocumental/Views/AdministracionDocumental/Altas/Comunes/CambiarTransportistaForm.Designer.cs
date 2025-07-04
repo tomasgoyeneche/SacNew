@@ -43,10 +43,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -166,7 +166,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // 
             // btnAgregar
             // 
-            btnAgregar.CustomizableEdges = customizableEdges5;
+            btnAgregar.CustomizableEdges = customizableEdges1;
             btnAgregar.DisabledState.BorderColor = Color.DarkGray;
             btnAgregar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAgregar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -176,7 +176,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(190, 492);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnAgregar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnAgregar.Size = new Size(136, 39);
             btnAgregar.TabIndex = 77;
             btnAgregar.Text = "Guardar";
@@ -198,7 +198,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // cmbEmpresas
             // 
             cmbEmpresas.BackColor = Color.Transparent;
-            cmbEmpresas.CustomizableEdges = customizableEdges1;
+            cmbEmpresas.CustomizableEdges = customizableEdges5;
             cmbEmpresas.DrawMode = DrawMode.OwnerDrawFixed;
             cmbEmpresas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEmpresas.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -209,15 +209,17 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             cmbEmpresas.ItemHeight = 30;
             cmbEmpresas.Location = new Point(32, 273);
             cmbEmpresas.Name = "cmbEmpresas";
-            cmbEmpresas.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            cmbEmpresas.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmbEmpresas.Size = new Size(294, 36);
             cmbEmpresas.TabIndex = 79;
             // 
             // CambiarTransportistaForm
             // 
+            AcceptButton = btnAgregar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 48, 56);
+            CancelButton = guna2Button1;
             ClientSize = new Size(800, 600);
             Controls.Add(guna2HtmlLabel11);
             Controls.Add(cmbEmpresas);

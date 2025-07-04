@@ -14,9 +14,16 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM vw_Ruteo";
 
+            // Puedes parametrizar el timeout si querés, acá lo dejo en 120 segundos
+            int commandTimeout = 120;
+
             return await ConectarAsync(async connection =>
             {
-                var ruteo = await connection.QueryAsync<Ruteo>(query);
+                var ruteo = await connection.QueryAsync<Ruteo>(
+                    sql: query,
+                    param: null,
+                    commandTimeout: commandTimeout
+                );
                 return ruteo.ToList();
             });
         }

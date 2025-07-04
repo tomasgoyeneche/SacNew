@@ -31,6 +31,15 @@ namespace GestionOperativa
 
         public void MostrarGuardia(List<GuardiaDto> guardias)
         {
+            dtpIngreso.EditValueChanged -= dtpIngreso_EditValueChanged;
+            dtpIngreso.EditValue = DateTime.Now;
+            dtpIngreso.EditValueChanged += dtpIngreso_EditValueChanged;
+
+            dtpSalida.EditValueChanged -= dtpSalida_EditValueChanged;
+            dtpSalida.EditValue = DateTime.Now;
+            dtpSalida.EditValueChanged += dtpSalida_EditValueChanged;
+            txtPatente.Text = string.Empty;
+
             gridControlGuardia.DataSource = guardias;
 
             var view = gridViewGuardia;
@@ -192,7 +201,23 @@ namespace GestionOperativa
         {
             if (gridViewGuardia.GetFocusedRow() is GuardiaDto guardia)
             {
-                await _presenter.AbrirCambioEstadoAsync(guardia);
+                int idGuardiaIngreso = guardia.IdGuardiaIngreso; // Guardás antes de abrir
+                await _presenter.AbrirCambioEstadoAsync(guardia, idGuardiaIngreso);
+            }
+        }
+
+        public void SeleccionarGuardiaPorId(int idGuardia)
+        {
+            var view = gridViewGuardia;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Shared.Models.GuardiaDto;
+                if (row != null && row.IdGuardiaIngreso == idGuardia)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
             }
         }
 

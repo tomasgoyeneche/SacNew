@@ -53,12 +53,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             bMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -402,7 +402,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges5;
+            btnCancelar.CustomizableEdges = customizableEdges3;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -413,7 +413,7 @@
             btnCancelar.Location = new Point(23, 536);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCancelar.Size = new Size(193, 50);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
@@ -422,7 +422,7 @@
             // btnGuardar
             // 
             btnGuardar.AnimatedGIF = true;
-            btnGuardar.CustomizableEdges = customizableEdges3;
+            btnGuardar.CustomizableEdges = customizableEdges1;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -433,7 +433,7 @@
             btnGuardar.Location = new Point(243, 536);
             btnGuardar.Margin = new Padding(4, 3, 4, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnGuardar.Size = new Size(192, 50);
             btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
@@ -461,13 +461,13 @@
             // 
             // guna2GradientPanel1
             // 
-            guna2GradientPanel1.CustomizableEdges = customizableEdges1;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges5;
             guna2GradientPanel1.Dock = DockStyle.Right;
             guna2GradientPanel1.FillColor2 = Color.Orange;
             guna2GradientPanel1.Location = new Point(448, 27);
             guna2GradientPanel1.Margin = new Padding(4, 3, 4, 3);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2GradientPanel1.Size = new Size(352, 573);
             guna2GradientPanel1.TabIndex = 41;
             // 
@@ -506,9 +506,11 @@
             // 
             // AgregarEditarPoc
             // 
+            AcceptButton = btnGuardar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 29, 35);
+            CancelButton = btnCancelar;
             ClientSize = new Size(800, 600);
             Controls.Add(cmbChofer);
             Controls.Add(cmbNomina);

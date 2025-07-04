@@ -103,7 +103,7 @@
             cmbDestino.Properties.Appearance.Options.UseFont = true;
             cmbDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbDestino.Size = new Size(354, 26);
-            cmbDestino.TabIndex = 63;
+            cmbDestino.TabIndex = 4;
             // 
             // guna2HtmlLabel1
             // 
@@ -128,7 +128,7 @@
             cmbOrigen.Properties.Appearance.Options.UseFont = true;
             cmbOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbOrigen.Size = new Size(354, 26);
-            cmbOrigen.TabIndex = 61;
+            cmbOrigen.TabIndex = 2;
             cmbOrigen.EditValueChanged += cmbOrigen_EditValueChanged;
             // 
             // lblOrigen
@@ -182,7 +182,7 @@
             txtObservaciones.SelectedText = "";
             txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtObservaciones.Size = new Size(354, 78);
-            txtObservaciones.TabIndex = 66;
+            txtObservaciones.TabIndex = 5;
             // 
             // cmbCupo
             // 
@@ -193,7 +193,7 @@
             cmbCupo.Properties.Appearance.Options.UseFont = true;
             cmbCupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbCupo.Size = new Size(175, 26);
-            cmbCupo.TabIndex = 69;
+            cmbCupo.TabIndex = 3;
             // 
             // guna2HtmlLabel2
             // 
@@ -268,7 +268,7 @@
             bCancelar.Location = new Point(34, 508);
             bCancelar.Name = "bCancelar";
             bCancelar.Size = new Size(161, 41);
-            bCancelar.TabIndex = 72;
+            bCancelar.TabIndex = 7;
             bCancelar.Text = "Cancelar";
             bCancelar.Click += bCancelar_Click;
             // 
@@ -281,7 +281,7 @@
             bGuardar.Location = new Point(227, 508);
             bGuardar.Name = "bGuardar";
             bGuardar.Size = new Size(161, 41);
-            bGuardar.TabIndex = 71;
+            bGuardar.TabIndex = 6;
             bGuardar.Text = "Guardar";
             bGuardar.Click += bGuardar_Click;
             // 
@@ -318,7 +318,7 @@
             dateEditFecha.Properties.MinDate = new DateOnly(2025, 6, 10);
             dateEditFecha.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             dateEditFecha.Size = new Size(354, 40);
-            dateEditFecha.TabIndex = 80;
+            dateEditFecha.TabIndex = 1;
             // 
             // lblMantenimientosUnidad
             // 
@@ -402,10 +402,12 @@
             // 
             // AgregarEditarDisponibleForm
             // 
+            AcceptButton = bGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = bCancelar;
             ClientSize = new Size(827, 572);
             Controls.Add(bAgregarObservacion);
             Controls.Add(bCambiarChofer);

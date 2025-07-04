@@ -173,18 +173,6 @@ namespace GestionFlota.Views
             gridControlResumen.DataSource = lista;
         }
 
-        private async void gridViewCargados_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewCargados.GetFocusedRow() is Shared.Models.Ruteo ruteo)
-                await _presenter.AbrirEdicionDePrograma(ruteo);
-        }
-
-        private async void gridViewVacios_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo)
-                await _presenter.AbrirEdicionDePrograma(ruteo);
-        }
-
         private void gridViewHistorico_DoubleClick(object sender, EventArgs e)
         {
             if (gridViewHistorico.GetFocusedRow() is HistorialGeneralDto historico)
@@ -197,6 +185,39 @@ namespace GestionFlota.Views
         {
             await _presenter.ExportarDemoradosAsync();
 
+        }
+
+        private async void gridViewCargados_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewCargados.GetFocusedRow() is Shared.Models.Ruteo ruteo) // Es doble click sobre una celda válida
+            {
+                var idPrograma = ruteo.IdPrograma; // Guardás antes de abrir
+                await _presenter.AbrirEdicionDePrograma(ruteo, idPrograma);
+            }
+        }
+
+        private async void gridViewVacios_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo) // Es doble click sobre una celda válida
+            {
+                await _presenter.AbrirEdicionDePrograma(ruteo);
+            }
+        }
+
+
+        public void SeleccionarRuteoCargadoPorId(int idPrograma)
+        {
+            var view = gridViewCargados;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Shared.Models.Ruteo;
+                if (row != null && row.IdPrograma == idPrograma)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
+            }
         }
     }
 }

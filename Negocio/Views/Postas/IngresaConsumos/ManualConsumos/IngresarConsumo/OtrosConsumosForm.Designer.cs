@@ -47,15 +47,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -335,7 +335,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges6;
+            btnCancelar.CustomizableEdges = customizableEdges3;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -345,7 +345,7 @@
             btnCancelar.ForeColor = Color.White;
             btnCancelar.Location = new Point(32, 542);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCancelar.Size = new Size(160, 40);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
@@ -353,7 +353,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.CustomizableEdges = customizableEdges8;
+            btnGuardar.CustomizableEdges = customizableEdges1;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -363,7 +363,7 @@
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(234, 542);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnGuardar.Size = new Size(160, 40);
             btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
@@ -371,12 +371,12 @@
             // 
             // guna2GradientPanel1
             // 
-            guna2GradientPanel1.CustomizableEdges = customizableEdges4;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges8;
             guna2GradientPanel1.Dock = DockStyle.Right;
             guna2GradientPanel1.FillColor2 = Color.Violet;
             guna2GradientPanel1.Location = new Point(416, 35);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
             guna2GradientPanel1.Size = new Size(384, 565);
             guna2GradientPanel1.TabIndex = 81;
             // 
@@ -392,7 +392,7 @@
             btnCalcular.Location = new Point(344, 296);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.PressedState.ImageSize = new Size(55, 40);
-            btnCalcular.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            btnCalcular.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnCalcular.Size = new Size(50, 36);
             btnCalcular.TabIndex = 5;
             btnCalcular.Click += btnCalcular_Click;
@@ -454,7 +454,7 @@
             // 
             // txtCotizacion
             // 
-            txtCotizacion.CustomizableEdges = customizableEdges1;
+            txtCotizacion.CustomizableEdges = customizableEdges5;
             txtCotizacion.DefaultText = "";
             txtCotizacion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCotizacion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -469,7 +469,7 @@
             txtCotizacion.PasswordChar = '\0';
             txtCotizacion.PlaceholderText = "Ingrese Cotizacion";
             txtCotizacion.SelectedText = "";
-            txtCotizacion.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtCotizacion.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtCotizacion.Size = new Size(196, 26);
             txtCotizacion.TabIndex = 11;
             txtCotizacion.Visible = false;
@@ -488,9 +488,11 @@
             // 
             // OtrosConsumosForm
             // 
+            AcceptButton = btnGuardar;
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 53);
+            CancelButton = btnCancelar;
             ClientSize = new Size(800, 600);
             Controls.Add(lblCotizacion);
             Controls.Add(txtCotizacion);

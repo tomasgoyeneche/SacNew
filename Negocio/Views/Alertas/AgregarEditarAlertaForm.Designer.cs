@@ -97,7 +97,7 @@
             txtObservaciones.SelectedText = "";
             txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtObservaciones.Size = new Size(354, 86);
-            txtObservaciones.TabIndex = 57;
+            txtObservaciones.TabIndex = 4;
             // 
             // cmbChofer
             // 
@@ -108,7 +108,7 @@
             cmbChofer.Properties.Appearance.Options.UseFont = true;
             cmbChofer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbChofer.Size = new Size(354, 26);
-            cmbChofer.TabIndex = 56;
+            cmbChofer.TabIndex = 1;
             // 
             // guna2HtmlLabel8
             // 
@@ -133,7 +133,7 @@
             cmbTractor.Properties.Appearance.Options.UseFont = true;
             cmbTractor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbTractor.Size = new Size(354, 26);
-            cmbTractor.TabIndex = 59;
+            cmbTractor.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
@@ -158,7 +158,7 @@
             cmbSemi.Properties.Appearance.Options.UseFont = true;
             cmbSemi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbSemi.Size = new Size(354, 26);
-            cmbSemi.TabIndex = 61;
+            cmbSemi.TabIndex = 3;
             // 
             // guna2HtmlLabel2
             // 
@@ -190,7 +190,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnGuardar.Size = new Size(167, 50);
-            btnGuardar.TabIndex = 63;
+            btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -209,7 +209,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCancelar.Size = new Size(167, 50);
-            btnCancelar.TabIndex = 62;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -252,10 +252,12 @@
             // 
             // AgregarEditarAlertaForm
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(803, 573);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(guna2Panel10);

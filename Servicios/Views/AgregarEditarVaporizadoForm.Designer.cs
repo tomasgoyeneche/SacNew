@@ -667,10 +667,12 @@
             // 
             // AgregarEditarVaporizadoForm
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(808, 578);
             Controls.Add(dtpFin);
             Controls.Add(dtpInicio);

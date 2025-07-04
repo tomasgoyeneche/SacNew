@@ -508,9 +508,11 @@
             // 
             // AgregarEditarConcepto
             // 
+            AcceptButton = btnGuardar;
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 55);
+            CancelButton = btnCancelar;
             ClientSize = new Size(800, 700);
             Controls.Add(guna2PictureBox1);
             Controls.Add(guna2Panel9);

@@ -30,17 +30,17 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaEntidadForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtCampo1 = new Guna.UI2.WinForms.Guna2TextBox();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
             lblCampo1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -58,7 +58,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // 
             // txtCampo1
             // 
-            txtCampo1.CustomizableEdges = customizableEdges11;
+            txtCampo1.CustomizableEdges = customizableEdges1;
             txtCampo1.DefaultText = "";
             txtCampo1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCampo1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -72,22 +72,22 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             txtCampo1.PasswordChar = '\0';
             txtCampo1.PlaceholderText = "";
             txtCampo1.SelectedText = "";
-            txtCampo1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtCampo1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtCampo1.Size = new Size(328, 36);
-            txtCampo1.TabIndex = 0;
+            txtCampo1.TabIndex = 1;
             // 
             // picBoxEntidad
             // 
             picBoxEntidad.BackColor = Color.Transparent;
             picBoxEntidad.BackgroundImage = Resources.admDocumentalTractor;
             picBoxEntidad.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxEntidad.CustomizableEdges = customizableEdges13;
+            picBoxEntidad.CustomizableEdges = customizableEdges3;
             picBoxEntidad.Dock = DockStyle.Right;
             picBoxEntidad.FillColor = Color.FromArgb(120, 0, 0, 0);
             picBoxEntidad.ImageRotate = 0F;
             picBoxEntidad.Location = new Point(422, 0);
             picBoxEntidad.Name = "picBoxEntidad";
-            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges4;
             picBoxEntidad.Size = new Size(376, 568);
             picBoxEntidad.TabIndex = 1;
             picBoxEntidad.TabStop = false;
@@ -118,7 +118,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // 
             // txtCampo2
             // 
-            txtCampo2.CustomizableEdges = customizableEdges15;
+            txtCampo2.CustomizableEdges = customizableEdges5;
             txtCampo2.DefaultText = "";
             txtCampo2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCampo2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -132,9 +132,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             txtCampo2.PasswordChar = '\0';
             txtCampo2.PlaceholderText = "";
             txtCampo2.SelectedText = "";
-            txtCampo2.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtCampo2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtCampo2.Size = new Size(328, 36);
-            txtCampo2.TabIndex = 3;
+            txtCampo2.TabIndex = 2;
             // 
             // lblCampo3
             // 
@@ -150,7 +150,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // 
             // txtCampo3
             // 
-            txtCampo3.CustomizableEdges = customizableEdges17;
+            txtCampo3.CustomizableEdges = customizableEdges7;
             txtCampo3.DefaultText = "";
             txtCampo3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtCampo3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -164,9 +164,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             txtCampo3.PasswordChar = '\0';
             txtCampo3.PlaceholderText = "";
             txtCampo3.SelectedText = "";
-            txtCampo3.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtCampo3.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtCampo3.Size = new Size(328, 36);
-            txtCampo3.TabIndex = 5;
+            txtCampo3.TabIndex = 3;
             // 
             // btnGuardar
             // 
@@ -182,7 +182,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             btnGuardar.Location = new Point(225, 475);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(149, 49);
-            btnGuardar.TabIndex = 7;
+            btnGuardar.TabIndex = 4;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -200,18 +200,18 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             btnCancelar.Location = new Point(46, 475);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(149, 49);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
             // guna2Panel13
             // 
             guna2Panel13.Controls.Add(labelEntidad);
-            guna2Panel13.CustomizableEdges = customizableEdges19;
+            guna2Panel13.CustomizableEdges = customizableEdges9;
             guna2Panel13.FillColor = Color.Coral;
             guna2Panel13.Location = new Point(1, 44);
             guna2Panel13.Name = "guna2Panel13";
-            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel13.Size = new Size(253, 31);
             guna2Panel13.TabIndex = 77;
             // 
@@ -228,10 +228,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             // 
             // AltaEntidadForm
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(42, 48, 56);
             Appearance.Options.UseBackColor = true;
             Appearance.Options.UseFont = true;
             AutoScaleMode = AutoScaleMode.None;
+            CancelButton = btnCancelar;
             ClientSize = new Size(798, 568);
             Controls.Add(guna2Panel13);
             Controls.Add(btnCancelar);

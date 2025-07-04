@@ -151,7 +151,7 @@
             dtpFechaEntrega.Properties.MinDate = new DateOnly(2025, 6, 10);
             dtpFechaEntrega.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             dtpFechaEntrega.Size = new Size(207, 40);
-            dtpFechaEntrega.TabIndex = 89;
+            dtpFechaEntrega.TabIndex = 4;
             // 
             // guna2HtmlLabel4
             // 
@@ -176,7 +176,7 @@
             cmbCupo.Properties.Appearance.Options.UseFont = true;
             cmbCupo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbCupo.Size = new Size(76, 26);
-            cmbCupo.TabIndex = 86;
+            cmbCupo.TabIndex = 1;
             // 
             // guna2HtmlLabel2
             // 
@@ -201,7 +201,7 @@
             cmbDestino.Properties.Appearance.Options.UseFont = true;
             cmbDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbDestino.Size = new Size(438, 26);
-            cmbDestino.TabIndex = 84;
+            cmbDestino.TabIndex = 5;
             // 
             // guna2HtmlLabel1
             // 
@@ -226,7 +226,7 @@
             cmbOrigen.Properties.Appearance.Options.UseFont = true;
             cmbOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbOrigen.Size = new Size(354, 26);
-            cmbOrigen.TabIndex = 82;
+            cmbOrigen.TabIndex = 2;
             cmbOrigen.EditValueChanged += cmbOrigen_EditValueChanged;
             // 
             // lblOrigen
@@ -261,7 +261,7 @@
             dtpFechaCarga.Properties.MinDate = new DateOnly(2025, 6, 10);
             dtpFechaCarga.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             dtpFechaCarga.Size = new Size(207, 40);
-            dtpFechaCarga.TabIndex = 91;
+            dtpFechaCarga.TabIndex = 3;
             // 
             // guna2HtmlLabel3
             // 
@@ -286,7 +286,7 @@
             cmbProducto.Properties.Appearance.Options.UseFont = true;
             cmbProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbProducto.Size = new Size(438, 26);
-            cmbProducto.TabIndex = 93;
+            cmbProducto.TabIndex = 6;
             // 
             // guna2HtmlLabel5
             // 
@@ -311,7 +311,7 @@
             bCancelar.Location = new Point(380, 604);
             bCancelar.Name = "bCancelar";
             bCancelar.Size = new Size(197, 41);
-            bCancelar.TabIndex = 95;
+            bCancelar.TabIndex = 11;
             bCancelar.Text = "Cancelar";
             bCancelar.Click += bCancelar_Click;
             // 
@@ -324,7 +324,7 @@
             bGuardar.Location = new Point(621, 604);
             bGuardar.Name = "bGuardar";
             bGuardar.Size = new Size(197, 41);
-            bGuardar.TabIndex = 94;
+            bGuardar.TabIndex = 10;
             bGuardar.Text = "Guardar";
             bGuardar.Click += btnGuardar_Click;
             // 
@@ -333,7 +333,7 @@
             txtAlbaranDespacho.Location = new Point(380, 420);
             txtAlbaranDespacho.Name = "txtAlbaranDespacho";
             txtAlbaranDespacho.Size = new Size(197, 20);
-            txtAlbaranDespacho.TabIndex = 125;
+            txtAlbaranDespacho.TabIndex = 7;
             // 
             // guna2HtmlLabel6
             // 
@@ -368,7 +368,7 @@
             txtPedidoOr.Location = new Point(621, 420);
             txtPedidoOr.Name = "txtPedidoOr";
             txtPedidoOr.Size = new Size(197, 20);
-            txtPedidoOr.TabIndex = 127;
+            txtPedidoOr.TabIndex = 8;
             // 
             // txtObservaciones
             // 
@@ -393,7 +393,7 @@
             txtObservaciones.SelectedText = "";
             txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtObservaciones.Size = new Size(438, 65);
-            txtObservaciones.TabIndex = 129;
+            txtObservaciones.TabIndex = 9;
             // 
             // guna2HtmlLabel8
             // 
@@ -620,10 +620,12 @@
             // 
             // AgregarProgramaManual
             // 
+            AcceptButton = bGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = bCancelar;
             ClientSize = new Size(1198, 688);
             Controls.Add(bCancelarDisponible);
             Controls.Add(bObservaciones);

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbProducto = new DevExpress.XtraEditors.LookUpEdit();
@@ -55,11 +55,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges5;
+            guna2Panel10.CustomizableEdges = customizableEdges1;
             guna2Panel10.FillColor = Color.MediumSeaGreen;
             guna2Panel10.Location = new Point(1, 14);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel10.Size = new Size(293, 38);
             guna2Panel10.TabIndex = 40;
             // 
@@ -84,7 +84,7 @@
             cmbProducto.Properties.Appearance.Options.UseFont = true;
             cmbProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbProducto.Size = new Size(354, 26);
-            cmbProducto.TabIndex = 75;
+            cmbProducto.TabIndex = 3;
             // 
             // guna2HtmlLabel2
             // 
@@ -109,7 +109,7 @@
             cmbDestino.Properties.Appearance.Options.UseFont = true;
             cmbDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbDestino.Size = new Size(354, 26);
-            cmbDestino.TabIndex = 73;
+            cmbDestino.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
@@ -134,7 +134,7 @@
             cmbOrigen.Properties.Appearance.Options.UseFont = true;
             cmbOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbOrigen.Size = new Size(354, 26);
-            cmbOrigen.TabIndex = 71;
+            cmbOrigen.TabIndex = 1;
             // 
             // lblOrigen
             // 
@@ -198,7 +198,7 @@
             btnConfirmar.Location = new Point(218, 468);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(161, 41);
-            btnConfirmar.TabIndex = 116;
+            btnConfirmar.TabIndex = 4;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.Click += btnConfirmar_Click;
             // 
@@ -207,19 +207,20 @@
             picBoxEntidad.BackColor = Color.Transparent;
             picBoxEntidad.BackgroundImage = Properties.Resources.menuPostasConceptoConsumos;
             picBoxEntidad.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxEntidad.CustomizableEdges = customizableEdges7;
+            picBoxEntidad.CustomizableEdges = customizableEdges3;
             picBoxEntidad.Dock = DockStyle.Right;
             picBoxEntidad.FillColor = Color.FromArgb(120, 0, 0, 0);
             picBoxEntidad.ImageRotate = 0F;
             picBoxEntidad.Location = new Point(408, 0);
             picBoxEntidad.Name = "picBoxEntidad";
-            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            picBoxEntidad.ShadowDecoration.CustomizableEdges = customizableEdges4;
             picBoxEntidad.Size = new Size(390, 568);
             picBoxEntidad.TabIndex = 117;
             picBoxEntidad.TabStop = false;
             // 
             // AsignarCargaForm
             // 
+            AcceptButton = btnConfirmar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);

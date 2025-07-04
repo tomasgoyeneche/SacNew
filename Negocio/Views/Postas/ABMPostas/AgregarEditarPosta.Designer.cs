@@ -43,12 +43,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtCodigo = new Guna.UI2.WinForms.Guna2TextBox();
             txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
             txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
@@ -265,7 +265,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges13;
+            btnCancelar.CustomizableEdges = customizableEdges11;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -275,7 +275,7 @@
             btnCancelar.ForeColor = Color.White;
             btnCancelar.Location = new Point(42, 507);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnCancelar.Size = new Size(130, 40);
             btnCancelar.TabIndex = 21;
             btnCancelar.Text = "Cancelar";
@@ -283,7 +283,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.CustomizableEdges = customizableEdges11;
+            btnGuardar.CustomizableEdges = customizableEdges9;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -293,7 +293,7 @@
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(260, 507);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnGuardar.Size = new Size(130, 40);
             btnGuardar.TabIndex = 22;
             btnGuardar.Text = "Guardar";
@@ -301,20 +301,22 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.CustomizableEdges = customizableEdges9;
+            guna2Panel1.CustomizableEdges = customizableEdges13;
             guna2Panel1.Dock = DockStyle.Right;
             guna2Panel1.FillColor = Color.LightGray;
             guna2Panel1.Location = new Point(437, 24);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel1.Size = new Size(363, 576);
             guna2Panel1.TabIndex = 23;
             // 
             // AgregarEditarPosta
             // 
+            AcceptButton = btnGuardar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 44, 55);
+            CancelButton = btnCancelar;
             ClientSize = new Size(800, 600);
             Controls.Add(guna2Panel1);
             Controls.Add(btnGuardar);

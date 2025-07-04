@@ -104,7 +104,7 @@
             dtpFechaFinal.Name = "dtpFechaFinal";
             dtpFechaFinal.ShadowDecoration.CustomizableEdges = customizableEdges2;
             dtpFechaFinal.Size = new Size(167, 38);
-            dtpFechaFinal.TabIndex = 102;
+            dtpFechaFinal.TabIndex = 3;
             dtpFechaFinal.Value = new DateTime(2025, 5, 6, 9, 41, 5, 367);
             dtpFechaFinal.ValueChanged += dtpFechaFinal_ValueChanged;
             // 
@@ -121,7 +121,7 @@
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.ShadowDecoration.CustomizableEdges = customizableEdges4;
             dtpFechaInicio.Size = new Size(167, 38);
-            dtpFechaInicio.TabIndex = 101;
+            dtpFechaInicio.TabIndex = 2;
             dtpFechaInicio.Value = new DateTime(2025, 5, 6, 9, 41, 5, 367);
             dtpFechaInicio.ValueChanged += dtpFechaInicio_ValueChanged;
             // 
@@ -134,7 +134,7 @@
             cmbEstado.Properties.Appearance.Options.UseFont = true;
             cmbEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbEstado.Size = new Size(354, 26);
-            cmbEstado.TabIndex = 99;
+            cmbEstado.TabIndex = 5;
             // 
             // guna2HtmlLabel3
             // 
@@ -166,7 +166,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnGuardar.Size = new Size(167, 50);
-            btnGuardar.TabIndex = 96;
+            btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -185,7 +185,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCancelar.Size = new Size(167, 50);
-            btnCancelar.TabIndex = 95;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -212,7 +212,7 @@
             txtObservaciones.SelectedText = "";
             txtObservaciones.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtObservaciones.Size = new Size(354, 86);
-            txtObservaciones.TabIndex = 94;
+            txtObservaciones.TabIndex = 6;
             // 
             // guna2HtmlLabel7
             // 
@@ -263,7 +263,7 @@
             cmbUnidad.Properties.Appearance.Options.UseFont = true;
             cmbUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cmbUnidad.Size = new Size(354, 26);
-            cmbUnidad.TabIndex = 91;
+            cmbUnidad.TabIndex = 1;
             cmbUnidad.EditValueChanged += cmbUnidad_EditValueChanged;
             // 
             // guna2HtmlLabel8
@@ -324,7 +324,7 @@
             txtOdometro.SelectedText = "";
             txtOdometro.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtOdometro.Size = new Size(167, 30);
-            txtOdometro.TabIndex = 105;
+            txtOdometro.TabIndex = 4;
             // 
             // guna2HtmlLabel4
             // 
@@ -369,10 +369,12 @@
             // 
             // AgregarEditarNovedadUnidadForm
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar;
             ClientSize = new Size(803, 573);
             Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2HtmlLabel5);

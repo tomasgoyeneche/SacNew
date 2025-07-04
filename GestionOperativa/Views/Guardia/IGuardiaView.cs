@@ -16,6 +16,7 @@ namespace GestionOperativa
         void MostrarVencimientos(List<VencimientosDto> vencimientos);
 
         void MostrarAlertas(List<AlertaDto> alertas);
+        void SeleccionarGuardiaPorId(int idGuardia);
 
         string PatenteIngresada { get; set; }
         DateTime? FechaManual { get; } // null si no se eligió

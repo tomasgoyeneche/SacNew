@@ -198,7 +198,7 @@
             cmbPeriodos.Name = "cmbPeriodos";
             cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges12;
             cmbPeriodos.Size = new Size(274, 36);
-            cmbPeriodos.TabIndex = 55;
+            cmbPeriodos.TabIndex = 1;
             // 
             // guna2Button1
             // 

@@ -280,7 +280,7 @@ namespace GestionOperativa.Views
             await _presenter.AbrirVaporizados("0011-Vaporizados");
         }
 
-        private void bControlMetanol_Click(object sender, EventArgs e)
+        private async void bControlMetanol_Click(object sender, EventArgs e)
         {
             string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
                "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
@@ -315,7 +315,7 @@ namespace GestionOperativa.Views
             await _presenter.ExportarTransoftMetanolAsync(desde, hasta);
         }
 
-        private void bOtrasCargas_Click(object sender, EventArgs e)
+        private async void bOtrasCargas_Click(object sender, EventArgs e)
         {
             string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
              "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",

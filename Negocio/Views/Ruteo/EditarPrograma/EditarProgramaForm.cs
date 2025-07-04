@@ -18,6 +18,12 @@ namespace GestionFlota.Views
 
         public void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa)
         {
+
+
+            // Agregar IF cuando haya posibilidad de cargar programa exterior
+            pAduanaArg.Visible = false;
+            pAduanaExt.Visible = false;
+
             // Label de edición
             lblEditarPrograma.Text = programa != null
                 ? $"Editar Programa n°: {programa.IdPrograma}"
@@ -66,8 +72,6 @@ namespace GestionFlota.Views
 
             // Paneles visibles según existencia de programa
             pCarga.Visible = pEntrega.Visible =
-                pAduanaArg.Visible =
-                pAduanaExt.Visible =
                 bSubirRemitoCargaPdf.Visible =
                 bSubirRemitoEntregaPdf.Visible =
                 bSubirOtrosDocs.Visible =

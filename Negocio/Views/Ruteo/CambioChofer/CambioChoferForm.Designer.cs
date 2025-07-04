@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlChoferes = new DevExpress.XtraGrid.GridControl();
@@ -76,11 +76,11 @@
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.Controls.Add(guna2HtmlLabel3);
             guna2Panel5.Controls.Add(gridControlChoferes);
-            guna2Panel5.CustomizableEdges = customizableEdges9;
+            guna2Panel5.CustomizableEdges = customizableEdges1;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel5.Location = new Point(24, 69);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel5.Size = new Size(752, 230);
             guna2Panel5.TabIndex = 44;
             // 
@@ -151,11 +151,11 @@
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.Controls.Add(guna2HtmlLabel1);
             guna2Panel1.Controls.Add(gridControlNovedades);
-            guna2Panel1.CustomizableEdges = customizableEdges11;
+            guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(24, 374);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(752, 129);
             guna2Panel1.TabIndex = 51;
             // 
@@ -260,7 +260,7 @@
             // txtObservacion
             // 
             txtObservacion.BackColor = Color.FromArgb(26, 29, 35);
-            txtObservacion.CustomizableEdges = customizableEdges13;
+            txtObservacion.CustomizableEdges = customizableEdges5;
             txtObservacion.DefaultText = "";
             txtObservacion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtObservacion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -277,18 +277,18 @@
             txtObservacion.PlaceholderText = "Ingrese Novedad (Opcional)";
             txtObservacion.RightToLeft = RightToLeft.No;
             txtObservacion.SelectedText = "";
-            txtObservacion.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtObservacion.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtObservacion.Size = new Size(752, 22);
-            txtObservacion.TabIndex = 78;
+            txtObservacion.TabIndex = 1;
             // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges15;
+            guna2Panel10.CustomizableEdges = customizableEdges7;
             guna2Panel10.FillColor = Color.Goldenrod;
             guna2Panel10.Location = new Point(1, 15);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 79;
             // 
@@ -358,14 +358,16 @@
             dateEditFechaCambio.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             dateEditFechaCambio.Properties.MaskSettings.Set("mask", "g");
             dateEditFechaCambio.Size = new Size(177, 26);
-            dateEditFechaCambio.TabIndex = 120;
+            dateEditFechaCambio.TabIndex = 0;
             // 
             // CambioChoferForm
             // 
+            AcceptButton = bGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = bCancelar;
             ClientSize = new Size(798, 568);
             Controls.Add(dateEditFechaCambio);
             Controls.Add(bGuardar);

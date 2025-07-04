@@ -193,8 +193,9 @@
             gridViewVacios.OptionsBehavior.Editable = false;
             gridViewVacios.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewVacios.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewVacios.RowCellClick += gridViewVacios_RowCellClick;
             gridViewVacios.FocusedRowChanged += gridViewVacios_FocusedRowChanged;
-            gridViewVacios.DoubleClick += gridViewVacios_DoubleClick;
+            
             // 
             // gridColumn13
             // 
@@ -580,8 +581,8 @@
             gridViewCargados.OptionsBehavior.Editable = false;
             gridViewCargados.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewCargados.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewCargados.RowCellClick += gridViewCargados_RowCellClick;
             gridViewCargados.FocusedRowChanged += gridViewCargados_FocusedRowChanged;
-            gridViewCargados.DoubleClick += gridViewCargados_DoubleClick;
             // 
             // gridColumn1
             // 
