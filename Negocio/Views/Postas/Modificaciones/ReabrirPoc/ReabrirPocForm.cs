@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using Shared.Models.DTOs;
 
 namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
@@ -55,7 +56,7 @@ namespace GestionFlota.Views.Postas.Modificaciones.ReabrirPoc
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void ReabrirPocForm_Load(object sender, EventArgs e)

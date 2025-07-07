@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using Shared.Models;
 using System.Data;
 
@@ -42,7 +43,7 @@ namespace SacNew.Views.GestionFlota.Postas.ConceptoConsumos
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Evento del botón Buscar

@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AgregarGuardia;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters.AgregarGuardia;
 
 namespace GestionOperativa.Views.AgregarGuardia
 {
@@ -37,7 +38,7 @@ namespace GestionOperativa.Views.AgregarGuardia
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)

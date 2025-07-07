@@ -1,4 +1,5 @@
-﻿using GestionDocumental.Properties;
+﻿using DevExpress.XtraEditors;
+using GestionDocumental.Properties;
 using GestionOperativa.Presenters.AdministracionDocumental.Altas.Tractor;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
@@ -59,7 +60,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)

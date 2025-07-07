@@ -39,18 +39,18 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -140,7 +140,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             // cmbSatelital
             // 
             cmbSatelital.BackColor = Color.Transparent;
-            cmbSatelital.CustomizableEdges = customizableEdges3;
+            cmbSatelital.CustomizableEdges = customizableEdges7;
             cmbSatelital.DrawMode = DrawMode.OwnerDrawFixed;
             cmbSatelital.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSatelital.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -150,9 +150,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             cmbSatelital.ItemHeight = 30;
             cmbSatelital.Location = new Point(197, 325);
             cmbSatelital.Name = "cmbSatelital";
-            cmbSatelital.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            cmbSatelital.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cmbSatelital.Size = new Size(200, 36);
-            cmbSatelital.TabIndex = 78;
+            cmbSatelital.TabIndex = 3;
             // 
             // guna2HtmlLabel5
             // 
@@ -189,7 +189,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             // 
             // btnGuardar
             // 
-            btnGuardar.CustomizableEdges = customizableEdges5;
+            btnGuardar.CustomizableEdges = customizableEdges1;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -199,15 +199,15 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(227, 487);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnGuardar.Size = new Size(170, 40);
-            btnGuardar.TabIndex = 74;
+            btnGuardar.TabIndex = 4;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges7;
+            btnCancelar.CustomizableEdges = customizableEdges3;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -217,9 +217,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             btnCancelar.ForeColor = Color.White;
             btnCancelar.Location = new Point(37, 487);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCancelar.Size = new Size(170, 40);
-            btnCancelar.TabIndex = 73;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -241,7 +241,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             txtClave.SelectedText = "";
             txtClave.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtClave.Size = new Size(200, 36);
-            txtClave.TabIndex = 72;
+            txtClave.TabIndex = 2;
             txtClave.UseSystemPasswordChar = true;
             // 
             // txtUsuario
@@ -262,25 +262,27 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
             txtUsuario.SelectedText = "";
             txtUsuario.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtUsuario.Size = new Size(200, 36);
-            txtUsuario.TabIndex = 70;
+            txtUsuario.TabIndex = 1;
             // 
             // guna2Panel1
             // 
             guna2Panel1.BackgroundImage = Resources.sateliteEmpresaPng;
             guna2Panel1.BackgroundImageLayout = ImageLayout.Center;
-            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.CustomizableEdges = customizableEdges5;
             guna2Panel1.Dock = DockStyle.Right;
             guna2Panel1.Location = new Point(430, 31);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel1.Size = new Size(370, 569);
             guna2Panel1.TabIndex = 79;
             // 
             // AgregarEmpresaSatelitalForm
             // 
+            AcceptButton = btnGuardar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 29, 35);
+            CancelButton = btnCancelar;
             ClientSize = new Size(800, 600);
             Controls.Add(guna2Panel1);
             Controls.Add(cmbSatelital);

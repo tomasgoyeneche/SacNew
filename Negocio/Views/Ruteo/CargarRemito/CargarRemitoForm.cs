@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters.Ruteo;
 using GestionFlota.Views.Ruteo;
 using Shared.Models;
@@ -106,7 +107,7 @@ namespace GestionFlota.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

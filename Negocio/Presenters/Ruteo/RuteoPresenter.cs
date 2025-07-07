@@ -43,7 +43,7 @@ namespace GestionFlota.Presenters
             _excelService = excelService;
         }
 
-        public async Task InicializarAsync(int? idProgramaSeleccionado = null)
+        public async Task InicializarAsync(int? idProgramaSeleccionado = null, int? idNominaSeleccionada = null)
         {
             await EjecutarConCargaAsync(async () =>
             {
@@ -65,6 +65,10 @@ namespace GestionFlota.Presenters
                 if (idProgramaSeleccionado.HasValue)
                 {
                     _view.SeleccionarRuteoCargadoPorId(idProgramaSeleccionado.Value);
+                }
+                else if (idNominaSeleccionada.HasValue)
+                {
+                    _view.SeleccionarRuteoPorNomina(idNominaSeleccionada.Value);
                 }
             });
         }
@@ -89,13 +93,13 @@ namespace GestionFlota.Presenters
             _view.MostrarAlertas(alertas);
         }
 
-        public async Task AbrirEdicionDePrograma(Shared.Models.Ruteo ruteo, int? idProgramaSeleccionado = null)
+        public async Task AbrirEdicionDePrograma(Shared.Models.Ruteo ruteo, int? idProgramaSeleccionado = null, int? idNominaSeleccionada = null)
         {
             await AbrirFormularioAsync<EditarProgramaForm>(async form =>
             {
                 await form._presenter.InicializarAsync(ruteo);
             });
-            await InicializarAsync(idProgramaSeleccionado);
+            await InicializarAsync(idProgramaSeleccionado, idNominaSeleccionada);
         }
 
 

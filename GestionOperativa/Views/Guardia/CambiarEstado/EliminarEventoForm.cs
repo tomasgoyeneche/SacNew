@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 using Shared.Models;
 
 namespace GestionOperativa.Views
@@ -36,7 +37,7 @@ namespace GestionOperativa.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void gridViewHistorial_DoubleClick(object sender, EventArgs e)

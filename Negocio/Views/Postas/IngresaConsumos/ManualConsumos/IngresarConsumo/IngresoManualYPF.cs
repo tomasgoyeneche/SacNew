@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.IngresarConsumo;
 using Shared.Models;
 using Shared.Models.DTOs;
@@ -40,7 +41,7 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.IngresoManual
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public bool HayConsumosValidos()

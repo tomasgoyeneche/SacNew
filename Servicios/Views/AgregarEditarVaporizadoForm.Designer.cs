@@ -593,7 +593,7 @@
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel1.Size = new Size(459, 137);
-            guna2Panel1.TabIndex = 101;
+            guna2Panel1.TabIndex = 6;
             // 
             // guna2HtmlLabel13
             // 
@@ -623,7 +623,7 @@
             panelPresupuesto.Name = "panelPresupuesto";
             panelPresupuesto.ShadowDecoration.CustomizableEdges = customizableEdges26;
             panelPresupuesto.Size = new Size(459, 54);
-            panelPresupuesto.TabIndex = 102;
+            panelPresupuesto.TabIndex = 9;
             // 
             // guna2HtmlLabel10
             // 
@@ -649,7 +649,7 @@
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel3.Size = new Size(459, 56);
-            guna2Panel3.TabIndex = 102;
+            guna2Panel3.TabIndex = 4;
             // 
             // guna2HtmlLabel11
             // 

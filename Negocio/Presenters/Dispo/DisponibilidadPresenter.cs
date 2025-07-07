@@ -36,11 +36,16 @@ namespace GestionFlota.Presenters
             await BuscarDisponibilidadesAsync();
         }
 
-        public async Task BuscarDisponibilidadesAsync()
+        public async Task BuscarDisponibilidadesAsync(int? idNominaSeleccionada = null)
         {
             DateTime fecha = _view.FechaSeleccionada;
             List<Disponibilidad> disponibilidades = await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
             _view.CargarDisponibilidades(disponibilidades);
+
+            if (idNominaSeleccionada.HasValue)
+            {
+                _view.SeleccionarDispoPorNomina(idNominaSeleccionada.Value);
+            }
         }
 
         public async Task CargarVencimientosYAlertasAsync(Disponibilidad dispo)
@@ -69,7 +74,7 @@ namespace GestionFlota.Presenters
             _view.MostrarMensaje(mensaje);
         }
 
-        public async Task IntentarEditarDisponibilidadAsync(Disponibilidad dispo)
+        public async Task IntentarEditarDisponibilidadAsync(Disponibilidad dispo, int? idNominaSeleccionada = null)
         {
             // 1. Cargar alertas y vencimientos
             List<AlertaDto> alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(dispo.IdNomina);
@@ -104,7 +109,7 @@ namespace GestionFlota.Presenters
             {
                 await f._presenter.InicializarAsync(dispo, _view.FechaSeleccionada); // Asumiendo que este presenter espera el dispo a editar
             });
-            await BuscarDisponibilidadesAsync(); // Refrescar lista después de editar
+            await BuscarDisponibilidadesAsync(idNominaSeleccionada); // Refrescar lista después de editar
         }
 
         public async Task MostrarSelectorDeMotivoBajaAsync(Disponibilidad disponibilidad)

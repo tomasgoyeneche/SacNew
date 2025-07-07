@@ -1,4 +1,5 @@
-﻿using Servicios.Presenters;
+﻿using DevExpress.XtraEditors;
+using Servicios.Presenters;
 using Shared.Models;
 
 namespace Servicios
@@ -51,7 +52,7 @@ namespace Servicios
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)

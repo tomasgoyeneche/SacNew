@@ -44,14 +44,6 @@ namespace SacNew.Presenters.AbmUsuarios
             }
         }
 
-        public async Task BuscarUsuariosAsync(string criterio)
-        {
-            await EjecutarConCargaAsync(
-                () => _usuarioRepositorio.BuscarPorCriterioAsync(criterio),
-                _view.CargarUsuarios
-            );
-        }
-
         public async Task AgregarUsuario()
         {
             await AbrirFormularioAsync<AgregarEditarUsuarioForm>(async form =>

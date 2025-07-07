@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 using Shared.Models;
 using System.IO;
 
@@ -36,7 +37,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void ConfigurarRutaArchivoArt(string rutaArchivo)

@@ -127,7 +127,7 @@ namespace GestionFlota.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void dateEditCarga_EditValueChanged(object sender, EventArgs e)

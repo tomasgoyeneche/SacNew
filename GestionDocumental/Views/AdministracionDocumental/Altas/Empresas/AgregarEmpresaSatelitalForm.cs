@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 using Shared.Models;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
@@ -38,7 +39,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Empresas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -1,5 +1,7 @@
 ﻿using App.Presenters;
 using App.Views;
+using Configuraciones.Views.AbmUsuarios;
+using DevExpress.XtraEditors;
 using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
@@ -26,7 +28,7 @@ namespace SacNew.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarDiaDeHoy(string dia)
@@ -46,7 +48,7 @@ namespace SacNew.Views
 
         private void bAbmUsuar_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirFormularioConPermisosAsync<MenuUsuariosForm>("0020-AbmUsuarios");
+            _presenter.AbrirFormularioConPermisosAsync<MenuUsuarioForm>("0020-AbmUsuarios");
         }
 
         private void bAbmLocaciones_Click(object sender, EventArgs e)

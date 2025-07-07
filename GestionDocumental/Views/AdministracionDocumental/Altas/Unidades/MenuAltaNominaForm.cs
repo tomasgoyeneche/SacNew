@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AdministracionDocumental;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters.AdministracionDocumental;
 using Shared.Models;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
@@ -52,7 +53,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ConfigurarColumnasDataGrid()

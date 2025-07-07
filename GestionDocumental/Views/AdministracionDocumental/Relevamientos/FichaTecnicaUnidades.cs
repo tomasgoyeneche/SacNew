@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AdministracionDocumental;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters.AdministracionDocumental;
 using Shared.Models;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
@@ -72,7 +73,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void cmbTransportistas_SelectedIndexChanged(object sender, EventArgs e)

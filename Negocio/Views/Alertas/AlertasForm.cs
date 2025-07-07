@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using Shared.Models;
 
 namespace GestionFlota.Views.Alertas
@@ -44,7 +45,7 @@ namespace GestionFlota.Views.Alertas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)

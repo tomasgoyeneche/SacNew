@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using SacNew.Interfaces;
 using Shared.Models.DTOs;
 
@@ -41,7 +42,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public DialogResult ConfirmarEliminacion(string mensaje)

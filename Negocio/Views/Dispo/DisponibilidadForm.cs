@@ -146,7 +146,23 @@ namespace GestionFlota.Views
         {
             if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
             {
-                await _presenter.IntentarEditarDisponibilidadAsync(dispo);
+                int idAgregarDispo = dispo.IdNomina;
+                await _presenter.IntentarEditarDisponibilidadAsync(dispo, idAgregarDispo);
+            }
+        }
+
+        public void SeleccionarDispoPorNomina(int IdNomina)
+        {
+            var view = gridViewDisponibles;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Disponibilidad;
+                if (row != null && row.IdNomina == IdNomina)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
             }
         }
 
@@ -162,15 +178,8 @@ namespace GestionFlota.Views
         {
             if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo) // Es doble click sobre una celda válida
             {
-                await _presenter.IntentarEditarDisponibilidadAsync(dispo);
-            }
-        }
-
-        private async void gridViewDisponibles_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
-            {
-                await _presenter.IntentarEditarDisponibilidadAsync(dispo);
+                int idAgregarDispo = dispo.IdNomina;
+                await _presenter.IntentarEditarDisponibilidadAsync(dispo, idAgregarDispo);
             }
         }
 

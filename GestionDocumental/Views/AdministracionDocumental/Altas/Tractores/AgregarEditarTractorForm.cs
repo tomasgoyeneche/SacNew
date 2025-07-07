@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.Tractor;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters.Tractor;
 using Guna.UI2.WinForms;
 using Shared.Models;
 using System.Diagnostics;
@@ -130,7 +131,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void bTitulo_Click(object sender, EventArgs e)

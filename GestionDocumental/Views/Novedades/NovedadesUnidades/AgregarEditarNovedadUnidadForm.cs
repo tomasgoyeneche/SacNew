@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters.Novedades;
 using GestionDocumental.Views.Novedades.NovedadesUnidades;
 using Shared.Models;
@@ -52,6 +53,8 @@ namespace GestionDocumental.Views.Novedades
             cmbUnidad.Properties.Columns.Clear();
             cmbUnidad.Properties.Columns.Add(new LookUpColumnInfo("PatenteCompleta", "Unidad"));
 
+            dtpFechaFinal.Value = DateTime.Now.AddDays(1);
+            dtpFechaInicio.Value = DateTime.Now;
             cmbUnidad.EditValue = _presenter.NovedadActual?.idUnidad ?? -1;
         }
 
@@ -87,7 +90,7 @@ namespace GestionDocumental.Views.Novedades
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarDiasAusente(int dias)

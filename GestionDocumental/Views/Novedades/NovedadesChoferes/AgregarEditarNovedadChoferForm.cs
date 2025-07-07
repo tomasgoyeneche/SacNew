@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters;
 using Shared.Models;
 
@@ -46,6 +47,8 @@ namespace GestionDocumental.Views
             cmbChofer.Properties.Columns.Clear();
             cmbChofer.Properties.Columns.Add(new LookUpColumnInfo("NombreApellido", "Chofer"));
 
+            dtpFechaFinal.Value = DateTime.Now.AddDays(1);
+            dtpFechaInicio.Value = DateTime.Now;
             cmbChofer.EditValue = _presenter.NovedadActual?.idChofer ?? -1;
         }
 
@@ -92,7 +95,7 @@ namespace GestionDocumental.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarDiasAusente(int dias)

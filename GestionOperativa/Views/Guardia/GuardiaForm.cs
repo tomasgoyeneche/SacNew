@@ -128,7 +128,7 @@ namespace GestionOperativa
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void dtpIngreso_EditValueChanged(object sender, EventArgs e)

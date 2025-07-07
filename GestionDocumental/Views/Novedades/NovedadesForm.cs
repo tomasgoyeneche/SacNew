@@ -1,4 +1,5 @@
-﻿using GestionDocumental.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionDocumental.Presenters;
 
 namespace GestionDocumental.Views
 {
@@ -60,7 +61,7 @@ namespace GestionDocumental.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)

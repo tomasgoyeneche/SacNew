@@ -1,4 +1,5 @@
-﻿using SacNew.Presenters;
+﻿using DevExpress.XtraEditors;
+using SacNew.Presenters;
 using Shared.Models;
 using System.Data;
 
@@ -54,7 +55,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public DialogResult ConfirmarEliminacion(string mensaje)

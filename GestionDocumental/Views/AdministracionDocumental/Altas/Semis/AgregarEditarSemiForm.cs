@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 using Guna.UI2.WinForms;
 using Shared.Models;
 using System.IO;
@@ -139,7 +140,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void bTitulo_Click(object sender, EventArgs e)

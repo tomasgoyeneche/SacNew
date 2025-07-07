@@ -19,6 +19,8 @@ namespace GestionFlota.Views
 
         void MostrarAlertas(List<AlertaDto> alertas);
 
+        void SeleccionarDispoPorNomina(int idNominaSeleccionada);
+
         void Close();
     }
 }

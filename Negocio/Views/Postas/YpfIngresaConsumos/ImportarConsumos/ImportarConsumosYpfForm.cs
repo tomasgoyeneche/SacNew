@@ -36,7 +36,7 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarConsumos(List<ImportConsumoYpfEnRuta> consumos)

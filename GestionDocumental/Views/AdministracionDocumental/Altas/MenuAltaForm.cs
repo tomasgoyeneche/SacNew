@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionOperativa.Presenters;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
 {
@@ -29,7 +30,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public string TextoBusqueda => txtBuscar.Text.Trim();

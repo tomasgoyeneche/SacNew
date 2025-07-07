@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters.Informes;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
 
@@ -83,7 +84,7 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void bCancelar_Click(object sender, EventArgs e)

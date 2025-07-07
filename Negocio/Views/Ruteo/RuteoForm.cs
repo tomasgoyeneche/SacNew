@@ -200,7 +200,8 @@ namespace GestionFlota.Views
         {
             if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo) // Es doble click sobre una celda válida
             {
-                await _presenter.AbrirEdicionDePrograma(ruteo);
+                var idNomina = ruteo.IdNomina; // Guardás antes de abrir
+                await _presenter.AbrirEdicionDePrograma(ruteo, null, idNomina);
             }
         }
 
@@ -212,6 +213,22 @@ namespace GestionFlota.Views
             {
                 var row = view.GetRow(i) as Shared.Models.Ruteo;
                 if (row != null && row.IdPrograma == idPrograma)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
+            }
+        }
+
+
+        public void SeleccionarRuteoPorNomina(int idNomina)
+        {
+            var view = gridViewVacios;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Shared.Models.Ruteo;
+                if (row != null && row.IdNomina == idNomina)
                 {
                     view.FocusedRowHandle = i;
                     view.SelectRow(i); // Opcional: resalta la fila

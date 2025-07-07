@@ -20,7 +20,7 @@ namespace GestionOperativa.Views
 
         public void MostrarMensaje(string mensaje)
         {
-            MensajeBox.Show(mensaje);
+            XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MostrarGuardia(List<GuardiaDto> guardias)

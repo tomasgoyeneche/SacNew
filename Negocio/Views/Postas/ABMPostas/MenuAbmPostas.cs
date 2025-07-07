@@ -1,4 +1,5 @@
-﻿using GestionFlota.Presenters;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters;
 using SacNew.Interfaces;
 using Shared.Models;
 
@@ -30,7 +31,7 @@ namespace SacNew.Views.GestionFlota.Postas.ABMPostas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public string TextoBusqueda => txtBuscar.Text.Trim();

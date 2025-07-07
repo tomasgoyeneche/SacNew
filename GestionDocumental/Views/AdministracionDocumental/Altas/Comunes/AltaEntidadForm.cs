@@ -1,4 +1,5 @@
-﻿using GestionDocumental.Properties;
+﻿using DevExpress.XtraEditors;
+using GestionDocumental.Properties;
 using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
@@ -54,7 +55,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Cerrar()

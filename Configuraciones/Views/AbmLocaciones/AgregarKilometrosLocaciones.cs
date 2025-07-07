@@ -1,4 +1,5 @@
-﻿using SacNew.Presenters;
+﻿using DevExpress.XtraEditors;
+using SacNew.Presenters;
 using Shared.Models;
 
 namespace SacNew.Views.Configuraciones.AbmLocaciones
@@ -27,7 +28,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)

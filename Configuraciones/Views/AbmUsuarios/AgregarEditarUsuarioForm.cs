@@ -1,4 +1,5 @@
-﻿using SacNew.Presenters.AbmUsuarios;
+﻿using DevExpress.XtraEditors;
+using SacNew.Presenters.AbmUsuarios;
 using Shared.Models;
 
 namespace SacNew.Views.Configuraciones.AbmUsuarios
@@ -37,7 +38,7 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

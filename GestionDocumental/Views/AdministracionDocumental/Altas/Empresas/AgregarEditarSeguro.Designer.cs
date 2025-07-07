@@ -123,7 +123,7 @@
             txtNumPoliza.SelectedText = "";
             txtNumPoliza.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtNumPoliza.Size = new Size(328, 36);
-            txtNumPoliza.TabIndex = 79;
+            txtNumPoliza.TabIndex = 4;
             // 
             // cmbCia
             // 
@@ -141,7 +141,7 @@
             cmbCia.Name = "cmbCia";
             cmbCia.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cmbCia.Size = new Size(328, 36);
-            cmbCia.TabIndex = 81;
+            cmbCia.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
@@ -195,7 +195,7 @@
             cmbCobertura.Name = "cmbCobertura";
             cmbCobertura.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cmbCobertura.Size = new Size(328, 36);
-            cmbCobertura.TabIndex = 85;
+            cmbCobertura.TabIndex = 3;
             // 
             // guna2HtmlLabel4
             // 
@@ -225,7 +225,7 @@
             cmbEntidad.Name = "cmbEntidad";
             cmbEntidad.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cmbEntidad.Size = new Size(328, 36);
-            cmbEntidad.TabIndex = 87;
+            cmbEntidad.TabIndex = 1;
             cmbEntidad.SelectedIndexChanged += cmbEntidad_SelectedIndexChanged;
             // 
             // guna2HtmlLabel5
@@ -281,7 +281,7 @@
             btnCancelar.Location = new Point(39, 399);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(328, 49);
-            btnCancelar.TabIndex = 97;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -302,7 +302,7 @@
             dtpVigenciaAnual.ShadowDecoration.CustomizableEdges = customizableEdges12;
             dtpVigenciaAnual.ShowUpDown = true;
             dtpVigenciaAnual.Size = new Size(328, 36);
-            dtpVigenciaAnual.TabIndex = 91;
+            dtpVigenciaAnual.TabIndex = 5;
             dtpVigenciaAnual.Value = new DateTime(2025, 2, 3, 0, 0, 0, 0);
             // 
             // btnGuardar
@@ -319,7 +319,7 @@
             btnGuardar.Location = new Point(426, 399);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(328, 49);
-            btnGuardar.TabIndex = 96;
+            btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -340,7 +340,7 @@
             dtpCertificadoMensual.ShadowDecoration.CustomizableEdges = customizableEdges14;
             dtpCertificadoMensual.ShowUpDown = true;
             dtpCertificadoMensual.Size = new Size(328, 36);
-            dtpCertificadoMensual.TabIndex = 89;
+            dtpCertificadoMensual.TabIndex = 6;
             dtpCertificadoMensual.Value = new DateTime(2025, 2, 3, 0, 0, 0, 0);
             // 
             // guna2Panel2
@@ -369,9 +369,11 @@
             // 
             // AgregarEditarSeguro
             // 
+            AcceptButton = btnGuardar;
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
+            CancelButton = btnCancelar;
             ClientSize = new Size(798, 568);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel13);

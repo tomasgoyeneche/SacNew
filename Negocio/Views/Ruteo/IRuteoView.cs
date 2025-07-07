@@ -18,5 +18,6 @@ namespace GestionFlota.Views
         void MostrarAlertas(List<AlertaDto> alertas);
 
         void SeleccionarRuteoCargadoPorId(int idPrograma);
+        void SeleccionarRuteoPorNomina(int idNomina);
     }
 }

@@ -71,7 +71,7 @@ namespace GestionFlota.Views.Postas.Informes.ConsumoUnidad
 
         public void MostrarMensaje(string mensaje)
         {
-            MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
