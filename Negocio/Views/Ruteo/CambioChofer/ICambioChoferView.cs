@@ -5,7 +5,7 @@ namespace GestionFlota.Views
 {
     public interface ICambioChoferView : IViewConMensajes
     {
-        void CargarChoferes(List<ChoferDto> choferes);
+        void CargarChoferes(List<Chofer> choferes);
 
         void CargarFrancos(List<NovedadesChoferesDto> francos);
 

@@ -5,7 +5,7 @@ namespace GestionFlota.Views
 {
     public interface IEditarProgramaView : IViewConMensajes
     {
-        void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa);
+        void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa, List<ProgramaExtranjero> hitosExtranjero);
 
         void MostrarArchivos(List<ArchivoDocRuteo> archivos);
 

@@ -24,7 +24,7 @@ namespace GestionFlota.Views
         string Albaran { get; }
         string Pedido { get; }
         string Observaciones { get; }
-
+        bool Extranjero { get; }
         void Cerrar();
     }
 }

@@ -16,7 +16,7 @@ namespace GestionFlota.Views
             _presenter.SetView(this);
         }
 
-        public void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa)
+        public void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa, List<ProgramaExtranjero> hitosExtranjero)
         {
 
 
@@ -105,6 +105,55 @@ namespace GestionFlota.Views
                 lblIngresoEntrega.Text = $"Ingreso: {programa.EntregaIngreso?.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
                 lblSalidaEntrega.Text = $"Salida: {programa.EntregaSalida?.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
                 lblRemitoEntrega.Text = $"Remito: {programa.EntregaRemito?.ToString() ?? "-"}";
+
+                if (programa.Extranjero == true)
+                {
+                    pAduanaArg.Visible = true;
+                    pAduanaExt.Visible = true;
+
+                    var llegadaAduanaArg = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 3 && x.IdProgramaTipoEvento == 1);
+                    var salidaAduanaArg = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 3 && x.IdProgramaTipoEvento == 3);
+                    var cruceAduanaArg = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 3 && x.IdProgramaTipoEvento == 4);
+
+                    var llegadaAduanaExt1 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 5 && x.IdProgramaTipoEvento == 1);
+                    var salidaAduanaExt1 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 5 && x.IdProgramaTipoEvento == 3);
+
+                    var llegadaAduanaExt2 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 6 && x.IdProgramaTipoEvento == 1);
+                    var salidaAduanaExt2 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 6 && x.IdProgramaTipoEvento == 3);
+
+                    // Supongamos que tenés controles DateEdit para cada uno:
+                    // ...lo anterior...
+                    dtpLlegadaAduanaArg.EditValue = llegadaAduanaArg?.Fecha;
+                    lblLlegadaAduanaArg.Text = $"Llegada: {llegadaAduanaArg?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpSalidaAduanaArg.EditValue = salidaAduanaArg?.Fecha;
+                    lblSalidaAduanaArg.Text = $"Salida: {salidaAduanaArg?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpCruceAduanaArg.EditValue = cruceAduanaArg?.Fecha;
+                    lblCruceFrontera.Text = $"Cruce: {cruceAduanaArg?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpLlegadaExt1.EditValue = llegadaAduanaExt1?.Fecha;
+                    lblLlegadaAduanaExt01.Text = $"Llegada 1: {llegadaAduanaExt1?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpSalidaExt1.EditValue = salidaAduanaExt1?.Fecha;
+                    lblSalidaAduanaExt01.Text = $"Salida 1: {salidaAduanaExt1?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpLlegadaExt2.EditValue = llegadaAduanaExt2?.Fecha;
+                    lblLlegadaAduanaExt02.Text = $"Llegada 2: {llegadaAduanaExt2?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpSalidaExt2.EditValue = salidaAduanaExt2?.Fecha;
+                    lblSalidaAduanaExt02.Text = $"Salida 2: {salidaAduanaExt2?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+
+                    // Habilitá los botones de eliminar si existe registro
+                    btnEliminarLlegadaAduanaArg.Enabled = llegadaAduanaArg != null;
+                    btnEliminarSalidaAduanaArg.Enabled = salidaAduanaArg != null;
+                    btnEliminarCruceAduanaArg.Enabled = cruceAduanaArg != null;
+                    btnEliminarLlegadaAduanaExt1.Enabled = llegadaAduanaExt1 != null;
+                    btnEliminarSalidaAduanaExt1.Enabled = salidaAduanaExt1 != null;
+                    btnEliminarLlegadaAduanaExt2.Enabled = llegadaAduanaExt2 != null;
+                    btnEliminarSalidaAduanaExt2.Enabled = salidaAduanaExt2 != null;
+                }
             }
             else
             {
@@ -382,6 +431,85 @@ namespace GestionFlota.Views
         private async void bCambiarChofer_Click(object sender, EventArgs e)
         {
             await _presenter.CambiarChoferAsync();
+        }
+
+        private async void btnEliminarLlegadaAduanaArg_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(3, 1, null, "Llegada Aduana Arg");
+        }
+
+        private async void btnEliminarSalidaAduanaArg_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(3, 3, null, "Salida Aduana Arg");
+        }
+
+        private async void btnEliminarCruceAduanaArg_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(3, 4, null, "Cruce Aduana Arg");
+
+        }
+
+        private async void btnEliminarLlegadaAduanaExt1_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(5, 1, null, "Llegada Aduana Ext 01");
+
+        }
+
+        private async void btnEliminarSalidaAduanaExt1_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(5, 3, null, "Salida Aduana Ext 01");
+        }
+
+        private async void btnEliminarLlegadaAduanaExt2_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(6, 1, null, "Llegada Aduana Ext 02");
+        }
+
+        private async void btnEliminarSalidaAduanaExt2_Click(object sender, EventArgs e)
+        {
+            await _presenter.GuardarFechaExtranjeroAsync(6, 3, null, "Salida Aduana Ext 02");
+        }
+
+        private async void dtpLlegadaAduanaArg_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpLlegadaAduanaArg.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(3, 1, fecha, "Llegada Aduana Arg");
+        }
+
+        private async void dtpSalidaAduanaArg_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpSalidaAduanaArg.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(3, 3, fecha, "Salida Aduana Arg");
+        }
+
+        private async void dtpCruceAduanaArg_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpCruceAduanaArg.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(3, 4, fecha, "Cruce Aduana Arg");
+        }
+
+        private async void dtpLlegadaExt1_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpLlegadaExt1.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(5, 1, fecha, "Llegada Aduana Ext 01");
+        }
+
+        private async void dtpSalidaExt1_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpSalidaExt1.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(5, 3, fecha, "Salida Aduana Ext 01");
+        }
+
+        private async void dtpLlegadaExt2_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpLlegadaExt2.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(6, 1, fecha, "Llegada Aduana Ext 02");
+        }
+
+        private async void dtpSalidaExt2_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime? fecha = dtpSalidaExt2.EditValue as DateTime?;
+            await _presenter.GuardarFechaExtranjeroAsync(6, 3, fecha, "Salida Aduana Ext 02");
         }
     }
 }

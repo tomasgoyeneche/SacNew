@@ -1,4 +1,5 @@
-﻿using Core.Base;
+﻿using Configuraciones.Views.AbmUsuarios;
+using Core.Base;
 using Core.Repositories;
 using Core.Services;
 using SacNew.Views.Configuraciones.AbmUsuarios;
@@ -46,7 +47,7 @@ namespace SacNew.Presenters.AbmUsuarios
 
         public async Task AgregarUsuario()
         {
-            await AbrirFormularioAsync<AgregarEditarUsuarioForm>(async form =>
+            await AbrirFormularioAsync<AgregarEditUsuarioForm>(async form =>
             {
                 await form._presenter.InicializarAsync(null);
             });
@@ -55,7 +56,7 @@ namespace SacNew.Presenters.AbmUsuarios
 
         public async Task EditarUsuario(int idUsuario)
         {
-            await AbrirFormularioAsync<AgregarEditarUsuarioForm>(async form =>
+            await AbrirFormularioAsync<AgregarEditUsuarioForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idUsuario);
             });

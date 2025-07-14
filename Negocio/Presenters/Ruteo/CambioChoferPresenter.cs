@@ -10,6 +10,7 @@ namespace GestionFlota.Presenters
     {
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
+        private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         private Nomina _nominaActual;
 
@@ -18,10 +19,13 @@ namespace GestionFlota.Presenters
             INavigationService navigationService,
             INominaRepositorio nominaRepositorio,
             IChoferRepositorio choferRepositorio,
+            IUnidadRepositorio unidadRepositorio,
             IChoferEstadoRepositorio choferEstadoRepositorio
         ) : base(sesionService, navigationService)
         {
+            
             _nominaRepositorio = nominaRepositorio;
+            _unidadRepositorio = unidadRepositorio;
             _choferRepositorio = choferRepositorio;
             _choferEstadoRepositorio = choferEstadoRepositorio;
         }
@@ -29,8 +33,11 @@ namespace GestionFlota.Presenters
         public async Task InicializarAsync(int idNomina)
         {
             _nominaActual = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
+            
+            Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(_nominaActual.IdUnidad);
 
-            var choferes = await _choferRepositorio.ObtenerTodosLosChoferesDto();
+
+            List<Chofer> choferes = await _choferRepositorio.ObtenerTodosLosChoferesPorEmpresa(unidad.IdEmpresa);
             _view.CargarChoferes(choferes);
         }
 

@@ -140,8 +140,8 @@
             // 
             // gridColumn2
             // 
-            gridColumn2.Caption = "Empresa";
-            gridColumn2.FieldName = "Empresa_Nombre";
+            gridColumn2.Caption = "Documento";
+            gridColumn2.FieldName = "Documento";
             gridColumn2.Name = "gridColumn2";
             gridColumn2.Visible = true;
             gridColumn2.VisibleIndex = 2;

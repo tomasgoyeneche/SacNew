@@ -693,6 +693,7 @@
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel6);
             Controls.Add(guna2Panel5);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "DisponibilidadForm";
             SizeGripStyle = SizeGripStyle.Hide;

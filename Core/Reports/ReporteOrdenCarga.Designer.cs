@@ -96,6 +96,7 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
+            this.UltimaDj = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -220,6 +221,7 @@
             this.xrLabel52.StylePriority.UseTextAlignment = false;
             this.xrLabel52.Text = "\r\n";
             this.xrLabel52.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel52.TextFormatString = "{0:dd/MM/yyyy}";
             // 
             // xrLabel51
             // 
@@ -257,8 +259,8 @@
             // 
             this.xrLabel49.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel49.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(\'Precintos: 4 \',\'| Última DJ: VARIABLE \', \'| Vaporizó: NO | \', \'Fecha Desc" +
-                    "arga: \', [FechaEntrega]  )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(\'Precintos: 4 \',\'| Última DJ: \', ?UltimaDj, \'| Vaporizó: NO | \', \'Fecha De" +
+                    "scarga: \',  FormatString(\'{0:dd/MM/yyyy}\',[FechaEntrega]) )")});
             this.xrLabel49.Font = new DevExpress.Drawing.DXFont("Century Gothic", 9F);
             this.xrLabel49.LocationFloat = new DevExpress.Utils.PointFloat(128.3957F, 215.7084F);
             this.xrLabel49.Multiline = true;
@@ -1071,6 +1073,14 @@
             this.objectDataSource1.DataSource = typeof(global::Shared.Models.Cupeo);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
+            // UltimaDj
+            // 
+            this.UltimaDj.AllowNull = true;
+            this.UltimaDj.Description = "ultimaDj";
+            this.UltimaDj.Name = "UltimaDj";
+            this.UltimaDj.ValueInfo = "METANOL";
+            this.UltimaDj.Visible = false;
+            // 
             // ReporteOrdenCarga
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1086,6 +1096,8 @@
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.UltimaDj});
             this.Version = "24.1";
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -1160,5 +1172,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel50;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel53;
+        private DevExpress.XtraReports.Parameters.Parameter UltimaDj;
     }
 }

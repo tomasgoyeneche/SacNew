@@ -1,14 +1,24 @@
 ﻿using DevExpress.XtraEditors;
 using SacNew.Presenters.AbmUsuarios;
+using SacNew.Views.Configuraciones.AbmUsuarios;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace SacNew.Views.Configuraciones.AbmUsuarios
+namespace Configuraciones.Views.AbmUsuarios
 {
-    public partial class AgregarEditarUsuarioForm : Form, IAgregarEditarUsuarioView
+    public partial class AgregarEditUsuarioForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarUsuarioView
     {
         public AgregarEditarUsuarioPresenter _presenter;
 
-        public AgregarEditarUsuarioForm(AgregarEditarUsuarioPresenter presenter)
+        public AgregarEditUsuarioForm(AgregarEditarUsuarioPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -19,6 +29,7 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
         public string Usuario => txtUsuario.Text.Trim();
 
         public string Contrasena => txtContrasena.Text.Trim();
+        public string Contrasena2 => txtContrasena2.Text.Trim();
 
         public int Posta => Convert.ToInt32(cmbPostas.SelectedValue);
 

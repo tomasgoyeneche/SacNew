@@ -63,6 +63,12 @@ namespace SacNew.Presenters.AbmUsuarios
 
                 if (!string.IsNullOrWhiteSpace(_view.Contrasena))
                 {
+                    if (_view.Contrasena != _view.Contrasena2)
+                    {
+                        _view.MostrarMensaje("Las contraseñas no coinciden.");
+                        return;
+                    }
+
                     _usuarioActual.Contrasena = _view.Contrasena;
                 }
 
@@ -76,6 +82,7 @@ namespace SacNew.Presenters.AbmUsuarios
                     await _usuarioRepositorio.ActualizarAsync(_usuarioActual);
                     _view.MostrarMensaje("Usuario actualizado correctamente.");
                 }
+              
             });
         }
     }

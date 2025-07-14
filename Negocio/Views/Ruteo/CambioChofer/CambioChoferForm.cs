@@ -19,7 +19,7 @@ namespace GestionFlota.Views
             bBajarChofer.Click += async (s, e) => await _presenter.BajarChoferAsync();
         }
 
-        public void CargarChoferes(List<ChoferDto> choferes)
+        public void CargarChoferes(List<Chofer> choferes)
         {
             gridControlChoferes.DataSource = choferes;
             gridViewChoferes.BestFitColumns();

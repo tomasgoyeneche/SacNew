@@ -97,7 +97,7 @@ namespace Core.Repositories
 
         public async Task<List<DisponibilidadYPF>> ObtenerDisponibilidadYPFPorFechaAsync(DateTime dispoFecha)
         {
-            var query = "SELECT * FROM vw_DisponibilidadYPF WHERE dispoFecha = @dispoFecha";
+            var query = "SELECT * FROM vw_DisponibilidadYPF WHERE Fecha = @dispoFecha";
             return (await ConectarAsync(conn => conn.QueryAsync<DisponibilidadYPF>(query, new { dispoFecha }))).ToList();
         }
 

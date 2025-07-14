@@ -39,6 +39,9 @@ namespace GestionFlota.Views
         {
             cmbCupo.Properties.DataSource = cupos;
             cmbCupo.Properties.Columns.Clear();
+
+            cmbCupo.EditValue = cupos.Min();
+
         }
 
         public void CargarProductos(List<Producto> productos)

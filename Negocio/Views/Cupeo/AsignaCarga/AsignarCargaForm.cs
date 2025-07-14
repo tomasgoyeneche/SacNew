@@ -55,7 +55,7 @@ namespace GestionFlota.Views
         public int? IdOrigenSeleccionado => cmbOrigen.EditValue as int?;
         public int? IdDestinoSeleccionado => cmbDestino.EditValue as int?;
         public int? IdProductoSeleccionado => cmbProducto.EditValue as int?;
-
+        public bool Extranjero => extranjeroCheck.Checked;
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

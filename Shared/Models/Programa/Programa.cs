@@ -43,5 +43,6 @@
 
         public string? Observaciones { get; set; }
         public int? IdProgramaEstado { get; set; }
+        public bool Extranjero { get; set; } = false;
     }
 }

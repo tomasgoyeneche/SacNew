@@ -33,9 +33,6 @@
     <Compile Update="Views\AbmLocaciones\AgregarProductoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\AbmUsuarios\AgregarEditarUsuarioForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\AbmUsuarios\PermisosUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -27,8 +27,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         public DateTime FechaAlta => dtpFecha.Value;
         public int IdProvincia => (int)cmbProvincia.SelectedValue;
         public int IdLocalidad => (int)cmbLocalidad.SelectedValue;
-        public string Domicilio => txtDomicilio.Text;
-        public string Telefono => txtTelefono.Text;
+        public string Domicilio => txtDomicilio.Text.Trim();
+        public string Telefono => txtTelefono.Text.Trim();
+        public string Celular => txtCelular.Text.Trim();
+
+
 
         public async void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia)
         {
@@ -39,6 +42,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             txtDoc.Text = chofer.Documento;
             txtDomicilio.Text = chofer.Domicilio;
             txtTelefono.Text = chofer.Telefono;
+            txtCelular.Text = chofer.Celular;
 
             dtpFecha.Value = chofer.FechaAlta;
             dtpFechaNac.Value = chofer.FechaNacimiento;

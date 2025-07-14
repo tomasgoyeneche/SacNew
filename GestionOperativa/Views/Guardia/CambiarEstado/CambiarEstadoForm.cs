@@ -46,6 +46,7 @@ namespace GestionOperativa.Views
                 bVaporizado.Visible = false;
                 bReparacion.Visible = false;
                 bReingreso.Visible = false;
+                dtpReingreso.Visible = false;
             }
             else
             {
@@ -54,6 +55,7 @@ namespace GestionOperativa.Views
                 bVaporizado.Visible = true;
                 bReingreso.Visible = true;
                 bReparacion.Visible = true;
+                dtpReingreso.Visible = true;
             }
             bSalidaCompleta.Enabled = guardia.TipoIngreso == 3 ? false : true;
             bSalidaTractor.Enabled = guardia.TipoIngreso == 3 ? false : true;
@@ -143,6 +145,16 @@ namespace GestionOperativa.Views
         private async void bEliminarEvento_Click(object sender, EventArgs e)
         {
             await _presenter.EliminarEventoAsync();
+        }
+
+        private async void bSalidaCarga_Click(object sender, EventArgs e)
+        {
+            await _presenter.RegistrarCambio(false, 4, "Salida Carga");
+        }
+
+        private async void dtpSalidaCarga_EditValueChanged(object sender, EventArgs e)
+        {
+            await _presenter.RegistrarCambio(true, 4, "Salida Carga");
         }
     }
 }

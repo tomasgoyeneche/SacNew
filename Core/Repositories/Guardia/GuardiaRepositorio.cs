@@ -273,6 +273,12 @@ namespace Core.Repositories
                             choferActivo = false;
                             break;
 
+                        case 4: // salida chofer
+                            choferActivo = false;
+                            tractorActivo = false;
+                            semiActivo = false;
+                            break;
+
                         case 5: // salida completa
                             choferActivo = false;
                             tractorActivo = false;

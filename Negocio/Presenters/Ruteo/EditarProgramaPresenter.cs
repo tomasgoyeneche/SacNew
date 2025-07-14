@@ -12,6 +12,7 @@ namespace GestionFlota.Presenters
         private readonly IProgramaRepositorio _programaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IProgramaExtranjeroRepositorio _programaExtranjeroRepositorio; // injectalo por constructor
 
         private Shared.Models.Ruteo _Ruteo;
 
@@ -20,12 +21,14 @@ namespace GestionFlota.Presenters
             IProgramaRepositorio programaRepositorio,
             IAlertaRepositorio alertaRepositorio,
             INominaRepositorio nominaRepositorio,
+            IProgramaExtranjeroRepositorio programaExtranjeroRepositorio,
             INavigationService navigationService)
             : base(sesionService, navigationService)
         {
             _programaRepositorio = programaRepositorio;
             _alertaRepositorio = alertaRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _programaExtranjeroRepositorio = programaExtranjeroRepositorio; // inicializalo aquí
         }
 
         public async Task InicializarAsync(Shared.Models.Ruteo ruteo)
@@ -38,10 +41,17 @@ namespace GestionFlota.Presenters
                 programa = await _programaRepositorio.ObtenerPorIdAsync(ruteo.IdPrograma);
             }
 
+            List<ProgramaExtranjero> hitosExtranjero = new();
+            if (programa?.Extranjero == true)
+            {
+                hitosExtranjero = await _programaExtranjeroRepositorio.ObtenerHitosextranjerosPorProgramaAsync(programa.IdPrograma);
+            }
+
             List<AlertaDto> alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(ruteo.IdNomina);
             _view.MostrarAlertas(alertasNomina);
             // Si necesitás cargar otros datos, hacelo acá antes de mostrar
-            _view.MostrarDatos(ruteo, programa);
+            _view.MostrarDatos(ruteo, programa, hitosExtranjero);
+
             CargarArchivos();
         }
 
@@ -64,7 +74,7 @@ namespace GestionFlota.Presenters
 
         public async Task GuardarFechaProgramaAsync(string campo, DateTime? fechaNueva)
         {
-            await _programaRepositorio.ActualizarFechaYRegistrarAsync(_Ruteo.IdPrograma, campo, fechaNueva, _sesionService.IdUsuario, _Ruteo.IdNomina);
+            await _programaRepositorio.ActualizarFechaYRegistrarAsync(_Ruteo.IdPrograma, campo, fechaNueva, _Ruteo.IdNomina, _sesionService.IdUsuario);
 
             await InicializarAsync(_Ruteo);
         }
@@ -147,6 +157,83 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.InicializarAsync(_Ruteo.IdNomina);
             });
+        }
+
+        public async Task GuardarFechaExtranjeroAsync(
+            int idProgramaTipoPunto,
+            int idProgramaTipoEvento,
+            DateTime? fechaNueva,
+            string evento // Ej: "Llegada Aduana Arg"
+        )
+        {
+            // 1. Buscar si ya existe el registro activo para este punto/evento
+            var hitos = await _programaExtranjeroRepositorio.ObtenerHitosextranjerosPorProgramaAsync(_Ruteo.IdPrograma);
+            var hitoExistente = hitos.FirstOrDefault(x =>
+                x.IdProgramaTipoPunto == idProgramaTipoPunto &&
+                x.IdProgramaTipoEvento == idProgramaTipoEvento);
+
+            decimal? odometro = null;
+            if (fechaNueva.HasValue)
+                odometro = await _programaRepositorio.ObtenerOdometerPorNomina(_Ruteo.IdNomina);
+
+            if (fechaNueva == null)
+            {
+                // Eliminar (baja lógica)
+                if (hitoExistente != null)
+                {
+                    await _programaExtranjeroRepositorio.BajaHitoExtranjeroAsync(hitoExistente.IdProgramaExtranjero);
+
+                    await _programaRepositorio.RegistrarProgramaAsync(
+                        _Ruteo.IdPrograma,
+                        $"Borró {evento}",
+                        hitoExistente.Fecha.ToString("dd/MM/yyyy HH:mm"),
+                        _sesionService.IdUsuario
+                    );
+                }
+            }
+            else
+            {
+                if (hitoExistente == null)
+                {
+                    // Agregar
+                    var nuevoHito = new ProgramaExtranjero
+                    {
+                        IdPrograma = _Ruteo.IdPrograma,
+                        IdProgramaTipoPunto = idProgramaTipoPunto,
+                        IdProgramaTipoEvento = idProgramaTipoEvento,
+                        Odometro = odometro ?? 0,
+                        Fecha = fechaNueva.Value,
+                        Activo = true
+                    };
+                    await _programaExtranjeroRepositorio.InsertarHitoExtranjeroAsync(nuevoHito);
+
+                    await _programaRepositorio.RegistrarProgramaAsync(
+                        _Ruteo.IdPrograma,
+                        $"Agregó {evento}",
+                        fechaNueva.Value.ToString("dd/MM/yyyy HH:mm"),
+                        _sesionService.IdUsuario
+                    );
+                }
+                else
+                {
+                    // Editar
+                    await _programaExtranjeroRepositorio.ActualizarHitoExtranjeroAsync(
+                        hitoExistente.IdProgramaExtranjero,
+                        fechaNueva.Value,
+                        odometro ?? 0
+                    );
+
+                    await _programaRepositorio.RegistrarProgramaAsync(
+                        _Ruteo.IdPrograma,
+                        $"Editó {evento}",
+                        fechaNueva.Value.ToString("dd/MM/yyyy HH:mm"),
+                        _sesionService.IdUsuario
+                    );
+                }
+            }
+
+            // Refrescá la pantalla
+            await InicializarAsync(_Ruteo);
         }
     }
 }

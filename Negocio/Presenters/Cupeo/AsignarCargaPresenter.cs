@@ -85,7 +85,8 @@ namespace GestionFlota.Presenters
                 Observaciones = _cupeoActual.Observaciones,
                 IdProgramaEstado = 1, // Estado "Asignado"
                 FechaCarga = _cupeoActual.FechaCarga,
-                FechaEntrega = _cupeoActual.FechaEntrega
+                FechaEntrega = _cupeoActual.FechaEntrega,
+                Extranjero = _view.Extranjero,
             };
 
             int idPrograma = await _programaRepositorio.InsertarProgramaRetornandoIdAsync(programa);

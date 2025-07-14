@@ -72,7 +72,7 @@ namespace GestionFlota.Views
         public int? IdDestinoSeleccionado => cmbDestino.EditValue as int?;
         public int? IdProductoSeleccionado => cmbProducto.EditValue as int?;
         public int? Cupo => cmbCupo.EditValue as int?;
-
+        public bool Extranjero => extranjeroCheck.Checked;
         public DateTime FechaCarga => dtpFechaCarga.EditValue as DateTime? ?? DateTime.Today;
         public DateTime FechaEntrega => dtpFechaEntrega.EditValue as DateTime? ?? DateTime.Today;
         public string Albaran => txtAlbaranDespacho.Text.Trim();

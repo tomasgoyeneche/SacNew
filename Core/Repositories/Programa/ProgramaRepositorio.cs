@@ -167,7 +167,7 @@ namespace Core.Repositories
                 conn.ExecuteAsync(sql, new { nombreUsuario, idPrograma }));
         }
 
-        private async Task<decimal?> ObtenerOdometerPorNomina(int idNomina)
+        public async Task<decimal?> ObtenerOdometerPorNomina(int idNomina)
         {
             // Busca el odometer más reciente ANTES o IGUAL a la fecha indicada
             var sql = @"
@@ -200,9 +200,9 @@ namespace Core.Repositories
         {
             var query = @"
         INSERT INTO Programa
-        (IdDisponible, IdPedido, IdOrigen, IdProducto, Cupo, AlbaranDespacho, PedidoOr, Observaciones, IdProgramaEstado, FechaCarga, FechaEntrega)
+        (IdDisponible, IdPedido, IdOrigen, IdProducto, Cupo, AlbaranDespacho, PedidoOr, Observaciones, IdProgramaEstado, FechaCarga, FechaEntrega, Extranjero)
         VALUES
-        (@IdDisponible, @IdPedido, @IdOrigen, @IdProducto, @Cupo, @AlbaranDespacho, @PedidoOr, @Observaciones, @IdProgramaEstado, @FechaCarga, @FechaEntrega);
+        (@IdDisponible, @IdPedido, @IdOrigen, @IdProducto, @Cupo, @AlbaranDespacho, @PedidoOr, @Observaciones, @IdProgramaEstado, @FechaCarga, @FechaEntrega, @Extranjero);
         SELECT CAST(SCOPE_IDENTITY() AS int);";
             return await ConectarAsync(conn => conn.ExecuteScalarAsync<int>(query, programa));
         }

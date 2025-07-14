@@ -67,6 +67,7 @@ namespace GestionOperativa.Presenters.Choferes
                 IdEmpresa = _view.idEmpresa,
                 ZonaFria = _view.ZonaFria,
                 FechaAlta = _view.FechaAlta,
+                Celular = _view.Celular,
                 Activo = true
             };
 

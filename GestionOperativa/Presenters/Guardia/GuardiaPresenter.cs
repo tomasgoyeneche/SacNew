@@ -253,6 +253,7 @@ namespace GestionOperativa.Presenters
                 Estado = "Abierta"
             };
 
+            await _nominaRepositorio.RegistrarNominaAsync(nomina.IdNomina, "Ingreso Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
             await _pocRepositorio.AgregarPOCAsync(poc);
             ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
@@ -335,6 +336,7 @@ namespace GestionOperativa.Presenters
                         await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
                     }
                 }
+                await _nominaRepositorio.RegistrarNominaAsync(guardia.IdEntidad, "Salida Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             }
 
             await _guardiaRepositorio.RegistrarSalidaAsync(
@@ -343,6 +345,8 @@ namespace GestionOperativa.Presenters
                 fecha,
                 esManual ? "Salida - Manual" : "Salida"
             );
+
+
 
             _view.MostrarMensaje(esManual ? "Salida manual registrada correctamente." : "Salida registrada correctamente.");
             await InicializarAsync(_idPosta);

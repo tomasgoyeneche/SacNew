@@ -35,6 +35,18 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Chofer?>> ObtenerTodosLosChoferesPorEmpresa(int idEmpresa)
+        {
+            var query = "SELECT * FROM Chofer WHERE Activo = 1 and IdEmpresa = @IdEmpresa";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<Chofer?>(query, new { idEmpresa = idEmpresa });
+                return chofers.ToList();
+            });
+        }
+
+
         public async Task<List<ChoferDto?>> ObtenerTodosLosChoferesDto()
         {
             var query = "SELECT * FROM vw_ChoferesDetalles";
@@ -91,6 +103,7 @@ namespace Core.Repositories
                     IdLocalidad = @IdLocalidad,
                     Domicilio = @Domicilio,
                     Telefono = @Telefono,
+                    Celular = @Celular,
                     idEmpresa = @idEmpresa,
                     ZonaFria = @ZonaFria,
                     FechaAlta = @FechaAlta

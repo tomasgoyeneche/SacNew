@@ -9,6 +9,8 @@ namespace SacNew.Views.Configuraciones.AbmUsuarios
 
         string Usuario { get; }
         string Contrasena { get; }
+        string Contrasena2 { get; }
+
         int Posta { get; }
 
         void CargarPostas(List<Posta?> postas);

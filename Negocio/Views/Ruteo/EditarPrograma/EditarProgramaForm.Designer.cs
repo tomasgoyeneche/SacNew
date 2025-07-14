@@ -157,16 +157,16 @@
             bEliminarLlegadaEntrega = new DevExpress.XtraEditors.SimpleButton();
             bEliminarIngresoEntrega = new DevExpress.XtraEditors.SimpleButton();
             pAduanaArg = new Guna.UI2.WinForms.Guna2Panel();
-            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            btnEliminarLlegadaAduanaArg = new DevExpress.XtraEditors.SimpleButton();
             lblLlegadaAduanaArg = new Label();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            dtpLlegadaAduanaArg = new DevExpress.XtraEditors.DateEdit();
             lblCruceFrontera = new Label();
             lblSalidaAduanaArg = new Label();
-            simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            dateEdit4 = new DevExpress.XtraEditors.DateEdit();
-            dateEdit3 = new DevExpress.XtraEditors.DateEdit();
+            btnEliminarCruceAduanaArg = new DevExpress.XtraEditors.SimpleButton();
+            btnEliminarSalidaAduanaArg = new DevExpress.XtraEditors.SimpleButton();
+            dtpSalidaAduanaArg = new DevExpress.XtraEditors.DateEdit();
+            dtpCruceAduanaArg = new DevExpress.XtraEditors.DateEdit();
             bSubirRemitoCargaPdf = new DevExpress.XtraEditors.SimpleButton();
             bSubirRemitoEntregaPdf = new DevExpress.XtraEditors.SimpleButton();
             bSubirOtrosDocs = new DevExpress.XtraEditors.SimpleButton();
@@ -182,19 +182,19 @@
             lblChofer = new Label();
             lblTractor = new Label();
             pAduanaExt = new Guna.UI2.WinForms.Guna2Panel();
-            simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            btnEliminarLlegadaAduanaExt1 = new DevExpress.XtraEditors.SimpleButton();
             lblLlegadaAduanaExt01 = new Label();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dateEdit5 = new DevExpress.XtraEditors.DateEdit();
+            dtpLlegadaExt1 = new DevExpress.XtraEditors.DateEdit();
             lblLlegadaAduanaExt02 = new Label();
             lblSalidaAduanaExt01 = new Label();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            dateEdit6 = new DevExpress.XtraEditors.DateEdit();
-            dateEdit7 = new DevExpress.XtraEditors.DateEdit();
+            btnEliminarLlegadaAduanaExt2 = new DevExpress.XtraEditors.SimpleButton();
+            btnEliminarSalidaAduanaExt1 = new DevExpress.XtraEditors.SimpleButton();
+            btnEliminarSalidaAduanaExt2 = new DevExpress.XtraEditors.SimpleButton();
+            dtpSalidaExt2 = new DevExpress.XtraEditors.DateEdit();
+            dtpSalidaExt1 = new DevExpress.XtraEditors.DateEdit();
             lblSalidaAduanaExt02 = new Label();
-            dateEdit8 = new DevExpress.XtraEditors.DateEdit();
+            dtpLlegadaExt2 = new DevExpress.XtraEditors.DateEdit();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAlertas).BeginInit();
@@ -220,22 +220,22 @@
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties.CalendarTimeProperties).BeginInit();
             pAduanaArg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit4.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit4.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit3.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit3.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaAduanaArg.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaAduanaArg.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaAduanaArg.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaAduanaArg.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpCruceAduanaArg.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpCruceAduanaArg.Properties.CalendarTimeProperties).BeginInit();
             guna2Panel10.SuspendLayout();
             pAduanaExt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dateEdit5.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit5.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit6.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit6.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit7.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit7.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit8.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit8.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt1.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt2.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt1.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt2.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt2.Properties.CalendarTimeProperties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel2
@@ -830,16 +830,16 @@
             // pAduanaArg
             // 
             pAduanaArg.BackColor = Color.Transparent;
-            pAduanaArg.Controls.Add(simpleButton2);
+            pAduanaArg.Controls.Add(btnEliminarLlegadaAduanaArg);
             pAduanaArg.Controls.Add(lblLlegadaAduanaArg);
             pAduanaArg.Controls.Add(guna2HtmlLabel5);
-            pAduanaArg.Controls.Add(dateEdit1);
+            pAduanaArg.Controls.Add(dtpLlegadaAduanaArg);
             pAduanaArg.Controls.Add(lblCruceFrontera);
             pAduanaArg.Controls.Add(lblSalidaAduanaArg);
-            pAduanaArg.Controls.Add(simpleButton4);
-            pAduanaArg.Controls.Add(simpleButton3);
-            pAduanaArg.Controls.Add(dateEdit4);
-            pAduanaArg.Controls.Add(dateEdit3);
+            pAduanaArg.Controls.Add(btnEliminarCruceAduanaArg);
+            pAduanaArg.Controls.Add(btnEliminarSalidaAduanaArg);
+            pAduanaArg.Controls.Add(dtpSalidaAduanaArg);
+            pAduanaArg.Controls.Add(dtpCruceAduanaArg);
             pAduanaArg.CustomizableEdges = customizableEdges9;
             pAduanaArg.FillColor = Color.FromArgb(42, 48, 56);
             pAduanaArg.Location = new Point(621, 102);
@@ -848,23 +848,24 @@
             pAduanaArg.Size = new Size(240, 260);
             pAduanaArg.TabIndex = 51;
             // 
-            // simpleButton2
+            // btnEliminarLlegadaAduanaArg
             // 
-            simpleButton2.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton2.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.Appearance.Options.UseBackColor = true;
-            simpleButton2.Appearance.Options.UseFont = true;
-            simpleButton2.Appearance.Options.UseForeColor = true;
-            simpleButton2.Appearance.Options.UseTextOptions = true;
-            simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton2.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton2.ImageOptions.SvgImage");
-            simpleButton2.Location = new Point(197, 28);
-            simpleButton2.Name = "simpleButton2";
-            simpleButton2.Size = new Size(38, 37);
-            simpleButton2.TabIndex = 100;
+            btnEliminarLlegadaAduanaArg.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarLlegadaAduanaArg.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarLlegadaAduanaArg.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaArg.Appearance.Options.UseBackColor = true;
+            btnEliminarLlegadaAduanaArg.Appearance.Options.UseFont = true;
+            btnEliminarLlegadaAduanaArg.Appearance.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaArg.Appearance.Options.UseTextOptions = true;
+            btnEliminarLlegadaAduanaArg.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarLlegadaAduanaArg.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaArg.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaArg.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarLlegadaAduanaArg.ImageOptions.SvgImage");
+            btnEliminarLlegadaAduanaArg.Location = new Point(197, 28);
+            btnEliminarLlegadaAduanaArg.Name = "btnEliminarLlegadaAduanaArg";
+            btnEliminarLlegadaAduanaArg.Size = new Size(38, 37);
+            btnEliminarLlegadaAduanaArg.TabIndex = 100;
+            btnEliminarLlegadaAduanaArg.Click += btnEliminarLlegadaAduanaArg_Click;
             // 
             // lblLlegadaAduanaArg
             // 
@@ -891,22 +892,23 @@
             guna2HtmlLabel5.Text = "Aduana - Argentina";
             guna2HtmlLabel5.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // dateEdit1
+            // dtpLlegadaAduanaArg
             // 
-            dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(150, 29);
-            dateEdit1.Name = "dateEdit1";
-            dateEdit1.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit1.Properties.Appearance.Options.UseBackColor = true;
+            dtpLlegadaAduanaArg.EditValue = null;
+            dtpLlegadaAduanaArg.Location = new Point(150, 29);
+            dtpLlegadaAduanaArg.Name = "dtpLlegadaAduanaArg";
+            dtpLlegadaAduanaArg.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpLlegadaAduanaArg.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions9.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions9.SvgImage");
-            dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit1.Size = new Size(36, 36);
-            dateEdit1.TabIndex = 98;
+            dtpLlegadaAduanaArg.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpLlegadaAduanaArg.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpLlegadaAduanaArg.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpLlegadaAduanaArg.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpLlegadaAduanaArg.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpLlegadaAduanaArg.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpLlegadaAduanaArg.Size = new Size(36, 36);
+            dtpLlegadaAduanaArg.TabIndex = 98;
+            dtpLlegadaAduanaArg.EditValueChanged += dtpLlegadaAduanaArg_EditValueChanged;
             // 
             // lblCruceFrontera
             // 
@@ -930,75 +932,79 @@
             lblSalidaAduanaArg.Text = "Salida:";
             lblSalidaAduanaArg.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // simpleButton4
+            // btnEliminarCruceAduanaArg
             // 
-            simpleButton4.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton4.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton4.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton4.Appearance.Options.UseBackColor = true;
-            simpleButton4.Appearance.Options.UseFont = true;
-            simpleButton4.Appearance.Options.UseForeColor = true;
-            simpleButton4.Appearance.Options.UseTextOptions = true;
-            simpleButton4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton4.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton4.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton4.ImageOptions.SvgImage");
-            simpleButton4.Location = new Point(197, 124);
-            simpleButton4.Name = "simpleButton4";
-            simpleButton4.Size = new Size(38, 37);
-            simpleButton4.TabIndex = 93;
+            btnEliminarCruceAduanaArg.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarCruceAduanaArg.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarCruceAduanaArg.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarCruceAduanaArg.Appearance.Options.UseBackColor = true;
+            btnEliminarCruceAduanaArg.Appearance.Options.UseFont = true;
+            btnEliminarCruceAduanaArg.Appearance.Options.UseForeColor = true;
+            btnEliminarCruceAduanaArg.Appearance.Options.UseTextOptions = true;
+            btnEliminarCruceAduanaArg.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarCruceAduanaArg.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarCruceAduanaArg.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarCruceAduanaArg.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarCruceAduanaArg.ImageOptions.SvgImage");
+            btnEliminarCruceAduanaArg.Location = new Point(197, 124);
+            btnEliminarCruceAduanaArg.Name = "btnEliminarCruceAduanaArg";
+            btnEliminarCruceAduanaArg.Size = new Size(38, 37);
+            btnEliminarCruceAduanaArg.TabIndex = 93;
+            btnEliminarCruceAduanaArg.Click += btnEliminarCruceAduanaArg_Click;
             // 
-            // simpleButton3
+            // btnEliminarSalidaAduanaArg
             // 
-            simpleButton3.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton3.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton3.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton3.Appearance.Options.UseBackColor = true;
-            simpleButton3.Appearance.Options.UseFont = true;
-            simpleButton3.Appearance.Options.UseForeColor = true;
-            simpleButton3.Appearance.Options.UseTextOptions = true;
-            simpleButton3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton3.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton3.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton3.ImageOptions.SvgImage");
-            simpleButton3.Location = new Point(197, 75);
-            simpleButton3.Name = "simpleButton3";
-            simpleButton3.Size = new Size(38, 37);
-            simpleButton3.TabIndex = 90;
+            btnEliminarSalidaAduanaArg.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarSalidaAduanaArg.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarSalidaAduanaArg.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaArg.Appearance.Options.UseBackColor = true;
+            btnEliminarSalidaAduanaArg.Appearance.Options.UseFont = true;
+            btnEliminarSalidaAduanaArg.Appearance.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaArg.Appearance.Options.UseTextOptions = true;
+            btnEliminarSalidaAduanaArg.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarSalidaAduanaArg.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaArg.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaArg.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarSalidaAduanaArg.ImageOptions.SvgImage");
+            btnEliminarSalidaAduanaArg.Location = new Point(197, 75);
+            btnEliminarSalidaAduanaArg.Name = "btnEliminarSalidaAduanaArg";
+            btnEliminarSalidaAduanaArg.Size = new Size(38, 37);
+            btnEliminarSalidaAduanaArg.TabIndex = 90;
+            btnEliminarSalidaAduanaArg.Click += btnEliminarSalidaAduanaArg_Click;
             // 
-            // dateEdit4
+            // dtpSalidaAduanaArg
             // 
-            dateEdit4.EditValue = null;
-            dateEdit4.Location = new Point(150, 76);
-            dateEdit4.Name = "dateEdit4";
-            dateEdit4.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit4.Properties.Appearance.Options.UseBackColor = true;
+            dtpSalidaAduanaArg.EditValue = null;
+            dtpSalidaAduanaArg.Location = new Point(150, 76);
+            dtpSalidaAduanaArg.Name = "dtpSalidaAduanaArg";
+            dtpSalidaAduanaArg.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpSalidaAduanaArg.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions10.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions10.SvgImage");
-            dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit4.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit4.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit4.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit4.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit4.Size = new Size(36, 36);
-            dateEdit4.TabIndex = 92;
+            dtpSalidaAduanaArg.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpSalidaAduanaArg.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpSalidaAduanaArg.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpSalidaAduanaArg.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpSalidaAduanaArg.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpSalidaAduanaArg.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpSalidaAduanaArg.Size = new Size(36, 36);
+            dtpSalidaAduanaArg.TabIndex = 92;
+            dtpSalidaAduanaArg.EditValueChanged += dtpSalidaAduanaArg_EditValueChanged;
             // 
-            // dateEdit3
+            // dtpCruceAduanaArg
             // 
-            dateEdit3.EditValue = null;
-            dateEdit3.Location = new Point(150, 124);
-            dateEdit3.Name = "dateEdit3";
-            dateEdit3.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit3.Properties.Appearance.Options.UseBackColor = true;
+            dtpCruceAduanaArg.EditValue = null;
+            dtpCruceAduanaArg.Location = new Point(150, 124);
+            dtpCruceAduanaArg.Name = "dtpCruceAduanaArg";
+            dtpCruceAduanaArg.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpCruceAduanaArg.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions11.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions11.SvgImage");
-            dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit3.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit3.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit3.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit3.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit3.Size = new Size(36, 36);
-            dateEdit3.TabIndex = 91;
+            dtpCruceAduanaArg.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpCruceAduanaArg.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpCruceAduanaArg.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpCruceAduanaArg.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpCruceAduanaArg.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpCruceAduanaArg.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpCruceAduanaArg.Size = new Size(36, 36);
+            dtpCruceAduanaArg.TabIndex = 91;
+            dtpCruceAduanaArg.EditValueChanged += dtpCruceAduanaArg_EditValueChanged;
             // 
             // bSubirRemitoCargaPdf
             // 
@@ -1211,44 +1217,45 @@
             // pAduanaExt
             // 
             pAduanaExt.BackColor = Color.Transparent;
-            pAduanaExt.Controls.Add(simpleButton8);
+            pAduanaExt.Controls.Add(btnEliminarLlegadaAduanaExt1);
             pAduanaExt.Controls.Add(lblLlegadaAduanaExt01);
             pAduanaExt.Controls.Add(guna2HtmlLabel3);
-            pAduanaExt.Controls.Add(dateEdit5);
+            pAduanaExt.Controls.Add(dtpLlegadaExt1);
             pAduanaExt.Controls.Add(lblLlegadaAduanaExt02);
             pAduanaExt.Controls.Add(lblSalidaAduanaExt01);
-            pAduanaExt.Controls.Add(simpleButton1);
-            pAduanaExt.Controls.Add(simpleButton6);
-            pAduanaExt.Controls.Add(simpleButton7);
-            pAduanaExt.Controls.Add(dateEdit6);
-            pAduanaExt.Controls.Add(dateEdit7);
+            pAduanaExt.Controls.Add(btnEliminarLlegadaAduanaExt2);
+            pAduanaExt.Controls.Add(btnEliminarSalidaAduanaExt1);
+            pAduanaExt.Controls.Add(btnEliminarSalidaAduanaExt2);
+            pAduanaExt.Controls.Add(dtpSalidaExt2);
+            pAduanaExt.Controls.Add(dtpSalidaExt1);
             pAduanaExt.Controls.Add(lblSalidaAduanaExt02);
-            pAduanaExt.Controls.Add(dateEdit8);
+            pAduanaExt.Controls.Add(dtpLlegadaExt2);
             pAduanaExt.CustomizableEdges = customizableEdges13;
             pAduanaExt.FillColor = Color.FromArgb(42, 48, 56);
-            pAduanaExt.Location = new Point(877, 102);
+            pAduanaExt.Location = new Point(869, 102);
             pAduanaExt.Name = "pAduanaExt";
             pAduanaExt.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            pAduanaExt.Size = new Size(240, 260);
+            pAduanaExt.Size = new Size(248, 260);
             pAduanaExt.TabIndex = 100;
             // 
-            // simpleButton8
+            // btnEliminarLlegadaAduanaExt1
             // 
-            simpleButton8.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton8.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton8.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton8.Appearance.Options.UseBackColor = true;
-            simpleButton8.Appearance.Options.UseFont = true;
-            simpleButton8.Appearance.Options.UseForeColor = true;
-            simpleButton8.Appearance.Options.UseTextOptions = true;
-            simpleButton8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton8.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton8.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton8.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton8.ImageOptions.SvgImage");
-            simpleButton8.Location = new Point(197, 28);
-            simpleButton8.Name = "simpleButton8";
-            simpleButton8.Size = new Size(38, 37);
-            simpleButton8.TabIndex = 101;
+            btnEliminarLlegadaAduanaExt1.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarLlegadaAduanaExt1.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarLlegadaAduanaExt1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaExt1.Appearance.Options.UseBackColor = true;
+            btnEliminarLlegadaAduanaExt1.Appearance.Options.UseFont = true;
+            btnEliminarLlegadaAduanaExt1.Appearance.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaExt1.Appearance.Options.UseTextOptions = true;
+            btnEliminarLlegadaAduanaExt1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarLlegadaAduanaExt1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaExt1.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaExt1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarLlegadaAduanaExt1.ImageOptions.SvgImage");
+            btnEliminarLlegadaAduanaExt1.Location = new Point(205, 28);
+            btnEliminarLlegadaAduanaExt1.Name = "btnEliminarLlegadaAduanaExt1";
+            btnEliminarLlegadaAduanaExt1.Size = new Size(38, 37);
+            btnEliminarLlegadaAduanaExt1.TabIndex = 101;
+            btnEliminarLlegadaAduanaExt1.Click += btnEliminarLlegadaAduanaExt1_Click;
             // 
             // lblLlegadaAduanaExt01
             // 
@@ -1256,7 +1263,7 @@
             lblLlegadaAduanaExt01.ForeColor = Color.WhiteSmoke;
             lblLlegadaAduanaExt01.Location = new Point(3, 29);
             lblLlegadaAduanaExt01.Name = "lblLlegadaAduanaExt01";
-            lblLlegadaAduanaExt01.Size = new Size(148, 35);
+            lblLlegadaAduanaExt01.Size = new Size(156, 35);
             lblLlegadaAduanaExt01.TabIndex = 99;
             lblLlegadaAduanaExt01.Text = "Llegada 1:";
             lblLlegadaAduanaExt01.TextAlign = ContentAlignment.MiddleLeft;
@@ -1270,27 +1277,28 @@
             guna2HtmlLabel3.ForeColor = Color.Black;
             guna2HtmlLabel3.Location = new Point(0, 0);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(240, 20);
+            guna2HtmlLabel3.Size = new Size(248, 20);
             guna2HtmlLabel3.TabIndex = 49;
             guna2HtmlLabel3.Text = "Aduana - Exterior";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // dateEdit5
+            // dtpLlegadaExt1
             // 
-            dateEdit5.EditValue = null;
-            dateEdit5.Location = new Point(150, 29);
-            dateEdit5.Name = "dateEdit5";
-            dateEdit5.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit5.Properties.Appearance.Options.UseBackColor = true;
+            dtpLlegadaExt1.EditValue = null;
+            dtpLlegadaExt1.Location = new Point(158, 29);
+            dtpLlegadaExt1.Name = "dtpLlegadaExt1";
+            dtpLlegadaExt1.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpLlegadaExt1.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions12.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions12.SvgImage");
-            dateEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit5.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit5.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit5.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit5.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit5.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit5.Size = new Size(36, 36);
-            dateEdit5.TabIndex = 98;
+            dtpLlegadaExt1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpLlegadaExt1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpLlegadaExt1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpLlegadaExt1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpLlegadaExt1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpLlegadaExt1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpLlegadaExt1.Size = new Size(36, 36);
+            dtpLlegadaExt1.TabIndex = 98;
+            dtpLlegadaExt1.EditValueChanged += dtpLlegadaExt1_EditValueChanged;
             // 
             // lblLlegadaAduanaExt02
             // 
@@ -1298,7 +1306,7 @@
             lblLlegadaAduanaExt02.ForeColor = Color.WhiteSmoke;
             lblLlegadaAduanaExt02.Location = new Point(3, 126);
             lblLlegadaAduanaExt02.Name = "lblLlegadaAduanaExt02";
-            lblLlegadaAduanaExt02.Size = new Size(148, 35);
+            lblLlegadaAduanaExt02.Size = new Size(156, 35);
             lblLlegadaAduanaExt02.TabIndex = 96;
             lblLlegadaAduanaExt02.Text = "Llegada 2:";
             lblLlegadaAduanaExt02.TextAlign = ContentAlignment.MiddleLeft;
@@ -1309,98 +1317,103 @@
             lblSalidaAduanaExt01.ForeColor = Color.WhiteSmoke;
             lblSalidaAduanaExt01.Location = new Point(3, 76);
             lblSalidaAduanaExt01.Name = "lblSalidaAduanaExt01";
-            lblSalidaAduanaExt01.Size = new Size(148, 35);
+            lblSalidaAduanaExt01.Size = new Size(156, 35);
             lblSalidaAduanaExt01.TabIndex = 97;
             lblSalidaAduanaExt01.Text = "Salida 1:";
             lblSalidaAduanaExt01.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // simpleButton1
+            // btnEliminarLlegadaAduanaExt2
             // 
-            simpleButton1.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton1.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Appearance.Options.UseForeColor = true;
-            simpleButton1.Appearance.Options.UseTextOptions = true;
-            simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
-            simpleButton1.Location = new Point(197, 124);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(38, 37);
-            simpleButton1.TabIndex = 93;
+            btnEliminarLlegadaAduanaExt2.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarLlegadaAduanaExt2.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarLlegadaAduanaExt2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaExt2.Appearance.Options.UseBackColor = true;
+            btnEliminarLlegadaAduanaExt2.Appearance.Options.UseFont = true;
+            btnEliminarLlegadaAduanaExt2.Appearance.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaExt2.Appearance.Options.UseTextOptions = true;
+            btnEliminarLlegadaAduanaExt2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarLlegadaAduanaExt2.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarLlegadaAduanaExt2.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarLlegadaAduanaExt2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarLlegadaAduanaExt2.ImageOptions.SvgImage");
+            btnEliminarLlegadaAduanaExt2.Location = new Point(205, 124);
+            btnEliminarLlegadaAduanaExt2.Name = "btnEliminarLlegadaAduanaExt2";
+            btnEliminarLlegadaAduanaExt2.Size = new Size(38, 37);
+            btnEliminarLlegadaAduanaExt2.TabIndex = 93;
+            btnEliminarLlegadaAduanaExt2.Click += btnEliminarLlegadaAduanaExt2_Click;
             // 
-            // simpleButton6
+            // btnEliminarSalidaAduanaExt1
             // 
-            simpleButton6.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton6.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton6.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton6.Appearance.Options.UseBackColor = true;
-            simpleButton6.Appearance.Options.UseFont = true;
-            simpleButton6.Appearance.Options.UseForeColor = true;
-            simpleButton6.Appearance.Options.UseTextOptions = true;
-            simpleButton6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton6.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton6.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton6.ImageOptions.SvgImage");
-            simpleButton6.Location = new Point(197, 75);
-            simpleButton6.Name = "simpleButton6";
-            simpleButton6.Size = new Size(38, 37);
-            simpleButton6.TabIndex = 90;
+            btnEliminarSalidaAduanaExt1.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarSalidaAduanaExt1.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarSalidaAduanaExt1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaExt1.Appearance.Options.UseBackColor = true;
+            btnEliminarSalidaAduanaExt1.Appearance.Options.UseFont = true;
+            btnEliminarSalidaAduanaExt1.Appearance.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaExt1.Appearance.Options.UseTextOptions = true;
+            btnEliminarSalidaAduanaExt1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarSalidaAduanaExt1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaExt1.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaExt1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarSalidaAduanaExt1.ImageOptions.SvgImage");
+            btnEliminarSalidaAduanaExt1.Location = new Point(205, 75);
+            btnEliminarSalidaAduanaExt1.Name = "btnEliminarSalidaAduanaExt1";
+            btnEliminarSalidaAduanaExt1.Size = new Size(38, 37);
+            btnEliminarSalidaAduanaExt1.TabIndex = 90;
+            btnEliminarSalidaAduanaExt1.Click += btnEliminarSalidaAduanaExt1_Click;
             // 
-            // simpleButton7
+            // btnEliminarSalidaAduanaExt2
             // 
-            simpleButton7.Appearance.BackColor = Color.WhiteSmoke;
-            simpleButton7.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton7.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton7.Appearance.Options.UseBackColor = true;
-            simpleButton7.Appearance.Options.UseFont = true;
-            simpleButton7.Appearance.Options.UseForeColor = true;
-            simpleButton7.Appearance.Options.UseTextOptions = true;
-            simpleButton7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton7.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton7.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton7.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton7.ImageOptions.SvgImage");
-            simpleButton7.Location = new Point(197, 172);
-            simpleButton7.Name = "simpleButton7";
-            simpleButton7.Size = new Size(38, 37);
-            simpleButton7.TabIndex = 94;
+            btnEliminarSalidaAduanaExt2.Appearance.BackColor = Color.WhiteSmoke;
+            btnEliminarSalidaAduanaExt2.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarSalidaAduanaExt2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaExt2.Appearance.Options.UseBackColor = true;
+            btnEliminarSalidaAduanaExt2.Appearance.Options.UseFont = true;
+            btnEliminarSalidaAduanaExt2.Appearance.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaExt2.Appearance.Options.UseTextOptions = true;
+            btnEliminarSalidaAduanaExt2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnEliminarSalidaAduanaExt2.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnEliminarSalidaAduanaExt2.AppearanceDisabled.Options.UseForeColor = true;
+            btnEliminarSalidaAduanaExt2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEliminarSalidaAduanaExt2.ImageOptions.SvgImage");
+            btnEliminarSalidaAduanaExt2.Location = new Point(205, 172);
+            btnEliminarSalidaAduanaExt2.Name = "btnEliminarSalidaAduanaExt2";
+            btnEliminarSalidaAduanaExt2.Size = new Size(38, 37);
+            btnEliminarSalidaAduanaExt2.TabIndex = 94;
+            btnEliminarSalidaAduanaExt2.Click += btnEliminarSalidaAduanaExt2_Click;
             // 
-            // dateEdit6
+            // dtpSalidaExt2
             // 
-            dateEdit6.EditValue = null;
-            dateEdit6.Location = new Point(150, 173);
-            dateEdit6.Name = "dateEdit6";
-            dateEdit6.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit6.Properties.Appearance.Options.UseBackColor = true;
+            dtpSalidaExt2.EditValue = null;
+            dtpSalidaExt2.Location = new Point(158, 173);
+            dtpSalidaExt2.Name = "dtpSalidaExt2";
+            dtpSalidaExt2.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpSalidaExt2.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions13.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions13.SvgImage");
-            dateEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit6.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit6.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit6.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit6.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit6.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit6.Size = new Size(36, 36);
-            dateEdit6.TabIndex = 89;
+            dtpSalidaExt2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpSalidaExt2.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpSalidaExt2.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpSalidaExt2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpSalidaExt2.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpSalidaExt2.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpSalidaExt2.Size = new Size(36, 36);
+            dtpSalidaExt2.TabIndex = 89;
+            dtpSalidaExt2.EditValueChanged += dtpSalidaExt2_EditValueChanged;
             // 
-            // dateEdit7
+            // dtpSalidaExt1
             // 
-            dateEdit7.EditValue = null;
-            dateEdit7.Location = new Point(150, 76);
-            dateEdit7.Name = "dateEdit7";
-            dateEdit7.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit7.Properties.Appearance.Options.UseBackColor = true;
+            dtpSalidaExt1.EditValue = null;
+            dtpSalidaExt1.Location = new Point(158, 76);
+            dtpSalidaExt1.Name = "dtpSalidaExt1";
+            dtpSalidaExt1.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpSalidaExt1.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions14.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions14.SvgImage");
-            dateEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit7.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit7.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit7.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit7.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit7.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit7.Size = new Size(36, 36);
-            dateEdit7.TabIndex = 92;
+            dtpSalidaExt1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpSalidaExt1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpSalidaExt1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpSalidaExt1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpSalidaExt1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpSalidaExt1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpSalidaExt1.Size = new Size(36, 36);
+            dtpSalidaExt1.TabIndex = 92;
+            dtpSalidaExt1.EditValueChanged += dtpSalidaExt1_EditValueChanged;
             // 
             // lblSalidaAduanaExt02
             // 
@@ -1408,27 +1421,28 @@
             lblSalidaAduanaExt02.ForeColor = Color.WhiteSmoke;
             lblSalidaAduanaExt02.Location = new Point(3, 175);
             lblSalidaAduanaExt02.Name = "lblSalidaAduanaExt02";
-            lblSalidaAduanaExt02.Size = new Size(148, 35);
+            lblSalidaAduanaExt02.Size = new Size(156, 35);
             lblSalidaAduanaExt02.TabIndex = 95;
             lblSalidaAduanaExt02.Text = "Salida 2:";
             lblSalidaAduanaExt02.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // dateEdit8
+            // dtpLlegadaExt2
             // 
-            dateEdit8.EditValue = null;
-            dateEdit8.Location = new Point(150, 124);
-            dateEdit8.Name = "dateEdit8";
-            dateEdit8.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEdit8.Properties.Appearance.Options.UseBackColor = true;
+            dtpLlegadaExt2.EditValue = null;
+            dtpLlegadaExt2.Location = new Point(158, 124);
+            dtpLlegadaExt2.Name = "dtpLlegadaExt2";
+            dtpLlegadaExt2.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dtpLlegadaExt2.Properties.Appearance.Options.UseBackColor = true;
             editorButtonImageOptions15.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions15.SvgImage");
-            dateEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEdit8.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEdit8.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEdit8.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit8.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEdit8.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEdit8.Size = new Size(36, 36);
-            dateEdit8.TabIndex = 91;
+            dtpLlegadaExt2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dtpLlegadaExt2.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dtpLlegadaExt2.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dtpLlegadaExt2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dtpLlegadaExt2.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dtpLlegadaExt2.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dtpLlegadaExt2.Size = new Size(36, 36);
+            dtpLlegadaExt2.TabIndex = 91;
+            dtpLlegadaExt2.EditValueChanged += dtpLlegadaExt2_EditValueChanged;
             // 
             // EditarProgramaForm
             // 
@@ -1486,22 +1500,22 @@
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties).EndInit();
             pAduanaArg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit4.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit4.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit3.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit3.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaAduanaArg.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaAduanaArg.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaAduanaArg.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaAduanaArg.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpCruceAduanaArg.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpCruceAduanaArg.Properties).EndInit();
             guna2Panel10.ResumeLayout(false);
             pAduanaExt.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dateEdit5.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit5.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit6.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit6.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit7.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit7.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit8.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEdit8.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt1.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt2.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt2.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt1.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpSalidaExt1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt2.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtpLlegadaExt2.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -1562,27 +1576,27 @@
         private Label lblChofer;
         private Label lblTractor;
         private Label lblLlegadaAduanaArg;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dtpLlegadaAduanaArg;
         private Label lblCruceFrontera;
         private Label lblSalidaAduanaArg;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.DateEdit dateEdit4;
-        private DevExpress.XtraEditors.DateEdit dateEdit3;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarCruceAduanaArg;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarSalidaAduanaArg;
+        private DevExpress.XtraEditors.DateEdit dtpSalidaAduanaArg;
+        private DevExpress.XtraEditors.DateEdit dtpCruceAduanaArg;
         private Guna.UI2.WinForms.Guna2Panel pAduanaExt;
         private Label lblLlegadaAduanaExt01;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private DevExpress.XtraEditors.DateEdit dateEdit5;
+        private DevExpress.XtraEditors.DateEdit dtpLlegadaExt1;
         private Label lblLlegadaAduanaExt02;
         private Label lblSalidaAduanaExt01;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.DateEdit dateEdit6;
-        private DevExpress.XtraEditors.DateEdit dateEdit7;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaExt2;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarSalidaAduanaExt1;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarSalidaAduanaExt2;
+        private DevExpress.XtraEditors.DateEdit dtpSalidaExt2;
+        private DevExpress.XtraEditors.DateEdit dtpSalidaExt1;
         private Label lblSalidaAduanaExt02;
-        private DevExpress.XtraEditors.DateEdit dateEdit8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.DateEdit dtpLlegadaExt2;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaArg;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaExt1;
     }
 }

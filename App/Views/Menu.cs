@@ -98,7 +98,7 @@ namespace SacNew.Views
 
         private void bAdministracionPh_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirAdministracion("0027 - AdministracionPH", 3);
+            _presenter.AbrirAdministracion("0027-AdministracionPH", 3);
         }
 
         private void bVaporizados_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace SacNew.Views
 
         private void bViajesRemitos_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirViajesYRemitos("0010 - ViajesYRemitos");
+            _presenter.AbrirViajesYRemitos("0010-ViajesYRemitos");
         }
     }
 }
