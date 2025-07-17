@@ -55,7 +55,8 @@ namespace Core.Base
 
         public async Task AbrirFormularioConPermisosAsync<TForm>(
         string permisoRequerido,
-        Func<TForm, Task>? configurarFormulario = null) where TForm : Form
+        Func<TForm, Task>? configurarFormulario = null,
+         bool modal = true) where TForm : Form
         {
             if (_sesionService.Permisos.Contains(permisoRequerido) || _sesionService.Permisos.Contains("0000-SuperAdmin"))
             {
@@ -64,7 +65,10 @@ namespace Core.Base
                 if (configurarFormulario != null)
                     await configurarFormulario(formulario);
 
-                _navigationService.ShowDialog<TForm>();
+                if (modal)
+                    _navigationService.ShowDialog<TForm>();
+                else
+                    _navigationService.Show<TForm>();
             }
             else
             {

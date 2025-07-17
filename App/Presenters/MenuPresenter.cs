@@ -1,6 +1,7 @@
 ﻿using App.Views;
 using Core.Base;
 using Core.Services;
+using DevExpress.XtraSplashScreen;
 using GestionDocumental.Views;
 using GestionFlota.Views;
 using GestionFlota.Views.Alertas;
@@ -67,10 +68,19 @@ namespace App.Presenters
 
         public async void AbrirRuteo(string tipoPermiso)
         {
-            await AbrirFormularioConPermisosAsync<RuteoForm>(tipoPermiso, async form =>
+            SplashScreenManager.ShowDefaultWaitForm("Cargando", "Por favor espere...");
+
+            try
             {
-                await form._presenter.InicializarAsync();
-            });
+                await AbrirFormularioConPermisosAsync<RuteoForm>(tipoPermiso, async form =>
+                {
+                    await form._presenter.InicializarAsync();
+                }, false);
+            }
+            finally
+            {
+                SplashScreenManager.CloseDefaultWaitForm();
+            }
         }
 
         public async void AbrirDisponibilidad(string tipoPermiso)
@@ -78,7 +88,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<DisponibilidadForm>(tipoPermiso, async form =>
             {
                 await form._presenter.InicializarAsync();
-            });
+            }, false);
         }
 
         public async void AbrirCupeo(string tipoPermiso)
@@ -86,7 +96,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<CupeoForm>(tipoPermiso, async form =>
             {
                 await form._presenter.InicializarAsync();
-            });
+            }, false);
         }
 
         public async void AbrirViajesYRemitos(string tipoPermiso)

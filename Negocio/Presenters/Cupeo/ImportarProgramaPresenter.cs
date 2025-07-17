@@ -87,6 +87,19 @@ namespace GestionFlota.Presenters
                 else if (p.FechaCarga.Value < DateTime.Today)
                     errores.Add(new ErrorImportacionDto { Registro = reg, Columna = "FechaCarga", Detalle = p.FechaCarga.Value.ToString("dd/MM/yyyy") });
 
+                if (p.FechaCarga != null && p.FechaEntrega != null)
+                {
+                    var diferencia = (p.FechaEntrega.Value - p.FechaCarga.Value).TotalDays;
+                    if (Math.Abs(diferencia) > 7)
+                    {
+                        errores.Add(new ErrorImportacionDto
+                        {
+                            Registro = reg,
+                            Columna = "FechaEntrega",
+                            Detalle = $"No puede haber más de 7 días entre carga y entrega. Diferencia: {Math.Abs(diferencia)}"
+                        });
+                    }
+                }
                 // Cantidad
                 if (p.Cantidad == null)
                     errores.Add(new ErrorImportacionDto { Registro = reg, Columna = "Cantidad", Detalle = "" });

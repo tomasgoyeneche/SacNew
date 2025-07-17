@@ -51,6 +51,7 @@ namespace GestionFlota.Views
         {
             btnGuardar.Enabled = false;
             gridControlPrograma.DataSource = DataHelper.GetData(0);
+            gridControlErrores.DataSource = null;
             gridViewPrograma.OptionsSelection.MultiSelect = true;
             gridViewPrograma.OptionsClipboard.PasteMode = DevExpress.Export.PasteMode.Append;
         }

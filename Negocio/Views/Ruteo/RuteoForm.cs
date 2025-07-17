@@ -34,6 +34,16 @@ namespace GestionFlota.Views
             view.BestFitColumns();
         }
 
+        public void MostrarChoferesLibres(List<ChoferesLibresDto> choferes)
+        {
+            gridControlChoferesLibres.DataSource = choferes;
+
+            var view = gridViewChoferesLibres;
+
+            view.BestFitColumns();
+        }
+
+
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

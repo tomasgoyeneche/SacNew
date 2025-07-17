@@ -14,6 +14,7 @@ namespace GestionFlota.Presenters
         private readonly IAlertaRepositorio _alertaRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
+        private readonly IChoferRepositorio _choferRepositorio;
         private readonly IPostaRepositorio _postaRepositorio;
         private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IExcelService _excelService;
@@ -25,6 +26,7 @@ namespace GestionFlota.Presenters
             INavigationService navigationService,
             IProgramaRepositorio programaRepositorio,
             IAlertaRepositorio alertaRepositorio,
+            IChoferRepositorio choferRepositorio,
             INominaRepositorio nominaRepositorio,
             IPostaRepositorio postaRepositorio,
             IPeriodoRepositorio periodoRepositorio,
@@ -40,6 +42,7 @@ namespace GestionFlota.Presenters
             _postaRepositorio = postaRepositorio;
             _periodoRepositorio = periodoRepositorio;
             _vaporizadoRepositorio = vaporizadoRepositorio;
+            _choferRepositorio = choferRepositorio;
             _excelService = excelService;
         }
 
@@ -49,6 +52,7 @@ namespace GestionFlota.Presenters
             {
                 List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
                 List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
+                List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
 
                 var cargados = ruteos
                    .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
@@ -61,6 +65,7 @@ namespace GestionFlota.Presenters
                 _view.MostrarRuteoCargados(cargados);
                 _view.MostrarRuteoVacios(vacios);
                 _view.MostrarResumen(resumen);
+                _view.MostrarChoferesLibres(choferesLibres);
 
                 if (idProgramaSeleccionado.HasValue)
                 {

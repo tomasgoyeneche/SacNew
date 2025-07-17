@@ -13,7 +13,7 @@ namespace Core.Repositories
 
         Task<Chofer?> ObtenerPorIdAsync(int idChofer);
         Task<List<Chofer?>> ObtenerTodosLosChoferesPorEmpresa(int idEmpresa);
-
+        Task<List<ChoferesLibresDto?>> ObtenerTodosLosChoferesLibres();
         // Obtener Por Otras Opciones
 
         Task<int?> ObtenerIdPorDocumentoAsync(string documento);
