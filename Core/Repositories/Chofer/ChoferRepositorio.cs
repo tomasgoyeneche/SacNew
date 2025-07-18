@@ -57,7 +57,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<List<ChoferDto?>> ObtenerTodosLosChoferesDto()
         {
             var query = "SELECT * FROM vw_ChoferesDetalles";

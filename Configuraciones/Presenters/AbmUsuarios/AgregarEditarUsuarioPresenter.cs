@@ -82,7 +82,6 @@ namespace SacNew.Presenters.AbmUsuarios
                     await _usuarioRepositorio.ActualizarAsync(_usuarioActual);
                     _view.MostrarMensaje("Usuario actualizado correctamente.");
                 }
-              
             });
         }
     }

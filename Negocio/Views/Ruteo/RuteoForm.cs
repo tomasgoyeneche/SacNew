@@ -43,7 +43,6 @@ namespace GestionFlota.Views
             view.BestFitColumns();
         }
 
-
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -194,7 +193,6 @@ namespace GestionFlota.Views
         private async void bControlDemorados_Click(object sender, EventArgs e)
         {
             await _presenter.ExportarDemoradosAsync();
-
         }
 
         private async void gridViewCargados_RowCellClick(object sender, RowCellClickEventArgs e)
@@ -215,7 +213,6 @@ namespace GestionFlota.Views
             }
         }
 
-
         public void SeleccionarRuteoCargadoPorId(int idPrograma)
         {
             var view = gridViewCargados;
@@ -230,7 +227,6 @@ namespace GestionFlota.Views
                 }
             }
         }
-
 
         public void SeleccionarRuteoPorNomina(int idNomina)
         {

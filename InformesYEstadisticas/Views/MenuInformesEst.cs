@@ -79,11 +79,11 @@ namespace InformesYEstadisticas
 
         private async void bExpoTransoftMetanol_Click(object sender, EventArgs e)
         {
-           string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
-               "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
-               "Fecha Desde",
-               DateTime.Today.ToString("dd/MM/yyyy")
-           );
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+                "Fecha Desde",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
 
             if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
             {

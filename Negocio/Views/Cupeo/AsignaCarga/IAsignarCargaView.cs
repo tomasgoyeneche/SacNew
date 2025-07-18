@@ -15,6 +15,7 @@ namespace GestionFlota.Views
         int? IdDestinoSeleccionado { get; }
         int? IdProductoSeleccionado { get; }
         bool Extranjero { get; }
+
         void Cerrar();
     }
 }

@@ -2,15 +2,6 @@
 using SacNew.Presenters.AbmUsuarios;
 using SacNew.Views.Configuraciones.AbmUsuarios;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Configuraciones.Views.AbmUsuarios
 {
@@ -60,6 +51,7 @@ namespace Configuraciones.Views.AbmUsuarios
                 MostrarMensaje("Seleccione un usuario para eliminar.");
             }
         }
+
         private async void btnEditar_Click(object sender, EventArgs e)
         {
             if (gridViewUsuarios.GetFocusedRow() is Usuario usuario)

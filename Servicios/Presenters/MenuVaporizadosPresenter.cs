@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using Servicios.Views;
 using Shared.Models;
 
 namespace Servicios.Presenters
@@ -11,6 +12,7 @@ namespace Servicios.Presenters
         private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IGuardiaRepositorio _guardiaRepositorio;
         private readonly ICsvService _csvService;
+        private readonly INominaRepositorio _nominaRepositorio;
 
         private int _IdPosta;
 
@@ -18,6 +20,7 @@ namespace Servicios.Presenters
             IVaporizadoRepositorio repositorioVaporizado,
             ICsvService csvService,
             IUnidadRepositorio unidadRepositorio,
+            INominaRepositorio nominaRepositorio,
             ISesionService sesionService,
             INavigationService navigationService,
             IGuardiaRepositorio guardiaRepositorio)
@@ -27,6 +30,7 @@ namespace Servicios.Presenters
             _unidadRepositorio = unidadRepositorio;
             _csvService = csvService;
             _guardiaRepositorio = guardiaRepositorio;
+            _nominaRepositorio = nominaRepositorio;
         }
 
         public async Task CargarVaporizadosAsync(int idPosta)
@@ -65,24 +69,42 @@ namespace Servicios.Presenters
         {
             Vaporizado? vapo = await _repositorioVaporizado.ObtenerPorIdAsync(vapoDto.IdVaporizado);
             GuardiaDto? guardia = await _guardiaRepositorio.ObtenerGuardiaDtoPorId(vapo.IdGuardiaIngreso);
+
+           
+            if (vapoDto.Externo != "No")
+            {
+                Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(vapo.IdNomina.Value);
+                UnidadDto? unidad = await _unidadRepositorio.ObtenerPorIdDtoAsync(nomina.IdUnidad);
+
+                await EjecutarConCargaAsync(async () =>
+                {
+                    await AbrirFormularioAsync<AgregarEditarVaporizadosExternosForm>(async form =>
+                    {
+                        await form._presenter.CargarDatosAsync(vapo, unidad);
+                    });
+                }, async () => await CargarVaporizadosAsync(_IdPosta));
+            }
+            else
+            {
+                await EjecutarConCargaAsync(async () =>
+                {
+                    await AbrirFormularioAsync<AgregarEditarVaporizadoForm>(async form =>
+                    {
+                        await form._presenter.CargarDatosAsync(vapo, guardia);
+                    });
+                }, async () => await CargarVaporizadosAsync(_IdPosta));
+            }          
+        }
+
+        public async Task AgregarVaporizadoExternoAsync()
+        {
             await EjecutarConCargaAsync(async () =>
             {
-                await AbrirFormularioAsync<AgregarEditarVaporizadoForm>(async form =>
+                await AbrirFormularioAsync<AgregarEditarVaporizadosExternosForm>(async form =>
                 {
-                    await form._presenter.CargarDatosAsync(vapo, guardia);
+                    await form._presenter.CargarDatosAsync(null, null);
                 });
             }, async () => await CargarVaporizadosAsync(_IdPosta));
         }
-
-        //public async Task AgregarVaporizadoExternoAsync()
-        //{
-        //    await EjecutarConCargaAsync(async () =>
-        //    {
-        //            await AbrirFormularioAsync<AgregarEditarVaporizadoExterno>(async form =>
-        //            {
-        //                await form._presenter.InicializarAsync(null);
-        //            });
-        //    }, async () => await CargarVaporizadosAsync(_IdPosta));
-        //}
     }
 }

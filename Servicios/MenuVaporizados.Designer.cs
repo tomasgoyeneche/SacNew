@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             gridControlVaporizados = new DevExpress.XtraGrid.GridControl();
             gridViewVaporizados = new DevExpress.XtraGrid.Views.Grid.GridView();
             bAgregarExterno = new DevExpress.XtraEditors.SimpleButton();
@@ -77,6 +77,7 @@
             bAgregarExterno.Size = new Size(132, 37);
             bAgregarExterno.TabIndex = 31;
             bAgregarExterno.Text = "Agregar Externo";
+            bAgregarExterno.Click += bAgregarExterno_Click;
             // 
             // simpleButton2
             // 
@@ -107,11 +108,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(labelNovedades);
-            guna2Panel10.CustomizableEdges = customizableEdges3;
+            guna2Panel10.CustomizableEdges = customizableEdges1;
             guna2Panel10.FillColor = Color.LightCoral;
             guna2Panel10.Location = new Point(0, 15);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel10.Size = new Size(253, 31);
             guna2Panel10.TabIndex = 47;
             // 

@@ -31,8 +31,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         public string Telefono => txtTelefono.Text.Trim();
         public string Celular => txtCelular.Text.Trim();
 
-
-
         public async void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia)
         {
             IdChofer = chofer.IdChofer;

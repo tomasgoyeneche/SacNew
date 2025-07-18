@@ -220,7 +220,7 @@ namespace GestionOperativa.Presenters
                 return;
             }
 
-            List<AlertaDto> alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(nomina.IdNomina);  
+            List<AlertaDto> alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(nomina.IdNomina);
 
             var ingreso = new GuardiaIngreso
             {
@@ -257,7 +257,7 @@ namespace GestionOperativa.Presenters
             _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
             await _pocRepositorio.AgregarPOCAsync(poc);
             ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
-            foreach(AlertaDto ale in alertas)
+            foreach (AlertaDto ale in alertas)
             {
                 _view.MostrarMensaje($"Alerta: {ale.Descripcion} eliminar si ya fue resuelta.");
             }
@@ -346,8 +346,6 @@ namespace GestionOperativa.Presenters
                 esManual ? "Salida - Manual" : "Salida"
             );
 
-
-
             _view.MostrarMensaje(esManual ? "Salida manual registrada correctamente." : "Salida registrada correctamente.");
             await InicializarAsync(_idPosta);
         }
@@ -386,16 +384,6 @@ namespace GestionOperativa.Presenters
             });
         }
 
-
-
-
-
-
-
-
-
-
-
         public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)
         {
             var lista = await _programaRepositorio.ObtenerTransoftAsync(desde, hasta);
@@ -421,7 +409,6 @@ namespace GestionOperativa.Presenters
             _view.MostrarMensaje("Archivo Transoft exportado y abierto.");
         }
 
-
         public async Task ExportarTransoftMetanolAsync(DateTime desde, DateTime hasta)
         {
             var lista = await _programaRepositorio.ObtenerTransoftMetanolAsync(desde, hasta);
@@ -446,6 +433,5 @@ namespace GestionOperativa.Presenters
 
             _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
         }
-
     }
 }

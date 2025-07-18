@@ -75,7 +75,7 @@
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             panelPresupuesto = new Guna.UI2.WinForms.Guna2Panel();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            cmbUnidad = new DevExpress.XtraEditors.LookUpEdit();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNroPres = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -93,7 +93,7 @@
             guna2Panel1.SuspendLayout();
             guna2Panel3.SuspendLayout();
             panelPresupuesto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cmbUnidad.Properties).BeginInit();
             SuspendLayout();
             // 
             // dtpFin
@@ -203,6 +203,7 @@
             btnGuardar.Size = new Size(208, 31);
             btnGuardar.TabIndex = 10;
             btnGuardar.Text = "Guardar";
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
@@ -453,7 +454,7 @@
             // panelPresupuesto
             // 
             panelPresupuesto.BackColor = Color.Transparent;
-            panelPresupuesto.Controls.Add(lookUpEdit1);
+            panelPresupuesto.Controls.Add(cmbUnidad);
             panelPresupuesto.Controls.Add(guna2HtmlLabel4);
             panelPresupuesto.CustomizableEdges = customizableEdges19;
             panelPresupuesto.FillColor = Color.FromArgb(42, 48, 56);
@@ -463,16 +464,16 @@
             panelPresupuesto.Size = new Size(459, 59);
             panelPresupuesto.TabIndex = 121;
             // 
-            // lookUpEdit1
+            // cmbUnidad
             // 
-            lookUpEdit1.Location = new Point(9, 27);
-            lookUpEdit1.Margin = new Padding(4, 3, 4, 3);
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Size = new Size(444, 26);
-            lookUpEdit1.TabIndex = 6;
+            cmbUnidad.Location = new Point(9, 27);
+            cmbUnidad.Margin = new Padding(4, 3, 4, 3);
+            cmbUnidad.Name = "cmbUnidad";
+            cmbUnidad.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbUnidad.Properties.Appearance.Options.UseFont = true;
+            cmbUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbUnidad.Size = new Size(444, 26);
+            cmbUnidad.TabIndex = 6;
             // 
             // guna2HtmlLabel4
             // 
@@ -634,7 +635,7 @@
             guna2Panel1.ResumeLayout(false);
             guna2Panel3.ResumeLayout(false);
             panelPresupuesto.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cmbUnidad.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -666,7 +667,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNroPres;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit cmbUnidad;
         private Guna.UI2.WinForms.Guna2TextBox txtTiempoVaporizado;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;

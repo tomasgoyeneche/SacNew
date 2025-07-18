@@ -7,6 +7,7 @@ namespace Core.Repositories
         Task<List<Ruteo>> ObtenerRuteoAsync();
 
         Task<List<RuteoResumen>> ObtenerResumenAsync();
+
         Task<decimal?> ObtenerOdometerPorNomina(int idNomina);
 
         Task<Programa?> ObtenerPorIdAsync(int idPrograma);
@@ -45,6 +46,7 @@ namespace Core.Repositories
         Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync();
 
         Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta);
+
         Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta);
     }
 }

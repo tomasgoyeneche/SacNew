@@ -14,11 +14,13 @@ namespace GestionFlota.Views
         void MostrarHistorial(List<HistorialGeneralDto> historial);
 
         void MostrarVencimientos(List<VencimientosDto> vencimientos);
+
         void MostrarChoferesLibres(List<ChoferesLibresDto> choferesLibres);
 
         void MostrarAlertas(List<AlertaDto> alertas);
 
         void SeleccionarRuteoCargadoPorId(int idPrograma);
+
         void SeleccionarRuteoPorNomina(int idNomina);
     }
 }

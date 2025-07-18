@@ -23,7 +23,6 @@ namespace GestionFlota.Presenters
             IChoferEstadoRepositorio choferEstadoRepositorio
         ) : base(sesionService, navigationService)
         {
-            
             _nominaRepositorio = nominaRepositorio;
             _unidadRepositorio = unidadRepositorio;
             _choferRepositorio = choferRepositorio;
@@ -33,9 +32,8 @@ namespace GestionFlota.Presenters
         public async Task InicializarAsync(int idNomina)
         {
             _nominaActual = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
-            
-            Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(_nominaActual.IdUnidad);
 
+            Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(_nominaActual.IdUnidad);
 
             List<Chofer> choferes = await _choferRepositorio.ObtenerTodosLosChoferesPorEmpresa(unidad.IdEmpresa);
             _view.CargarChoferes(choferes);

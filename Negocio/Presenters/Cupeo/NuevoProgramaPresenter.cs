@@ -68,7 +68,7 @@ namespace GestionFlota.Presenters
                 IdProgramaEstado = 1, // Estado "Asignado"
                 FechaCarga = _view.FechaCarga,
                 FechaEntrega = _view.FechaEntrega,
-                Extranjero = _view.Extranjero,  
+                Extranjero = _view.Extranjero,
             };
 
             if (_view.IdOrigenSeleccionado == _cupeo.IdOrigen)

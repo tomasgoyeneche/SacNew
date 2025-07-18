@@ -105,7 +105,7 @@ namespace Servicios.Presenters
             Vaporizado vap = VaporizadoActual ?? new Vaporizado();
             vap.CantidadCisternas = _view.CantidadCisternas;
             vap.IdVaporizadoMotivo = _view.IdMotivo;
-            vap.IdPosta = VaporizadoActual?.IdPosta ?? 0; // Asignar posta de la guardia actual
+            vap.IdPosta = VaporizadoActual?.IdPosta ?? _sesionService.IdPosta; // Asignar posta de la guardia actual
             vap.FechaInicio = _view.FechaInicio;
             vap.FechaFin = _view.FechaFin;
             vap.IdVaporizadoZona = _view.IdPlanta;

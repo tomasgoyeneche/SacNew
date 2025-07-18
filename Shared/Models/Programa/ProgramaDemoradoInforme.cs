@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class ProgramaDemoradoInforme
     {
         public int IdPrograma { get; set; }
-        public string? Producto { get; set; }    
+        public string? Producto { get; set; }
         public int AlbaranDespacho { get; set; }
         public int PedidoOr { get; set; }
         public string? Destino { get; set; }

@@ -95,8 +95,6 @@ namespace InformesYEstadisticas.Presenters
             });
         }
 
-
-
         public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)
         {
             var lista = await _programaRepositorio.ObtenerTransoftAsync(desde, hasta);
@@ -122,7 +120,6 @@ namespace InformesYEstadisticas.Presenters
             _view.MostrarMensaje("Archivo Transoft exportado y abierto.");
         }
 
-
         public async Task ExportarTransoftMetanolAsync(DateTime desde, DateTime hasta)
         {
             var lista = await _programaRepositorio.ObtenerTransoftMetanolAsync(desde, hasta);
@@ -147,6 +144,5 @@ namespace InformesYEstadisticas.Presenters
 
             _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
         }
-
     }
 }

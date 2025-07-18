@@ -242,7 +242,6 @@ namespace Core.Repositories
             return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query))).ToList();
         }
 
-
         public async Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta)
         {
             string query = @"SELECT * FROM vw_Transoft WHERE Disponible BETWEEN @desde AND @hasta";

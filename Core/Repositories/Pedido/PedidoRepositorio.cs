@@ -37,9 +37,6 @@ namespace Core.Repositories
             await EliminarGenéricoAsync<Pedido>("Pedido", idPedido);
         }
 
-
-
-
         public async Task InsertarPedidosAsync(IEnumerable<Pedido> pedidos)
         {
             var query = @"

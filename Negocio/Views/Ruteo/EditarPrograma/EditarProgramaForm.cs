@@ -18,8 +18,6 @@ namespace GestionFlota.Views
 
         public void MostrarDatos(Shared.Models.Ruteo ruteo, Programa? programa, List<ProgramaExtranjero> hitosExtranjero)
         {
-
-
             // Agregar IF cuando haya posibilidad de cargar programa exterior
             pAduanaArg.Visible = false;
             pAduanaExt.Visible = false;
@@ -143,7 +141,6 @@ namespace GestionFlota.Views
 
                     dtpSalidaExt2.EditValue = salidaAduanaExt2?.Fecha;
                     lblSalidaAduanaExt02.Text = $"Salida 2: {salidaAduanaExt2?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
-
 
                     // Habilitá los botones de eliminar si existe registro
                     btnEliminarLlegadaAduanaArg.Enabled = llegadaAduanaArg != null;
@@ -446,13 +443,11 @@ namespace GestionFlota.Views
         private async void btnEliminarCruceAduanaArg_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarFechaExtranjeroAsync(3, 4, null, "Cruce Aduana Arg");
-
         }
 
         private async void btnEliminarLlegadaAduanaExt1_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarFechaExtranjeroAsync(5, 1, null, "Llegada Aduana Ext 01");
-
         }
 
         private async void btnEliminarSalidaAduanaExt1_Click(object sender, EventArgs e)

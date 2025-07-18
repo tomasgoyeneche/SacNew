@@ -106,6 +106,5 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<PedidosForm>(async f => await f._presenter.InicializarAsync());
             await InicializarAsync();
         }
-
     }
 }

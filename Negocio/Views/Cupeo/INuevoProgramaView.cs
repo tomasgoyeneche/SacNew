@@ -25,6 +25,7 @@ namespace GestionFlota.Views
         string Pedido { get; }
         string Observaciones { get; }
         bool Extranjero { get; }
+
         void Cerrar();
     }
 }

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class TransoftMetanol
     {
         public int Id { get; set; }
-        public string? Origen { get; set; } 
+        public string? Origen { get; set; }
         public DateTime Fecha { get; set; }
         public string? Remito { get; set; }
         public string? Tractor { get; set; }
@@ -22,6 +16,5 @@ namespace Shared.Models
         public int? Dni { get; set; }
         public int? Cuit { get; set; }
         public string? Producto { get; set; }
-
     }
 }

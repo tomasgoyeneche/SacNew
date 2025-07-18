@@ -2,10 +2,11 @@
 {
     public class DisponibilidadYPF
     {
-       // public int IdNomina { get; set; }
+        // public int IdNomina { get; set; }
         public DateTime Fecha { get; set; }
+
         public string Cuit { get; set; } = string.Empty;
-        
+
         public int CodTransporte { get; set; }
         public string Transportista { get; set; } = string.Empty;
 

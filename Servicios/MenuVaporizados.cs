@@ -85,5 +85,10 @@ namespace Servicios
                 MostrarMensaje("Seleccione un vaporizado para editar.");
             }
         }
+
+        private async void bAgregarExterno_Click(object sender, EventArgs e)
+        {
+            await _presenter.AgregarVaporizadoExternoAsync();
+        }
     }
 }

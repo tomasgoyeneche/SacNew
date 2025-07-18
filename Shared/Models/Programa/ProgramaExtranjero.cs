@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class ProgramaExtranjero
     {
-        public int IdProgramaExtranjero { get; set; }   
+        public int IdProgramaExtranjero { get; set; }
         public int IdPrograma { get; set; }
         public int IdProgramaTipoPunto { get; set; }
         public int IdProgramaTipoEvento { get; set; }
