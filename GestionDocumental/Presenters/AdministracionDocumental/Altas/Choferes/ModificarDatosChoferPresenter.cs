@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using Shared.Models;
+using System.IO;
 
 namespace GestionOperativa.Presenters.Choferes
 {
@@ -12,6 +13,7 @@ namespace GestionOperativa.Presenters.Choferes
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly IProvinciaRepositorio _provinciaRepositorio;
         private readonly ILocalidadRepositorio _localidadRepositorio;
+        private readonly IConfRepositorio _confRepositorio;
 
         public ModificarDatosChoferPresenter(
             ISesionService sesionService,
@@ -19,11 +21,13 @@ namespace GestionOperativa.Presenters.Choferes
             IEmpresaRepositorio empresaRepositorio,
             IChoferRepositorio choferRepositorio,
             IProvinciaRepositorio provinciaRepositorio,
+            IConfRepositorio confRepositorio,
             ILocalidadRepositorio localidadRepositorio)
             : base(sesionService, navigationService)
         {
             _empresaRepositorio = empresaRepositorio;
             _choferRepositorio = choferRepositorio;
+            _confRepositorio = confRepositorio;
             _provinciaRepositorio = provinciaRepositorio;
             _localidadRepositorio = localidadRepositorio;
         }
@@ -42,6 +46,8 @@ namespace GestionOperativa.Presenters.Choferes
                     _view.MostrarMensaje("No se encontró la empresa.");
                     return;
                 }
+
+                await VerificarArchivosChoferAsync(chofer.Documento);
                 _view.CargarDatosChofer(chofer, empresas, provincias, idProvincia);
             });
         }
@@ -60,13 +66,13 @@ namespace GestionOperativa.Presenters.Choferes
                 Apellido = _view.Apellido,
                 Nombre = _view.Nombre,
                 Documento = _view.Documento,
-                FechaNacimiento = _view.FechaNacimiento,
+                FechaNacimiento = (DateTime)_view.FechaNacimiento,
                 IdLocalidad = _view.IdLocalidad,
                 Domicilio = _view.Domicilio,
                 Telefono = _view.Telefono,
                 IdEmpresa = _view.idEmpresa,
                 ZonaFria = _view.ZonaFria,
-                FechaAlta = _view.FechaAlta,
+                FechaAlta = (DateTime)_view.FechaAlta,
                 Celular = _view.Celular,
                 Activo = true
             };
@@ -77,5 +83,21 @@ namespace GestionOperativa.Presenters.Choferes
                 _view.MostrarMensaje("Datos del chofer actualizados correctamente.");
             });
         }
+
+
+        private async Task VerificarArchivosChoferAsync(string dni)
+        {
+            var rutaFoto = await ObtenerRutaPorIdAsync(1, "", dni + ".jpg");
+            _view.ConfigurarFotoChofer(rutaFoto);
+        }
+
+        private async Task<string?> ObtenerRutaPorIdAsync(int idConf, string subDirectorio, string archivo)
+        {
+            var conf = await _confRepositorio.ObtenerRutaPorIdAsync(idConf);
+            return conf == null || string.IsNullOrEmpty(conf.Ruta)
+                ? null
+                : Path.Combine(conf.Ruta, subDirectorio, archivo);
+        }
+
     }
 }

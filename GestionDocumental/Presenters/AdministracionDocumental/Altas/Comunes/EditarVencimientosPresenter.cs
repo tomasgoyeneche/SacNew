@@ -64,7 +64,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                 case "unidad":
                     var unidad = await _unidadRepo.ObtenerPorIdDtoAsync(idEntidad);
                     vencimientos[1] = ("Más YPF", unidad.MasYPF);
-                    vencimientos[2] = ("Calibrado", unidad.Calibrado);
+                    vencimientos[2] = ("VerifMensual", unidad.VerifMensual);
                     vencimientos[3] = ("CheckList", unidad.Checklist);
                     break;
 

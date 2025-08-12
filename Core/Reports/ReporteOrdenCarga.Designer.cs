@@ -1078,7 +1078,6 @@
             this.UltimaDj.AllowNull = true;
             this.UltimaDj.Description = "ultimaDj";
             this.UltimaDj.Name = "UltimaDj";
-            this.UltimaDj.ValueInfo = "METANOL";
             this.UltimaDj.Visible = false;
             // 
             // ReporteOrdenCarga
@@ -1096,6 +1095,8 @@
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.UltimaDj, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.UltimaDj});
             this.Version = "24.1";

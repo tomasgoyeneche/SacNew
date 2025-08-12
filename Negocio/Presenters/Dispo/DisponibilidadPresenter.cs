@@ -167,7 +167,7 @@ namespace GestionFlota.Presenters
 
         private async Task ExportarDisponibilidadYPF(DateTime dispoFecha)
         {
-            var lista = await _disponibilidadRepositorio.ObtenerDisponibilidadYPFPorFechaAsync(dispoFecha);
+            List<DisponibilidadYPF> lista = await _disponibilidadRepositorio.ObtenerDisponibilidadYPFPorFechaAsync(dispoFecha);
             if (lista == null || !lista.Any())
             {
                 _view.MostrarMensaje("No hay datos para exportar para la fecha seleccionada.");
@@ -178,7 +178,7 @@ namespace GestionFlota.Presenters
             if (!Directory.Exists(carpeta))
                 Directory.CreateDirectory(carpeta);
 
-            string fileName = Path.Combine(carpeta, $"DispoYPF-{dispoFecha:yyyyMMdd}.xlsx");
+            string fileName = Path.Combine(carpeta, $"DispoYPF-{dispoFecha:dd-MM-yy}.xlsx");
 
             await _excelService.ExportarAExcelAsync(lista, fileName, "DispoYPF");
 

@@ -36,34 +36,21 @@ namespace Core.Repositories
             });
         }
 
-        public async Task AgregarPostaAsync(Posta nuevaPosta)
-        {
-            var query = @"
-            INSERT INTO Posta (Codigo, Descripcion, Direccion, idProvincia)
-            VALUES (@Codigo, @Descripcion, @Direccion, @idProvincia)";
 
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(query, nuevaPosta);
-            });
+        public Task AgregarPostaAsync(Posta nuevaPosta)
+        {
+            return AgregarGenéricoAsync("Posta", nuevaPosta);
         }
 
-        public async Task ActualizarPostaAsync(Posta postaActualizada)
+        public Task ActualizarPostaAsync(Posta postaActualizada)
         {
-            var query = @"
-            UPDATE Posta
-            SET Codigo = @Codigo, Descripcion = @Descripcion, Direccion = @Direccion, idProvincia = @idProvincia
-            WHERE IdPosta = @IdPosta";
-
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(query, postaActualizada);
-            });
+            return ActualizarGenéricoAsync("Posta", postaActualizada);
         }
+
 
         public async Task EliminarPostaAsync(int idPosta)
         {
-            var query = "UPDATE Posta SET Activo = 0 WHERE IdPosta = @IdPosta";
+            var query = "DELETE FROM Posta WHERE IdPosta = @IdPosta";
 
             await ConectarAsync(connection =>
             {

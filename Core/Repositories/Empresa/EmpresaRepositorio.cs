@@ -41,14 +41,9 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<Empresa?> ObtenerPorIdAsync(int idEmpresa)
+        public Task<Empresa?> ObtenerPorIdAsync(int idEmpresa)
         {
-            var query = "SELECT * FROM Empresa where idEmpresa = @idEmpresa";
-
-            return await ConectarAsync(connection =>
-            {
-                return connection.QueryFirstOrDefaultAsync<Empresa>(query, new { idEmpresa = idEmpresa });
-            });
+            return ObtenerPorIdGenericoAsync<Empresa>("Empresa", "IdEmpresa", idEmpresa);
         }
 
         public async Task<List<EmpresaDto>> BuscarEmpresasAsync(string textoBusqueda)
@@ -74,39 +69,14 @@ namespace Core.Repositories
             });
         }
 
-        public async Task EliminarEmpresaAsync(int idEmpresa)
+        public Task EliminarEmpresaAsync(int idEmpresa)
         {
-            var query = "Update Empresa set Activo = 0 WHERE IdEmpresa = @IdEmpresa";
-
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(query, new { IdEmpresa = idEmpresa });
-            });
+            return EliminarGenéricoAsync<Empresa>("Empresa", idEmpresa);
         }
 
-        public async Task ActualizarAsync(Empresa empresa)
+        public Task ActualizarAsync(Empresa empresa)
         {
-            var empresaAnterior = await ObtenerPorIdAsync(empresa.IdEmpresa);
-
-            var query = @"
-                UPDATE Empresa
-                SET Cuit = @Cuit,
-                    IdEmpresaTipo = @IdEmpresaTipo,
-                    RazonSocial = @RazonSocial,
-                    NombreFantasia = @NombreFantasia,
-                    IdLocalidad = @IdLocalidad,
-                    Domicilio = @Domicilio,
-                    Telefono = @Telefono,
-                    Email = @Email
-                WHERE IdEmpresa = @IdEmpresa";
-
-            await EjecutarConAuditoriaAsync(
-                connection => connection.ExecuteAsync(query, empresa),
-                "Empresa",
-                "UPDATE",
-                empresaAnterior,
-                empresa
-            );
+            return ActualizarGenéricoAsync("Empresa", empresa);
         }
     }
 }

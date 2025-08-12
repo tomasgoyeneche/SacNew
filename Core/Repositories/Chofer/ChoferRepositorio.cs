@@ -12,11 +12,11 @@ namespace Core.Repositories
 
         // METODOS DE BUSQUEDA POR ID O GENERAL
 
-        public async Task<Chofer?> ObtenerPorIdAsync(int idChofer)
+        public Task<Chofer?> ObtenerPorIdAsync(int idChofer)
         {
-            var query = "SELECT * FROM chofer WHERE idChofer = @IdChofer";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Chofer>(query, new { IdChofer = idChofer }));
+            return ObtenerPorIdGenericoAsync<Chofer>("Chofer", "IdChofer", idChofer);
         }
+
 
         public async Task<ChoferDto?> ObtenerPorIdDtoAsync(int idChofer)
         {
@@ -100,33 +100,11 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarAsync(Chofer chofer)
+        public Task ActualizarAsync(Chofer chofer)
         {
-            var choferAnterior = await ObtenerPorIdAsync(chofer.IdChofer);
-
-            var query = @"
-                UPDATE chofer
-                SET Apellido = @Apellido,
-                    Nombre = @Nombre,
-                    Documento = @Documento,
-                    FechaNacimiento = @FechaNacimiento,
-                    IdLocalidad = @IdLocalidad,
-                    Domicilio = @Domicilio,
-                    Telefono = @Telefono,
-                    Celular = @Celular,
-                    idEmpresa = @idEmpresa,
-                    ZonaFria = @ZonaFria,
-                    FechaAlta = @FechaAlta
-                WHERE IdChofer = @IdChofer";
-
-            await EjecutarConAuditoriaAsync(
-                connection => connection.ExecuteAsync(query, chofer),
-                "Chofer",
-                "UPDATE",
-                choferAnterior,
-                chofer
-            );
+            return ActualizarGenéricoAsync("Chofer", chofer);
         }
+
 
         public async Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa)
         {
@@ -151,24 +129,30 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarVencimientoChoferAsync(int idChofer, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
+        public Task ActualizarVencimientoChoferAsync(int idChofer, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
         {
             var query = @"
-        UPDATE ChoferVencimiento
-        SET FechaVencimiento = @fechaActualizacion,
-            IdUsuario = @idUsuario
-        WHERE IdChofer = @idChofer AND IdVencimiento = @idVencimiento";
+            UPDATE ChoferVencimiento
+            SET FechaVencimiento = @FechaVencimiento,
+                IdUsuario = @idUsuario
+            WHERE IdChofer = @idChofer AND IdVencimiento = @idVencimiento";
 
-            await ConectarAsync(async connection =>
+            var valoresNuevos = new
             {
-                await connection.ExecuteAsync(query, new
-                {
-                    idChofer,
-                    idVencimiento,
-                    fechaActualizacion,
-                    idUsuario
-                });
-            });
+                IdChofer = idChofer,
+                IdVencimiento = idVencimiento,
+                FechaVencimiento = fechaActualizacion,
+                IdUsuario = idUsuario
+            };
+
+            // Usamos EjecutarConAuditoriaAsync para que haga el fetch de valores anteriores, ejecute el update y registre la auditoría
+            return EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, valoresNuevos),
+                "ChoferVencimiento",
+                "UPDATE",
+                new { IdChofer = idChofer, IdVencimiento = idVencimiento },
+                valoresNuevos
+            );
         }
     }
 }

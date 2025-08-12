@@ -221,6 +221,12 @@ namespace Core.Repositories
             return await ObtenerPorIdGenericoAsync<GuardiaDto>("vw_Guardia", "IdGuardiaIngreso", idGuardiaIngreso);
         }
 
+        public async Task<GuardiaIngreso?> ObtenerGuardiaPorId(int? idGuardiaIngreso)
+        {
+            return await ObtenerPorIdGenericoAsync<GuardiaIngreso>("GuardiaIngreso", "IdGuardiaIngreso", idGuardiaIngreso);
+        }
+
+
         public async Task<GuardiaEstado?> ObtenerEstadoPorIdAsync(int idEstado)
         {
             const string query = "SELECT * FROM GuardiaEstado WHERE IdGuardiaEstado = @idEstado";

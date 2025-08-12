@@ -144,5 +144,31 @@ namespace InformesYEstadisticas.Presenters
 
             _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
         }
+
+
+        public async Task ExportarAcumuladoAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _programaRepositorio.ObtenerAcumuladoAsync(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"Acumulado-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "Acumulado");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo Acumulado exportado y abierto.");
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace GestionFlota.Views.Ruteo
         int? IdProducto { get; }
         int? IdOrigen { get; }
 
+        int? IdDestino { get; }
+
         void Close();
     }
 }

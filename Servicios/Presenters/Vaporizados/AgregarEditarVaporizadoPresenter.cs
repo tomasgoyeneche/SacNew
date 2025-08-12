@@ -11,13 +11,19 @@ namespace Servicios.Presenters
         private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
         private readonly IVaporizadoZonaRepositorio _zonaRepo;
         private readonly IPOCRepositorio _pocRepo;
+        private readonly IUnidadRepositorio _uniRepo;
+        private readonly INominaRepositorio _nomRepo;
+        private readonly ITeRepositorio _teRepo;
+        private readonly IProductoRepositorio _productoRepo;
+
+
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepo;
         private readonly IPostaRepositorio _postaRepo;
 
         private readonly IVaporizadoMotivoRepositorio _motivoRepo;
         public Vaporizado? VaporizadoActual { get; private set; }
 
-        public GuardiaDto? GuardiaActual { get; private set; }
+        public GuardiaIngreso? GuardiaActual { get; private set; }
 
         public AgregarEditarVaporizadoPresenter(
             IVaporizadoRepositorio vaporizadoRepositorio,
@@ -26,6 +32,10 @@ namespace Servicios.Presenters
             IPOCRepositorio pocRepositorio,
             IConsumoOtrosRepositorio consumoOtrosRepositorio,
             IPostaRepositorio postaRepositorio,
+            IUnidadRepositorio uniRepositorio,
+            IProductoRepositorio productoRepositorio,
+            INominaRepositorio nominaRepositorio,
+            ITeRepositorio teRepositorio,
             ISesionService sesionService,
             INavigationService navigationService)
             : base(sesionService, navigationService)
@@ -36,15 +46,31 @@ namespace Servicios.Presenters
             _pocRepo = pocRepositorio;
             _consumoOtrosRepo = consumoOtrosRepositorio;
             _postaRepo = postaRepositorio;
+            _uniRepo = uniRepositorio;
+            _teRepo = teRepositorio;
+            _productoRepo = productoRepositorio;
+            _nomRepo = nominaRepositorio;
         }
 
-        public async Task CargarDatosAsync(Vaporizado? vaporizado, GuardiaDto guardia)
+        public async Task CargarDatosAsync(Vaporizado? vaporizado, GuardiaIngreso guardia)
         {
             VaporizadoActual = vaporizado;
             GuardiaActual = guardia;
 
-            // Label principal: Tractor-patente (Empresa)
-            string textoGuardia = $"{guardia.Tractor} - {guardia.Semi} ({guardia.Empresa})";
+            string textoGuardia = string.Empty;
+
+            if (guardia.TipoIngreso == 1)
+            {
+                Nomina nomina = await _nomRepo.ObtenerPorIdAsync(guardia.IdNomina.Value);
+                UnidadDto unidad = await _uniRepo.ObtenerPorIdDtoAsync(nomina.IdUnidad);
+                textoGuardia = $"{unidad.Tractor_Patente} - {unidad.Semirremolque_Patente} ({unidad.Empresa_Unidad})";
+            }
+            else
+            {
+                TransitoEspecial te = await _teRepo.ObtenerPorIdAsync(guardia.IdTe.Value);
+                textoGuardia = $"{te.Tractor} - {te.Semi} ({te.RazonSocial})";
+
+            }
             _view.MostrarDatosGuardia(textoGuardia);
 
             // Cargar combos
@@ -101,11 +127,11 @@ namespace Servicios.Presenters
                 return;
             }
 
-            // Guardar
+            // Mapear View → Modelo
             Vaporizado vap = VaporizadoActual ?? new Vaporizado();
             vap.CantidadCisternas = _view.CantidadCisternas;
-            vap.IdVaporizadoMotivo = _view.IdMotivo;
-            vap.IdPosta = VaporizadoActual?.IdPosta ?? _sesionService.IdPosta; // Asignar posta de la guardia actual
+            vap.IdVaporizadoMotivo = _view.IdMotivo;                 // <- se usa para Producto
+            vap.IdPosta = VaporizadoActual?.IdPosta ?? _sesionService.IdPosta; // Posta actual
             vap.FechaInicio = _view.FechaInicio;
             vap.FechaFin = _view.FechaFin;
             vap.IdVaporizadoZona = _view.IdPlanta;
@@ -114,29 +140,47 @@ namespace Servicios.Presenters
             vap.Observaciones = _view.Observaciones;
             vap.Activo = true;
 
-            // Extras para tipo ingreso 1
-            if (GuardiaActual?.TipoIngreso == 1)
-            {
-                string NroPresupuesto = _view.NroPresupuesto;
-                string NroImporte = _view.NroImporte;
-
-                if (!string.IsNullOrWhiteSpace(_view.NroPresupuesto) && !string.IsNullOrWhiteSpace(_view.NroImporte))
-                {
-                    await CrearConsumoOtrosAsync(vap, GuardiaActual, _view.NroPresupuesto, _view.NroImporte);
-                }
-            }
-
             // Guardar/actualizar
-            if (vap.IdVaporizado > 0)
+            bool esEdicion = vap.IdVaporizado > 0;
+            if (esEdicion)
                 await _vaporizadoRepositorio.EditarAsync(vap, _sesionService.IdUsuario);
             else
                 await _vaporizadoRepositorio.AgregarAsync(vap, _sesionService.IdUsuario);
+
+            // Registrar en Nómina (solo si TipoIngreso == 1)
+            if (GuardiaActual?.TipoIngreso == 1)
+            {
+                // Obtener Producto (por IdMotivo) y Posta (por IdPosta)
+                Producto producto = await _productoRepo.ObtenerPorIdAsync(vap.IdVaporizadoMotivo!.Value);
+                Posta posta = await _postaRepo.ObtenerPorIdAsync(vap.IdPosta);
+
+                string fechaSoloDia = vap.FechaInicio!.Value.ToString("dd/MM/yyyy"); // solo fecha
+                string horaInicio = vap.FechaInicio!.Value.ToString("HH:mm");
+                string horaFin = vap.FechaFin!.Value.ToString("HH:mm");
+                string nombreProd = producto?.Nombre ?? "-";
+                string nombrePosta = posta?.Descripcion ?? "-";
+                string nroCert = string.IsNullOrWhiteSpace(vap.NroCertificado) ? "-" : vap.NroCertificado;
+
+                // Descripción con el formato pedido
+                string descripcionNomina =
+                    $"{fechaSoloDia} Producto {nombreProd} " +
+                    $"Inicio: {horaInicio} Fin: {horaFin} " +
+                    $"Posta {nombrePosta} NroCertificado {nroCert} " +
+                    $"Cisternas: {vap.CantidadCisternas}";
+
+                await _nomRepo.RegistrarNominaAsync(
+                    GuardiaActual?.IdNomina ?? 0,
+                    esEdicion ? "Edita Vaporizado" : "Alta Vaporizado",
+                    descripcionNomina,
+                    _sesionService.IdUsuario
+                );
+            }
 
             _view.MostrarMensaje("Datos de vaporizado guardados correctamente.");
             _view.Cerrar();
         }
 
-        public async Task CrearConsumoOtrosAsync(Vaporizado vap, GuardiaDto guardia, string nroPresupuesto, string nroImporte)
+        public async Task CrearConsumoOtrosAsync(Vaporizado vap, GuardiaIngreso guardia, string nroPresupuesto, string nroImporte)
         {
             // 1. Obtener el objeto Posta
             var posta = await _postaRepo.ObtenerPorIdAsync(guardia.IdPosta);

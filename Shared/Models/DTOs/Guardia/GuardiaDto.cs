@@ -13,6 +13,7 @@
         public string Semi { get; set; } = string.Empty;
         public string Chofer { get; set; } = string.Empty;
 
+        public string UltimoProducto { get; set; } = string.Empty;  
         public DateTime Ingreso { get; set; } = DateTime.Now;
 
         public int IdEstadoEvento { get; set; }

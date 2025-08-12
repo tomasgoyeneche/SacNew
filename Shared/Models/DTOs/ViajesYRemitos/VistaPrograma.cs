@@ -20,7 +20,7 @@
         public DateTime CargaSalida { get; set; }
         public int? CargaRemito { get; set; }
         public DateTime? CargaRemitoFecha { get; set; }
-        public int? CargaUnidad { get; set; }
+        public string? CargaUnidad { get; set; }
         public int? CargaRemitoKg { get; set; }
         public int IdDestino { get; set; }
         public string Destino { get; set; } = string.Empty;
@@ -29,7 +29,7 @@
         public DateTime EntregaSalida { get; set; }
         public int? EntregaRemito { get; set; }
         public DateTime? EntregaRemitoFecha { get; set; }
-        public int? EntregaUnidad { get; set; }
+        public string? EntregaUnidad { get; set; }
         public int? EntregaRemitoKg { get; set; }
 
         public int MinCarga { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Services;
 using Dapper;
+using DevExpress.CodeParser;
 using Shared.Models;
 
 namespace Core.Repositories
@@ -12,7 +13,9 @@ namespace Core.Repositories
 
         public async Task<List<Ruteo>> ObtenerRuteoAsync()
         {
-            var query = "SELECT * FROM vw_Ruteo";
+            var query = @"
+            SELECT * FROM vw_Ruteo
+            OPTION (RECOMPILE)"; // <<--- agregado
 
             // Puedes parametrizar el timeout si querés, acá lo dejo en 120 segundos
             int commandTimeout = 120;
@@ -242,6 +245,13 @@ namespace Core.Repositories
             return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query))).ToList();
         }
 
+        public async Task<string> ObtenerUltimaCarga(int idNomina)
+        {
+            var query = " SELECT TOP 1 PR.Nombre\r\n    FROM Nomina NN\r\n    INNER JOIN ProgramaTramo PT ON PT.idNomina = NN.idNomina\r\n    INNER JOIN Programa PGM ON PGM.idPrograma = PT.idPrograma\r\n    INNER JOIN Producto PR ON PR.idProducto = PGM.idProducto\r\n    WHERE NN.idNomina = @idNomina\r\n      AND PGM.IdProgramaEstado = 1\r\n      AND PGM.CargaIngreso IS NOT NULL\r\n    ORDER BY PGM.FechaCarga DESC, PGM.idPrograma DESC";
+            return await ConectarAsync(conn => conn.ExecuteScalarAsync<string>(query, new {idNomina}));
+        }
+
+
         public async Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta)
         {
             string query = @"SELECT * FROM vw_Transoft WHERE Disponible BETWEEN @desde AND @hasta";
@@ -252,6 +262,12 @@ namespace Core.Repositories
         {
             string query = @"SELECT * FROM vw_TransoftMetanol WHERE Fecha BETWEEN @desde AND @hasta";
             return (await ConectarAsync(conn => conn.QueryAsync<TransoftMetanol>(query, new { desde, hasta }))).ToList();
+        }
+
+        public async Task<List<Acumulado>> ObtenerAcumuladoAsync(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_Acumulado WHERE Disponible BETWEEN @desde AND @hasta Order by idPrograma";
+            return (await ConectarAsync(conn => conn.QueryAsync<Acumulado>(query, new { desde, hasta }))).ToList();
         }
     }
 }

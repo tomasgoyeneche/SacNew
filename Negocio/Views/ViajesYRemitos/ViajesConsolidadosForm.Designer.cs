@@ -101,7 +101,7 @@
             gridViewProgramas.OptionsBehavior.Editable = false;
             gridViewProgramas.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewProgramas.OptionsView.EnableAppearanceEvenRow = true;
-            gridViewProgramas.DoubleClick += gridViewProgramas_DoubleClick;
+            gridViewProgramas.RowCellClick += gridViewProgramas_RowCellClick;
             // 
             // guna2Panel10
             // 
@@ -134,7 +134,7 @@
             guna2Panel3.Controls.Add(guna2HtmlLabel11);
             guna2Panel3.CustomizableEdges = customizableEdges5;
             guna2Panel3.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel3.Location = new Point(304, 16);
+            guna2Panel3.Location = new Point(809, 16);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel3.Size = new Size(459, 56);

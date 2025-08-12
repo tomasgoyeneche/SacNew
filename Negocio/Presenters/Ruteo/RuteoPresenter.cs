@@ -109,7 +109,7 @@ namespace GestionFlota.Presenters
 
         public async Task ExportarDemoradosAsync()
         {
-            var demorados = await _programaRepositorio.ObtenerProgramasDemoradosAsync();
+            List<ProgramaDemoradoInforme> demorados = await _programaRepositorio.ObtenerProgramasDemoradosAsync();
             if (demorados == null || !demorados.Any())
             {
                 _view.MostrarMensaje("No se encontraron programas demorados.");

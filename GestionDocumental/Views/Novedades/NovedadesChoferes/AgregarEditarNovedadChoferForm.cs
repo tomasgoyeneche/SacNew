@@ -18,6 +18,11 @@ namespace GestionDocumental.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            if(IdEstado == 11 && Observaciones == "")
+            {
+                MostrarMensaje("Debe ingresar una observacion en el caso de otros");
+                return;
+            }
             await _presenter.GuardarAsync();
         }
 
@@ -36,7 +41,7 @@ namespace GestionDocumental.Views
 
         public string Observaciones => txtObservaciones.Text.Trim();
 
-        public bool Disponible => dispoCheck.Checked;
+       // public bool Disponible => dispoCheck.Checked;
 
         public void CargarChoferes(List<Chofer> choferes)
         {
@@ -74,15 +79,6 @@ namespace GestionDocumental.Views
             txtObservaciones.Text = novedadesChoferes.Observaciones;
             cmbChofer.EditValue = novedadesChoferes.idChofer;
             cmbEstado.EditValue = novedadesChoferes.idEstado;
-
-            if (novedadesChoferes.Disponible == "SI")
-            {
-                dispoCheck.Checked = true;
-            }
-            else
-            {
-                dispoCheck.Checked = false;
-            }
             dtpFechaInicio.Value = novedadesChoferes.FechaInicio;
             dtpFechaFinal.Value = novedadesChoferes.FechaFin;
             _presenter.CalcularAusencia();
@@ -127,6 +123,18 @@ namespace GestionDocumental.Views
             else
             {
                 await _presenter.MostrarMantenimientosUnidadDelChoferAsync(0); // Limpiar si no hay chofer
+            }
+        }
+        private void bAyuda_Click(object sender, EventArgs e)
+        {
+            if (cmbEstado.GetSelectedDataRow() is ChoferTipoEstado estado)
+            {
+                // Mostrá el mensaje con la descripción
+                XtraMessageBox.Show(this, $"Estado Detalle: {estado.Detalle}", "Estado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show(this, "No hay ningún estado seleccionado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

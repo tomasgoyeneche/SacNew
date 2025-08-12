@@ -10,5 +10,6 @@
         public string? numeroPoliza { get; set; }
         public DateTime certificadoMensual { get; set; }
         public DateTime vigenciaAnual { get; set; }
+        public bool Activo { get; set; } = true;
     }
 }

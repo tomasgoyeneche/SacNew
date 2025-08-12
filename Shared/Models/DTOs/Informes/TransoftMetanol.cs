@@ -14,7 +14,7 @@
         public string? Destino { get; set; }
         public string? Chofer { get; set; }
         public int? Dni { get; set; }
-        public int? Cuit { get; set; }
+        public string? Cuit { get; set; }
         public string? Producto { get; set; }
     }
 }

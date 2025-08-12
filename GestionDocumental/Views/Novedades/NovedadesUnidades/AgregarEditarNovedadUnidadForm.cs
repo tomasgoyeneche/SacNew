@@ -67,6 +67,7 @@ namespace GestionDocumental.Views.Novedades
             cmbEstado.Properties.Columns.Clear(); // 🔥 Borra todo
             cmbEstado.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Estado"));
 
+            txtOdometro.Text = "0";
             cmbEstado.EditValue = _presenter.NovedadActual?.idMantenimientoEstado ?? -1;
         }
 
@@ -122,6 +123,19 @@ namespace GestionDocumental.Views.Novedades
             else
             {
                 await _presenter.MostrarAusenciasDelChoferAsync(0); // Limpiar si no hay chofer
+            }
+        }
+
+        private void bAyuda_Click(object sender, EventArgs e)
+        {
+            if (cmbEstado.GetSelectedDataRow() is UnidadMantenimientoEstado estado)
+            {
+                // Mostrá el mensaje con la descripción
+                XtraMessageBox.Show(this, $"Estado Detalle: {estado.Detalle}", "Estado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show(this, "No hay ningún estado seleccionado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

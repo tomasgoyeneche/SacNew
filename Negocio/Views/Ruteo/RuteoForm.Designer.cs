@@ -536,12 +536,14 @@
             gridViewCargados.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewCargados.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             gridViewCargados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12 });
-            gridViewCargados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewCargados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             gridViewCargados.GridControl = gridControlCargados;
             gridViewCargados.Name = "gridViewCargados";
             gridViewCargados.OptionsBehavior.Editable = false;
             gridViewCargados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewCargados.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewCargados.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewCargados.RowHeight = 20;
             gridViewCargados.RowCellClick += gridViewCargados_RowCellClick;
             gridViewCargados.FocusedRowChanged += gridViewCargados_FocusedRowChanged;
             // 
@@ -552,6 +554,7 @@
             gridColumn1.Name = "gridColumn1";
             gridColumn1.Visible = true;
             gridColumn1.VisibleIndex = 0;
+            gridColumn1.Width = 80;
             // 
             // gridColumn2
             // 
@@ -560,6 +563,7 @@
             gridColumn2.Name = "gridColumn2";
             gridColumn2.Visible = true;
             gridColumn2.VisibleIndex = 1;
+            gridColumn2.Width = 80;
             // 
             // gridColumn3
             // 
@@ -568,6 +572,7 @@
             gridColumn3.Name = "gridColumn3";
             gridColumn3.Visible = true;
             gridColumn3.VisibleIndex = 2;
+            gridColumn3.Width = 120;
             // 
             // gridColumn4
             // 
@@ -576,6 +581,7 @@
             gridColumn4.Name = "gridColumn4";
             gridColumn4.Visible = true;
             gridColumn4.VisibleIndex = 3;
+            gridColumn4.Width = 81;
             // 
             // gridColumn5
             // 
@@ -584,6 +590,7 @@
             gridColumn5.Name = "gridColumn5";
             gridColumn5.Visible = true;
             gridColumn5.VisibleIndex = 4;
+            gridColumn5.Width = 100;
             // 
             // gridColumn6
             // 
@@ -592,6 +599,7 @@
             gridColumn6.Name = "gridColumn6";
             gridColumn6.Visible = true;
             gridColumn6.VisibleIndex = 5;
+            gridColumn6.Width = 80;
             // 
             // gridColumn7
             // 
@@ -600,6 +608,7 @@
             gridColumn7.Name = "gridColumn7";
             gridColumn7.Visible = true;
             gridColumn7.VisibleIndex = 6;
+            gridColumn7.Width = 65;
             // 
             // gridColumn8
             // 
@@ -608,6 +617,7 @@
             gridColumn8.Name = "gridColumn8";
             gridColumn8.Visible = true;
             gridColumn8.VisibleIndex = 7;
+            gridColumn8.Width = 80;
             // 
             // gridColumn9
             // 
@@ -616,6 +626,7 @@
             gridColumn9.Name = "gridColumn9";
             gridColumn9.Visible = true;
             gridColumn9.VisibleIndex = 8;
+            gridColumn9.Width = 60;
             // 
             // gridColumn10
             // 
@@ -624,6 +635,7 @@
             gridColumn10.Name = "gridColumn10";
             gridColumn10.Visible = true;
             gridColumn10.VisibleIndex = 9;
+            gridColumn10.Width = 80;
             // 
             // gridColumn11
             // 
@@ -632,6 +644,7 @@
             gridColumn11.Name = "gridColumn11";
             gridColumn11.Visible = true;
             gridColumn11.VisibleIndex = 10;
+            gridColumn11.Width = 80;
             // 
             // gridColumn12
             // 
@@ -640,6 +653,7 @@
             gridColumn12.Name = "gridColumn12";
             gridColumn12.Visible = true;
             gridColumn12.VisibleIndex = 11;
+            gridColumn12.Width = 40;
             // 
             // gridView3
             // 
@@ -695,6 +709,7 @@
             gridViewVacios.Name = "gridViewVacios";
             gridViewVacios.OptionsBehavior.Editable = false;
             gridViewVacios.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewVacios.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewVacios.OptionsView.EnableAppearanceEvenRow = true;
             gridViewVacios.RowCellClick += gridViewVacios_RowCellClick;
             gridViewVacios.FocusedRowChanged += gridViewVacios_FocusedRowChanged;
@@ -930,21 +945,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private DevExpress.XtraGrid.GridControl gridControlCargados;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCargados;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private DevExpress.XtraGrid.GridControl gridControlVacios;
@@ -965,5 +965,20 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewChoferesLibres;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraGrid.GridControl gridControlCargados;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCargados;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
     }
 }

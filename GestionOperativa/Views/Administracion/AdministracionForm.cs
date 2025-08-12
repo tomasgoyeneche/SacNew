@@ -4,6 +4,7 @@ using GestionOperativa.Presenters;
 using GestionOperativa.Properties;
 using Shared.Models;
 using System.Data;
+using System.IO;
 
 namespace GestionOperativa.Views
 {
@@ -23,8 +24,10 @@ namespace GestionOperativa.Views
             XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void MostrarGuardia(List<GuardiaDto> guardias)
+        public async void MostrarGuardia(List<GuardiaDto> guardias)
         {
+           
+
             gridControlGuardia.DataSource = guardias;
 
             var view = gridViewGuardia;
@@ -32,6 +35,13 @@ namespace GestionOperativa.Views
             {
                 if (view.Columns[col] != null)
                     view.Columns[col].Visible = false;
+            }
+
+            if (gridViewGuardia.GetFocusedRow() is GuardiaDto guardia)
+            {
+                await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
+                await _presenter.CargarVencimientosYAlertasAsync(guardia);
+                await _presenter.MostrarDatosYFotoAsync(guardia);
             }
 
             view.BestFitColumns();
@@ -183,29 +193,42 @@ namespace GestionOperativa.Views
             picBoxFotoUnidad.BackgroundImage = Resources.fotoTractorIncognito__1_;
         }
 
-        public void MostrarDatosNomina(ChoferDto chofer, TractorDto tractor, SemiDto semi, UnidadDto unidad, string rutaFotoChofer, string RutaFotoUnidad)
+        public void MostrarDatosNomina(ChoferDto chofer, TractorDto tractor, SemiDto semi, UnidadDto unidad, string? rutaFotoChofer, string RutaFotoUnidad)
         {
-            txtApellidoNombre.Text = chofer.Nombre + " " + chofer.Apellido;
-            txtNombreFantasia.Text = chofer.Empresa_Nombre;
-            txtCuit.Text = chofer.Empresa_Cuit;
-            txtDni.Text = chofer.Documento;
-            txtLicencia.Text = chofer.Licencia.ToShortDateString();
+            if (chofer != null)
+            {
+                txtApellidoNombre.Text = chofer.Nombre + " " + chofer.Apellido;
+                txtNombreFantasia.Text = chofer.Empresa_Nombre;
+                txtDni.Text = chofer.Documento;
+                txtLicencia.Text = chofer.Licencia.ToShortDateString();
+                txtPsiApto.Text = chofer.PsicofisicoApto.ToShortDateString();
+                txtPsiCurso.Text = chofer.PsicofisicoCurso.ToShortDateString();
+            }
+            else
+            {
+                txtApellidoNombre.Text = "N/A";
+                txtNombreFantasia.Text = "N/A";
+                txtDni.Text = "N/A";
+                txtLicencia.Text = "N/A";
+                txtPsiApto.Text = "N/A";
+                txtPsiCurso.Text = "N/A";
+            }
+
+            txtCuit.Text = tractor.Empresa_Cuit;
             txtTractor.Text = tractor.Patente;
             txtSemi.Text = semi.Patente;
-
-            txtPsiApto.Text = chofer.PsicofisicoApto.ToShortDateString();
-            txtPsiCurso.Text = chofer.PsicofisicoCurso.ToShortDateString();
             txtVtv.Text = tractor.Vtv.Value.ToShortDateString();
             txtVtvSemi.Text = semi.Vtv.Value.ToShortDateString();
             txtEstanq.Text = semi.Estanqueidad.Value.ToShortDateString();
             txtVisualInt.Text = semi.VisualInterna.Value.ToShortDateString();
             txtMasYpf.Text = unidad.MasYPF.Value.ToShortDateString();
-            txtVerifMensual.Text = unidad.Calibrado.Value.ToShortDateString();
+            txtVerifMensual.Text = unidad.VerifMensual.Value.ToShortDateString();
             txtVisualExt.Text = semi.VisualExterna.Value.ToShortDateString();
             txtChecklist.Text = unidad.Checklist.Value.ToShortDateString();
             txtEspesor.Text = semi.CisternaEspesor.Value.ToShortDateString();
 
-            if (rutaFotoChofer != null)
+            // Foto del Chofer
+            if (!string.IsNullOrEmpty(rutaFotoChofer) && File.Exists(rutaFotoChofer) && rutaFotoChofer != null)
             {
                 picBoxFotoChofer.BackgroundImage = Image.FromFile(rutaFotoChofer);
             }
@@ -214,7 +237,8 @@ namespace GestionOperativa.Views
                 picBoxFotoChofer.BackgroundImage = Resources.fotoChoferIncognito;
             }
 
-            if (RutaFotoUnidad != null)
+            // Foto de la Unidad
+            if (!string.IsNullOrEmpty(RutaFotoUnidad) && File.Exists(RutaFotoUnidad))
             {
                 picBoxFotoUnidad.BackgroundImage = Image.FromFile(RutaFotoUnidad);
             }

@@ -397,7 +397,7 @@ namespace GestionOperativa.Presenters
 
             var camposVencimiento = new Dictionary<string, Func<UnidadDto, DateTime?>>
             {
-                { "Calibrado", unidad => unidad.Calibrado },
+                { "VerifMensual", unidad => unidad.VerifMensual },
                 { "Checklist", unidad => unidad.Checklist },
                 { "MasYPF", unidad => unidad.MasYPF }
             };

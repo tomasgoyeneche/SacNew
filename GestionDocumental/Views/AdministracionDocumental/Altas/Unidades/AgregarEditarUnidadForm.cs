@@ -41,7 +41,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             lTara.Text = unidad.TaraTotal.ToString();
             lMasYpf.Text = unidad.MasYPF?.ToShortDateString();
             lChecklist.Text = unidad.Checklist?.ToShortDateString();
-            lVerifMensual.Text = unidad.Calibrado?.ToShortDateString();
+            lVerifMensual.Text = unidad.VerifMensual?.ToShortDateString();
 
             lMetanol.Text = unidad.Metanol ? "Sí" : "No";
             lGasoil.Text = unidad.Gasoil ? "Sí" : "No";

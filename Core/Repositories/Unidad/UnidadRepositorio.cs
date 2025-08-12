@@ -39,11 +39,11 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<UnidadDto>(query, new { IdUnidad = idUnidad }));
         }
 
-        public async Task<Unidad?> ObtenerPorUnidadIdAsync(int idUnidad)
+        public Task<Unidad?> ObtenerPorUnidadIdAsync(int idUnidad)
         {
-            var query = "SELECT * FROM Unidad WHERE IdUnidad = @idUnidad";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Unidad>(query, new { IdUnidad = idUnidad }));
+            return ObtenerPorIdGenericoAsync<Unidad>("Unidad", "IdUnidad", idUnidad);
         }
+
 
         // Obtener Por Otras Opciones
 
@@ -93,24 +93,29 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario)
+        public Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario)
         {
             var query = @"
         UPDATE UnidadVencimiento
-        SET FechaVencimiento = @fechaActualizacion,
-            IdUsuario = @idUsuario
-        WHERE IdUnidad = @idUnidad AND idTipoVencimiento = @idTipoVencimiento";
+        SET FechaVencimiento = @FechaVencimiento,
+            IdUsuario = @IdUsuario
+        WHERE IdUnidad = @IdUnidad AND idTipoVencimiento = @IdTipoVencimiento";
 
-            await ConectarAsync(async connection =>
+            var valoresNuevos = new
             {
-                await connection.ExecuteAsync(query, new
-                {
-                    idUnidad,
-                    idTipoVencimiento,
-                    fechaActualizacion,
-                    idUsuario
-                });
-            });
+                IdUnidad = idUnidad,
+                IdTipoVencimiento = idTipoVencimiento,
+                FechaVencimiento = fechaActualizacion,
+                IdUsuario = idUsuario
+            };
+
+            return EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, valoresNuevos),
+                "UnidadVencimiento",
+                "UPDATE",
+                new { IdUnidad = idUnidad, IdTipoVencimiento = idTipoVencimiento },
+                valoresNuevos
+            );
         }
 
         public async Task AgregarUnidadAsync(Unidad unidad, int idUsuario)

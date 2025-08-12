@@ -6,6 +6,7 @@ using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
+using Servicios.Views.Vaporizados;
 
 namespace SacNew.Views
 {
@@ -123,6 +124,11 @@ namespace SacNew.Views
         private void bViajesRemitos_Click(object sender, EventArgs e)
         {
             _presenter.AbrirViajesYRemitos("0010-ViajesYRemitos");
+        }
+
+        private void bCapacitaciones_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirFormularioConPermisosAsync<PruebaDevforms>("0016-Informes");
         }
     }
 }

@@ -29,49 +29,24 @@ namespace Core.Repositories
             );
         }
 
-        public async Task<EmpresaSeguro?> ObtenerSeguroPorIdAsync(int idEmpresaSeguro)
+        public Task<EmpresaSeguro?> ObtenerSeguroPorIdAsync(int idEmpresaSeguro)
         {
-            var query = @"SELECT * FROM EmpresaSeguro
-                  WHERE idEmpresaSeguro = @idEmpresaSeguro AND Activo = 1";
-
-            return await ConectarAsync(connection =>
-                connection.QuerySingleOrDefaultAsync<EmpresaSeguro>(query, new { idEmpresaSeguro })
-            );
+            return ObtenerPorIdGenericoAsync<EmpresaSeguro>("EmpresaSeguro", "IdEmpresaSeguro", idEmpresaSeguro);
         }
 
-        public async Task AgregarSeguroAsync(EmpresaSeguro seguro)
+        public Task AgregarSeguroAsync(EmpresaSeguro seguro)
         {
-            var query = @"
-        INSERT INTO EmpresaSeguro (
-            idEmpresa, idEmpresaSeguroEntidad, idCia, idCobertura,
-            numeroPoliza, certificadoMensual, vigenciaAnual, activo
-        )
-        VALUES (
-            @idEmpresa, @idEmpresaSeguroEntidad, @idCia, @idCobertura,
-            @numeroPoliza, @certificadoMensual, @vigenciaAnual, 1
-        );";
-
-            await ConectarAsync(conn => conn.ExecuteAsync(query, seguro));
+            return AgregarGenéricoAsync("EmpresaSeguro", seguro);
         }
 
-        public async Task ActualizarSeguroAsync(EmpresaSeguro seguro)
+        public Task ActualizarSeguroAsync(EmpresaSeguro seguro)
         {
-            var query = @"
-        UPDATE EmpresaSeguro SET
-            idCia = @idCia,
-            idCobertura = @idCobertura,
-            numeroPoliza = @numeroPoliza,
-            certificadoMensual = @certificadoMensual,
-            vigenciaAnual = @vigenciaAnual
-        WHERE idEmpresaSeguro = @idEmpresaSeguro";
-
-            await ConectarAsync(conn => conn.ExecuteAsync(query, seguro));
+            return ActualizarGenéricoAsync("EmpresaSeguro", seguro);
         }
 
-        public async Task EliminarSeguroAsync(int idEmpresaSeguro)
+        public Task EliminarSeguroAsync(int idEmpresaSeguro)
         {
-            var query = @"UPDATE EmpresaSeguro SET activo = 0 WHERE idEmpresaSeguro = @idEmpresaSeguro";
-            await ConectarAsync(conn => conn.ExecuteAsync(query, new { idEmpresaSeguro }));
+            return EliminarGenéricoAsync<EmpresaSeguro>("EmpresaSeguro", idEmpresaSeguro);
         }
     }
 }

@@ -29,6 +29,8 @@ namespace GestionFlota.Views
 
         public int? IdMedida => Convert.ToInt32(cmbMedida.EditValue) == 0 ? (int?)null : Convert.ToInt32(cmbMedida.EditValue);
         public int? IdOrigen => Convert.ToInt32(cmbCarga.EditValue) == 0 ? (int?)null : Convert.ToInt32(cmbCarga.EditValue);
+        public int? IdDestino => Convert.ToInt32(cmbEntrega.EditValue) == 0 ? (int?)null : Convert.ToInt32(cmbEntrega.EditValue);
+
         public int? IdProducto => Convert.ToInt32(cmbProducto.EditValue) == 0 ? (int?)null : Convert.ToInt32(cmbProducto.EditValue);
         public string RemitoNumero => txtRemito.Text.Trim();
         public int? Cantidad => Convert.ToInt32(txtTotal.Text.Trim());

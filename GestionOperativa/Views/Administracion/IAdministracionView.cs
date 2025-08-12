@@ -19,6 +19,6 @@ namespace GestionOperativa.Views
 
         void MostrarDatosOtros(GuardiaIngresoOtros otros);
 
-        void MostrarDatosNomina(ChoferDto chofer, TractorDto tractor, SemiDto semi, UnidadDto unidad, string rutaFotoChofer, string rutaFotoUnidad);
+        void MostrarDatosNomina(ChoferDto chofer, TractorDto tractor, SemiDto semi, UnidadDto unidad, string? rutaFotoChofer, string rutaFotoUnidad);
     }
 }

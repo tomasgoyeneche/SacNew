@@ -142,6 +142,7 @@
             lblRemitoCarga = new Label();
             lblCargaEdit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pEntrega = new Guna.UI2.WinForms.Guna2Panel();
+            dateEditEntregaIngreso = new DevExpress.XtraEditors.DateEdit();
             lblEntrega = new Label();
             dateEditEntrega = new DevExpress.XtraEditors.DateEdit();
             lblEntregaEdit = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -150,7 +151,6 @@
             bRemitoEntrega = new DevExpress.XtraEditors.SimpleButton();
             dateEditEntregaSalida = new DevExpress.XtraEditors.DateEdit();
             lblIngresoEntrega = new Label();
-            dateEditEntregaIngreso = new DevExpress.XtraEditors.DateEdit();
             lblSalidaEntrega = new Label();
             dateEditLlegadaEntrega = new DevExpress.XtraEditors.DateEdit();
             bEliminarSalidaEntrega = new DevExpress.XtraEditors.SimpleButton();
@@ -211,12 +211,12 @@
             ((System.ComponentModel.ISupportInitialize)dateEditSalidaCarga.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditSalidaCarga.Properties.CalendarTimeProperties).BeginInit();
             pEntrega.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntrega.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntrega.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntregaSalida.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntregaSalida.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties.CalendarTimeProperties).BeginInit();
             pAduanaArg.SuspendLayout();
@@ -588,6 +588,7 @@
             // pEntrega
             // 
             pEntrega.BackColor = Color.Transparent;
+            pEntrega.Controls.Add(dateEditEntregaIngreso);
             pEntrega.Controls.Add(lblEntrega);
             pEntrega.Controls.Add(dateEditEntrega);
             pEntrega.Controls.Add(lblEntregaEdit);
@@ -596,7 +597,6 @@
             pEntrega.Controls.Add(bRemitoEntrega);
             pEntrega.Controls.Add(dateEditEntregaSalida);
             pEntrega.Controls.Add(lblIngresoEntrega);
-            pEntrega.Controls.Add(dateEditEntregaIngreso);
             pEntrega.Controls.Add(lblSalidaEntrega);
             pEntrega.Controls.Add(dateEditLlegadaEntrega);
             pEntrega.Controls.Add(bEliminarSalidaEntrega);
@@ -610,13 +610,31 @@
             pEntrega.Size = new Size(290, 260);
             pEntrega.TabIndex = 51;
             // 
+            // dateEditEntregaIngreso
+            // 
+            dateEditEntregaIngreso.EditValue = null;
+            dateEditEntregaIngreso.Location = new Point(193, 126);
+            dateEditEntregaIngreso.Name = "dateEditEntregaIngreso";
+            dateEditEntregaIngreso.Properties.Appearance.BackColor = Color.WhiteSmoke;
+            dateEditEntregaIngreso.Properties.Appearance.Options.UseBackColor = true;
+            editorButtonImageOptions5.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions5.SvgImage");
+            dateEditEntregaIngreso.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            dateEditEntregaIngreso.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            dateEditEntregaIngreso.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            dateEditEntregaIngreso.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            dateEditEntregaIngreso.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
+            dateEditEntregaIngreso.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            dateEditEntregaIngreso.Size = new Size(36, 36);
+            dateEditEntregaIngreso.TabIndex = 87;
+            dateEditEntregaIngreso.EditValueChanged += dateEditEntregaIngreso_EditValueChanged;
+            // 
             // lblEntrega
             // 
             lblEntrega.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEntrega.ForeColor = Color.WhiteSmoke;
             lblEntrega.Location = new Point(16, 30);
             lblEntrega.Name = "lblEntrega";
-            lblEntrega.Size = new Size(161, 35);
+            lblEntrega.Size = new Size(171, 35);
             lblEntrega.TabIndex = 86;
             lblEntrega.Text = "Entrega:";
             lblEntrega.TextAlign = ContentAlignment.MiddleLeft;
@@ -628,8 +646,8 @@
             dateEditEntrega.Name = "dateEditEntrega";
             dateEditEntrega.Properties.Appearance.BackColor = Color.WhiteSmoke;
             dateEditEntrega.Properties.Appearance.Options.UseBackColor = true;
-            editorButtonImageOptions5.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions5.SvgImage");
-            dateEditEntrega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions6.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions6.SvgImage");
+            dateEditEntrega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             dateEditEntrega.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             dateEditEntrega.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             dateEditEntrega.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
@@ -659,7 +677,7 @@
             lblLlegadaEntrega.ForeColor = Color.WhiteSmoke;
             lblLlegadaEntrega.Location = new Point(16, 77);
             lblLlegadaEntrega.Name = "lblLlegadaEntrega";
-            lblLlegadaEntrega.Size = new Size(161, 35);
+            lblLlegadaEntrega.Size = new Size(171, 35);
             lblLlegadaEntrega.TabIndex = 84;
             lblLlegadaEntrega.Text = "Llegada:";
             lblLlegadaEntrega.TextAlign = ContentAlignment.MiddleLeft;
@@ -701,8 +719,8 @@
             dateEditEntregaSalida.Name = "dateEditEntregaSalida";
             dateEditEntregaSalida.Properties.Appearance.BackColor = Color.WhiteSmoke;
             dateEditEntregaSalida.Properties.Appearance.Options.UseBackColor = true;
-            editorButtonImageOptions6.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions6.SvgImage");
-            dateEditEntregaSalida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions7.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions7.SvgImage");
+            dateEditEntregaSalida.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             dateEditEntregaSalida.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             dateEditEntregaSalida.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             dateEditEntregaSalida.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
@@ -718,28 +736,10 @@
             lblIngresoEntrega.ForeColor = Color.WhiteSmoke;
             lblIngresoEntrega.Location = new Point(16, 127);
             lblIngresoEntrega.Name = "lblIngresoEntrega";
-            lblIngresoEntrega.Size = new Size(161, 35);
+            lblIngresoEntrega.Size = new Size(171, 35);
             lblIngresoEntrega.TabIndex = 83;
             lblIngresoEntrega.Text = "Ingreso:";
             lblIngresoEntrega.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // dateEditEntregaIngreso
-            // 
-            dateEditEntregaIngreso.EditValue = null;
-            dateEditEntregaIngreso.Location = new Point(193, 125);
-            dateEditEntregaIngreso.Name = "dateEditEntregaIngreso";
-            dateEditEntregaIngreso.Properties.Appearance.BackColor = Color.WhiteSmoke;
-            dateEditEntregaIngreso.Properties.Appearance.Options.UseBackColor = true;
-            editorButtonImageOptions7.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions7.SvgImage");
-            dateEditEntregaIngreso.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            dateEditEntregaIngreso.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            dateEditEntregaIngreso.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            dateEditEntregaIngreso.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEditEntregaIngreso.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.ClassicNew;
-            dateEditEntregaIngreso.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateEditEntregaIngreso.Size = new Size(36, 36);
-            dateEditEntregaIngreso.TabIndex = 78;
-            dateEditEntregaIngreso.EditValueChanged += dateEditEntregaIngreso_EditValueChanged;
             // 
             // lblSalidaEntrega
             // 
@@ -747,7 +747,7 @@
             lblSalidaEntrega.ForeColor = Color.WhiteSmoke;
             lblSalidaEntrega.Location = new Point(16, 176);
             lblSalidaEntrega.Name = "lblSalidaEntrega";
-            lblSalidaEntrega.Size = new Size(161, 35);
+            lblSalidaEntrega.Size = new Size(171, 35);
             lblSalidaEntrega.TabIndex = 82;
             lblSalidaEntrega.Text = "Salida:";
             lblSalidaEntrega.TextAlign = ContentAlignment.MiddleLeft;
@@ -1491,12 +1491,12 @@
             ((System.ComponentModel.ISupportInitialize)dateEditSalidaCarga.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditSalidaCarga.Properties).EndInit();
             pEntrega.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntrega.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntrega.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntregaSalida.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditEntregaSalida.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dateEditEntregaIngreso.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditLlegadaEntrega.Properties).EndInit();
             pAduanaArg.ResumeLayout(false);
@@ -1562,7 +1562,6 @@
         private DevExpress.XtraEditors.SimpleButton bRemitoEntrega;
         private DevExpress.XtraEditors.DateEdit dateEditEntregaSalida;
         private Label lblIngresoEntrega;
-        private DevExpress.XtraEditors.DateEdit dateEditEntregaIngreso;
         private Label lblSalidaEntrega;
         private DevExpress.XtraEditors.DateEdit dateEditLlegadaEntrega;
         private DevExpress.XtraEditors.SimpleButton bEliminarSalidaEntrega;
@@ -1598,5 +1597,6 @@
         private DevExpress.XtraEditors.DateEdit dtpLlegadaExt2;
         private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaArg;
         private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaExt1;
+        private DevExpress.XtraEditors.DateEdit dateEditEntregaIngreso;
     }
 }

@@ -13,7 +13,7 @@
         public string Unidad { get; set; } = string.Empty;
 
         public string Chofer { get; set; } = string.Empty;
-        public int Dni { get; set; }
+        public string? Dni { get; set; }
         public string Tractor { get; set; } = string.Empty;
         public string Semi { get; set; } = string.Empty;
         public int Cap { get; set; }

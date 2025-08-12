@@ -43,7 +43,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Relevamientos
             view.Columns["Gasoil"].Visible = false;
             view.Columns["LujanCuyo"].Visible = false;
             view.Columns["AptoBo"].Visible = false;
-            view.Columns["Calibrado"].Visible = false;
+            view.Columns["VerifMensual"].Visible = false;
             view.Columns["Checklist"].Visible = false;
             view.Columns["MasYPF"].Visible = false;
 

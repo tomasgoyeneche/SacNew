@@ -161,7 +161,13 @@ namespace GestionOperativa.Presenters
                     TractorDto? tractor = await _tractorRepositorio.ObtenerPorIdDtoAsync(unidad.IdTractor);
                     SemiDto? semi = await _semiRepositorio.ObtenerPorIdDtoAsync(unidad.IdSemi);
 
-                    string? rutaFoto = await ObtenerRutaPorIdAsync(1, "", chofer.Documento + ".jpg");
+                    string? rutaFoto = null;
+
+                    if (chofer != null)
+                    {
+                        rutaFoto = await ObtenerRutaPorIdAsync(1, "", chofer.Documento + ".jpg");
+                    }
+
                     string patenteUnidad = $"{unidadDto.Tractor_Patente}_{unidadDto.Semirremolque_Patente}";
                     string? rutaFotoUnidad = await ObtenerRutaPorIdAsync(6, "Nomina", $"{patenteUnidad}.jpg");
 

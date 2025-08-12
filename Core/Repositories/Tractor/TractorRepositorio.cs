@@ -17,17 +17,9 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<TractorDto?>(query, new { IdTractor = idTractor }));
         }
 
-        public async Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
+        public Task<Tractor?> ObtenerTractorPorIdAsync(int idTractor)
         {
-            var query = @"
-            SELECT *
-            FROM Tractor
-            WHERE IdTractor = @IdTractor";
-
-            return await ConectarAsync(async conn =>
-            {
-                return await conn.QueryFirstOrDefaultAsync<Tractor>(query, new { IdTractor = idTractor });
-            });
+            return ObtenerPorIdGenericoAsync<Tractor>("Tractor", "IdTractor", idTractor);
         }
 
         public async Task<List<TractorDto>> ObtenerTodosLosTractoresDto()
@@ -81,32 +73,18 @@ namespace Core.Repositories
 
         // Actualizar, Editar, Eliminar
 
-        public async Task AltaTractorAsync(string patente, int idUsuario)
+        public Task AltaTractorAsync(string patente, int idUsuario)
         {
-            var query = "EXEC sp_AltaTractor @patente, @idusuario"; // o ";" si querés como texto
-
-            await ConectarAsync(connection =>
-            {
-                return connection.ExecuteAsync(
-                    query,
-                    new { patente = patente, idusuario = idUsuario }
-                );
-            });
+            var query = "EXEC sp_AltaTractor @patente, @idusuario";
+            return ConectarAsync(connection =>
+                connection.ExecuteAsync(query, new { patente, idusuario = idUsuario })
+            );
         }
 
-        public async Task ActualizarTractorAsync(Tractor tractor)
-        {
-            var query = @"
-            UPDATE Tractor
-            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
-                Tara = @Tara, Hp = @Hp, Combustible = @Combustible, Cmt = @Cmt,
-                IdEmpresaSatelital = @IdEmpresaSatelital, FechaAlta = @FechaAlta, Configuracion = @Configuracion
-            WHERE IdTractor = @IdTractor";
 
-            await ConectarAsync(async conn =>
-            {
-                await conn.ExecuteAsync(query, tractor);
-            });
+        public Task ActualizarTractorAsync(Tractor tractor)
+        {
+            return ActualizarGenéricoAsync("Tractor", tractor);
         }
 
         public async Task EliminarTractorAsync(int idTractor)
@@ -129,24 +107,29 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarVencimientoTractorAsync(int idTractor, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
+        public Task ActualizarVencimientoTractorAsync(int idTractor, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
         {
             var query = @"
-        UPDATE TractorVencimiento
-        SET FechaVencimiento = @fechaActualizacion,
-            IdUsuario = @idUsuario
-        WHERE IdTractor = @idTractor AND IdVencimiento = @idVencimiento";
+            UPDATE TractorVencimiento
+            SET FechaVencimiento = @FechaVencimiento,
+                IdUsuario = @idUsuario
+            WHERE IdTractor = @idTractor AND IdVencimiento = @idVencimiento";
 
-            await ConectarAsync(async connection =>
+            var valoresNuevos = new
             {
-                await connection.ExecuteAsync(query, new
-                {
-                    idTractor,
-                    idVencimiento,
-                    fechaActualizacion,
-                    idUsuario
-                });
-            });
+                IdTractor = idTractor,
+                IdVencimiento = idVencimiento,
+                FechaVencimiento = fechaActualizacion,
+                IdUsuario = idUsuario
+            };
+
+            return EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, valoresNuevos),
+                "TractorVencimiento",
+                "UPDATE",
+                new { IdTractor = idTractor, IdVencimiento = idVencimiento },
+                valoresNuevos
+            );
         }
     }
 }

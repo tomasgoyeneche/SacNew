@@ -31,7 +31,7 @@ namespace Core.Repositories
         {
             var query = @"
         SELECT *
-        FROM vw_VaporizadoDetalle"; // Comparación sin hora
+        FROM vw_VaporizadoDetalle order by Fin desc"; // Comparación sin hora
 
             return await ConectarAsync(async connection =>
             {

@@ -20,6 +20,7 @@ namespace Core.Repositories
 
         Task<GuardiaEstado?> ObtenerEstadoPorIdAsync(int idEstado);
 
+        Task<GuardiaIngreso?> ObtenerGuardiaPorId(int? idGuardiaIngreso);
         Task RegistrarCambioEstadoAsync(int idGuardiaIngreso, int idUsuario, DateTime fecha, int nuevoEstado, string observacion);
 
         Task<List<GuardiaHistorialDto>> ObtenerHistorialPorIngresoAsync(int idGuardiaIngreso);

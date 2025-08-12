@@ -19,8 +19,8 @@ namespace GestionOperativa.Views.AgregarGuardia
         {
             cmbTipoIngreso.Items.AddRange(new[]
             {
-            "Proveedor", "Cliente", "Visita"
-        });
+            "Proveedor", "Cliente", "Visita" //, Ingreso
+            });
         }
 
         public DateTime Fecha { set => lblFechaIngreso.Text = value.ToString("dd/MM/yyyy"); }

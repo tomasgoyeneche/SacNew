@@ -239,23 +239,23 @@ namespace GestionOperativa.Presenters
             Posta posta = await _postaRepositorio.ObtenerPorIdAsync(_idPosta);
             int? idPeriodo = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(fecha.Month, fecha.Year);  // Esta mal ya que te devuelve siempre primera quincena corregir
 
-            POC poc = new POC()
-            {
-                NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),
-                IdPosta = posta.IdPosta,
-                IdUnidad = nomina.IdUnidad,
-                IdChofer = nomina.IdChofer,
-                Odometro = 0, // ver si tomar del satelital
-                FechaCreacion = fecha,
-                FechaCierre = null,
-                IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto
-                IdUsuario = _sesionService.IdUsuario,
-                Estado = "Abierta"
-            };
+            //POC poc = new POC()
+            //{
+            //    NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),
+            //    IdPosta = posta.IdPosta,
+            //    IdUnidad = nomina.IdUnidad,
+            //    IdChofer = nomina.IdChofer,
+            //    Odometro = 0, // ver si tomar del satelital
+            //    FechaCreacion = fecha,
+            //    FechaCierre = null,
+            //    IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto
+            //    IdUsuario = _sesionService.IdUsuario,
+            //    Estado = "Abierta"
+            //};
 
             await _nominaRepositorio.RegistrarNominaAsync(nomina.IdNomina, "Ingreso Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
-            await _pocRepositorio.AgregarPOCAsync(poc);
+            //await _pocRepositorio.AgregarPOCAsync(poc);
             ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
             foreach (AlertaDto ale in alertas)
             {
@@ -285,6 +285,7 @@ namespace GestionOperativa.Presenters
                 return;
             }
 
+            GuardiaIngreso guardiaIngreso = await _guardiaRepositorio.ObtenerGuardiaPorId(guardia.IdGuardiaIngreso);
             List<GuardiaHistorialDto> historial = await _guardiaRepositorio.ObtenerHistorialPorIngresoAsync(guardia.IdGuardiaIngreso);
 
             // 2. Verificar si hay evento de vaporizado (id 7)
@@ -305,7 +306,7 @@ namespace GestionOperativa.Presenters
                     // Abrir el form para completar los datos del vaporizado
                     await AbrirFormularioAsync<AgregarEditarVaporizadoForm>(async form =>
                     {
-                        await form._presenter.CargarDatosAsync(vaporizado, guardia);
+                        await form._presenter.CargarDatosAsync(vaporizado, guardiaIngreso);
                     });
 
                     Vaporizado? vaporizadoActualizado = (guardia.TipoIngreso == 1)
@@ -324,18 +325,18 @@ namespace GestionOperativa.Presenters
             {
                 // 1. Obtener la Posta
                 Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(guardia.IdPosta);
-                if (posta != null)
-                {
-                    // 2. Armar número de POC y buscar el POC
-                    string numeroPoc = $"{posta.Codigo}-{guardia.IdGuardiaIngreso}";
-                    POC? poc = await _pocRepositorio.ObtenerPorNumeroAsync(numeroPoc);
+                //if (posta != null)
+                //{
+                //    // 2. Armar número de POC y buscar el POC
+                //    string numeroPoc = $"{posta.Codigo}-{guardia.IdGuardiaIngreso}";
+                //    POC? poc = await _pocRepositorio.ObtenerPorNumeroAsync(numeroPoc);
 
-                    // 3. Si existe, cerrar el POC
-                    if (poc != null)
-                    {
-                        await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
-                    }
-                }
+                //    // 3. Si existe, cerrar el POC
+                //    if (poc != null)
+                //    {
+                //        await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
+                //    }
+                //}
                 await _nominaRepositorio.RegistrarNominaAsync(guardia.IdEntidad, "Salida Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             }
 

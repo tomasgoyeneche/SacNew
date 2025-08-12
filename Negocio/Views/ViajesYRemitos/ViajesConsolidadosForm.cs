@@ -32,14 +32,13 @@ namespace GestionFlota.Views
             txtEntrega.Text = $"Entrega: {faltanEntrega}";
         }
 
-        private async void gridViewProgramas_DoubleClick(object sender, EventArgs e)
+        private async void gridViewProgramas_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            if (gridViewProgramas.FocusedRowHandle >= 0)
+            if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewProgramas.GetFocusedRow() is Shared.Models.VistaProgramaGridDto vistaGrid) // Es doble click sobre una celda válida
             {
-                var row = gridViewProgramas.GetRow(gridViewProgramas.FocusedRowHandle) as VistaProgramaGridDto;
-                if (row != null)
+                if (vistaGrid != null)
                 {
-                    var ruteo = await _presenter.MapearARuteoAsync(row.Id);
+                    var ruteo = await _presenter.MapearARuteoAsync(vistaGrid.Id);
                     if (ruteo != null)
                     {
                         await _presenter.AbrirEditarProgramaAsync(ruteo);

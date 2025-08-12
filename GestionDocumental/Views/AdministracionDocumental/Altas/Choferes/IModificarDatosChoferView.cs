@@ -10,11 +10,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         string Apellido { get; }
         string Documento { get; }
 
-        DateTime FechaNacimiento { get; }
+        DateTime? FechaNacimiento { get; }
 
         int idEmpresa { get; }
         bool ZonaFria { get; }
-        DateTime FechaAlta { get; }
+        DateTime? FechaAlta { get; }
         int IdProvincia { get; }
         int IdLocalidad { get; }
         string Domicilio { get; }
@@ -24,7 +24,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia);
 
         void CargarLocalidades(List<Localidad> localidades);
-
+        void ConfigurarFotoChofer(string? rutaArchivo);
         void MostrarMensaje(string mensaje);
     }
 }

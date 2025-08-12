@@ -141,10 +141,13 @@ namespace GestionFlota.Presenters
             {
                 // Obtener los datos desde el repositorio
 
+                string UltimaDj = await _programaRepositorio.ObtenerUltimaCarga(_cupeoActual.IdNomina);
                 // Crear una instancia del nuevo reporte DevExpress
                 var reporte = new ReporteOrdenCarga();
                 reporte.DataSource = new List<Cupeo> { _cupeoActual };
                 reporte.DataMember = "";
+
+                reporte.Parameters["UltimaDj"].Value = UltimaDj;
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {

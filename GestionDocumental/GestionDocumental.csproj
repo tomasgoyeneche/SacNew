@@ -28,9 +28,6 @@
     <Compile Update="Views\AdministracionDocumental\Altas\Choferes\AgregarEditarChoferForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\AdministracionDocumental\Altas\Choferes\ModificarDatosChoferForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\AdministracionDocumental\Altas\Comunes\AltaEntidadForm.cs">
       <SubType>Form</SubType>
     </Compile>

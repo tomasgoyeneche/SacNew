@@ -64,7 +64,7 @@ namespace GestionOperativa.Processor
                 CuitUnidad = dtoUnidad.Cuit_Unidad,
                 TipoEmpresa = dtoUnidad.Tipo_Empresa,
                 TaraTotal = dtoUnidad.TaraTotal,
-                Calibrado = dtoUnidad.Calibrado,
+                Calibrado = dtoUnidad.VerifMensual,
                 Checklist = dtoUnidad.Checklist,
                 MasYPF = dtoUnidad.MasYPF,
 

@@ -42,6 +42,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblReincorporacion = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblDiasAusente = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpFechaFinal = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -62,6 +63,7 @@
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblAusenciasChofer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            bAyuda = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)cmbEstado.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbUnidad.Properties).BeginInit();
             guna2Panel10.SuspendLayout();
@@ -133,7 +135,7 @@
             cmbEstado.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbEstado.Properties.Appearance.Options.UseFont = true;
             cmbEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbEstado.Size = new Size(354, 26);
+            cmbEstado.Size = new Size(317, 26);
             cmbEstado.TabIndex = 5;
             // 
             // guna2HtmlLabel3
@@ -145,7 +147,7 @@
             guna2HtmlLabel3.Location = new Point(34, 293);
             guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(354, 23);
+            guna2HtmlLabel3.Size = new Size(317, 23);
             guna2HtmlLabel3.TabIndex = 98;
             guna2HtmlLabel3.Text = "Motivo";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
@@ -367,6 +369,24 @@
             guna2HtmlLabel5.Text = "Ausencias Choferes";
             guna2HtmlLabel5.TextAlignment = ContentAlignment.TopCenter;
             // 
+            // bAyuda
+            // 
+            bAyuda.DisabledState.BorderColor = Color.DarkGray;
+            bAyuda.DisabledState.CustomBorderColor = Color.DarkGray;
+            bAyuda.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bAyuda.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bAyuda.FillColor = Color.SteelBlue;
+            bAyuda.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAyuda.ForeColor = Color.White;
+            bAyuda.Location = new Point(357, 311);
+            bAyuda.Name = "bAyuda";
+            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            bAyuda.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            bAyuda.Size = new Size(32, 27);
+            bAyuda.TabIndex = 109;
+            bAyuda.Text = "?";
+            bAyuda.Click += bAyuda_Click;
+            // 
             // AgregarEditarNovedadUnidadForm
             // 
             AcceptButton = btnGuardar;
@@ -376,6 +396,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
             ClientSize = new Size(803, 573);
+            Controls.Add(bAyuda);
             Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2HtmlLabel5);
             Controls.Add(guna2HtmlLabel4);
@@ -427,5 +448,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAusenciasChofer;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2CircleButton bAyuda;
     }
 }

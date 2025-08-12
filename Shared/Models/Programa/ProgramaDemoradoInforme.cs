@@ -20,7 +20,7 @@
         public string Semi { get; set; }
         public string Obs { get; set; }
 
-        public DateTime EntregaLlegada { get; set; }
-        public DateTime EntregaSalida { get; set; }
+        public DateTime? EntregaLlegada { get; set; }
+        public DateTime? EntregaSalida { get; set; }
     }
 }

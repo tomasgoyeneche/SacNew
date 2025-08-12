@@ -83,6 +83,23 @@ namespace GestionFlota.Presenters.Ruteo
                 descripcion = $"Nro: {_view.RemitoNumero}, Cantidad: {_view.Cantidad}, Fecha: {_view.FechaRemito:dd/MM/yyyy}";
             }
 
+            if(_ruteo.IdDestino != _view.IdDestino)
+            {
+                await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(
+                    _programa.IdPrograma);
+
+                ProgramaTramo tramo = new ProgramaTramo
+                {
+                    IdPrograma = _programa.IdPrograma,
+                    IdNomina = _ruteo.IdNomina,
+                    IdDestino = _view.IdDestino ?? 0,
+                    FechaInicio = DateTime.Now,
+                    FechaFin = null // vacío
+                };
+
+                await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
+            }
+
             await _programaRepositorio.ActualizarProgramaAsync(_programa);
 
             await _programaRepositorio.RegistrarProgramaAsync(

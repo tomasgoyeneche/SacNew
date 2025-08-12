@@ -15,29 +15,28 @@ namespace Core.Repositories
         public async Task<List<Disponibilidad>> BuscarDisponiblesPorFechaAsync(DateTime fecha)
         {
             var query = @"
-            SELECT *
-            FROM vw_Disponibilidad
-            WHERE DispoFecha = @Fecha
-              AND Tipo <> 'X'
-            ORDER BY Tipo";
+        SELECT *
+        FROM vw_Disponibilidad
+        WHERE DispoFecha = @Fecha
+          AND Tipo <> 'X'
+        ORDER BY Tipo
+        OPTION (RECOMPILE)"; // <<--- esto soluciona el problema de los tiempos variables
 
             var disponibles = await ConectarAsync(conn =>
-                conn.QueryAsync<Disponibilidad>(query, new { Fecha = fecha.Date })
+                conn.QueryAsync<Disponibilidad>(query, new { Fecha = fecha.Date }, commandTimeout: 120)
             );
 
             return disponibles.ToList();
         }
-
         public async Task<Disponible?> ObtenerDisponiblePorNominaYFechaAsync(int idNomina, DateTime fechaDisponible)
         {
             var query = "SELECT * FROM Disponible WHERE IdNomina = @idNomina AND FechaDisponible = @fecha AND IdDisponibleEstado = 1";
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Disponible>(query, new { idNomina, fecha = fechaDisponible }));
         }
 
-        public async Task<Disponible?> ObtenerPorIdAsync(int idDisponible)
+        public Task<Disponible?> ObtenerPorIdAsync(int idDisponible)
         {
-            var query = "SELECT * FROM Disponible WHERE idDisponible = @idDisponible";
-            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Disponible>(query, new { IdDisponible = idDisponible }));
+            return ObtenerPorIdGenericoAsync<Disponible>("Disponible", "IdDisponible", idDisponible);
         }
 
         public async Task<List<int>> ObtenerCuposUsadosAsync(int idOrigen, DateTime fechaDisponible)
@@ -52,35 +51,15 @@ namespace Core.Repositories
             return (await ConectarAsync(conn => conn.QueryAsync<DisponibleEstado>(query))).ToList();
         }
 
-        public async Task AgregarDisponibleAsync(Disponible disp)
-        {
-            var query = @"INSERT INTO Disponible
-            (IdNomina, FechaDisponible, IdOrigen, IdDestino, Cupo, Observaciones, IdDisponibleEstado, IdUsuario, Fecha)
-            VALUES
-            (@IdNomina, @FechaDisponible, @IdOrigen, @IdDestino, @Cupo, @Observaciones, @IdDisponibleEstado, @IdUsuario, @Fecha)";
 
-            await ConectarAsync(async conn =>
-            {
-                await conn.ExecuteAsync(query, disp);
-            });
+        public Task AgregarDisponibleAsync(Disponible disp)
+        {
+            return AgregarGenéricoAsync("Disponible", disp);
         }
 
-        public async Task ActualizarDisponibleAsync(Disponible disp)
+        public Task ActualizarDisponibleAsync(Disponible disp)
         {
-            var query = @"UPDATE Disponible SET
-                IdOrigen = @IdOrigen,
-                IdDestino = @IdDestino,
-                Cupo = @Cupo,
-                Observaciones = @Observaciones,
-                IdDisponibleEstado = @IdDisponibleEstado,
-                IdUsuario = @IdUsuario,
-                Fecha = @Fecha
-            WHERE IdDisponible = @IdDisponible";
-
-            await ConectarAsync(async conn =>
-            {
-                await conn.ExecuteAsync(query, disp);
-            });
+            return ActualizarGenéricoAsync("Disponible", disp);
         }
 
         public async Task<List<DisponibleFecha>> ObtenerProximasFechasDisponiblesAsync(DateTime desde, int cantidad)

@@ -71,14 +71,14 @@ namespace GestionOperativa.Processor
                     VisualExterna = semiDto?.VisualExterna,
                     Espesor = semiDto?.CisternaEspesor,
                     Checklist = unidadDto?.Checklist,
-                    Calibrado = unidadDto?.Calibrado,
+                    Calibrado = unidadDto?.VerifMensual,
                     MasYPF = unidadDto?.MasYPF,
                     SeguroUnidad = segurosUnidades.FirstOrDefault(s => s.Centralizado == "Si")?.vigenciaAnual,
                     Chofer = $"{chofer?.Nombre} {chofer?.Apellido}",
                     Licencia = chofer?.Licencia,
                     PsicofisicoApto = chofer?.PsicofisicoApto,
                     PsicofisicoCurso = chofer?.PsicofisicoCurso,
-                    SeguroDeVida = segurosChofer.FirstOrDefault(s => s.TipoCobertura == "Seguro de Vida")?.vigenciaAnual,
+                    SeguroDeVida = segurosChofer.FirstOrDefault(s => s.TipoCobertura == "Seguro Vida")?.vigenciaAnual,
                     Art = segurosChofer.FirstOrDefault(s => s.TipoCobertura == "ART")?.vigenciaAnual
                 };
 

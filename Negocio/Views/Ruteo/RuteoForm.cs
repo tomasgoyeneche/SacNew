@@ -22,7 +22,7 @@ namespace GestionFlota.Views
 
             var view = gridViewCargados;
 
-            view.BestFitColumns();
+            //view.BestFitColumns();
         }
 
         public void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios)
@@ -31,7 +31,7 @@ namespace GestionFlota.Views
 
             var view = gridViewVacios;
 
-            view.BestFitColumns();
+            // view.BestFitColumns();
         }
 
         public void MostrarChoferesLibres(List<ChoferesLibresDto> choferes)

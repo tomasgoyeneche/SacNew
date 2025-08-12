@@ -85,10 +85,21 @@ namespace App.Presenters
 
         public async void AbrirDisponibilidad(string tipoPermiso)
         {
-            await AbrirFormularioConPermisosAsync<DisponibilidadForm>(tipoPermiso, async form =>
+            SplashScreenManager.ShowDefaultWaitForm("Cargando", "Por favor espere...");
+
+            try
             {
-                await form._presenter.InicializarAsync();
-            }, false);
+                await AbrirFormularioConPermisosAsync<DisponibilidadForm>(tipoPermiso, async form =>
+                {
+                    await form._presenter.InicializarAsync();
+                }, false);
+            }
+            finally
+            {
+                SplashScreenManager.CloseDefaultWaitForm();
+            }
+
+           
         }
 
         public async void AbrirCupeo(string tipoPermiso)

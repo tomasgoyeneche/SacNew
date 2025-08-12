@@ -40,6 +40,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbChofer = new DevExpress.XtraEditors.LookUpEdit();
@@ -52,13 +53,13 @@
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbEstado = new DevExpress.XtraEditors.LookUpEdit();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dispoCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             dtpFechaInicio = new Guna.UI2.WinForms.Guna2DateTimePicker();
             dtpFechaFinal = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblDiasAusente = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblReincorporacion = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            bAyuda = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cmbChofer.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbEstado.Properties).BeginInit();
@@ -224,7 +225,7 @@
             cmbEstado.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbEstado.Properties.Appearance.Options.UseFont = true;
             cmbEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbEstado.Size = new Size(354, 26);
+            cmbEstado.Size = new Size(315, 26);
             cmbEstado.TabIndex = 4;
             // 
             // guna2HtmlLabel3
@@ -236,30 +237,10 @@
             guna2HtmlLabel3.Location = new Point(33, 292);
             guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(354, 23);
+            guna2HtmlLabel3.Size = new Size(315, 23);
             guna2HtmlLabel3.TabIndex = 58;
             guna2HtmlLabel3.Text = "Motivo";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // dispoCheck
-            // 
-            dispoCheck.AutoSize = true;
-            dispoCheck.CheckedState.BorderColor = Color.Transparent;
-            dispoCheck.CheckedState.BorderRadius = 0;
-            dispoCheck.CheckedState.BorderThickness = 0;
-            dispoCheck.CheckedState.FillColor = Color.Transparent;
-            dispoCheck.CheckMarkColor = Color.LimeGreen;
-            dispoCheck.Font = new Font("Century Gothic", 10F);
-            dispoCheck.ForeColor = Color.LimeGreen;
-            dispoCheck.Location = new Point(288, 221);
-            dispoCheck.Name = "dispoCheck";
-            dispoCheck.Size = new Size(99, 23);
-            dispoCheck.TabIndex = 83;
-            dispoCheck.Text = "Disponible";
-            dispoCheck.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            dispoCheck.UncheckedState.BorderRadius = 0;
-            dispoCheck.UncheckedState.BorderThickness = 0;
-            dispoCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
             // dtpFechaInicio
             // 
@@ -346,6 +327,24 @@
             lblMantenimientosUnidad.TabIndex = 90;
             lblMantenimientosUnidad.Text = "Mantenimiento";
             // 
+            // bAyuda
+            // 
+            bAyuda.DisabledState.BorderColor = Color.DarkGray;
+            bAyuda.DisabledState.CustomBorderColor = Color.DarkGray;
+            bAyuda.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bAyuda.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bAyuda.FillColor = Color.SteelBlue;
+            bAyuda.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAyuda.ForeColor = Color.White;
+            bAyuda.Location = new Point(355, 314);
+            bAyuda.Name = "bAyuda";
+            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            bAyuda.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            bAyuda.Size = new Size(32, 27);
+            bAyuda.TabIndex = 93;
+            bAyuda.Text = "?";
+            bAyuda.Click += bAyuda_Click;
+            // 
             // AgregarEditarNovedadChoferForm
             // 
             AcceptButton = btnGuardar;
@@ -354,13 +353,13 @@
             AutoScaleMode = AutoScaleMode.None;
             CancelButton = btnCancelar;
             ClientSize = new Size(798, 568);
+            Controls.Add(bAyuda);
             Controls.Add(lblMantenimientosUnidad);
             Controls.Add(guna2HtmlLabel4);
             Controls.Add(lblReincorporacion);
             Controls.Add(lblDiasAusente);
             Controls.Add(dtpFechaFinal);
             Controls.Add(dtpFechaInicio);
-            Controls.Add(dispoCheck);
             Controls.Add(cmbEstado);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(btnGuardar);
@@ -400,11 +399,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private DevExpress.XtraEditors.LookUpEdit cmbEstado;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2CheckBox dispoCheck;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaFinal;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblDiasAusente;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblReincorporacion;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
+        private Guna.UI2.WinForms.Guna2CircleButton bAyuda;
     }
 }

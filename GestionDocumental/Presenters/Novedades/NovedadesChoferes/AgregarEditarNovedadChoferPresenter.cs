@@ -91,7 +91,7 @@ namespace GestionDocumental.Presenters
                 FechaInicio = _view.FechaInicio,
                 FechaFin = _view.FechaFin,
                 Observaciones = _view.Observaciones,
-                Disponible = _view.Disponible
+                Disponible = false,
             };
             if (await ValidarAsync(novedadChofer))
             {

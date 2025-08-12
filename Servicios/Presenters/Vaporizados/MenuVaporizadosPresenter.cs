@@ -68,7 +68,7 @@ namespace Servicios.Presenters
         public async Task EditarVaporizadoAsync(VaporizadoDto vapoDto)
         {
             Vaporizado? vapo = await _repositorioVaporizado.ObtenerPorIdAsync(vapoDto.IdVaporizado);
-            GuardiaDto? guardia = await _guardiaRepositorio.ObtenerGuardiaDtoPorId(vapo.IdGuardiaIngreso);
+            GuardiaIngreso? guardia = await _guardiaRepositorio.ObtenerGuardiaPorId(vapo.IdGuardiaIngreso);
 
            
             if (vapoDto.Externo != "No")

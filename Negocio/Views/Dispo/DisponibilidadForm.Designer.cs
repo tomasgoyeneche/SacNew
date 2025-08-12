@@ -173,6 +173,7 @@
             gridColumn4.Name = "gridColumn4";
             gridColumn4.Visible = true;
             gridColumn4.VisibleIndex = 0;
+            gridColumn4.Width = 24;
             // 
             // gridColumn1
             // 
@@ -181,6 +182,7 @@
             gridColumn1.Name = "gridColumn1";
             gridColumn1.Visible = true;
             gridColumn1.VisibleIndex = 1;
+            gridColumn1.Width = 72;
             // 
             // gridColumn2
             // 
@@ -189,6 +191,7 @@
             gridColumn2.Name = "gridColumn2";
             gridColumn2.Visible = true;
             gridColumn2.VisibleIndex = 2;
+            gridColumn2.Width = 70;
             // 
             // gridColumn3
             // 
@@ -197,6 +200,7 @@
             gridColumn3.Name = "gridColumn3";
             gridColumn3.Visible = true;
             gridColumn3.VisibleIndex = 3;
+            gridColumn3.Width = 120;
             // 
             // gridColumn5
             // 
@@ -205,6 +209,7 @@
             gridColumn5.Name = "gridColumn5";
             gridColumn5.Visible = true;
             gridColumn5.VisibleIndex = 4;
+            gridColumn5.Width = 92;
             // 
             // gridColumn6
             // 
@@ -213,6 +218,7 @@
             gridColumn6.Name = "gridColumn6";
             gridColumn6.Visible = true;
             gridColumn6.VisibleIndex = 5;
+            gridColumn6.Width = 92;
             // 
             // gridColumn7
             // 
@@ -221,6 +227,7 @@
             gridColumn7.Name = "gridColumn7";
             gridColumn7.Visible = true;
             gridColumn7.VisibleIndex = 6;
+            gridColumn7.Width = 164;
             // 
             // gridColumn12
             // 
@@ -229,6 +236,7 @@
             gridColumn12.Name = "gridColumn12";
             gridColumn12.Visible = true;
             gridColumn12.VisibleIndex = 7;
+            gridColumn12.Width = 50;
             // 
             // gridColumn8
             // 
@@ -237,6 +245,7 @@
             gridColumn8.Name = "gridColumn8";
             gridColumn8.Visible = true;
             gridColumn8.VisibleIndex = 8;
+            gridColumn8.Width = 112;
             // 
             // gridColumn9
             // 
@@ -245,6 +254,7 @@
             gridColumn9.Name = "gridColumn9";
             gridColumn9.Visible = true;
             gridColumn9.VisibleIndex = 9;
+            gridColumn9.Width = 122;
             // 
             // gridColumn10
             // 
@@ -253,6 +263,7 @@
             gridColumn10.Name = "gridColumn10";
             gridColumn10.Visible = true;
             gridColumn10.VisibleIndex = 10;
+            gridColumn10.Width = 35;
             // 
             // gridColumn11
             // 
@@ -261,6 +272,7 @@
             gridColumn11.Name = "gridColumn11";
             gridColumn11.Visible = true;
             gridColumn11.VisibleIndex = 11;
+            gridColumn11.Width = 140;
             // 
             // guna2Panel4
             // 
@@ -567,6 +579,7 @@
             dateEditFecha.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             dateEditFecha.Size = new Size(241, 40);
             dateEditFecha.TabIndex = 79;
+            dateEditFecha.DateChanged += dateEditFecha_DateChanged;
             // 
             // bBuscarDisponibles
             // 

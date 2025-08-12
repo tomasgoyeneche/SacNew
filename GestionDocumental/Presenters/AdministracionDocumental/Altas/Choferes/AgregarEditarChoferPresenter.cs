@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionDocumental.Views.AdministracionDocumental.Altas.Choferes;
 using GestionOperativa.Views.AdministracionDocumental.Altas;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using Shared.Models;
@@ -74,7 +75,7 @@ namespace GestionOperativa.Presenters.Choferes
 
         public async Task EditarDatosChofer(int idChofer)
         {
-            await AbrirFormularioAsync<ModificarDatosChoferForm>(async form =>
+            await AbrirFormularioAsync<ModificarChoferDatosForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idChofer);
             });

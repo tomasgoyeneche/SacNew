@@ -10,7 +10,7 @@ namespace GestionDocumental.Views
         DateTime FechaInicio { get; }
         DateTime FechaFin { get; }
         string Observaciones { get; }
-        bool Disponible { get; }
+       // bool Disponible { get; }
 
         void CargarEstados(List<ChoferTipoEstado> estados);
 

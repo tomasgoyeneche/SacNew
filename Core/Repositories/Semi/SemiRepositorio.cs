@@ -51,16 +51,11 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<Shared.Models.Semi?> ObtenerSemiPorIdAsync(int idSemi)
+        public Task<Shared.Models.Semi?> ObtenerSemiPorIdAsync(int idSemi)
         {
-            var query = @"
-            select * from Semi WHERE idSemi = @idSemi";
-
-            return await ConectarAsync(async conn =>
-            {
-                return await conn.QueryFirstOrDefaultAsync<Shared.Models.Semi?>(query, new { IdSemi = idSemi });
-            });
+            return ObtenerPorIdGenericoAsync<Shared.Models.Semi>("Semi", "IdSemi", idSemi);
         }
+
 
         // Obtener por otras busquedas
 
@@ -103,20 +98,11 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarSemiAsync(Shared.Models.Semi semi)
+        public Task ActualizarSemiAsync(Shared.Models.Semi semi)
         {
-            var query = @"
-            UPDATE Semi
-            SET Patente = @Patente, Anio = @Anio, IdMarca = @IdMarca, IdModelo = @IdModelo,
-                Tara = @Tara, FechaAlta = @FechaAlta, IdTipoCarga = @IdTipoCarga, Compartimientos = @Compartimientos, IdMaterial = @IdMaterial,
-                CertificadoCompatibilidad = @CertificadoCompatibilidad, LitroNominal = @LitroNominal, Cubicacion = @Cubicacion, Configuracion = @Configuracion, Inv = @Inv
-            WHERE IdSemi = @IdSemi";
-
-            await ConectarAsync(async conn =>
-            {
-                await conn.ExecuteAsync(query, semi);
-            });
+            return ActualizarGenéricoAsync("Semi", semi);
         }
+
 
         public async Task ActualizarEmpresaSemiAsync(int idSemi, int idEmpresa)
         {
@@ -128,24 +114,29 @@ namespace Core.Repositories
             });
         }
 
-        public async Task ActualizarVencimientoSemiAsync(int idSemi, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
+        public Task ActualizarVencimientoSemiAsync(int idSemi, int idVencimiento, DateTime fechaActualizacion, int idUsuario)
         {
             var query = @"
-        UPDATE SemiCisternaVencimiento
-        SET FechaVencimiento = @fechaActualizacion,
-            IdUsuario = @idUsuario
-        WHERE IdSemi = @idSemi AND IdVencimiento = @idVencimiento";
+            UPDATE SemiCisternaVencimiento
+            SET FechaVencimiento = @FechaVencimiento,
+                IdUsuario = @idUsuario
+            WHERE IdSemi = @idSemi AND IdVencimiento = @idVencimiento";
 
-            await ConectarAsync(async connection =>
+            var valoresNuevos = new
             {
-                await connection.ExecuteAsync(query, new
-                {
-                    idSemi,
-                    idVencimiento,
-                    fechaActualizacion,
-                    idUsuario
-                });
-            });
+                IdSemi = idSemi,
+                IdVencimiento = idVencimiento,
+                FechaVencimiento = fechaActualizacion,
+                IdUsuario = idUsuario
+            };
+
+            return EjecutarConAuditoriaAsync(
+                conn => conn.ExecuteAsync(query, valoresNuevos),
+                "SemiCisternaVencimiento",
+                "UPDATE",
+                new { IdSemi = idSemi, IdVencimiento = idVencimiento },
+                valoresNuevos
+            );
         }
     }
 }

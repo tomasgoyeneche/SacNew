@@ -27,7 +27,7 @@ namespace GestionFlota.Views
         {
             gridControlDisponibles.DataSource = disponibilidades;
             var view = gridViewDisponibles;
-            view.BestFitColumns();
+            //view.BestFitColumns();
 
             int countCheck = disponibilidades.Count(d => d.DisOrigen != null);
             int countNoCheck = disponibilidades.Count - countCheck;
@@ -194,6 +194,11 @@ namespace GestionFlota.Views
             {
                 MostrarMensaje($"Mensaje: {historico.Descripcion}");
             }
+        }
+
+        private async void dateEditFecha_DateChanged(object sender, EventArgs e)
+        {
+            await _presenter.BuscarDisponibilidadesAsync();
         }
     }
 }

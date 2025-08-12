@@ -24,7 +24,7 @@
         public bool LujanCuyo { get; set; }
         public bool AptoBo { get; set; }
 
-        public DateTime? Calibrado { get; set; }
+        public DateTime? VerifMensual { get; set; }
         public DateTime? Checklist { get; set; }
         public DateTime? MasYPF { get; set; }
 

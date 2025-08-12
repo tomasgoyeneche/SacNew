@@ -29,7 +29,7 @@ namespace GestionOperativa
             _presenter.SetView(this);
         }
 
-        public void MostrarGuardia(List<GuardiaDto> guardias)
+        public async void MostrarGuardia(List<GuardiaDto> guardias)
         {
             dtpIngreso.EditValueChanged -= dtpIngreso_EditValueChanged;
             dtpIngreso.EditValue = DateTime.Now;
@@ -47,6 +47,12 @@ namespace GestionOperativa
             {
                 if (view.Columns[col] != null)
                     view.Columns[col].Visible = false;
+            }
+
+            if (gridViewGuardia.GetFocusedRow() is GuardiaDto guardia)
+            {
+                await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
+                await _presenter.CargarVencimientosYAlertasAsync(guardia);
             }
 
             view.BestFitColumns();

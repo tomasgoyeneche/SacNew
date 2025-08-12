@@ -1165,6 +1165,7 @@
             bCapacitaciones.Size = new Size(254, 30);
             bCapacitaciones.TabIndex = 12;
             bCapacitaciones.Text = "Ingresar";
+            bCapacitaciones.Click += bCapacitaciones_Click;
             // 
             // guna2HtmlLabel24
             // 
