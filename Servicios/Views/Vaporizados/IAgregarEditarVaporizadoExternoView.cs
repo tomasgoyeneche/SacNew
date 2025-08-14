@@ -1,10 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Views
 {
@@ -15,7 +10,9 @@ namespace Servicios.Views
         void CargarMotivos(List<VaporizadoMotivo> motivos);
 
         void CargarDatos(Vaporizado vaporizado, int idUnidad);
+
         void CargarUnidades(List<UnidadDto> unidades);
+
         int CantidadCisternas { get; }
         int? IdMotivo { get; }
         int? IdUnidad { get; }

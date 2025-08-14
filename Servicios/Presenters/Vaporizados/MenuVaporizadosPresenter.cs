@@ -70,7 +70,6 @@ namespace Servicios.Presenters
             Vaporizado? vapo = await _repositorioVaporizado.ObtenerPorIdAsync(vapoDto.IdVaporizado);
             GuardiaIngreso? guardia = await _guardiaRepositorio.ObtenerGuardiaPorId(vapo.IdGuardiaIngreso);
 
-           
             if (vapoDto.Externo != "No")
             {
                 Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(vapo.IdNomina.Value);
@@ -93,7 +92,7 @@ namespace Servicios.Presenters
                         await form._presenter.CargarDatosAsync(vapo, guardia);
                     });
                 }, async () => await CargarVaporizadosAsync(_IdPosta));
-            }          
+            }
         }
 
         public async Task AgregarVaporizadoExternoAsync()

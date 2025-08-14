@@ -84,7 +84,6 @@ namespace GestionOperativa.Presenters.Choferes
             });
         }
 
-
         private async Task VerificarArchivosChoferAsync(string dni)
         {
             var rutaFoto = await ObtenerRutaPorIdAsync(1, "", dni + ".jpg");
@@ -98,6 +97,5 @@ namespace GestionOperativa.Presenters.Choferes
                 ? null
                 : Path.Combine(conf.Ruta, subDirectorio, archivo);
         }
-
     }
 }

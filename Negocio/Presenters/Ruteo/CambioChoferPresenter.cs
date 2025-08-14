@@ -57,6 +57,11 @@ namespace GestionFlota.Presenters
         public async Task ConfirmarCambioChoferAsync()
         {
             int? idChofer = _view.IdChoferSeleccionado;
+            if(idChofer == _nominaActual.IdChofer)
+            {
+                _view.MostrarMensaje("El chofer seleccionado es el mismo que ya está asignado a la unidad.");
+                return;
+            }
             int idUnidad = _nominaActual.IdUnidad;
             DateTime fecha = _view.FechaCambio;
             string? Observaciones = _view.Observacion;

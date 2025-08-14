@@ -36,7 +36,6 @@ namespace Core.Repositories
             });
         }
 
-
         public Task AgregarPostaAsync(Posta nuevaPosta)
         {
             return AgregarGenéricoAsync("Posta", nuevaPosta);
@@ -46,7 +45,6 @@ namespace Core.Repositories
         {
             return ActualizarGenéricoAsync("Posta", postaActualizada);
         }
-
 
         public async Task EliminarPostaAsync(int idPosta)
         {

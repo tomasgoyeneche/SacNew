@@ -17,7 +17,6 @@ namespace GestionDocumental.Views
 
         public void MostrarNovedades(object listaNovedades)
         {
-         
             gridControlNovedades.DataSource = null;
             gridViewNovedades.Columns.Clear();
 

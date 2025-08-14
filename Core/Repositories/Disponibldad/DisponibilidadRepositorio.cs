@@ -28,6 +28,7 @@ namespace Core.Repositories
 
             return disponibles.ToList();
         }
+
         public async Task<Disponible?> ObtenerDisponiblePorNominaYFechaAsync(int idNomina, DateTime fechaDisponible)
         {
             var query = "SELECT * FROM Disponible WHERE IdNomina = @idNomina AND FechaDisponible = @fecha AND IdDisponibleEstado = 1";
@@ -50,7 +51,6 @@ namespace Core.Repositories
             var query = "SELECT * FROM DisponibleEstado WHERE IdDisponibleEstado >= 5 and Activo = 1";
             return (await ConectarAsync(conn => conn.QueryAsync<DisponibleEstado>(query))).ToList();
         }
-
 
         public Task AgregarDisponibleAsync(Disponible disp)
         {

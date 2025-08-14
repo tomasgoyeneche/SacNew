@@ -162,7 +162,9 @@
             gridViewDisponibles.Name = "gridViewDisponibles";
             gridViewDisponibles.OptionsBehavior.Editable = false;
             gridViewDisponibles.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewDisponibles.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewDisponibles.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewDisponibles.RowHeight = 20;
             gridViewDisponibles.RowCellClick += gridViewDisponibles_RowCellClick;
             gridViewDisponibles.FocusedRowChanged += gridViewDisponibles_FocusedRowChanged;
             // 

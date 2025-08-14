@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionDocumental.Views;
 using GestionDocumental.Views.Novedades;
+using GestionDocumental.Views.Novedades.NovedadesChoferes;
 using Shared.Models;
 using System.IO;
 
@@ -90,7 +91,7 @@ namespace GestionDocumental.Presenters
             {
                 if (_Entidad == "Chofer" && novedad is NovedadesChoferesDto novChofer)
                 {
-                    await AbrirFormularioAsync<AgregarEditarNovedadChoferForm>(async form =>
+                    await AbrirFormularioAsync<AgregarEditarChoferNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(novChofer);
                     });
@@ -111,7 +112,7 @@ namespace GestionDocumental.Presenters
             {
                 if (_Entidad == "Chofer")
                 {
-                    await AbrirFormularioAsync<AgregarEditarNovedadChoferForm>(async form =>
+                    await AbrirFormularioAsync<AgregarEditarChoferNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(null);
                     });

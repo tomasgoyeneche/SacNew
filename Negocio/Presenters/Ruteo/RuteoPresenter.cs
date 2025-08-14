@@ -50,31 +50,43 @@ namespace GestionFlota.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
-                List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
-                List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
-
-                var cargados = ruteos
-                   .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
-                   .ToList();
-
-                var vacios = ruteos
-                   .Where(r => r.Estado != "En Viaje" && r.Estado != "Descargando")
-                   .ToList();
-
-                _view.MostrarRuteoCargados(cargados);
-                _view.MostrarRuteoVacios(vacios);
-                _view.MostrarResumen(resumen);
-                _view.MostrarChoferesLibres(choferesLibres);
-
-                if (idProgramaSeleccionado.HasValue)
+                try
                 {
-                    _view.SeleccionarRuteoCargadoPorId(idProgramaSeleccionado.Value);
+                    _view.SetEstadoCargaDisponibles(true);
+
+                    List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
+                    List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
+                    List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
+
+                    var cargados = ruteos
+                       .Where(r => r.Estado == "En Viaje" || r.Estado == "Descargando")
+                       .ToList();
+
+                    var vacios = ruteos
+                       .Where(r => r.Estado != "En Viaje" && r.Estado != "Descargando")
+                       .ToList();
+
+                    _view.MostrarRuteoCargados(cargados);
+                    _view.MostrarRuteoVacios(vacios);
+                    _view.MostrarResumen(resumen);
+                    _view.MostrarChoferesLibres(choferesLibres);
+
+                   
                 }
-                else if (idNominaSeleccionada.HasValue)
+                finally
                 {
-                    _view.SeleccionarRuteoPorNomina(idNominaSeleccionada.Value);
+                    _view.SetEstadoCargaDisponibles(false); // Desbloquea
+
+                    if (idProgramaSeleccionado.HasValue)
+                    {
+                        _view.SeleccionarRuteoCargadoPorId(idProgramaSeleccionado.Value);
+                    }
+                    else if (idNominaSeleccionada.HasValue)
+                    {
+                        _view.SeleccionarRuteoPorNomina(idNominaSeleccionada.Value);
+                    }
                 }
+
             });
         }
 

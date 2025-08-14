@@ -37,9 +37,6 @@ namespace Servicios
             cmbPlanta.EditValue = vaporizado.IdVaporizadoZona;
             txtNroDanes.Text = vaporizado.RemitoDanes;
             txtObservaciones.Text = vaporizado.Observaciones;
-
-
-         
         }
 
         public void CargarPlantas(List<VaporizadoZona> plantas)
@@ -90,7 +87,6 @@ namespace Servicios
             lblImporte.Visible = txtImporte.Visible = visible;
             //panelPresupuesto.Visible = visible;
             panelPresupuesto.Visible = false;
-
         }
 
         public void SetTiempoVaporizado(string tiempo)

@@ -83,7 +83,7 @@ namespace GestionFlota.Presenters.Ruteo
                 descripcion = $"Nro: {_view.RemitoNumero}, Cantidad: {_view.Cantidad}, Fecha: {_view.FechaRemito:dd/MM/yyyy}";
             }
 
-            if(_ruteo.IdDestino != _view.IdDestino)
+            if (_ruteo.IdDestino != _view.IdDestino)
             {
                 await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(
                     _programa.IdPrograma);

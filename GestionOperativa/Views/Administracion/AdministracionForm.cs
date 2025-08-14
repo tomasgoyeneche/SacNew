@@ -26,8 +26,6 @@ namespace GestionOperativa.Views
 
         public async void MostrarGuardia(List<GuardiaDto> guardias)
         {
-           
-
             gridControlGuardia.DataSource = guardias;
 
             var view = gridViewGuardia;

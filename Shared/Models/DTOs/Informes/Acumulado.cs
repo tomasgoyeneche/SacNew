@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class Acumulado
     {
-        public int IdDisponible { get; set; }   
+        public int IdDisponible { get; set; }
         public string Empresa { get; set; } = string.Empty;
         public string Tractor { get; set; } = string.Empty;
         public string Semi { get; set; } = string.Empty;
 
         public DateTime Disponible { get; set; } = DateTime.Now;
-        public string DispoOrigen { get; set; } = string.Empty; 
+        public string DispoOrigen { get; set; } = string.Empty;
         public int DispoCupo { get; set; } = 0;
         public string DispoDestino { get; set; } = string.Empty;
         public string DispoObs { get; set; } = string.Empty;
@@ -34,13 +28,10 @@ namespace Shared.Models
         public DateTime? CargaSalida { get; set; }
         public DateTime? EntregaLlegada { get; set; }
         public DateTime? EntregaIngreso { get; set; }
-        public DateTime? EntregaSalida{ get; set; }
+        public DateTime? EntregaSalida { get; set; }
         public string ProgEstado { get; set; } = string.Empty;
         public int CargaRemito { get; set; } = 0;
         public int CargaKg { get; set; } = 0;
-        public string Unidad { get; set; } = string.Empty;  
-
-
-
+        public string Unidad { get; set; } = string.Empty;
     }
 }

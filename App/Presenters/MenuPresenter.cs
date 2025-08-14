@@ -98,8 +98,6 @@ namespace App.Presenters
             {
                 SplashScreenManager.CloseDefaultWaitForm();
             }
-
-           
         }
 
         public async void AbrirCupeo(string tipoPermiso)

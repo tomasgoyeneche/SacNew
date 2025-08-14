@@ -17,7 +17,6 @@ namespace Core.Repositories
             return ObtenerPorIdGenericoAsync<Chofer>("Chofer", "IdChofer", idChofer);
         }
 
-
         public async Task<ChoferDto?> ObtenerPorIdDtoAsync(int idChofer)
         {
             var query = "SELECT * FROM vw_ChoferesDetalles WHERE idChofer = @IdChofer";
@@ -104,7 +103,6 @@ namespace Core.Repositories
         {
             return ActualizarGenéricoAsync("Chofer", chofer);
         }
-
 
         public async Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa)
         {

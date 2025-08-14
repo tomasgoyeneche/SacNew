@@ -2,14 +2,23 @@
 using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace GestionDocumental.Views
+namespace GestionDocumental.Views.Novedades.NovedadesChoferes
 {
-    public partial class AgregarEditarNovedadChoferForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarNovedadChoferView
+    public partial class AgregarEditarChoferNovedadForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarNovedadChoferView
     {
         public readonly AgregarEditarNovedadChoferPresenter _presenter;
 
-        public AgregarEditarNovedadChoferForm(AgregarEditarNovedadChoferPresenter presenter)
+        public AgregarEditarChoferNovedadForm(AgregarEditarNovedadChoferPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -18,7 +27,7 @@ namespace GestionDocumental.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(IdEstado == 11 && Observaciones == "")
+            if (IdEstado == 11 && Observaciones == "")
             {
                 MostrarMensaje("Debe ingresar una observacion en el caso de otros");
                 return;
@@ -35,25 +44,28 @@ namespace GestionDocumental.Views
 
         public int IdEstado => Convert.ToInt32(cmbEstado.EditValue);
 
-        public DateTime FechaInicio => dtpFechaInicio.Value;
+        public DateTime FechaInicio => (DateTime)dtpFechaInicio.EditValue;
 
-        public DateTime FechaFin => dtpFechaFinal.Value;
+        public DateTime FechaFin => (DateTime)dtpFechaFinal.EditValue;
 
         public string Observaciones => txtObservaciones.Text.Trim();
 
-       // public bool Disponible => dispoCheck.Checked;
+        // public bool Disponible => dispoCheck.Checked;
 
         public void CargarChoferes(List<Chofer> choferes)
         {
             cmbChofer.Properties.DataSource = choferes;
             cmbChofer.Properties.DisplayMember = "NombreApellido";
             cmbChofer.Properties.ValueMember = "IdChofer";
+            cmbChofer.Properties.NullText = "Seleccione chofer...";
 
             cmbChofer.Properties.Columns.Clear();
             cmbChofer.Properties.Columns.Add(new LookUpColumnInfo("NombreApellido", "Chofer"));
 
-            dtpFechaFinal.Value = DateTime.Now.AddDays(1);
-            dtpFechaInicio.Value = DateTime.Now;
+            cmbChofer.Properties.PopupFilterMode = PopupFilterMode.Contains; // busca contiene
+
+            dtpFechaFinal.EditValue = DateTime.Now.AddDays(1);
+            dtpFechaInicio.EditValue = DateTime.Now;
             cmbChofer.EditValue = _presenter.NovedadActual?.idChofer ?? -1;
         }
 
@@ -79,8 +91,8 @@ namespace GestionDocumental.Views
             txtObservaciones.Text = novedadesChoferes.Observaciones;
             cmbChofer.EditValue = novedadesChoferes.idChofer;
             cmbEstado.EditValue = novedadesChoferes.idEstado;
-            dtpFechaInicio.Value = novedadesChoferes.FechaInicio;
-            dtpFechaFinal.Value = novedadesChoferes.FechaFin;
+            dtpFechaInicio.EditValue = novedadesChoferes.FechaInicio;
+            dtpFechaFinal.EditValue = novedadesChoferes.FechaFin;
             _presenter.CalcularAusencia();
         }
 
@@ -125,6 +137,7 @@ namespace GestionDocumental.Views
                 await _presenter.MostrarMantenimientosUnidadDelChoferAsync(0); // Limpiar si no hay chofer
             }
         }
+
         private void bAyuda_Click(object sender, EventArgs e)
         {
             if (cmbEstado.GetSelectedDataRow() is ChoferTipoEstado estado)

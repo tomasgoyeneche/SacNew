@@ -56,7 +56,6 @@ namespace Core.Repositories
             return ObtenerPorIdGenericoAsync<Shared.Models.Semi>("Semi", "IdSemi", idSemi);
         }
 
-
         // Obtener por otras busquedas
 
         public async Task<List<Shared.Models.Semi>> ObtenerSemisLibresAsync()
@@ -102,7 +101,6 @@ namespace Core.Repositories
         {
             return ActualizarGenéricoAsync("Semi", semi);
         }
-
 
         public async Task ActualizarEmpresaSemiAsync(int idSemi, int idEmpresa)
         {

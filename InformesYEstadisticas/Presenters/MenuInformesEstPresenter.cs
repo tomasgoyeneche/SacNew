@@ -145,7 +145,6 @@ namespace InformesYEstadisticas.Presenters
             _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
         }
 
-
         public async Task ExportarAcumuladoAsync(DateTime desde, DateTime hasta)
         {
             var lista = await _programaRepositorio.ObtenerAcumuladoAsync(desde, hasta);

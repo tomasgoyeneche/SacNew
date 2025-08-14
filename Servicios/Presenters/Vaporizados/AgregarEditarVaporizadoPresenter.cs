@@ -16,7 +16,6 @@ namespace Servicios.Presenters
         private readonly ITeRepositorio _teRepo;
         private readonly IProductoRepositorio _productoRepo;
 
-
         private readonly IConsumoOtrosRepositorio _consumoOtrosRepo;
         private readonly IPostaRepositorio _postaRepo;
 
@@ -69,7 +68,6 @@ namespace Servicios.Presenters
             {
                 TransitoEspecial te = await _teRepo.ObtenerPorIdAsync(guardia.IdTe.Value);
                 textoGuardia = $"{te.Tractor} - {te.Semi} ({te.RazonSocial})";
-
             }
             _view.MostrarDatosGuardia(textoGuardia);
 

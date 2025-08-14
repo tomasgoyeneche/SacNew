@@ -48,6 +48,27 @@ namespace GestionFlota.Views
             XtraMessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public void SetEstadoCargaDisponibles(bool cargando)
+        {
+            if (cargando)
+            {
+                // Limpia datos y bloquea la grilla
+                gridControlCargados.DataSource = null;
+                gridViewCargados.OptionsBehavior.Editable = false;
+                gridControlCargados.Enabled = false;
+
+                // Mensajes opcionales
+                gridControlVacios.DataSource = null;
+                gridViewVacios.OptionsBehavior.Editable = false;
+                gridControlVacios.Enabled = false;
+            }
+            else
+            {
+                gridControlCargados.Enabled = true;
+                gridControlVacios.Enabled = true;
+
+            }
+        }
         public void MostrarHistorial(List<HistorialGeneralDto> historial)
         {
             gridControlHistorico.DataSource = historial;

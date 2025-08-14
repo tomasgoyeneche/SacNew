@@ -56,7 +56,6 @@ namespace Servicios.Views
             cmbUnidad.Properties.Columns.Add(new LookUpColumnInfo("PatenteCompleta", "Unidad"));
         }
 
-
         // Propiedades de entrada/salida
         public int CantidadCisternas => int.TryParse(txtCisterna.Text, out int n) ? n : 0;
 
@@ -95,7 +94,6 @@ namespace Servicios.Views
         {
             await _presenter.GuardarAsync();
         }
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSplashScreen;
 using GestionFlota.Presenters;
 using Shared.Models;
 
@@ -27,13 +28,32 @@ namespace GestionFlota.Views
         {
             gridControlDisponibles.DataSource = disponibilidades;
             var view = gridViewDisponibles;
-            //view.BestFitColumns();
 
             int countCheck = disponibilidades.Count(d => d.DisOrigen != null);
             int countNoCheck = disponibilidades.Count - countCheck;
 
             lblCheck.Text = $"Check: {countCheck}";
             lblNoCheck.Text = $"No Check: {countNoCheck}";
+        }
+
+        public void SetEstadoCargaDisponibles(bool cargando)
+        {
+            if (cargando)
+            {
+                // Limpia datos y bloquea la grilla
+                gridControlDisponibles.DataSource = null;
+                gridViewDisponibles.OptionsBehavior.Editable = false;
+                gridControlDisponibles.Enabled = false;
+
+                // Mensajes opcionales
+                lblCheck.Text = "Check: -";
+                lblNoCheck.Text = "No Check: -";
+            }
+            else
+            {
+                gridControlDisponibles.Enabled = true;
+
+            }
         }
 
         public void MostrarMensaje(string mensaje)

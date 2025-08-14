@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -17,7 +12,6 @@ namespace Servicios.Presenters
         private readonly IVaporizadoMotivoRepositorio _motivoRepo;
         private readonly IUnidadRepositorio _unidadRepo;
         private readonly INominaRepositorio _nominaRepo;
-
 
         public Vaporizado? VaporizadoActual { get; private set; }
 
@@ -38,12 +32,10 @@ namespace Servicios.Presenters
 
         public async Task CargarDatosAsync(Vaporizado? vaporizado, UnidadDto? unidadDto)
         {
-
             var motivos = await _motivoRepo.ObtenerTodosAsync();
             _view.CargarMotivos(motivos.Where(m => m.Activo).ToList());
             List<UnidadDto> unidades = await _unidadRepo.ObtenerUnidadesDtoAsync();
             _view.CargarUnidades(unidades);
-            
 
             if (unidadDto != null)
             {
@@ -54,7 +46,7 @@ namespace Servicios.Presenters
             {
                 Nomina? nomina = await _nominaRepo.ObtenerPorIdAsync(vaporizado.IdNomina.Value);
                 VaporizadoActual = vaporizado;
-                
+
                 _view.CargarDatos(vaporizado, nomina.IdUnidad);
             }
         }

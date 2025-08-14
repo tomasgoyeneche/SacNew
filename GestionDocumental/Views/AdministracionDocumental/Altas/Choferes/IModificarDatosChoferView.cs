@@ -24,7 +24,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia);
 
         void CargarLocalidades(List<Localidad> localidades);
+
         void ConfigurarFotoChofer(string? rutaArchivo);
+
         void MostrarMensaje(string mensaje);
     }
 }

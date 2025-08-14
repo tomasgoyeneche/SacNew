@@ -35,7 +35,7 @@ namespace GestionFlota.Views
         {
             get
             {
-                if (gridViewChoferes.GetFocusedRow() is ChoferDto ch)
+                if (gridViewChoferes.GetFocusedRow() is Chofer ch)
                     return ch.IdChofer;
                 return null;
             }
@@ -45,7 +45,7 @@ namespace GestionFlota.Views
         {
             get
             {
-                if (gridViewChoferes.GetFocusedRow() is ChoferDto ch)
+                if (gridViewChoferes.GetFocusedRow() is Chofer ch)
                     return ch.Nombre;
                 return null;
             }
@@ -60,7 +60,7 @@ namespace GestionFlota.Views
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void Cerrar() => Close();
+        public void Cerrar() => Dispose();
 
         private void bCancelar_Click(object sender, EventArgs e)
         {

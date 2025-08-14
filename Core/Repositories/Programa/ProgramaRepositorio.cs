@@ -1,7 +1,6 @@
 ﻿using Core.Base;
 using Core.Services;
 using Dapper;
-using DevExpress.CodeParser;
 using Shared.Models;
 
 namespace Core.Repositories
@@ -14,8 +13,9 @@ namespace Core.Repositories
         public async Task<List<Ruteo>> ObtenerRuteoAsync()
         {
             var query = @"
-            SELECT * FROM vw_Ruteo
-            OPTION (RECOMPILE)"; // <<--- agregado
+            SELECT *
+            FROM dbo.vw_Ruteo
+            OPTION (RECOMPILE, MAXDOP 1);"; // <<--- agregado
 
             // Puedes parametrizar el timeout si querés, acá lo dejo en 120 segundos
             int commandTimeout = 120;
@@ -248,9 +248,8 @@ namespace Core.Repositories
         public async Task<string> ObtenerUltimaCarga(int idNomina)
         {
             var query = " SELECT TOP 1 PR.Nombre\r\n    FROM Nomina NN\r\n    INNER JOIN ProgramaTramo PT ON PT.idNomina = NN.idNomina\r\n    INNER JOIN Programa PGM ON PGM.idPrograma = PT.idPrograma\r\n    INNER JOIN Producto PR ON PR.idProducto = PGM.idProducto\r\n    WHERE NN.idNomina = @idNomina\r\n      AND PGM.IdProgramaEstado = 1\r\n      AND PGM.CargaIngreso IS NOT NULL\r\n    ORDER BY PGM.FechaCarga DESC, PGM.idPrograma DESC";
-            return await ConectarAsync(conn => conn.ExecuteScalarAsync<string>(query, new {idNomina}));
+            return await ConectarAsync(conn => conn.ExecuteScalarAsync<string>(query, new { idNomina }));
         }
-
 
         public async Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta)
         {

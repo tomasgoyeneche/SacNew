@@ -46,8 +46,11 @@ namespace Core.Repositories
         Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync();
 
         Task<string> ObtenerUltimaCarga(int idNomina);
+
         Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta);
+
         Task<List<Acumulado>> ObtenerAcumuladoAsync(DateTime desde, DateTime hasta);
+
         Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta);
     }
 }

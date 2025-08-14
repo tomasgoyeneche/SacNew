@@ -38,13 +38,24 @@ namespace GestionFlota.Presenters
 
         public async Task BuscarDisponibilidadesAsync(int? idNominaSeleccionada = null)
         {
-            DateTime fecha = _view.FechaSeleccionada;
-            List<Disponibilidad> disponibilidades = await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
-            _view.CargarDisponibilidades(disponibilidades);
-
-            if (idNominaSeleccionada.HasValue)
+            try
             {
-                _view.SeleccionarDispoPorNomina(idNominaSeleccionada.Value);
+                _view.SetEstadoCargaDisponibles(true); // Bloquea y limpia
+
+                DateTime fecha = _view.FechaSeleccionada;
+                List<Disponibilidad> disponibilidades =
+                    await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
+
+                _view.CargarDisponibilidades(disponibilidades);
+            }
+            finally
+            {
+                _view.SetEstadoCargaDisponibles(false); // Desbloquea
+
+                if (idNominaSeleccionada.HasValue)
+                {
+                    _view.SeleccionarDispoPorNomina(idNominaSeleccionada.Value);
+                }
             }
         }
 

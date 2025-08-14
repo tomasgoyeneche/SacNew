@@ -44,7 +44,6 @@ namespace Core.Repositories
             return ObtenerPorIdGenericoAsync<Unidad>("Unidad", "IdUnidad", idUnidad);
         }
 
-
         // Obtener Por Otras Opciones
 
         public async Task<int?> ObtenerIdTractorPorPatenteAsync(string patente)

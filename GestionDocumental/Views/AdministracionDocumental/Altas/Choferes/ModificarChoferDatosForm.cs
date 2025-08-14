@@ -1,19 +1,8 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraScheduler.UI;
+﻿using DevExpress.XtraEditors.Controls;
 using GestionOperativa.Presenters.Choferes;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Choferes;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionDocumental.Views.AdministracionDocumental.Altas.Choferes
 {

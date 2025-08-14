@@ -16,7 +16,7 @@ namespace Core.Repositories
         {
             var query = @"
     SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado, FechaCreacion
-    FROM POC_UnidadDetalle
+    FROM vw_POCUnidadDetalle
     WHERE Estado = @Estado AND IdPosta = @idPosta";
 
             return await ConectarAsync(async connection =>
@@ -30,7 +30,7 @@ namespace Core.Repositories
         {
             var query = @"
         SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer
-        FROM POC_UnidadDetalle
+        FROM vw_POCUnidadDetalle
         WHERE Estado = 'abierta' and IdPosta = @IdPosta
         AND (NumeroPOC LIKE @Criterio OR PatenteTractor LIKE @Criterio
         OR PatenteSemi LIKE @Criterio OR NombreFantasia LIKE @Criterio
@@ -68,7 +68,7 @@ namespace Core.Repositories
         public async Task<POCDto?> ObtenerPorIdDtoAsync(int idPoc)
         {
             var query = @"
-        SELECT * FROM POC_UnidadDetalle
+        SELECT * FROM vw_POCUnidadDetalle
         WHERE IdPoc = @IdPoc";
 
             return await ConectarAsync(connection =>
@@ -134,7 +134,7 @@ namespace Core.Repositories
             {
                 const string query = @"
                 SELECT PatenteTractor, CapacidadTanque
-                FROM POC_UnidadDetalle
+                FROM vw_POCUnidadDetalle
                 WHERE IdPoc = @IdPoc";
 
                 return await connection.QuerySingleAsync<(string, decimal)>(query, new { IdPoc = idPoc });

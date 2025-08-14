@@ -81,7 +81,6 @@ namespace Core.Repositories
             );
         }
 
-
         public Task ActualizarTractorAsync(Tractor tractor)
         {
             return ActualizarGenéricoAsync("Tractor", tractor);
