@@ -470,6 +470,7 @@
             gridColumn22.Name = "gridColumn22";
             gridColumn22.Visible = true;
             gridColumn22.VisibleIndex = 2;
+            gridColumn22.Width = 40;
             // 
             // gridColumn23
             // 
@@ -478,6 +479,7 @@
             gridColumn23.Name = "gridColumn23";
             gridColumn23.Visible = true;
             gridColumn23.VisibleIndex = 0;
+            gridColumn23.Width = 121;
             // 
             // gridColumn24
             // 
@@ -486,6 +488,7 @@
             gridColumn24.Name = "gridColumn24";
             gridColumn24.Visible = true;
             gridColumn24.VisibleIndex = 1;
+            gridColumn24.Width = 36;
             // 
             // gridView2
             // 

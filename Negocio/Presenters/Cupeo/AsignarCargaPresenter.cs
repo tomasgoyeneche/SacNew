@@ -16,6 +16,8 @@ namespace GestionFlota.Presenters
         private readonly IProductoRepositorio _productoRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
+        private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
+
 
         private readonly IProgramaRepositorio _programaRepositorio;
         private Cupeo _cupeoActual;
@@ -25,6 +27,7 @@ namespace GestionFlota.Presenters
             INavigationService navigationService,
             ILocacionRepositorio locacionRepositorio,
             IProductoRepositorio productoRepositorio,
+            IVaporizadoRepositorio vaporizadoRepositorio,
             INominaRepositorio nominaRepositorio,
             IDisponibilidadRepositorio disponibilidadRepositorio,
             IProgramaRepositorio programaRepositorio
@@ -33,6 +36,7 @@ namespace GestionFlota.Presenters
         {
             _locacionRepositorio = locacionRepositorio;
             _productoRepositorio = productoRepositorio;
+            _vaporizadoRepositorio = vaporizadoRepositorio;
             _programaRepositorio = programaRepositorio;
             _nominaRepositorio = nominaRepositorio;
             _disponibilidadRepositorio = disponibilidadRepositorio;
@@ -53,6 +57,11 @@ namespace GestionFlota.Presenters
 
         public async Task ConfirmarAsignacionAsync()
         {
+            if(_view.IdOrigenSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.IdProductoSeleccionado == null)
+            {
+                _view.MostrarMensaje("Debe seleccionar Origen, Destino y Producto.");
+                return;
+            }
             // Si el viaje ya está confirmado
             if (_cupeoActual.Confirmado?.ToUpper() == "OK")
             {
@@ -147,7 +156,25 @@ namespace GestionFlota.Presenters
                 reporte.DataSource = new List<Cupeo> { _cupeoActual };
                 reporte.DataMember = "";
 
+                string Vaporiza = "NO";
+
+                Vaporizado? vapo = await _vaporizadoRepositorio.ObtenerMasRecientePorNominaAsync(_cupeoActual.IdNomina);
+
+                if (vapo?.FechaFin != null)
+                {
+                    var fechaFin = vapo.FechaFin.Value.Date;
+                    var fechaCarga = _cupeoActual.FechaCarga.Date;
+
+                    if (fechaFin >= fechaCarga.AddDays(-2) && fechaFin <= fechaCarga.AddDays(2))
+                    {
+                        Vaporiza = "SI";
+                    }
+                }
+
                 reporte.Parameters["UltimaDj"].Value = UltimaDj;
+                reporte.Parameters["Vaporiza"].Value = Vaporiza;
+
+                //_cupeoActual.FechaCarga = DateTime.Now;
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {
@@ -175,7 +202,7 @@ namespace GestionFlota.Presenters
                 if (XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel) == DialogResult.OK
                     && control.MotivoSeleccionado.HasValue)
                 {
-                    await CambiarEstadoDeBajaProgramaAsync(programa, control.MotivoSeleccionado.Value);
+                    await CambiarEstadoDeBajaProgramaAsync(programa, control.MotivoSeleccionado.Value, control.Observacion);
                     _view.Cerrar();
                 }
                 return;
@@ -194,14 +221,15 @@ namespace GestionFlota.Presenters
             if (XtraDialog.Show(controlDisp, "Seleccione motivo de baja", MessageBoxButtons.OKCancel) == DialogResult.OK
                 && controlDisp.MotivoSeleccionado.HasValue)
             {
-                await CambiarEstadoDeBajaDisponibleAsync(disponible, controlDisp.MotivoSeleccionado.Value);
+                await CambiarEstadoDeBajaDisponibleAsync(disponible, controlDisp.MotivoSeleccionado.Value, controlDisp.Observacion);
                 _view.Cerrar();
             }
         }
 
-        private async Task CambiarEstadoDeBajaDisponibleAsync(Disponible disponible, int idMotivo)
+        private async Task CambiarEstadoDeBajaDisponibleAsync(Disponible disponible, int idMotivo, string observacion)
         {
             disponible.IdDisponibleEstado = idMotivo;
+            disponible.Observaciones = observacion; // << nuevo
             await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
 
             // Log en NominaRegistro
@@ -209,24 +237,25 @@ namespace GestionFlota.Presenters
             await _nominaRepositorio.RegistrarNominaAsync(
                 disponible.IdNomina,
                 "Cancela Disponible",
-                motivo?.Descripcion ?? "Sin motivo",
+                 $"{motivo?.Descripcion ?? "Sin motivo"} - {observacion}".Trim(),
                 _sesionService.IdUsuario
             );
         }
 
-        private async Task CambiarEstadoDeBajaProgramaAsync(Programa programa, int idMotivo)
+        private async Task CambiarEstadoDeBajaProgramaAsync(Programa programa, int idMotivo, string observacion)
         {
             programa.IdProgramaEstado = idMotivo;
+            programa.Observaciones = observacion; // << nuevo
             await _programaRepositorio.ActualizarProgramaAsync(programa);
 
-            await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(programa.IdPrograma);
+            await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(programa.IdPrograma, DateTime.Now);
 
             // Log en ProgramaRegistro
             var motivo = await _programaRepositorio.ObtenerEstadoDeBajaPorIdAsync(idMotivo);
             await _programaRepositorio.RegistrarProgramaAsync(
                 programa.IdPrograma,
                 "Cancela Asignado",
-                motivo?.Descripcion ?? "Sin motivo",
+                $"{motivo?.Descripcion ?? "Sin motivo"} - {observacion}".Trim(),
                 _sesionService.IdUsuario
             );
         }

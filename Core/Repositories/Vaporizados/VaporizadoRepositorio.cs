@@ -93,6 +93,21 @@ namespace Core.Repositories
                 conn.QueryFirstOrDefaultAsync<Vaporizado>(query, new { idNomina }));
         }
 
+        public async Task<Vaporizado?> ObtenerMasRecientePorNominaAsync(int idNomina)
+        {
+            const string sql = @"
+            SELECT TOP 1 *
+            FROM Vaporizado
+            WHERE IdNomina = @IdNomina AND Activo = 1
+            ORDER BY COALESCE(FechaFin, FechaInicio) DESC, IdVaporizado DESC;";
+
+            return await ConectarAsync(async conn =>
+            {
+                var r = await conn.QueryFirstOrDefaultAsync<Vaporizado>(sql, new { IdNomina = idNomina });
+                return r;
+            });
+        }
+
         public async Task<Vaporizado?> ObtenerPorTeAsync(int idTe)
         {
             var query = @"

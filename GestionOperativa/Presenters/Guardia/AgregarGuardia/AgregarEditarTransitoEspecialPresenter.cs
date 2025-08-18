@@ -53,6 +53,9 @@ namespace GestionOperativa.Presenters
                 Activo = true
             };
 
+            if (!await ValidarAsync(te))
+                return;
+
             int idPoc = await _guardiaRepositorio.RegistrarIngresoTransitoEspecialAsync(te, _idPosta, _Fecha, _sesionService.IdUsuario);
             _view.MostrarMensaje("Ingreso de Tránsito Especial registrado correctamente.");
             ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te);

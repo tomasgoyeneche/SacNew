@@ -97,6 +97,7 @@
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.UltimaDj = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Vaporiza = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -259,8 +260,8 @@
             // 
             this.xrLabel49.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel49.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(\'Precintos: 4 \',\'| Última DJ: \', ?UltimaDj, \'| Vaporizó: NO | \', \'Fecha De" +
-                    "scarga: \',  FormatString(\'{0:dd/MM/yyyy}\',[FechaEntrega]) )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(\'Precintos: 4 \',\'| Última DJ: \', ?UltimaDj, \'| Vaporizó: \', ?Vaporiza, \' |" +
+                    " \', \'Fecha Descarga: \',  FormatString(\'{0:dd/MM/yyyy}\',[FechaEntrega]) )")});
             this.xrLabel49.Font = new DevExpress.Drawing.DXFont("Century Gothic", 9F);
             this.xrLabel49.LocationFloat = new DevExpress.Utils.PointFloat(128.3957F, 215.7084F);
             this.xrLabel49.Multiline = true;
@@ -1080,6 +1081,13 @@
             this.UltimaDj.Name = "UltimaDj";
             this.UltimaDj.Visible = false;
             // 
+            // Vaporiza
+            // 
+            this.Vaporiza.Description = "Vaporiza";
+            this.Vaporiza.Name = "Vaporiza";
+            this.Vaporiza.ValueInfo = "NO";
+            this.Vaporiza.Visible = false;
+            // 
             // ReporteOrdenCarga
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1098,7 +1106,8 @@
             this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
             new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.UltimaDj, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.UltimaDj});
+            this.UltimaDj,
+            this.Vaporiza});
             this.Version = "24.1";
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -1174,5 +1183,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel53;
         private DevExpress.XtraReports.Parameters.Parameter UltimaDj;
+        private DevExpress.XtraReports.Parameters.Parameter Vaporiza;
     }
 }

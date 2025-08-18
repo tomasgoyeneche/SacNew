@@ -138,12 +138,13 @@ namespace GestionFlota.Presenters
             var dialogResult = XtraDialog.Show(control, "Seleccione motivo de baja", MessageBoxButtons.OKCancel);
 
             if (dialogResult == DialogResult.OK && control.MotivoSeleccionado.HasValue)
-                await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value);
+                await CambiarEstadoDeBajaAsync(disponible, control.MotivoSeleccionado.Value, control.Observacion);
         }
 
-        public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int idMotivo)
+        public async Task CambiarEstadoDeBajaAsync(Disponible disponible, int idMotivo, string observacion)
         {
             disponible.IdDisponibleEstado = idMotivo;
+            disponible.Observaciones = observacion;
             await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
 
             // Obtener motivo para descripción
@@ -152,7 +153,7 @@ namespace GestionFlota.Presenters
             await _nominaRepositorio.RegistrarNominaAsync(
                 disponible.IdNomina,
                 "Cancela Disponible",
-                motivo?.Descripcion ?? "Sin motivo",
+                 $"{motivo?.Descripcion ?? "Sin motivo"} - {observacion}".Trim(),
                 _sesionService.IdUsuario
             );
 

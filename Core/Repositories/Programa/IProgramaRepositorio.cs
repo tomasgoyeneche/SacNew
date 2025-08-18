@@ -35,13 +35,15 @@ namespace Core.Repositories
 
         Task InsertarProgramaTramoAsync(ProgramaTramo tramo);
 
-        Task CerrarTramosActivosPorProgramaAsync(int idPrograma);
+        Task CerrarTramosActivosPorProgramaAsync(int idPrograma, DateTime? dateTime);
 
         Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
 
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
 
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();
+
+        Task<List<VistaPrograma>> ObtenerVistaProgramasPorPatenteAsync(string Tractor);
 
         Task<List<ProgramaDemoradoInforme>> ObtenerProgramasDemoradosAsync();
 

@@ -72,6 +72,9 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas.Empresas
                 vigenciaAnual = _view.VigenciaAnual
             };
 
+            if (!await ValidarAsync(nuevo))
+                return;
+
             if (_seguro == null)
             {
                 await _seguroRepo.AgregarSeguroAsync(nuevo);

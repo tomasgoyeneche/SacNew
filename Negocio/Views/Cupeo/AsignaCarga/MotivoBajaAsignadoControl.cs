@@ -6,34 +6,39 @@ namespace GestionFlota.Views.Cupeo
 {
     public partial class MotivoBajaAsignadoControl : DevExpress.XtraEditors.XtraUserControl
     {
+        private readonly LookUpEdit _combo;
+        private readonly MemoEdit _txtObs;
+
         public MotivoBajaAsignadoControl(List<ProgramaEstado> motivos)
         {
             InitializeComponent();
 
-            var combo = new LookUpEdit
+            _combo = new LookUpEdit
             {
                 Name = "cmbMotivo",
                 Dock = DockStyle.Top
             };
+            _combo.Properties.DataSource = motivos;
+            _combo.Properties.DisplayMember = "Descripcion";
+            _combo.Properties.ValueMember = "IdProgramaEstado";
+            _combo.Properties.NullText = "[Seleccione motivo]";
+            _combo.Properties.Columns.Clear();
+            _combo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Motivo de baja"));
 
-            combo.Properties.DataSource = motivos;
-            combo.Properties.DisplayMember = "Descripcion";
-            combo.Properties.ValueMember = "IdProgramaEstado";
-            combo.Properties.NullText = "[Seleccione motivo]";
-            combo.Properties.Columns.Clear();
-            combo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Motivo de baja")); // Solo mostramos "Descripcion"
-
-            this.Controls.Add(combo);
-            this.Height = 50;
-        }
-
-        public int? MotivoSeleccionado
-        {
-            get
+            _txtObs = new MemoEdit
             {
-                var combo = this.Controls["cmbMotivo"] as LookUpEdit;
-                return combo?.EditValue as int?;
-            }
+                Name = "txtObs",
+                Dock = DockStyle.Fill,
+                Properties = { NullText = "Sin Observacion" }
+            };
+
+            this.Controls.Add(_txtObs);
+            this.Controls.Add(_combo);
+
+            this.Height = 120;
         }
+
+        public int? MotivoSeleccionado => _combo.EditValue as int?;
+        public string Observacion => _txtObs.Text?.Trim();
     }
 }

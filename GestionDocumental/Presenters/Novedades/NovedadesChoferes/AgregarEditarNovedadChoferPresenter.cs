@@ -100,12 +100,12 @@ namespace GestionDocumental.Presenters
                     if (NovedadActual == null)
                     {
                         await _choferEstadoRepositorio.AltaNovedadAsync(novedadChofer, _sesionService.IdUsuario);
-                        _view.MostrarMensaje("Chofer Agregado Correctamente");
+                        _view.MostrarMensaje("Novedad de Chofer Agregado Correctamente");
                     }
                     else
                     {
                         await _choferEstadoRepositorio.EditarNovedadAsync(novedadChofer, _sesionService.IdUsuario);
-                        _view.MostrarMensaje("Chofer Actualizado Correctamente");
+                        _view.MostrarMensaje("Novedad de Chofer Actualizada Correctamente");
                     }
                     _view.Close();
                 });

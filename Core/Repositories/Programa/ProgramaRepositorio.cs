@@ -217,13 +217,13 @@ namespace Core.Repositories
             await ConectarAsync(conn => conn.ExecuteAsync(query, tramo));
         }
 
-        public async Task CerrarTramosActivosPorProgramaAsync(int idPrograma)
+        public async Task CerrarTramosActivosPorProgramaAsync(int idPrograma, DateTime? fecha)
         {
             var query = @"
         UPDATE ProgramaTramo
-        SET FechaFin = GETDATE()
+        SET FechaFin = @Fecha
         WHERE IdPrograma = @IdPrograma AND FechaFin IS NULL";
-            await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma }));
+            await ConectarAsync(conn => conn.ExecuteAsync(query, new { IdPrograma = idPrograma, Fecha = fecha }));
         }
 
         public async Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync()
@@ -244,6 +244,13 @@ namespace Core.Repositories
             var query = "SELECT * FROM vw_Programa";
             return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query))).ToList();
         }
+
+        public async Task<List<VistaPrograma>> ObtenerVistaProgramasPorPatenteAsync(string Tractor)
+        {
+            var query = "SELECT * FROM vw_Programa where tractor = @Tractor order by cargaSalida desc";
+            return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query, new { Tractor = Tractor}))).ToList();
+        }
+
 
         public async Task<string> ObtenerUltimaCarga(int idNomina)
         {

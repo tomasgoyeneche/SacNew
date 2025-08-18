@@ -77,7 +77,7 @@ namespace GestionFlota.Presenters
             await _programaRepositorio.ActualizarFechaYRegistrarAsync(_Ruteo.IdPrograma, campo, fechaNueva, _Ruteo.IdNomina, _sesionService.IdUsuario);
             if (campo == "EntregaSalida")
             {
-                await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(_Ruteo.IdPrograma);
+                await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(_Ruteo.IdPrograma, fechaNueva);
             }
             await InicializarAsync(_Ruteo);
         }

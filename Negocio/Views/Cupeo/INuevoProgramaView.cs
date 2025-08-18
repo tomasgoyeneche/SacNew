@@ -13,6 +13,7 @@ namespace GestionFlota.Views
 
         void CargarProductos(List<Producto> productos);
 
+        void CargarViajesAnteriores (List<VistaPrograma> viajes);
         void CargarCupos(List<int> cupos);
 
         int? Cupo { get; }

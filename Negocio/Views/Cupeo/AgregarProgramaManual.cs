@@ -30,6 +30,14 @@ namespace GestionFlota.Views
             gridViewAlertas.BestFitColumns();
         }
 
+        public void CargarViajesAnteriores(List<VistaPrograma> programa)
+        {
+            gridControlViajes.DataSource = programa;
+
+            gridViewViajes.BestFitColumns();
+        }
+
+
         public void CargarOrigenes(List<Locacion> origenes, int? idOrigenSeleccionado)
         {
             cmbOrigen.Properties.DataSource = origenes;

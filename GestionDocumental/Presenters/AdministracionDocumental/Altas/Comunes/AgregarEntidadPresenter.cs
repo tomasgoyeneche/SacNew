@@ -43,6 +43,11 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                 switch (_entidad)
                 {
                     case "empresa":
+                        if(_view.Campo1 == null || _view.Campo2 == null)
+                        {
+                            _view.MostrarMensaje("Los campos Nombre Fantasía y CUIT son obligatorios.");
+                            break;
+                        }
                         var empresa = new Empresa
                         {
                             RazonSocial = _view.Campo1,
@@ -55,6 +60,11 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         break;
 
                     case "chofer":
+                        if (_view.Campo1 == null || _view.Campo2 == null || _view.Campo3 == null)
+                        {
+                            _view.MostrarMensaje("Los campos Nombre, Apellido y Documento son obligatorios.");
+                            break;
+                        }
                         var chofer = new Chofer
                         {
                             Nombre = _view.Campo1,
@@ -65,6 +75,11 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         break;
 
                     case "tractor":
+                        if (_view.Campo1 == null)
+                        {
+                            _view.MostrarMensaje("La patente es obligatoria.");
+                            break;
+                        }
                         var tractor = new Shared.Models.Tractor
                         {
                             Patente = _view.Campo1.ToUpper(),
@@ -74,6 +89,11 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         break;
 
                     case "semi":
+                        if (_view.Campo1 == null)
+                        {
+                            _view.MostrarMensaje("La patente es obligatoria.");
+                            break;
+                        }
                         var semi = new Semi
                         {
                             Patente = _view.Campo1.ToUpper(),

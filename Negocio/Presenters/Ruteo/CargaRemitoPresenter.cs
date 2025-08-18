@@ -86,7 +86,7 @@ namespace GestionFlota.Presenters.Ruteo
             if (_ruteo.IdDestino != _view.IdDestino)
             {
                 await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(
-                    _programa.IdPrograma);
+                    _programa.IdPrograma, DateTime.Now);
 
                 ProgramaTramo tramo = new ProgramaTramo
                 {

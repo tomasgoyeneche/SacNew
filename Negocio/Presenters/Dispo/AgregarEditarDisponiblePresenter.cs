@@ -127,11 +127,18 @@ namespace GestionFlota.Presenters
 
         public async Task GuardarAsync()
         {
+           
             var disponible = _view.ObtenerDisponible();
             disponible.IdNomina = IdNomina;
             disponible.FechaDisponible = FechaDisponible;
             disponible.IdUsuario = _sesionService.IdUsuario;
             disponible.IdDisponibleEstado = 1; // Asumiendo que 1 es el estado "Activo"
+
+            if(disponible.IdOrigen == null)
+            {
+                _view.MostrarMensaje("Debe seleccionar un origen.");
+                return;
+            }
 
             if (await ValidarAsync(disponible))
             {

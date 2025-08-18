@@ -44,17 +44,26 @@ namespace GestionFlota.Presenters
             var alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(cupeo.IdNomina);
             _view.MostrarAlertas(alertas);
 
+
+            List<VistaPrograma> programas = await _programaRepositorio.ObtenerVistaProgramasPorPatenteAsync(cupeo.Tractor);
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var destinos = await _locacionRepositorio.ObtenerTodasAsync();
             var productos = await _productoRepositorio.ObtenerTodosAsync();
 
             _view.CargarOrigenes(origenes, cupeo.IdOrigen);
+            _view.CargarViajesAnteriores(programas);
             _view.CargarDestinos(destinos);
             _view.CargarProductos(productos);
         }
 
         public async Task GuardarAsync()
         {
+            if(_view.IdOrigenSeleccionado == null || _view.IdProductoSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.FechaCarga == null || _view.FechaEntrega == null)
+            {
+                _view.MostrarMensaje("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+
             var programa = new Programa
             {
                 IdDisponible = _cupeo.IdDisponible ?? 0,
@@ -162,14 +171,15 @@ namespace GestionFlota.Presenters
             if (XtraDialog.Show(controlDisp, "Seleccione motivo de baja", MessageBoxButtons.OKCancel) == DialogResult.OK
                 && controlDisp.MotivoSeleccionado.HasValue)
             {
-                await CambiarEstadoDeBajaDisponibleAsync(disponible, controlDisp.MotivoSeleccionado.Value);
+                await CambiarEstadoDeBajaDisponibleAsync(disponible, controlDisp.MotivoSeleccionado.Value, controlDisp.Observacion);
                 _view.Cerrar();
             }
         }
 
-        private async Task CambiarEstadoDeBajaDisponibleAsync(Disponible disponible, int idMotivo)
+        private async Task CambiarEstadoDeBajaDisponibleAsync(Disponible disponible, int idMotivo, string observacion)
         {
             disponible.IdDisponibleEstado = idMotivo;
+            disponible.Observaciones = observacion;
             await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
 
             // Log en NominaRegistro
@@ -177,7 +187,7 @@ namespace GestionFlota.Presenters
             await _nominaRepositorio.RegistrarNominaAsync(
                 disponible.IdNomina,
                 "Cancela Disponible",
-                motivo?.Descripcion ?? "Sin motivo",
+                   $"{motivo?.Descripcion ?? "Sin motivo"} - {observacion}".Trim(),
                 _sesionService.IdUsuario
             );
         }

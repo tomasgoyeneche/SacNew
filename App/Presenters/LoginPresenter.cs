@@ -2,6 +2,7 @@
 using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.XtraEditors;
 using SacNew.Views;
 using Shared.Models;
 using System.Diagnostics;
@@ -14,7 +15,7 @@ namespace App.Presenters
         private readonly IPermisoRepositorio _permisoRepositorio;
         private readonly IVersionRepositorio _versionRepositorio;
 
-        private const string VERSION_ACTUAL = "0.2";
+        private const string VERSION_ACTUAL = "0.4";
         private string NOMBRE_CARPETA_VERSION;
         private string RUTA_REMOTA;
         private const string RUTA_LOCAL = @"C:\Compartida\SACNew";
@@ -61,6 +62,9 @@ namespace App.Presenters
                     Application.Exit();
                     return;
                 }
+
+                XtraMessageBox.Show("Se descargará la nueva versión del sistema.\nEsto puede tardar unos segundos...",
+                "Actualización", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 try
                 {
