@@ -11,6 +11,7 @@ namespace GestionFlota.Presenters
         private readonly IAlertaRepositorio _alertaRepositorio;
 
         private readonly ISemiRepositorio _semiRepositorio;
+        private readonly IUnidadRepositorio _unidadRepositorio;
 
         private readonly ITractorRepositorio _tractorRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
@@ -21,6 +22,7 @@ namespace GestionFlota.Presenters
             ITractorRepositorio tractorRepositorio,
             IChoferRepositorio choferRepositorio,
             ISemiRepositorio semiRepositorio,
+            IUnidadRepositorio unidadRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
@@ -28,6 +30,7 @@ namespace GestionFlota.Presenters
             _alertaRepositorio = alertaRepositorio;
             _tractorRepositorio = tractorRepositorio;
             _semiRepositorio = semiRepositorio;
+            _unidadRepositorio = unidadRepositorio;
             _choferRepositorio = choferRepositorio;
         }
 
@@ -65,6 +68,17 @@ namespace GestionFlota.Presenters
                 IdSemi = _view.IdSemi,
                 Descripcion = _view.Descripcion
             };
+
+            if (_view.IdTractor != null && _view.IdSemi != null)
+            {
+                int? idunidad = await _unidadRepositorio.ObtenerIdUnidadPorTractorAsync(_view.IdTractor.Value);
+                Unidad unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(idunidad.Value);
+                if (unidad.IdSemi != _view.IdSemi)
+                {
+                    _view.MostrarMensaje("El semi es distinto al de la unidad.");
+                    return;
+                }
+            }
             if (await ValidarAsync(alerta))
             {
                 await EjecutarConCargaAsync(async () =>

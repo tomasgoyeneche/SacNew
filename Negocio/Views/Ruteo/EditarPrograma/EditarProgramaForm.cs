@@ -119,6 +119,14 @@ namespace GestionFlota.Views
                     var llegadaAduanaExt2 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 6 && x.IdProgramaTipoEvento == 1);
                     var salidaAduanaExt2 = hitosExtranjero.FirstOrDefault(x => x.IdProgramaTipoPunto == 6 && x.IdProgramaTipoEvento == 3);
 
+                    dtpLlegadaAduanaArg.EditValueChanged -= dtpLlegadaAduanaArg_EditValueChanged;
+                    dtpSalidaAduanaArg.EditValueChanged -= dtpSalidaAduanaArg_EditValueChanged;
+                    dtpCruceAduanaArg.EditValueChanged -= dtpCruceAduanaArg_EditValueChanged;
+                    dtpLlegadaExt1.EditValueChanged -= dtpLlegadaExt1_EditValueChanged;
+                    dtpSalidaExt1.EditValueChanged -= dtpSalidaExt1_EditValueChanged;
+                    dtpLlegadaExt2.EditValueChanged -= dtpLlegadaExt2_EditValueChanged;
+                    dtpSalidaExt2.EditValueChanged -= dtpSalidaExt2_EditValueChanged;
+
                     // Supongamos que tenés controles DateEdit para cada uno:
                     // ...lo anterior...
                     dtpLlegadaAduanaArg.EditValue = llegadaAduanaArg?.Fecha;
@@ -141,6 +149,14 @@ namespace GestionFlota.Views
 
                     dtpSalidaExt2.EditValue = salidaAduanaExt2?.Fecha;
                     lblSalidaAduanaExt02.Text = $"Salida 2: {salidaAduanaExt2?.Fecha.ToString("dd/MM/yyyy HH:mm") ?? "-"}";
+
+                    dtpLlegadaAduanaArg.EditValueChanged += dtpLlegadaAduanaArg_EditValueChanged;
+                    dtpSalidaAduanaArg.EditValueChanged += dtpSalidaAduanaArg_EditValueChanged;
+                    dtpCruceAduanaArg.EditValueChanged += dtpCruceAduanaArg_EditValueChanged;
+                    dtpLlegadaExt1.EditValueChanged += dtpLlegadaExt1_EditValueChanged;
+                    dtpSalidaExt1.EditValueChanged += dtpSalidaExt1_EditValueChanged;
+                    dtpLlegadaExt2.EditValueChanged += dtpLlegadaExt2_EditValueChanged;
+                    dtpSalidaExt2.EditValueChanged += dtpSalidaExt2_EditValueChanged;
 
                     // Habilitá los botones de eliminar si existe registro
                     btnEliminarLlegadaAduanaArg.Enabled = llegadaAduanaArg != null;

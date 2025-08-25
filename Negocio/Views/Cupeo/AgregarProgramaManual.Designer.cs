@@ -81,6 +81,10 @@
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlViajes = new DevExpress.XtraGrid.GridControl();
             gridViewViajes = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlRemitosPendientes = new DevExpress.XtraGrid.GridControl();
@@ -89,10 +93,6 @@
             bObservaciones = new DevExpress.XtraEditors.SimpleButton();
             bCancelarDisponible = new DevExpress.XtraEditors.SimpleButton();
             extranjeroCheck = new Guna.UI2.WinForms.Guna2CheckBox();
-            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtpFechaEntrega.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaEntrega.Properties.CalendarTimeProperties).BeginInit();
@@ -136,7 +136,7 @@
             guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             guna2HtmlLabel17.Size = new Size(256, 28);
             guna2HtmlLabel17.TabIndex = 14;
-            guna2HtmlLabel17.Text = "Asignar Programa";
+            guna2HtmlLabel17.Text = "Asignar Carga";
             // 
             // dtpFechaEntrega
             // 
@@ -533,6 +533,38 @@
             gridViewViajes.OptionsView.EnableAppearanceOddRow = true;
             gridViewViajes.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "Carga";
+            gridColumn1.FieldName = "CargaIngreso";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            gridColumn2.Caption = "Origen";
+            gridColumn2.FieldName = "Origen";
+            gridColumn2.Name = "gridColumn2";
+            gridColumn2.Visible = true;
+            gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            gridColumn3.Caption = "Producto";
+            gridColumn3.FieldName = "Producto";
+            gridColumn3.Name = "gridColumn3";
+            gridColumn3.Visible = true;
+            gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            gridColumn4.Caption = "Destino";
+            gridColumn4.FieldName = "Destino";
+            gridColumn4.Name = "gridColumn4";
+            gridColumn4.Visible = true;
+            gridColumn4.VisibleIndex = 3;
+            // 
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
@@ -643,38 +675,6 @@
             extranjeroCheck.UncheckedState.BorderRadius = 0;
             extranjeroCheck.UncheckedState.BorderThickness = 0;
             extranjeroCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
-            // gridColumn1
-            // 
-            gridColumn1.Caption = "Carga";
-            gridColumn1.FieldName = "CargaIngreso";
-            gridColumn1.Name = "gridColumn1";
-            gridColumn1.Visible = true;
-            gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            gridColumn2.Caption = "Origen";
-            gridColumn2.FieldName = "Origen";
-            gridColumn2.Name = "gridColumn2";
-            gridColumn2.Visible = true;
-            gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            gridColumn3.Caption = "Producto";
-            gridColumn3.FieldName = "Producto";
-            gridColumn3.Name = "gridColumn3";
-            gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            gridColumn4.Caption = "Destino";
-            gridColumn4.FieldName = "Destino";
-            gridColumn4.Name = "gridColumn4";
-            gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 3;
             // 
             // AgregarProgramaManual
             // 

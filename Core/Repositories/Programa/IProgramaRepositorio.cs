@@ -54,5 +54,7 @@ namespace Core.Repositories
         Task<List<Acumulado>> ObtenerAcumuladoAsync(DateTime desde, DateTime hasta);
 
         Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta);
+        Task<List<ProgramasAnulados>> ObtenerAnuladosAsync(DateTime desde, DateTime hasta);
+        Task<List<AsignadosCargados>> ObtenerAsignadosCargadosAsync(DateTime desde, DateTime hasta);
     }
 }

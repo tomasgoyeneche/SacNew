@@ -20,6 +20,9 @@ namespace GestionOperativa.Views
         public DateTime? FechaReingreso =>
            dtpReingreso.EditValue is DateTime fecha ? fecha : null;
 
+        public DateTime? FechaCarga =>
+          dtpSalidaCarga.EditValue is DateTime fecha ? fecha : null;
+
         public CambiarEstadoForm(CambiarEstadoPresenter presenter)
         {
             InitializeComponent();

@@ -41,8 +41,8 @@ namespace GestionFlota.Views
             if (cargando)
             {
                 // Limpia datos y bloquea la grilla
-                gridControlDisponibles.DataSource = null;
-                gridViewDisponibles.OptionsBehavior.Editable = false;
+                //gridControlDisponibles.DataSource = null;
+                //gridViewDisponibles.OptionsBehavior.Editable = false;
                 gridControlDisponibles.Enabled = false;
 
                 // Mensajes opcionales
@@ -154,14 +154,6 @@ namespace GestionFlota.Views
             }
         }
 
-        private void gridViewAlertas_DoubleClick(object sender, EventArgs e)
-        {
-            if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
-            {
-                _presenter.MostrarDetalleAlerta(alerta);
-            }
-        }
-
         private async void bAgregarDispo_Click(object sender, EventArgs e)
         {
             if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
@@ -219,6 +211,28 @@ namespace GestionFlota.Views
         private async void dateEditFecha_DateChanged(object sender, EventArgs e)
         {
             await _presenter.BuscarDisponibilidadesAsync();
+        }
+
+        private async void gridViewAlertas_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks != 2 || e.RowHandle < 0) return;
+
+            if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
+            {
+
+                Disponibilidad dispo = gridViewDisponibles.GetFocusedRow() as Disponibilidad;
+                int idAgregarDispo = dispo.IdNomina;
+                var confirm = XtraMessageBox.Show(
+                    $"¿Deseás eliminar la alerta #{alerta.IdAlerta}?\n\n{alerta.Descripcion}",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarAlertaAsync(alerta, idAgregarDispo);
+                }
+            }
         }
     }
 }

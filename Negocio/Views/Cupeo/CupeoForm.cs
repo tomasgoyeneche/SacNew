@@ -173,5 +173,24 @@ namespace GestionFlota.Views
                 await _presenter.AbrirAsignarManual(cupeo);
             }
         }
+
+        private async void gridViewAlertas_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks != 2 || e.RowHandle < 0) return;
+
+            if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
+            {
+                var confirm = XtraMessageBox.Show(
+                    $"¿Deseás eliminar la alerta #{alerta.IdAlerta}?\n\n{alerta.Descripcion}",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarAlertaAsync(alerta);
+                }
+            }
+        }
     }
 }

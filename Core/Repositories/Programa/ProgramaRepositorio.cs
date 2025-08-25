@@ -15,6 +15,7 @@ namespace Core.Repositories
             var query = @"
             SELECT *
             FROM dbo.vw_Ruteo
+            order by CargaSalida
             OPTION (RECOMPILE, MAXDOP 1);"; // <<--- agregado
 
             // Puedes parametrizar el timeout si querés, acá lo dejo en 120 segundos
@@ -274,6 +275,18 @@ namespace Core.Repositories
         {
             string query = @"SELECT * FROM vw_Acumulado WHERE Disponible BETWEEN @desde AND @hasta Order by idPrograma";
             return (await ConectarAsync(conn => conn.QueryAsync<Acumulado>(query, new { desde, hasta }))).ToList();
+        }
+
+        public async Task<List<ProgramasAnulados>> ObtenerAnuladosAsync(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_ProgramasAnulados WHERE Disponible BETWEEN @desde AND @hasta Order by idPrograma";
+            return (await ConectarAsync(conn => conn.QueryAsync<ProgramasAnulados>(query, new { desde, hasta }))).ToList();
+        }
+
+        public async Task<List<AsignadosCargados>> ObtenerAsignadosCargadosAsync(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_AsignadosCargados WHERE Disponible BETWEEN @desde AND @hasta Order by idPrograma";
+            return (await ConectarAsync(conn => conn.QueryAsync<AsignadosCargados>(query, new { desde, hasta }))).ToList();
         }
     }
 }

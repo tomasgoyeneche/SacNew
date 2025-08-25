@@ -3,8 +3,8 @@
     public class ProgramaDemoradoInforme
     {
         public string? Producto { get; set; }
-        public int Albaran { get; set; }
-        public int PedidoOr { get; set; }
+        public int TD { get; set; }
+        public int Pedido { get; set; }
         public string? Destino { get; set; }
 
         public DateTime FechaEntrega { get; set; }
@@ -19,7 +19,11 @@
         public string Semi { get; set; }
         public string Observaciones { get; set; }
 
-        public string? HorarioPresentacion { get; set; } = string.Empty;
+        public DateTime? HorarioPresentacion { get; set; }
+        public string? Motivo { get; set; } = string.Empty;
+        public string? Origen { get; set; } = string.Empty;
+
+
 
     }
 }

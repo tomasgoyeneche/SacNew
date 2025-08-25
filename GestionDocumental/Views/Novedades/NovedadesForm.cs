@@ -32,6 +32,11 @@ namespace GestionDocumental.Views
                     if (view.Columns[col] != null)
                         view.Columns[col].Visible = false;
                 }
+
+                if (view.Columns["Nombre"] != null) view.Columns["Nombre"].Width = 150;
+                if (view.Columns["Apellido"] != null) view.Columns["Apellido"].Width = 150;
+                if (view.Columns["Estado"] != null) view.Columns["Estado"].Width = 100;
+
                 labelNovedades.Text = "Novedades Choferes";
             }
             else if (_presenter._Entidad == "Unidad")
@@ -43,8 +48,6 @@ namespace GestionDocumental.Views
                 }
                 labelNovedades.Text = "Mantenimiento Unidades";
             }
-
-            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
 
             gridViewNovedades.OptionsView.EnableAppearanceEvenRow = true;
             gridViewNovedades.OptionsView.EnableAppearanceOddRow = true;

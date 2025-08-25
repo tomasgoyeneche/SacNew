@@ -25,5 +25,6 @@ namespace Core.Repositories
         Task EliminarUnidadAsync(int idUnidad);
 
         Task AgregarUnidadAsync(Unidad unidad, int idUsuario);
+        Task ActualizarTaraTotal(int idUnidad, int taraTotal);
     }
 }

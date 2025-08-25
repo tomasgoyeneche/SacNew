@@ -119,6 +119,19 @@ namespace GestionFlota.Presenters
             await InicializarAsync(idProgramaSeleccionado, idNominaSeleccionada);
         }
 
+
+        public async Task EliminarAlertaAsync(AlertaDto alerta)
+        {
+
+                    // Eliminar en repositorio
+             await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
+
+             _view.MostrarMensaje("La alerta se eliminó correctamente.");
+
+            // Refrescar vencimientos y alertas del ruteo actualmente seleccionado
+            InicializarAsync();
+        }
+
         public async Task ExportarDemoradosAsync()
         {
             List<ProgramaDemoradoInforme> demorados = await _programaRepositorio.ObtenerProgramasDemoradosAsync();

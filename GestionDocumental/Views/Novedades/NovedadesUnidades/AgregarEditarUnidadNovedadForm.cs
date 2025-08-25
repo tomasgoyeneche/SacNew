@@ -1,16 +1,24 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters.Novedades;
-using GestionDocumental.Views.Novedades.NovedadesUnidades;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace GestionDocumental.Views.Novedades
+namespace GestionDocumental.Views.Novedades.NovedadesUnidades
 {
-    public partial class AgregarEditarNovedadUnidadForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarNovedadUnidadView
+    public partial class AgregarEditarUnidadNovedadForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarNovedadUnidadView
     {
         public readonly AgregarEditarNovedadUnidadPresenter _presenter;
 
-        public AgregarEditarNovedadUnidadForm(AgregarEditarNovedadUnidadPresenter presenter)
+        public AgregarEditarUnidadNovedadForm(AgregarEditarNovedadUnidadPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -31,9 +39,9 @@ namespace GestionDocumental.Views.Novedades
 
         public int IdMantenimientoEstado => Convert.ToInt32(cmbEstado.EditValue);
 
-        public DateTime FechaInicio => dtpFechaInicio.Value;
+        public DateTime FechaInicio => (DateTime)dtpFechaInicio.EditValue;
 
-        public DateTime FechaFin => dtpFechaFinal.Value;
+        public DateTime FechaFin => (DateTime)dtpFechaFinal.EditValue;
 
         public string Observaciones => txtObservaciones.Text.Trim();
 
@@ -53,8 +61,8 @@ namespace GestionDocumental.Views.Novedades
             cmbUnidad.Properties.Columns.Clear();
             cmbUnidad.Properties.Columns.Add(new LookUpColumnInfo("PatenteCompleta", "Unidad"));
 
-            dtpFechaFinal.Value = DateTime.Now.AddDays(1);
-            dtpFechaInicio.Value = DateTime.Now;
+            dtpFechaFinal.EditValue = DateTime.Now.AddDays(1);
+            dtpFechaInicio.EditValue = DateTime.Now;
             cmbUnidad.EditValue = _presenter.NovedadActual?.idUnidad ?? -1;
         }
 
@@ -79,8 +87,8 @@ namespace GestionDocumental.Views.Novedades
 
             txtOdometro.Text = novedadesUnidades.Odometro.ToString();
 
-            dtpFechaInicio.Value = novedadesUnidades.FechaInicio;
-            dtpFechaFinal.Value = novedadesUnidades.FechaFin;
+            dtpFechaInicio.EditValue = novedadesUnidades.FechaInicio;
+            dtpFechaFinal.EditValue = novedadesUnidades.FechaFin;
             _presenter.CalcularAusencia();
         }
 

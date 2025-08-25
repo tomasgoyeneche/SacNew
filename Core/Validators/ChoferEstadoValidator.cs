@@ -28,10 +28,6 @@ namespace Core.Validators
 
             RuleFor(x => x.FechaFin)
                 .NotEmpty().WithMessage("Debe ingresar una fecha de fin.");
-
-            RuleFor(x => x)
-                .Must(x => x.FechaFin >= x.FechaInicio)
-                .WithMessage("La fecha de fin no puede ser menor que la fecha de inicio.");
         }
     }
 }

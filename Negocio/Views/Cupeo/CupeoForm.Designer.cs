@@ -321,6 +321,8 @@
             // gridColumn11
             // 
             gridColumn11.Caption = "Descripcion";
+            gridColumn11.DisplayFormat.FormatString = "dd/MM HH:mm";
+            gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn11.FieldName = "Descripcion";
             gridColumn11.Name = "gridColumn11";
             gridColumn11.Visible = true;
@@ -407,6 +409,7 @@
             gridViewAlertas.OptionsView.EnableAppearanceEvenRow = true;
             gridViewAlertas.OptionsView.EnableAppearanceOddRow = true;
             gridViewAlertas.OptionsView.ShowGroupPanel = false;
+            gridViewAlertas.RowCellClick += gridViewAlertas_RowCellClick;
             // 
             // guna2Panel5
             // 
@@ -446,7 +449,6 @@
             gridViewDisp.OptionsView.EnableAppearanceEvenRow = true;
             gridViewDisp.RowCellClick += gridViewDisp_RowCellClick;
             gridViewDisp.FocusedRowChanged += gridViewDisp_FocusedRowChanged;
-    
             // 
             // gridColumn1
             // 
@@ -499,7 +501,7 @@
             // gridColumn6
             // 
             gridColumn6.Caption = "Origen";
-            gridColumn6.FieldName = "Estado";
+            gridColumn6.FieldName = "Origen";
             gridColumn6.Name = "gridColumn6";
             gridColumn6.Visible = true;
             gridColumn6.VisibleIndex = 6;
@@ -602,7 +604,6 @@
             gridViewAsignados.OptionsView.EnableAppearanceEvenRow = true;
             gridViewAsignados.RowCellClick += gridViewAsignados_RowCellClick;
             gridViewAsignados.FocusedRowChanged += gridViewAsignados_FocusedRowChanged;
-      
             // 
             // gridColumn25
             // 

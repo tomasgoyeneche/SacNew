@@ -1245,7 +1245,8 @@
             simpleButton10.Name = "simpleButton10";
             simpleButton10.Size = new Size(139, 32);
             simpleButton10.TabIndex = 145;
-            simpleButton10.Text = "Historico Guardia";
+            simpleButton10.Text = "Equipos Parador";
+            simpleButton10.Click += simpleButton10_Click;
             // 
             // MensajeBox
             // 

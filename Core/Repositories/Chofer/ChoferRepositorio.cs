@@ -99,11 +99,33 @@ namespace Core.Repositories
             });
         }
 
-        public Task ActualizarAsync(Chofer chofer)
+        public async Task ActualizarAsync(Chofer chofer)
         {
-            return ActualizarGenéricoAsync("Chofer", chofer);
-        }
+            var choferAnterior = await ObtenerPorIdAsync(chofer.IdChofer);
 
+            var query = @"
+                UPDATE chofer
+                SET Apellido = @Apellido,
+                    Nombre = @Nombre,
+                    Documento = @Documento,
+                    FechaNacimiento = @FechaNacimiento,
+                    IdLocalidad = @IdLocalidad,
+                    Domicilio = @Domicilio,
+                    Telefono = @Telefono,
+                    Celular = @Celular,
+                    idEmpresa = @idEmpresa,
+                    ZonaFria = @ZonaFria,
+                    FechaAlta = @FechaAlta
+                WHERE IdChofer = @IdChofer";
+
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, chofer),
+                "Chofer",
+                "UPDATE",
+                choferAnterior,
+                chofer
+            );
+        }
         public async Task ActualizarEmpresaChoferAsync(int idChofer, int idEmpresa)
         {
             const string query = "UPDATE Chofer SET IdEmpresa = @idEmpresa WHERE IdChofer = @idChofer";

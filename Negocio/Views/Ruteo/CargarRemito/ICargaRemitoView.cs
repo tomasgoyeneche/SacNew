@@ -19,7 +19,7 @@ namespace GestionFlota.Views.Ruteo
         int? Cantidad { get; }
         int? IdProducto { get; }
         int? IdOrigen { get; }
-
+        string Albaran { get; }
         int? IdDestino { get; }
 
         void Close();

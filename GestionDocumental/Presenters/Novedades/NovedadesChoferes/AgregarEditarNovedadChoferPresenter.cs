@@ -114,17 +114,20 @@ namespace GestionDocumental.Presenters
 
         public void CalcularAusencia()
         {
-            if (_view.FechaFin >= _view.FechaInicio)
+            var inicio = _view.FechaInicio.Date;
+            var fin = _view.FechaFin.Date;
+
+            if (fin >= inicio)
             {
-                int dias = (_view.FechaFin - _view.FechaInicio).Days + 1;
-                DateTime reincorporacion = _view.FechaFin.AddDays(1);
+                int dias = (fin - inicio).Days + 1; // inclusivo
+                DateTime reincorporacion = fin.AddDays(1);
                 _view.MostrarDiasAusente(dias);
                 _view.MostrarFechaReincorporacion(reincorporacion);
             }
             else
             {
                 _view.MostrarDiasAusente(0);
-                _view.MostrarFechaReincorporacion(_view.FechaInicio);
+                _view.MostrarFechaReincorporacion(inicio);
             }
         }
 

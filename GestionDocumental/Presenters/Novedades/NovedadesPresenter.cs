@@ -4,6 +4,7 @@ using Core.Services;
 using GestionDocumental.Views;
 using GestionDocumental.Views.Novedades;
 using GestionDocumental.Views.Novedades.NovedadesChoferes;
+using GestionDocumental.Views.Novedades.NovedadesUnidades;
 using Shared.Models;
 using System.IO;
 
@@ -98,7 +99,7 @@ namespace GestionDocumental.Presenters
                 }
                 else if (_Entidad == "Unidad" && novedad is UnidadMantenimientoDto novUnidad)
                 {
-                    await AbrirFormularioAsync<AgregarEditarNovedadUnidadForm>(async form =>
+                    await AbrirFormularioAsync<AgregarEditarUnidadNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(novUnidad);
                     });
@@ -119,7 +120,7 @@ namespace GestionDocumental.Presenters
                 }
                 else if (_Entidad == "Unidad")
                 {
-                    await AbrirFormularioAsync<AgregarEditarNovedadUnidadForm>(async form =>
+                    await AbrirFormularioAsync<AgregarEditarUnidadNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(null);
                     });
@@ -166,7 +167,7 @@ namespace GestionDocumental.Presenters
 
                     foreach (var chofer in choferes)
                     {
-                        string fila = $"{chofer.Empresa_Nombre};{chofer.Nombre} {chofer.Apellido}";
+                        string fila = $"{chofer.Empresa_Nombre};{chofer.Apellido}, {chofer.Nombre}";
                         int disponibles = 0, ausentes = 0;
 
                         foreach (var dia in diasMes)

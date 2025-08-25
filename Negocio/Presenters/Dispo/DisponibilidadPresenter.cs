@@ -112,7 +112,7 @@ namespace GestionFlota.Presenters
                 }
                 // Avisar que no se puede abrir el form
                 _view.MostrarMensaje("No puede editar la disponibilidad hasta actualizar todos los vencimientos vencidos.");
-                //return; // IMPORTANTEEEEEE
+                return; // IMPORTANTEEEEEE
             }
 
             // 4. Si todo OK, abrir el form
@@ -201,5 +201,18 @@ namespace GestionFlota.Presenters
                 UseShellExecute = true
             });
         }
+
+        public async Task EliminarAlertaAsync(AlertaDto alerta, int idNominaSeleccionada)
+        {
+
+            // Eliminar en repositorio
+            await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
+
+            _view.MostrarMensaje("La alerta se eliminó correctamente.");
+
+            // Refrescar vencimientos y alertas del ruteo actualmente seleccionado
+            await BuscarDisponibilidadesAsync(idNominaSeleccionada);
+        }
+
     }
 }

@@ -7,5 +7,9 @@
         void MostrarMensaje(string mensaje);
 
         Dictionary<int, DateTime?> ObtenerFechasActualizadas();
+
+        void MostrarTara(bool Visible, int? Tara);
+
+        int Tara { get; }
     }
 }

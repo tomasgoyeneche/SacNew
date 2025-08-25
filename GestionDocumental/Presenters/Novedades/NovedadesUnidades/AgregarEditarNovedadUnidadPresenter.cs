@@ -113,7 +113,10 @@ namespace GestionDocumental.Presenters.Novedades
 
         public void CalcularAusencia()
         {
-            if (_view.FechaFin >= _view.FechaInicio)
+            var inicio = _view.FechaInicio.Date;
+            var fin = _view.FechaFin.Date;
+
+            if (fin >= inicio)
             {
                 int dias = (_view.FechaFin - _view.FechaInicio).Days + 1;
                 DateTime reincorporacion = _view.FechaFin.AddDays(1);
@@ -123,7 +126,7 @@ namespace GestionDocumental.Presenters.Novedades
             else
             {
                 _view.MostrarDiasAusente(0);
-                _view.MostrarFechaReincorporacion(_view.FechaInicio);
+                _view.MostrarFechaReincorporacion(inicio);
             }
         }
 

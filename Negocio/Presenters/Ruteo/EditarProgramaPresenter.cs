@@ -11,6 +11,7 @@ namespace GestionFlota.Presenters
     {
         private readonly IProgramaRepositorio _programaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
+        private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IProgramaExtranjeroRepositorio _programaExtranjeroRepositorio; // injectalo por constructor
 
@@ -21,6 +22,7 @@ namespace GestionFlota.Presenters
             IProgramaRepositorio programaRepositorio,
             IAlertaRepositorio alertaRepositorio,
             INominaRepositorio nominaRepositorio,
+            ILocacionRepositorio locacionRepositorio,
             IProgramaExtranjeroRepositorio programaExtranjeroRepositorio,
             INavigationService navigationService)
             : base(sesionService, navigationService)
@@ -28,12 +30,16 @@ namespace GestionFlota.Presenters
             _programaRepositorio = programaRepositorio;
             _alertaRepositorio = alertaRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _locacionRepositorio = locacionRepositorio;
             _programaExtranjeroRepositorio = programaExtranjeroRepositorio; // inicializalo aquí
         }
 
         public async Task InicializarAsync(Shared.Models.Ruteo ruteo)
         {
             _Ruteo = ruteo;
+
+            Locacion? locacion = await _locacionRepositorio.ObtenerPorIdAsync(ruteo.IdDestino);
+            _Ruteo.Destino = locacion?.Nombre ?? "Desconocido";
 
             Programa? programa = null;
             if (ruteo.IdPrograma > 0)
@@ -46,6 +52,7 @@ namespace GestionFlota.Presenters
             {
                 hitosExtranjero = await _programaExtranjeroRepositorio.ObtenerHitosextranjerosPorProgramaAsync(programa.IdPrograma);
             }
+           
 
             List<AlertaDto> alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(ruteo.IdNomina);
             _view.MostrarAlertas(alertasNomina);
@@ -132,6 +139,7 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.InicializarAsync(programa, _Ruteo, tipoRemito);
             });
+            await InicializarAsync(_Ruteo);
         }
 
         public async Task RegistrarComentarioAsync(string comentario)

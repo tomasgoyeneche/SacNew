@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarVencimientosForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             dtpVencimiento8 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblVencimiento8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -74,6 +76,8 @@
             guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblTara = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtTara = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel1.SuspendLayout();
             guna2Panel2.SuspendLayout();
             guna2Panel10.SuspendLayout();
@@ -81,6 +85,8 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(txtTara);
+            guna2Panel1.Controls.Add(lblTara);
             guna2Panel1.Controls.Add(dtpVencimiento8);
             guna2Panel1.Controls.Add(lblVencimiento8);
             guna2Panel1.Controls.Add(dtpVencimiento7);
@@ -100,13 +106,13 @@
             guna2Panel1.Controls.Add(lblVencimiento1);
             guna2Panel1.Controls.Add(lblVencimiento2);
             guna2Panel1.Controls.Add(guna2Panel2);
-            guna2Panel1.CustomizableEdges = customizableEdges19;
+            guna2Panel1.CustomizableEdges = customizableEdges45;
             guna2Panel1.Dock = DockStyle.Bottom;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.ForeColor = SystemColors.ControlLight;
             guna2Panel1.Location = new Point(0, 89);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges46;
             guna2Panel1.Size = new Size(798, 479);
             guna2Panel1.TabIndex = 92;
             // 
@@ -115,7 +121,7 @@
             dtpVencimiento8.BackColor = Color.Transparent;
             dtpVencimiento8.Checked = true;
             dtpVencimiento8.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento8.CustomizableEdges = customizableEdges1;
+            dtpVencimiento8.CustomizableEdges = customizableEdges27;
             dtpVencimiento8.FillColor = Color.WhiteSmoke;
             dtpVencimiento8.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento8.ForeColor = SystemColors.ActiveCaptionText;
@@ -124,7 +130,7 @@
             dtpVencimiento8.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento8.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento8.Name = "dtpVencimiento8";
-            dtpVencimiento8.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            dtpVencimiento8.ShadowDecoration.CustomizableEdges = customizableEdges28;
             dtpVencimiento8.ShowUpDown = true;
             dtpVencimiento8.Size = new Size(223, 36);
             dtpVencimiento8.TabIndex = 8;
@@ -148,7 +154,7 @@
             dtpVencimiento7.BackColor = Color.Transparent;
             dtpVencimiento7.Checked = true;
             dtpVencimiento7.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento7.CustomizableEdges = customizableEdges3;
+            dtpVencimiento7.CustomizableEdges = customizableEdges29;
             dtpVencimiento7.FillColor = Color.WhiteSmoke;
             dtpVencimiento7.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento7.ForeColor = SystemColors.ActiveCaptionText;
@@ -157,7 +163,7 @@
             dtpVencimiento7.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento7.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento7.Name = "dtpVencimiento7";
-            dtpVencimiento7.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            dtpVencimiento7.ShadowDecoration.CustomizableEdges = customizableEdges30;
             dtpVencimiento7.ShowUpDown = true;
             dtpVencimiento7.Size = new Size(223, 36);
             dtpVencimiento7.TabIndex = 4;
@@ -181,7 +187,7 @@
             dtpVencimiento6.BackColor = Color.Transparent;
             dtpVencimiento6.Checked = true;
             dtpVencimiento6.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento6.CustomizableEdges = customizableEdges5;
+            dtpVencimiento6.CustomizableEdges = customizableEdges31;
             dtpVencimiento6.FillColor = Color.WhiteSmoke;
             dtpVencimiento6.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento6.ForeColor = SystemColors.ActiveCaptionText;
@@ -190,7 +196,7 @@
             dtpVencimiento6.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento6.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento6.Name = "dtpVencimiento6";
-            dtpVencimiento6.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            dtpVencimiento6.ShadowDecoration.CustomizableEdges = customizableEdges32;
             dtpVencimiento6.ShowUpDown = true;
             dtpVencimiento6.Size = new Size(223, 36);
             dtpVencimiento6.TabIndex = 7;
@@ -250,7 +256,7 @@
             dtpVencimiento5.BackColor = Color.Transparent;
             dtpVencimiento5.Checked = true;
             dtpVencimiento5.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento5.CustomizableEdges = customizableEdges7;
+            dtpVencimiento5.CustomizableEdges = customizableEdges33;
             dtpVencimiento5.FillColor = Color.WhiteSmoke;
             dtpVencimiento5.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento5.ForeColor = SystemColors.ActiveCaptionText;
@@ -259,7 +265,7 @@
             dtpVencimiento5.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento5.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento5.Name = "dtpVencimiento5";
-            dtpVencimiento5.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            dtpVencimiento5.ShadowDecoration.CustomizableEdges = customizableEdges34;
             dtpVencimiento5.ShowUpDown = true;
             dtpVencimiento5.Size = new Size(223, 36);
             dtpVencimiento5.TabIndex = 3;
@@ -283,7 +289,7 @@
             dtpVencimiento4.BackColor = Color.Transparent;
             dtpVencimiento4.Checked = true;
             dtpVencimiento4.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento4.CustomizableEdges = customizableEdges9;
+            dtpVencimiento4.CustomizableEdges = customizableEdges35;
             dtpVencimiento4.FillColor = Color.WhiteSmoke;
             dtpVencimiento4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento4.ForeColor = SystemColors.ActiveCaptionText;
@@ -292,7 +298,7 @@
             dtpVencimiento4.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento4.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento4.Name = "dtpVencimiento4";
-            dtpVencimiento4.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            dtpVencimiento4.ShadowDecoration.CustomizableEdges = customizableEdges36;
             dtpVencimiento4.ShowUpDown = true;
             dtpVencimiento4.Size = new Size(223, 36);
             dtpVencimiento4.TabIndex = 6;
@@ -316,7 +322,7 @@
             dtpVencimiento3.BackColor = Color.Transparent;
             dtpVencimiento3.Checked = true;
             dtpVencimiento3.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento3.CustomizableEdges = customizableEdges11;
+            dtpVencimiento3.CustomizableEdges = customizableEdges37;
             dtpVencimiento3.FillColor = Color.WhiteSmoke;
             dtpVencimiento3.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento3.ForeColor = SystemColors.ActiveCaptionText;
@@ -325,7 +331,7 @@
             dtpVencimiento3.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento3.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento3.Name = "dtpVencimiento3";
-            dtpVencimiento3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            dtpVencimiento3.ShadowDecoration.CustomizableEdges = customizableEdges38;
             dtpVencimiento3.ShowUpDown = true;
             dtpVencimiento3.Size = new Size(223, 36);
             dtpVencimiento3.TabIndex = 5;
@@ -349,7 +355,7 @@
             dtpVencimiento2.BackColor = Color.Transparent;
             dtpVencimiento2.Checked = true;
             dtpVencimiento2.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento2.CustomizableEdges = customizableEdges13;
+            dtpVencimiento2.CustomizableEdges = customizableEdges39;
             dtpVencimiento2.FillColor = Color.WhiteSmoke;
             dtpVencimiento2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento2.ForeColor = SystemColors.ActiveCaptionText;
@@ -358,7 +364,7 @@
             dtpVencimiento2.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento2.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento2.Name = "dtpVencimiento2";
-            dtpVencimiento2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            dtpVencimiento2.ShadowDecoration.CustomizableEdges = customizableEdges40;
             dtpVencimiento2.ShowUpDown = true;
             dtpVencimiento2.Size = new Size(223, 36);
             dtpVencimiento2.TabIndex = 2;
@@ -369,7 +375,7 @@
             dtpVencimiento1.BackColor = Color.Transparent;
             dtpVencimiento1.Checked = true;
             dtpVencimiento1.CustomFormat = "dd/MM/yyyy";
-            dtpVencimiento1.CustomizableEdges = customizableEdges15;
+            dtpVencimiento1.CustomizableEdges = customizableEdges41;
             dtpVencimiento1.FillColor = Color.WhiteSmoke;
             dtpVencimiento1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpVencimiento1.ForeColor = SystemColors.ActiveCaptionText;
@@ -378,7 +384,7 @@
             dtpVencimiento1.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpVencimiento1.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpVencimiento1.Name = "dtpVencimiento1";
-            dtpVencimiento1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            dtpVencimiento1.ShadowDecoration.CustomizableEdges = customizableEdges42;
             dtpVencimiento1.ShowUpDown = true;
             dtpVencimiento1.Size = new Size(223, 36);
             dtpVencimiento1.TabIndex = 1;
@@ -413,12 +419,12 @@
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(guna2HtmlLabel19);
-            guna2Panel2.CustomizableEdges = customizableEdges17;
+            guna2Panel2.CustomizableEdges = customizableEdges43;
             guna2Panel2.Dock = DockStyle.Top;
             guna2Panel2.FillColor = Color.ForestGreen;
             guna2Panel2.Location = new Point(0, 0);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges44;
             guna2Panel2.Size = new Size(798, 32);
             guna2Panel2.TabIndex = 31;
             // 
@@ -437,11 +443,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel23);
-            guna2Panel10.CustomizableEdges = customizableEdges21;
+            guna2Panel10.CustomizableEdges = customizableEdges47;
             guna2Panel10.FillColor = Color.Coral;
             guna2Panel10.Location = new Point(0, 21);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges48;
             guna2Panel10.Size = new Size(253, 35);
             guna2Panel10.TabIndex = 93;
             // 
@@ -455,6 +461,39 @@
             guna2HtmlLabel23.Size = new Size(179, 21);
             guna2HtmlLabel23.TabIndex = 0;
             guna2HtmlLabel23.Text = "Modificar Vencimiento";
+            // 
+            // lblTara
+            // 
+            lblTara.AutoSize = false;
+            lblTara.BackColor = Color.Gray;
+            lblTara.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTara.ForeColor = SystemColors.ControlLight;
+            lblTara.Location = new Point(398, 323);
+            lblTara.Name = "lblTara";
+            lblTara.Size = new Size(126, 36);
+            lblTara.TabIndex = 104;
+            lblTara.Text = "Tara";
+            lblTara.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // txtTara
+            // 
+            txtTara.CustomizableEdges = customizableEdges25;
+            txtTara.DefaultText = "";
+            txtTara.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtTara.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtTara.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtTara.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtTara.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTara.Font = new Font("Segoe UI", 9F);
+            txtTara.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTara.Location = new Point(524, 323);
+            txtTara.Name = "txtTara";
+            txtTara.PasswordChar = '\0';
+            txtTara.PlaceholderText = "";
+            txtTara.SelectedText = "";
+            txtTara.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            txtTara.Size = new Size(223, 36);
+            txtTara.TabIndex = 105;
             // 
             // ModificarVencimientosForm
             // 
@@ -503,5 +542,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblVencimiento7;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpVencimiento6;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblVencimiento6;
+        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTara;
+        private Guna.UI2.WinForms.Guna2TextBox txtTara;
     }
 }

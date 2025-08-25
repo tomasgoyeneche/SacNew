@@ -1,4 +1,5 @@
-﻿using GestionOperativa.Presenters.AdministracionDocumental.Altas;
+﻿using DevExpress.Utils.DirectXPaint.Svg;
+using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 using Guna.UI2.WinForms;
 
 namespace GestionOperativa.Views.AdministracionDocumental.Altas
@@ -10,6 +11,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         // Map IDVencimiento ↔ (Label, DateTimePicker)
         private readonly Dictionary<int, (Guna2HtmlLabel label, Guna2DateTimePicker picker)> _controles;
 
+        public int Tara => Convert.ToInt32(txtTara.Text);
         public ModificarVencimientosForm(EditarVencimientosPresenter presenter)
         {
             InitializeComponent();
@@ -57,6 +59,21 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             }
         }
 
+        public void MostrarTara(bool Visible, int? Tara)
+        {
+            if(Visible == true)
+            {
+                lblTara.Visible = true;
+                txtTara.Visible = true;
+                txtTara.Text = Tara.HasValue ? Tara.Value.ToString() : string.Empty;
+            }
+            else
+            {
+                lblTara.Visible = false;
+                txtTara.Visible = false;
+            }
+            
+        }
         public Dictionary<int, DateTime?> ObtenerFechasActualizadas()
         {
             return _controles

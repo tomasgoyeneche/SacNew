@@ -9,6 +9,8 @@ namespace GestionOperativa.Views
         DateTime? FechaTractor { get; }
         DateTime? FechaChofer { get; }
         DateTime? FechaReingreso { get; }
+        DateTime? FechaCarga { get; }
+
 
         void InicializarBotones(GuardiaDto guardia, bool admin);
 

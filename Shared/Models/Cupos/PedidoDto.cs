@@ -7,8 +7,8 @@
         public string AlbaranDespacho { get; set; } = string.Empty;
         public string PedidoOr { get; set; } = string.Empty;
         public string Locacion { get; set; } = string.Empty;
-        public string FechaCarga { get; set; } = string.Empty;
-        public string FechaEntrega { get; set; } = string.Empty;
+        public DateTime FechaCarga { get; set; }
+        public DateTime FechaEntrega { get; set; }
         public int CantidadPedido { get; set; }
         public string Chofer { get; set; } = string.Empty;
         public string Tractor { get; set; } = string.Empty;

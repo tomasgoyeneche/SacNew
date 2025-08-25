@@ -86,6 +86,11 @@ namespace GestionFlota.Presenters
             }
             else
             {
+                if(_view.Cupo == null)
+                {
+                    _view.MostrarMensaje("Debe seleccionar un cupo disponible.");
+                    return;
+                }
                 programa.Cupo = _view.Cupo.Value;
             }
             int idPrograma = await _programaRepositorio.InsertarProgramaRetornandoIdAsync(programa);
@@ -101,7 +106,25 @@ namespace GestionFlota.Presenters
             };
             await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
 
-            _view.MostrarMensaje("Programa creado correctamente.");
+            var origenes = await _locacionRepositorio.ObtenerTodasAsync();
+            var productos = await _productoRepositorio.ObtenerTodosAsync();
+            var destinos = await _locacionRepositorio.ObtenerTodasAsync();
+
+            var nombreOrigen = origenes.FirstOrDefault(o => o.IdLocacion == _view.IdOrigenSeleccionado)?.Nombre ?? "";
+            var nombreDestino = destinos.FirstOrDefault(d => d.IdLocacion == _view.IdDestinoSeleccionado)?.Nombre ?? "";
+            var nombreProducto = productos.FirstOrDefault(p => p.IdProducto == _view.IdProductoSeleccionado)?.Nombre ?? "";
+
+            string motivo = "Asignado";
+            string descripcion = $"{nombreOrigen} => {nombreDestino} | {nombreProducto} {programa.AlbaranDespacho}";
+
+            await _nominaRepositorio.RegistrarNominaAsync(
+                _cupeo.IdNomina,
+                motivo,
+                descripcion,
+                _sesionService.IdUsuario
+            );
+
+            _view.MostrarMensaje("Carga asignada correctamente.");
             _view.Cerrar();
         }
 

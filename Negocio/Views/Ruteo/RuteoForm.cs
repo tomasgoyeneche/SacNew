@@ -53,20 +53,30 @@ namespace GestionFlota.Views
             if (cargando)
             {
                 // Limpia datos y bloquea la grilla
-                gridControlCargados.DataSource = null;
-                gridViewCargados.OptionsBehavior.Editable = false;
+                //gridControlCargados.DataSource = null;
+                //gridViewCargados.OptionsBehavior.Editable = false;
                 gridControlCargados.Enabled = false;
 
                 // Mensajes opcionales
-                gridControlVacios.DataSource = null;
-                gridViewVacios.OptionsBehavior.Editable = false;
+                //gridControlVacios.DataSource = null;
+                //gridViewVacios.OptionsBehavior.Editable = false;
                 gridControlVacios.Enabled = false;
+
+
+                //gridControlAlertas.DataSource = null;
+                //gridViewAlertas.OptionsBehavior.Editable = false;
+                gridControlAlertas.Enabled = false;
+
+                //gridControlHistorico.DataSource = null;
+                //gridViewHistorico.OptionsBehavior.Editable = false;
+                gridControlHistorico.Enabled = false;
             }
             else
             {
                 gridControlCargados.Enabled = true;
                 gridControlVacios.Enabled = true;
-
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
             }
         }
         public void MostrarHistorial(List<HistorialGeneralDto> historial)
@@ -81,7 +91,7 @@ namespace GestionFlota.Views
             //    view.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
             //}
 
-            view.BestFitColumns();
+            //view.BestFitColumns();
         }
 
         public void MostrarVencimientos(List<VencimientosDto> vencimientos)
@@ -260,6 +270,25 @@ namespace GestionFlota.Views
                     view.FocusedRowHandle = i;
                     view.SelectRow(i); // Opcional: resalta la fila
                     break;
+                }
+            }
+        }
+
+        private async void gridViewAlertas_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks != 2 || e.RowHandle < 0) return;
+
+            if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
+            {
+                var confirm = XtraMessageBox.Show(
+                    $"¿Deseás eliminar la alerta #{alerta.IdAlerta}?\n\n{alerta.Descripcion}",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarAlertaAsync(alerta);
                 }
             }
         }

@@ -43,7 +43,7 @@ namespace GestionOperativa
             gridControlGuardia.DataSource = guardias;
 
             var view = gridViewGuardia;
-            foreach (var col in new[] { "IdEntidad", "IdGuardiaIngreso", "TipoIngreso", "IdPosta", "IdEstadoEvento" })
+            foreach (var col in new[] { "IdEntidad", "IdGuardiaIngreso", "TipoIngreso", "IdPosta", "IdEstadoEvento", "Autorizado" })
             {
                 if (view.Columns[col] != null)
                     view.Columns[col].Visible = false;

@@ -467,6 +467,8 @@
             // gridColumn27
             // 
             gridColumn27.Caption = "Fecha";
+            gridColumn27.DisplayFormat.FormatString = "dd/MM HH:mm";
+            gridColumn27.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn27.FieldName = "Fecha";
             gridColumn27.Name = "gridColumn27";
             gridColumn27.Visible = true;
@@ -537,7 +539,7 @@
             gridViewAlertas.OptionsView.EnableAppearanceEvenRow = true;
             gridViewAlertas.OptionsView.EnableAppearanceOddRow = true;
             gridViewAlertas.OptionsView.ShowGroupPanel = false;
-            gridViewAlertas.DoubleClick += gridViewAlertas_DoubleClick;
+            gridViewAlertas.RowCellClick += gridViewAlertas_RowCellClick;
             // 
             // guna2Panel10
             // 

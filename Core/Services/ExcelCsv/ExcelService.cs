@@ -73,20 +73,23 @@ namespace Core.Services
             var propiedades = tipo.GetProperties();
             if (propiedades.Length == 0)
                 throw new Exception("El objeto no contiene propiedades para exportar.");
-            var headerRange = worksheet.Cells[1, 1, 1, propiedades.Length];
 
             for (int col = 0; col < propiedades.Length; col++)
             {
                 worksheet.Cells[1, col + 1].Value = propiedades[col].Name;
             }
 
+            var headerRange = worksheet.Cells[1, 1, 1, propiedades.Length];
+
+            // 🔹 Estilo de encabezado
             headerRange.Style.Font.Bold = true;
-            headerRange.Style.Font.Size = 12;
-            headerRange.Style.Font.Color.SetColor(System.Drawing.Color.White);
+            headerRange.Style.Font.Size = 11;
+            headerRange.Style.Font.Color.SetColor(Color.White);
             headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            headerRange.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.DimGray); // 🔸 Fondo gris oscuro
+            headerRange.Style.Fill.BackgroundColor.SetColor(Color.DimGray); // gris oscuro
             headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
             worksheet.Row(1).Height = 20;
         }
 
@@ -106,23 +109,26 @@ namespace Core.Services
                     if (value is DateTime fecha)
                     {
                         cell.Value = fecha;
-                        cell.Style.Numberformat.Format = "dd/MM/yyyy"; // 🔸 Formato de fecha
+
+                        // 🔹 Si la hora es 00:00:00, mostrar solo fecha
+                        if (fecha.TimeOfDay == TimeSpan.Zero)
+                        {
+                            cell.Style.Numberformat.Format = "dd/MM/yyyy";
+                        }
+                        else
+                        {
+                            // Mostrar fecha + hora y minutos
+                            cell.Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+                        }
                     }
                     else
                     {
                         cell.Value = value;
                     }
                 }
-
-                // 🔸 Estilo alternado de fondo gris claro
-                if (row % 2 == 0)
-                {
-                    worksheet.Cells[row, 1, row, propiedades.Length].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    worksheet.Cells[row, 1, row, propiedades.Length].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
-                }
-
                 row++;
             }
         }
+
     }
 }

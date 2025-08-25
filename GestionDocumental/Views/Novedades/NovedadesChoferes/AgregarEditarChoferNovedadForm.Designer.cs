@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             bAyuda = new Guna.UI2.WinForms.Guna2CircleButton();
             lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -133,7 +133,7 @@
             bAyuda.ForeColor = Color.White;
             bAyuda.Location = new Point(362, 276);
             bAyuda.Name = "bAyuda";
-            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges1;
             bAyuda.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             bAyuda.Size = new Size(38, 29);
             bAyuda.TabIndex = 9;
@@ -258,7 +258,7 @@
             // 
             // dtpFechaInicio
             // 
-            dtpFechaInicio.EditValue = new DateTime(2025, 8, 14, 11, 36, 14, 0);
+            dtpFechaInicio.EditValue = new DateTime(2025, 8, 14, 0, 0, 0, 0);
             dtpFechaInicio.Location = new Point(12, 143);
             dtpFechaInicio.MaximumSize = new Size(0, 30);
             dtpFechaInicio.MinimumSize = new Size(0, 30);
@@ -287,11 +287,11 @@
             // guna2Panel13
             // 
             guna2Panel13.Controls.Add(guna2HtmlLabel6);
-            guna2Panel13.CustomizableEdges = customizableEdges8;
+            guna2Panel13.CustomizableEdges = customizableEdges2;
             guna2Panel13.FillColor = Color.Coral;
             guna2Panel13.Location = new Point(12, 12);
             guna2Panel13.Name = "guna2Panel13";
-            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2Panel13.Size = new Size(297, 41);
             guna2Panel13.TabIndex = 0;
             // 

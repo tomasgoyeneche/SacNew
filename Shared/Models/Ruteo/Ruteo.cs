@@ -14,10 +14,10 @@
 
         public int IdOrigen { get; set; }
         public string Origen { get; set; } = string.Empty;
-        public DateTime FechaCarga { get; set; } = DateTime.Now;
+        public DateTime? FechaCarga { get; set; }
         public int IdDestino { get; set; }
         public string Destino { get; set; } = string.Empty;
-        public DateTime FechaEntrega { get; set; } = DateTime.Now;
+        public DateTime? FechaEntrega { get; set; }
 
         public int Cupo { get; set; } = 0;
         public int AlbaranDespacho { get; set; } = 0;
@@ -25,11 +25,11 @@
         public int IdProducto { get; set; } = 0;
         public string Nombre { get; set; } = string.Empty;
 
-        public DateTime CargaSalida { get; set; } = DateTime.Now;
+        public DateTime? CargaSalida { get; set; }
         public decimal Odometer { get; set; } = 0.0m;
 
-        public DateTime EntregaLlegada { get; set; } = DateTime.Now;
-        public DateTime EntregaIngreso { get; set; } = DateTime.Now;
+        public DateTime? EntregaLlegada { get; set; }
+        public DateTime? EntregaIngreso { get; set; }
 
         public string Location { get; set; } = string.Empty;
         public int Sat { get; set; } = 0;

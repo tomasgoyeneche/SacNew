@@ -106,5 +106,17 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<PedidosForm>(async f => await f._presenter.InicializarAsync());
             await InicializarAsync();
         }
+
+        public async Task EliminarAlertaAsync(AlertaDto alerta)
+        {
+
+            // Eliminar en repositorio
+            await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
+
+            _view.MostrarMensaje("La alerta se eliminó correctamente.");
+
+            // Refrescar vencimientos y alertas del ruteo actualmente seleccionado
+            await InicializarAsync();
+        }
     }
 }

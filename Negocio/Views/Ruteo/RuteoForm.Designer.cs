@@ -213,6 +213,7 @@
             gridViewAlertas.OptionsView.EnableAppearanceEvenRow = true;
             gridViewAlertas.OptionsView.EnableAppearanceOddRow = true;
             gridViewAlertas.OptionsView.ShowGroupPanel = false;
+            gridViewAlertas.RowCellClick += gridViewAlertas_RowCellClick;
             // 
             // guna2Panel3
             // 
@@ -287,6 +288,8 @@
             // gridColumn27
             // 
             gridColumn27.Caption = "Fecha";
+            gridColumn27.DisplayFormat.FormatString = "dd/MM HH:mm";
+            gridColumn27.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn27.FieldName = "Fecha";
             gridColumn27.Name = "gridColumn27";
             gridColumn27.Visible = true;
@@ -616,7 +619,11 @@
             // gridColumn8
             // 
             gridColumn8.Caption = "S Origen";
+            gridColumn8.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn8.FieldName = "CargaSalida";
+            gridColumn8.GroupFormat.FormatString = "d";
+            gridColumn8.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn8.Name = "gridColumn8";
             gridColumn8.Visible = true;
             gridColumn8.VisibleIndex = 7;
@@ -634,6 +641,8 @@
             // gridColumn10
             // 
             gridColumn10.Caption = "Llegada";
+            gridColumn10.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn10.FieldName = "EntregaLlegada";
             gridColumn10.Name = "gridColumn10";
             gridColumn10.Visible = true;

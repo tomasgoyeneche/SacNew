@@ -117,6 +117,16 @@ namespace Core.Repositories
             );
         }
 
+        public async Task ActualizarTaraTotal(int idUnidad, int taraTotal)
+        {
+            var query = @"Update Unidad set TaraTotal = @TaraTotal WHERE IdUnidad = @IdUnidad";
+
+            await ConectarAsync(async connection =>
+            {
+                await connection.ExecuteAsync(query, new {IdUnidad = idUnidad, TaraTotal = taraTotal});
+            });
+        }
+
         public async Task AgregarUnidadAsync(Unidad unidad, int idUsuario)
         {
             await ConectarAsync(async connection =>

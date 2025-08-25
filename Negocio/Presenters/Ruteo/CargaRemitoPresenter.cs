@@ -65,6 +65,7 @@ namespace GestionFlota.Presenters.Ruteo
             {
                 _programa.IdOrigen = _view.IdOrigen ?? _programa.IdOrigen;
                 _programa.CargaRemito = int.TryParse(_view.RemitoNumero, out int nroRemito) ? nroRemito : (int?)null;
+                _programa.AlbaranDespacho = int.TryParse(_view.Albaran, out int albaran) ? albaran : _programa.AlbaranDespacho;
                 _programa.CargaRemitoFecha = _view.FechaRemito;
                 _programa.CargaRemitoUnidad = _view.IdMedida ?? _programa.CargaRemitoUnidad;
                 _programa.CargaRemitoKg = _view.Cantidad ?? _programa.CargaRemitoKg;
@@ -75,6 +76,7 @@ namespace GestionFlota.Presenters.Ruteo
             else
             {
                 _programa.EntregaRemito = int.TryParse(_view.RemitoNumero, out int nroRemito) ? nroRemito : (int?)null;
+                _programa.AlbaranDespacho = int.TryParse(_view.Albaran, out int albaran) ? albaran : _programa.AlbaranDespacho;
                 _programa.EntregaRemitoFecha = _view.FechaRemito;
                 _programa.EntregoRemitoUnidad = _view.IdMedida ?? _programa.EntregoRemitoUnidad;
                 _programa.EntregaRemitoKg = _view.Cantidad ?? _programa.EntregaRemitoKg;

@@ -245,6 +245,21 @@ namespace GestionOperativa.Presenters
             });
         }
 
+        public async Task MostrarEquiposEnParador()
+        {
+            ReporteEquiposEnParador? reporte = new ReporteEquiposEnParador();
+
+            List<GuardiaDto?> guardia = await _guardiaRepositorio.ObtenerGuardiasPorPostaAsync(_idPosta);
+
+            reporte.DataSource = guardia;
+
+            await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+            {
+                form.MostrarReporteDevExpress(reporte);
+                return Task.CompletedTask;
+            });
+        }
+
         public async Task ReimprimirPoc(GuardiaDto guardia)
         {
             switch (guardia.TipoIngreso)

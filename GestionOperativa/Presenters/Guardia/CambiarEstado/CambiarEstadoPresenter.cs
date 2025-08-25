@@ -59,6 +59,10 @@ namespace GestionOperativa.Presenters
                     fecha = manual ? _view.FechaChofer.GetValueOrDefault() : DateTime.Now;
                     break;
 
+                case 4:
+                    fecha = manual ? _view.FechaCarga.GetValueOrDefault() : DateTime.Now;
+                    break;
+
                 case 6:
                     fecha = manual ? _view.FechaReingreso.GetValueOrDefault() : DateTime.Now;
                     break;

@@ -208,9 +208,6 @@
             txtCelular.MinimumSize = new Size(0, 30);
             txtCelular.Name = "txtCelular";
             txtCelular.Properties.Mask.UseMaskAsDisplayFormat = true;
-            txtCelular.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            txtCelular.Properties.MaskSettings.Set("mask", "(999) 000-0000");
-            txtCelular.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True");
             txtCelular.Properties.NullValuePrompt = "(XXX) XXX-XXXX";
             txtCelular.Size = new Size(279, 30);
             txtCelular.StyleController = layoutControl1;
@@ -223,8 +220,6 @@
             txtTelefono.MinimumSize = new Size(0, 30);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Properties.Mask.UseMaskAsDisplayFormat = true;
-            txtTelefono.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            txtTelefono.Properties.MaskSettings.Set("mask", "(000) 000-0000");
             txtTelefono.Properties.NullValuePrompt = "(XXX) XXX-XXXX";
             txtTelefono.Size = new Size(252, 30);
             txtTelefono.StyleController = layoutControl1;

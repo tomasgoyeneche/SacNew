@@ -45,11 +45,13 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     vencimientos[2] = ("Psicofísico Apto", chofer.PsicofisicoApto);
                     vencimientos[3] = ("Psicofísico Curso", chofer.PsicofisicoCurso);
                     vencimientos[4] = ("Examen Anual", chofer.ExamenAnual);
+                    _view.MostrarTara(false, null);
                     break;
 
                 case "tractor":
                     var tractor = await _tractorRepo.ObtenerPorIdDtoAsync(idEntidad);
                     vencimientos[2] = ("VTV", tractor.Vtv);
+                    _view.MostrarTara(false, null);
                     break;
 
                 case "semi":
@@ -59,6 +61,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     vencimientos[6] = ("Visual Interna", semi.VisualInterna);
                     vencimientos[7] = ("Visual Externa", semi.VisualExterna);
                     vencimientos[8] = ("Estanqueidad", semi.Estanqueidad);
+                    _view.MostrarTara(false, null);
                     break;
 
                 case "unidad":
@@ -66,6 +69,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     vencimientos[1] = ("Más YPF", unidad.MasYPF);
                     vencimientos[2] = ("VerifMensual", unidad.VerifMensual);
                     vencimientos[3] = ("CheckList", unidad.Checklist);
+                    _view.MostrarTara(true, Convert.ToInt32(unidad.TaraTotal));
                     break;
 
                 default:
@@ -99,6 +103,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         break;
 
                     case "unidad":
+                        await _unidadRepo.ActualizarTaraTotal(_idEntidad, _view.Tara);
                         await _unidadRepo.ActualizarVencimientoUnidadAsync(_idEntidad, idVencimiento, nuevaFecha.Value, _sesionService.IdUsuario);
                         break;
                 }

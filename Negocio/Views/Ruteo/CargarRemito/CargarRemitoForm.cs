@@ -33,6 +33,7 @@ namespace GestionFlota.Views
 
         public int? IdProducto => Convert.ToInt32(cmbProducto.EditValue) == 0 ? (int?)null : Convert.ToInt32(cmbProducto.EditValue);
         public string RemitoNumero => txtRemito.Text.Trim();
+        public string Albaran => txtAlbaran.Text.Trim();
         public int? Cantidad => Convert.ToInt32(txtTotal.Text.Trim());
         public DateTime? FechaRemito => dtpFechaRemito.EditValue as DateTime?;
 
