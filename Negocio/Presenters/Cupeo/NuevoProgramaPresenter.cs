@@ -77,8 +77,17 @@ namespace GestionFlota.Presenters
                 IdProgramaEstado = 1, // Estado "Asignado"
                 FechaCarga = _view.FechaCarga,
                 FechaEntrega = _view.FechaEntrega,
-                Extranjero = _view.Extranjero,
             };
+
+            Locacion locacion = await _locacionRepositorio.ObtenerPorIdAsync(_view.IdDestinoSeleccionado ?? 0);
+            if (locacion.Exportacion == true)
+            {
+                programa.Extranjero = true;
+            }
+            else
+            {
+                programa.Extranjero = false;
+            }
 
             if (_view.IdOrigenSeleccionado == _cupeo.IdOrigen)
             {
@@ -101,7 +110,7 @@ namespace GestionFlota.Presenters
                 IdPrograma = idPrograma,
                 IdNomina = _cupeo.IdNomina,
                 IdDestino = _view.IdDestinoSeleccionado ?? 0,
-                FechaInicio = _view.FechaCarga,
+                FechaInicio = DateTime.Now,
                 FechaFin = null
             };
             await _programaRepositorio.InsertarProgramaTramoAsync(tramo);

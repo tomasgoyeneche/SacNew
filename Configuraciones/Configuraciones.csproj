@@ -36,9 +36,6 @@
     <Compile Update="Views\AbmUsuarios\PermisosUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\AbmLocaciones\MenuLocaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

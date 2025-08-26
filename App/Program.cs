@@ -2,6 +2,7 @@ using Configuraciones;
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraSplashScreen;
 using Microsoft.Extensions.DependencyInjection;
 using SacNew;
 using System.Globalization;
@@ -26,16 +27,29 @@ namespace App
             Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             try
             {
-                //ReportSchemaGenerator.GenerarEsquemaReportes();
-                //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                // ?? Mostrar splash (título y subtítulo inicial)
+                SplashScreenManager.ShowDefaultWaitForm("SAC", "Inicializando...");
+
+                // (Opcional) ir actualizando el subtítulo mientras carga
+                SplashScreenManager.Default?.SetWaitFormDescription("Cargando configuración...");
                 var serviceProvider = Startup.ConfigureServices();
+
+                SplashScreenManager.Default?.SetWaitFormDescription("Abriendo Login...");
                 var loginForm = serviceProvider.GetRequiredService<Login>();
+
+                // ?? Cerrar splash y ejecutar
+                SplashScreenManager.CloseDefaultWaitForm();
                 Application.Run(loginForm);
             }
             catch (Exception ex)
             {
+                // Asegurar cierre del splash si hubo error
+                if (SplashScreenManager.Default != null && SplashScreenManager.Default.IsSplashFormVisible)
+                    SplashScreenManager.CloseDefaultWaitForm();
+
                 MostrarErrorCritico(ex);
             }
         }

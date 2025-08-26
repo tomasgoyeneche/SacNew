@@ -102,6 +102,7 @@
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtDireccion = new Guna.UI2.WinForms.Guna2TextBox();
+            checkExpo = new Guna.UI2.WinForms.Guna2CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewKilometros).BeginInit();
             guna2Panel9.SuspendLayout();
@@ -582,6 +583,7 @@
             // 
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.BorderRadius = 10;
+            guna2Panel1.Controls.Add(checkExpo);
             guna2Panel1.Controls.Add(guna2HtmlLabel8);
             guna2Panel1.Controls.Add(txtDireccion);
             guna2Panel1.Controls.Add(btnCancelar);
@@ -631,6 +633,23 @@
             txtDireccion.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtDireccion.Size = new Size(200, 36);
             txtDireccion.TabIndex = 24;
+            // 
+            // checkExpo
+            // 
+            checkExpo.AutoSize = true;
+            checkExpo.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            checkExpo.CheckedState.BorderRadius = 0;
+            checkExpo.CheckedState.BorderThickness = 0;
+            checkExpo.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            checkExpo.Location = new Point(233, 54);
+            checkExpo.Name = "checkExpo";
+            checkExpo.Size = new Size(98, 21);
+            checkExpo.TabIndex = 26;
+            checkExpo.Text = "Exportacion";
+            checkExpo.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            checkExpo.UncheckedState.BorderRadius = 0;
+            checkExpo.UncheckedState.BorderThickness = 0;
+            checkExpo.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
             // AgregarEditarLocacion
             // 
@@ -700,5 +719,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2TextBox txtDireccion;
+        private Guna.UI2.WinForms.Guna2CheckBox checkExpo;
     }
 }

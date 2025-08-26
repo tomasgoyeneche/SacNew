@@ -56,7 +56,7 @@ namespace SacNew.Presenters
                 _locacionActual.Carga = _view.Carga;
                 _locacionActual.Descarga = _view.Descarga;
                 _locacionActual.Activo = true;
-
+                _locacionActual.Exportacion = _view.Exportacion;
                 if (!await ValidarAsync(_locacionActual))
                     return;
 

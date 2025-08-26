@@ -24,6 +24,7 @@ namespace GestionFlota.Views
             cmbOrigen.Properties.ValueMember = "IdLocacion";
             cmbOrigen.Properties.Columns.Clear();
             cmbOrigen.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Origen"));
+            bGuardar.Enabled = true;
         }
 
         public void CargarDestinos(List<Locacion> destinos)
@@ -114,6 +115,7 @@ namespace GestionFlota.Views
         private async void bGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarAsync();
+            bGuardar.Enabled = false;
         }
 
         private async void bAgregarObservacion_Click(object sender, EventArgs e)

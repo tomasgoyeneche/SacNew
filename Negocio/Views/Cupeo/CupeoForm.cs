@@ -109,37 +109,6 @@ namespace GestionFlota.Views
             }
         }
 
-        private async void gridViewAsignados_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (e.FocusedRowHandle >= 0)
-            {
-                // Si hay algo seleccionado en cargados, deselecciona en vacios
-                gridViewDisp.ClearSelection();
-                gridViewDisp.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
-            }
-
-            if (gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo)
-            {
-                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
-                await _presenter.CargarVencimientosYAlertasAsync(cupeo);
-            }
-        }
-
-        private async void gridViewDisp_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (e.FocusedRowHandle >= 0)
-            {
-                // Si hay algo seleccionado en vacios, deselecciona en cargados
-                gridViewAsignados.ClearSelection();
-                gridViewAsignados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
-            }
-            if (gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo)
-            {
-                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
-                await _presenter.CargarVencimientosYAlertasAsync(cupeo);
-            }
-        }
-
         private async void bImportarPrograma_Click(object sender, EventArgs e)
         {
             await _presenter.ImportarProgramaAsync();
@@ -190,6 +159,46 @@ namespace GestionFlota.Views
                 {
                     await _presenter.EliminarAlertaAsync(alerta);
                 }
+            }
+        }
+
+        private async void gridViewDisp_RowClick(object sender, RowClickEventArgs e)
+        {
+            if (e.RowHandle < 0) return;
+            
+                // Si hay algo seleccionado en vacios, deselecciona en cargados
+            gridViewAsignados.ClearSelection();
+            gridViewAsignados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
+            gridControlAlertas.Enabled = false;
+            gridControlHistorico.Enabled = false;
+            gridControlVencimientos.Enabled = false;
+            if (gridViewDisp.GetRow(e.RowHandle) is Shared.Models.Cupeo cupeo)
+            {
+                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
+                await _presenter.CargarVencimientosYAlertasAsync(cupeo);
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
+                gridControlVencimientos.Enabled = true;
+            }
+        }
+
+        private async void gridViewAsignados_RowClick(object sender, RowClickEventArgs e)
+        {
+            if (e.RowHandle < 0) return;
+            
+                // Si hay algo seleccionado en cargados, deselecciona en vacios
+            gridViewDisp.ClearSelection();
+            gridViewDisp.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
+            gridControlAlertas.Enabled = false;
+            gridControlHistorico.Enabled = false;
+            gridControlVencimientos.Enabled = false;
+            if (gridViewAsignados.GetRow(e.RowHandle) is Shared.Models.Cupeo cupeo)
+            {
+                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
+                await _presenter.CargarVencimientosYAlertasAsync(cupeo);
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
+                gridControlVencimientos.Enabled = true;
             }
         }
     }

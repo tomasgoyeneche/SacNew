@@ -45,7 +45,6 @@
             bCancelarAsignado = new DevExpress.XtraEditors.SimpleButton();
             btnConfirmar = new DevExpress.XtraEditors.SimpleButton();
             picBoxEntidad = new Guna.UI2.WinForms.Guna2PictureBox();
-            extranjeroCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cmbProducto.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbDestino.Properties).BeginInit();
@@ -219,26 +218,6 @@
             picBoxEntidad.TabIndex = 117;
             picBoxEntidad.TabStop = false;
             // 
-            // extranjeroCheck
-            // 
-            extranjeroCheck.AutoSize = true;
-            extranjeroCheck.CheckedState.BorderColor = Color.Transparent;
-            extranjeroCheck.CheckedState.BorderRadius = 0;
-            extranjeroCheck.CheckedState.BorderThickness = 0;
-            extranjeroCheck.CheckedState.FillColor = Color.Transparent;
-            extranjeroCheck.CheckMarkColor = Color.LimeGreen;
-            extranjeroCheck.Font = new Font("Century Gothic", 10F);
-            extranjeroCheck.ForeColor = Color.LimeGreen;
-            extranjeroCheck.Location = new Point(25, 304);
-            extranjeroCheck.Name = "extranjeroCheck";
-            extranjeroCheck.Size = new Size(104, 23);
-            extranjeroCheck.TabIndex = 118;
-            extranjeroCheck.Text = "Extranjero?";
-            extranjeroCheck.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            extranjeroCheck.UncheckedState.BorderRadius = 0;
-            extranjeroCheck.UncheckedState.BorderThickness = 0;
-            extranjeroCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
             // AsignarCargaForm
             // 
             AcceptButton = btnConfirmar;
@@ -247,7 +226,6 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 568);
-            Controls.Add(extranjeroCheck);
             Controls.Add(picBoxEntidad);
             Controls.Add(btnConfirmar);
             Controls.Add(bCancelarAsignado);
@@ -269,7 +247,6 @@
             ((System.ComponentModel.ISupportInitialize)cmbOrigen.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBoxEntidad).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -287,6 +264,5 @@
         private DevExpress.XtraEditors.SimpleButton bCancelarAsignado;
         private DevExpress.XtraEditors.SimpleButton btnConfirmar;
         private Guna.UI2.WinForms.Guna2PictureBox picBoxEntidad;
-        private Guna.UI2.WinForms.Guna2CheckBox extranjeroCheck;
     }
 }

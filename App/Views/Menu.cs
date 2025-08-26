@@ -1,5 +1,6 @@
 ﻿using App.Presenters;
 using App.Views;
+using Configuraciones.Views.AbmLocaciones;
 using Configuraciones.Views.AbmUsuarios;
 using DevExpress.XtraEditors;
 using GestionOperativa.Views.AdministracionDocumental;
@@ -54,7 +55,7 @@ namespace SacNew.Views
 
         private void bAbmLocaciones_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirFormularioConPermisosAsync<MenuLocaciones>("0021-AbmLocaciones");
+            _presenter.AbrirFormularioConPermisosAsync<MenuLocacionesForm>("0021-AbmLocaciones");
         }
 
         private void bAdminDocumental_Click(object sender, EventArgs e)

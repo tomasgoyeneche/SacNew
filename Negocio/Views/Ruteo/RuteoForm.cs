@@ -149,37 +149,6 @@ namespace GestionFlota.Views
             }
         }
 
-        private async void gridViewCargados_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (e.FocusedRowHandle >= 0)
-            {
-                // Si hay algo seleccionado en cargados, deselecciona en vacios
-                gridViewVacios.ClearSelection();
-                gridViewVacios.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
-            }
-
-            if (gridViewCargados.GetFocusedRow() is Shared.Models.Ruteo ruteo)
-            {
-                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
-                await _presenter.CargarVencimientosYAlertasAsync(ruteo);
-            }
-        }
-
-        private async void gridViewVacios_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (e.FocusedRowHandle >= 0)
-            {
-                // Si hay algo seleccionado en vacios, deselecciona en cargados
-                gridViewCargados.ClearSelection();
-                gridViewCargados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
-            }
-            if (gridViewVacios.GetFocusedRow() is Shared.Models.Ruteo ruteo)
-            {
-                //await _presenter.MostrarHistorialAsync(guardia.IdGuardiaIngreso);
-                await _presenter.CargarVencimientosYAlertasAsync(ruteo);
-            }
-        }
-
         public void MostrarResumen(List<RuteoResumen> resumen)
         {
             if (resumen == null || resumen.Count == 0)
@@ -290,6 +259,46 @@ namespace GestionFlota.Views
                 {
                     await _presenter.EliminarAlertaAsync(alerta);
                 }
+            }
+        }
+
+        private async void gridViewCargados_RowClick(object sender, RowClickEventArgs e)
+        {
+            if (e.RowHandle < 0) return;
+
+            // Deseleccionar en vacíos
+            gridViewVacios.ClearSelection();
+            gridViewVacios.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
+            gridControlAlertas.Enabled = false;
+            gridControlHistorico.Enabled = false;
+            gridControlVencimientos.Enabled = false;
+
+            if (gridViewCargados.GetRow(e.RowHandle) is Shared.Models.Ruteo ruteo)
+            {
+                await _presenter.CargarVencimientosYAlertasAsync(ruteo);
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
+                gridControlVencimientos.Enabled = true;
+            }
+        }
+
+        private async void gridViewVacios_RowClick(object sender, RowClickEventArgs e)
+        {
+            if (e.RowHandle < 0) return;
+
+            // Deseleccionar en cargados
+            gridViewCargados.ClearSelection();
+            gridViewCargados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
+            gridControlAlertas.Enabled = false;
+            gridControlHistorico.Enabled = false;
+            gridControlVencimientos.Enabled = false;
+
+            if (gridViewVacios.GetRow(e.RowHandle) is Shared.Models.Ruteo ruteo)
+            {
+                await _presenter.CargarVencimientosYAlertasAsync(ruteo);
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
+                gridControlVencimientos.Enabled = true;
             }
         }
     }

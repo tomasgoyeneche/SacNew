@@ -3,9 +3,8 @@ using Shared.Models;
 
 namespace SacNew.Views.Configuraciones.AbmLocaciones
 {
-    public interface IMenuLocacionesView : IViewConMensajes, IViewConUsuario
+    public interface IMenuLocacionesView : IViewConMensajes
     {
-        string CriterioBusqueda { get; }
 
         void CargarLocaciones(List<Locacion> locaciones);  // Trabajamos directamente con la entidad
 

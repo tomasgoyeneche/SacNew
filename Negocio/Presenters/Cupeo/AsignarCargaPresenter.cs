@@ -95,8 +95,16 @@ namespace GestionFlota.Presenters
                 IdProgramaEstado = 1, // Estado "Asignado"
                 FechaCarga = _cupeoActual.FechaCarga,
                 FechaEntrega = _cupeoActual.FechaEntrega,
-                Extranjero = _view.Extranjero,
             };
+
+            Locacion locacion = await _locacionRepositorio.ObtenerPorIdAsync(_view.IdDestinoSeleccionado ?? 0);
+            if (locacion.Exportacion == true)
+            {
+                programa.Extranjero = true;
+            }else
+            {
+                programa.Extranjero = false;
+            }
 
             int idPrograma = await _programaRepositorio.InsertarProgramaRetornandoIdAsync(programa);
 

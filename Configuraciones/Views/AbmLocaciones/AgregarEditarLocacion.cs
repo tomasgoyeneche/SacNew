@@ -19,6 +19,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         public string Nombre => txtNombre.Text.Trim();
         public string Direccion => txtDireccion.Text.Trim();
 
+        public bool Exportacion => checkExpo.Checked;
         public bool Carga => cbCarga.SelectedItem.ToString() == "Sí";
         public bool Descarga => cbDescarga.SelectedItem.ToString() == "Sí";
 
@@ -28,6 +29,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             txtDireccion.Text = locacion.Direccion;
             cbCarga.SelectedItem = locacion.Carga ? "Sí" : "No";
             cbDescarga.SelectedItem = locacion.Descarga ? "Sí" : "No";
+            checkExpo.Checked = locacion.Exportacion;
         }
 
         public void CargarProductos(List<LocacionProducto> productos)

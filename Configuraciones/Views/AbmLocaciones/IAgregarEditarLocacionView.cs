@@ -11,7 +11,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         string Direccion { get; }
         bool Carga { get; }
         bool Descarga { get; }
-
+        bool Exportacion { get; }
         // Métodos para mostrar y cargar datos
         void MostrarDatosLocacion(Locacion locacion);
 

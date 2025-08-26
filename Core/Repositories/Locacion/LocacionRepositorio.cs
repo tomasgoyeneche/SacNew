@@ -14,7 +14,7 @@ namespace Core.Repositories
 
         public Task<List<Locacion>> ObtenerTodasAsync()
         {
-            var query = "SELECT * FROM Locacion WHERE Activo = 1";
+            var query = "SELECT * FROM Locacion WHERE Activo = 1 order by nombre";
             return ConectarAsync(async connection =>
                 (await connection.QueryAsync<Locacion>(query)).ToList()
             );
@@ -35,12 +35,38 @@ namespace Core.Repositories
 
         public Task AgregarAsync(Locacion locacion)
         {
-            return AgregarGenéricoAsync("Locacion", locacion);
+            var query = @"
+            INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo, Exportacion)
+            VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo, @Exportacion)";
+
+            // No hay necesidad de serializar los valores manualmente
+            return EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacion),
+                "Locacion",
+                "INSERT",
+                null,  // No hay valores anteriores porque es un nuevo registro
+                locacion  // Pasamos el objeto directamente, el BaseRepositorio lo serializa
+            );
         }
 
-        public Task ActualizarAsync(Locacion locacion)
+        public async Task ActualizarAsync(Locacion locacion)
         {
-            return ActualizarGenéricoAsync("Locacion", locacion);
+            // Obtener los valores anteriores antes de la actualización para la auditoría
+            var locacionAnterior = await ObtenerPorIdAsync(locacion.IdLocacion);
+
+            var query = @"
+            UPDATE Locacion
+            SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo, Exportacion = @Exportacion
+            WHERE IdLocacion = @IdLocacion";
+
+            // Llamar a EjecutarConAuditoriaAsync para ejecutar la consulta y registrar auditoría
+            await EjecutarConAuditoriaAsync(
+                connection => connection.ExecuteAsync(query, locacion),
+                "Locacion",
+                "UPDATE",
+                locacionAnterior,  // Pasamos los valores anteriores sin serializarlos
+                locacion  // Pasamos los valores nuevos sin serializarlos
+            );
         }
 
         public Task EliminarAsync(int idLocacion)

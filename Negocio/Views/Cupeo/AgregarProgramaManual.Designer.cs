@@ -92,7 +92,6 @@
             bCambioChofer = new DevExpress.XtraEditors.SimpleButton();
             bObservaciones = new DevExpress.XtraEditors.SimpleButton();
             bCancelarDisponible = new DevExpress.XtraEditors.SimpleButton();
-            extranjeroCheck = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtpFechaEntrega.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtpFechaEntrega.Properties.CalendarTimeProperties).BeginInit();
@@ -656,26 +655,6 @@
             bCancelarDisponible.Text = "Cancelar Disponible";
             bCancelarDisponible.Click += bCancelarDisponible_Click;
             // 
-            // extranjeroCheck
-            // 
-            extranjeroCheck.AutoSize = true;
-            extranjeroCheck.CheckedState.BorderColor = Color.Transparent;
-            extranjeroCheck.CheckedState.BorderRadius = 0;
-            extranjeroCheck.CheckedState.BorderThickness = 0;
-            extranjeroCheck.CheckedState.FillColor = Color.Transparent;
-            extranjeroCheck.CheckMarkColor = Color.LimeGreen;
-            extranjeroCheck.Font = new Font("Century Gothic", 10F);
-            extranjeroCheck.ForeColor = Color.LimeGreen;
-            extranjeroCheck.Location = new Point(380, 293);
-            extranjeroCheck.Name = "extranjeroCheck";
-            extranjeroCheck.Size = new Size(104, 23);
-            extranjeroCheck.TabIndex = 140;
-            extranjeroCheck.Text = "Extranjero?";
-            extranjeroCheck.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            extranjeroCheck.UncheckedState.BorderRadius = 0;
-            extranjeroCheck.UncheckedState.BorderThickness = 0;
-            extranjeroCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
             // AgregarProgramaManual
             // 
             AcceptButton = bGuardar;
@@ -685,7 +664,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = bCancelar;
             ClientSize = new Size(1198, 688);
-            Controls.Add(extranjeroCheck);
             Controls.Add(bCancelarDisponible);
             Controls.Add(bObservaciones);
             Controls.Add(bCambioChofer);
@@ -739,7 +717,6 @@
             ((System.ComponentModel.ISupportInitialize)gridControlRemitosPendientes).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewRemitosPendientes).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -783,7 +760,6 @@
         private DevExpress.XtraEditors.SimpleButton bCancelarDisponible;
         private DevExpress.XtraGrid.GridControl gridControlAlertas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewAlertas;
-        private Guna.UI2.WinForms.Guna2CheckBox extranjeroCheck;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;

@@ -15,7 +15,10 @@
         public string? Tractor_Patente { get; set; }
         public string? Semi_Patente { get; set; }
         public string? Empresa_Nombre { get; set; }
+        public string? Empresa_Cuit { get; set; }
+
         public string? Chofer_Nombre { get; set; }
+        public string? Chofer_Documento { get; set; }
 
         public decimal Odometro { get; set; }
         public string? Comentario { get; set; }

@@ -146,13 +146,6 @@ namespace GestionFlota.Views
             }
         }
 
-        private async void gridViewDisponibles_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
-            {
-                await _presenter.CargarVencimientosYAlertasAsync(dispo);
-            }
-        }
 
         private async void bAgregarDispo_Click(object sender, EventArgs e)
         {
@@ -232,6 +225,23 @@ namespace GestionFlota.Views
                 {
                     await _presenter.EliminarAlertaAsync(alerta, idAgregarDispo);
                 }
+            }
+        }
+
+        private async void gridViewDisponibles_RowClick(object sender, RowClickEventArgs e)
+        {
+            if (e.RowHandle < 0) return;
+
+            gridControlAlertas.Enabled = false;
+            gridControlHistorico.Enabled = false;
+            gridControlVencimientos.Enabled = false;
+
+            if (gridViewDisponibles.GetRow(e.RowHandle) is Disponibilidad dispo)
+            {
+                await _presenter.CargarVencimientosYAlertasAsync(dispo);
+                gridControlAlertas.Enabled = true;
+                gridControlHistorico.Enabled = true;
+                gridControlVencimientos.Enabled = true;
             }
         }
     }

@@ -550,8 +550,8 @@
             gridViewCargados.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewCargados.OptionsView.EnableAppearanceEvenRow = true;
             gridViewCargados.RowHeight = 20;
+            gridViewCargados.RowClick += gridViewCargados_RowClick;
             gridViewCargados.RowCellClick += gridViewCargados_RowCellClick;
-            gridViewCargados.FocusedRowChanged += gridViewCargados_FocusedRowChanged;
             // 
             // gridColumn1
             // 
@@ -723,8 +723,8 @@
             gridViewVacios.OptionsSelection.EnableAppearanceFocusedCell = false;
             gridViewVacios.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewVacios.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewVacios.RowClick += gridViewVacios_RowClick;
             gridViewVacios.RowCellClick += gridViewVacios_RowCellClick;
-            gridViewVacios.FocusedRowChanged += gridViewVacios_FocusedRowChanged;
             // 
             // gridColumn13
             // 
