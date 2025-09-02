@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionFlota.Views;
 using GestionOperativa.Views;
 using Shared.Models;
 
@@ -102,5 +103,22 @@ namespace GestionOperativa.Presenters
 
             await _vaporizadoRepositorio.AgregarAsync(vaporizado, _sesionService.IdUsuario);
         }
+
+        public async Task CambiarChoferAsync()
+        {
+            if (_guardia.TipoIngreso == 1)
+            {
+                await AbrirFormularioAsync<CambioChoferForm>(async form =>
+                {
+                    await form._presenter.InicializarAsync(_guardia.IdEntidad);
+                });
+            }
+            else
+            {
+                _view.MostrarMensaje("La Unidad no es de la Nomina");
+            }
+           
+        }
     }
+
 }

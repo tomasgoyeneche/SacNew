@@ -45,6 +45,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -59,7 +61,6 @@
             gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             bControlDemorados = new DevExpress.XtraEditors.SimpleButton();
-            bControlKm = new DevExpress.XtraEditors.SimpleButton();
             bControlSatelital = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -111,6 +112,8 @@
             gridViewChoferesLibres = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            bRecargar = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10.SuspendLayout();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
@@ -315,25 +318,6 @@
             bControlDemorados.Text = "Control Demorados";
             bControlDemorados.Click += bControlDemorados_Click;
             // 
-            // bControlKm
-            // 
-            bControlKm.Appearance.BackColor = Color.FromArgb(192, 255, 255);
-            bControlKm.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bControlKm.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlKm.Appearance.Options.UseBackColor = true;
-            bControlKm.Appearance.Options.UseFont = true;
-            bControlKm.Appearance.Options.UseForeColor = true;
-            bControlKm.Appearance.Options.UseTextOptions = true;
-            bControlKm.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bControlKm.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bControlKm.AppearanceDisabled.Options.UseForeColor = true;
-            bControlKm.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bControlKm.ImageOptions.SvgImage");
-            bControlKm.Location = new Point(12, 94);
-            bControlKm.Name = "bControlKm";
-            bControlKm.Size = new Size(241, 30);
-            bControlKm.TabIndex = 47;
-            bControlKm.Text = "Control KM";
-            // 
             // bControlSatelital
             // 
             bControlSatelital.Appearance.BackColor = Color.FromArgb(224, 224, 224);
@@ -347,7 +331,7 @@
             bControlSatelital.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bControlSatelital.AppearanceDisabled.Options.UseForeColor = true;
             bControlSatelital.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bControlSatelital.ImageOptions.SvgImage");
-            bControlSatelital.Location = new Point(12, 130);
+            bControlSatelital.Location = new Point(12, 94);
             bControlSatelital.Name = "bControlSatelital";
             bControlSatelital.Size = new Size(241, 30);
             bControlSatelital.TabIndex = 48;
@@ -872,17 +856,61 @@
             gridColumn29.Visible = true;
             gridColumn29.VisibleIndex = 1;
             // 
+            // txtBuscar
+            // 
+            txtBuscar.CustomizableEdges = customizableEdges17;
+            txtBuscar.DefaultText = "";
+            txtBuscar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtBuscar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtBuscar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtBuscar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtBuscar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtBuscar.Font = new Font("Segoe UI", 9F);
+            txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtBuscar.IconLeft = Properties.Resources.lupa;
+            txtBuscar.Location = new Point(12, 130);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PasswordChar = '\0';
+            txtBuscar.PlaceholderText = "Buscar";
+            txtBuscar.SelectedText = "";
+            txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtBuscar.Size = new Size(202, 30);
+            txtBuscar.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtBuscar.TabIndex = 51;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // bRecargar
+            // 
+            bRecargar.Appearance.BackColor = Color.FromArgb(224, 224, 224);
+            bRecargar.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bRecargar.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bRecargar.Appearance.Options.UseBackColor = true;
+            bRecargar.Appearance.Options.UseFont = true;
+            bRecargar.Appearance.Options.UseForeColor = true;
+            bRecargar.Appearance.Options.UseTextOptions = true;
+            bRecargar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bRecargar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bRecargar.AppearanceDisabled.Options.UseForeColor = true;
+            bRecargar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
+            bRecargar.Location = new Point(217, 130);
+            bRecargar.Name = "bRecargar";
+            bRecargar.Size = new Size(36, 30);
+            bRecargar.TabIndex = 52;
+            bRecargar.Text = "Control Satelital";
+            bRecargar.Click += bRecargar_Click;
+            // 
             // RuteoForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1268, 688);
+            Controls.Add(bRecargar);
+            Controls.Add(txtBuscar);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2Panel1);
             Controls.Add(guna2Panel6);
             Controls.Add(bControlSatelital);
-            Controls.Add(bControlKm);
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel5);
             Controls.Add(bControlDemorados);
@@ -935,7 +963,6 @@
         private DevExpress.XtraGrid.GridControl gridControlHistorico;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewHistorico;
         private DevExpress.XtraEditors.SimpleButton bControlDemorados;
-        private DevExpress.XtraEditors.SimpleButton bControlKm;
         private DevExpress.XtraEditors.SimpleButton bControlSatelital;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
@@ -992,5 +1019,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
+        private DevExpress.XtraEditors.SimpleButton bRecargar;
     }
 }

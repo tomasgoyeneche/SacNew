@@ -109,7 +109,7 @@ namespace GestionOperativa.Presenters
             switch (guardia.TipoIngreso)
             {
                 case 1: // Nómina
-                    var nomina = new Nomina { IdUnidad = 0, IdChofer = guardia.IdEntidad };
+                    Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(guardia.IdEntidad);
                     var vencNomina = await _nominaRepositorio.ObtenerVencimientosPorNominaAsync(nomina);
                     vencimientos.AddRange(vencNomina.Where(v => v.FechaVencimiento <= fechaLimite));
 

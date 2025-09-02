@@ -12,7 +12,7 @@ namespace Core.Repositories
 
         public async Task<List<Cupeo>> ObtenerCupeoAsync()
         {
-            var query = "SELECT * FROM vw_Cupeo";
+            var query = "SELECT * FROM vw_Cupeo Order by FechaCarga";
 
             return await ConectarAsync(async connection =>
             {

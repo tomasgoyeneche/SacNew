@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.DirectXPaint.Svg;
+using DevExpress.XtraEditors;
 using GestionFlota.Presenters;
 using Shared.Models;
 using System.IO;
@@ -261,6 +262,11 @@ namespace GestionFlota.Views
         private async void dateEditEntregaSalida_EditValueChanged(object sender, EventArgs e)
         {
             DateTime? nuevaFecha = dateEditEntregaSalida.EditValue as DateTime?;
+            if(nuevaFecha > DateTime.Now)
+            {
+                MostrarMensaje("La Fecha no puede ser mayor a hoy");
+                return;
+            }
             await _presenter.GuardarFechaProgramaAsync("EntregaSalida", nuevaFecha);
         }
 

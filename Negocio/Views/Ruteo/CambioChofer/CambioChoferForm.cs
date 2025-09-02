@@ -46,11 +46,10 @@ namespace GestionFlota.Views
             get
             {
                 if (gridViewChoferes.GetFocusedRow() is Chofer ch)
-                    return ch.Nombre;
+                    return ch.NombreApellido;
                 return null;
             }
         }
-
         public string Observacion => txtObservacion.Text.Trim();
 
         public DateTime FechaCambio => dateEditFechaCambio.EditValue as DateTime? ?? DateTime.Today;

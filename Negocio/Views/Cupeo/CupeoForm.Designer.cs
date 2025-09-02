@@ -43,6 +43,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CupeoForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -102,6 +104,8 @@
             gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             bImportarPrograma = new DevExpress.XtraEditors.SimpleButton();
             bVerPrograma = new DevExpress.XtraEditors.SimpleButton();
+            bRecargar = new DevExpress.XtraEditors.SimpleButton();
+            txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel10.SuspendLayout();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlResumen).BeginInit();
@@ -339,6 +343,8 @@
             // gridColumn31
             // 
             gridColumn31.Caption = "Fecha";
+            gridColumn31.DisplayFormat.FormatString = "dd/MM HH:mm";
+            gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gridColumn31.FieldName = "Fecha";
             gridColumn31.Name = "gridColumn31";
             gridColumn31.Visible = true;
@@ -441,12 +447,14 @@
             gridViewDisp.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewDisp.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             gridViewDisp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5, gridColumn9, gridColumn6, gridColumn7, gridColumn8, gridColumn10, gridColumn29 });
-            gridViewDisp.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewDisp.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             gridViewDisp.GridControl = gridControlDisp;
             gridViewDisp.Name = "gridViewDisp";
             gridViewDisp.OptionsBehavior.Editable = false;
             gridViewDisp.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewDisp.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewDisp.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewDisp.RowHeight = 20;
             gridViewDisp.RowClick += gridViewDisp_RowClick;
             gridViewDisp.RowCellClick += gridViewDisp_RowCellClick;
             // 
@@ -596,12 +604,14 @@
             gridViewAsignados.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewAsignados.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             gridViewAsignados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn25, gridColumn13, gridColumn26, gridColumn14, gridColumn15, gridColumn17, gridColumn18, gridColumn19, gridColumn16, gridColumn20, gridColumn27, gridColumn28, gridColumn21, gridColumn30 });
-            gridViewAsignados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewAsignados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             gridViewAsignados.GridControl = gridControlAsignados;
             gridViewAsignados.Name = "gridViewAsignados";
             gridViewAsignados.OptionsBehavior.Editable = false;
             gridViewAsignados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewAsignados.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewAsignados.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewAsignados.RowHeight = 20;
             gridViewAsignados.RowClick += gridViewAsignados_RowClick;
             gridViewAsignados.RowCellClick += gridViewAsignados_RowCellClick;
             // 
@@ -730,7 +740,7 @@
             bImportarPrograma.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bImportarPrograma.AppearanceDisabled.Options.UseForeColor = true;
             bImportarPrograma.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bImportarPrograma.ImageOptions.SvgImage");
-            bImportarPrograma.Location = new Point(12, 74);
+            bImportarPrograma.Location = new Point(12, 59);
             bImportarPrograma.Name = "bImportarPrograma";
             bImportarPrograma.Size = new Size(281, 30);
             bImportarPrograma.TabIndex = 52;
@@ -750,12 +760,55 @@
             bVerPrograma.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bVerPrograma.AppearanceDisabled.Options.UseForeColor = true;
             bVerPrograma.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bVerPrograma.ImageOptions.SvgImage");
-            bVerPrograma.Location = new Point(12, 121);
+            bVerPrograma.Location = new Point(12, 96);
             bVerPrograma.Name = "bVerPrograma";
             bVerPrograma.Size = new Size(281, 30);
             bVerPrograma.TabIndex = 53;
             bVerPrograma.Text = "Ver Programa";
             bVerPrograma.Click += bVerPrograma_Click;
+            // 
+            // bRecargar
+            // 
+            bRecargar.Appearance.BackColor = Color.FromArgb(224, 224, 224);
+            bRecargar.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bRecargar.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bRecargar.Appearance.Options.UseBackColor = true;
+            bRecargar.Appearance.Options.UseFont = true;
+            bRecargar.Appearance.Options.UseForeColor = true;
+            bRecargar.Appearance.Options.UseTextOptions = true;
+            bRecargar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bRecargar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bRecargar.AppearanceDisabled.Options.UseForeColor = true;
+            bRecargar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bRecargar.ImageOptions.SvgImage");
+            bRecargar.Location = new Point(257, 133);
+            bRecargar.Name = "bRecargar";
+            bRecargar.Size = new Size(36, 30);
+            bRecargar.TabIndex = 55;
+            bRecargar.Text = "Control Satelital";
+            bRecargar.Click += bRecargar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.CustomizableEdges = customizableEdges15;
+            txtBuscar.DefaultText = "";
+            txtBuscar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtBuscar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtBuscar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtBuscar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtBuscar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtBuscar.Font = new Font("Segoe UI", 9F);
+            txtBuscar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtBuscar.IconLeft = Properties.Resources.lupa;
+            txtBuscar.Location = new Point(12, 133);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PasswordChar = '\0';
+            txtBuscar.PlaceholderText = "Buscar";
+            txtBuscar.SelectedText = "";
+            txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtBuscar.Size = new Size(239, 30);
+            txtBuscar.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            txtBuscar.TabIndex = 54;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // CupeoForm
             // 
@@ -764,6 +817,8 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
+            Controls.Add(bRecargar);
+            Controls.Add(txtBuscar);
             Controls.Add(bVerPrograma);
             Controls.Add(bImportarPrograma);
             Controls.Add(guna2Panel5);
@@ -861,5 +916,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
+        private DevExpress.XtraEditors.SimpleButton bRecargar;
+        private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
     }
 }

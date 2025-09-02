@@ -40,7 +40,7 @@
             gridControl1.Location = new Point(18, 46);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(345, 276);
+            gridControl1.Size = new Size(504, 276);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -65,7 +65,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(gridControl1);
             Name = "SelectorLocacionControl";
-            Size = new Size(382, 347);
+            Size = new Size(545, 347);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);

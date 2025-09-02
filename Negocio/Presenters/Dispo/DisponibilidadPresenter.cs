@@ -102,15 +102,39 @@ namespace GestionFlota.Presenters
             }
 
             // 3. Si hay vencimientos vencidos, mostrar y abortar apertura del form
-            List<VencimientosDto> vencidos = vencimientos.Where(v => v.FechaVencimiento.Date < _view.FechaSeleccionada).ToList();
-            if (vencidos.Any())
+            List<VencimientosDto> vencidos = vencimientos
+            .Where(v => v.FechaVencimiento.Date < _view.FechaSeleccionada)
+            .ToList();
+
+            bool bloquear = false;
+
+            foreach (var venc in vencidos)
             {
-                foreach (var venc in vencidos)
+                // Mensaje siempre
+                string msg = $"Vencimiento: {venc.Descripcion}\n" +
+                             $"Venció el: {venc.FechaVencimiento:dd/MM/yyyy}\n" +
+                             "- Actualice vencimiento del documental.";
+                _view.MostrarMensaje(msg);
+
+                if (venc.Descripcion.Equals("CheckList", StringComparison.OrdinalIgnoreCase))
                 {
-                    string msg = $"Vencimiento: {venc.Descripcion}\nVenció el: {venc.FechaVencimiento:dd/MM/yyyy}\n- Actualice vencimiento del documental.";
-                    _view.MostrarMensaje(msg);
+                    // calcular cuántos días pasaron desde el vencimiento hasta hoy
+                    var diasVencidos = (DateTime.Now.Date - venc.FechaVencimiento.Date).TotalDays;
+
+                    if (diasVencidos > 7)
+                    {
+                        bloquear = true; // demasiado vencido
+                    }
+                    // si es ≤ 7 días → no bloquea, solo avisa
                 }
-                // Avisar que no se puede abrir el form
+                else
+                {
+                    bloquear = true; // cualquier otro documental bloquea
+                }
+            }
+
+            if (bloquear)
+            {
                 _view.MostrarMensaje("No puede editar la disponibilidad hasta actualizar todos los vencimientos vencidos.");
                 return; // IMPORTANTEEEEEE
             }

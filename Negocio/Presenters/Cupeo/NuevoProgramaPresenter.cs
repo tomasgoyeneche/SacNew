@@ -58,11 +58,20 @@ namespace GestionFlota.Presenters
 
         public async Task GuardarAsync()
         {
-            if(_view.IdOrigenSeleccionado == null || _view.IdProductoSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.FechaCarga == null || _view.FechaEntrega == null)
+            if (_view.IdOrigenSeleccionado == null || _view.IdProductoSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.FechaCarga == null || _view.FechaEntrega == null)
             {
                 _view.MostrarMensaje("Por favor, complete todos los campos obligatorios.");
                 return;
             }
+            var inicio = _view.FechaCarga.Date;
+            var fin = _view.FechaEntrega.Date;
+
+            if (inicio > fin)
+            {
+                _view.MostrarMensaje("La fecha de carga no puede ser mayor a la de entrega");
+                return;
+            }
+
 
             var programa = new Programa
             {
@@ -78,6 +87,14 @@ namespace GestionFlota.Presenters
                 FechaCarga = _view.FechaCarga,
                 FechaEntrega = _view.FechaEntrega,
             };
+
+            bool programaRepetido = await _programaRepositorio.ExisteAlbaranRepetidoAsync(programa.AlbaranDespacho);
+            if(programaRepetido && programa.AlbaranDespacho != 0)
+            {
+                _view.MostrarMensaje("El albarán de despacho ya existe en un programa activo. Por favor, verifique.");
+                return;
+            }
+
 
             Locacion locacion = await _locacionRepositorio.ObtenerPorIdAsync(_view.IdDestinoSeleccionado ?? 0);
             if (locacion.Exportacion == true)

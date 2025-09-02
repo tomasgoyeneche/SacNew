@@ -33,8 +33,10 @@ namespace GestionFlota.Presenters.Informes
                 {
                     r.NumeroPoc,
                     r.Chofer_Nombre,
+                    r.Chofer_Documento,
                     r.Codigo_Posta,
                     r.Empresa_Nombre,
+                    r.Empresa_Cuit,
                     r.Tractor_Patente,
                     r.Semi_Patente,
                     r.Concepto_Codigo,

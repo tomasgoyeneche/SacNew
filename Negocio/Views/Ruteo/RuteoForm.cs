@@ -301,5 +301,21 @@ namespace GestionFlota.Views
                 gridControlVencimientos.Enabled = true;
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text;
+
+            // Buscar en Cargados
+            gridViewCargados.FindFilterText = filtro;
+
+            // Buscar en Vacíos
+            gridViewVacios.FindFilterText = filtro;
+        }
+
+        private async void bRecargar_Click(object sender, EventArgs e)
+        {
+            await _presenter.InicializarAsync();
+        }
     }
 }

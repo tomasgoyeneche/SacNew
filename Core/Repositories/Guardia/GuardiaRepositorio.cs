@@ -210,7 +210,7 @@ namespace Core.Repositories
 
         public async Task<List<GuardiaDto>> ObtenerGuardiasPorPostaAsync(int idPosta)
         {
-            const string query = "SELECT * FROM vw_Guardia where idPosta = @idPosta";
+            const string query = "SELECT * FROM vw_Guardia where idPosta = @idPosta order by Ingreso";
             return await ConectarAsync(conn =>
                 conn.QueryAsync<GuardiaDto>(query, new { idPosta }))
                 .ContinueWith(t => t.Result.ToList());

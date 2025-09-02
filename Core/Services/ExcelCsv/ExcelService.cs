@@ -108,17 +108,24 @@ namespace Core.Services
 
                     if (value is DateTime fecha)
                     {
-                        cell.Value = fecha;
-
-                        // 🔹 Si la hora es 00:00:00, mostrar solo fecha
-                        if (fecha.TimeOfDay == TimeSpan.Zero)
+                        if (fecha == DateTime.MinValue)
                         {
-                            cell.Style.Numberformat.Format = "dd/MM/yyyy";
+                            cell.Value = null;
                         }
                         else
                         {
-                            // Mostrar fecha + hora y minutos
-                            cell.Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+                            cell.Value = fecha;
+
+                            // 🔹 Si la hora es 00:00:00, mostrar solo fecha
+                            if (fecha.TimeOfDay == TimeSpan.Zero)
+                            {
+                                cell.Style.Numberformat.Format = "dd/MM/yyyy";
+                            }
+                            else
+                            {
+                                // Mostrar fecha + hora y minutos
+                                cell.Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+                            }
                         }
                     }
                     else

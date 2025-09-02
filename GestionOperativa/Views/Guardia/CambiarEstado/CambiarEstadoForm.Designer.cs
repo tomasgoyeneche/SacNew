@@ -395,6 +395,7 @@
             bCambiarChofer.Size = new Size(266, 35);
             bCambiarChofer.TabIndex = 103;
             bCambiarChofer.Text = "Cambiar Chofer";
+            bCambiarChofer.Click += bCambiarChofer_Click;
             // 
             // guna2Panel10
             // 

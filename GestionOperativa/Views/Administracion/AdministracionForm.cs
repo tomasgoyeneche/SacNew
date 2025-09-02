@@ -106,8 +106,8 @@ namespace GestionOperativa.Views
         {
             if (e.RowHandle < 0) return;
 
-            GridView? view = sender as GridView;
-            VencimientosDto? vencimiento = view.GetRow(e.RowHandle) as VencimientosDto;
+            var view = sender as GridView;
+            var vencimiento = view.GetRow(e.RowHandle) as VencimientosDto;
 
             if (vencimiento == null || e.Column.FieldName != "FechaVencimiento")
                 return;

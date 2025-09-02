@@ -165,8 +165,8 @@ namespace GestionFlota.Views
         private async void gridViewDisp_RowClick(object sender, RowClickEventArgs e)
         {
             if (e.RowHandle < 0) return;
-            
-                // Si hay algo seleccionado en vacios, deselecciona en cargados
+
+            // Si hay algo seleccionado en vacios, deselecciona en cargados
             gridViewAsignados.ClearSelection();
             gridViewAsignados.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             gridControlAlertas.Enabled = false;
@@ -185,8 +185,8 @@ namespace GestionFlota.Views
         private async void gridViewAsignados_RowClick(object sender, RowClickEventArgs e)
         {
             if (e.RowHandle < 0) return;
-            
-                // Si hay algo seleccionado en cargados, deselecciona en vacios
+
+            // Si hay algo seleccionado en cargados, deselecciona en vacios
             gridViewDisp.ClearSelection();
             gridViewDisp.FocusedRowHandle = DevExpress.XtraGrid.GridControl.InvalidRowHandle;
             gridControlAlertas.Enabled = false;
@@ -200,6 +200,21 @@ namespace GestionFlota.Views
                 gridControlHistorico.Enabled = true;
                 gridControlVencimientos.Enabled = true;
             }
+        }
+
+        private async void bRecargar_Click(object sender, EventArgs e)
+        {
+            await _presenter.InicializarAsync();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text;
+
+            // Buscar en Vacíos
+            gridViewDisp.FindFilterText = filtro;
+            // Buscar en Cargados
+            gridViewAsignados.FindFilterText = filtro;
         }
     }
 }

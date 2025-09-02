@@ -664,7 +664,7 @@
             this.xrLabel60.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel60.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?proximosvencimientos")});
-            this.xrLabel60.Font = new DevExpress.Drawing.DXFont("Century Gothic", 9F);
+            this.xrLabel60.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F);
             this.xrLabel60.LocationFloat = new DevExpress.Utils.PointFloat(534.7083F, 355.3751F);
             this.xrLabel60.Multiline = true;
             this.xrLabel60.Name = "xrLabel60";
@@ -681,7 +681,7 @@
             this.xrLabel3.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?vencimientosvencidos")});
-            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Century Gothic", 9F);
+            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F);
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(173.3861F, 355.3751F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";

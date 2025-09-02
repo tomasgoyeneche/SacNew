@@ -2,9 +2,10 @@
 {
     public class TransoftMetanol
     {
-        public int Id { get; set; }
         public string? Origen { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Dia { get; set; }
+        public string Hora { get; set; }
+
         public string? Remito { get; set; }
         public string? Tractor { get; set; }
         public string? Semi { get; set; }

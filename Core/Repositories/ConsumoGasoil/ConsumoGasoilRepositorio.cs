@@ -91,7 +91,7 @@ namespace Core.Repositories
 
         public async Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor)
         {
-            return await ConectarAsyncFo(async connection =>
+            return await ConectarAsync(async connection =>
             {
                 const string query = @"
                 SELECT IdPrograma, Kilometros

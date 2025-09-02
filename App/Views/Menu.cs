@@ -44,8 +44,8 @@ namespace SacNew.Views
 
         private void bMenuPostas_Click(object sender, EventArgs e)
         {
-            MostrarMensaje("Actualmente no habilitado");
-            //_presenter.AbrirFormularioConPermisosAsync<MenuPostas>("0003-Postas");
+            //MostrarMensaje("Actualmente no habilitado");
+            _presenter.AbrirFormularioConPermisosAsync<MenuPostas>("Prueba0003-Postas");
         }
 
         private void bAbmUsuar_Click(object sender, EventArgs e)

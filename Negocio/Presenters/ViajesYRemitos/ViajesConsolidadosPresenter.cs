@@ -105,6 +105,7 @@ namespace GestionFlota.Presenters
                 CargaSalida = programa.CargaSalida,
                 EntregaLlegada = programa.EntregaLlegada,
                 EntregaIngreso = programa.EntregaIngreso,
+                Estado = "FinDeViaje",
                 // Odometer, Location, Sat, Estado => vacíos o valores por defecto
             };
         }

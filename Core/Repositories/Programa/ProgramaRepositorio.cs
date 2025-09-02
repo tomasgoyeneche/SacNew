@@ -171,6 +171,20 @@ namespace Core.Repositories
                 conn.ExecuteAsync(sql, new { nombreUsuario, idPrograma }));
         }
 
+        public async Task<bool> ExisteAlbaranRepetidoAsync(int albaran)
+        {
+            const string sql = @"
+        SELECT TOP 1 1
+        FROM Programa
+        WHERE AlbaranDespacho = @Albaran
+          AND IdProgramaEstado = 1";
+
+            var result = await ConectarAsync(conn =>
+                conn.ExecuteScalarAsync<int?>(sql, new { Albaran = albaran })
+            );
+
+            return result.HasValue; // true si encontró algo
+        }
         public async Task<decimal?> ObtenerOdometerPorNomina(int idNomina)
         {
             // Busca el odometer más reciente ANTES o IGUAL a la fecha indicada
@@ -261,13 +275,13 @@ namespace Core.Repositories
 
         public async Task<List<Transoft>> ObtenerTransoftAsync(DateTime desde, DateTime hasta)
         {
-            string query = @"SELECT * FROM vw_Transoft WHERE Disponible BETWEEN @desde AND @hasta";
+            string query = @"SELECT * FROM vw_Transoft WHERE Disponible BETWEEN @desde AND @hasta Order by Disponible";
             return (await ConectarAsync(conn => conn.QueryAsync<Transoft>(query, new { desde, hasta }))).ToList();
         }
 
         public async Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta)
         {
-            string query = @"SELECT * FROM vw_TransoftMetanol WHERE Fecha BETWEEN @desde AND @hasta";
+            string query = @"SELECT * FROM vw_TransoftMetanol WHERE Fecha BETWEEN @desde AND @hasta Order by Fecha";
             return (await ConectarAsync(conn => conn.QueryAsync<TransoftMetanol>(query, new { desde, hasta }))).ToList();
         }
 

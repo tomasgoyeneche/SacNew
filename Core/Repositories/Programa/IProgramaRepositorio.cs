@@ -38,7 +38,7 @@ namespace Core.Repositories
         Task CerrarTramosActivosPorProgramaAsync(int idPrograma, DateTime? dateTime);
 
         Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
-
+        Task<bool> ExisteAlbaranRepetidoAsync(int albaran);
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
 
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();

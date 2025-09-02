@@ -100,6 +100,12 @@ namespace GestionFlota.Presenters.Ruteo
                 };
 
                 await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
+
+                if(_ruteo.Estado == "FinDeViaje")
+                {
+                    await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(
+                    _programa.IdPrograma, DateTime.Now);
+                }
             }
 
             await _programaRepositorio.ActualizarProgramaAsync(_programa);

@@ -180,7 +180,7 @@
             guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             guna2HtmlLabel17.Size = new Size(256, 28);
             guna2HtmlLabel17.TabIndex = 14;
-            guna2HtmlLabel17.Text = "Programas Pendientes";
+            guna2HtmlLabel17.Text = "Pedidos Pendientes";
             // 
             // PedidosForm
             // 
