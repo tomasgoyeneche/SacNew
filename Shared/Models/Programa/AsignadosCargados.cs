@@ -22,6 +22,7 @@ namespace Shared.Models
         public string AlbaranDespacho { get; set; } = string.Empty;
         public string Producto { get; set; } = string.Empty;
 
+        public DateTime LlegadaCarga { get; set; }    // Fecha y hora en que el programa está disponible
         public DateTime IngresoCarga { get; set; }    // Fecha y hora en que el programa está disponible
         public DateTime SalidaCarga { get; set; }    // Fecha y hora en que el programa está disponible
     }

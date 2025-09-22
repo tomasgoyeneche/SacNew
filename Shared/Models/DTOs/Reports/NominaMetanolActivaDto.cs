@@ -6,5 +6,7 @@
         public string? Empresa_Nombre { get; set; }
         public string? Tractor_Patente { get; set; }
         public string? Semirremolque_Patente { get; set; }
+        public DateTime AltaUnidad { get; set; }
+        public DateTime BajaUnidad { get; set; }
     }
 }

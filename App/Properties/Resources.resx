@@ -130,14 +130,14 @@
   <data name="menuAdministracion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuAdministracion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menuNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menuNeumaticos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loginContrasenaGris" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginContrasenaGris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MenuAbmLocaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuAbmLocaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginVolvoCamionChico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginVolvoCamionChico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menuCapacitaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuCapacitaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +154,9 @@
   <data name="GuardiaPH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GuardiaPH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loginVolvoCamionChico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginVolvoCamionChico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menuEstadoNomina1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuEstadoNomina1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,7 +166,7 @@
   <data name="menuAbmUsuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menuAbmUsuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menuNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menuNeumaticos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mantenimientoImagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mantenimientoImagen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

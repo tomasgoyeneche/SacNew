@@ -19,6 +19,7 @@
         public DateTime CargaIngreso { get; set; }
         public DateTime CargaSalida { get; set; }
         public int? CargaRemito { get; set; }
+        public string CargaRemitoRuta { get; set; } = string.Empty;
         public DateTime? CargaRemitoFecha { get; set; }
         public string? CargaUnidad { get; set; }
         public int? CargaRemitoKg { get; set; }
@@ -29,6 +30,8 @@
         public DateTime EntregaSalida { get; set; }
         public int? EntregaRemito { get; set; }
         public DateTime? EntregaRemitoFecha { get; set; }
+        public string EntregaRemitoRuta { get; set; } = string.Empty;
+
         public string? EntregaUnidad { get; set; }
         public int? EntregaRemitoKg { get; set; }
 

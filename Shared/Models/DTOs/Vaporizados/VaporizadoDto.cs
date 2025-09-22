@@ -21,6 +21,7 @@
         public string? Zona { get; set; } = string.Empty;
 
         public string? Externo { get; set; } = string.Empty;
+        public string? TransitoEspecial { get; set; } = string.Empty;
         public string? Estado { get; set; } = string.Empty;
         public int TipoIngreso { get; set; } = 0;
         public int IdPosta { get; set; } = 0;

@@ -39,24 +39,41 @@ namespace GestionFlota.Presenters
             _vaporizadoRepositorio = vaporizadoRepositorio;
         }
 
-        public async Task InicializarAsync()
+        public async Task InicializarAsync(int? idNominaAsignados = null, int? idNominaDisp = null)
         {
             await EjecutarConCargaAsync(async () =>
             {
-                List<Cupeo> cupeos = await _pedidoRepositorio.ObtenerCupeoAsync();
-                //List<Cupeo> resumen = await _cupeoRepositorio.ObtenerResumenAsync();
+                try
+                {
+                    List<Cupeo> cupeos = await _pedidoRepositorio.ObtenerCupeoAsync();
+                    //List<Cupeo> resumen = await _cupeoRepositorio.ObtenerResumenAsync();
 
-                var disp = cupeos
-                    .Where(r => r.IdDestino == null)
-                    .ToList();
+                    var disp = cupeos
+                        .Where(r => r.IdDestino == null)
+                        .ToList();
 
-                var asignados = cupeos
-                    .Where(r => r.IdDestino != null)
-                    .ToList();
+                    var asignados = cupeos
+                        .Where(r => r.IdDestino != null)
+                        .ToList();
 
-                _view.MostrarCupeoDisp(disp);
-                _view.MostrarCupeoAsignados(asignados);
-                //_view.MostrarResumen(resumen);
+                    _view.MostrarCupeoDisp(disp);
+                    _view.MostrarCupeoAsignados(asignados);
+                    //_view.MostrarResumen(resumen);
+                }
+                finally
+                {
+
+                    if (idNominaAsignados.HasValue)
+                    {
+                        _view.SeleccionarCupeoAsignadosPorId(idNominaAsignados.Value);
+                    }
+                    else if (idNominaDisp.HasValue)
+                    {
+                        _view.SeleccionarCupeoDispPorNomina(idNominaDisp.Value);
+                    }
+                }
+
+
             });
         }
 
@@ -89,16 +106,16 @@ namespace GestionFlota.Presenters
             await InicializarAsync();
         }
 
-        public async Task AbrirAsignarCargaAsync(Cupeo cupeo)
+        public async Task AbrirAsignarCargaAsync(Cupeo cupeo, int? idNominaAsignados = null)
         {
             await AbrirFormularioAsync<AsignarCargaForm>(async f => await f._presenter.InicializarAsync(cupeo));
-            await InicializarAsync();
+            await InicializarAsync(idNominaAsignados);
         }
 
-        public async Task AbrirAsignarManual(Cupeo cupeo)
+        public async Task AbrirAsignarManual(Cupeo cupeo, int? idNominaDisp = null)
         {
             await AbrirFormularioAsync<AgregarProgramaManual>(async f => await f._presenter.InicializarAsync(cupeo));
-            await InicializarAsync();
+            await InicializarAsync(null, idNominaDisp);
         }
 
         public async Task VerProgramaAsync()

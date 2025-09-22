@@ -24,6 +24,23 @@ namespace GestionFlota.Views
                 MostrarMensaje("No hay datos para importar.");
                 return new BindingList<PedidoImportacion>();
             }
+
+            foreach (var pedido in lista)
+            {
+                // Hacer Trim a todos los string excepto Observaciones y NombreCliente
+                pedido.Producto = pedido.Producto?.Trim();
+                pedido.AlbaranDespacho = pedido.AlbaranDespacho?.Trim();
+                pedido.PedidoOR = pedido.PedidoOR?.Trim();
+                pedido.NombreCliente = pedido.NombreCliente.Trim();
+                pedido.Transporte = pedido.Transporte?.Trim();
+                pedido.CodTransporte = pedido.CodTransporte?.Trim();
+                pedido.Dni = pedido.Dni?.Trim();
+                pedido.Chofer = pedido.Chofer?.Trim();
+                pedido.Tractor = pedido.Tractor?.Trim();
+                pedido.Semi = pedido.Semi?.Trim();
+                pedido.Observaciones = pedido.Observaciones.Trim();
+            }
+
             return lista;
         }
 

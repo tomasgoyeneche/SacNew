@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using GestionDocumental.Presenters;
 
 namespace GestionDocumental.Views
@@ -33,9 +34,27 @@ namespace GestionDocumental.Views
                         view.Columns[col].Visible = false;
                 }
 
-                if (view.Columns["Nombre"] != null) view.Columns["Nombre"].Width = 150;
-                if (view.Columns["Apellido"] != null) view.Columns["Apellido"].Width = 150;
-                if (view.Columns["Estado"] != null) view.Columns["Estado"].Width = 100;
+                gridViewNovedades.OptionsView.ShowFooter = true;
+                gridViewNovedades.OptionsView.ShowGroupPanel = true;
+
+                gridViewNovedades.Columns["Descripcion"].Width = 100;   // ancho en píxeles
+                gridViewNovedades.Columns["NombreCompleto"].Width = 180;
+
+                gridViewNovedades.Columns["Dias"].Width = 40;
+                gridViewNovedades.Columns["Disponible"].Width = 40;
+                // Limpiar y agregar GroupSummary
+                view.GroupSummary.Clear();
+                view.GroupSummary.Add(
+                    DevExpress.Data.SummaryItemType.Count,
+                    null,
+                    null,
+                    "{0}"
+                );
+
+                view.CustomDrawGroupRow -= View_CustomDrawGroupRow; // evitar doble suscripción
+                view.CustomDrawGroupRow += View_CustomDrawGroupRow;
+                // 👇 Opcional: que el texto del grupo muestre la cantidad
+                view.GroupFormat = "{1} [Cantidad: {2}]";
 
                 labelNovedades.Text = "Novedades Choferes";
             }
@@ -55,6 +74,33 @@ namespace GestionDocumental.Views
             gridViewNovedades.Appearance.HeaderPanel.Font = new Font("Segoe UI Semibold", 9.75f);
             gridViewNovedades.Appearance.HeaderPanel.Options.UseFont = true;
             gridViewNovedades.Appearance.Row.Options.UseFont = true;
+        }
+
+        private void View_CustomDrawGroupRow(object sender, DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view == null) return;
+
+            // Obtener info del grupo
+            var info = e.Info as DevExpress.XtraGrid.Views.Grid.ViewInfo.GridGroupRowInfo;
+            if (info == null) return;
+
+            // Cantidad de registros en el grupo
+            int groupRowCount = view.GetChildRowCount(e.RowHandle);
+
+            // Total de registros en el grid
+            int totalCount = view.DataRowCount;
+
+            // Valor de la columna agrupada (Descripcion)
+            string groupValue = view.GetGroupRowValue(e.RowHandle)?.ToString() ?? "";
+
+            // Calcular porcentaje
+            decimal porcentaje = totalCount > 0
+                ? Math.Round((decimal)groupRowCount * 100 / totalCount, 2)
+                : 0;
+
+            // 👇 Cambiar el texto que se pinta en la fila de grupo
+            info.GroupText = $"{groupValue} [Cantidad: {groupRowCount} | {porcentaje}%]";
         }
 
         public DialogResult ConfirmarEliminacion(string mensaje)

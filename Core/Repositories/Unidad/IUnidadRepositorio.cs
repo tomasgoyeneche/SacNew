@@ -18,7 +18,7 @@ namespace Core.Repositories
         Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor);
 
         Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActiva();
-
+        Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActivaPorFecha(DateTime fecha);
         // Actualizar, Editar, Eliminar
         Task ActualizarVencimientoUnidadAsync(int idUnidad, int idTipoVencimiento, DateTime fechaActualizacion, int idUsuario);
 

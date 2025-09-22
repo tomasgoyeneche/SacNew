@@ -69,6 +69,12 @@ namespace GestionOperativa.Presenters
                     break;
 
                 case 7:
+                    List<GuardiaHistorialDto> guardia = await _guardiaRepositorio.ObtenerHistorialPorIngresoAsync(_guardia.IdGuardiaIngreso);
+                    if(guardia.Any(g => g.IdGuardiaEstado == 7))
+                    {
+                        _view.MostrarMensaje("La Unidad ya tiene vaporizado cargado.");
+                        return;
+                    }
                     RegistrarVaporizadoDesdeGuardiaAsync(_guardia);
                     fecha = DateTime.Now;
                     break;
@@ -117,7 +123,8 @@ namespace GestionOperativa.Presenters
             {
                 _view.MostrarMensaje("La Unidad no es de la Nomina");
             }
-           
+            _view.Close();
+
         }
     }
 

@@ -168,7 +168,9 @@ namespace GestionFlota.Presenters
             {
                 await form._presenter.InicializarAsync(_Ruteo.IdNomina);
             });
+            _view.Close();
         }
+
 
         public async Task GuardarFechaExtranjeroAsync(
             int idProgramaTipoPunto,

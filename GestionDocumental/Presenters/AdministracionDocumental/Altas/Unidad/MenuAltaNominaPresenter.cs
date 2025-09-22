@@ -1,5 +1,6 @@
 ﻿using Configuraciones.Views;
 using Core.Base;
+using Core.Reports;
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Reports;
@@ -166,6 +167,39 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 });
             });
         }
+
+
+        public async Task ExportarNominaControlCambios(DateTime desde)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                // Obtener los datos desde el repositorio
+                List<NominaMetanolActivaDto> flotaUnidades = await _unidadRepositorio.ObtenerNominaMetanolActivaPorFecha(desde);
+
+                // Crear una instancia del nuevo reporte DevExpress
+                var reporte = new ReporteNominaMetanolCtrlCambios();
+                reporte.DataSource = null;
+                reporte.DataMember = "";
+
+                reporte.DetailReport.DataSource = flotaUnidades;
+                reporte.DetailReport.DataMember = "";
+
+                reporte.DetailReportBajas.DataSource = flotaUnidades;
+                reporte.DetailReportBajas.DataMember = "";
+
+
+                reporte.DetailReportAltas.DataSource = flotaUnidades;
+                reporte.DetailReportAltas.DataMember = "";
+                reporte.Parameters["pFechaFiltro"].Value = desde;
+
+                await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+                {
+                    form.MostrarReporteDevExpress(reporte);
+                    return Task.CompletedTask;
+                });
+            });
+        }
+
 
         public async Task GenerarReporteNominaComodatoAsync()
         {

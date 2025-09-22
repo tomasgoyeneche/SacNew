@@ -40,16 +40,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Reports\ReporteControlOperativoConsumos.cs">
+    <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteControlOperativoConsumos.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteFichaTecnicaUnidad.cs">
+    <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteFichaTecnicaUnidad.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteFichaTecnicaUnidadVacia.cs">
+    <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteFichaTecnicaUnidadVacia.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteIngresoTe.cs">
+    <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteIngresoTe.cs">
       <SubType>XtraReport</SubType>
     </Compile>
     <Compile Update="Reports\ReporteNominaEquiposEnComodato.cs">
@@ -58,7 +58,7 @@
     <Compile Update="Reports\ReporteNominaMetanolActiva.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteVerifMensual.cs">
+    <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteVerifMensual.cs">
       <SubType>XtraReport</SubType>
     </Compile>
   </ItemGroup>

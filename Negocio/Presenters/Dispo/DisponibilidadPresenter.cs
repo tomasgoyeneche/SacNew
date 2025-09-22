@@ -13,12 +13,16 @@ namespace GestionFlota.Presenters
         private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
+        private readonly IChoferRepositorio _choferRepositorio;
+
         private readonly IExcelService _excelService;
 
         public DisponibilidadPresenter(
             IDisponibilidadRepositorio disponibilidadRepositorio,
             ISesionService sesionService,
+            
             INavigationService navigationService
+            , IChoferRepositorio choferRepositorio
             , IExcelService excelService
             , INominaRepositorio nominaRepositorio
             , IAlertaRepositorio alertaRepositorio
@@ -27,6 +31,7 @@ namespace GestionFlota.Presenters
             _disponibilidadRepositorio = disponibilidadRepositorio;
             _nominaRepositorio = nominaRepositorio;
             _alertaRepositorio = alertaRepositorio;
+            _choferRepositorio = choferRepositorio;
             _excelService = excelService;
         }
 
@@ -45,8 +50,9 @@ namespace GestionFlota.Presenters
                 DateTime fecha = _view.FechaSeleccionada;
                 List<Disponibilidad> disponibilidades =
                     await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
-
+                List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
                 _view.CargarDisponibilidades(disponibilidades);
+                _view.MostrarChoferesLibres(choferesLibres);
             }
             finally
             {

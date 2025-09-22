@@ -12,7 +12,7 @@ namespace Core.Repositories
 
         Task<ConsumoGasoil?> ObtenerPorIdAsync(int idConsumoGasoil);
 
-        Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor);
+        Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor, DateTime FechaCreacion);
 
         Task<decimal> ObtenerLitrosCargadosPorProgramaAsync(int idPrograma);
 

@@ -123,6 +123,16 @@ namespace App.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mantenimientoImagen {
+            get {
+                object obj = ResourceManager.GetObject("mantenimientoImagen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MenuAbmLocaciones {
             get {
                 object obj = ResourceManager.GetObject("MenuAbmLocaciones", resourceCulture);

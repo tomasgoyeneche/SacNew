@@ -131,7 +131,8 @@ namespace GestionFlota.Views
         {
             if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewAsignados.GetFocusedRow() is Shared.Models.Cupeo cupeo) // Es doble click sobre una celda válida
             {
-                await _presenter.AbrirAsignarCargaAsync(cupeo);
+                var idNomina = cupeo.IdNomina; // Guardás antes de abrir
+                await _presenter.AbrirAsignarCargaAsync(cupeo, idNomina);
             }
         }
 
@@ -139,7 +140,39 @@ namespace GestionFlota.Views
         {
             if (e.Clicks == 2 && e.RowHandle >= 0 && gridViewDisp.GetFocusedRow() is Shared.Models.Cupeo cupeo) // Es doble click sobre una celda válida
             {
-                await _presenter.AbrirAsignarManual(cupeo);
+                var idNomina = cupeo.IdNomina; // Guardás antes de abrir
+                await _presenter.AbrirAsignarManual(cupeo, idNomina);
+
+            }
+        }
+
+        public void SeleccionarCupeoAsignadosPorId(int idNomina)
+        {
+            var view = gridViewAsignados;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Shared.Models.Cupeo;
+                if (row != null && row.IdNomina == idNomina)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
+            }
+        }
+
+        public void SeleccionarCupeoDispPorNomina(int idNomina)
+        {
+            var view = gridViewDisp;
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                var row = view.GetRow(i) as Shared.Models.Cupeo;
+                if (row != null && row.IdNomina == idNomina)
+                {
+                    view.FocusedRowHandle = i;
+                    view.SelectRow(i); // Opcional: resalta la fila
+                    break;
+                }
             }
         }
 

@@ -119,7 +119,7 @@ namespace Servicios.Presenters
         public async Task GuardarAsync()
         {
             // Validación mínima
-            if (!_view.IdMotivo.HasValue || !_view.IdPlanta.HasValue || !_view.FechaInicio.HasValue || !_view.FechaFin.HasValue)
+            if (!_view.IdMotivo.HasValue || !_view.IdPlanta.HasValue || !_view.FechaInicio.HasValue || !_view.FechaFin.HasValue )
             {
                 _view.MostrarMensaje("Debe completar motivo, planta y fechas de vaporizado.");
                 return;
@@ -133,8 +133,8 @@ namespace Servicios.Presenters
             vap.FechaInicio = _view.FechaInicio;
             vap.FechaFin = _view.FechaFin;
             vap.IdVaporizadoZona = _view.IdPlanta;
-            vap.NroCertificado = _view.NroCertificado;
-            vap.RemitoDanes = _view.RemitoDanes;
+            vap.NroCertificado = _view.NroCertificado ?? "0";
+            vap.RemitoDanes = _view.RemitoDanes ?? "0";
             vap.Observaciones = _view.Observaciones;
             vap.Activo = true;
 

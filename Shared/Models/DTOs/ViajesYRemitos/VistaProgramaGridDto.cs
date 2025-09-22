@@ -11,9 +11,11 @@
         public string Origen { get; set; }
         public DateTime Carga { get; set; }
         public string RtoC { get; set; }
+        public string RtoCD { get; set; }
         public string Destino { get; set; }
         public DateTime Entrega { get; set; }
         public string RtoE { get; set; }
+        public string RtoED { get; set; }
         public string TotalProd { get; set; }
         public string HoraCarga { get; set; }
         public string HoraEnViaje { get; set; }

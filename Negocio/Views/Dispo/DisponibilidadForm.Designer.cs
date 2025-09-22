@@ -46,6 +46,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlDisponibles = new DevExpress.XtraGrid.GridControl();
@@ -93,6 +95,12 @@
             bDisponibilidadYpf = new DevExpress.XtraEditors.SimpleButton();
             lblCheck = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNoCheck = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            gridControlChoferesLibres = new DevExpress.XtraGrid.GridControl();
+            gridViewChoferesLibres = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDisponibles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewDisponibles).BeginInit();
@@ -111,6 +119,9 @@
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties.CalendarTimeProperties).BeginInit();
+            guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControlChoferesLibres).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewChoferesLibres).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel5
@@ -418,7 +429,7 @@
             guna2Panel3.Location = new Point(807, 12);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel3.Size = new Size(606, 146);
+            guna2Panel3.Size = new Size(359, 146);
             guna2Panel3.TabIndex = 49;
             // 
             // gridControlHistorico
@@ -428,7 +439,7 @@
             gridControlHistorico.Location = new Point(0, 26);
             gridControlHistorico.MainView = gridViewHistorico;
             gridControlHistorico.Name = "gridControlHistorico";
-            gridControlHistorico.Size = new Size(606, 120);
+            gridControlHistorico.Size = new Size(359, 120);
             gridControlHistorico.TabIndex = 51;
             gridControlHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewHistorico });
             gridControlHistorico.DoubleClick += gridControlHistorico_DoubleClick;
@@ -483,7 +494,7 @@
             guna2HtmlLabel2.ForeColor = Color.Black;
             guna2HtmlLabel2.Location = new Point(0, 0);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(606, 20);
+            guna2HtmlLabel2.Size = new Size(359, 20);
             guna2HtmlLabel2.TabIndex = 50;
             guna2HtmlLabel2.Text = "Historico";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -690,6 +701,75 @@
             lblNoCheck.Text = "No Check:";
             lblNoCheck.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // guna2Panel7
+            // 
+            guna2Panel7.BackColor = Color.Transparent;
+            guna2Panel7.Controls.Add(guna2HtmlLabel7);
+            guna2Panel7.Controls.Add(gridControlChoferesLibres);
+            guna2Panel7.CustomizableEdges = customizableEdges13;
+            guna2Panel7.FillColor = Color.FromArgb(42, 48, 56);
+            guna2Panel7.Location = new Point(1172, 12);
+            guna2Panel7.Name = "guna2Panel7";
+            guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel7.Size = new Size(241, 146);
+            guna2Panel7.TabIndex = 88;
+            // 
+            // guna2HtmlLabel7
+            // 
+            guna2HtmlLabel7.AutoSize = false;
+            guna2HtmlLabel7.BackColor = Color.SteelBlue;
+            guna2HtmlLabel7.Dock = DockStyle.Top;
+            guna2HtmlLabel7.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel7.ForeColor = Color.Black;
+            guna2HtmlLabel7.Location = new Point(0, 0);
+            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            guna2HtmlLabel7.Size = new Size(241, 20);
+            guna2HtmlLabel7.TabIndex = 49;
+            guna2HtmlLabel7.Text = "Choferes Sin Unidad";
+            guna2HtmlLabel7.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // gridControlChoferesLibres
+            // 
+            gridControlChoferesLibres.Dock = DockStyle.Bottom;
+            gridControlChoferesLibres.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControlChoferesLibres.Location = new Point(0, 26);
+            gridControlChoferesLibres.MainView = gridViewChoferesLibres;
+            gridControlChoferesLibres.Name = "gridControlChoferesLibres";
+            gridControlChoferesLibres.Size = new Size(241, 120);
+            gridControlChoferesLibres.TabIndex = 39;
+            gridControlChoferesLibres.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewChoferesLibres });
+            // 
+            // gridViewChoferesLibres
+            // 
+            gridViewChoferesLibres.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridViewChoferesLibres.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridViewChoferesLibres.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewChoferesLibres.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn28, gridColumn29 });
+            gridViewChoferesLibres.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewChoferesLibres.GridControl = gridControlChoferesLibres;
+            gridViewChoferesLibres.Name = "gridViewChoferesLibres";
+            gridViewChoferesLibres.OptionsBehavior.Editable = false;
+            gridViewChoferesLibres.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewChoferesLibres.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewChoferesLibres.OptionsView.EnableAppearanceOddRow = true;
+            gridViewChoferesLibres.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn28
+            // 
+            gridColumn28.Caption = "Chofer";
+            gridColumn28.FieldName = "NombreApellido";
+            gridColumn28.Name = "gridColumn28";
+            gridColumn28.Visible = true;
+            gridColumn28.VisibleIndex = 0;
+            // 
+            // gridColumn29
+            // 
+            gridColumn29.Caption = "Estado";
+            gridColumn29.FieldName = "Estado";
+            gridColumn29.Name = "gridColumn29";
+            gridColumn29.Visible = true;
+            gridColumn29.VisibleIndex = 1;
+            // 
             // DisponibilidadForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -697,6 +777,7 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
+            Controls.Add(guna2Panel7);
             Controls.Add(lblNoCheck);
             Controls.Add(lblCheck);
             Controls.Add(bDisponibilidadYpf);
@@ -734,6 +815,9 @@
             guna2Panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEditFecha.Properties).EndInit();
+            guna2Panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControlChoferesLibres).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewChoferesLibres).EndInit();
             ResumeLayout(false);
         }
 
@@ -786,5 +870,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private DevExpress.XtraGrid.GridControl gridControlChoferesLibres;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewChoferesLibres;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
     }
 }

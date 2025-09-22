@@ -89,14 +89,14 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor)
+        public async Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor, DateTime FechaCreacion)
         {
             return await ConectarAsync(async connection =>
             {
                 const string query = @"
                 SELECT IdPrograma, Kilometros
                 FROM vw_ProgramaCombustible
-                WHERE PatenteTractor = @PatenteTractor";
+                WHERE PatenteTractor = @PatenteTractor and SalidaEntrega is null";
 
                 return await connection.QuerySingleOrDefaultAsync<(int, decimal)?>(query, new { PatenteTractor = patenteTractor });
             });

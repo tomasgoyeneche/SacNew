@@ -595,6 +595,7 @@
             bControlTe.Size = new Size(133, 33);
             bControlTe.TabIndex = 10;
             bControlTe.Text = "Control TE";
+            bControlTe.Click += bControlTe_Click;
             // 
             // bNominaActual
             // 

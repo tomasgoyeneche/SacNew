@@ -16,7 +16,6 @@ namespace GestionFlota.Views
 
             dateEditFechaCambio.EditValue = DateTime.Now;
             gridViewChoferes.FocusedRowChanged += async (s, e) => await _presenter.ChoferSeleccionadoCambioAsync();
-            bBajarChofer.Click += async (s, e) => await _presenter.BajarChoferAsync();
         }
 
         public void CargarChoferes(List<Chofer> choferes)
@@ -69,6 +68,11 @@ namespace GestionFlota.Views
         private async void bGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.ConfirmarCambioChoferAsync();
+        }
+
+        private async void bBajarChofer_Click(object sender, EventArgs e)
+        {
+            await _presenter.BajarChoferAsync();
         }
     }
 }

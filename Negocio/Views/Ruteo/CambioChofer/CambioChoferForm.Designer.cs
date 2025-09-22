@@ -328,6 +328,7 @@
             bBajarChofer.Size = new Size(161, 40);
             bBajarChofer.TabIndex = 118;
             bBajarChofer.Text = "Bajar Chofer";
+            bBajarChofer.Click += bBajarChofer_Click;
             // 
             // bCancelar
             // 

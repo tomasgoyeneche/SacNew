@@ -16,5 +16,9 @@ namespace GestionFlota.Views
         void MostrarVencimientos(List<VencimientosDto> vencimientos);
 
         void MostrarAlertas(List<AlertaDto> alertas);
+
+
+        void SeleccionarCupeoAsignadosPorId(int idNomina);
+        void SeleccionarCupeoDispPorNomina(int idNomina);
     }
 }

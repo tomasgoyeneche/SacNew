@@ -132,5 +132,10 @@ namespace SacNew.Views
         {
             _presenter.AbrirFormularioConPermisosAsync<PruebaDevforms>("0016-Informes");
         }
+
+        private void bMantenimiento_Click(object sender, EventArgs e)
+        {
+            MostrarMensaje("Actualmente no habilitado");
+        }
     }
 }

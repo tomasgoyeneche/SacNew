@@ -28,6 +28,10 @@ namespace GestionFlota.Views
                 ? $"Editar Programa n°: {programa.IdPrograma}"
                 : "Programa no asignado";
 
+            lblAlbaranTd.Text = programa != null
+              ? $"TD: {programa.AlbaranDespacho}"
+              : "";
+
             // Label Chofer
             lblChofer.Text = $"Chofer: {ruteo.Chofer}";
 
@@ -528,5 +532,12 @@ namespace GestionFlota.Views
             DateTime? fecha = dtpSalidaExt2.EditValue as DateTime?;
             await _presenter.GuardarFechaExtranjeroAsync(6, 3, fecha, "Salida Aduana Ext 02");
         }
+
+
+        public void Close()
+        {
+            Dispose();
+        }
+
     }
 }

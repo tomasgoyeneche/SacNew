@@ -325,6 +325,7 @@
             bFlotaControlCambios.Size = new Size(145, 38);
             bFlotaControlCambios.TabIndex = 57;
             bFlotaControlCambios.Text = "Flota Metanol Con Cambios";
+            bFlotaControlCambios.Click += bFlotaControlCambios_Click;
             // 
             // bNominaEnComodato
             // 

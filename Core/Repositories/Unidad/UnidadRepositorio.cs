@@ -79,6 +79,21 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<NominaMetanolActivaDto>> ObtenerNominaMetanolActivaPorFecha(DateTime fecha)
+        {
+            var query = @"
+        SELECT *
+        FROM vw_NominaMetanol
+        WHERE CAST(@Fecha AS DATE) >= AltaUnidad
+          AND (CAST(@Fecha AS DATE) <= BajaUnidad OR BajaUnidad IS NULL)";
+
+            return await ConectarAsync(async connection =>
+            {
+                var result = await connection.QueryAsync<NominaMetanolActivaDto>(query, new { Fecha = fecha.Date });
+                return result.ToList();
+            });
+        }
+
         // Actualizar, Editar, Eliminar
         public async Task EliminarUnidadAsync(int idUnidad)
         {

@@ -178,6 +178,7 @@
             bObservacion = new DevExpress.XtraEditors.SimpleButton();
             simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            lblAlbaranTd = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblEditarPrograma = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblChofer = new Label();
             lblTractor = new Label();
@@ -1167,14 +1168,27 @@
             // 
             // guna2Panel10
             // 
+            guna2Panel10.Controls.Add(lblAlbaranTd);
             guna2Panel10.Controls.Add(lblEditarPrograma);
             guna2Panel10.CustomizableEdges = customizableEdges11;
             guna2Panel10.FillColor = Color.Goldenrod;
-            guna2Panel10.Location = new Point(1, 11);
+            guna2Panel10.Location = new Point(1, 8);
             guna2Panel10.Name = "guna2Panel10";
             guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel10.Size = new Size(300, 30);
+            guna2Panel10.Size = new Size(300, 55);
             guna2Panel10.TabIndex = 107;
+            // 
+            // lblAlbaranTd
+            // 
+            lblAlbaranTd.AutoSize = false;
+            lblAlbaranTd.BackColor = Color.Transparent;
+            lblAlbaranTd.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAlbaranTd.ForeColor = SystemColors.ControlLight;
+            lblAlbaranTd.Location = new Point(8, 31);
+            lblAlbaranTd.Name = "lblAlbaranTd";
+            lblAlbaranTd.Size = new Size(278, 20);
+            lblAlbaranTd.TabIndex = 15;
+            lblAlbaranTd.Text = "TD:";
             // 
             // lblEditarPrograma
             // 
@@ -1184,9 +1198,9 @@
             lblEditarPrograma.ForeColor = SystemColors.ControlLight;
             lblEditarPrograma.Location = new Point(8, 5);
             lblEditarPrograma.Name = "lblEditarPrograma";
-            lblEditarPrograma.Size = new Size(227, 20);
+            lblEditarPrograma.Size = new Size(289, 20);
             lblEditarPrograma.TabIndex = 14;
-            lblEditarPrograma.Text = "Editar Programa N°:";
+            lblEditarPrograma.Text = "Programa N°:";
             // 
             // lblChofer
             // 
@@ -1598,5 +1612,6 @@
         private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaArg;
         private DevExpress.XtraEditors.SimpleButton btnEliminarLlegadaAduanaExt1;
         private DevExpress.XtraEditors.DateEdit dateEditEntregaIngreso;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAlbaranTd;
     }
 }

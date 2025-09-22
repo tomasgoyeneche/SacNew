@@ -17,7 +17,7 @@ namespace Core.Repositories
             var query = @"
         SELECT *
         FROM vw_NovedadesChoferes
-        WHERE FechaFin >= CAST(GETDATE() AS DATE) Order by FechaInicio"; // Comparación sin hora
+        WHERE FechaFin >= CAST(GETDATE() AS DATE) Order by FechaInicio desc"; // Comparación sin hora
 
             return await ConectarAsync(async connection =>
             {
@@ -30,7 +30,7 @@ namespace Core.Repositories
         {
             var query = @"
         SELECT *
-        FROM vw_NovedadesChoferes Order by FechaInicio"; // Comparación sin hora
+        FROM vw_NovedadesChoferes Order by FechaInicio desc"; // Comparación sin hora
 
             return await ConectarAsync(async connection =>
             {

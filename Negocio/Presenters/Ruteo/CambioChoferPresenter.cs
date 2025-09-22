@@ -57,7 +57,7 @@ namespace GestionFlota.Presenters
         public async Task ConfirmarCambioChoferAsync()
         {
             int? idChofer = _view.IdChoferSeleccionado;
-            if(idChofer == _nominaActual.IdChofer)
+            if (idChofer == _nominaActual.IdChofer)
             {
                 _view.MostrarMensaje("El chofer seleccionado es el mismo que ya está asignado a la unidad.");
                 return;
@@ -67,7 +67,17 @@ namespace GestionFlota.Presenters
             string? Observaciones = _view.Observacion;
             // Llamar SP (agregar método al repositorio)
             await _nominaRepositorio.CambiarChoferUnidadAsync(idChofer, idUnidad, fecha, Observaciones);
-
+        
+            if (_nominaActual.IdChofer != 0)
+            {
+                Chofer chofer = await _choferRepositorio.ObtenerPorIdAsync(_nominaActual.IdChofer);
+                await _nominaRepositorio.RegistrarNominaAsync(
+                 _nominaActual.IdNomina,
+                 "Cambio Chofer",
+                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre}" + fecha.ToString("dd/MM/yyyy"),
+                 _sesionService.IdUsuario
+                );
+            }
             // Registrar evento en NominaRegistro
             string nombre = _view.NombreChoferSeleccionado ?? "Sin chofer";
             string descripcion = $"{nombre} - {fecha:dd/MM/yyyy}";
@@ -82,16 +92,21 @@ namespace GestionFlota.Presenters
             int idUnidad = _nominaActual.IdUnidad;
             DateTime fecha = _view.FechaCambio;
             // SP con null en idChofer para bajar chofer
-            await _nominaRepositorio.CambiarChoferUnidadAsync(null, idUnidad, fecha, null);
+            if(_nominaActual.IdChofer != 0)
+            {
+                await _nominaRepositorio.CambiarChoferUnidadAsync(null, idUnidad, fecha, null);
 
-            await _nominaRepositorio.RegistrarNominaAsync(
-                _nominaActual.IdNomina,
-                "Cambio Chofer",
-                "Sin chofer - " + fecha.ToString("dd/MM/yyyy"),
-                _sesionService.IdUsuario
-            );
+                Chofer chofer = await _choferRepositorio.ObtenerPorIdAsync(_nominaActual.IdChofer);
 
-            _view.MostrarMensaje("Chofer dado de baja correctamente.");
+                await _nominaRepositorio.RegistrarNominaAsync(
+                 _nominaActual.IdNomina,
+                 "Cambio Chofer",
+                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre}" + fecha.ToString("dd/MM/yyyy"),
+                 _sesionService.IdUsuario
+                );
+
+                _view.MostrarMensaje("Chofer dado de baja correctamente.");
+            }
             _view.Cerrar();
         }
     }

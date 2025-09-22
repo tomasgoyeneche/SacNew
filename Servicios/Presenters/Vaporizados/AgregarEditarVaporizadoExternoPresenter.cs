@@ -101,8 +101,8 @@ namespace Servicios.Presenters
             vap.IdTe = null;
             vap.TipoIngreso = 1;
             vap.NroCertificado = _view.NroCertificado;
-            vap.RemitoDanes = _view.RemitoDanes;
-            vap.Observaciones = _view.Observaciones;
+            vap.RemitoDanes = _view.RemitoDanes ?? "0";
+            vap.Observaciones = _view.Observaciones ?? "0";
             vap.Activo = true;
 
             // Guardar/actualizar

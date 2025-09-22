@@ -30,6 +30,7 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuVaporizados));
             gridControlVaporizados = new DevExpress.XtraGrid.GridControl();
             gridViewVaporizados = new DevExpress.XtraGrid.Views.Grid.GridView();
             bAgregarExterno = new DevExpress.XtraEditors.SimpleButton();
@@ -37,6 +38,7 @@
             simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             labelNovedades = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            btnExportar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)gridControlVaporizados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewVaporizados).BeginInit();
             guna2Panel10.SuspendLayout();
@@ -127,12 +129,27 @@
             labelNovedades.TabIndex = 0;
             labelNovedades.Text = "Vaporizados";
             // 
+            // btnExportar
+            // 
+            btnExportar.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            btnExportar.Appearance.Options.UseBackColor = true;
+            btnExportar.ImageOptions.Image = (Image)resources.GetObject("btnExportar.ImageOptions.Image");
+            btnExportar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            btnExportar.Location = new Point(949, 21);
+            btnExportar.Name = "btnExportar";
+            btnExportar.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            btnExportar.Size = new Size(132, 30);
+            btnExportar.TabIndex = 48;
+            btnExportar.Text = "Exportar";
+            btnExportar.Click += btnExportar_Click;
+            // 
             // MenuVaporizados
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1093, 573);
+            Controls.Add(btnExportar);
             Controls.Add(guna2Panel10);
             Controls.Add(simpleButton3);
             Controls.Add(simpleButton2);
@@ -159,5 +176,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelNovedades;
+        private DevExpress.XtraEditors.SimpleButton btnExportar;
     }
 }

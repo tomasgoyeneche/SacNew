@@ -191,5 +191,23 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private void bImprimirChecklist_Click(object sender, EventArgs e)
         {
         }
+
+        private async void bFlotaControlCambios_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+               "Por favor ingrese la fecha Dia (formato: dd/MM/yyyy):",
+               "Fecha Desde",
+               DateTime.Today.ToString("dd/MM/yyyy")
+           );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Dia'.");
+                return;
+            }
+
+            // Llama al presenter para exportar
+            await _presenter.ExportarNominaControlCambios(desde);
+        }
     }
 }

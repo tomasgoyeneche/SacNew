@@ -16,5 +16,11 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QueryFirstOrDefaultAsync<TransitoEspecial>(query, new { id }));
         }
+
+        public async Task<List<GuardiaTransitoEspecialDto>> ObtenerControlTransitoEspecial(DateTime desde, DateTime hasta)
+        {
+            string query = @"SELECT * FROM vw_GuardiaTransitoEspecial WHERE Ingreso BETWEEN @desde AND @hasta Order by Ingreso";
+            return (await ConectarAsync(conn => conn.QueryAsync<GuardiaTransitoEspecialDto>(query, new { desde, hasta }))).ToList();
+        }
     }
 }

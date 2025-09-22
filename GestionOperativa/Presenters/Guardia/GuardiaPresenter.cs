@@ -434,5 +434,30 @@ namespace GestionOperativa.Presenters
 
             _view.MostrarMensaje("Archivo TransoftMetanol exportado y abierto.");
         }
+
+        public async Task ExportarTeAsync(DateTime desde, DateTime hasta)
+        {
+            var lista = await _teRepositorio.ObtenerControlTransitoEspecial(desde, hasta);
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje("No hay datos para el rango seleccionado.");
+                return;
+            }
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"ControlTransitoEspecial-{desde:yyyyMMdd}_a_{hasta:yyyyMMdd}.xlsx");
+            await _excelService.ExportarAExcelAsync(lista, filePath, "ControlTransitoEspecial");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje("Archivo TransitoEspecial exportado y abierto.");
+        }
     }
 }

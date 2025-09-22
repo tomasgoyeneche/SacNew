@@ -138,7 +138,7 @@ namespace GestionFlota.Presenters
         private async Task CalcularLitrosAutorizadosAsync()
         {
             (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_Poc.IdPoc);
-            var programa = await _consumoGasoilRepositorio.ObtenerProgramaPorPatenteAsync(_patente);
+            var programa = await _consumoGasoilRepositorio.ObtenerProgramaPorPatenteAsync(_patente, _Poc.FechaCreacion);
             bool validaPorBahiaBlanca = false;
             bool programaValido = programa?.Kilometros > 0;
 

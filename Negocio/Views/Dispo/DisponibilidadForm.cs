@@ -36,6 +36,16 @@ namespace GestionFlota.Views
             lblNoCheck.Text = $"No Check: {countNoCheck}";
         }
 
+        public void MostrarChoferesLibres(List<ChoferesLibresDto> choferes)
+        {
+            gridControlChoferesLibres.DataSource = choferes;
+
+            var view = gridViewChoferesLibres;
+
+            view.BestFitColumns();
+        }
+
+
         public void SetEstadoCargaDisponibles(bool cargando)
         {
             if (cargando)
