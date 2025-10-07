@@ -302,5 +302,21 @@ namespace Core.Repositories
             string query = @"SELECT * FROM vw_AsignadosCargados WHERE Disponible BETWEEN @desde AND @hasta Order by idPrograma";
             return (await ConectarAsync(conn => conn.QueryAsync<AsignadosCargados>(query, new { desde, hasta }))).ToList();
         }
+
+        public async Task<List<VistaPrograma>> ObtenerProgramasPorMesAsync(int mes, int anio)
+        {
+            const string query = @"
+            SELECT *
+            FROM vw_Programa
+            WHERE YEAR(FechaPrograma) = @Anio
+              AND MONTH(FechaPrograma) = @Mes
+            ORDER BY FechaPrograma";
+
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<VistaPrograma>(query, new { Mes = mes, Anio = anio });
+                return result.ToList();
+            });
+        }
     }
 }

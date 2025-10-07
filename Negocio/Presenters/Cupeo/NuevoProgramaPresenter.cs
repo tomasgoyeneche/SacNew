@@ -72,6 +72,15 @@ namespace GestionFlota.Presenters
                 return;
             }
 
+            Disponible? disponible = await _disponibilidadRepositorio.ObtenerPorIdAsync(_cupeo.IdDisponible.Value);
+            if(disponible != null)
+            {
+                if(inicio != disponible.FechaDisponible.Date)
+                {
+                    _view.MostrarMensaje("La fecha de carga debe coincidir con la fecha del disponible seleccionado.");
+                    return;
+                }
+            }
 
             var programa = new Programa
             {

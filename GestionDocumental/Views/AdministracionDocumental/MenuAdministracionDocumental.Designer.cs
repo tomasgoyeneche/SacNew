@@ -602,9 +602,9 @@
             guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
             guna2HtmlLabel5.Location = new Point(93, 33);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(89, 58);
+            guna2HtmlLabel5.Size = new Size(101, 67);
             guna2HtmlLabel5.TabIndex = 13;
-            guna2HtmlLabel5.Text = "Licencia, Psicofisico apto, Psicofisico Curso, Seguro Pago Hasta\r\n";
+            guna2HtmlLabel5.Text = "Licencia, Psicofisico apto, Psicofisico Curso, Seguro Pago Hasta, Examen Anual\r\n\r\n,";
             // 
             // guna2HtmlLabel6
             // 

@@ -34,6 +34,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViajesConsolidadosForm));
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlProgramas = new DevExpress.XtraGrid.GridControl();
@@ -44,6 +45,7 @@
             txtEntrega = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtCarga = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            btnExportar = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlProgramas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewProgramas).BeginInit();
@@ -180,6 +182,20 @@
             guna2HtmlLabel11.Text = "Remitos Pendientes";
             guna2HtmlLabel11.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // btnExportar
+            // 
+            btnExportar.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            btnExportar.Appearance.Options.UseBackColor = true;
+            btnExportar.ImageOptions.Image = (Image)resources.GetObject("btnExportar.ImageOptions.Image");
+            btnExportar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            btnExportar.Location = new Point(661, 42);
+            btnExportar.Name = "btnExportar";
+            btnExportar.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            btnExportar.Size = new Size(132, 30);
+            btnExportar.TabIndex = 104;
+            btnExportar.Text = "Exportar";
+            btnExportar.Click += btnExportar_Click;
+            // 
             // ViajesConsolidadosForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -187,6 +203,7 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1268, 688);
+            Controls.Add(btnExportar);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel10);
             Controls.Add(guna2Panel5);
@@ -215,5 +232,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtEntrega;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtCarga;
+        private DevExpress.XtraEditors.SimpleButton btnExportar;
     }
 }

@@ -90,7 +90,7 @@ namespace GestionFlota.Presenters
             var cuposDisponibles = CalcularCuposDisponibles(cuposUsados);
 
             // Si edita y su propio cupo está en la lista usada, debe poder verlo
-            if (DisponibleActual != null && !cuposDisponibles.Contains(DisponibleActual.Cupo))
+            if (DisponibleActual != null && !cuposDisponibles.Contains(DisponibleActual.Cupo) && DisponibleActual.IdOrigen == idOrigen)
                 cuposDisponibles.Add(DisponibleActual.Cupo);
 
             _view.CargarCupos(cuposDisponibles.OrderBy(x => x).ToList());

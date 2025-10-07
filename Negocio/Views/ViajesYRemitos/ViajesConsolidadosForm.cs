@@ -46,5 +46,35 @@ namespace GestionFlota.Views
                 }
             }
         }
+
+        private async void btnExportar_Click(object sender, EventArgs e)
+        {
+            string mesStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Ingrese el mes (1-12):",
+                "Mes",
+                DateTime.Today.Month.ToString()
+            );
+
+            if (string.IsNullOrWhiteSpace(mesStr) || !int.TryParse(mesStr, out int mes) || mes < 1 || mes > 12)
+            {
+                XtraMessageBox.Show("Por favor ingrese un mes válido (1-12).");
+                return;
+            }
+
+            string anioStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Ingrese el año (ejemplo: 2025):",
+                "Año",
+                DateTime.Today.Year.ToString()
+            );
+
+            if (string.IsNullOrWhiteSpace(anioStr) || !int.TryParse(anioStr, out int anio) || anio < 2000 || anio > 2100)
+            {
+                XtraMessageBox.Show("Por favor ingrese un año válido (ejemplo: 2025).");
+                return;
+            }
+
+            // Llamar al presenter
+            await _presenter.ExportarProgramasPorMesAsync(mes, anio);
+        }
     }
 }

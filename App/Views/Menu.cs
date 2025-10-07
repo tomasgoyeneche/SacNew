@@ -7,6 +7,7 @@ using GestionOperativa.Views.AdministracionDocumental;
 using InformesYEstadisticas;
 using SacNew.Views.Configuraciones.AbmLocaciones;
 using SacNew.Views.GestionFlota.Postas;
+using Servicios.Views.Mantenimiento;
 using Servicios.Views.Vaporizados;
 
 namespace SacNew.Views
@@ -135,7 +136,7 @@ namespace SacNew.Views
 
         private void bMantenimiento_Click(object sender, EventArgs e)
         {
-            MostrarMensaje("Actualmente no habilitado");
+            _presenter.AbrirFormularioConPermisosAsync<MenuMantenimiento>("0028-Mantenimiento");
         }
     }
 }

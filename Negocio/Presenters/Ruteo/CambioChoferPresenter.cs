@@ -62,6 +62,28 @@ namespace GestionFlota.Presenters
                 _view.MostrarMensaje("El chofer seleccionado es el mismo que ya está asignado a la unidad.");
                 return;
             }
+
+            Nomina? nominaChoferNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorChofer(idChofer.Value);
+            if(nominaChoferNueva != null)
+            {
+                if(nominaChoferNueva.FechaAlta > DateTime.Now)
+                {
+                    _view.MostrarMensaje("El chofer seleccionado ya está asignado a otra unidad en una fecha futura, comunicarse a sistemas para cambiar.");
+                    return;
+                }
+            }
+
+
+            Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
+            if(nominaUnidadNueva != null)
+            {
+                if(nominaUnidadNueva.FechaAlta > DateTime.Now)
+                {
+                    _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
+                    return;
+                }
+            }
+
             int idUnidad = _nominaActual.IdUnidad;
             DateTime fecha = _view.FechaCambio;
             string? Observaciones = _view.Observacion;
@@ -92,7 +114,29 @@ namespace GestionFlota.Presenters
             int idUnidad = _nominaActual.IdUnidad;
             DateTime fecha = _view.FechaCambio;
             // SP con null en idChofer para bajar chofer
-            if(_nominaActual.IdChofer != 0)
+
+            Nomina? nominaChoferNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorChofer(_nominaActual.IdChofer);
+            if (nominaChoferNueva != null)
+            {
+                if (nominaChoferNueva.FechaAlta > DateTime.Now)
+                {
+                    _view.MostrarMensaje("El chofer a bajar ya está asignado a otra unidad en una fecha futura, comunicarse a sistemas para cambiar.");
+                    return;
+                }
+            }
+
+            Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
+            if (nominaUnidadNueva != null)
+            {
+                if (nominaUnidadNueva.FechaAlta > DateTime.Now)
+                {
+                    _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
+                    return;
+                }
+            }
+
+
+            if (_nominaActual.IdChofer != 0)
             {
                 await _nominaRepositorio.CambiarChoferUnidadAsync(null, idUnidad, fecha, null);
 

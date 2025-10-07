@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views;
 using Shared.Models;
+using System.IO;
 
 namespace GestionFlota.Presenters
 {
@@ -10,21 +11,24 @@ namespace GestionFlota.Presenters
     {
         private readonly IProgramaRepositorio _programaRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IExcelService _excelService;
 
         public ViajesConsolidadosPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
+            IExcelService excelService,
             INominaRepositorio nominaRepositorio,
             IProgramaRepositorio programaRepositorio)
             : base(sesionService, navigationService)
         {
             _programaRepositorio = programaRepositorio;
+            _excelService = excelService;
             _nominaRepositorio = nominaRepositorio;
         }
 
         public async Task InicializarAsync()
         {
-            var programas = await _programaRepositorio.ObtenerVistaProgramasAsync();
+            List<VistaPrograma> programas = await _programaRepositorio.ObtenerVistaProgramasAsync();
             var lista = programas
                 .OrderByDescending(x => x.EntregaSalida)
                 .Select(x => new VistaProgramaGridDto
@@ -118,6 +122,71 @@ namespace GestionFlota.Presenters
             {
                 await f._presenter.InicializarAsync(ruteo);
             });
+        }
+
+        public async Task ExportarProgramasPorMesAsync(int mes, int anio)
+        {
+            List<VistaPrograma> lista = await _programaRepositorio.ObtenerProgramasPorMesAsync(mes, anio);
+
+            if (lista == null || !lista.Any())
+            {
+                _view.MostrarMensaje($"No hay programas para {mes:D2}/{anio}.");
+                return;
+            }
+
+            var programas = lista
+               .OrderBy(x => x.FechaPrograma)
+               .Select(x => new VistaProgramaEstadias
+               {
+                   IdPrograma = x.IdPrograma,
+                   Tractor = x.Tractor,
+                   Semi = x.Semi,
+                   Empresa = x.Empresa,
+                   Chofer = x.Empresa,
+                   FechaPrograma = x.FechaPrograma,
+                   AlbaranDespacho = x.AlbaranDespacho,
+                   PedidoOr = x.PedidoOr,
+                   Producto = x.Producto,
+                   Origen = x.Origen,
+                   CargaIngreso = x.CargaIngreso,
+                   CargaSalida = x.CargaSalida,
+                   EstadiaCarga = x.EstadiaCarga,
+                   CargaRemito = x.CargaRemito,
+                   CargaRemitoFecha = x.CargaRemitoFecha,
+                   CargaUnidad = x.CargaUnidad,
+                   CargaRemitoKg = x.CargaRemitoKg,
+                   Destino = x.Destino,
+                   EntregaLlegada = x.EntregaLlegada,
+                   EntregaIngreso = x.EntregaIngreso,
+                   EntregaSalida = x.EntregaSalida,
+                   Estadia = x.Estadia,
+                   EntregaRemito = x.EntregaRemito,
+                   EntregaRemitoFecha = x.EntregaRemitoFecha,
+                   EntregaUnidad = x.EntregaUnidad,
+                   EntregaRemitoKg = x.EntregaRemitoKg,
+                   HoraCarga = x.HoraCarga,
+                   HoraEnViaje = x.HoraEnViaje,
+                   HoraEntrega = x.HoraEntrega,
+                   HoraTotal = x.HoraTotal,
+                   KmTotales = x.KmTotales       
+                 }).ToList();
+
+
+            string carpeta = @"C:\Compartida\Exportaciones";
+            if (!Directory.Exists(carpeta))
+                Directory.CreateDirectory(carpeta);
+
+            string filePath = Path.Combine(carpeta, $"Programas-{anio}{mes:D2}.xlsx");
+
+            await _excelService.ExportarAExcelAsync(programas, filePath, "Programas");
+
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+
+            _view.MostrarMensaje($"Archivo de programas {mes:D2}/{anio} exportado y abierto.");
         }
     }
 }

@@ -62,6 +62,20 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Nomina>(query, new { IdNomina = idNomina }));
         }
 
+        public async Task<Nomina?> ObtenerNominaMasNuevaPorChofer(int idChofer)
+        {
+            var query = "SELECT * FROM Nomina WHERE IdChofer = @IdChofer order by fechaalta desc";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Nomina>(query, new { IdChofer = idChofer }));
+        }
+
+        public async Task<Nomina?> ObtenerNominaMasNuevaPorUnidad(int idUnidad)
+        {
+            var query = "SELECT * FROM Nomina WHERE IdUnidad = @IdUnidad order by fechaalta desc";
+            return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Nomina>(query, new { IdUnidad = idUnidad }));
+        }
+
+
+
         public async Task<List<VencimientosDto>> ObtenerVencimientosPorNominaAsync(Nomina nomina)
         {
             var vencimientos = new List<VencimientosDto>();

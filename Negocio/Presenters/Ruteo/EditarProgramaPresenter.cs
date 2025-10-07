@@ -82,10 +82,23 @@ namespace GestionFlota.Presenters
         public async Task GuardarFechaProgramaAsync(string campo, DateTime? fechaNueva)
         {
             await _programaRepositorio.ActualizarFechaYRegistrarAsync(_Ruteo.IdPrograma, campo, fechaNueva, _Ruteo.IdNomina, _sesionService.IdUsuario);
-            if (campo == "EntregaSalida")
+            if(campo == "EntregaSalida" && fechaNueva == null)
+            {
+                ProgramaTramo programaTramo = new ProgramaTramo
+                {
+                    IdPrograma = _Ruteo.IdPrograma,
+                    IdDestino = _Ruteo.IdDestino,
+                    IdNomina = _Ruteo.IdNomina,
+                    FechaInicio = DateTime.Now,
+                    FechaFin = null,
+                };
+                await _programaRepositorio.InsertarProgramaTramoAsync(programaTramo);
+            }
+            else if (campo == "EntregaSalida")
             {
                 await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(_Ruteo.IdPrograma, fechaNueva);
             }
+            
             await InicializarAsync(_Ruteo);
         }
 

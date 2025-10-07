@@ -223,6 +223,13 @@ namespace GestionFlota.Views
 
         private async void bEliminarLlegadaCarga_Click(object sender, EventArgs e)
         {
+
+            if (lblLlegadaEntrega.Text != "Llegada:")
+            {
+                MostrarMensaje("No puede eliminar la Fecha de Llegada de Carga si ya existe Fecha de Llegada a Entrega.");
+                return;
+            }
+
             var result = MessageBox.Show("¿Seguro que desea eliminar la Fecha de Llegada a Carga?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
@@ -231,6 +238,12 @@ namespace GestionFlota.Views
 
         private async void bEliminarIngresoCarga_Click(object sender, EventArgs e)
         {
+            if (lblLlegadaEntrega.Text != "Llegada:")
+            {
+                MostrarMensaje("No puede eliminar la Fecha de Ingreso de Carga si ya existe Fecha de Llegada a Entrega.");
+                return;
+            }
+
             var result = MessageBox.Show("¿Seguro que desea eliminar la Fecha de Ingreso a Carga?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
@@ -239,8 +252,17 @@ namespace GestionFlota.Views
 
         private async void bEliminarSalidaCarga_Click(object sender, EventArgs e)
         {
+
+            if(lblLlegadaEntrega.Text != "Llegada:")
+            {
+                MostrarMensaje("No puede eliminar la Fecha de Salida de Carga si ya existe Fecha de Llegada a Entrega.");
+                return;
+            }
+
             var result = MessageBox.Show("¿Seguro que desea eliminar la Fecha de Salida a Carga?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
+
+           
 
             await _presenter.GuardarFechaProgramaAsync("CargaSalida", null);
         }

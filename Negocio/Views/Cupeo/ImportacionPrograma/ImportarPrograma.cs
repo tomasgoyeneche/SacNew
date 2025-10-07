@@ -38,7 +38,10 @@ namespace GestionFlota.Views
                 pedido.Chofer = pedido.Chofer?.Trim();
                 pedido.Tractor = pedido.Tractor?.Trim();
                 pedido.Semi = pedido.Semi?.Trim();
-                pedido.Observaciones = pedido.Observaciones.Trim();
+                if(pedido.Observaciones != null)
+                {
+                    pedido.Observaciones = pedido.Observaciones.Trim();
+                }
             }
 
             return lista;

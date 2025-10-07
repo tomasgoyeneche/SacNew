@@ -14,7 +14,7 @@ namespace GestionFlota.Views
             _presenter = presenter;
             _presenter.SetView(this);
 
-            dateEditFechaCambio.EditValue = DateTime.Now;
+           
             gridViewChoferes.FocusedRowChanged += async (s, e) => await _presenter.ChoferSeleccionadoCambioAsync();
         }
 
@@ -22,6 +22,9 @@ namespace GestionFlota.Views
         {
             gridControlChoferes.DataSource = choferes;
             gridViewChoferes.BestFitColumns();
+            dateEditFechaCambio.EditValue = DateTime.Now;
+            bGuardar.Enabled = true;
+            bBajarChofer.Enabled = true;
         }
 
         public void CargarFrancos(List<NovedadesChoferesDto> francos)
@@ -67,11 +70,13 @@ namespace GestionFlota.Views
 
         private async void bGuardar_Click(object sender, EventArgs e)
         {
+            bGuardar.Enabled = false;
             await _presenter.ConfirmarCambioChoferAsync();
         }
 
         private async void bBajarChofer_Click(object sender, EventArgs e)
         {
+            bBajarChofer.Enabled = false;
             await _presenter.BajarChoferAsync();
         }
     }
