@@ -8,6 +8,7 @@ namespace Shared.Models
 {
     public class MovimientoComprobante
     {
+        public string Nombre { get; set; } = string.Empty;
         public int IdMovimientoComprobante { get; set; }
         public int IdMovimientoStock { get; set; }
         public int IdTipoComprobante { get; set; }

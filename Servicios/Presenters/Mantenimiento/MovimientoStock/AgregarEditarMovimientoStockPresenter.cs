@@ -198,7 +198,7 @@ namespace Servicios.Presenters
             {
                 await AbrirFormularioAsync<AgregarEditarComprobanteForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync(_movimiento.IdMovimientoStock, detalle);
+                    await form._presenter.InicializarAsync(_movimiento.IdMovimientoStock, "MovimientoStock", detalle);
                 });
             }, async () => await InicializarAsync(_movimiento.IdMovimientoStock));
         }
@@ -236,7 +236,7 @@ namespace Servicios.Presenters
             {
                 await AbrirFormularioAsync<AgregarEditarComprobanteForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync(_movimiento.IdMovimientoStock);
+                    await form._presenter.InicializarAsync(_movimiento.IdMovimientoStock, "MovimientoStock");
                 });
             }, async () => await InicializarAsync(_movimiento.IdMovimientoStock));
         }

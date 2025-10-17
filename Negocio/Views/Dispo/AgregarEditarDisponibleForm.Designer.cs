@@ -324,8 +324,8 @@
             // 
             lblMantenimientosUnidad.AutoSize = false;
             lblMantenimientosUnidad.BackColor = Color.FromArgb(42, 48, 56);
-            lblMantenimientosUnidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMantenimientosUnidad.ForeColor = Color.Red;
+            lblMantenimientosUnidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMantenimientosUnidad.ForeColor = Color.WhiteSmoke;
             lblMantenimientosUnidad.Location = new Point(427, 98);
             lblMantenimientosUnidad.Margin = new Padding(4, 3, 4, 3);
             lblMantenimientosUnidad.Name = "lblMantenimientosUnidad";
@@ -351,8 +351,8 @@
             // 
             lblAusenciasChofer.AutoSize = false;
             lblAusenciasChofer.BackColor = Color.FromArgb(42, 48, 56);
-            lblAusenciasChofer.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAusenciasChofer.ForeColor = Color.Red;
+            lblAusenciasChofer.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAusenciasChofer.ForeColor = Color.WhiteSmoke;
             lblAusenciasChofer.Location = new Point(427, 288);
             lblAusenciasChofer.Margin = new Padding(4, 3, 4, 3);
             lblAusenciasChofer.Name = "lblAusenciasChofer";

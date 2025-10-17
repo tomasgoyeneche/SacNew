@@ -48,5 +48,32 @@ namespace Core.Repositories
                 return result.ToList();
             });
         }
+
+        public async Task<MantenimientoTareaArticulo?> ObtenerPorIdAsync(int idMantenimientoTareaArticulo)
+        {
+            const string query = @"
+        SELECT *
+        FROM MantenimientoTareaArticulo
+        WHERE IdMantenimientoTareaArticulo = @IdMantenimientoTareaArticulo;";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<MantenimientoTareaArticulo>(query, new { IdMantenimientoTareaArticulo = idMantenimientoTareaArticulo });
+            });
+        }
+
+        public async Task<MantenimientoTareaArticulo?> ObtenerPorTareaYArticuloAsync(int idTarea, int idArticulo)
+        {
+            const string query = @"
+        SELECT *
+        FROM MantenimientoTareaArticulo
+        WHERE IdTarea = @IdTarea AND IdArticulo = @IdArticulo AND Activo = 1;";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<MantenimientoTareaArticulo>(query, new { IdTarea = idTarea, IdArticulo = idArticulo });
+            });
+        }
+
     }
 }

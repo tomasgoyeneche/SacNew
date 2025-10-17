@@ -154,6 +154,13 @@ namespace GestionFlota.Presenters
 
         public async Task AbrirOrdenCarga()
         {
+
+            if(_cupeoActual.Confirmado != "OK")
+            {
+                _view.MostrarMensaje("La orden de carga solo puede generarse para viajes confirmados.");
+                return;
+            }
+
             await EjecutarConCargaAsync(async () =>
             {
                 // Obtener los datos desde el repositorio

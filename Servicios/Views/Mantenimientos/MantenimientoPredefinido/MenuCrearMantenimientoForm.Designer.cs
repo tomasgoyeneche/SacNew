@@ -49,12 +49,12 @@
             cmbFrecuencia = new DevExpress.XtraEditors.LookUpEdit();
             lblFrecuencia = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
-            simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            bAgregarTarea = new DevExpress.XtraEditors.SimpleButton();
             gridControlTareas = new DevExpress.XtraGrid.GridControl();
             gridViewTareas = new DevExpress.XtraGrid.Views.Grid.GridView();
             bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            bEditarComprobante = new DevExpress.XtraEditors.SimpleButton();
+            bEditarTarea = new DevExpress.XtraEditors.SimpleButton();
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -267,11 +267,11 @@
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
-            pComprobantes.Controls.Add(simpleButton4);
+            pComprobantes.Controls.Add(bAgregarTarea);
             pComprobantes.Controls.Add(gridControlTareas);
             pComprobantes.Controls.Add(bEliminarComprobante);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
-            pComprobantes.Controls.Add(bEditarComprobante);
+            pComprobantes.Controls.Add(bEditarTarea);
             pComprobantes.CustomizableEdges = customizableEdges5;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(379, 127);
@@ -280,23 +280,24 @@
             pComprobantes.Size = new Size(404, 225);
             pComprobantes.TabIndex = 112;
             // 
-            // simpleButton4
+            // bAgregarTarea
             // 
-            simpleButton4.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton4.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton4.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton4.Appearance.Options.UseBackColor = true;
-            simpleButton4.Appearance.Options.UseFont = true;
-            simpleButton4.Appearance.Options.UseForeColor = true;
-            simpleButton4.Appearance.Options.UseTextOptions = true;
-            simpleButton4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton4.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton4.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton4.Location = new Point(293, 185);
-            simpleButton4.Name = "simpleButton4";
-            simpleButton4.Size = new Size(103, 36);
-            simpleButton4.TabIndex = 104;
-            simpleButton4.Text = "Agregar";
+            bAgregarTarea.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bAgregarTarea.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarTarea.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarTarea.Appearance.Options.UseBackColor = true;
+            bAgregarTarea.Appearance.Options.UseFont = true;
+            bAgregarTarea.Appearance.Options.UseForeColor = true;
+            bAgregarTarea.Appearance.Options.UseTextOptions = true;
+            bAgregarTarea.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bAgregarTarea.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarTarea.AppearanceDisabled.Options.UseForeColor = true;
+            bAgregarTarea.Location = new Point(293, 185);
+            bAgregarTarea.Name = "bAgregarTarea";
+            bAgregarTarea.Size = new Size(103, 36);
+            bAgregarTarea.TabIndex = 104;
+            bAgregarTarea.Text = "Agregar";
+            bAgregarTarea.Click += bAgregarTarea_Click;
             // 
             // gridControlTareas
             // 
@@ -355,23 +356,24 @@
             guna2HtmlLabel6.Text = "Lista de Tareas";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // bEditarComprobante
+            // bEditarTarea
             // 
-            bEditarComprobante.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
-            bEditarComprobante.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEditarComprobante.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEditarComprobante.Appearance.Options.UseBackColor = true;
-            bEditarComprobante.Appearance.Options.UseFont = true;
-            bEditarComprobante.Appearance.Options.UseForeColor = true;
-            bEditarComprobante.Appearance.Options.UseTextOptions = true;
-            bEditarComprobante.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bEditarComprobante.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEditarComprobante.AppearanceDisabled.Options.UseForeColor = true;
-            bEditarComprobante.Location = new Point(117, 186);
-            bEditarComprobante.Name = "bEditarComprobante";
-            bEditarComprobante.Size = new Size(103, 36);
-            bEditarComprobante.TabIndex = 102;
-            bEditarComprobante.Text = "Editar";
+            bEditarTarea.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
+            bEditarTarea.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEditarTarea.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEditarTarea.Appearance.Options.UseBackColor = true;
+            bEditarTarea.Appearance.Options.UseFont = true;
+            bEditarTarea.Appearance.Options.UseForeColor = true;
+            bEditarTarea.Appearance.Options.UseTextOptions = true;
+            bEditarTarea.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEditarTarea.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEditarTarea.AppearanceDisabled.Options.UseForeColor = true;
+            bEditarTarea.Location = new Point(117, 186);
+            bEditarTarea.Name = "bEditarTarea";
+            bEditarTarea.Size = new Size(103, 36);
+            bEditarTarea.TabIndex = 102;
+            bEditarTarea.Text = "Editar";
+            bEditarTarea.Click += bEditarTarea_Click;
             // 
             // gridColumn6
             // 
@@ -653,14 +655,14 @@
         private DevExpress.XtraEditors.LookUpEdit cmbFrecuencia;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblFrecuencia;
         private Guna.UI2.WinForms.Guna2Panel pComprobantes;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton bAgregarTarea;
         private DevExpress.XtraGrid.GridControl gridControlTareas;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTareas;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton bEliminarComprobante;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private DevExpress.XtraEditors.SimpleButton bEditarComprobante;
+        private DevExpress.XtraEditors.SimpleButton bEditarTarea;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private DevExpress.XtraEditors.TextEdit txtHorasTotales;

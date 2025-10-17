@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarEditarComprobanteForm));
             simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
+            txtNombre = new DevExpress.XtraEditors.TextEdit();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bAgregarProveedor = new Guna.UI2.WinForms.Guna2Button();
             bSubirRemitoCargaPdf = new DevExpress.XtraEditors.SimpleButton();
             cmbProveedor = new DevExpress.XtraEditors.LookUpEdit();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblProveedor = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtNroComprobante = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbTipoComprobante = new DevExpress.XtraEditors.LookUpEdit();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pComprobantes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtNombre.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbProveedor.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNroComprobante.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbTipoComprobante.Properties).BeginInit();
@@ -92,27 +95,52 @@
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
+            pComprobantes.Controls.Add(txtNombre);
+            pComprobantes.Controls.Add(guna2HtmlLabel5);
             pComprobantes.Controls.Add(bAgregarProveedor);
             pComprobantes.Controls.Add(bSubirRemitoCargaPdf);
             pComprobantes.Controls.Add(cmbProveedor);
-            pComprobantes.Controls.Add(guna2HtmlLabel2);
+            pComprobantes.Controls.Add(lblProveedor);
             pComprobantes.Controls.Add(txtNroComprobante);
             pComprobantes.Controls.Add(guna2HtmlLabel1);
             pComprobantes.Controls.Add(cmbTipoComprobante);
             pComprobantes.Controls.Add(guna2HtmlLabel4);
             pComprobantes.Controls.Add(guna2HtmlLabel3);
-            pComprobantes.CustomizableEdges = customizableEdges3;
+            pComprobantes.CustomizableEdges = customizableEdges7;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(13, 10);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges8;
             pComprobantes.Size = new Size(369, 381);
             pComprobantes.TabIndex = 106;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(16, 64);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNombre.Properties.Appearance.Options.UseFont = true;
+            txtNombre.Size = new Size(335, 22);
+            txtNombre.TabIndex = 108;
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.AutoSize = false;
+            guna2HtmlLabel5.BackColor = Color.Gray;
+            guna2HtmlLabel5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel5.Location = new Point(16, 41);
+            guna2HtmlLabel5.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(335, 23);
+            guna2HtmlLabel5.TabIndex = 107;
+            guna2HtmlLabel5.Text = "Nombre";
+            guna2HtmlLabel5.TextAlignment = ContentAlignment.TopCenter;
             // 
             // bAgregarProveedor
             // 
             bAgregarProveedor.AnimatedGIF = true;
-            bAgregarProveedor.CustomizableEdges = customizableEdges1;
+            bAgregarProveedor.CustomizableEdges = customizableEdges5;
             bAgregarProveedor.DisabledState.BorderColor = Color.DarkGray;
             bAgregarProveedor.DisabledState.CustomBorderColor = Color.DarkGray;
             bAgregarProveedor.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -120,10 +148,10 @@
             bAgregarProveedor.FillColor = Color.ForestGreen;
             bAgregarProveedor.Font = new Font("Segoe UI", 9F);
             bAgregarProveedor.ForeColor = Color.White;
-            bAgregarProveedor.Location = new Point(308, 281);
+            bAgregarProveedor.Location = new Point(308, 309);
             bAgregarProveedor.Margin = new Padding(4, 3, 4, 3);
             bAgregarProveedor.Name = "bAgregarProveedor";
-            bAgregarProveedor.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            bAgregarProveedor.ShadowDecoration.CustomizableEdges = customizableEdges6;
             bAgregarProveedor.Size = new Size(43, 49);
             bAgregarProveedor.TabIndex = 106;
             bAgregarProveedor.Text = "+";
@@ -142,7 +170,7 @@
             bSubirRemitoCargaPdf.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bSubirRemitoCargaPdf.AppearanceDisabled.Options.UseForeColor = true;
             bSubirRemitoCargaPdf.ImageOptions.Image = (Image)resources.GetObject("bSubirRemitoCargaPdf.ImageOptions.Image");
-            bSubirRemitoCargaPdf.Location = new Point(17, 47);
+            bSubirRemitoCargaPdf.Location = new Point(17, 105);
             bSubirRemitoCargaPdf.Name = "bSubirRemitoCargaPdf";
             bSubirRemitoCargaPdf.Size = new Size(334, 44);
             bSubirRemitoCargaPdf.TabIndex = 105;
@@ -151,7 +179,7 @@
             // 
             // cmbProveedor
             // 
-            cmbProveedor.Location = new Point(17, 304);
+            cmbProveedor.Location = new Point(17, 332);
             cmbProveedor.Margin = new Padding(4, 3, 4, 3);
             cmbProveedor.Name = "cmbProveedor";
             cmbProveedor.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -160,23 +188,23 @@
             cmbProveedor.Size = new Size(283, 26);
             cmbProveedor.TabIndex = 103;
             // 
-            // guna2HtmlLabel2
+            // lblProveedor
             // 
-            guna2HtmlLabel2.AutoSize = false;
-            guna2HtmlLabel2.BackColor = Color.Gray;
-            guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(16, 281);
-            guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(284, 23);
-            guna2HtmlLabel2.TabIndex = 104;
-            guna2HtmlLabel2.Text = "Proveedor";
-            guna2HtmlLabel2.TextAlignment = ContentAlignment.TopCenter;
+            lblProveedor.AutoSize = false;
+            lblProveedor.BackColor = Color.Gray;
+            lblProveedor.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProveedor.ForeColor = SystemColors.ControlLight;
+            lblProveedor.Location = new Point(16, 309);
+            lblProveedor.Margin = new Padding(4, 3, 4, 3);
+            lblProveedor.Name = "lblProveedor";
+            lblProveedor.Size = new Size(284, 23);
+            lblProveedor.TabIndex = 104;
+            lblProveedor.Text = "Proveedor";
+            lblProveedor.TextAlignment = ContentAlignment.TopCenter;
             // 
             // txtNroComprobante
             // 
-            txtNroComprobante.Location = new Point(16, 227);
+            txtNroComprobante.Location = new Point(16, 261);
             txtNroComprobante.Name = "txtNroComprobante";
             txtNroComprobante.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNroComprobante.Properties.Appearance.Options.UseFont = true;
@@ -189,7 +217,7 @@
             guna2HtmlLabel1.BackColor = Color.Gray;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(16, 204);
+            guna2HtmlLabel1.Location = new Point(16, 238);
             guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(335, 23);
@@ -199,7 +227,7 @@
             // 
             // cmbTipoComprobante
             // 
-            cmbTipoComprobante.Location = new Point(17, 147);
+            cmbTipoComprobante.Location = new Point(17, 192);
             cmbTipoComprobante.Margin = new Padding(4, 3, 4, 3);
             cmbTipoComprobante.Name = "cmbTipoComprobante";
             cmbTipoComprobante.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -214,7 +242,7 @@
             guna2HtmlLabel4.BackColor = Color.Gray;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(16, 124);
+            guna2HtmlLabel4.Location = new Point(16, 169);
             guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(335, 23);
@@ -250,6 +278,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarComprobanteForm";
             pComprobantes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtNombre.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cmbProveedor.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtNroComprobante.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cmbTipoComprobante.Properties).EndInit();
@@ -267,8 +296,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private DevExpress.XtraEditors.LookUpEdit cmbProveedor;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblProveedor;
         private DevExpress.XtraEditors.SimpleButton bSubirRemitoCargaPdf;
         private Guna.UI2.WinForms.Guna2Button bAgregarProveedor;
+        private DevExpress.XtraEditors.TextEdit txtNombre;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

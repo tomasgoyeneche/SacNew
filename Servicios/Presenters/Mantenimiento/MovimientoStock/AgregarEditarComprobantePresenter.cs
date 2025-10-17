@@ -18,7 +18,12 @@ namespace Servicios.Presenters
         private readonly IMovimientoComprobanteRepositorio _comprobanteRepositorio;
         private readonly IArticuloProveedorRepositorio _proveedorRepositorio;
 
+
+        public string _Tipo;
         public MovimientoComprobante? ComprobanteActual { get; private set; }
+        public OrdenTrabajoComprobante? OrdenTrabajoComprobanteActual { get; private set; }
+
+
 
         public AgregarEditarComprobantePresenter(
             IMovimientoComprobanteRepositorio comprobanteRepositorio,
@@ -31,44 +36,71 @@ namespace Servicios.Presenters
             _proveedorRepositorio = proveedorRepositorio;
         }
 
-        public async Task InicializarAsync(int idMovimientoStock, MovimientoComprobante? comprobante = null)
+        public async Task InicializarAsync(int idMovimientoStock, string Tipo, MovimientoComprobante? comprobante = null, OrdenTrabajoComprobante? ordenTrabajoComprobante = null)
         {
             await EjecutarConCargaAsync(async () =>
             {
+                _Tipo = Tipo;
                 var tipos = await _comprobanteRepositorio.ObtenerTiposComprobantes();
-                var proveedores = await _proveedorRepositorio.ObtenerTodosAsync();
-
                 _view.CargarTiposComprobante(tipos);
-                _view.CargarProveedores(proveedores);
 
-                _view.IdMovimientoStock = idMovimientoStock;
 
-                if (comprobante != null)
+                if (_Tipo == "MovimientoStock")
                 {
-                    ComprobanteActual = comprobante;
-                    _view.IdTipoComprobante = comprobante.IdTipoComprobante;
-                    _view.NroComprobante = comprobante.NroComprobante;
-                    _view.IdProveedor = comprobante.IdProveedor;
-                    _view.RutaComprobante = comprobante.RutaComprobante;
+                    _view.MostrarProveedores(true);
+                    List<ArticuloProveedor> proveedores = await _proveedorRepositorio.ObtenerTodosAsync();
+                    _view.CargarProveedores(proveedores);
+
+
+                    _view.Id = idMovimientoStock;
+
+                    if (comprobante != null)
+                    {
+                        ComprobanteActual = comprobante;
+                        _view.Nombre = comprobante.Nombre;
+                        _view.IdTipoComprobante = comprobante.IdTipoComprobante;
+                        _view.NroComprobante = comprobante.NroComprobante;
+                        _view.IdProveedor = comprobante.IdProveedor;
+                        _view.RutaComprobante = comprobante.RutaComprobante;
+                    }
+                }
+                else{
+                    _view.MostrarProveedores(false);
+
+                    _view.Id = idMovimientoStock;
+
+                    if (ordenTrabajoComprobante != null)
+                    {
+                        OrdenTrabajoComprobanteActual = ordenTrabajoComprobante;
+                        _view.Nombre = ordenTrabajoComprobante.Nombre;
+                        _view.IdTipoComprobante = ordenTrabajoComprobante.IdTipoComprobante ?? 0;
+                        _view.NroComprobante = ordenTrabajoComprobante.NroComprobante ?? string.Empty;
+                        _view.RutaComprobante = ordenTrabajoComprobante.RutaComprobante;
+                    }
                 }
             });
         }
 
         public void CargarPdf(string origen)
         {
-            var idMovimiento = _view.IdMovimientoStock;
-            var carpeta = Path.Combine(@"S:\StockComprobantes", idMovimiento.ToString());
+            var idMovimiento = _view.Id;
+            string carpeta;
+            if(_Tipo == "MovimientoStock")
+            {
+                carpeta = Path.Combine(@"S:\StockComprobantes", idMovimiento.ToString());
+            }
+            else {                 
+                carpeta = Path.Combine(@"S:\OrdenesTrabajoComprobantes", idMovimiento.ToString());
+            }
 
             if (!Directory.Exists(carpeta))
                 Directory.CreateDirectory(carpeta);
 
             // Generar nombre dinámico ComprobanteX.pdf
-            int contador = 1;
             string destino;
             do
             {
-                destino = Path.Combine(carpeta, $"Comprobante{contador}.pdf");
-                contador++;
+                destino = Path.Combine(carpeta, $"{_view.Nombre}.pdf");
             }
             while (File.Exists(destino));
 
@@ -80,32 +112,65 @@ namespace Servicios.Presenters
 
         public async Task GuardarAsync()
         {
-            var comprobante = new MovimientoComprobante
+            if (_Tipo == "MovimientoStock")
             {
-                IdMovimientoComprobante = ComprobanteActual?.IdMovimientoComprobante ?? 0,
-                IdMovimientoStock = _view.IdMovimientoStock,
-                IdTipoComprobante = _view.IdTipoComprobante,
-                NroComprobante = _view.NroComprobante,
-                IdProveedor = _view.IdProveedor,
-                RutaComprobante = _view.RutaComprobante,
-                Activo = true
-            };
+                var comprobante = new MovimientoComprobante
+                {
+                    IdMovimientoComprobante = ComprobanteActual?.IdMovimientoComprobante ?? 0,
+                    IdMovimientoStock = _view.Id,
+                    IdTipoComprobante = _view.IdTipoComprobante.Value,
+                    NroComprobante = _view.NroComprobante,
+                    IdProveedor = _view.IdProveedor,
+                    RutaComprobante = _view.RutaComprobante,
+                    Activo = true
+                };
 
-            await EjecutarConCargaAsync(async () =>
+                await EjecutarConCargaAsync(async () =>
+                {
+                    if (ComprobanteActual == null)
+                    {
+                        var id = await _comprobanteRepositorio.AgregarAsync(comprobante);
+                        comprobante.IdMovimientoComprobante = id;
+                        _view.MostrarMensaje("Comprobante agregado correctamente.");
+                    }
+                    else
+                    {
+                        await _comprobanteRepositorio.ActualizarAsync(comprobante);
+                        _view.MostrarMensaje("Comprobante actualizado correctamente.");
+                    }
+                    _view.Cerrar();
+                });
+            }
+            else
             {
-                if (ComprobanteActual == null)
+                var ordenTrabajocomprobante = new OrdenTrabajoComprobante
                 {
-                    var id = await _comprobanteRepositorio.AgregarAsync(comprobante);
-                    comprobante.IdMovimientoComprobante = id;
-                    _view.MostrarMensaje("Comprobante agregado correctamente.");
-                }
-                else
+                    Nombre = _view.Nombre,  
+                    IdOrdenTrabajoComprobante = ComprobanteActual?.IdMovimientoComprobante ?? 0,
+                    IdOrdenTrabajo = _view.Id,
+                    IdTipoComprobante = _view.IdTipoComprobante ?? null,
+                    NroComprobante = _view.NroComprobante ?? null,
+                    RutaComprobante = _view.RutaComprobante,
+                    Activo = true
+                };
+
+                await EjecutarConCargaAsync(async () =>
                 {
-                    await _comprobanteRepositorio.ActualizarAsync(comprobante);
-                    _view.MostrarMensaje("Comprobante actualizado correctamente.");
-                }
-                _view.Cerrar();
-            });
+                    if (ComprobanteActual == null)
+                    {
+                        var id = await _ordenTrabajoComprobanteRepositorio.AgregarAsync(ordenTrabajocomprobante);
+                        ordenTrabajocomprobante.IdOrdenTrabajoComprobante = id;
+                        _view.MostrarMensaje("Comprobante agregado correctamente.");
+                    }
+                    else
+                    {
+                        await _ordenTrabajoComprobanteRepositorio.ActualizarAsync(ordenTrabajocomprobante);
+                        _view.MostrarMensaje("Comprobante actualizado correctamente.");
+                    }
+                    _view.Cerrar();
+                });
+            }
+          
         }
 
         public async Task AgregarProveedorAsync()
@@ -116,7 +181,7 @@ namespace Servicios.Presenters
                 {
                     await form._presenter.InicializarAsync(0);
                 });
-            }, async () => await InicializarAsync(_view.IdMovimientoStock, ComprobanteActual));
+            }, async () => await InicializarAsync(_view.Id, _Tipo, ComprobanteActual, null));
         }
     }
 }

@@ -218,5 +218,32 @@ namespace Servicios.Views.Mantenimiento
             gridControlTareas.DataSource = tareas;
             gridViewTareas.BestFitColumns();
         }
+
+        private async void bAgregarTarea_Click(object sender, EventArgs e)
+        {
+            string nombreTarea = XtraInputBox.Show(
+      "Ingrese el nombre de la nueva tarea:",
+      "Nueva Tarea",
+      ""
+  );
+
+            if (string.IsNullOrWhiteSpace(nombreTarea))
+                return; // canceló o dejó vacío
+
+            // Crear la tarea en la BD con datos iniciales
+            int idTarea = await _presenter.CrearTareaAsync(nombreTarea);
+
+            // Abrir el form de edición directamente
+            await _presenter.AbrirEdicionTareaAsync(idTarea);
+
+            // Refrescar lista (si corresponde)
+        }
+
+        private async void bEditarTarea_Click(object sender, EventArgs e)
+        {
+            var tarea = gridViewTareas.GetFocusedRow() as Tarea;
+            if (tarea != null)
+                await _presenter.AbrirEdicionTareaAsync(tarea.IdTarea);
+        }
     }
 }

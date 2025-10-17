@@ -88,8 +88,10 @@ namespace GestionFlota.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            btnGuardar.Enabled = false;
             await _presenter.GuardarAsync();
             LimpiarPedidos();
+            btnGuardar.Enabled = true;
         }
 
         private async void gridControlErrores_DoubleClick(object sender, EventArgs e)

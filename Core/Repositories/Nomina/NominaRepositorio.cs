@@ -29,6 +29,18 @@ namespace Core.Repositories
             );
         }
 
+        public async Task<decimal?> ObtenerOdometerPorNomina(int idNomina)
+        {
+            // Busca el odometer más reciente ANTES o IGUAL a la fecha indicada
+            var sql = @"
+        SELECT TOP 1 odometer
+        FROM wsSitrackNomina
+        WHERE idNomina = @idNomina";
+            return await ConectarAsync(async conn =>
+                await conn.ExecuteScalarAsync<decimal?>(sql, new { idNomina })
+            );
+        }
+
         public async Task<Nomina?> ObtenerNominaActivaPorChoferAsync(int idChofer, DateTime fechaReferencia)
         {
             var query = @"

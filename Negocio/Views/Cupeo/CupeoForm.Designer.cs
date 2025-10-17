@@ -658,7 +658,7 @@
             // gridColumn17
             // 
             gridColumn17.Caption = "Origen";
-            gridColumn17.FieldName = "Estado";
+            gridColumn17.FieldName = "Origen";
             gridColumn17.Name = "gridColumn17";
             gridColumn17.Visible = true;
             gridColumn17.VisibleIndex = 5;

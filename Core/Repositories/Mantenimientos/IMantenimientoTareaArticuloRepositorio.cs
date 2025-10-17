@@ -12,5 +12,8 @@ namespace Core.Repositories
         Task<int> AgregarAsync(MantenimientoTareaArticulo mantenimientoTareaArticulo);
         Task<int> EliminarAsync(int idMantenimientoTareaArticulo);
         Task<List<MantenimientoTareaArticulo>> ObtenerPorTareaAsync(int idTarea);
+        Task<MantenimientoTareaArticulo?> ObtenerPorIdAsync(int idMantenimientoTareaArticulo);
+        Task<MantenimientoTareaArticulo?> ObtenerPorTareaYArticuloAsync(int idTarea, int idArticulo);
+
     }
 }

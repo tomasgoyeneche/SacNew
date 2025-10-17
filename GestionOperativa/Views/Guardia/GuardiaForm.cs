@@ -154,25 +154,50 @@ namespace GestionOperativa
 
         private async void bSalida_Click(object sender, EventArgs e)
         {
-            if (gridViewGuardia.GetFocusedRow() is GuardiaDto guardia)
-            {
-                await _presenter.RegistrarSalidaAsync(guardia, false); // salida automática
-            }
-            else
+            if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");
+                return;
+            }
+
+            // 🔹 Pregunta de confirmación con estilo DevExpress
+            var respuesta = XtraMessageBox.Show(
+                 this,
+                 "¿Está seguro que desea registrar la salida?",
+                 "Confirmación requerida",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning,
+                 MessageBoxDefaultButton.Button2 // deja "No" seleccionado por defecto
+             );
+
+            if (respuesta == DialogResult.Yes)
+            {
+                await _presenter.RegistrarSalidaAsync(guardia, false); // salida automática
             }
         }
 
         private async void dtpSalida_EditValueChanged(object sender, EventArgs e)
         {
-            if (gridViewGuardia.GetFocusedRow() is GuardiaDto guardia)
-            {
-                await _presenter.RegistrarSalidaAsync(guardia, true); // salida manual
-            }
-            else
+
+            if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");
+                return;
+            }
+
+            // 🔹 Pregunta de confirmación con estilo DevExpress
+            var respuesta = XtraMessageBox.Show(
+                 this,
+                 "¿Está seguro que desea registrar la salida?",
+                 "Confirmación requerida",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning,
+                 MessageBoxDefaultButton.Button2 // deja "No" seleccionado por defecto
+             );
+
+            if (respuesta == DialogResult.Yes)
+            {
+                await _presenter.RegistrarSalidaAsync(guardia, true); // salida manual
             }
         }
 

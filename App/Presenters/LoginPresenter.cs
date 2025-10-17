@@ -15,7 +15,7 @@ namespace App.Presenters
         private readonly IPermisoRepositorio _permisoRepositorio;
         private readonly IVersionRepositorio _versionRepositorio;
 
-        private const string VERSION_ACTUAL = "0.9";
+        private const string VERSION_ACTUAL = "1.0";
         private string NOMBRE_CARPETA_VERSION;
         private string RUTA_REMOTA;
         private const string RUTA_LOCAL = @"C:\Compartida\SACNew";

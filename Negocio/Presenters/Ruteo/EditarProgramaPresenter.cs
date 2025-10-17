@@ -13,6 +13,11 @@ namespace GestionFlota.Presenters
         private readonly IAlertaRepositorio _alertaRepositorio;
         private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
+        private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
+
+
+
         private readonly IProgramaExtranjeroRepositorio _programaExtranjeroRepositorio; // injectalo por constructor
 
         private Shared.Models.Ruteo _Ruteo;
@@ -22,6 +27,8 @@ namespace GestionFlota.Presenters
             IProgramaRepositorio programaRepositorio,
             IAlertaRepositorio alertaRepositorio,
             INominaRepositorio nominaRepositorio,
+            IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
+            IChoferEstadoRepositorio choferEstadoRepositorio,
             ILocacionRepositorio locacionRepositorio,
             IProgramaExtranjeroRepositorio programaExtranjeroRepositorio,
             INavigationService navigationService)
@@ -30,6 +37,8 @@ namespace GestionFlota.Presenters
             _programaRepositorio = programaRepositorio;
             _alertaRepositorio = alertaRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
+            _choferEstadoRepositorio = choferEstadoRepositorio;
             _locacionRepositorio = locacionRepositorio;
             _programaExtranjeroRepositorio = programaExtranjeroRepositorio; // inicializalo aquí
         }
@@ -183,7 +192,53 @@ namespace GestionFlota.Presenters
             });
             _view.Close();
         }
+        public async Task MostrarMantenimientosyFrancosDelChoferAsync()
+        {
+            Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(_Ruteo.IdNomina);
 
+            // Unidades: Obtener mantenimientos
+            List<UnidadMantenimientoDto> mantenimientos = await _unidadMantenimientoRepositorio.ObtenerPorUnidadAsync(nomina.IdUnidad);
+            var mantenimientosFiltrados = mantenimientos?.Where(m =>
+                m.FechaInicio >= DateTime.Now && m.FechaInicio <= DateTime.Now.AddDays(7)).ToList();
+
+            string? textoMantenimientos = (mantenimientosFiltrados != null && mantenimientosFiltrados.Any())
+                ? string.Join(Environment.NewLine,
+                    mantenimientosFiltrados.Select(m =>
+                        $"{m.Descripcion} - fecha inicio: {m.FechaInicio:dd/MM/yyyy} - fecha fin: {m.FechaFin:dd/MM/yyyy}")
+                )
+                : null;
+
+            // Chofer: Obtener ausencias
+            List<NovedadesChoferesDto> ausencias = await _choferEstadoRepositorio.ObtenerPorChoferAsync(nomina.IdChofer);
+            var ausenciasFiltradas = ausencias?.Where(a =>
+                a.FechaInicio >= DateTime.Now && a.FechaInicio <= DateTime.Now.AddDays(7)).ToList();
+
+            string? textoAusencias = (ausenciasFiltradas != null && ausenciasFiltradas.Any())
+                ? string.Join(Environment.NewLine,
+                    ausenciasFiltradas.Select(a =>
+                        $"{a.Descripcion} - fecha inicio: {a.FechaInicio:dd/MM/yyyy} - fecha fin: {a.FechaFin:dd/MM/yyyy}")
+                )
+                : null;
+
+            // Combinamos mantenimientos y ausencias
+            string resultadoFinal = string.Empty;
+
+            if (!string.IsNullOrEmpty(textoMantenimientos))
+            {
+                resultadoFinal += "Mantenimientos:\n" + textoMantenimientos + "\n\n";
+            }
+
+            if (!string.IsNullOrEmpty(textoAusencias))
+            {
+                resultadoFinal += "Francos:\n" + textoAusencias;
+            }
+
+            // Solo mostrar si hay mantenimientos o francos
+            if (!string.IsNullOrEmpty(resultadoFinal))
+            {
+                _view.MostrarMantenimientosyFrancos(resultadoFinal);
+            }
+        }
 
         public async Task GuardarFechaExtranjeroAsync(
             int idProgramaTipoPunto,

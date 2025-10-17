@@ -294,6 +294,12 @@ namespace GestionFlota.Views
                 return;
             }
             await _presenter.GuardarFechaProgramaAsync("EntregaSalida", nuevaFecha);
+            await _presenter.MostrarMantenimientosyFrancosDelChoferAsync();
+        }
+
+        public void MostrarMantenimientosyFrancos(string manyfrancos)
+        {
+            MostrarMensaje(manyfrancos);
         }
 
         private async void bEliminarLlegadaEntrega_Click(object sender, EventArgs e)

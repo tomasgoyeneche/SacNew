@@ -3,6 +3,7 @@ using Core.Services;
 using GestionFlota.Views.Alertas;
 using Servicios.Views;
 using Servicios.Views.Mantenimiento;
+using Servicios.Views.Mantenimientos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,13 @@ namespace Servicios.Presenters.Mantenimiento
         }
 
 
+        public async void AbrirOrdenesActuales()
+        {
+            await AbrirFormularioAsync<ListadoOrdenTrabajoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("Activas");
+            });
+        }
 
         public void AbrirInformeMantenimiento() { /* abrir form correspondiente */ }
         public void AbrirInformeStock() { /* ... */ }

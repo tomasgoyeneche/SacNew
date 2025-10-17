@@ -68,7 +68,9 @@ namespace GestionFlota.Views
 
         private async void btnConfirmar_Click(object sender, EventArgs e)
         {
+            btnConfirmar.Enabled = false; // Deshabilitar el botón para evitar múltiples clics
             await _presenter.ConfirmarAsignacionAsync();
+            btnConfirmar.Enabled = true; // Rehabilitar el botón después de la operación
         }
 
         private async void bAgregarObservacion_Click(object sender, EventArgs e)

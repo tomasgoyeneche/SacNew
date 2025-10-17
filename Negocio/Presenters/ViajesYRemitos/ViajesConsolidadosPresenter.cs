@@ -142,7 +142,7 @@ namespace GestionFlota.Presenters
                    Tractor = x.Tractor,
                    Semi = x.Semi,
                    Empresa = x.Empresa,
-                   Chofer = x.Empresa,
+                   Chofer = x.Chofer,
                    FechaPrograma = x.FechaPrograma,
                    AlbaranDespacho = x.AlbaranDespacho,
                    PedidoOr = x.PedidoOr,

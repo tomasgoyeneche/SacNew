@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            cmbTarea = new DevExpress.XtraEditors.LookUpEdit();
+            cmbArticulo = new DevExpress.XtraEditors.LookUpEdit();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtNombre = new DevExpress.XtraEditors.TextEdit();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtHorasTotales = new DevExpress.XtraEditors.TextEdit();
+            txtHoras = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtManoObraTotales = new DevExpress.XtraEditors.TextEdit();
+            txtManoObra = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtRepuestosTotales = new DevExpress.XtraEditors.TextEdit();
+            txtRepuestos = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
-            gridControlTareas = new DevExpress.XtraGrid.GridControl();
-            gridViewTareas = new DevExpress.XtraGrid.Views.Grid.GridView();
+            bMoverStock = new DevExpress.XtraEditors.SimpleButton();
+            gridControlArticulos = new DevExpress.XtraGrid.GridControl();
+            gridViewArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
             bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bEditarComprobante = new DevExpress.XtraEditors.SimpleButton();
@@ -61,20 +62,19 @@
             txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtPedidoMaximo = new DevExpress.XtraEditors.TextEdit();
+            txtCantidad = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)cmbTarea.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cmbArticulo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNombre.Properties).BeginInit();
             guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtHorasTotales.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtManoObraTotales.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtRepuestosTotales.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtHoras.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtManoObra.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtRepuestos.Properties).BeginInit();
             pComprobantes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridControlTareas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewTareas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlArticulos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewArticulos).BeginInit();
             guna2Panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtPedidoMaximo.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtCantidad.Properties).BeginInit();
             SuspendLayout();
             // 
             // simpleButton1
@@ -94,17 +94,18 @@
             simpleButton1.Size = new Size(326, 39);
             simpleButton1.TabIndex = 126;
             simpleButton1.Text = "Agregar Articulo";
+            simpleButton1.Click += btnAgregarArticulo_Click;
             // 
-            // cmbTarea
+            // cmbArticulo
             // 
-            cmbTarea.Location = new Point(35, 321);
-            cmbTarea.Margin = new Padding(4, 3, 4, 3);
-            cmbTarea.Name = "cmbTarea";
-            cmbTarea.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbTarea.Properties.Appearance.Options.UseFont = true;
-            cmbTarea.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbTarea.Size = new Size(237, 26);
-            cmbTarea.TabIndex = 134;
+            cmbArticulo.Location = new Point(35, 321);
+            cmbArticulo.Margin = new Padding(4, 3, 4, 3);
+            cmbArticulo.Name = "cmbArticulo";
+            cmbArticulo.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbArticulo.Properties.Appearance.Options.UseFont = true;
+            cmbArticulo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbArticulo.Size = new Size(237, 26);
+            cmbArticulo.TabIndex = 134;
             // 
             // guna2HtmlLabel10
             // 
@@ -133,17 +134,17 @@
             // 
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.Controls.Add(guna2HtmlLabel7);
-            guna2Panel1.Controls.Add(txtHorasTotales);
+            guna2Panel1.Controls.Add(txtHoras);
             guna2Panel1.Controls.Add(guna2HtmlLabel8);
-            guna2Panel1.Controls.Add(txtManoObraTotales);
+            guna2Panel1.Controls.Add(txtManoObra);
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
-            guna2Panel1.Controls.Add(txtRepuestosTotales);
+            guna2Panel1.Controls.Add(txtRepuestos);
             guna2Panel1.Controls.Add(guna2HtmlLabel13);
-            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.CustomizableEdges = customizableEdges9;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(385, 366);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel1.Size = new Size(404, 184);
             guna2Panel1.TabIndex = 133;
             // 
@@ -161,17 +162,16 @@
             guna2HtmlLabel7.Text = "Horas";
             guna2HtmlLabel7.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // txtHorasTotales
+            // txtHoras
             // 
-            txtHorasTotales.Enabled = false;
-            txtHorasTotales.Location = new Point(34, 50);
-            txtHorasTotales.Name = "txtHorasTotales";
-            txtHorasTotales.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtHorasTotales.Properties.Appearance.Options.UseFont = true;
-            txtHorasTotales.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            txtHorasTotales.Properties.MaskSettings.Set("mask", "f");
-            txtHorasTotales.Size = new Size(335, 22);
-            txtHorasTotales.TabIndex = 101;
+            txtHoras.Location = new Point(34, 50);
+            txtHoras.Name = "txtHoras";
+            txtHoras.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtHoras.Properties.Appearance.Options.UseFont = true;
+            txtHoras.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtHoras.Properties.MaskSettings.Set("mask", "f");
+            txtHoras.Size = new Size(335, 22);
+            txtHoras.TabIndex = 101;
             // 
             // guna2HtmlLabel8
             // 
@@ -187,17 +187,16 @@
             guna2HtmlLabel8.Text = "Mano de Obra";
             guna2HtmlLabel8.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // txtManoObraTotales
+            // txtManoObra
             // 
-            txtManoObraTotales.Enabled = false;
-            txtManoObraTotales.Location = new Point(35, 104);
-            txtManoObraTotales.Name = "txtManoObraTotales";
-            txtManoObraTotales.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtManoObraTotales.Properties.Appearance.Options.UseFont = true;
-            txtManoObraTotales.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            txtManoObraTotales.Properties.MaskSettings.Set("mask", "f");
-            txtManoObraTotales.Size = new Size(334, 22);
-            txtManoObraTotales.TabIndex = 99;
+            txtManoObra.Location = new Point(35, 104);
+            txtManoObra.Name = "txtManoObra";
+            txtManoObra.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtManoObra.Properties.Appearance.Options.UseFont = true;
+            txtManoObra.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtManoObra.Properties.MaskSettings.Set("mask", "f");
+            txtManoObra.Size = new Size(334, 22);
+            txtManoObra.TabIndex = 99;
             // 
             // guna2HtmlLabel9
             // 
@@ -213,17 +212,17 @@
             guna2HtmlLabel9.Text = "Repuestos";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // txtRepuestosTotales
+            // txtRepuestos
             // 
-            txtRepuestosTotales.Enabled = false;
-            txtRepuestosTotales.Location = new Point(34, 157);
-            txtRepuestosTotales.Name = "txtRepuestosTotales";
-            txtRepuestosTotales.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRepuestosTotales.Properties.Appearance.Options.UseFont = true;
-            txtRepuestosTotales.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            txtRepuestosTotales.Properties.MaskSettings.Set("mask", "f");
-            txtRepuestosTotales.Size = new Size(334, 22);
-            txtRepuestosTotales.TabIndex = 97;
+            txtRepuestos.Enabled = false;
+            txtRepuestos.Location = new Point(34, 157);
+            txtRepuestos.Name = "txtRepuestos";
+            txtRepuestos.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRepuestos.Properties.Appearance.Options.UseFont = true;
+            txtRepuestos.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtRepuestos.Properties.MaskSettings.Set("mask", "f");
+            txtRepuestos.Size = new Size(334, 22);
+            txtRepuestos.TabIndex = 97;
             // 
             // guna2HtmlLabel13
             // 
@@ -236,7 +235,7 @@
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             guna2HtmlLabel13.Size = new Size(404, 20);
             guna2HtmlLabel13.TabIndex = 50;
-            guna2HtmlLabel13.Text = "Agregar/Editar Articulo";
+            guna2HtmlLabel13.Text = "Requerimientos de la Tarea";
             guna2HtmlLabel13.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel1
@@ -256,42 +255,60 @@
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
-            pComprobantes.Controls.Add(simpleButton2);
-            pComprobantes.Controls.Add(gridControlTareas);
+            pComprobantes.Controls.Add(bMoverStock);
+            pComprobantes.Controls.Add(gridControlArticulos);
             pComprobantes.Controls.Add(bEliminarComprobante);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
             pComprobantes.Controls.Add(bEditarComprobante);
-            pComprobantes.CustomizableEdges = customizableEdges3;
+            pComprobantes.CustomizableEdges = customizableEdges11;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(386, 71);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges12;
             pComprobantes.Size = new Size(404, 279);
             pComprobantes.TabIndex = 132;
             // 
-            // gridControlTareas
+            // bMoverStock
             // 
-            gridControlTareas.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlTareas.Location = new Point(7, 36);
-            gridControlTareas.MainView = gridViewTareas;
-            gridControlTareas.Name = "gridControlTareas";
-            gridControlTareas.Size = new Size(390, 190);
-            gridControlTareas.TabIndex = 51;
-            gridControlTareas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewTareas });
+            bMoverStock.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            bMoverStock.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bMoverStock.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bMoverStock.Appearance.Options.UseBackColor = true;
+            bMoverStock.Appearance.Options.UseFont = true;
+            bMoverStock.Appearance.Options.UseForeColor = true;
+            bMoverStock.Appearance.Options.UseTextOptions = true;
+            bMoverStock.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bMoverStock.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bMoverStock.AppearanceDisabled.Options.UseForeColor = true;
+            bMoverStock.Location = new Point(294, 235);
+            bMoverStock.Name = "bMoverStock";
+            bMoverStock.Size = new Size(103, 36);
+            bMoverStock.TabIndex = 104;
+            bMoverStock.Text = "Mover Stock";
             // 
-            // gridViewTareas
+            // gridControlArticulos
             // 
-            gridViewTareas.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            gridViewTareas.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridViewTareas.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            gridViewTareas.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
-            gridViewTareas.GridControl = gridControlTareas;
-            gridViewTareas.Name = "gridViewTareas";
-            gridViewTareas.OptionsBehavior.Editable = false;
-            gridViewTareas.OptionsSelection.EnableAppearanceFocusedCell = false;
-            gridViewTareas.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
-            gridViewTareas.OptionsView.EnableAppearanceEvenRow = true;
-            gridViewTareas.RowHeight = 20;
+            gridControlArticulos.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControlArticulos.Location = new Point(7, 36);
+            gridControlArticulos.MainView = gridViewArticulos;
+            gridControlArticulos.Name = "gridControlArticulos";
+            gridControlArticulos.Size = new Size(390, 190);
+            gridControlArticulos.TabIndex = 51;
+            gridControlArticulos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewArticulos });
+            // 
+            // gridViewArticulos
+            // 
+            gridViewArticulos.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridViewArticulos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridViewArticulos.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewArticulos.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
+            gridViewArticulos.GridControl = gridControlArticulos;
+            gridViewArticulos.Name = "gridViewArticulos";
+            gridViewArticulos.OptionsBehavior.Editable = false;
+            gridViewArticulos.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewArticulos.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
+            gridViewArticulos.OptionsView.EnableAppearanceEvenRow = true;
+            gridViewArticulos.RowHeight = 20;
             // 
             // bEliminarComprobante
             // 
@@ -310,6 +327,7 @@
             bEliminarComprobante.Size = new Size(103, 36);
             bEliminarComprobante.TabIndex = 103;
             bEliminarComprobante.Text = "Eliminar";
+            bEliminarComprobante.Click += btnQuitarArticulo_Click;
             // 
             // guna2HtmlLabel6
             // 
@@ -322,7 +340,7 @@
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(404, 20);
             guna2HtmlLabel6.TabIndex = 50;
-            guna2HtmlLabel6.Text = "Lista de Tareas";
+            guna2HtmlLabel6.Text = "Lista de Articulos";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // bEditarComprobante
@@ -360,6 +378,7 @@
             simpleButton8.Size = new Size(157, 47);
             simpleButton8.TabIndex = 127;
             simpleButton8.Text = "Cancelar";
+            simpleButton8.Click += btnCancelar_Click;
             // 
             // simpleButton7
             // 
@@ -378,6 +397,7 @@
             simpleButton7.Size = new Size(157, 47);
             simpleButton7.TabIndex = 125;
             simpleButton7.Text = "Guardar";
+            simpleButton7.Click += btnGuardar_Click;
             // 
             // guna2HtmlLabel2
             // 
@@ -396,7 +416,7 @@
             // txtDescripcion
             // 
             txtDescripcion.BackColor = Color.FromArgb(26, 29, 35);
-            txtDescripcion.CustomizableEdges = customizableEdges5;
+            txtDescripcion.CustomizableEdges = customizableEdges13;
             txtDescripcion.DefaultText = "";
             txtDescripcion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtDescripcion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -414,18 +434,18 @@
             txtDescripcion.PlaceholderText = "";
             txtDescripcion.RightToLeft = RightToLeft.No;
             txtDescripcion.SelectedText = "";
-            txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtDescripcion.Size = new Size(324, 108);
             txtDescripcion.TabIndex = 121;
             // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges7;
+            guna2Panel10.CustomizableEdges = customizableEdges15;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(1, 10);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 118;
             // 
@@ -441,16 +461,16 @@
             guna2HtmlLabel17.TabIndex = 14;
             guna2HtmlLabel17.Text = "Mantenimiento";
             // 
-            // txtPedidoMaximo
+            // txtCantidad
             // 
-            txtPedidoMaximo.Location = new Point(279, 321);
-            txtPedidoMaximo.Name = "txtPedidoMaximo";
-            txtPedidoMaximo.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPedidoMaximo.Properties.Appearance.Options.UseFont = true;
-            txtPedidoMaximo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            txtPedidoMaximo.Properties.MaskSettings.Set("mask", "f");
-            txtPedidoMaximo.Size = new Size(79, 26);
-            txtPedidoMaximo.TabIndex = 137;
+            txtCantidad.Location = new Point(279, 321);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCantidad.Properties.Appearance.Options.UseFont = true;
+            txtCantidad.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtCantidad.Properties.MaskSettings.Set("mask", "f");
+            txtCantidad.Size = new Size(79, 26);
+            txtCantidad.TabIndex = 137;
             // 
             // guna2HtmlLabel3
             // 
@@ -466,24 +486,6 @@
             guna2HtmlLabel3.Text = "Cantidad";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
             // 
-            // simpleButton2
-            // 
-            simpleButton2.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            simpleButton2.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.Appearance.Options.UseBackColor = true;
-            simpleButton2.Appearance.Options.UseFont = true;
-            simpleButton2.Appearance.Options.UseForeColor = true;
-            simpleButton2.Appearance.Options.UseTextOptions = true;
-            simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton2.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton2.Location = new Point(294, 235);
-            simpleButton2.Name = "simpleButton2";
-            simpleButton2.Size = new Size(103, 36);
-            simpleButton2.TabIndex = 104;
-            simpleButton2.Text = "Mover Stock";
-            // 
             // AgregarEditarTareaForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -491,10 +493,10 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 568);
-            Controls.Add(txtPedidoMaximo);
+            Controls.Add(txtCantidad);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(simpleButton1);
-            Controls.Add(cmbTarea);
+            Controls.Add(cmbArticulo);
             Controls.Add(guna2HtmlLabel10);
             Controls.Add(txtNombre);
             Controls.Add(guna2Panel1);
@@ -505,40 +507,43 @@
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(txtDescripcion);
             Controls.Add(guna2Panel10);
+            MaximizeBox = false;
             Name = "AgregarEditarTareaForm";
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarTareaForm";
-            ((System.ComponentModel.ISupportInitialize)cmbTarea.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cmbArticulo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtNombre.Properties).EndInit();
             guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtHorasTotales.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtManoObraTotales.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtRepuestosTotales.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtHoras.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtManoObra.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtRepuestos.Properties).EndInit();
             pComprobantes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridControlTareas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridViewTareas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControlArticulos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewArticulos).EndInit();
             guna2Panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtPedidoMaximo.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtCantidad.Properties).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LookUpEdit cmbTarea;
+        private DevExpress.XtraEditors.LookUpEdit cmbArticulo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private DevExpress.XtraEditors.TextEdit txtNombre;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
-        private DevExpress.XtraEditors.TextEdit txtHorasTotales;
+        private DevExpress.XtraEditors.TextEdit txtHoras;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private DevExpress.XtraEditors.TextEdit txtManoObraTotales;
+        private DevExpress.XtraEditors.TextEdit txtManoObra;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private DevExpress.XtraEditors.TextEdit txtRepuestosTotales;
+        private DevExpress.XtraEditors.TextEdit txtRepuestos;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel pComprobantes;
-        private DevExpress.XtraGrid.GridControl gridControlTareas;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTareas;
+        private DevExpress.XtraGrid.GridControl gridControlArticulos;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewArticulos;
         private DevExpress.XtraEditors.SimpleButton bEliminarComprobante;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private DevExpress.XtraEditors.SimpleButton bEditarComprobante;
@@ -548,8 +553,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDescripcion;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private DevExpress.XtraEditors.TextEdit txtPedidoMaximo;
+        private DevExpress.XtraEditors.TextEdit txtCantidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton bMoverStock;
     }
 }

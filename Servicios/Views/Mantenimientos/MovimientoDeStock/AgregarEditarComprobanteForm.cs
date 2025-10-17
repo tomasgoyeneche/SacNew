@@ -37,6 +37,12 @@ namespace Servicios.Views.Mantenimiento
 
         private void btnCargarPdf_Click(object sender, EventArgs e)
         {
+            if(Nombre == null)
+            {
+                MostrarMensaje("Debe ingresar un nombre para el comprobante antes de cargar el PDF.");
+                return;
+            }
+
             using var dialog = new OpenFileDialog
             {
                 Filter = "Archivos PDF (*.pdf)|*.pdf",
@@ -50,9 +56,9 @@ namespace Servicios.Views.Mantenimiento
         }
 
         // 🔹 Props para exponer al presenter
-        public int IdMovimientoStock { get; set; }
+        public int Id { get; set; }
 
-        public int IdTipoComprobante
+        public int? IdTipoComprobante
         {
             get => Convert.ToInt32(cmbTipoComprobante.EditValue ?? 0);
             set => cmbTipoComprobante.EditValue = value;
@@ -62,6 +68,12 @@ namespace Servicios.Views.Mantenimiento
         {
             get => txtNroComprobante.Text.Trim();
             set => txtNroComprobante.Text = value;
+        }
+
+        public string Nombre
+        {
+            get => txtNombre.Text.Trim();
+            set => txtNombre.Text = value;
         }
 
         public int IdProveedor
@@ -83,6 +95,13 @@ namespace Servicios.Views.Mantenimiento
 
             cmbTipoComprobante.Properties.Columns.Clear();
             cmbTipoComprobante.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Tipo Comprobante"));
+        }
+
+        public void MostrarProveedores(bool mostrar)
+        {
+            lblProveedor.Visible = mostrar;
+            cmbProveedor.Visible = mostrar;
+            bAgregarProveedor.Visible = mostrar;
         }
 
         public void CargarProveedores(List<ArticuloProveedor> proveedores)

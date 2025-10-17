@@ -83,12 +83,12 @@
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
-            bIngresaConsumos = new Guna.UI2.WinForms.Guna2Button();
+            bOrdenesActuales = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            bIngresaConsumosYPF = new Guna.UI2.WinForms.Guna2Button();
+            bOrdenesHistoricas = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -167,7 +167,7 @@
             // 
             guna2Panel8.BackColor = Color.Transparent;
             guna2Panel8.Controls.Add(guna2PictureBox8);
-            guna2Panel8.Controls.Add(bIngresaConsumos);
+            guna2Panel8.Controls.Add(bOrdenesActuales);
             guna2Panel8.Controls.Add(guna2HtmlLabel15);
             guna2Panel8.Controls.Add(guna2HtmlLabel16);
             guna2Panel8.CustomizableEdges = customizableEdges7;
@@ -193,24 +193,25 @@
             guna2PictureBox8.TabIndex = 12;
             guna2PictureBox8.TabStop = false;
             // 
-            // bIngresaConsumos
+            // bOrdenesActuales
             // 
-            bIngresaConsumos.BackColor = Color.Transparent;
-            bIngresaConsumos.BorderRadius = 5;
-            bIngresaConsumos.CustomizableEdges = customizableEdges5;
-            bIngresaConsumos.DisabledState.BorderColor = Color.DarkGray;
-            bIngresaConsumos.DisabledState.CustomBorderColor = Color.DarkGray;
-            bIngresaConsumos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            bIngresaConsumos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            bIngresaConsumos.FillColor = Color.SeaGreen;
-            bIngresaConsumos.Font = new Font("Century Gothic", 9F);
-            bIngresaConsumos.ForeColor = Color.White;
-            bIngresaConsumos.Location = new Point(31, 180);
-            bIngresaConsumos.Name = "bIngresaConsumos";
-            bIngresaConsumos.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            bIngresaConsumos.Size = new Size(129, 30);
-            bIngresaConsumos.TabIndex = 12;
-            bIngresaConsumos.Text = "Ingresar";
+            bOrdenesActuales.BackColor = Color.Transparent;
+            bOrdenesActuales.BorderRadius = 5;
+            bOrdenesActuales.CustomizableEdges = customizableEdges5;
+            bOrdenesActuales.DisabledState.BorderColor = Color.DarkGray;
+            bOrdenesActuales.DisabledState.CustomBorderColor = Color.DarkGray;
+            bOrdenesActuales.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bOrdenesActuales.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bOrdenesActuales.FillColor = Color.SeaGreen;
+            bOrdenesActuales.Font = new Font("Century Gothic", 9F);
+            bOrdenesActuales.ForeColor = Color.White;
+            bOrdenesActuales.Location = new Point(31, 180);
+            bOrdenesActuales.Name = "bOrdenesActuales";
+            bOrdenesActuales.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            bOrdenesActuales.Size = new Size(129, 30);
+            bOrdenesActuales.TabIndex = 12;
+            bOrdenesActuales.Text = "Ingresar";
+            bOrdenesActuales.Click += this.bOrdenesActuales_Click;
             // 
             // guna2HtmlLabel15
             // 
@@ -234,14 +235,14 @@
             guna2HtmlLabel16.Name = "guna2HtmlLabel16";
             guna2HtmlLabel16.Size = new Size(136, 17);
             guna2HtmlLabel16.TabIndex = 12;
-            guna2HtmlLabel16.Text = "Agrega Mantenimiento";
+            guna2HtmlLabel16.Text = "Ordenes Actuales";
             guna2HtmlLabel16.TextAlignment = ContentAlignment.TopCenter;
             // 
             // guna2Panel7
             // 
             guna2Panel7.BackColor = Color.Transparent;
             guna2Panel7.Controls.Add(guna2PictureBox7);
-            guna2Panel7.Controls.Add(bIngresaConsumosYPF);
+            guna2Panel7.Controls.Add(bOrdenesHistoricas);
             guna2Panel7.Controls.Add(guna2HtmlLabel13);
             guna2Panel7.Controls.Add(guna2HtmlLabel14);
             guna2Panel7.CustomizableEdges = customizableEdges13;
@@ -267,24 +268,24 @@
             guna2PictureBox7.TabIndex = 12;
             guna2PictureBox7.TabStop = false;
             // 
-            // bIngresaConsumosYPF
+            // bOrdenesHistoricas
             // 
-            bIngresaConsumosYPF.BackColor = Color.Transparent;
-            bIngresaConsumosYPF.BorderRadius = 5;
-            bIngresaConsumosYPF.CustomizableEdges = customizableEdges11;
-            bIngresaConsumosYPF.DisabledState.BorderColor = Color.DarkGray;
-            bIngresaConsumosYPF.DisabledState.CustomBorderColor = Color.DarkGray;
-            bIngresaConsumosYPF.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            bIngresaConsumosYPF.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            bIngresaConsumosYPF.FillColor = Color.SeaGreen;
-            bIngresaConsumosYPF.Font = new Font("Century Gothic", 9F);
-            bIngresaConsumosYPF.ForeColor = Color.White;
-            bIngresaConsumosYPF.Location = new Point(30, 180);
-            bIngresaConsumosYPF.Name = "bIngresaConsumosYPF";
-            bIngresaConsumosYPF.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            bIngresaConsumosYPF.Size = new Size(129, 30);
-            bIngresaConsumosYPF.TabIndex = 12;
-            bIngresaConsumosYPF.Text = "Ingresar";
+            bOrdenesHistoricas.BackColor = Color.Transparent;
+            bOrdenesHistoricas.BorderRadius = 5;
+            bOrdenesHistoricas.CustomizableEdges = customizableEdges11;
+            bOrdenesHistoricas.DisabledState.BorderColor = Color.DarkGray;
+            bOrdenesHistoricas.DisabledState.CustomBorderColor = Color.DarkGray;
+            bOrdenesHistoricas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bOrdenesHistoricas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bOrdenesHistoricas.FillColor = Color.SeaGreen;
+            bOrdenesHistoricas.Font = new Font("Century Gothic", 9F);
+            bOrdenesHistoricas.ForeColor = Color.White;
+            bOrdenesHistoricas.Location = new Point(30, 180);
+            bOrdenesHistoricas.Name = "bOrdenesHistoricas";
+            bOrdenesHistoricas.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            bOrdenesHistoricas.Size = new Size(129, 30);
+            bOrdenesHistoricas.TabIndex = 12;
+            bOrdenesHistoricas.Text = "Ingresar";
             // 
             // guna2HtmlLabel13
             // 
@@ -308,7 +309,7 @@
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             guna2HtmlLabel14.Size = new Size(129, 17);
             guna2HtmlLabel14.TabIndex = 12;
-            guna2HtmlLabel14.Text = "Mantenimiento";
+            guna2HtmlLabel14.Text = "Ordenes Historicas";
             guna2HtmlLabel14.TextAlignment = ContentAlignment.TopCenter;
             // 
             // guna2Panel6
@@ -798,12 +799,12 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
-        private Guna.UI2.WinForms.Guna2Button bIngresaConsumos;
+        private Guna.UI2.WinForms.Guna2Button bOrdenesActuales;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
-        private Guna.UI2.WinForms.Guna2Button bIngresaConsumosYPF;
+        private Guna.UI2.WinForms.Guna2Button bOrdenesHistoricas;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;

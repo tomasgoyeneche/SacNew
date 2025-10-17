@@ -10,7 +10,7 @@ namespace GestionFlota.Views
         void MostrarArchivos(List<ArchivoDocRuteo> archivos);
 
         void MostrarAlertas(List<AlertaDto> alertas);
-
+        void MostrarMantenimientosyFrancos(string manyfrancos);
         void Close();
     }
 }

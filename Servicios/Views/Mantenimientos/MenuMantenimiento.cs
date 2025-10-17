@@ -125,5 +125,10 @@ namespace Servicios.Views.Mantenimiento
         {
             _presenter.AbrirMenuMantenimientos();
         }
+
+        private async void bOrdenesActuales_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirOrdenesActuales();
+        }
     }
 }

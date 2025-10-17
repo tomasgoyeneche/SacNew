@@ -53,8 +53,8 @@ namespace Core.Repositories
         public async Task<int> AgregarAsync(MovimientoComprobante comprobante)
         {
             const string query = @"
-            INSERT INTO MovimientoComprobante (IdMovimientoStock, IdTipoComprobante, NroComprobante, IdProveedor, Activo, RutaComprobante)
-            VALUES (@IdMovimientoStock, @IdTipoComprobante, @NroComprobante, @IdProveedor, 1, @RutaComprobante);
+            INSERT INTO MovimientoComprobante (IdMovimientoStock, Nombre, IdTipoComprobante, NroComprobante, IdProveedor, Activo, RutaComprobante)
+            VALUES (@IdMovimientoStock, @Nombre, @IdTipoComprobante, @NroComprobante, @IdProveedor, 1, @RutaComprobante);
             SELECT CAST(SCOPE_IDENTITY() as int);";
 
             return await EjecutarConAuditoriaAsync(
@@ -85,7 +85,8 @@ namespace Core.Repositories
         {
             const string query = @"
             UPDATE MovimientoComprobante
-            SET IdTipoComprobante = @IdTipoComprobante,
+            SET Nombre = @Nombre,
+                IdTipoComprobante = @IdTipoComprobante,
                 NroComprobante = @NroComprobante,
                 IdProveedor = @IdProveedor,
                 RutaComprobante = @RutaComprobante

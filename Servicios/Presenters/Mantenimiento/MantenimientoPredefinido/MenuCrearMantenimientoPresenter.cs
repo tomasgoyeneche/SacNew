@@ -226,5 +226,30 @@ namespace Servicios.Presenters
                 await InicializarAsync(_tipoVista, _view.IdMantenimiento);
             }
         }
+
+        public async Task<int> CrearTareaAsync(string nombre)
+        {
+            var tarea = new Tarea
+            {
+                Nombre = nombre.Trim(),
+                Descripcion = "",
+                Horas = 0,
+                ManoObra = 0,
+                Activo = true
+            };
+
+            return await _tareaRepositorio.AgregarAsync(tarea);
+        }
+
+        public async Task AbrirEdicionTareaAsync(int idTarea)
+        {
+            await AbrirFormularioAsync<AgregarEditarTareaForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("MantenimientoPredefinido", idTarea);
+            });
+
+            // 🔹 Refrescar lista de tareas al cerrar
+            await InicializarAsync(_tipoVista, _view.IdMantenimiento);
+        }
     }
 }

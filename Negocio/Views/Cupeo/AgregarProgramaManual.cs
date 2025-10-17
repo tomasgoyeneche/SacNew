@@ -40,6 +40,7 @@ namespace GestionFlota.Views
 
         public void CargarOrigenes(List<Locacion> origenes, int? idOrigenSeleccionado)
         {
+        
             cmbOrigen.Properties.DataSource = origenes;
             cmbOrigen.Properties.DisplayMember = "Nombre";
             cmbOrigen.Properties.ValueMember = "IdLocacion";
@@ -98,7 +99,9 @@ namespace GestionFlota.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
+            bGuardar.Enabled = false;
             await _presenter.GuardarAsync();
+            bGuardar.Enabled = true;
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
