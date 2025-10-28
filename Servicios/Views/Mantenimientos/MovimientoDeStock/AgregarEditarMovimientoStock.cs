@@ -159,7 +159,7 @@ namespace Servicios.Views
             }
             else
             {
-                MostrarMensaje("Seleccione un Articulo para editar.");
+                MostrarMensaje("Seleccione un Comprobante para editar.");
             }
         }
 

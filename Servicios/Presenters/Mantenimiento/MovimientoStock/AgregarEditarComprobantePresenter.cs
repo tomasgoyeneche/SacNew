@@ -17,6 +17,8 @@ namespace Servicios.Presenters
     {
         private readonly IMovimientoComprobanteRepositorio _comprobanteRepositorio;
         private readonly IArticuloProveedorRepositorio _proveedorRepositorio;
+        private readonly IOrdenTrabajoComprobanteRepositorio _ordenTrabajoComprobanteRepositorio;
+
 
 
         public string _Tipo;
@@ -29,11 +31,13 @@ namespace Servicios.Presenters
             IMovimientoComprobanteRepositorio comprobanteRepositorio,
             IArticuloProveedorRepositorio proveedorRepositorio,
             ISesionService sesionService,
+            IOrdenTrabajoComprobanteRepositorio ordenTrabajoComprobanteRepositorio,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
             _comprobanteRepositorio = comprobanteRepositorio;
             _proveedorRepositorio = proveedorRepositorio;
+            _ordenTrabajoComprobanteRepositorio = ordenTrabajoComprobanteRepositorio;
         }
 
         public async Task InicializarAsync(int idMovimientoStock, string Tipo, MovimientoComprobante? comprobante = null, OrdenTrabajoComprobante? ordenTrabajoComprobante = null)
@@ -146,7 +150,7 @@ namespace Servicios.Presenters
                 var ordenTrabajocomprobante = new OrdenTrabajoComprobante
                 {
                     Nombre = _view.Nombre,  
-                    IdOrdenTrabajoComprobante = ComprobanteActual?.IdMovimientoComprobante ?? 0,
+                    IdOrdenTrabajoComprobante = OrdenTrabajoComprobanteActual?.IdOrdenTrabajoComprobante ?? 0,
                     IdOrdenTrabajo = _view.Id,
                     IdTipoComprobante = _view.IdTipoComprobante ?? null,
                     NroComprobante = _view.NroComprobante ?? null,
@@ -156,7 +160,7 @@ namespace Servicios.Presenters
 
                 await EjecutarConCargaAsync(async () =>
                 {
-                    if (ComprobanteActual == null)
+                    if (OrdenTrabajoComprobanteActual == null)
                     {
                         var id = await _ordenTrabajoComprobanteRepositorio.AgregarAsync(ordenTrabajocomprobante);
                         ordenTrabajocomprobante.IdOrdenTrabajoComprobante = id;

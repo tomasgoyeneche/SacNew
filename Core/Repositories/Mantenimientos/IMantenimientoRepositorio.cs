@@ -14,5 +14,6 @@ namespace Core.Repositories
         Task<int> EliminarAsync(int idMantenimiento);
         Task<Mantenimiento?> ObtenerPorIdAsync(int idMantenimiento);
         Task<List<Mantenimiento>> ObtenerTodosAsync();
+
     }
 }

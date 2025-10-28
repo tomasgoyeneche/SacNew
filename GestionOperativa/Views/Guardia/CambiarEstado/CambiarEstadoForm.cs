@@ -78,37 +78,51 @@ namespace GestionOperativa.Views
 
         private async void bSalidaCompleta_Click(object sender, EventArgs e)
         {
+            bSalidaCompleta.Enabled = false;
             await _presenter.RegistrarCambio(false, 5, "ST Completa");
+            bSalidaCompleta.Enabled = true;
         }
 
         private async void bSalidaTractor_Click(object sender, EventArgs e)
         {
+            bSalidaTractor.Enabled = false;
             await _presenter.RegistrarCambio(false, 2, "ST Tractor");
+            bSalidaTractor.Enabled = true;
         }
 
         private async void bSalidaChofer_Click(object sender, EventArgs e)
         {
+            bSalidaChofer.Enabled = false;
             await _presenter.RegistrarCambio(false, 3, "ST Chofer");
+            bSalidaChofer.Enabled = true;
         }
 
         private async void bReingreso_Click(object sender, EventArgs e)
         {
+            bReingreso.Enabled = false;
             await _presenter.RegistrarCambio(false, 6, "Reingreso");
+            bReingreso.Enabled = true;
         }
 
         private async void bVaporizado_Click(object sender, EventArgs e)
         {
+            bVaporizado.Enabled = false;
             await _presenter.RegistrarCambio(false, 7, "Vaporizado");
+            bVaporizado.Enabled = true;
         }
 
         private async void bReparacion_Click(object sender, EventArgs e)
         {
+            bReparacion.Enabled = false;
             await _presenter.RegistrarCambio(false, 8, "Reparacion");
+            bReparacion.Enabled = true;
         }
 
         private async void bEstacionamiento_Click(object sender, EventArgs e)
         {
+            bEstacionamiento.Enabled = false;
             await _presenter.RegistrarCambio(false, 9, "Estacionamiento");
+            bEstacionamiento.Enabled = true;
         }
 
         private async void bComentario_Click(object sender, EventArgs e)
@@ -128,22 +142,30 @@ namespace GestionOperativa.Views
 
         private async void dtpSalidaCompleta_EditValueChanged(object sender, EventArgs e)
         {
+            dtpSalidaCompleta.Enabled = false;
             await _presenter.RegistrarCambio(true, 5, "ST Completa");
+            dtpSalidaCompleta.Enabled = true;
         }
 
         private async void dtpSalidaTractor_EditValueChanged(object sender, EventArgs e)
         {
+            dtpSalidaTractor.Enabled = false;   
             await _presenter.RegistrarCambio(true, 2, "ST Tractor");
+            dtpSalidaTractor.Enabled = true;
         }
 
         private async void dtpSalidaChofer_EditValueChanged(object sender, EventArgs e)
         {
+            dtpSalidaChofer.Enabled = false;
             await _presenter.RegistrarCambio(true, 3, "ST Chofer");
+            dtpSalidaChofer.Enabled = true;
         }
 
         private async void dtpReingreso_EditValueChanged(object sender, EventArgs e)
         {
+            dtpReingreso.Enabled = false;
             await _presenter.RegistrarCambio(true, 6, "Reingreso");
+            dtpReingreso.Enabled = true;
         }
 
         private async void bEliminarEvento_Click(object sender, EventArgs e)
@@ -153,16 +175,21 @@ namespace GestionOperativa.Views
 
         private async void bSalidaCarga_Click(object sender, EventArgs e)
         {
+            bSalidaCarga.Enabled = false;
             await _presenter.RegistrarCambio(false, 4, "Salida Carga");
+            bSalidaCarga.Enabled = true;
         }
 
         private async void dtpSalidaCarga_EditValueChanged(object sender, EventArgs e)
         {
+            dtpSalidaCarga.Enabled = false;
             await _presenter.RegistrarCambio(true, 4, "Salida Carga");
+            dtpSalidaCarga.Enabled = true;
         }
 
         private async void bCambiarChofer_Click(object sender, EventArgs e)
         {
+
             await _presenter.CambiarChoferAsync();
         }
     }

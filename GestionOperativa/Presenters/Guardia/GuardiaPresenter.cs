@@ -162,7 +162,7 @@ namespace GestionOperativa.Presenters
             DateTime fecha = DateTime.Now;
             string patente = _view.PatenteIngresada.Trim().ToUpper();
 
-            if (await _guardiaRepositorio.EstaEnParadorAsync(patente))
+            if (await _guardiaRepositorio.EstaEnParadorAsync(patente) && patente != "")
             {
                 _view.MostrarMensaje("La unidad ya se encuentra en un parador.");
                 return;

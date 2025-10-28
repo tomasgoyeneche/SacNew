@@ -241,5 +241,6 @@ namespace Servicios.Presenters
             }, async () => await InicializarAsync(_movimiento.IdMovimientoStock));
         }
 
+
     }
 }

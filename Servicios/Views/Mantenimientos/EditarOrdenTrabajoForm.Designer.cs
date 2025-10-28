@@ -40,7 +40,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblFase = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtIdOrden = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbUnidad = new DevExpress.XtraEditors.LookUpEdit();
@@ -63,8 +63,8 @@
             bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bEditarComprobante = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            cmbManPredefinidos = new DevExpress.XtraEditors.LookUpEdit();
+            btnAgregarMantenimiento = new DevExpress.XtraEditors.SimpleButton();
+            cmbMantenimiento = new DevExpress.XtraEditors.LookUpEdit();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -81,19 +81,19 @@
             guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpFechaFin = new DevExpress.XtraEditors.DateEdit();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            bAgregarCom = new DevExpress.XtraEditors.SimpleButton();
             gridControlComprobantes = new DevExpress.XtraGrid.GridControl();
             gridViewComprobantes = new DevExpress.XtraGrid.Views.Grid.GridView();
-            simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            bEliminarCom = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            bEditarCom = new DevExpress.XtraEditors.SimpleButton();
             simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            bGuardar = new DevExpress.XtraEditors.SimpleButton();
             txtOdometroFin = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bFinalizo = new DevExpress.XtraEditors.SimpleButton();
-            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtIdOrden.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbUnidad.Properties).BeginInit();
@@ -101,7 +101,7 @@
             pComprobantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlMantenimientos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewMantenimientos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cmbManPredefinidos.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cmbMantenimiento.Properties).BeginInit();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtHoras.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtManoObra.Properties).BeginInit();
@@ -120,7 +120,7 @@
             // 
             // guna2Panel10
             // 
-            guna2Panel10.Controls.Add(guna2HtmlLabel17);
+            guna2Panel10.Controls.Add(lblFase);
             guna2Panel10.CustomizableEdges = customizableEdges1;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(0, 12);
@@ -129,17 +129,17 @@
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 119;
             // 
-            // guna2HtmlLabel17
+            // lblFase
             // 
-            guna2HtmlLabel17.AutoSize = false;
-            guna2HtmlLabel17.BackColor = Color.Transparent;
-            guna2HtmlLabel17.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel17.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel17.Location = new Point(8, 5);
-            guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            guna2HtmlLabel17.Size = new Size(242, 28);
-            guna2HtmlLabel17.TabIndex = 14;
-            guna2HtmlLabel17.Text = "Orden de Trabajo";
+            lblFase.AutoSize = false;
+            lblFase.BackColor = Color.Transparent;
+            lblFase.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFase.ForeColor = SystemColors.ControlLight;
+            lblFase.Location = new Point(8, 5);
+            lblFase.Name = "lblFase";
+            lblFase.Size = new Size(242, 28);
+            lblFase.TabIndex = 14;
+            lblFase.Text = "Orden de Trabajo";
             // 
             // txtIdOrden
             // 
@@ -344,6 +344,7 @@
             // gridColumn4
             // 
             gridColumn4.Caption = "Nombre";
+            gridColumn4.FieldName = "Nombre";
             gridColumn4.Name = "gridColumn4";
             gridColumn4.Visible = true;
             gridColumn4.VisibleIndex = 0;
@@ -367,6 +368,7 @@
             // gridColumn1
             // 
             gridColumn1.Caption = "Horas";
+            gridColumn1.FieldName = "Horas";
             gridColumn1.Name = "gridColumn1";
             gridColumn1.Visible = true;
             gridColumn1.VisibleIndex = 3;
@@ -429,34 +431,35 @@
             bEditarComprobante.TabIndex = 102;
             bEditarComprobante.Text = "Editar";
             // 
-            // simpleButton1
+            // btnAgregarMantenimiento
             // 
-            simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton1.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Appearance.Options.UseForeColor = true;
-            simpleButton1.Appearance.Options.UseTextOptions = true;
-            simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton1.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton1.Location = new Point(298, 554);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(58, 49);
-            simpleButton1.TabIndex = 149;
-            simpleButton1.Text = "+";
+            btnAgregarMantenimiento.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            btnAgregarMantenimiento.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregarMantenimiento.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnAgregarMantenimiento.Appearance.Options.UseBackColor = true;
+            btnAgregarMantenimiento.Appearance.Options.UseFont = true;
+            btnAgregarMantenimiento.Appearance.Options.UseForeColor = true;
+            btnAgregarMantenimiento.Appearance.Options.UseTextOptions = true;
+            btnAgregarMantenimiento.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            btnAgregarMantenimiento.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            btnAgregarMantenimiento.AppearanceDisabled.Options.UseForeColor = true;
+            btnAgregarMantenimiento.Location = new Point(298, 554);
+            btnAgregarMantenimiento.Name = "btnAgregarMantenimiento";
+            btnAgregarMantenimiento.Size = new Size(58, 49);
+            btnAgregarMantenimiento.TabIndex = 149;
+            btnAgregarMantenimiento.Text = "+";
+            btnAgregarMantenimiento.Click += btnAgregarMantenimiento_Click;
             // 
-            // cmbManPredefinidos
+            // cmbMantenimiento
             // 
-            cmbManPredefinidos.Location = new Point(20, 577);
-            cmbManPredefinidos.Margin = new Padding(4, 3, 4, 3);
-            cmbManPredefinidos.Name = "cmbManPredefinidos";
-            cmbManPredefinidos.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbManPredefinidos.Properties.Appearance.Options.UseFont = true;
-            cmbManPredefinidos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbManPredefinidos.Size = new Size(261, 26);
-            cmbManPredefinidos.TabIndex = 150;
+            cmbMantenimiento.Location = new Point(20, 577);
+            cmbMantenimiento.Margin = new Padding(4, 3, 4, 3);
+            cmbMantenimiento.Name = "cmbMantenimiento";
+            cmbMantenimiento.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbMantenimiento.Properties.Appearance.Options.UseFont = true;
+            cmbMantenimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbMantenimiento.Size = new Size(261, 26);
+            cmbMantenimiento.TabIndex = 150;
             // 
             // guna2HtmlLabel8
             // 
@@ -585,9 +588,9 @@
             btnIngreso.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             btnIngreso.AppearanceDisabled.Options.UseForeColor = true;
             btnIngreso.ImageOptions.SvgImage = Properties.Resources.bo_unknown;
-            btnIngreso.Location = new Point(155, 311);
+            btnIngreso.Location = new Point(173, 311);
             btnIngreso.Name = "btnIngreso";
-            btnIngreso.Size = new Size(95, 49);
+            btnIngreso.Size = new Size(77, 49);
             btnIngreso.TabIndex = 157;
             btnIngreso.Text = "Ingreso";
             btnIngreso.Click += btnIngreso_Click;
@@ -636,7 +639,7 @@
             guna2HtmlLabel3.Location = new Point(19, 311);
             guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(129, 23);
+            guna2HtmlLabel3.Size = new Size(147, 23);
             guna2HtmlLabel3.TabIndex = 161;
             guna2HtmlLabel3.Text = "Fecha Ingreso";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.TopCenter;
@@ -662,7 +665,7 @@
             dtpFechaIngreso.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             dtpFechaIngreso.Properties.MaskSettings.Set("mask", "g");
             dtpFechaIngreso.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dtpFechaIngreso.Size = new Size(129, 24);
+            dtpFechaIngreso.Size = new Size(147, 24);
             dtpFechaIngreso.TabIndex = 160;
             // 
             // guna2HtmlLabel14
@@ -674,7 +677,7 @@
             guna2HtmlLabel14.Location = new Point(19, 374);
             guna2HtmlLabel14.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            guna2HtmlLabel14.Size = new Size(129, 23);
+            guna2HtmlLabel14.Size = new Size(147, 23);
             guna2HtmlLabel14.TabIndex = 163;
             guna2HtmlLabel14.Text = "Fecha Fin";
             guna2HtmlLabel14.TextAlignment = ContentAlignment.TopCenter;
@@ -699,17 +702,17 @@
             dtpFechaFin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             dtpFechaFin.Properties.MaskSettings.Set("mask", "g");
             dtpFechaFin.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dtpFechaFin.Size = new Size(129, 24);
+            dtpFechaFin.Size = new Size(147, 24);
             dtpFechaFin.TabIndex = 162;
             // 
             // guna2Panel2
             // 
             guna2Panel2.BackColor = Color.Transparent;
-            guna2Panel2.Controls.Add(simpleButton5);
+            guna2Panel2.Controls.Add(bAgregarCom);
             guna2Panel2.Controls.Add(gridControlComprobantes);
-            guna2Panel2.Controls.Add(simpleButton6);
+            guna2Panel2.Controls.Add(bEliminarCom);
             guna2Panel2.Controls.Add(guna2HtmlLabel12);
-            guna2Panel2.Controls.Add(simpleButton7);
+            guna2Panel2.Controls.Add(bEditarCom);
             guna2Panel2.CustomizableEdges = customizableEdges9;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel2.Location = new Point(376, 69);
@@ -718,23 +721,24 @@
             guna2Panel2.Size = new Size(403, 216);
             guna2Panel2.TabIndex = 164;
             // 
-            // simpleButton5
+            // bAgregarCom
             // 
-            simpleButton5.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton5.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton5.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton5.Appearance.Options.UseBackColor = true;
-            simpleButton5.Appearance.Options.UseFont = true;
-            simpleButton5.Appearance.Options.UseForeColor = true;
-            simpleButton5.Appearance.Options.UseTextOptions = true;
-            simpleButton5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton5.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton5.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton5.Location = new Point(293, 171);
-            simpleButton5.Name = "simpleButton5";
-            simpleButton5.Size = new Size(107, 36);
-            simpleButton5.TabIndex = 104;
-            simpleButton5.Text = "Agregar";
+            bAgregarCom.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bAgregarCom.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarCom.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarCom.Appearance.Options.UseBackColor = true;
+            bAgregarCom.Appearance.Options.UseFont = true;
+            bAgregarCom.Appearance.Options.UseForeColor = true;
+            bAgregarCom.Appearance.Options.UseTextOptions = true;
+            bAgregarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bAgregarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarCom.AppearanceDisabled.Options.UseForeColor = true;
+            bAgregarCom.Location = new Point(293, 171);
+            bAgregarCom.Name = "bAgregarCom";
+            bAgregarCom.Size = new Size(107, 36);
+            bAgregarCom.TabIndex = 104;
+            bAgregarCom.Text = "Agregar";
+            bAgregarCom.Click += bAgregarCom_Click;
             // 
             // gridControlComprobantes
             // 
@@ -760,24 +764,41 @@
             gridViewComprobantes.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewComprobantes.OptionsView.EnableAppearanceEvenRow = true;
             gridViewComprobantes.RowHeight = 20;
+            gridViewComprobantes.DoubleClick += gridViewComprobantes_DoubleClick;
             // 
-            // simpleButton6
+            // gridColumn3
             // 
-            simpleButton6.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            simpleButton6.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton6.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton6.Appearance.Options.UseBackColor = true;
-            simpleButton6.Appearance.Options.UseFont = true;
-            simpleButton6.Appearance.Options.UseForeColor = true;
-            simpleButton6.Appearance.Options.UseTextOptions = true;
-            simpleButton6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton6.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton6.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton6.Location = new Point(3, 171);
-            simpleButton6.Name = "simpleButton6";
-            simpleButton6.Size = new Size(103, 36);
-            simpleButton6.TabIndex = 103;
-            simpleButton6.Text = "Eliminar";
+            gridColumn3.Caption = "Nombre";
+            gridColumn3.FieldName = "Nombre";
+            gridColumn3.Name = "gridColumn3";
+            gridColumn3.Visible = true;
+            gridColumn3.VisibleIndex = 0;
+            // 
+            // gridColumn5
+            // 
+            gridColumn5.Caption = "NroComprobante";
+            gridColumn5.FieldName = "NroComprobante";
+            gridColumn5.Name = "gridColumn5";
+            gridColumn5.Visible = true;
+            gridColumn5.VisibleIndex = 1;
+            // 
+            // bEliminarCom
+            // 
+            bEliminarCom.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bEliminarCom.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEliminarCom.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarCom.Appearance.Options.UseBackColor = true;
+            bEliminarCom.Appearance.Options.UseFont = true;
+            bEliminarCom.Appearance.Options.UseForeColor = true;
+            bEliminarCom.Appearance.Options.UseTextOptions = true;
+            bEliminarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEliminarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarCom.AppearanceDisabled.Options.UseForeColor = true;
+            bEliminarCom.Location = new Point(3, 171);
+            bEliminarCom.Name = "bEliminarCom";
+            bEliminarCom.Size = new Size(103, 36);
+            bEliminarCom.TabIndex = 103;
+            bEliminarCom.Text = "Eliminar";
             // 
             // guna2HtmlLabel12
             // 
@@ -790,26 +811,27 @@
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(403, 20);
             guna2HtmlLabel12.TabIndex = 50;
-            guna2HtmlLabel12.Text = "Comprobantes Cargados";
+            guna2HtmlLabel12.Text = "Archivos/Comprobantes Cargados";
             guna2HtmlLabel12.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // simpleButton7
+            // bEditarCom
             // 
-            simpleButton7.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
-            simpleButton7.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton7.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton7.Appearance.Options.UseBackColor = true;
-            simpleButton7.Appearance.Options.UseFont = true;
-            simpleButton7.Appearance.Options.UseForeColor = true;
-            simpleButton7.Appearance.Options.UseTextOptions = true;
-            simpleButton7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton7.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton7.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton7.Location = new Point(114, 171);
-            simpleButton7.Name = "simpleButton7";
-            simpleButton7.Size = new Size(103, 36);
-            simpleButton7.TabIndex = 102;
-            simpleButton7.Text = "Editar";
+            bEditarCom.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
+            bEditarCom.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEditarCom.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEditarCom.Appearance.Options.UseBackColor = true;
+            bEditarCom.Appearance.Options.UseFont = true;
+            bEditarCom.Appearance.Options.UseForeColor = true;
+            bEditarCom.Appearance.Options.UseTextOptions = true;
+            bEditarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEditarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEditarCom.AppearanceDisabled.Options.UseForeColor = true;
+            bEditarCom.Location = new Point(114, 171);
+            bEditarCom.Name = "bEditarCom";
+            bEditarCom.Size = new Size(103, 36);
+            bEditarCom.TabIndex = 102;
+            bEditarCom.Text = "Editar";
+            bEditarCom.Click += bEditarCom_Click;
             // 
             // simpleButton8
             // 
@@ -830,23 +852,24 @@
             simpleButton8.Text = "Cancelar";
             simpleButton8.Click += simpleButton8_Click;
             // 
-            // simpleButton9
+            // bGuardar
             // 
-            simpleButton9.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton9.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton9.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton9.Appearance.Options.UseBackColor = true;
-            simpleButton9.Appearance.Options.UseFont = true;
-            simpleButton9.Appearance.Options.UseForeColor = true;
-            simpleButton9.Appearance.Options.UseTextOptions = true;
-            simpleButton9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton9.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton9.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton9.Location = new Point(213, 617);
-            simpleButton9.Name = "simpleButton9";
-            simpleButton9.Size = new Size(143, 47);
-            simpleButton9.TabIndex = 165;
-            simpleButton9.Text = "Confirmar";
+            bGuardar.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bGuardar.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bGuardar.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bGuardar.Appearance.Options.UseBackColor = true;
+            bGuardar.Appearance.Options.UseFont = true;
+            bGuardar.Appearance.Options.UseForeColor = true;
+            bGuardar.Appearance.Options.UseTextOptions = true;
+            bGuardar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bGuardar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bGuardar.AppearanceDisabled.Options.UseForeColor = true;
+            bGuardar.Location = new Point(213, 617);
+            bGuardar.Name = "bGuardar";
+            bGuardar.Size = new Size(143, 47);
+            bGuardar.TabIndex = 165;
+            bGuardar.Text = "Confirmar";
+            bGuardar.Click += bGuardar_Click;
             // 
             // txtOdometroFin
             // 
@@ -886,26 +909,12 @@
             bFinalizo.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bFinalizo.AppearanceDisabled.Options.UseForeColor = true;
             bFinalizo.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bFinalizo.ImageOptions.SvgImage");
-            bFinalizo.Location = new Point(155, 373);
+            bFinalizo.Location = new Point(173, 373);
             bFinalizo.Name = "bFinalizo";
-            bFinalizo.Size = new Size(95, 49);
+            bFinalizo.Size = new Size(77, 49);
             bFinalizo.TabIndex = 169;
             bFinalizo.Text = "Final";
             bFinalizo.Click += bFinalizo_Click;
-            // 
-            // gridColumn3
-            // 
-            gridColumn3.Caption = "Nombre";
-            gridColumn3.Name = "gridColumn3";
-            gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 0;
-            // 
-            // gridColumn5
-            // 
-            gridColumn5.Caption = "NroComprobante";
-            gridColumn5.Name = "gridColumn5";
-            gridColumn5.Visible = true;
-            gridColumn5.VisibleIndex = 1;
             // 
             // EditarOrdenTrabajoForm
             // 
@@ -918,18 +927,18 @@
             Controls.Add(txtOdometroFin);
             Controls.Add(guna2HtmlLabel15);
             Controls.Add(simpleButton8);
-            Controls.Add(simpleButton9);
+            Controls.Add(bGuardar);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2HtmlLabel14);
             Controls.Add(dtpFechaFin);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(dtpFechaIngreso);
             Controls.Add(txtOdometroIng);
-            Controls.Add(simpleButton1);
+            Controls.Add(btnAgregarMantenimiento);
             Controls.Add(btnIngreso);
             Controls.Add(btnAutorizar);
             Controls.Add(guna2Panel1);
-            Controls.Add(cmbManPredefinidos);
+            Controls.Add(cmbMantenimiento);
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(pComprobantes);
             Controls.Add(guna2HtmlLabel6);
@@ -956,7 +965,7 @@
             pComprobantes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlMantenimientos).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewMantenimientos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cmbManPredefinidos.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cmbMantenimiento.Properties).EndInit();
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)txtHoras.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtManoObra.Properties).EndInit();
@@ -977,7 +986,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblFase;
         private DevExpress.XtraEditors.TextEdit txtIdOrden;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private DevExpress.XtraEditors.LookUpEdit cmbUnidad;
@@ -995,8 +1004,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private DevExpress.XtraEditors.SimpleButton bEditarComprobante;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LookUpEdit cmbManPredefinidos;
+        private DevExpress.XtraEditors.SimpleButton btnAgregarMantenimiento;
+        private DevExpress.XtraEditors.LookUpEdit cmbMantenimiento;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
@@ -1013,14 +1022,14 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private DevExpress.XtraEditors.DateEdit dtpFechaFin;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton bAgregarCom;
         private DevExpress.XtraGrid.GridControl gridControlComprobantes;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewComprobantes;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton bEliminarCom;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton bEditarCom;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraEditors.SimpleButton bGuardar;
         private DevExpress.XtraEditors.TextEdit txtOdometroFin;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;

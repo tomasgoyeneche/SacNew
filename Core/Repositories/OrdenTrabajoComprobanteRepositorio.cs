@@ -71,7 +71,7 @@ namespace Core.Repositories
             const string query = @"
             SELECT *
             FROM OrdenTrabajoComprobante
-            WHERE OrdenTrabajoComprobante = @OrdenTrabajoComprobante";
+            WHERE idOrdenTrabajoComprobante = @idOrdenTrabajoComprobante";
 
             return await ConectarAsync(async conn =>
             {
