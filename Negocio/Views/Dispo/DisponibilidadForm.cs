@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraSplashScreen;
 using GestionFlota.Presenters;
 using Shared.Models;
 
@@ -45,7 +44,6 @@ namespace GestionFlota.Views
             view.BestFitColumns();
         }
 
-
         public void SetEstadoCargaDisponibles(bool cargando)
         {
             if (cargando)
@@ -62,7 +60,6 @@ namespace GestionFlota.Views
             else
             {
                 gridControlDisponibles.Enabled = true;
-
             }
         }
 
@@ -156,7 +153,6 @@ namespace GestionFlota.Views
             }
         }
 
-
         private async void bAgregarDispo_Click(object sender, EventArgs e)
         {
             if (gridViewDisponibles.GetFocusedRow() is Disponibilidad dispo)
@@ -222,7 +218,6 @@ namespace GestionFlota.Views
 
             if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
             {
-
                 Disponibilidad dispo = gridViewDisponibles.GetFocusedRow() as Disponibilidad;
                 int idAgregarDispo = dispo.IdNomina;
                 var confirm = XtraMessageBox.Show(

@@ -168,9 +168,8 @@ namespace GestionFlota.Presenters
                    HoraEnViaje = x.HoraEnViaje,
                    HoraEntrega = x.HoraEntrega,
                    HoraTotal = x.HoraTotal,
-                   KmTotales = x.KmTotales       
-                 }).ToList();
-
+                   KmTotales = x.KmTotales
+               }).ToList();
 
             string carpeta = @"C:\Compartida\Exportaciones";
             if (!Directory.Exists(carpeta))

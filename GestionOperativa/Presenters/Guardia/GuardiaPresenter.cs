@@ -295,8 +295,7 @@ namespace GestionOperativa.Presenters
             {
                 // 3. Buscar vaporizado relacionado (según tipo de ingreso)
 
-                  Vaporizado? vaporizado = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(guardia.IdGuardiaIngreso);
-     
+                Vaporizado? vaporizado = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(guardia.IdGuardiaIngreso);
 
                 // 4. Validar campos obligatorios (podés adaptar este helper a tu modelo)
                 if (vaporizado == null || !VaporizadoCompleto(vaporizado))

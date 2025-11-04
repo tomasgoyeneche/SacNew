@@ -9,8 +9,7 @@
         public bool Descarga { get; set; }  // Campo booleano para descarga
         public bool Activo { get; set; }  // Para baja lógica (activo o inactivo)
 
-        public bool Exportacion { get; set; }  // Campo booleano para exportación   
-
+        public bool Exportacion { get; set; }  // Campo booleano para exportación
 
         public string CargaTexto => Carga ? "Sí" : "No";
         public string DescargaTexto => Descarga ? "Sí" : "No";

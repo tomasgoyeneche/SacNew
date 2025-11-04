@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class OrdenTrabajo
     {
@@ -30,5 +24,4 @@ namespace Shared.Models
 
         public bool Activo { get; set; } = true;
     }
-
 }

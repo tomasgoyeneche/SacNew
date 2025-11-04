@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -55,8 +50,6 @@ namespace Core.Repositories
             });
         }
 
-
-
         public async Task<List<OrdenTrabajoDto>> ObtenerTodosDtoAsync()
         {
             const string query = @"
@@ -87,7 +80,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<List<OrdenTrabajo>> ObtenerPorFaseAsync(byte fase)
         {
             const string query = @"
@@ -102,6 +94,7 @@ namespace Core.Repositories
                 return result.ToList();
             });
         }
+
         public async Task<List<OrdenTrabajo>> ObtenerPorNominaAsync(int idNomina)
         {
             const string query = @"

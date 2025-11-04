@@ -37,7 +37,8 @@ namespace Servicios.Views
             txtNroCertificado.Text = string.Empty;
             txtNroDanes.Text = string.Empty;
             txtObservaciones.Text = string.Empty;
-        }   
+        }
+
         public void CargarDatos(Vaporizado vaporizado, int idUnidad)
         {
             txtCisterna.Text = vaporizado.CantidadCisternas.ToString();

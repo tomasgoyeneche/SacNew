@@ -41,7 +41,7 @@ namespace GestionDocumental.Presenters
 
                 _view.CargarChoferes(choferesOrdenados);
                 _view.CargarEstados(estados);
-                NovedadActual = null; 
+                NovedadActual = null;
                 _view.LimpiarFormulario();
             });
 

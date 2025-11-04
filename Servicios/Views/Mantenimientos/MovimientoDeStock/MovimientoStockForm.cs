@@ -1,15 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views
 {
@@ -23,6 +14,7 @@ namespace Servicios.Views
             _presenter = presenter;
             _presenter.SetView(this);
         }
+
         public void MostrarMovimientos(List<MovimientoStockDto> movimientos)
         {
             gridControlMovimientos.DataSource = movimientos;
@@ -68,8 +60,6 @@ namespace Servicios.Views
 
         private void btnEliminarArt_Click(object sender, EventArgs e)
         {
-
         }
     }
-
 }

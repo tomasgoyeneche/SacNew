@@ -41,6 +41,7 @@ namespace Servicios
             txtNroPres.Text = string.Empty;
             txtImporte.Text = string.Empty;
         }
+
         public void CargarDatos(Vaporizado vaporizado)
         {
             txtCisterna.Text = vaporizado.CantidadCisternas.ToString();

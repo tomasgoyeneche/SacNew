@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -48,7 +43,6 @@ namespace Servicios.Presenters
             // refrescar lista después de cerrar
             await InicializarAsync();
         }
-
 
         public async Task InicializarAsync()
         {

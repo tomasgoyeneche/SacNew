@@ -14,7 +14,6 @@ namespace GestionFlota.Views
             _presenter = presenter;
             _presenter.SetView(this);
 
-           
             gridViewChoferes.FocusedRowChanged += async (s, e) => await _presenter.ChoferSeleccionadoCambioAsync();
         }
 
@@ -52,6 +51,7 @@ namespace GestionFlota.Views
                 return null;
             }
         }
+
         public string Observacion => txtObservacion.Text.Trim();
 
         public DateTime FechaCambio => dateEditFechaCambio.EditValue as DateTime? ?? DateTime.Today;

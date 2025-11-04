@@ -1,16 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using Servicios.Presenters.Mantenimiento;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -21,10 +11,10 @@ namespace Servicios.Views.Mantenimiento
 
         // Popups
         private PopupMenu popupMenuInformes;
+
         private PopupMenu popupMenuMovimientos;
         private PopupMenu popupMenuDeposito;
         private PopupMenu popupMenuObjetos;
-
 
         public MenuMantenimiento(MenuMantenimientoPresenter presenter)
         {

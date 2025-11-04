@@ -86,8 +86,6 @@ namespace Core.Repositories
             return await ConectarAsync(conn => conn.QueryFirstOrDefaultAsync<Nomina>(query, new { IdUnidad = idUnidad }));
         }
 
-
-
         public async Task<List<VencimientosDto>> ObtenerVencimientosPorNominaAsync(Nomina nomina)
         {
             var vencimientos = new List<VencimientosDto>();

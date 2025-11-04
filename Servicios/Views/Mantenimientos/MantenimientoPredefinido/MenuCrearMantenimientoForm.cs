@@ -1,18 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraGrid;
 using Servicios.Presenters;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -21,6 +11,7 @@ namespace Servicios.Views.Mantenimiento
         public readonly MenuCrearMantenimientoPresenter _presenter;
 
         public string TipoVista { get; set; }
+
         public MenuCrearMantenimientoForm(MenuCrearMantenimientoPresenter presenter)
         {
             InitializeComponent();
@@ -51,7 +42,6 @@ namespace Servicios.Views.Mantenimiento
             var confirm = MessageBox.Show("¿Eliminar esta Tarea?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm == DialogResult.Yes)
             {
-
                 if (TipoVista == "MantenimientoPredefinido")
                 {
                     var tarea = gridViewTareas.GetFocusedRow() as Tarea;
@@ -118,7 +108,6 @@ namespace Servicios.Views.Mantenimiento
 
         public int IdMantenimiento { get; set; }
 
-
         public string Nombre
         {
             get => txtNombre.Text.Trim();
@@ -176,6 +165,7 @@ namespace Servicios.Views.Mantenimiento
             get => Convert.ToDecimal(txtRepuestosTotales.EditValue ?? 0);
             set => txtRepuestosTotales.EditValue = value;
         }
+
         // =====================================================
         // 🔹 Carga de combos y grids
         // =====================================================
@@ -263,7 +253,7 @@ namespace Servicios.Views.Mantenimiento
 
         private async void bEditarTarea_Click(object sender, EventArgs e)
         {
-            if(TipoVista == "MantenimientoPredefinido")
+            if (TipoVista == "MantenimientoPredefinido")
             {
                 var tarea = gridViewTareas.GetFocusedRow() as Tarea;
                 if (tarea != null)
@@ -275,7 +265,6 @@ namespace Servicios.Views.Mantenimiento
                 if (tarea != null)
                     await _presenter.AbrirEdicionTareaAsync(tarea.IdOrdenTrabajoTarea);
             }
-
         }
     }
 }

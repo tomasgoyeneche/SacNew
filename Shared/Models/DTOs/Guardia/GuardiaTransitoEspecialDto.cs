@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class GuardiaTransitoEspecialDto
     {
@@ -21,7 +15,5 @@ namespace Shared.Models
         public DateTime? Seguro { get; set; }
         public DateTime? Ingreso { get; set; }
         public DateTime? Salida { get; set; }
-
-
     }
 }

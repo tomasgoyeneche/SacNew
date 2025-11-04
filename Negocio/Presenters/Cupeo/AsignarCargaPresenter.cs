@@ -18,7 +18,6 @@ namespace GestionFlota.Presenters
         private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
         private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
 
-
         private readonly IProgramaRepositorio _programaRepositorio;
         private Cupeo _cupeoActual;
 
@@ -57,7 +56,7 @@ namespace GestionFlota.Presenters
 
         public async Task ConfirmarAsignacionAsync()
         {
-            if(_view.IdOrigenSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.IdProductoSeleccionado == null)
+            if (_view.IdOrigenSeleccionado == null || _view.IdDestinoSeleccionado == null || _view.IdProductoSeleccionado == null)
             {
                 _view.MostrarMensaje("Debe seleccionar Origen, Destino y Producto.");
                 return;
@@ -101,7 +100,8 @@ namespace GestionFlota.Presenters
             if (locacion.Exportacion == true)
             {
                 programa.Extranjero = true;
-            }else
+            }
+            else
             {
                 programa.Extranjero = false;
             }
@@ -154,8 +154,7 @@ namespace GestionFlota.Presenters
 
         public async Task AbrirOrdenCarga()
         {
-
-            if(_cupeoActual.Confirmado != "OK")
+            if (_cupeoActual.Confirmado != "OK")
             {
                 _view.MostrarMensaje("La orden de carga solo puede generarse para viajes confirmados.");
                 return;

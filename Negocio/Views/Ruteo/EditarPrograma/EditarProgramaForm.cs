@@ -1,5 +1,4 @@
-﻿using DevExpress.Utils.DirectXPaint.Svg;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using GestionFlota.Presenters;
 using Shared.Models;
 using System.IO;
@@ -223,7 +222,6 @@ namespace GestionFlota.Views
 
         private async void bEliminarLlegadaCarga_Click(object sender, EventArgs e)
         {
-
             if (lblLlegadaEntrega.Text != "Llegada:")
             {
                 MostrarMensaje("No puede eliminar la Fecha de Llegada de Carga si ya existe Fecha de Llegada a Entrega.");
@@ -252,8 +250,7 @@ namespace GestionFlota.Views
 
         private async void bEliminarSalidaCarga_Click(object sender, EventArgs e)
         {
-
-            if(lblLlegadaEntrega.Text != "Llegada:")
+            if (lblLlegadaEntrega.Text != "Llegada:")
             {
                 MostrarMensaje("No puede eliminar la Fecha de Salida de Carga si ya existe Fecha de Llegada a Entrega.");
                 return;
@@ -261,8 +258,6 @@ namespace GestionFlota.Views
 
             var result = MessageBox.Show("¿Seguro que desea eliminar la Fecha de Salida a Carga?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
-
-           
 
             await _presenter.GuardarFechaProgramaAsync("CargaSalida", null);
         }
@@ -288,7 +283,7 @@ namespace GestionFlota.Views
         private async void dateEditEntregaSalida_EditValueChanged(object sender, EventArgs e)
         {
             DateTime? nuevaFecha = dateEditEntregaSalida.EditValue as DateTime?;
-            if(nuevaFecha > DateTime.Now)
+            if (nuevaFecha > DateTime.Now)
             {
                 MostrarMensaje("La Fecha no puede ser mayor a hoy");
                 return;
@@ -561,11 +556,9 @@ namespace GestionFlota.Views
             await _presenter.GuardarFechaExtranjeroAsync(6, 3, fecha, "Salida Aduana Ext 02");
         }
 
-
         public void Close()
         {
             Dispose();
         }
-
     }
 }

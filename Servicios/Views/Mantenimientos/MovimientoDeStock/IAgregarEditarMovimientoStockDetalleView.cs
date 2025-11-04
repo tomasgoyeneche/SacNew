@@ -1,10 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -18,10 +13,15 @@ namespace Servicios.Views.Mantenimiento
         decimal PrecioTotal { get; set; }
 
         void CargarArticulos(List<Articulo> articulos);
+
         void MostrarArticuloSeleccionado(Articulo articulo);
+
         void SuspenderEventoArticulo();
+
         void ReanudarEventoArticulo();
+
         void CalcularTotal();
+
         void Cerrar();
     }
 }

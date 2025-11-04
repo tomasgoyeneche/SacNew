@@ -168,7 +168,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             });
         }
 
-
         public async Task ExportarNominaControlCambios(DateTime desde)
         {
             await EjecutarConCargaAsync(async () =>
@@ -187,7 +186,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 reporte.DetailReportBajas.DataSource = flotaUnidades;
                 reporte.DetailReportBajas.DataMember = "";
 
-
                 reporte.DetailReportAltas.DataSource = flotaUnidades;
                 reporte.DetailReportAltas.DataMember = "";
                 reporte.Parameters["pFechaFiltro"].Value = desde;
@@ -199,7 +197,6 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 });
             });
         }
-
 
         public async Task GenerarReporteNominaComodatoAsync()
         {

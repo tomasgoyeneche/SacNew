@@ -1,18 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Microsoft.Win32;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -128,6 +118,7 @@ namespace Servicios.Views.Mantenimientos
             gridControlComprobantes.DataSource = comprobantes;
             gridViewComprobantes.BestFitColumns();
         }
+
         // =====================================================
         // 🧩 Control de botones
         // =====================================================
@@ -164,14 +155,17 @@ namespace Servicios.Views.Mantenimientos
                     texto = "FASE: CREADA";
                     color = Color.LightSteelBlue;
                     break;
+
                 case 1:
                     texto = "FASE: AUTORIZADA";
                     color = Color.Goldenrod;
                     break;
+
                 case 2:
                     texto = "FASE: EN TALLER";
                     color = Color.CornflowerBlue;
                     break;
+
                 case 3:
                     texto = "FASE: FINALIZADA";
                     color = Color.SeaGreen;

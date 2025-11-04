@@ -1,15 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -23,6 +14,7 @@ namespace Servicios.Views.Mantenimientos
             _presenter = presenter;
             _presenter.SetView(this);
         }
+
         public void MostrarOrdenesDeTrabajo(List<OrdenTrabajoDto> ordenes)
         {
             gridControlMantenimientos.DataSource = ordenes;
@@ -56,7 +48,6 @@ namespace Servicios.Views.Mantenimientos
 
         private async void btnEliminarArt_Click(object sender, EventArgs e)
         {
-
             var confirm = MessageBox.Show("¿Eliminar esta Orden de trabajo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm == DialogResult.Yes)
             {
@@ -78,8 +69,6 @@ namespace Servicios.Views.Mantenimientos
                     }
                 }
             }
-
-           
         }
     }
 }

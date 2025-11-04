@@ -1,10 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -23,14 +18,19 @@ namespace Servicios.Views.Mantenimiento
         decimal? PedidoMaximo { get; }
 
         void CargarMedidas(List<Medida> medidas);
+
         void CargarFamilias(List<ArticuloFamilia> familias);
+
         void CargarMarcas(List<ArticuloMarca> marcas);
+
         void CargarModelos(List<ArticuloModelo> modelos);
+
         void LimpiarFormulario();
 
         int ObtenerCantidad();
+
         void MostrarDatosArticulo(Articulo articulo, OrdenTrabajoArticulo? orden = null);
+
         void Cerrar();
     }
-
 }

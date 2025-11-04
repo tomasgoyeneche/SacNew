@@ -43,7 +43,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                 switch (_entidad)
                 {
                     case "empresa":
-                        if(_view.Campo1 == null || _view.Campo2 == null)
+                        if (_view.Campo1 == null || _view.Campo2 == null)
                         {
                             _view.MostrarMensaje("Los campos Nombre Fantasía y CUIT son obligatorios.");
                             break;

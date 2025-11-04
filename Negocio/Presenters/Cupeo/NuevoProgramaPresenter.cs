@@ -44,7 +44,6 @@ namespace GestionFlota.Presenters
             var alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(cupeo.IdNomina);
             _view.MostrarAlertas(alertas);
 
-
             List<VistaPrograma> programas = await _programaRepositorio.ObtenerVistaProgramasPorPatenteAsync(cupeo.Tractor);
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var destinos = await _locacionRepositorio.ObtenerTodasAsync();
@@ -73,9 +72,9 @@ namespace GestionFlota.Presenters
             }
 
             Disponible? disponible = await _disponibilidadRepositorio.ObtenerPorIdAsync(_cupeo.IdDisponible.Value);
-            if(disponible != null)
+            if (disponible != null)
             {
-                if(inicio != disponible.FechaDisponible.Date)
+                if (inicio != disponible.FechaDisponible.Date)
                 {
                     _view.MostrarMensaje("La fecha de carga debe coincidir con la fecha del disponible seleccionado.");
                     return;
@@ -98,12 +97,11 @@ namespace GestionFlota.Presenters
             };
 
             bool programaRepetido = await _programaRepositorio.ExisteAlbaranRepetidoAsync(programa.AlbaranDespacho);
-            if(programaRepetido && programa.AlbaranDespacho != 0)
+            if (programaRepetido && programa.AlbaranDespacho != 0)
             {
                 _view.MostrarMensaje("El albarán de despacho ya existe en un programa activo. Por favor, verifique.");
                 return;
             }
-
 
             Locacion locacion = await _locacionRepositorio.ObtenerPorIdAsync(_view.IdDestinoSeleccionado ?? 0);
             if (locacion.Exportacion == true)
@@ -121,7 +119,7 @@ namespace GestionFlota.Presenters
             }
             else
             {
-                if(_view.Cupo == null)
+                if (_view.Cupo == null)
                 {
                     _view.MostrarMensaje("Debe seleccionar un cupo disponible.");
                     return;

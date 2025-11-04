@@ -64,20 +64,19 @@ namespace GestionFlota.Presenters
             }
 
             Nomina? nominaChoferNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorChofer(idChofer.Value);
-            if(nominaChoferNueva != null)
+            if (nominaChoferNueva != null)
             {
-                if(nominaChoferNueva.FechaAlta > DateTime.Now)
+                if (nominaChoferNueva.FechaAlta > DateTime.Now)
                 {
                     _view.MostrarMensaje("El chofer seleccionado ya está asignado a otra unidad en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;
                 }
             }
 
-
             Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
-            if(nominaUnidadNueva != null)
+            if (nominaUnidadNueva != null)
             {
-                if(nominaUnidadNueva.FechaAlta > DateTime.Now)
+                if (nominaUnidadNueva.FechaAlta > DateTime.Now)
                 {
                     _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;
@@ -89,7 +88,7 @@ namespace GestionFlota.Presenters
             string? Observaciones = _view.Observacion;
             // Llamar SP (agregar método al repositorio)
             await _nominaRepositorio.CambiarChoferUnidadAsync(idChofer, idUnidad, fecha, Observaciones);
-        
+
             if (_nominaActual.IdChofer != 0)
             {
                 Chofer chofer = await _choferRepositorio.ObtenerPorIdAsync(_nominaActual.IdChofer);
@@ -134,7 +133,6 @@ namespace GestionFlota.Presenters
                     return;
                 }
             }
-
 
             if (_nominaActual.IdChofer != 0)
             {

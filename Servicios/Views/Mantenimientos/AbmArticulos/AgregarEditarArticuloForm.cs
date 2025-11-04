@@ -1,17 +1,7 @@
-﻿using Core.Repositories;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -48,10 +38,12 @@ namespace Servicios.Views.Mantenimiento
         {
             Dispose();
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Dispose();
         }
+
         public void LimpiarFormulario()
         {
             IdArticulo = null;
@@ -65,7 +57,7 @@ namespace Servicios.Views.Mantenimiento
             txtPrecioUnitario.EditValue = null;
             txtPedidoMinimo.EditValue = null;
             txtPedidoMaximo.EditValue = null;
-        }   
+        }
 
         public void CargarMedidas(List<Medida> medidas)
         {
@@ -88,6 +80,7 @@ namespace Servicios.Views.Mantenimiento
             cmbFamilia.Properties.Columns.Clear();
             cmbFamilia.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Familia")); // solo muestra el Nombre
         }
+
         public void CargarMarcas(List<ArticuloMarca> marcas)
         {
             cmbMarca.Properties.DataSource = marcas;
@@ -124,7 +117,7 @@ namespace Servicios.Views.Mantenimiento
             txtPedidoMinimo.EditValue = articulo.PedidoMinimo;
             txtPedidoMaximo.EditValue = articulo.PedidoMaximo;
 
-            if(orden != null)
+            if (orden != null)
             {
                 txtPrecioUnitario.EditValue = orden.PrecioUnitario;
                 txtNombre.Text = orden.Nombre;
@@ -232,7 +225,6 @@ namespace Servicios.Views.Mantenimiento
 
         private void guna2Panel10_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

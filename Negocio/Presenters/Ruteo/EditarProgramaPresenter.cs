@@ -16,8 +16,6 @@ namespace GestionFlota.Presenters
         private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
 
-
-
         private readonly IProgramaExtranjeroRepositorio _programaExtranjeroRepositorio; // injectalo por constructor
 
         private Shared.Models.Ruteo _Ruteo;
@@ -61,7 +59,6 @@ namespace GestionFlota.Presenters
             {
                 hitosExtranjero = await _programaExtranjeroRepositorio.ObtenerHitosextranjerosPorProgramaAsync(programa.IdPrograma);
             }
-           
 
             List<AlertaDto> alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(ruteo.IdNomina);
             _view.MostrarAlertas(alertasNomina);
@@ -91,7 +88,7 @@ namespace GestionFlota.Presenters
         public async Task GuardarFechaProgramaAsync(string campo, DateTime? fechaNueva)
         {
             await _programaRepositorio.ActualizarFechaYRegistrarAsync(_Ruteo.IdPrograma, campo, fechaNueva, _Ruteo.IdNomina, _sesionService.IdUsuario);
-            if(campo == "EntregaSalida" && fechaNueva == null)
+            if (campo == "EntregaSalida" && fechaNueva == null)
             {
                 ProgramaTramo programaTramo = new ProgramaTramo
                 {
@@ -107,7 +104,7 @@ namespace GestionFlota.Presenters
             {
                 await _programaRepositorio.CerrarTramosActivosPorProgramaAsync(_Ruteo.IdPrograma, fechaNueva);
             }
-            
+
             await InicializarAsync(_Ruteo);
         }
 
@@ -192,6 +189,7 @@ namespace GestionFlota.Presenters
             });
             _view.Close();
         }
+
         public async Task MostrarMantenimientosyFrancosDelChoferAsync()
         {
             Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(_Ruteo.IdNomina);

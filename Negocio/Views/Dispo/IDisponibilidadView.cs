@@ -10,7 +10,9 @@ namespace GestionFlota.Views
         void CargarDisponibilidades(List<Disponibilidad> disponibilidades);
 
         void ConfigurarControles();
+
         void MostrarChoferesLibres(List<ChoferesLibresDto> choferesLibres);
+
         //void MostrarResumen(List<DispoResumen> resumen);
 
         void MostrarHistorial(List<HistorialGeneralDto> historial);
@@ -18,6 +20,7 @@ namespace GestionFlota.Views
         void MostrarVencimientos(List<VencimientosDto> vencimientos);
 
         void MostrarAlertas(List<AlertaDto> alertas);
+
         void SetEstadoCargaDisponibles(bool cargando);
 
         void SeleccionarDispoPorNomina(int idNominaSeleccionada);

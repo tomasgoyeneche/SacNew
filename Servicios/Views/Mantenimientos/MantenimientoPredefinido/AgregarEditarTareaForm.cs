@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -55,6 +46,7 @@ namespace Servicios.Views.Mantenimientos
         // 🔹 Propiedades expuestas
         // =====================================
         public int IdTarea { get; set; }
+
         public string TipoVista { get; set; } = "MantenimientoPredefinido";
 
         public string Nombre
@@ -121,7 +113,6 @@ namespace Servicios.Views.Mantenimientos
 
         private async void bEditarComprobante_Click(object sender, EventArgs e)
         {
-
             var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
             if (articulo.IdOrdenTrabajoArticulo == null)
             {
@@ -131,7 +122,6 @@ namespace Servicios.Views.Mantenimientos
             {
                 await _presenter.AgregarEditarArticulosAsync(articulo.IdOrdenTrabajoArticulo);
             }
-
         }
 
         public void MostrarMovimientoStock(bool estado)
@@ -166,7 +156,6 @@ namespace Servicios.Views.Mantenimientos
         {
             await _presenter.AgregarEditarArticulosAsync();
         }
-
 
         private void gridViewArticulos_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {

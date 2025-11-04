@@ -38,7 +38,9 @@ namespace Core.Repositories
         Task CerrarTramosActivosPorProgramaAsync(int idPrograma, DateTime? dateTime);
 
         Task<ProgramaEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
+
         Task<bool> ExisteAlbaranRepetidoAsync(int albaran);
+
         Task<List<ProgramaEstado>> ObtenerEstadosDeBajaAsync();
 
         Task<List<VistaPrograma>> ObtenerVistaProgramasAsync();
@@ -54,8 +56,11 @@ namespace Core.Repositories
         Task<List<Acumulado>> ObtenerAcumuladoAsync(DateTime desde, DateTime hasta);
 
         Task<List<TransoftMetanol>> ObtenerTransoftMetanolAsync(DateTime desde, DateTime hasta);
+
         Task<List<ProgramasAnulados>> ObtenerAnuladosAsync(DateTime desde, DateTime hasta);
+
         Task<List<AsignadosCargados>> ObtenerAsignadosCargadosAsync(DateTime desde, DateTime hasta);
+
         Task<List<VistaPrograma>> ObtenerProgramasPorMesAsync(int mes, int anio);
     }
 }

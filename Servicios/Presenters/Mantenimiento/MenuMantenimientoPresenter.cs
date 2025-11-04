@@ -1,14 +1,8 @@
 ﻿using Core.Base;
 using Core.Services;
-using GestionFlota.Views.Alertas;
 using Servicios.Views;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters.Mantenimiento
 {
@@ -28,8 +22,6 @@ namespace Servicios.Presenters.Mantenimiento
                 await form._presenter.CargarArticulosAsync();
             });
         }
-
-
 
         public async void AbrirProveedores()
         {
@@ -55,7 +47,6 @@ namespace Servicios.Presenters.Mantenimiento
             });
         }
 
-
         public async void AbrirOrdenesActuales()
         {
             await AbrirFormularioAsync<ListadoOrdenTrabajoForm>(async form =>
@@ -64,17 +55,25 @@ namespace Servicios.Presenters.Mantenimiento
             });
         }
 
-        public void AbrirInformeMantenimiento() { /* abrir form correspondiente */ }
-        public void AbrirInformeStock() { /* ... */ }
-        public void AbrirInformeTrabajos() { /* ... */ }
+        public void AbrirInformeMantenimiento()
+        { /* abrir form correspondiente */ }
 
-        public void AbrirHistorialArticulo() { /* ... */ }
-        public void AbrirMovimientosArticulo() { /* ... */ }
+        public void AbrirInformeStock()
+        { /* ... */ }
 
-        public void AbrirArticulosExistencia() { /* ... */ }
-        public void AbrirArticulosStockCritico() { /* ... */ }
+        public void AbrirInformeTrabajos()
+        { /* ... */ }
 
+        public void AbrirHistorialArticulo()
+        { /* ... */ }
 
+        public void AbrirMovimientosArticulo()
+        { /* ... */ }
 
+        public void AbrirArticulosExistencia()
+        { /* ... */ }
+
+        public void AbrirArticulosStockCritico()
+        { /* ... */ }
     }
 }

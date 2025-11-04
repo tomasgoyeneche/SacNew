@@ -22,6 +22,5 @@
         public DateTime Fecha { get; set; }
         public string Observaciones { get; set; } = string.Empty;
         public string Autorizado { get; set; } = string.Empty;
-
     }
 }

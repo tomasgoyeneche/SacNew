@@ -178,7 +178,6 @@ namespace GestionOperativa
 
         private async void dtpSalida_EditValueChanged(object sender, EventArgs e)
         {
-
             if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");

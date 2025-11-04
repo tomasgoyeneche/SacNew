@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using GestionOperativa.Presenters;
 using Shared.Models;
-using System.Threading.Tasks;
 
 namespace GestionOperativa.Views
 {
@@ -149,7 +148,7 @@ namespace GestionOperativa.Views
 
         private async void dtpSalidaTractor_EditValueChanged(object sender, EventArgs e)
         {
-            dtpSalidaTractor.Enabled = false;   
+            dtpSalidaTractor.Enabled = false;
             await _presenter.RegistrarCambio(true, 2, "ST Tractor");
             dtpSalidaTractor.Enabled = true;
         }
@@ -189,7 +188,6 @@ namespace GestionOperativa.Views
 
         private async void bCambiarChofer_Click(object sender, EventArgs e)
         {
-
             await _presenter.CambiarChoferAsync();
         }
     }

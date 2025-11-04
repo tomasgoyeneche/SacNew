@@ -142,7 +142,6 @@ namespace GestionFlota.Views
             {
                 var idNomina = cupeo.IdNomina; // Guardás antes de abrir
                 await _presenter.AbrirAsignarManual(cupeo, idNomina);
-
             }
         }
 

@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -37,7 +28,7 @@ namespace Servicios.Views.Mantenimiento
 
         private void btnCargarPdf_Click(object sender, EventArgs e)
         {
-            if(Nombre == null)
+            if (Nombre == null)
             {
                 MostrarMensaje("Debe ingresar un nombre para el comprobante antes de cargar el PDF.");
                 return;

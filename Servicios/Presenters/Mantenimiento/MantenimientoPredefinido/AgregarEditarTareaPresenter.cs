@@ -4,11 +4,6 @@ using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -20,11 +15,8 @@ namespace Servicios.Presenters
         private readonly IOrdenTrabajoArticuloRepositorio _ordenTrabajoArticuloRepositorio;
         private readonly IOrdenTrabajoTareaRepositorio _ordenTrabajoTareaRepositorio;
         private readonly IOrdenTrabajoMantenimientoRepositorio _ordenTrabajoMantenimientoRepositorio;
-        private readonly IArticuloStockRepositorio _articuloStockRepositorio;   
+        private readonly IArticuloStockRepositorio _articuloStockRepositorio;
         private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
-
-
-
 
         private Tarea? _tarea;
         private OrdenTrabajoTarea? _tareaOrden;
@@ -60,14 +52,12 @@ namespace Servicios.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-
                 List<Articulo> articulos = await _articuloRepositorio.ObtenerArticulosActivosAsync();
                 _view.CargarArticulos(articulos);
                 List<TareaArticuloDto> listaDto = new List<TareaArticuloDto>();
 
                 if (_tipoVista == "MantenimientoPredefinido")
                 {
-
                     _view.MostrarMovimientoStock(false);
 
                     List<MantenimientoTareaArticulo> articulosAsociados = await _tareaArticuloRepositorio.ObtenerPorTareaAsync(idTarea);
@@ -125,7 +115,7 @@ namespace Servicios.Presenters
                                 Descripcion = art.Descripcion,
                                 Cantidad = ta.Cantidad,
                                 PrecioUnitario = ta.PrecioUnitario,
-                                Estado = ta.Estado  
+                                Estado = ta.Estado
                             });
                         }
                     }
@@ -134,9 +124,9 @@ namespace Servicios.Presenters
 
                     // 🔹 Calcular el total de repuestos
                     decimal totalRepuestos = listaDto.Sum(x => x.PrecioTotal);
-                    _view.Repuestos = totalRepuestos; 
+                    _view.Repuestos = totalRepuestos;
 
-                    _tareaOrden = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(idTarea);   
+                    _tareaOrden = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(idTarea);
                     if (_tareaOrden == null)
                     {
                         _view.MostrarMensaje("No se encontró la tarea de orden de trabajo especificada.");
@@ -148,13 +138,8 @@ namespace Servicios.Presenters
                     _view.ManoObra = _tareaOrden.ManoObra ?? 0;
                 }
                 // 🔹 Obtener la tarea
-                
 
                 // 🔹 Cargar artículos disponibles y asociados
-               
-
-
-        
             });
         }
 
@@ -182,7 +167,6 @@ namespace Servicios.Presenters
                     Activo = true
                 };
                 await _tareaArticuloRepositorio.AgregarAsync(entidad);
-
             }
             else
             {
@@ -213,7 +197,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarArticuloAsync(int idArticulo, int? idOrdenTrabajoArticulo = null)
         {
-            if(_tipoVista == "MantenimientoPredefinido")
+            if (_tipoVista == "MantenimientoPredefinido")
             {
                 var existentes = await _tareaArticuloRepositorio.ObtenerPorTareaAsync(_view.IdTarea);
                 var registro = existentes.FirstOrDefault(x => x.IdArticulo == idArticulo);
@@ -221,7 +205,6 @@ namespace Servicios.Presenters
                 if (registro != null)
                 {
                     await _tareaArticuloRepositorio.EliminarAsync(registro.IdMantenimientoTareaArticulo);
-
                 }
             }
             else
@@ -237,8 +220,6 @@ namespace Servicios.Presenters
                     return;
                 }
             }
-       
-
 
             await InicializarAsync(_tipoVista, _view.IdTarea);
         }
@@ -254,7 +235,6 @@ namespace Servicios.Presenters
             }, async () => await InicializarAsync(_tipoVista, _view.IdTarea));
         }
 
-
         public async Task MoverStockArticulo(int idOrdenTrabajoArticulo)
         {
             OrdenTrabajoArticulo? articulo = await _ordenTrabajoArticuloRepositorio.ObtenerPorIdAsync(idOrdenTrabajoArticulo);
@@ -262,7 +242,7 @@ namespace Servicios.Presenters
             OrdenTrabajoMantenimiento? mantenimiento = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorIdAsync(tarea.IdOrdenTrabajoMantenimiento);
             OrdenTrabajo? ordenTrabajo = await _ordenTrabajoRepositorio.ObtenerPorIdAsync(mantenimiento.IdOrdenTrabajo);
 
-            if(ordenTrabajo != null)
+            if (ordenTrabajo != null)
             {
                 if (ordenTrabajo.IdLugarReparacion == 1)
                 {
@@ -271,7 +251,7 @@ namespace Servicios.Presenters
                     if (stock != null)
                     {
                         stock.CantidadActual = (stock.CantidadActual ?? 0) - articulo.Cantidad;
-                        
+
                         await _articuloStockRepositorio.ActualizarStockAsync(stock);
                     }
                     else
@@ -282,7 +262,7 @@ namespace Servicios.Presenters
                     articulo.Estado = "Confirmado";
                     await _ordenTrabajoArticuloRepositorio.ActualizarAsync(articulo);
                 }
-                else if(ordenTrabajo.IdLugarReparacion == 2)
+                else if (ordenTrabajo.IdLugarReparacion == 2)
                 {
                     ArticuloStock? stock = await _articuloStockRepositorio.ObtenerStockAsync(articulo.IdArticulo.Value, 3);
 
@@ -319,7 +299,6 @@ namespace Servicios.Presenters
         {
             if (_tipoVista == "MantenimientoPredefinido")
             {
-
                 if (_tarea == null)
                 {
                     _view.MostrarMensaje("No se pudo guardar: la tarea no está inicializada.");
@@ -358,7 +337,6 @@ namespace Servicios.Presenters
                     _view.Cerrar();
                 });
             }
-           
         }
     }
 }

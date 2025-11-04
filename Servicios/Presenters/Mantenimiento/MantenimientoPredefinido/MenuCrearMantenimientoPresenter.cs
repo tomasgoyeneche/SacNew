@@ -3,12 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.MonthCalendar;
 
 namespace Servicios.Presenters
 {
@@ -30,6 +24,7 @@ namespace Servicios.Presenters
         private Shared.Models.OrdenTrabajoMantenimiento? _Ordenmantenimiento;
 
         private string? _tipoVista;
+
         public MenuCrearMantenimientoPresenter(
             IMantenimientoRepositorio mantenimientoRepositorio,
             ITipoMantenimientoRepositorio tipoRepositorio,
@@ -90,10 +85,10 @@ namespace Servicios.Presenters
                     }
 
                     // 🔹 3. Filtrar las tareas no asociadas
-                   todasLasTareas = todasLasTareas 
-                    .Where(t => !idsTareasAsociadas.Contains(t.IdTarea)) 
-                    .OrderBy(t => t.Nombre) 
-                    .ToList();
+                    todasLasTareas = todasLasTareas
+                     .Where(t => !idsTareasAsociadas.Contains(t.IdTarea))
+                     .OrderBy(t => t.Nombre)
+                     .ToList();
                 }
 
                 // 🔹 4. Cargar el combo con las tareas filtradas
@@ -103,7 +98,6 @@ namespace Servicios.Presenters
                 {
                     if (_tipoVista == "MantenimientoPredefinido")
                     {
-
                         _mantenimiento = await _mantenimientoRepositorio.ObtenerPorIdAsync(idMantenimiento);
                         if (_mantenimiento != null)
                         {
@@ -177,7 +171,7 @@ namespace Servicios.Presenters
         {
             decimal totalHoras = 0;
             decimal totalManoObra = 0;
-            decimal totalRepuestos = 0; 
+            decimal totalRepuestos = 0;
             if (_tipoVista == "MantenimientoPredefinido")
             {
                 totalHoras = tareas.Sum(t => t.Horas ?? 0);
@@ -212,8 +206,6 @@ namespace Servicios.Presenters
                     }
                 }
             }
-
-    
 
             _view.HorasTotales = totalHoras;
             _view.ManoObraTotal = totalManoObra;
@@ -272,20 +264,17 @@ namespace Servicios.Presenters
 
                 await _ordenTrabajoMantenimientoRepositorio.ActualizarAsync(ordenMantenimiento);
                 _view.MostrarMensaje("Mantenimiento actualizado correctamente.");
-                
             }
             _view.Cerrar();
         }
 
         public async Task AgregarTareaAsync(int idTarea)
         {
-
             if (_view.IdMantenimiento == 0 && _Ordenmantenimiento == null)
             {
                 _view.MostrarMensaje("Debe guardar el mantenimiento antes de agregar tareas.");
                 return;
             }
-
 
             if (_tipoVista == "MantenimientoPredefinido")
             {
@@ -299,14 +288,13 @@ namespace Servicios.Presenters
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _mantenimientoTareaRepositorio.AgregarAsync(mt);
-
                 });
             }
             else
             {
                 Tarea tarea = await _tareaRepositorio.ObtenerPorIdAsync(idTarea);
                 List<MantenimientoTareaArticulo> manTareaArt = await _mantenimientoTareaArticuloRepositorio.ObtenerPorTareaAsync(idTarea);
-                
+
                 List<Articulo> articulos = new List<Articulo>();
                 foreach (MantenimientoTareaArticulo item in manTareaArt)
                 {
@@ -335,7 +323,7 @@ namespace Servicios.Presenters
                     Activo = true
                 };
 
-                int idOrdenTrabajoTarea = await _ordenTrabajoTareaRepositorio.AgregarAsync(ordenTrabajoTarea);  
+                int idOrdenTrabajoTarea = await _ordenTrabajoTareaRepositorio.AgregarAsync(ordenTrabajoTarea);
 
                 foreach (Articulo articulo in articulos)
                 {
@@ -351,16 +339,14 @@ namespace Servicios.Presenters
                         Cantidad = cantidad,
                         Estimado = articulo.PrecioUnitario * cantidad,
                         Activo = true,
-                        Estado = "Pendiente"    
+                        Estado = "Pendiente"
                     };
 
                     await _ordenTrabajoArticuloRepositorio.AgregarAsync(ordenTrabajoTareaArticulo);
                 }
                 _view.MostrarMensaje("Tarea Agregada Correctamente");
-               
             }
 
-           
             await InicializarAsync(_tipoVista, _view.IdMantenimiento);
         }
 
@@ -368,8 +354,7 @@ namespace Servicios.Presenters
         {
             if (_view.IdMantenimiento == 0) return;
 
-
-            if(idTarea != null)
+            if (idTarea != null)
             {
                 var tareasAsociadas = await _mantenimientoTareaRepositorio.ObtenerPorMantenimientoAsync(_view.IdMantenimiento);
                 var registro = tareasAsociadas.FirstOrDefault(t => t.IdTarea == idTarea);
@@ -380,7 +365,7 @@ namespace Servicios.Presenters
             }
             else
             {
-                OrdenTrabajoTarea? registro = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(idOrdenTrabajoTarea.Value); 
+                OrdenTrabajoTarea? registro = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(idOrdenTrabajoTarea.Value);
                 foreach (OrdenTrabajoArticulo item in await _ordenTrabajoArticuloRepositorio.ObtenerPorTareaAsync(registro.IdOrdenTrabajoTarea))
                 {
                     await _ordenTrabajoArticuloRepositorio.EliminarAsync(item.IdOrdenTrabajoArticulo);
@@ -394,8 +379,6 @@ namespace Servicios.Presenters
 
         public async Task<int> CrearTareaAsync(string nombre)
         {
-
-
             if (_tipoVista == "MantenimientoPredefinido")
             {
                 var tarea = new Tarea

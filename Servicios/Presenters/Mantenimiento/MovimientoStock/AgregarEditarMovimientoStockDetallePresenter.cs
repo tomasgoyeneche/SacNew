@@ -3,11 +3,6 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -45,26 +40,25 @@ namespace Servicios.Presenters
                 _view.IdPosta = _sesionService.IdPosta;
             });
 
-                if (detalle != null)
-                {
-                    DetalleActual = detalle;
-                    _view.SuspenderEventoArticulo();
+            if (detalle != null)
+            {
+                DetalleActual = detalle;
+                _view.SuspenderEventoArticulo();
 
-                    _view.IdArticulo = detalle.IdArticulo;
-                    _view.IdMovimientoStock = detalle.IdMovimientoStock;
-                    _view.IdPosta = detalle.IdPosta;
-                    _view.Cantidad = detalle.Cantidad;
-                    _view.PrecioUnitario = detalle.PrecioUnitario;
-                    _view.PrecioTotal = detalle.PrecioTotal;
+                _view.IdArticulo = detalle.IdArticulo;
+                _view.IdMovimientoStock = detalle.IdMovimientoStock;
+                _view.IdPosta = detalle.IdPosta;
+                _view.Cantidad = detalle.Cantidad;
+                _view.PrecioUnitario = detalle.PrecioUnitario;
+                _view.PrecioTotal = detalle.PrecioTotal;
 
-                    Articulo articulo = await _articuloRepositorio.ObtenerPorIdAsync(detalle.IdArticulo);
-                    if (articulo != null)
-                        articulo.PrecioUnitario = 0;
-                        _view.MostrarArticuloSeleccionado(articulo);
+                Articulo articulo = await _articuloRepositorio.ObtenerPorIdAsync(detalle.IdArticulo);
+                if (articulo != null)
+                    articulo.PrecioUnitario = 0;
+                _view.MostrarArticuloSeleccionado(articulo);
                 // ⚡ lo reactivo después
-                    _view.ReanudarEventoArticulo();
+                _view.ReanudarEventoArticulo();
             }
-           
         }
 
         public async Task ArticuloSeleccionadoAsync(int idArticulo)
@@ -104,5 +98,4 @@ namespace Servicios.Presenters
             });
         }
     }
-
 }

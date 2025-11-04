@@ -1,10 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -23,9 +18,11 @@ namespace Servicios.Views.Mantenimientos
         decimal CantidadArticulo { get; }
 
         void MostrarMovimientoStock(bool estado);
-        void CargarArticulos(List<Articulo> articulos);
-        void CargarArticulosAsociados(List<TareaArticuloDto> articulos);
-        void Cerrar();
 
+        void CargarArticulos(List<Articulo> articulos);
+
+        void CargarArticulosAsociados(List<TareaArticuloDto> articulos);
+
+        void Cerrar();
     }
 }

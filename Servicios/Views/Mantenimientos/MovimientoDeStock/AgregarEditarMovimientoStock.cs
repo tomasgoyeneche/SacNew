@@ -2,16 +2,7 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views
 {
@@ -44,8 +35,6 @@ namespace Servicios.Views
 
             cmbTipoMovimiento.Properties.Columns.Clear();
             cmbTipoMovimiento.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Tipo Movimiento"));
-
-
         }
 
         public List<MovimientoStockDetalleDto> ObtenerDetalles()
@@ -56,7 +45,6 @@ namespace Servicios.Views
         public void CargarDetalles(List<MovimientoStockDetalleDto> detalles)
         {
             gridControlDetalles.DataSource = detalles;
-
 
             var view = gridViewDetalles;
 
@@ -83,11 +71,11 @@ namespace Servicios.Views
             await _presenter.GuardarAsync();
         }
 
-
         public void HabilitarFechaIngreso(bool habilitar)
         {
             dateFechaIngreso.Enabled = habilitar;
         }
+
         public void HabilitarConfirmar(bool habilitar)
         {
             cmbTipoMovimiento.Enabled = habilitar;
@@ -109,6 +97,7 @@ namespace Servicios.Views
         {
             Dispose();
         }
+
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -178,7 +167,6 @@ namespace Servicios.Views
 
         private void gridViewComprobantes_DoubleClick(object sender, EventArgs e)
         {
-
             MovimientoComprobanteDto comprobante = gridViewComprobantes.GetFocusedRow() as MovimientoComprobanteDto;
             if (comprobante == null) return;
 

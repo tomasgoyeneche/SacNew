@@ -1,11 +1,5 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -29,12 +23,19 @@ namespace Servicios.Views.Mantenimientos
         string Observaciones { get; set; }
 
         void LimpiarFormulario();
+
         void CargarUnidades(List<UnidadDto> unidades);
+
         void CargarLugares(List<LugarReparacion> lugares);
+
         void CargarMantenimientosPredefinidos(List<Shared.Models.Mantenimiento> mantenimientos);
+
         void CargarMantenimientosOrden(List<OrdenTrabajoMantenimiento> mantenimientos);
+
         void CargarComprobantes(List<OrdenTrabajoComprobante> comprobantes);
+
         void ActualizarEstadoUI(int fase);
+
         void Cerrar();
     }
 }

@@ -62,7 +62,6 @@ namespace GestionFlota.Presenters
                 }
                 finally
                 {
-
                     if (idNominaAsignados.HasValue)
                     {
                         _view.SeleccionarCupeoAsignadosPorId(idNominaAsignados.Value);
@@ -72,8 +71,6 @@ namespace GestionFlota.Presenters
                         _view.SeleccionarCupeoDispPorNomina(idNominaDisp.Value);
                     }
                 }
-
-
             });
         }
 
@@ -126,7 +123,6 @@ namespace GestionFlota.Presenters
 
         public async Task EliminarAlertaAsync(AlertaDto alerta)
         {
-
             // Eliminar en repositorio
             await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
 

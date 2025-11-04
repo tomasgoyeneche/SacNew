@@ -185,6 +185,7 @@ namespace Core.Repositories
 
             return result.HasValue; // true si encontró algo
         }
+
         public async Task<decimal?> ObtenerOdometerPorNomina(int idNomina)
         {
             // Busca el odometer más reciente ANTES o IGUAL a la fecha indicada
@@ -263,9 +264,8 @@ namespace Core.Repositories
         public async Task<List<VistaPrograma>> ObtenerVistaProgramasPorPatenteAsync(string Tractor)
         {
             var query = "SELECT * FROM vw_Programa where tractor = @Tractor order by cargaSalida desc";
-            return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query, new { Tractor = Tractor}))).ToList();
+            return (await ConectarAsync(conn => conn.QueryAsync<VistaPrograma>(query, new { Tractor = Tractor }))).ToList();
         }
-
 
         public async Task<string> ObtenerUltimaCarga(int idNomina)
         {

@@ -20,7 +20,7 @@ namespace GestionFlota.Presenters
         public DisponibilidadPresenter(
             IDisponibilidadRepositorio disponibilidadRepositorio,
             ISesionService sesionService,
-            
+
             INavigationService navigationService
             , IChoferRepositorio choferRepositorio
             , IExcelService excelService
@@ -234,7 +234,6 @@ namespace GestionFlota.Presenters
 
         public async Task EliminarAlertaAsync(AlertaDto alerta, int idNominaSeleccionada)
         {
-
             // Eliminar en repositorio
             await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
 
@@ -243,6 +242,5 @@ namespace GestionFlota.Presenters
             // Refrescar vencimientos y alertas del ruteo actualmente seleccionado
             await BuscarDisponibilidadesAsync(idNominaSeleccionada);
         }
-
     }
 }

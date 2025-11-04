@@ -3,12 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -19,13 +14,9 @@ namespace Servicios.Presenters
         private readonly IArticuloProveedorRepositorio _proveedorRepositorio;
         private readonly IOrdenTrabajoComprobanteRepositorio _ordenTrabajoComprobanteRepositorio;
 
-
-
         public string _Tipo;
         public MovimientoComprobante? ComprobanteActual { get; private set; }
         public OrdenTrabajoComprobante? OrdenTrabajoComprobanteActual { get; private set; }
-
-
 
         public AgregarEditarComprobantePresenter(
             IMovimientoComprobanteRepositorio comprobanteRepositorio,
@@ -48,13 +39,11 @@ namespace Servicios.Presenters
                 var tipos = await _comprobanteRepositorio.ObtenerTiposComprobantes();
                 _view.CargarTiposComprobante(tipos);
 
-
                 if (_Tipo == "MovimientoStock")
                 {
                     _view.MostrarProveedores(true);
                     List<ArticuloProveedor> proveedores = await _proveedorRepositorio.ObtenerTodosAsync();
                     _view.CargarProveedores(proveedores);
-
 
                     _view.Id = idMovimientoStock;
 
@@ -68,7 +57,8 @@ namespace Servicios.Presenters
                         _view.RutaComprobante = comprobante.RutaComprobante;
                     }
                 }
-                else{
+                else
+                {
                     _view.MostrarProveedores(false);
 
                     _view.Id = idMovimientoStock;
@@ -89,11 +79,12 @@ namespace Servicios.Presenters
         {
             var idMovimiento = _view.Id;
             string carpeta;
-            if(_Tipo == "MovimientoStock")
+            if (_Tipo == "MovimientoStock")
             {
                 carpeta = Path.Combine(@"S:\StockComprobantes", idMovimiento.ToString());
             }
-            else {                 
+            else
+            {
                 carpeta = Path.Combine(@"S:\OrdenesTrabajoComprobantes", idMovimiento.ToString());
             }
 
@@ -150,7 +141,7 @@ namespace Servicios.Presenters
             {
                 var ordenTrabajocomprobante = new OrdenTrabajoComprobante
                 {
-                    Nombre = _view.Nombre,  
+                    Nombre = _view.Nombre,
                     IdOrdenTrabajoComprobante = OrdenTrabajoComprobanteActual?.IdOrdenTrabajoComprobante ?? 0,
                     IdOrdenTrabajo = _view.Id,
                     IdTipoComprobante = _view.IdTipoComprobante ?? null,
@@ -175,7 +166,6 @@ namespace Servicios.Presenters
                     _view.Cerrar();
                 });
             }
-          
         }
 
         public async Task AgregarProveedorAsync()

@@ -37,10 +37,8 @@ namespace GestionFlota.Views
             gridViewViajes.BestFitColumns();
         }
 
-
         public void CargarOrigenes(List<Locacion> origenes, int? idOrigenSeleccionado)
         {
-        
             cmbOrigen.Properties.DataSource = origenes;
             cmbOrigen.Properties.DisplayMember = "Nombre";
             cmbOrigen.Properties.ValueMember = "IdLocacion";

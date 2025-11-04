@@ -138,7 +138,7 @@ namespace Core.Repositories
 
             await ConectarAsync(async connection =>
             {
-                await connection.ExecuteAsync(query, new {IdUnidad = idUnidad, TaraTotal = taraTotal});
+                await connection.ExecuteAsync(query, new { IdUnidad = idUnidad, TaraTotal = taraTotal });
             });
         }
 

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class AsignadosCargados
     {
-
-        public int IdPrograma { get; set; }          // Identificador único del programa    
+        public int IdPrograma { get; set; }          // Identificador único del programa
         public DateTime Disponible { get; set; }    // Fecha y hora en que el programa está disponible
         public string Empresa { get; set; } = string.Empty; // Nombre de la empresa asociada al programa
         public string Tractor { get; set; } = string.Empty;

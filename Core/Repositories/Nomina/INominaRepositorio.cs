@@ -17,8 +17,11 @@ namespace Core.Repositories
         Task<List<HistorialGeneralDto>> ObtenerHistorialPorNomina(int idNomina);
 
         Task<Nomina?> ObtenerNominaMasNuevaPorUnidad(int idUnidad);
+
         Task<Nomina?> ObtenerNominaMasNuevaPorChofer(int idChofer);
+
         Task<decimal?> ObtenerOdometerPorNomina(int idNomina);
+
         Task CambiarChoferUnidadAsync(int? idChofer, int idUnidad, DateTime fecha, string Observaciones);
     }
 }

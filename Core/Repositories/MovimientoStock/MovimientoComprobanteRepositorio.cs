@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -26,7 +21,6 @@ namespace Core.Repositories
                     .ContinueWith(t => t.Result.ToList())
             );
         }
-
 
         public async Task<TipoComprobante?> ObtenerTiposComprobantesPorId(int idTipoComprobante)
         {
@@ -50,6 +44,7 @@ namespace Core.Repositories
                 return result.ToList();
             });
         }
+
         public async Task<int> AgregarAsync(MovimientoComprobante comprobante)
         {
             const string query = @"
@@ -81,6 +76,7 @@ namespace Core.Repositories
                 );
             });
         }
+
         public async Task ActualizarAsync(MovimientoComprobante comprobante)
         {
             const string query = @"

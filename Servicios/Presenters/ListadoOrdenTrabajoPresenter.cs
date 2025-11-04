@@ -1,14 +1,8 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using Servicios.Views;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -18,7 +12,7 @@ namespace Servicios.Presenters
         private readonly IOrdenTrabajoMantenimientoRepositorio _ordenTrabajoMantenimientoRepositorio;
         private readonly IOrdenTrabajoTareaRepositorio _ordenTrabajoTareaRepositorio;
         private readonly IOrdenTrabajoArticuloRepositorio _ordenTrabajoArticuloRepositorio;
-        public string _Criterio; 
+        public string _Criterio;
 
         public ListadoOrdenTrabajoPresenter(
             IOrdenTrabajoRepositorio orderTrabajoRepositorio,
@@ -63,7 +57,6 @@ namespace Servicios.Presenters
                 await form._presenter.InicializarAsync(idOrdenTrabajo);
             });
 
-
             await InicializarAsync(_Criterio);
         }
 
@@ -87,14 +80,13 @@ namespace Servicios.Presenters
             await InicializarAsync(_Criterio);
         }
 
-
         public async Task InicializarAsync(string criterio)
         {
             _Criterio = criterio;
             await EjecutarConCargaAsync(async () =>
             {
                 List<OrdenTrabajoDto> ordenes;
-                if(_Criterio == "Todos")
+                if (_Criterio == "Todos")
                 {
                     ordenes = await _orderTrabajoRepositorio.ObtenerTodosDtoAsync();
                 }

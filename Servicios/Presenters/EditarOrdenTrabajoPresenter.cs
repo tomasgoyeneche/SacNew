@@ -1,16 +1,10 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using DevExpress.XtraTreeList.Data;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -65,7 +59,6 @@ namespace Servicios.Presenters
             _nominaRepositorio = nominaRepositorio;
         }
 
-
         public async Task InicializarAsync(int idOrdenTrabajo)
         {
             _view.LimpiarFormulario();
@@ -115,7 +108,6 @@ namespace Servicios.Presenters
 
         private async Task CalcularTotalesAsync()
         {
-            
             List<OrdenTrabajoMantenimiento> mantenimientos = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(_ordenActual!.IdOrdenTrabajo);
             decimal totalHoras = mantenimientos.Sum(t => t.Horas ?? 0);
             decimal totalManoObra = mantenimientos.Sum(t => t.ManoObra ?? 0);
@@ -228,7 +220,6 @@ namespace Servicios.Presenters
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
             });
         }
-
 
         public async Task AgregarMantenimientoAsync(int idMantenimiento)
         {
@@ -388,15 +379,14 @@ namespace Servicios.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-              
                 _ordenActual.FechaEmision = _view.FechaEmision;
                 _ordenActual.FechaInicio = _view.FechaIngreso;
                 _ordenActual.FechaFin = _view.FechaFin;
                 _ordenActual.OdometroSalida = _view.OdometroSalida;
                 _ordenActual.OdometroIngreso = _view.OdometroIngreso;
-                _ordenActual.Observaciones = _view.Observaciones;   
+                _ordenActual.Observaciones = _view.Observaciones;
                 _ordenActual.HorasEstimadas = _view.Horas;
-                _ordenActual.CostoEstimado = _view.Costo;   
+                _ordenActual.CostoEstimado = _view.Costo;
 
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
                 _view.MostrarMensaje("Orden de trabajo Actualizada correctamente.");
@@ -404,7 +394,6 @@ namespace Servicios.Presenters
                 _view.Cerrar();
             });
         }
-
 
         public async Task AgregarComprobanteAsync()
         {

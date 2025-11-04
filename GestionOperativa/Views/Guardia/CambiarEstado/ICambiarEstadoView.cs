@@ -11,7 +11,6 @@ namespace GestionOperativa.Views
         DateTime? FechaReingreso { get; }
         DateTime? FechaCarga { get; }
 
-
         void InicializarBotones(GuardiaDto guardia, bool admin);
 
         void Close();

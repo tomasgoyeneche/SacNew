@@ -1,16 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Servicios.Presenters;
 using Servicios.Views.Mantenimientos;
-using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -24,6 +14,7 @@ namespace Servicios.Views.Mantenimiento
             _presenter = presenter;
             _presenter.SetView(this);
         }
+
         public void MostrarMantenimientos(List<Shared.Models.Mantenimiento> movimientos)
         {
             gridControlMantenimientos.DataSource = movimientos;

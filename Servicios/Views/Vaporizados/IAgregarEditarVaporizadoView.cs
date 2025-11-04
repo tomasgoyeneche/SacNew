@@ -32,6 +32,7 @@ namespace Servicios.Views
         void SetTiempoVaporizado(string tiempo);
 
         void LimpiarFormulario();
+
         void Cerrar();
     }
 }

@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestionDocumental.Views.Novedades.NovedadesChoferes
 {
@@ -79,7 +70,7 @@ namespace GestionDocumental.Views.Novedades.NovedadesChoferes
             lblDiasAusente.Text = "Días ausente: 0";
             lblReincorporacion.Text = "Reincorporación: N/A";
             lblMantenimientosUnidad.Text = string.Empty;
-        }   
+        }
 
         public void MostrarMantenimientosUnidad(string texto)
         {

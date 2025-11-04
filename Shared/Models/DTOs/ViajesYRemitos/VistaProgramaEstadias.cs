@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class VistaProgramaEstadias
     {
@@ -37,13 +31,10 @@ namespace Shared.Models
         public string? EntregaUnidad { get; set; }
         public int? EntregaRemitoKg { get; set; }
 
-
         public string HoraCarga { get; set; } = string.Empty;
         public string HoraEnViaje { get; set; } = string.Empty;
         public string HoraEntrega { get; set; } = string.Empty;
         public string HoraTotal { get; set; } = string.Empty;
         public int KmTotales { get; set; }
-
-
     }
 }

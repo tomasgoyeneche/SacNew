@@ -2,7 +2,6 @@
 using Core.Repositories;
 using Core.Services;
 using GestionDocumental.Views;
-using GestionDocumental.Views.Novedades;
 using GestionDocumental.Views.Novedades.NovedadesChoferes;
 using GestionDocumental.Views.Novedades.NovedadesUnidades;
 using Shared.Models;

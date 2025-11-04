@@ -1,15 +1,9 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using GestionFlota.Views;
 using Servicios.Views;
 using Servicios.Views.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios.Presenters
 {
@@ -21,8 +15,6 @@ namespace Servicios.Presenters
         private readonly IArticuloRepositorio _articuloRepositorio;
         private readonly IArticuloStockRepositorio _articuloStockRepositorio;
         private readonly IArticuloProveedorRepositorio _articuloProveedorRepositorio;
-
-
 
         private MovimientoStock? _movimiento;
 
@@ -36,7 +28,7 @@ namespace Servicios.Presenters
         ISesionService sesionService,
         INavigationService navigationService
         ) : base(sesionService, navigationService)
-                {
+        {
             _movimientoRepositorio = movimientoRepositorio;
             _detalleRepositorio = detalleRepositorio;
             _comprobanteRepositorio = comprobanteRepositorio;
@@ -61,18 +53,19 @@ namespace Servicios.Presenters
                     _view.FechaIngreso = _movimiento.FechaIngreso;
                     _view.Observaciones = _movimiento.Observaciones ?? "";
 
-                    if(_view.FechaIngreso == null)
+                    if (_view.FechaIngreso == null)
                     {
                         _view.HabilitarConfirmar(true);
                         _view.HabilitarFechaIngreso(false);
-                    }else
+                    }
+                    else
                     {
                         _view.HabilitarConfirmar(false);
                         _view.HabilitarFechaIngreso(true);
                     }
 
                     List<MovimientoStockDetalle> detalles = await _detalleRepositorio.ObtenerPorMovimientoAsync(_movimiento.IdMovimientoStock);
-                    
+
                     var detallesDto = new List<MovimientoStockDetalleDto>();
                     foreach (var det in detalles)
                     {
@@ -104,7 +97,7 @@ namespace Servicios.Presenters
                             IdMovimientoComprobante = det.IdMovimientoComprobante,
                             IdMovimientoStock = det.IdMovimientoStock,
                             TipoComprobanteNombre = tiposComprobantes.Nombre,
-                            NroComprobante =  det.NroComprobante,
+                            NroComprobante = det.NroComprobante,
                             ProveedorNombre = proveedor?.RazonSocial ?? string.Empty,
                             RutaComprobante = det.RutaComprobante
                         });
@@ -139,7 +132,7 @@ namespace Servicios.Presenters
 
                     if (stock != null)
                     {
-                        if(_view.IdTipoMovimiento == 1)
+                        if (_view.IdTipoMovimiento == 1)
                         {
                             stock.CantidadActual = (stock.CantidadActual ?? 0) + det.Cantidad;
                         }
@@ -240,7 +233,5 @@ namespace Servicios.Presenters
                 });
             }, async () => await InicializarAsync(_movimiento.IdMovimientoStock));
         }
-
-
     }
 }

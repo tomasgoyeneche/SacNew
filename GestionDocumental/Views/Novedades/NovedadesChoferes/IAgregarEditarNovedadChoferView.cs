@@ -15,6 +15,7 @@ namespace GestionDocumental.Views
         void CargarEstados(List<ChoferTipoEstado> estados);
 
         void LimpiarFormulario();
+
         void CargarChoferes(List<Chofer> choferes);
 
         void Close();

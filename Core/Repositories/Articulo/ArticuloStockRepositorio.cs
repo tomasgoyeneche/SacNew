@@ -2,11 +2,6 @@
 using Core.Services;
 using Dapper;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Repositories
 {
@@ -36,8 +31,8 @@ namespace Core.Repositories
         public async Task<ArticuloStock?> ObtenerStockAsync(int idArticulo, int idPosta)
         {
             const string query = @"
-        SELECT * 
-        FROM ArticuloStock 
+        SELECT *
+        FROM ArticuloStock
         WHERE IdArticulo = @IdArticulo AND IdPosta = @IdPosta";
 
             return await ConectarAsync(async conn =>

@@ -62,7 +62,6 @@ namespace GestionFlota.Views
                 //gridViewVacios.OptionsBehavior.Editable = false;
                 gridControlVacios.Enabled = false;
 
-
                 //gridControlAlertas.DataSource = null;
                 //gridViewAlertas.OptionsBehavior.Editable = false;
                 gridControlAlertas.Enabled = false;
@@ -79,6 +78,7 @@ namespace GestionFlota.Views
                 gridControlHistorico.Enabled = true;
             }
         }
+
         public void MostrarHistorial(List<HistorialGeneralDto> historial)
         {
             gridControlHistorico.DataSource = historial;

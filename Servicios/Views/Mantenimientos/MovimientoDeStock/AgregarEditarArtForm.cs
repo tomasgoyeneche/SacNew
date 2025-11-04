@@ -3,15 +3,6 @@ using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Servicios.Views.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views
 {
@@ -84,12 +75,11 @@ namespace Servicios.Views
         {
             txtNombre.Text = articulo.Nombre;
             txtDescripcion.Text = articulo.Descripcion;
-            if (articulo.PrecioUnitario != 0) {
+            if (articulo.PrecioUnitario != 0)
+            {
                 PrecioUnitario = articulo.PrecioUnitario;
                 CalcularTotal();
             }
-          
-      
         }
 
         public void CalcularTotal()

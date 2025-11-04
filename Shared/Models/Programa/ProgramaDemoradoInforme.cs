@@ -22,8 +22,5 @@
         public DateTime? HorarioPresentacion { get; set; }
         public string? Motivo { get; set; } = string.Empty;
         public string? Origen { get; set; } = string.Empty;
-
-
-
     }
 }
