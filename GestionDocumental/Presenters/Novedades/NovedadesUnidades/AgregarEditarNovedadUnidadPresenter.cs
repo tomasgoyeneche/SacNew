@@ -40,6 +40,8 @@ namespace GestionDocumental.Presenters.Novedades
 
                 _view.CargarUnidades(unidadesOrdenadas);
                 _view.CargarEstados(estados);
+                NovedadActual = null;
+                _view.LimpiarFormulario();
             });
 
             if (novActual != null)

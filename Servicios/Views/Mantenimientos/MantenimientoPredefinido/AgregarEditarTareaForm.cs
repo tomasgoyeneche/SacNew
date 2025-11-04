@@ -42,9 +42,13 @@ namespace Servicios.Views.Mantenimientos
 
         private async void btnQuitarArticulo_Click(object sender, EventArgs e)
         {
-            var dto = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
-            if (dto != null)
-                await _presenter.EliminarArticuloAsync(dto.IdArticulo);
+            var confirm = MessageBox.Show("¿Eliminar este Articulo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                var dto = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
+                if (dto != null)
+                    await _presenter.EliminarArticuloAsync(dto.IdArticulo, dto.IdOrdenTrabajoArticulo);
+            }
         }
 
         // =====================================
@@ -113,6 +117,76 @@ namespace Servicios.Views.Mantenimientos
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void bEditarComprobante_Click(object sender, EventArgs e)
+        {
+
+            var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
+            if (articulo.IdOrdenTrabajoArticulo == null)
+            {
+                await _presenter.AgregarEditarArticulosAsync(articulo.IdArticulo);
+            }
+            else
+            {
+                await _presenter.AgregarEditarArticulosAsync(articulo.IdOrdenTrabajoArticulo);
+            }
+
+        }
+
+        public void MostrarMovimientoStock(bool estado)
+        {
+            bMoverStock.Enabled = estado;
+            bMoverStock.Visible = estado;
+        }
+
+        private async void bMoverStock_Click(object sender, EventArgs e)
+        {
+            var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
+            if (articulo == null)
+            {
+                MostrarMensaje("Seleccione un articulo para mover el stock");
+                return;
+            }
+            else
+            {
+                if (articulo.Estado == "Confirmado")
+                {
+                    MostrarMensaje("No se puede mover el stock de un articulo confirmado");
+                    return;
+                }
+                else
+                {
+                    await _presenter.MoverStockArticulo(articulo.IdOrdenTrabajoArticulo.Value);
+                }
+            }
+        }
+
+        private async void bNuevoArticulo_Click(object sender, EventArgs e)
+        {
+            await _presenter.AgregarEditarArticulosAsync();
+        }
+
+
+        private void gridViewArticulos_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            var row = view.GetRow(e.RowHandle) as TareaArticuloDto;
+            if (row == null)
+                return;
+
+            if (row.Estado == "Pendiente")
+            {
+                e.Appearance.BackColor = Color.LightYellow;
+                e.Appearance.BackColor2 = Color.Khaki;
+                e.Appearance.ForeColor = Color.Black;
+            }
+            else if (row.Estado == "Confirmado")
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+                e.Appearance.BackColor2 = Color.MediumSeaGreen;
+                e.Appearance.ForeColor = Color.Black;
+            }
         }
     }
 }

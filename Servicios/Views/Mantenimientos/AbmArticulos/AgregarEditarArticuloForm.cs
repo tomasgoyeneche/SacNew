@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Core.Repositories;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters.Mantenimiento;
 using Shared.Models;
@@ -51,6 +52,20 @@ namespace Servicios.Views.Mantenimiento
         {
             Dispose();
         }
+        public void LimpiarFormulario()
+        {
+            IdArticulo = null;
+            txtCodigo.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            cmbMedida.EditValue = null;
+            cmbFamilia.EditValue = null;
+            cmbMarca.EditValue = null;
+            cmbModelo.EditValue = null;
+            txtPrecioUnitario.EditValue = null;
+            txtPedidoMinimo.EditValue = null;
+            txtPedidoMaximo.EditValue = null;
+        }   
 
         public void CargarMedidas(List<Medida> medidas)
         {
@@ -95,7 +110,7 @@ namespace Servicios.Views.Mantenimiento
             cmbModelo.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Modelo")); // solo muestra el Nombre
         }
 
-        public void MostrarDatosArticulo(Articulo articulo)
+        public void MostrarDatosArticulo(Articulo articulo, OrdenTrabajoArticulo? orden = null)
         {
             IdArticulo = articulo.IdArticulo;
             txtCodigo.Text = articulo.Codigo;
@@ -108,6 +123,13 @@ namespace Servicios.Views.Mantenimiento
             txtPrecioUnitario.EditValue = articulo.PrecioUnitario;
             txtPedidoMinimo.EditValue = articulo.PedidoMinimo;
             txtPedidoMaximo.EditValue = articulo.PedidoMaximo;
+
+            if(orden != null)
+            {
+                txtPrecioUnitario.EditValue = orden.PrecioUnitario;
+                txtNombre.Text = orden.Nombre;
+                txtCodigo.Text = orden.Codigo;
+            }
         }
 
         public void MostrarMensaje(string mensaje)
@@ -126,6 +148,20 @@ namespace Servicios.Views.Mantenimiento
             {
                 CargarModelos(new List<ArticuloModelo>());
             }
+        }
+
+        public int ObtenerCantidad()
+        {
+            string nombreTarea = XtraInputBox.Show(
+                  "Ingrese la cantidad del articulo:",
+                  "Nueva Tarea",
+                  ""
+              );
+
+            if (string.IsNullOrWhiteSpace(nombreTarea))
+                return 0; // canceló o dejó vacío
+
+            return Convert.ToInt32(nombreTarea);
         }
 
         private async void bAgregarFamilia_Click(object sender, EventArgs e)

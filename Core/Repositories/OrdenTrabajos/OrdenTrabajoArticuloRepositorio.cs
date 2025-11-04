@@ -40,5 +40,18 @@ namespace Core.Repositories
                 return result.ToList();
             });
         }
+
+        public async Task<OrdenTrabajoArticulo?> ObtenerPorTareaYArticuloAsync(int idTarea, int idArticulo)
+        {
+            const string query = @"
+        SELECT *
+        FROM OrdenTrabajoArticulo
+        WHERE IdOrdenTrabajoTarea = @IdTarea AND IdArticulo = @IdArticulo AND Activo = 1;";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<OrdenTrabajoArticulo>(query, new { IdTarea = idTarea, IdArticulo = idArticulo });
+            });
+        }
     }
 }

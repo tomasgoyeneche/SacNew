@@ -120,6 +120,7 @@ namespace Servicios.Presenters
             {
                 var comprobante = new MovimientoComprobante
                 {
+                    Nombre = _view.Nombre,
                     IdMovimientoComprobante = ComprobanteActual?.IdMovimientoComprobante ?? 0,
                     IdMovimientoStock = _view.Id,
                     IdTipoComprobante = _view.IdTipoComprobante.Value,

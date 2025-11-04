@@ -390,6 +390,7 @@
             bCambiarChofer.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bCambiarChofer.Appearance.Options.UseBackColor = true;
             bCambiarChofer.Appearance.Options.UseFont = true;
+            bCambiarChofer.Enabled = false;
             bCambiarChofer.Location = new Point(311, 325);
             bCambiarChofer.Name = "bCambiarChofer";
             bCambiarChofer.Size = new Size(266, 35);

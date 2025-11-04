@@ -14,5 +14,6 @@ namespace Core.Repositories
         Task<int> EliminarAsync(int id);
         Task<OrdenTrabajoArticulo?> ObtenerPorIdAsync(int id);
         Task<List<OrdenTrabajoArticulo>> ObtenerPorTareaAsync(int idOrdenTrabajoTarea);
+        Task<OrdenTrabajoArticulo?> ObtenerPorTareaYArticuloAsync(int idTarea, int idArticulo);
     }
 }

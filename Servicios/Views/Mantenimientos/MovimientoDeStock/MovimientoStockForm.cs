@@ -65,6 +65,11 @@ namespace Servicios.Views
                 MostrarMensaje("Seleccione una Novedad para editar.");
             }
         }
+
+        private void btnEliminarArt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

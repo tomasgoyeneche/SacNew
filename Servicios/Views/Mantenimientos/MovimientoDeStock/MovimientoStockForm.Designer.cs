@@ -52,9 +52,9 @@
             Descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             popupMenu1 = new DevExpress.XtraBars.PopupMenu(components);
-            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             guna2Panel10.SuspendLayout();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlMovimientos).BeginInit();
@@ -137,6 +137,7 @@
             btnEliminarArt.Size = new Size(132, 37);
             btnEliminarArt.TabIndex = 58;
             btnEliminarArt.Text = "Eliminar";
+            btnEliminarArt.Click += btnEliminarArt_Click;
             // 
             // guna2Panel5
             // 
@@ -222,6 +223,15 @@
             gridColumn29.VisibleIndex = 5;
             gridColumn29.Width = 305;
             // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "Id";
+            gridColumn1.FieldName = "IdMovimientoStock";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 0;
+            gridColumn1.Width = 40;
+            // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.AutoSize = false;
@@ -239,15 +249,6 @@
             // popupMenu1
             // 
             popupMenu1.Name = "popupMenu1";
-            // 
-            // gridColumn1
-            // 
-            gridColumn1.Caption = "Id";
-            gridColumn1.FieldName = "IdMovimientoStock";
-            gridColumn1.Name = "gridColumn1";
-            gridColumn1.Visible = true;
-            gridColumn1.VisibleIndex = 0;
-            gridColumn1.Width = 40;
             // 
             // MovimientoStockForm
             // 

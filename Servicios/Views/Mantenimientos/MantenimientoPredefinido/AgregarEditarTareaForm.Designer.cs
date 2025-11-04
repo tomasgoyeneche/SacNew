@@ -50,10 +50,16 @@
             guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
+            bNuevoArticulo = new DevExpress.XtraEditors.SimpleButton();
             bMoverStock = new DevExpress.XtraEditors.SimpleButton();
             gridControlArticulos = new DevExpress.XtraGrid.GridControl();
             gridViewArticulos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            bEliminarArticulo = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bEditarComprobante = new DevExpress.XtraEditors.SimpleButton();
             simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
@@ -255,9 +261,10 @@
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
+            pComprobantes.Controls.Add(bNuevoArticulo);
             pComprobantes.Controls.Add(bMoverStock);
             pComprobantes.Controls.Add(gridControlArticulos);
-            pComprobantes.Controls.Add(bEliminarComprobante);
+            pComprobantes.Controls.Add(bEliminarArticulo);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
             pComprobantes.Controls.Add(bEditarComprobante);
             pComprobantes.CustomizableEdges = customizableEdges11;
@@ -267,6 +274,25 @@
             pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges12;
             pComprobantes.Size = new Size(404, 279);
             pComprobantes.TabIndex = 132;
+            // 
+            // bNuevoArticulo
+            // 
+            bNuevoArticulo.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bNuevoArticulo.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bNuevoArticulo.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bNuevoArticulo.Appearance.Options.UseBackColor = true;
+            bNuevoArticulo.Appearance.Options.UseFont = true;
+            bNuevoArticulo.Appearance.Options.UseForeColor = true;
+            bNuevoArticulo.Appearance.Options.UseTextOptions = true;
+            bNuevoArticulo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bNuevoArticulo.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bNuevoArticulo.AppearanceDisabled.Options.UseForeColor = true;
+            bNuevoArticulo.Location = new Point(7, 31);
+            bNuevoArticulo.Name = "bNuevoArticulo";
+            bNuevoArticulo.Size = new Size(390, 28);
+            bNuevoArticulo.TabIndex = 138;
+            bNuevoArticulo.Text = "Nuevo Articulo";
+            bNuevoArticulo.Click += bNuevoArticulo_Click;
             // 
             // bMoverStock
             // 
@@ -285,14 +311,15 @@
             bMoverStock.Size = new Size(103, 36);
             bMoverStock.TabIndex = 104;
             bMoverStock.Text = "Mover Stock";
+            bMoverStock.Click += bMoverStock_Click;
             // 
             // gridControlArticulos
             // 
             gridControlArticulos.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlArticulos.Location = new Point(7, 36);
+            gridControlArticulos.Location = new Point(7, 69);
             gridControlArticulos.MainView = gridViewArticulos;
             gridControlArticulos.Name = "gridControlArticulos";
-            gridControlArticulos.Size = new Size(390, 190);
+            gridControlArticulos.Size = new Size(390, 157);
             gridControlArticulos.TabIndex = 51;
             gridControlArticulos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewArticulos });
             // 
@@ -301,6 +328,7 @@
             gridViewArticulos.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridViewArticulos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewArticulos.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewArticulos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3, gridColumn4, gridColumn5 });
             gridViewArticulos.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             gridViewArticulos.GridControl = gridControlArticulos;
             gridViewArticulos.Name = "gridViewArticulos";
@@ -309,25 +337,66 @@
             gridViewArticulos.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             gridViewArticulos.OptionsView.EnableAppearanceEvenRow = true;
             gridViewArticulos.RowHeight = 20;
+            gridViewArticulos.RowCellStyle += gridViewArticulos_RowCellStyle;
             // 
-            // bEliminarComprobante
+            // gridColumn1
             // 
-            bEliminarComprobante.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            bEliminarComprobante.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEliminarComprobante.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.Appearance.Options.UseBackColor = true;
-            bEliminarComprobante.Appearance.Options.UseFont = true;
-            bEliminarComprobante.Appearance.Options.UseForeColor = true;
-            bEliminarComprobante.Appearance.Options.UseTextOptions = true;
-            bEliminarComprobante.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bEliminarComprobante.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.AppearanceDisabled.Options.UseForeColor = true;
-            bEliminarComprobante.Location = new Point(7, 235);
-            bEliminarComprobante.Name = "bEliminarComprobante";
-            bEliminarComprobante.Size = new Size(103, 36);
-            bEliminarComprobante.TabIndex = 103;
-            bEliminarComprobante.Text = "Eliminar";
-            bEliminarComprobante.Click += btnQuitarArticulo_Click;
+            gridColumn1.Caption = "Cod";
+            gridColumn1.FieldName = "Codigo";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            gridColumn2.Caption = "Descripcion";
+            gridColumn2.FieldName = "Descripcion";
+            gridColumn2.Name = "gridColumn2";
+            gridColumn2.Visible = true;
+            gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            gridColumn3.Caption = "Cantidad";
+            gridColumn3.FieldName = "Cantidad";
+            gridColumn3.Name = "gridColumn3";
+            gridColumn3.Visible = true;
+            gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            gridColumn4.Caption = "Precio U";
+            gridColumn4.FieldName = "PrecioUnitario";
+            gridColumn4.Name = "gridColumn4";
+            gridColumn4.Visible = true;
+            gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            gridColumn5.Caption = "Total";
+            gridColumn5.FieldName = "PrecioTotal";
+            gridColumn5.Name = "gridColumn5";
+            gridColumn5.Visible = true;
+            gridColumn5.VisibleIndex = 4;
+            // 
+            // bEliminarArticulo
+            // 
+            bEliminarArticulo.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bEliminarArticulo.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEliminarArticulo.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarArticulo.Appearance.Options.UseBackColor = true;
+            bEliminarArticulo.Appearance.Options.UseFont = true;
+            bEliminarArticulo.Appearance.Options.UseForeColor = true;
+            bEliminarArticulo.Appearance.Options.UseTextOptions = true;
+            bEliminarArticulo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEliminarArticulo.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarArticulo.AppearanceDisabled.Options.UseForeColor = true;
+            bEliminarArticulo.Location = new Point(7, 235);
+            bEliminarArticulo.Name = "bEliminarArticulo";
+            bEliminarArticulo.Size = new Size(103, 36);
+            bEliminarArticulo.TabIndex = 103;
+            bEliminarArticulo.Text = "Eliminar";
+            bEliminarArticulo.Click += btnQuitarArticulo_Click;
             // 
             // guna2HtmlLabel6
             // 
@@ -360,6 +429,7 @@
             bEditarComprobante.Size = new Size(103, 36);
             bEditarComprobante.TabIndex = 102;
             bEditarComprobante.Text = "Editar";
+            bEditarComprobante.Click += bEditarComprobante_Click;
             // 
             // simpleButton8
             // 
@@ -544,7 +614,7 @@
         private Guna.UI2.WinForms.Guna2Panel pComprobantes;
         private DevExpress.XtraGrid.GridControl gridControlArticulos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewArticulos;
-        private DevExpress.XtraEditors.SimpleButton bEliminarComprobante;
+        private DevExpress.XtraEditors.SimpleButton bEliminarArticulo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private DevExpress.XtraEditors.SimpleButton bEditarComprobante;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
@@ -556,5 +626,11 @@
         private DevExpress.XtraEditors.TextEdit txtCantidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private DevExpress.XtraEditors.SimpleButton bMoverStock;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.SimpleButton bNuevoArticulo;
     }
 }

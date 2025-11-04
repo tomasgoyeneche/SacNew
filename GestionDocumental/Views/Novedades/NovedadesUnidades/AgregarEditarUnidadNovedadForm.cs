@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using GestionDocumental.Presenters.Novedades;
+using Microsoft.Identity.Client;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,19 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
         public void MostrarAusenciasChofer(string texto)
         {
             lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
+        public void LimpiarFormulario()
+        {
+            cmbUnidad.EditValue = null;
+            cmbEstado.EditValue = null;
+            dtpFechaInicio.EditValue = DateTime.Now;
+            dtpFechaFinal.EditValue = DateTime.Now.AddDays(1);
+            txtObservaciones.Text = string.Empty;
+            txtOdometro.Text = "0";
+            lblDiasAusente.Text = "Días ausente: 0";
+            lblReincorporacion.Text = "Reincorporación: N/A";
+            lblAusenciasChofer.Text = string.Empty;
         }
 
         public void CargarUnidades(List<UnidadDto> unidades)

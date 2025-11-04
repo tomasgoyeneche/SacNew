@@ -294,11 +294,9 @@ namespace GestionOperativa.Presenters
             if (tuvoVaporizado)
             {
                 // 3. Buscar vaporizado relacionado (según tipo de ingreso)
-                Vaporizado? vaporizado = null;
-                if (guardia.TipoIngreso == 1) // Nomina
-                    vaporizado = await _vaporizadoRepositorio.ObtenerPorNominaAsync(guardia.IdEntidad);
-                else if (guardia.TipoIngreso == 2) // TE
-                    vaporizado = await _vaporizadoRepositorio.ObtenerPorTeAsync(guardia.IdEntidad);
+
+                  Vaporizado? vaporizado = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(guardia.IdGuardiaIngreso);
+     
 
                 // 4. Validar campos obligatorios (podés adaptar este helper a tu modelo)
                 if (vaporizado == null || !VaporizadoCompleto(vaporizado))
@@ -309,9 +307,7 @@ namespace GestionOperativa.Presenters
                         await form._presenter.CargarDatosAsync(vaporizado, guardiaIngreso);
                     });
 
-                    Vaporizado? vaporizadoActualizado = (guardia.TipoIngreso == 1)
-                    ? await _vaporizadoRepositorio.ObtenerPorNominaAsync(guardia.IdEntidad)
-                    : await _vaporizadoRepositorio.ObtenerPorTeAsync(guardia.IdEntidad);
+                    Vaporizado? vaporizadoActualizado = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(guardia.IdGuardiaIngreso);
 
                     if (vaporizadoActualizado == null || !VaporizadoCompleto(vaporizadoActualizado))
                     {

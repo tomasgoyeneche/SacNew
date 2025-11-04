@@ -52,7 +52,7 @@
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
-            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            bAgregarMan = new DevExpress.XtraEditors.SimpleButton();
             gridControlMantenimientos = new DevExpress.XtraGrid.GridControl();
             gridViewMantenimientos = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,7 +60,7 @@
             ManoObra = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
+            bEliminarMantenimiento = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bEditarComprobante = new DevExpress.XtraEditors.SimpleButton();
             btnAgregarMantenimiento = new DevExpress.XtraEditors.SimpleButton();
@@ -148,7 +148,7 @@
             txtIdOrden.Name = "txtIdOrden";
             txtIdOrden.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIdOrden.Properties.Appearance.Options.UseFont = true;
-            txtIdOrden.Size = new Size(335, 22);
+            txtIdOrden.Size = new Size(360, 22);
             txtIdOrden.TabIndex = 126;
             // 
             // guna2HtmlLabel1
@@ -160,7 +160,7 @@
             guna2HtmlLabel1.Location = new Point(21, 69);
             guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(335, 23);
+            guna2HtmlLabel1.Size = new Size(360, 23);
             guna2HtmlLabel1.TabIndex = 125;
             guna2HtmlLabel1.Text = "Orden Trabajo N°";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
@@ -173,7 +173,7 @@
             cmbUnidad.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbUnidad.Properties.Appearance.Options.UseFont = true;
             cmbUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbUnidad.Size = new Size(336, 26);
+            cmbUnidad.Size = new Size(360, 26);
             cmbUnidad.TabIndex = 136;
             // 
             // guna2HtmlLabel10
@@ -185,7 +185,7 @@
             guna2HtmlLabel10.Location = new Point(21, 181);
             guna2HtmlLabel10.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            guna2HtmlLabel10.Size = new Size(336, 23);
+            guna2HtmlLabel10.Size = new Size(360, 23);
             guna2HtmlLabel10.TabIndex = 137;
             guna2HtmlLabel10.Text = "Unidad";
             guna2HtmlLabel10.TextAlignment = ContentAlignment.TopCenter;
@@ -198,7 +198,7 @@
             cmbLugarMantenimiento.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbLugarMantenimiento.Properties.Appearance.Options.UseFont = true;
             cmbLugarMantenimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbLugarMantenimiento.Size = new Size(337, 26);
+            cmbLugarMantenimiento.Size = new Size(362, 26);
             cmbLugarMantenimiento.TabIndex = 138;
             // 
             // guna2HtmlLabel2
@@ -210,7 +210,7 @@
             guna2HtmlLabel2.Location = new Point(19, 244);
             guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(338, 23);
+            guna2HtmlLabel2.Size = new Size(363, 23);
             guna2HtmlLabel2.TabIndex = 139;
             guna2HtmlLabel2.Text = "Lugar Mantenimiento";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.TopCenter;
@@ -224,7 +224,7 @@
             guna2HtmlLabel5.Location = new Point(21, 125);
             guna2HtmlLabel5.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(216, 21);
+            guna2HtmlLabel5.Size = new Size(232, 21);
             guna2HtmlLabel5.TabIndex = 141;
             guna2HtmlLabel5.Text = "Fecha Emision";
             guna2HtmlLabel5.TextAlignment = ContentAlignment.TopCenter;
@@ -235,10 +235,10 @@
             guna2HtmlLabel4.BackColor = Color.Gray;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(259, 311);
+            guna2HtmlLabel4.Location = new Point(268, 311);
             guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(97, 23);
+            guna2HtmlLabel4.Size = new Size(113, 23);
             guna2HtmlLabel4.TabIndex = 144;
             guna2HtmlLabel4.Text = "Odometro Ing";
             guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
@@ -252,7 +252,7 @@
             guna2HtmlLabel6.Location = new Point(19, 443);
             guna2HtmlLabel6.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(337, 23);
+            guna2HtmlLabel6.Size = new Size(362, 23);
             guna2HtmlLabel6.TabIndex = 147;
             guna2HtmlLabel6.Text = "Descripcion";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.TopCenter;
@@ -279,50 +279,51 @@
             txtDescripcion.RightToLeft = RightToLeft.No;
             txtDescripcion.SelectedText = "";
             txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtDescripcion.Size = new Size(337, 73);
+            txtDescripcion.Size = new Size(362, 73);
             txtDescripcion.TabIndex = 146;
             // 
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
-            pComprobantes.Controls.Add(simpleButton2);
+            pComprobantes.Controls.Add(bAgregarMan);
             pComprobantes.Controls.Add(gridControlMantenimientos);
-            pComprobantes.Controls.Add(bEliminarComprobante);
+            pComprobantes.Controls.Add(bEliminarMantenimiento);
             pComprobantes.Controls.Add(guna2HtmlLabel7);
             pComprobantes.Controls.Add(bEditarComprobante);
             pComprobantes.CustomizableEdges = customizableEdges5;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
-            pComprobantes.Location = new Point(376, 298);
+            pComprobantes.Location = new Point(391, 298);
             pComprobantes.Name = "pComprobantes";
             pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            pComprobantes.Size = new Size(403, 244);
+            pComprobantes.Size = new Size(388, 244);
             pComprobantes.TabIndex = 148;
             // 
-            // simpleButton2
+            // bAgregarMan
             // 
-            simpleButton2.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            simpleButton2.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            simpleButton2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.Appearance.Options.UseBackColor = true;
-            simpleButton2.Appearance.Options.UseFont = true;
-            simpleButton2.Appearance.Options.UseForeColor = true;
-            simpleButton2.Appearance.Options.UseTextOptions = true;
-            simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            simpleButton2.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            simpleButton2.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton2.Location = new Point(293, 198);
-            simpleButton2.Name = "simpleButton2";
-            simpleButton2.Size = new Size(107, 36);
-            simpleButton2.TabIndex = 152;
-            simpleButton2.Text = "Agregar Nuevo";
+            bAgregarMan.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            bAgregarMan.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarMan.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarMan.Appearance.Options.UseBackColor = true;
+            bAgregarMan.Appearance.Options.UseFont = true;
+            bAgregarMan.Appearance.Options.UseForeColor = true;
+            bAgregarMan.Appearance.Options.UseTextOptions = true;
+            bAgregarMan.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bAgregarMan.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bAgregarMan.AppearanceDisabled.Options.UseForeColor = true;
+            bAgregarMan.Location = new Point(277, 199);
+            bAgregarMan.Name = "bAgregarMan";
+            bAgregarMan.Size = new Size(107, 36);
+            bAgregarMan.TabIndex = 152;
+            bAgregarMan.Text = "Agregar Nuevo";
+            bAgregarMan.Click += bAgregarMan_Click;
             // 
             // gridControlMantenimientos
             // 
             gridControlMantenimientos.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlMantenimientos.Location = new Point(7, 26);
+            gridControlMantenimientos.Location = new Point(6, 26);
             gridControlMantenimientos.MainView = gridViewMantenimientos;
             gridControlMantenimientos.Name = "gridControlMantenimientos";
-            gridControlMantenimientos.Size = new Size(393, 165);
+            gridControlMantenimientos.Size = new Size(378, 165);
             gridControlMantenimientos.TabIndex = 51;
             gridControlMantenimientos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewMantenimientos });
             // 
@@ -381,23 +382,24 @@
             gridColumn2.Visible = true;
             gridColumn2.VisibleIndex = 4;
             // 
-            // bEliminarComprobante
+            // bEliminarMantenimiento
             // 
-            bEliminarComprobante.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            bEliminarComprobante.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEliminarComprobante.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.Appearance.Options.UseBackColor = true;
-            bEliminarComprobante.Appearance.Options.UseFont = true;
-            bEliminarComprobante.Appearance.Options.UseForeColor = true;
-            bEliminarComprobante.Appearance.Options.UseTextOptions = true;
-            bEliminarComprobante.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bEliminarComprobante.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.AppearanceDisabled.Options.UseForeColor = true;
-            bEliminarComprobante.Location = new Point(6, 198);
-            bEliminarComprobante.Name = "bEliminarComprobante";
-            bEliminarComprobante.Size = new Size(103, 36);
-            bEliminarComprobante.TabIndex = 103;
-            bEliminarComprobante.Text = "Eliminar";
+            bEliminarMantenimiento.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bEliminarMantenimiento.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEliminarMantenimiento.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarMantenimiento.Appearance.Options.UseBackColor = true;
+            bEliminarMantenimiento.Appearance.Options.UseFont = true;
+            bEliminarMantenimiento.Appearance.Options.UseForeColor = true;
+            bEliminarMantenimiento.Appearance.Options.UseTextOptions = true;
+            bEliminarMantenimiento.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEliminarMantenimiento.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarMantenimiento.AppearanceDisabled.Options.UseForeColor = true;
+            bEliminarMantenimiento.Location = new Point(6, 199);
+            bEliminarMantenimiento.Name = "bEliminarMantenimiento";
+            bEliminarMantenimiento.Size = new Size(103, 36);
+            bEliminarMantenimiento.TabIndex = 103;
+            bEliminarMantenimiento.Text = "Eliminar";
+            bEliminarMantenimiento.Click += bEliminarMantenimiento_Click;
             // 
             // guna2HtmlLabel7
             // 
@@ -408,7 +410,7 @@
             guna2HtmlLabel7.ForeColor = Color.Black;
             guna2HtmlLabel7.Location = new Point(0, 0);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(403, 20);
+            guna2HtmlLabel7.Size = new Size(388, 20);
             guna2HtmlLabel7.TabIndex = 50;
             guna2HtmlLabel7.Text = "Lista de Matenimientos";
             guna2HtmlLabel7.TextAlignment = ContentAlignment.MiddleCenter;
@@ -425,11 +427,12 @@
             bEditarComprobante.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bEditarComprobante.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bEditarComprobante.AppearanceDisabled.Options.UseForeColor = true;
-            bEditarComprobante.Location = new Point(117, 198);
+            bEditarComprobante.Location = new Point(116, 199);
             bEditarComprobante.Name = "bEditarComprobante";
             bEditarComprobante.Size = new Size(103, 36);
             bEditarComprobante.TabIndex = 102;
             bEditarComprobante.Text = "Editar";
+            bEditarComprobante.Click += bEditarComprobante_Click;
             // 
             // btnAgregarMantenimiento
             // 
@@ -443,7 +446,7 @@
             btnAgregarMantenimiento.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             btnAgregarMantenimiento.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             btnAgregarMantenimiento.AppearanceDisabled.Options.UseForeColor = true;
-            btnAgregarMantenimiento.Location = new Point(298, 554);
+            btnAgregarMantenimiento.Location = new Point(323, 554);
             btnAgregarMantenimiento.Name = "btnAgregarMantenimiento";
             btnAgregarMantenimiento.Size = new Size(58, 49);
             btnAgregarMantenimiento.TabIndex = 149;
@@ -458,7 +461,7 @@
             cmbMantenimiento.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbMantenimiento.Properties.Appearance.Options.UseFont = true;
             cmbMantenimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbMantenimiento.Size = new Size(261, 26);
+            cmbMantenimiento.Size = new Size(296, 26);
             cmbMantenimiento.TabIndex = 150;
             // 
             // guna2HtmlLabel8
@@ -470,7 +473,7 @@
             guna2HtmlLabel8.Location = new Point(19, 554);
             guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(262, 23);
+            guna2HtmlLabel8.Size = new Size(297, 23);
             guna2HtmlLabel8.TabIndex = 151;
             guna2HtmlLabel8.Text = "Mantenimientos Predefinidos";
             guna2HtmlLabel8.TextAlignment = ContentAlignment.TopCenter;
@@ -485,10 +488,10 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel13);
             guna2Panel1.CustomizableEdges = customizableEdges7;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel1.Location = new Point(376, 554);
+            guna2Panel1.Location = new Point(391, 554);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(403, 110);
+            guna2Panel1.Size = new Size(388, 110);
             guna2Panel1.TabIndex = 152;
             // 
             // guna2HtmlLabel9
@@ -497,7 +500,7 @@
             guna2HtmlLabel9.BackColor = Color.Gray;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(15, 36);
+            guna2HtmlLabel9.Location = new Point(11, 36);
             guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(130, 23);
@@ -507,13 +510,14 @@
             // 
             // txtHoras
             // 
-            txtHoras.Location = new Point(141, 37);
+            txtHoras.Enabled = false;
+            txtHoras.Location = new Point(142, 37);
             txtHoras.Name = "txtHoras";
             txtHoras.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHoras.Properties.Appearance.Options.UseFont = true;
             txtHoras.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtHoras.Properties.MaskSettings.Set("mask", "f");
-            txtHoras.Size = new Size(248, 22);
+            txtHoras.Size = new Size(237, 22);
             txtHoras.TabIndex = 101;
             // 
             // guna2HtmlLabel11
@@ -522,23 +526,24 @@
             guna2HtmlLabel11.BackColor = Color.Gray;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(15, 71);
+            guna2HtmlLabel11.Location = new Point(11, 71);
             guna2HtmlLabel11.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(130, 23);
             guna2HtmlLabel11.TabIndex = 100;
-            guna2HtmlLabel11.Text = "Costo Estimado";
+            guna2HtmlLabel11.Text = "Costo Total";
             guna2HtmlLabel11.TextAlignment = ContentAlignment.TopCenter;
             // 
             // txtManoObra
             // 
-            txtManoObra.Location = new Point(141, 72);
+            txtManoObra.Enabled = false;
+            txtManoObra.Location = new Point(142, 72);
             txtManoObra.Name = "txtManoObra";
             txtManoObra.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtManoObra.Properties.Appearance.Options.UseFont = true;
             txtManoObra.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtManoObra.Properties.MaskSettings.Set("mask", "f");
-            txtManoObra.Size = new Size(248, 22);
+            txtManoObra.Size = new Size(237, 22);
             txtManoObra.TabIndex = 99;
             // 
             // guna2HtmlLabel13
@@ -550,7 +555,7 @@
             guna2HtmlLabel13.ForeColor = Color.Black;
             guna2HtmlLabel13.Location = new Point(0, 0);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            guna2HtmlLabel13.Size = new Size(403, 20);
+            guna2HtmlLabel13.Size = new Size(388, 20);
             guna2HtmlLabel13.TabIndex = 50;
             guna2HtmlLabel13.Text = "Requerimientos de la Tarea";
             guna2HtmlLabel13.TextAlignment = ContentAlignment.MiddleCenter;
@@ -568,7 +573,7 @@
             btnAutorizar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             btnAutorizar.AppearanceDisabled.Options.UseForeColor = true;
             btnAutorizar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAutorizar.ImageOptions.SvgImage");
-            btnAutorizar.Location = new Point(244, 126);
+            btnAutorizar.Location = new Point(268, 126);
             btnAutorizar.Name = "btnAutorizar";
             btnAutorizar.Size = new Size(113, 43);
             btnAutorizar.TabIndex = 156;
@@ -590,20 +595,20 @@
             btnIngreso.ImageOptions.SvgImage = Properties.Resources.bo_unknown;
             btnIngreso.Location = new Point(173, 311);
             btnIngreso.Name = "btnIngreso";
-            btnIngreso.Size = new Size(77, 49);
+            btnIngreso.Size = new Size(89, 49);
             btnIngreso.TabIndex = 157;
             btnIngreso.Text = "Ingreso";
             btnIngreso.Click += btnIngreso_Click;
             // 
             // txtOdometroIng
             // 
-            txtOdometroIng.Location = new Point(259, 334);
+            txtOdometroIng.Location = new Point(268, 334);
             txtOdometroIng.Name = "txtOdometroIng";
             txtOdometroIng.Properties.Appearance.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOdometroIng.Properties.Appearance.Options.UseFont = true;
             txtOdometroIng.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtOdometroIng.Properties.MaskSettings.Set("mask", "f");
-            txtOdometroIng.Size = new Size(97, 24);
+            txtOdometroIng.Size = new Size(113, 24);
             txtOdometroIng.TabIndex = 103;
             // 
             // dateFechaEmision
@@ -627,7 +632,7 @@
             dateFechaEmision.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             dateFechaEmision.Properties.MaskSettings.Set("mask", "g");
             dateFechaEmision.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            dateFechaEmision.Size = new Size(217, 24);
+            dateFechaEmision.Size = new Size(233, 24);
             dateFechaEmision.TabIndex = 140;
             // 
             // guna2HtmlLabel3
@@ -715,10 +720,10 @@
             guna2Panel2.Controls.Add(bEditarCom);
             guna2Panel2.CustomizableEdges = customizableEdges9;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel2.Location = new Point(376, 69);
+            guna2Panel2.Location = new Point(391, 69);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Size = new Size(403, 216);
+            guna2Panel2.Size = new Size(388, 216);
             guna2Panel2.TabIndex = 164;
             // 
             // bAgregarCom
@@ -733,7 +738,7 @@
             bAgregarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bAgregarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bAgregarCom.AppearanceDisabled.Options.UseForeColor = true;
-            bAgregarCom.Location = new Point(293, 171);
+            bAgregarCom.Location = new Point(277, 170);
             bAgregarCom.Name = "bAgregarCom";
             bAgregarCom.Size = new Size(107, 36);
             bAgregarCom.TabIndex = 104;
@@ -743,10 +748,10 @@
             // gridControlComprobantes
             // 
             gridControlComprobantes.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlComprobantes.Location = new Point(0, 29);
+            gridControlComprobantes.Location = new Point(6, 30);
             gridControlComprobantes.MainView = gridViewComprobantes;
             gridControlComprobantes.Name = "gridControlComprobantes";
-            gridControlComprobantes.Size = new Size(400, 129);
+            gridControlComprobantes.Size = new Size(378, 129);
             gridControlComprobantes.TabIndex = 51;
             gridControlComprobantes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewComprobantes });
             // 
@@ -794,11 +799,12 @@
             bEliminarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bEliminarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bEliminarCom.AppearanceDisabled.Options.UseForeColor = true;
-            bEliminarCom.Location = new Point(3, 171);
+            bEliminarCom.Location = new Point(7, 170);
             bEliminarCom.Name = "bEliminarCom";
             bEliminarCom.Size = new Size(103, 36);
             bEliminarCom.TabIndex = 103;
             bEliminarCom.Text = "Eliminar";
+            bEliminarCom.Click += bEliminarCom_Click;
             // 
             // guna2HtmlLabel12
             // 
@@ -809,7 +815,7 @@
             guna2HtmlLabel12.ForeColor = Color.Black;
             guna2HtmlLabel12.Location = new Point(0, 0);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            guna2HtmlLabel12.Size = new Size(403, 20);
+            guna2HtmlLabel12.Size = new Size(388, 20);
             guna2HtmlLabel12.TabIndex = 50;
             guna2HtmlLabel12.Text = "Archivos/Comprobantes Cargados";
             guna2HtmlLabel12.TextAlignment = ContentAlignment.MiddleCenter;
@@ -826,7 +832,7 @@
             bEditarCom.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bEditarCom.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bEditarCom.AppearanceDisabled.Options.UseForeColor = true;
-            bEditarCom.Location = new Point(114, 171);
+            bEditarCom.Location = new Point(116, 170);
             bEditarCom.Name = "bEditarCom";
             bEditarCom.Size = new Size(103, 36);
             bEditarCom.TabIndex = 102;
@@ -847,7 +853,7 @@
             simpleButton8.AppearanceDisabled.Options.UseForeColor = true;
             simpleButton8.Location = new Point(19, 617);
             simpleButton8.Name = "simpleButton8";
-            simpleButton8.Size = new Size(143, 47);
+            simpleButton8.Size = new Size(175, 47);
             simpleButton8.TabIndex = 166;
             simpleButton8.Text = "Cancelar";
             simpleButton8.Click += simpleButton8_Click;
@@ -864,22 +870,22 @@
             bGuardar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bGuardar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bGuardar.AppearanceDisabled.Options.UseForeColor = true;
-            bGuardar.Location = new Point(213, 617);
+            bGuardar.Location = new Point(217, 617);
             bGuardar.Name = "bGuardar";
-            bGuardar.Size = new Size(143, 47);
+            bGuardar.Size = new Size(164, 47);
             bGuardar.TabIndex = 165;
             bGuardar.Text = "Confirmar";
             bGuardar.Click += bGuardar_Click;
             // 
             // txtOdometroFin
             // 
-            txtOdometroFin.Location = new Point(259, 397);
+            txtOdometroFin.Location = new Point(268, 397);
             txtOdometroFin.Name = "txtOdometroFin";
             txtOdometroFin.Properties.Appearance.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOdometroFin.Properties.Appearance.Options.UseFont = true;
             txtOdometroFin.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtOdometroFin.Properties.MaskSettings.Set("mask", "f");
-            txtOdometroFin.Size = new Size(97, 24);
+            txtOdometroFin.Size = new Size(113, 24);
             txtOdometroFin.TabIndex = 167;
             // 
             // guna2HtmlLabel15
@@ -888,10 +894,10 @@
             guna2HtmlLabel15.BackColor = Color.Gray;
             guna2HtmlLabel15.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel15.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel15.Location = new Point(259, 374);
+            guna2HtmlLabel15.Location = new Point(268, 374);
             guna2HtmlLabel15.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            guna2HtmlLabel15.Size = new Size(97, 23);
+            guna2HtmlLabel15.Size = new Size(113, 23);
             guna2HtmlLabel15.TabIndex = 168;
             guna2HtmlLabel15.Text = "Odometro Fin";
             guna2HtmlLabel15.TextAlignment = ContentAlignment.MiddleCenter;
@@ -911,7 +917,7 @@
             bFinalizo.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bFinalizo.ImageOptions.SvgImage");
             bFinalizo.Location = new Point(173, 373);
             bFinalizo.Name = "bFinalizo";
-            bFinalizo.Size = new Size(77, 49);
+            bFinalizo.Size = new Size(89, 49);
             bFinalizo.TabIndex = 169;
             bFinalizo.Text = "Final";
             bFinalizo.Click += bFinalizo_Click;
@@ -1000,10 +1006,10 @@
         private Guna.UI2.WinForms.Guna2Panel pComprobantes;
         private DevExpress.XtraGrid.GridControl gridControlMantenimientos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewMantenimientos;
-        private DevExpress.XtraEditors.SimpleButton bEliminarComprobante;
+        private DevExpress.XtraEditors.SimpleButton bEliminarMantenimiento;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private DevExpress.XtraEditors.SimpleButton bEditarComprobante;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton bAgregarMan;
         private DevExpress.XtraEditors.SimpleButton btnAgregarMantenimiento;
         private DevExpress.XtraEditors.LookUpEdit cmbMantenimiento;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;

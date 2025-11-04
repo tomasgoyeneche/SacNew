@@ -17,7 +17,7 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
         void CargarUnidades(List<UnidadDto> unidades);
 
         void Close();
-
+        void LimpiarFormulario();
         void MostrarDatosNovedad(UnidadMantenimientoDto novedadUnidad);
 
         void MostrarDiasAusente(int dias);

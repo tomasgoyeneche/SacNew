@@ -20,6 +20,7 @@ namespace Servicios.Views.Mantenimiento
     {
         public readonly MenuCrearMantenimientoPresenter _presenter;
 
+        public string TipoVista { get; set; }
         public MenuCrearMantenimientoForm(MenuCrearMantenimientoPresenter presenter)
         {
             InitializeComponent();
@@ -47,9 +48,23 @@ namespace Servicios.Views.Mantenimiento
 
         private async void btnQuitarTarea_Click(object sender, EventArgs e)
         {
-            var tarea = gridViewTareas.GetFocusedRow() as Tarea;
-            if (tarea != null)
-                await _presenter.EliminarTareaAsync(tarea.IdTarea);
+            var confirm = MessageBox.Show("¿Eliminar esta Tarea?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+
+                if (TipoVista == "MantenimientoPredefinido")
+                {
+                    var tarea = gridViewTareas.GetFocusedRow() as Tarea;
+                    if (tarea != null)
+                        await _presenter.EliminarTareaAsync(tarea.IdTarea);
+                }
+                else
+                {
+                    var tarea = gridViewTareas.GetFocusedRow() as OrdenTrabajoTarea;
+                    if (tarea != null)
+                        await _presenter.EliminarTareaAsync(null, tarea.IdOrdenTrabajoTarea);
+                }
+            }
         }
 
         private void cmbFrecuencia_EditValueChanged(object sender, EventArgs e)
@@ -102,7 +117,7 @@ namespace Servicios.Views.Mantenimiento
         // =====================================================
 
         public int IdMantenimiento { get; set; }
-        public string TipoVista { get; set; } = "MantenimientoPredefinido";
+
 
         public string Nombre
         {
@@ -161,12 +176,11 @@ namespace Servicios.Views.Mantenimiento
             get => Convert.ToDecimal(txtRepuestosTotales.EditValue ?? 0);
             set => txtRepuestosTotales.EditValue = value;
         }
-
         // =====================================================
         // 🔹 Carga de combos y grids
         // =====================================================
 
-        public void CargarTiposMantenimiento(List<TipoMantenimiento> tipos)
+        public void CargarTiposMantenimiento(List<TipoMantenimiento> tipos, string t)
         {
             cmbTipoMantenimiento.Properties.DataSource = tipos;
             cmbTipoMantenimiento.Properties.DisplayMember = "Nombre";
@@ -174,6 +188,8 @@ namespace Servicios.Views.Mantenimiento
             cmbTipoMantenimiento.Properties.NullText = "Seleccione...";
             cmbTipoMantenimiento.Properties.Columns.Clear();
             cmbTipoMantenimiento.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Tipo"));
+
+            TipoVista = t;
         }
 
         public void CargarAplicaA()
@@ -219,6 +235,12 @@ namespace Servicios.Views.Mantenimiento
             gridViewTareas.BestFitColumns();
         }
 
+        public void CargarTareasAsignadasOrdenes(List<OrdenTrabajoTarea> tareasOrdenes)
+        {
+            gridControlTareas.DataSource = tareasOrdenes;
+            gridViewTareas.BestFitColumns();
+        }
+
         private async void bAgregarTarea_Click(object sender, EventArgs e)
         {
             string nombreTarea = XtraInputBox.Show(
@@ -241,9 +263,19 @@ namespace Servicios.Views.Mantenimiento
 
         private async void bEditarTarea_Click(object sender, EventArgs e)
         {
-            var tarea = gridViewTareas.GetFocusedRow() as Tarea;
-            if (tarea != null)
-                await _presenter.AbrirEdicionTareaAsync(tarea.IdTarea);
+            if(TipoVista == "MantenimientoPredefinido")
+            {
+                var tarea = gridViewTareas.GetFocusedRow() as Tarea;
+                if (tarea != null)
+                    await _presenter.AbrirEdicionTareaAsync(tarea.IdTarea);
+            }
+            else
+            {
+                var tarea = gridViewTareas.GetFocusedRow() as OrdenTrabajoTarea;
+                if (tarea != null)
+                    await _presenter.AbrirEdicionTareaAsync(tarea.IdOrdenTrabajoTarea);
+            }
+
         }
     }
 }

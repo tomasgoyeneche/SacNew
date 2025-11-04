@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using Microsoft.Win32;
 using Servicios.Presenters;
 using Shared.Models;
 using System;
@@ -229,15 +230,36 @@ namespace Servicios.Views.Mantenimientos
 
         private async void btnAutorizar_Click(object sender, EventArgs e)
         {
+            btnAutorizar.Enabled = false;
             if (IdUnidad.HasValue && IdUnidad.Value > 0)
                 await _presenter.AutorizarAsync(IdUnidad.Value);
             else
                 MostrarMensaje("Debe seleccionar una unidad antes de autorizar.");
+            btnAutorizar.Enabled = true;
+        }
+
+        public void LimpiarFormulario()
+        {
+            txtIdOrden.Text = "0";
+            dateFechaEmision.EditValue = DateTime.Now;
+            cmbUnidad.EditValue = null;
+            cmbLugarMantenimiento.EditValue = null;
+            dtpFechaIngreso.EditValue = null;
+            dtpFechaFin.EditValue = null;
+            txtOdometroIng.EditValue = null;
+            txtOdometroFin.EditValue = null;
+            txtHoras.EditValue = null;
+            txtManoObra.EditValue = null;
+            txtDescripcion.Text = string.Empty;
+            gridViewComprobantes.ClearColumnsFilter();
+            gridViewMantenimientos.ClearColumnsFilter();
         }
 
         private async void btnIngreso_Click(object sender, EventArgs e)
         {
+            btnIngreso.Enabled = false;
             await _presenter.ConfirmarIngresoAsync();
+            btnIngreso.Enabled = true;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -249,17 +271,23 @@ namespace Servicios.Views.Mantenimientos
 
         private void simpleButton8_Click(object sender, EventArgs e)
         {
+            simpleButton8.Enabled = false;
             Dispose();
+            simpleButton8.Enabled = true;
         }
 
         private async void bFinalizo_Click(object sender, EventArgs e)
         {
+            bFinalizo.Enabled = false;
             await _presenter.ConfirmarSalidaAsync();
+            bFinalizo.Enabled = true;
         }
 
         private async void bAgregarCom_Click(object sender, EventArgs e)
         {
+            bAgregarCom.Enabled = false;
             await _presenter.AgregarComprobanteAsync();
+            bAgregarCom.Enabled = true;
         }
 
         private async void bEditarCom_Click(object sender, EventArgs e)
@@ -305,11 +333,14 @@ namespace Servicios.Views.Mantenimientos
 
         private async void bGuardar_Click(object sender, EventArgs e)
         {
+            bGuardar.Enabled = false;
             await _presenter.GuardarAsync();
+            bGuardar.Enabled = true;
         }
 
         private async void btnAgregarMantenimiento_Click(object sender, EventArgs e)
         {
+            btnAgregarMantenimiento.Enabled = false;
             if (cmbMantenimiento.EditValue == null)
             {
                 MostrarMensaje("Seleccione un mantenimiento primero.");
@@ -318,6 +349,74 @@ namespace Servicios.Views.Mantenimientos
 
             int idMantenimiento = Convert.ToInt32(cmbMantenimiento.EditValue);
             await _presenter.AgregarMantenimientoAsync(idMantenimiento);
+            btnAgregarMantenimiento.Enabled = true;
+        }
+
+        private async void bAgregarMan_Click(object sender, EventArgs e)
+        {
+            var opcion = XtraMessageBox.Show(
+               "¿El Mantenimiento es Preventivo?",
+               "Nuevo Mantenimiento",
+               MessageBoxButtons.YesNoCancel,
+               MessageBoxIcon.Question
+           );
+
+            if (opcion == DialogResult.Cancel) return;
+
+            int tipoMovimiento = opcion == DialogResult.Yes ? 1 : 2; // 1=Entrada, 2=Salida
+
+            // Crear el movimiento en la BD con datos iniciales
+            int idMovimiento = await _presenter.CrearMantenimientoAsync(tipoMovimiento);
+
+            // Abrir el form de edición directamente
+            await _presenter.AbrirEdicionMantenimientoAsync(idMovimiento);
+        }
+
+        private async void bEditarComprobante_Click(object sender, EventArgs e)
+        {
+            OrdenTrabajoMantenimiento row = gridViewMantenimientos.GetFocusedRow() as OrdenTrabajoMantenimiento;
+            if (row != null)
+            {
+                await _presenter.AbrirEdicionMantenimientoAsync(row.IdOrdenTrabajoMantenimiento);
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un Mantenimiento para editar.");
+            }
+        }
+
+        private async void bEliminarCom_Click(object sender, EventArgs e)
+        {
+            OrdenTrabajoComprobante row = gridViewComprobantes.GetFocusedRow() as OrdenTrabajoComprobante;
+            if (row != null)
+            {
+                var confirm = MessageBox.Show("¿Eliminar este Comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarComprobanteAsync(row.IdOrdenTrabajoComprobante, row.RutaComprobante);
+                }
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un Articulo para editar.");
+            }
+        }
+
+        private async void bEliminarMantenimiento_Click(object sender, EventArgs e)
+        {
+            OrdenTrabajoMantenimiento row = gridViewMantenimientos.GetFocusedRow() as OrdenTrabajoMantenimiento;
+            if (row != null)
+            {
+                var confirm = MessageBox.Show("¿Eliminar este Mantenimiento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarMantenimiento(row.IdOrdenTrabajoMantenimiento);
+                }
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un Mantenimiento para eliminar.");
+            }
         }
     }
 }

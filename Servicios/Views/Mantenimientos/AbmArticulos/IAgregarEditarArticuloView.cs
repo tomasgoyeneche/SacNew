@@ -26,8 +26,10 @@ namespace Servicios.Views.Mantenimiento
         void CargarFamilias(List<ArticuloFamilia> familias);
         void CargarMarcas(List<ArticuloMarca> marcas);
         void CargarModelos(List<ArticuloModelo> modelos);
+        void LimpiarFormulario();
 
-        void MostrarDatosArticulo(Articulo articulo);
+        int ObtenerCantidad();
+        void MostrarDatosArticulo(Articulo articulo, OrdenTrabajoArticulo? orden = null);
         void Cerrar();
     }
 

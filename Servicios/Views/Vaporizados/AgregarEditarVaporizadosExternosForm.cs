@@ -26,6 +26,18 @@ namespace Servicios.Views
             lblDatos.Text = texto;
         }
 
+        public void LimpiarFormulario()
+        {
+            txtCisterna.Text = string.Empty;
+            cmbMotivo.EditValue = null;
+            cmbUnidad.EditValue = null;
+            dtpInicio.EditValue = null;
+            dtpFin.EditValue = null;
+            txtTiempoVaporizado.Text = string.Empty;
+            txtNroCertificado.Text = string.Empty;
+            txtNroDanes.Text = string.Empty;
+            txtObservaciones.Text = string.Empty;
+        }   
         public void CargarDatos(Vaporizado vaporizado, int idUnidad)
         {
             txtCisterna.Text = vaporizado.CantidadCisternas.ToString();
@@ -87,7 +99,7 @@ namespace Servicios.Views
 
         public void Cerrar()
         {
-            this.Close();
+            Dispose();
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)

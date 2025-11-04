@@ -11,14 +11,17 @@ namespace GestionOperativa.Presenters
     {
         private readonly IGuardiaRepositorio _guardiaRepositorio;
         private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
+        private readonly INominaRepositorio _nominaRepositorio;
+
 
         private GuardiaDto _guardia;
 
-        public CambiarEstadoPresenter(ISesionService sesion, INavigationService nav, IGuardiaRepositorio guardiaRepositorio, IVaporizadoRepositorio vaporizadoRepositorio)
+        public CambiarEstadoPresenter(ISesionService sesion, INavigationService nav, IGuardiaRepositorio guardiaRepositorio, IVaporizadoRepositorio vaporizadoRepositorio, INominaRepositorio nominaRepositorio)
             : base(sesion, nav)
         {
             _guardiaRepositorio = guardiaRepositorio;
             _vaporizadoRepositorio = vaporizadoRepositorio;
+            _nominaRepositorio = nominaRepositorio;
         }
 
         public Task InicializarAsync(GuardiaDto guardia, bool admin)
@@ -114,6 +117,12 @@ namespace GestionOperativa.Presenters
         {
             if (_guardia.TipoIngreso == 1)
             {
+                Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(_guardia.IdEntidad);
+                if(nomina.FechaBaja != default && nomina.FechaBaja < DateTime.Now)
+                {
+                    _view.MostrarMensaje("La Unidad esta dada de baja");
+                    return;
+                }
                 await AbrirFormularioAsync<CambioChoferForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(_guardia.IdEntidad);

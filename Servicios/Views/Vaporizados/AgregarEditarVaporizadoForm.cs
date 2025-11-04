@@ -27,6 +27,20 @@ namespace Servicios
             lblDatos.Text = texto;
         }
 
+        public void LimpiarFormulario()
+        {
+            txtCisterna.Text = string.Empty;
+            cmbMotivo.EditValue = null;
+            dtpInicio.EditValue = null;
+            dtpFin.EditValue = null;
+            txtTiempoVaporizado.Text = string.Empty;
+            txtNroCertificado.Text = string.Empty;
+            cmbPlanta.EditValue = null;
+            txtNroDanes.Text = string.Empty;
+            txtObservaciones.Text = string.Empty;
+            txtNroPres.Text = string.Empty;
+            txtImporte.Text = string.Empty;
+        }
         public void CargarDatos(Vaporizado vaporizado)
         {
             txtCisterna.Text = vaporizado.CantidadCisternas.ToString();
@@ -101,7 +115,7 @@ namespace Servicios
 
         public void Cerrar()
         {
-            this.Close();
+            this.Dispose();
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
@@ -111,7 +125,7 @@ namespace Servicios
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

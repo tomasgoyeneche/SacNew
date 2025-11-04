@@ -69,6 +69,18 @@ namespace GestionDocumental.Views.Novedades.NovedadesChoferes
             cmbChofer.EditValue = _presenter.NovedadActual?.idChofer ?? -1;
         }
 
+        public void LimpiarFormulario()
+        {
+            cmbChofer.EditValue = null;
+            cmbEstado.EditValue = null;
+            dtpFechaInicio.EditValue = DateTime.Now;
+            dtpFechaFinal.EditValue = DateTime.Now.AddDays(1);
+            txtObservaciones.Text = string.Empty;
+            lblDiasAusente.Text = "Días ausente: 0";
+            lblReincorporacion.Text = "Reincorporación: N/A";
+            lblMantenimientosUnidad.Text = string.Empty;
+        }   
+
         public void MostrarMantenimientosUnidad(string texto)
         {
             lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses

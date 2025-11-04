@@ -18,6 +18,8 @@ namespace Core.Repositories
 
         Task<Vaporizado?> ObtenerPorTeAsync(int idTe);
 
+        Task<Vaporizado?> ObtenerPorGuardiaIngresoAsync(int idGuardiaIngreso);
+
         Task<Vaporizado?> ObtenerMasRecientePorNominaAsync(int idNomina);
 
         Task EliminarAsync(int idVaporizado);

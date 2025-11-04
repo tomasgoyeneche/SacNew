@@ -137,6 +137,7 @@
             btnEliminarArt.Size = new Size(132, 37);
             btnEliminarArt.TabIndex = 68;
             btnEliminarArt.Text = "Eliminar";
+            btnEliminarArt.Click += btnEliminarArt_Click;
             // 
             // guna2Panel5
             // 
@@ -284,6 +285,7 @@
             Controls.Add(btnEditarMov);
             Controls.Add(btnEliminarArt);
             Controls.Add(guna2Panel5);
+            MaximizeBox = false;
             Name = "ListadoOrdenTrabajoForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListadoMantenimientosActivosForm";

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbTipoMantenimiento = new DevExpress.XtraEditors.LookUpEdit();
@@ -52,7 +52,11 @@
             bAgregarTarea = new DevExpress.XtraEditors.SimpleButton();
             gridControlTareas = new DevExpress.XtraGrid.GridControl();
             gridViewTareas = new DevExpress.XtraGrid.Views.Grid.GridView();
-            bEliminarComprobante = new DevExpress.XtraEditors.SimpleButton();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            ManoObra = new DevExpress.XtraGrid.Columns.GridColumn();
+            Horas = new DevExpress.XtraGrid.Columns.GridColumn();
+            bEliminarTarea = new DevExpress.XtraEditors.SimpleButton();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bEditarTarea = new DevExpress.XtraEditors.SimpleButton();
             gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,11 +95,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges1;
+            guna2Panel10.CustomizableEdges = customizableEdges9;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(2, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 63;
             // 
@@ -153,7 +157,7 @@
             // txtDescripcion
             // 
             txtDescripcion.BackColor = Color.FromArgb(26, 29, 35);
-            txtDescripcion.CustomizableEdges = customizableEdges3;
+            txtDescripcion.CustomizableEdges = customizableEdges11;
             txtDescripcion.DefaultText = "";
             txtDescripcion.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtDescripcion.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -171,7 +175,7 @@
             txtDescripcion.PlaceholderText = "";
             txtDescripcion.RightToLeft = RightToLeft.No;
             txtDescripcion.SelectedText = "";
-            txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtDescripcion.Size = new Size(324, 108);
             txtDescripcion.TabIndex = 93;
             // 
@@ -269,14 +273,14 @@
             pComprobantes.BackColor = Color.Transparent;
             pComprobantes.Controls.Add(bAgregarTarea);
             pComprobantes.Controls.Add(gridControlTareas);
-            pComprobantes.Controls.Add(bEliminarComprobante);
+            pComprobantes.Controls.Add(bEliminarTarea);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
             pComprobantes.Controls.Add(bEditarTarea);
-            pComprobantes.CustomizableEdges = customizableEdges5;
+            pComprobantes.CustomizableEdges = customizableEdges13;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(379, 127);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges14;
             pComprobantes.Size = new Size(404, 225);
             pComprobantes.TabIndex = 112;
             // 
@@ -314,6 +318,7 @@
             gridViewTareas.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridViewTareas.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridViewTareas.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridViewTareas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, ManoObra, Horas });
             gridViewTareas.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             gridViewTareas.GridControl = gridControlTareas;
             gridViewTareas.Name = "gridViewTareas";
@@ -323,24 +328,56 @@
             gridViewTareas.OptionsView.EnableAppearanceEvenRow = true;
             gridViewTareas.RowHeight = 20;
             // 
-            // bEliminarComprobante
+            // gridColumn1
             // 
-            bEliminarComprobante.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            bEliminarComprobante.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEliminarComprobante.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.Appearance.Options.UseBackColor = true;
-            bEliminarComprobante.Appearance.Options.UseFont = true;
-            bEliminarComprobante.Appearance.Options.UseForeColor = true;
-            bEliminarComprobante.Appearance.Options.UseTextOptions = true;
-            bEliminarComprobante.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bEliminarComprobante.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bEliminarComprobante.AppearanceDisabled.Options.UseForeColor = true;
-            bEliminarComprobante.Location = new Point(6, 186);
-            bEliminarComprobante.Name = "bEliminarComprobante";
-            bEliminarComprobante.Size = new Size(103, 36);
-            bEliminarComprobante.TabIndex = 103;
-            bEliminarComprobante.Text = "Eliminar";
-            bEliminarComprobante.Click += btnQuitarTarea_Click;
+            gridColumn1.Caption = "Nombre";
+            gridColumn1.FieldName = "Nombre";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            gridColumn2.Caption = "Descripcion";
+            gridColumn2.FieldName = "Descripcion";
+            gridColumn2.Name = "gridColumn2";
+            gridColumn2.Visible = true;
+            gridColumn2.VisibleIndex = 1;
+            // 
+            // ManoObra
+            // 
+            ManoObra.Caption = "ManoObra";
+            ManoObra.FieldName = "ManoObra";
+            ManoObra.Name = "ManoObra";
+            ManoObra.Visible = true;
+            ManoObra.VisibleIndex = 2;
+            // 
+            // Horas
+            // 
+            Horas.Caption = "Horas";
+            Horas.FieldName = "Horas";
+            Horas.Name = "Horas";
+            Horas.Visible = true;
+            Horas.VisibleIndex = 3;
+            // 
+            // bEliminarTarea
+            // 
+            bEliminarTarea.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            bEliminarTarea.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEliminarTarea.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarTarea.Appearance.Options.UseBackColor = true;
+            bEliminarTarea.Appearance.Options.UseFont = true;
+            bEliminarTarea.Appearance.Options.UseForeColor = true;
+            bEliminarTarea.Appearance.Options.UseTextOptions = true;
+            bEliminarTarea.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bEliminarTarea.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bEliminarTarea.AppearanceDisabled.Options.UseForeColor = true;
+            bEliminarTarea.Location = new Point(6, 186);
+            bEliminarTarea.Name = "bEliminarTarea";
+            bEliminarTarea.Size = new Size(103, 36);
+            bEliminarTarea.TabIndex = 103;
+            bEliminarTarea.Text = "Eliminar";
+            bEliminarTarea.Click += btnQuitarTarea_Click;
             // 
             // guna2HtmlLabel6
             // 
@@ -403,11 +440,11 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
             guna2Panel1.Controls.Add(txtRepuestosTotales);
             guna2Panel1.Controls.Add(guna2HtmlLabel13);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
+            guna2Panel1.CustomizableEdges = customizableEdges15;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(378, 368);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel1.Size = new Size(404, 193);
             guna2Panel1.TabIndex = 113;
             // 
@@ -660,7 +697,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTareas;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraEditors.SimpleButton bEliminarComprobante;
+        private DevExpress.XtraEditors.SimpleButton bEliminarTarea;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private DevExpress.XtraEditors.SimpleButton bEditarTarea;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
@@ -678,5 +715,9 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit txtIntervalo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblIntervalo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn ManoObra;
+        private DevExpress.XtraGrid.Columns.GridColumn Horas;
     }
 }

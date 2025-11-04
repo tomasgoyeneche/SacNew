@@ -28,6 +28,7 @@ namespace Servicios.Views.Mantenimientos
         decimal? Horas { get; set; } //
         string Observaciones { get; set; }
 
+        void LimpiarFormulario();
         void CargarUnidades(List<UnidadDto> unidades);
         void CargarLugares(List<LugarReparacion> lugares);
         void CargarMantenimientosPredefinidos(List<Shared.Models.Mantenimiento> mantenimientos);

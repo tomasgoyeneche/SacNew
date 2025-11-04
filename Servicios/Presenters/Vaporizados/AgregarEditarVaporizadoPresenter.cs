@@ -53,6 +53,7 @@ namespace Servicios.Presenters
 
         public async Task CargarDatosAsync(Vaporizado? vaporizado, GuardiaIngreso guardia)
         {
+            _view.LimpiarFormulario();
             VaporizadoActual = vaporizado;
             GuardiaActual = guardia;
 

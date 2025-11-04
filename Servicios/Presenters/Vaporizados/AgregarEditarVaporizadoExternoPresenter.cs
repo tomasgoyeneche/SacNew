@@ -32,6 +32,7 @@ namespace Servicios.Presenters
 
         public async Task CargarDatosAsync(Vaporizado? vaporizado, UnidadDto? unidadDto)
         {
+            _view.LimpiarFormulario();  
             var motivos = await _motivoRepo.ObtenerTodosAsync();
             _view.CargarMotivos(motivos.Where(m => m.Activo).ToList());
             List<UnidadDto> unidades = await _unidadRepo.ObtenerUnidadesDtoAsync();

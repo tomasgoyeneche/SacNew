@@ -25,7 +25,7 @@ namespace Servicios.Views
         string Observaciones { get; }
 
         void SetTiempoVaporizado(string tiempo);
-
+        void LimpiarFormulario();
         void Cerrar();
     }
 }

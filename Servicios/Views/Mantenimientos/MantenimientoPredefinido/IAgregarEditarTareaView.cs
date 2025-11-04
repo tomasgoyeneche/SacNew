@@ -22,6 +22,7 @@ namespace Servicios.Views.Mantenimientos
         int IdArticuloSeleccionado { get; }
         decimal CantidadArticulo { get; }
 
+        void MostrarMovimientoStock(bool estado);
         void CargarArticulos(List<Articulo> articulos);
         void CargarArticulosAsociados(List<TareaArticuloDto> articulos);
         void Cerrar();

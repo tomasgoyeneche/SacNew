@@ -53,5 +53,33 @@ namespace Servicios.Views.Mantenimientos
                 MostrarMensaje("Seleccione una Orden para editar.");
             }
         }
+
+        private async void btnEliminarArt_Click(object sender, EventArgs e)
+        {
+
+            var confirm = MessageBox.Show("¿Eliminar esta Orden de trabajo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                OrdenTrabajoDto row = gridViewMantenimientos.GetFocusedRow() as OrdenTrabajoDto;
+                if (row.Fase != 0)
+                {
+                    MostrarMensaje("No se puede eliminar una Orden de trabajo que ya ha sido iniciada.");
+                    return;
+                }
+                else
+                {
+                    if (row != null)
+                    {
+                        await _presenter.EliminarOrdenAsync(row.IdOrdenTrabajo);
+                    }
+                    else
+                    {
+                        MostrarMensaje("Seleccione una Orden para eliminar.");
+                    }
+                }
+            }
+
+           
+        }
     }
 }

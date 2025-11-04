@@ -119,6 +119,17 @@ namespace Core.Repositories
                 conn.QueryFirstOrDefaultAsync<Vaporizado>(query, new { idTe }));
         }
 
+        public async Task<Vaporizado?> ObtenerPorGuardiaIngresoAsync(int idGuardiaIngreso)
+        {
+            var query = @"
+            SELECT TOP 1 * FROM Vaporizado
+            WHERE idGuardiaIngreso = @idGuardiaIngreso and Activo = 1
+            ORDER BY IdVaporizado DESC"; // Elige el de mayor IdVaporizado (el más nuevo)
+
+            return await ConectarAsync(conn =>
+                conn.QueryFirstOrDefaultAsync<Vaporizado>(query, new { idGuardiaIngreso }));
+        }
+
         public Task EliminarAsync(int idVaporizado)
         {
             return EliminarGenéricoAsync<Vaporizado>("Vaporizado", idVaporizado);

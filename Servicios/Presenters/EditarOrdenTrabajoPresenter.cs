@@ -1,11 +1,13 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.XtraTreeList.Data;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +68,7 @@ namespace Servicios.Presenters
 
         public async Task InicializarAsync(int idOrdenTrabajo)
         {
+            _view.LimpiarFormulario();
             await EjecutarConCargaAsync(async () =>
             {
                 List<UnidadDto> unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
@@ -77,7 +80,7 @@ namespace Servicios.Presenters
                 List<OrdenTrabajoComprobante> comprobantes = await _ordenTrabajoComprobanteRepositorio.ObtenerPorMovimientoAsync(idOrdenTrabajo);
                 _view.CargarComprobantes(comprobantes);
 
-                var mantenimientos = await _mantenimientoRepositorio.ObtenerTodosAsync();
+                List<Shared.Models.Mantenimiento> mantenimientos = await _mantenimientoRepositorio.ObtenerTodosAsync();
                 _view.CargarMantenimientosPredefinidos(mantenimientos);
 
                 List<OrdenTrabajoMantenimiento> mantenimientosOrden = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(idOrdenTrabajo);
@@ -106,6 +109,101 @@ namespace Servicios.Presenters
 
                 // 🔹 Actualizar estado general de la interfaz
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
+                await CalcularTotalesAsync();
+            });
+        }
+
+        private async Task CalcularTotalesAsync()
+        {
+            
+            List<OrdenTrabajoMantenimiento> mantenimientos = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(_ordenActual!.IdOrdenTrabajo);
+            decimal totalHoras = mantenimientos.Sum(t => t.Horas ?? 0);
+            decimal totalManoObra = mantenimientos.Sum(t => t.ManoObra ?? 0);
+            decimal totalRepuestos = mantenimientos.Sum(t => t.PrecioRepuestos ?? 0);
+
+            _view.Horas = totalHoras;
+            _view.Costo = totalManoObra + totalRepuestos;
+        }
+
+        public async Task<int> CrearMantenimientoAsync(int idTipoMantenimiento)
+        {
+            var mantenimiento = new OrdenTrabajoMantenimiento
+            {
+                IdOrdenTrabajo = _ordenActual!.IdOrdenTrabajo,
+                IdMantenimiento = null,
+                Nombre = "Mantenimiento Manual",
+                IdTipoMantenimiento = idTipoMantenimiento,
+                AplicaA = "Unidad",
+                Activo = true,
+                Descripcion = "",
+                ManoObra = 0,
+                Horas = 0,
+                PrecioRepuestos = 0
+            };
+
+            return await _ordenTrabajoMantenimientoRepositorio.AgregarAsync(mantenimiento);
+        }
+
+        public async Task AbrirEdicionMantenimientoAsync(int idMantenimiento)
+        {
+            await AbrirFormularioAsync<MenuCrearMantenimientoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("MantenimientoManual", idMantenimiento);
+            });
+
+            // refrescar lista después de cerrar
+            await InicializarAsync(_ordenActual.IdOrdenTrabajo);
+        }
+
+        public async Task EliminarMantenimiento(int idOrdenTrabajoMantenimiento)
+        {
+            await _ordenTrabajoMantenimientoRepositorio.EliminarAsync(idOrdenTrabajoMantenimiento);
+            foreach (var tarea in await _ordenTrabajoTareaRepositorio.ObtenerPorMantenimientoAsync(idOrdenTrabajoMantenimiento))
+            {
+                await _ordenTrabajoTareaRepositorio.EliminarAsync(tarea.IdOrdenTrabajoTarea);
+
+                foreach (var articulo in await _ordenTrabajoArticuloRepositorio.ObtenerPorTareaAsync(tarea.IdOrdenTrabajoTarea))
+                {
+                    await _ordenTrabajoArticuloRepositorio.EliminarAsync(articulo.IdOrdenTrabajoArticulo);
+                    // Aquí podrías agregar lógica para reestablecer el stock si es necesario
+                }
+            }
+
+            _view.MostrarMensaje("Mantenimiento eliminado correctamente recuerda reestablecer el stock en caso de moverlo en el mantenimiento.");
+            await InicializarAsync(_ordenActual.IdOrdenTrabajo);
+        }
+
+        public async Task EliminarComprobanteAsync(int idOrdenTrabajoComprobante, string ruta)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                // 1️⃣ Eliminar registro de base de datos
+                await _ordenTrabajoComprobanteRepositorio.EliminarAsync(idOrdenTrabajoComprobante);
+
+                // 2️⃣ Intentar eliminar el archivo físico
+                if (!string.IsNullOrWhiteSpace(ruta) && File.Exists(ruta))
+                {
+                    try
+                    {
+                        File.Delete(ruta);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        _view.MostrarMensaje($"El comprobante fue eliminado de la base de datos, pero no se pudo borrar el archivo físico.\n\n{ioEx.Message}");
+                    }
+                    catch (UnauthorizedAccessException uaEx)
+                    {
+                        _view.MostrarMensaje($"No se tienen permisos para eliminar el archivo:\n\n{uaEx.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.MostrarMensaje($"Ocurrió un error al intentar eliminar el archivo:\n\n{ex.Message}");
+                    }
+                }
+
+                // 3️⃣ Refrescar vista
+                await InicializarAsync(_ordenActual.IdOrdenTrabajo);
+                _view.MostrarMensaje("Comprobante eliminado correctamente.");
             });
         }
 

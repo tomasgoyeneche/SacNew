@@ -15,15 +15,24 @@ namespace Servicios.Presenters
     public class ListadoOrdenTrabajoPresenter : BasePresenter<IListadoOrdenTrabajoView>
     {
         private readonly IOrdenTrabajoRepositorio _orderTrabajoRepositorio;
+        private readonly IOrdenTrabajoMantenimientoRepositorio _ordenTrabajoMantenimientoRepositorio;
+        private readonly IOrdenTrabajoTareaRepositorio _ordenTrabajoTareaRepositorio;
+        private readonly IOrdenTrabajoArticuloRepositorio _ordenTrabajoArticuloRepositorio;
         public string _Criterio; 
 
         public ListadoOrdenTrabajoPresenter(
             IOrdenTrabajoRepositorio orderTrabajoRepositorio,
+            IOrdenTrabajoMantenimientoRepositorio ordenTrabajoMantenimientoRepositorio,
+            IOrdenTrabajoTareaRepositorio ordenTrabajoTareaRepositorio,
+            IOrdenTrabajoArticuloRepositorio ordenTrabajoArticuloRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
         {
             _orderTrabajoRepositorio = orderTrabajoRepositorio;
+            _ordenTrabajoMantenimientoRepositorio = ordenTrabajoMantenimientoRepositorio;
+            _ordenTrabajoTareaRepositorio = ordenTrabajoTareaRepositorio;
+            _ordenTrabajoArticuloRepositorio = ordenTrabajoArticuloRepositorio;
         }
 
         public async Task<int> CrearOrdenAsync()
@@ -55,6 +64,26 @@ namespace Servicios.Presenters
             });
 
 
+            await InicializarAsync(_Criterio);
+        }
+
+        public async Task EliminarOrdenAsync(int idOrdenTrabajo)
+        {
+            await _orderTrabajoRepositorio.EliminarAsync(idOrdenTrabajo);
+            foreach (var ordenMantenimiento in await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(idOrdenTrabajo))
+            {
+                await _ordenTrabajoMantenimientoRepositorio.EliminarAsync(ordenMantenimiento.IdOrdenTrabajoMantenimiento);
+                foreach (var tarea in await _ordenTrabajoTareaRepositorio.ObtenerPorMantenimientoAsync(ordenMantenimiento.IdOrdenTrabajoMantenimiento))
+                {
+                    await _ordenTrabajoTareaRepositorio.EliminarAsync(tarea.IdOrdenTrabajoTarea);
+                    foreach (var articulo in await _ordenTrabajoArticuloRepositorio.ObtenerPorTareaAsync(tarea.IdOrdenTrabajoTarea))
+                    {
+                        await _ordenTrabajoArticuloRepositorio.EliminarAsync(articulo.IdOrdenTrabajoArticulo);
+                        // Aquí podrías agregar lógica para reestablecer el stock si es necesario
+                    }
+                }
+            }
+            _view.MostrarMensaje("Orden de trabajo eliminada correctamente recuerda reestablecer el stock en caso de moverlo en el mantenimiento.");
             await InicializarAsync(_Criterio);
         }
 

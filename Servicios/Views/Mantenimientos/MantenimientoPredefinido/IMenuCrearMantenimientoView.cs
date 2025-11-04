@@ -21,8 +21,7 @@ namespace Servicios.Views.Mantenimientos
         decimal HorasTotales { get; set; }
         decimal ManoObraTotal { get; set; }
         decimal RepuestosTotales { get; set; }
-
-        void CargarTiposMantenimiento(List<TipoMantenimiento> tipos);
+        void CargarTiposMantenimiento(List<TipoMantenimiento> tipos, string tipoVista);
         void CargarAplicaA();
         void CargarFrecuencias();
         void OcultarFrecuencias();
@@ -30,6 +29,8 @@ namespace Servicios.Views.Mantenimientos
         void CargarTareasAsignadas(List<Tarea> tareas);
         void SeleccionarFrecuencia(string frecuencia, int? valorIntervalo);
 
+        void CargarTareasAsignadasOrdenes(List<OrdenTrabajoTarea> tareasOrdenes);
+        
         void Cerrar();
     }
 }
