@@ -135,7 +135,7 @@ namespace SacNew.Views
 
         private void bMantenimiento_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirFormularioConPermisosAsync<MenuMantenimiento>("0028-Mantenimiento");
+            _presenter.AbrirFormularioConPermisosAsync<MenuMantenimiento>("0029-Mantenimiento");
         }
     }
 }

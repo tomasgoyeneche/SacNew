@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimiento;
+using Servicios.Views.Mantenimientos;
 using Shared.Models;
 
 namespace Servicios.Presenters
@@ -48,7 +49,7 @@ namespace Servicios.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                await AbrirFormularioAsync<AgregarEditarArticuloForm>(async form =>
+                await AbrirFormularioAsync<AgregarEditArticuloForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(idArticulo);
                 });
@@ -59,7 +60,7 @@ namespace Servicios.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                await AbrirFormularioAsync<AgregarEditarArticuloForm>(async form =>
+                await AbrirFormularioAsync<AgregarEditArticuloForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(0);
                 });

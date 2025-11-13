@@ -77,6 +77,8 @@ namespace GestionOperativa.Presenters
                         _view.MostrarMensaje("La Unidad ya tiene vaporizado cargado.");
                         return;
                     }
+
+               
                     RegistrarVaporizadoDesdeGuardiaAsync(_guardia);
                     fecha = DateTime.Now;
                     break;

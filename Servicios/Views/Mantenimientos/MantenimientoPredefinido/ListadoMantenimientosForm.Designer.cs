@@ -134,6 +134,7 @@
             btnEliminarArt.Size = new Size(132, 37);
             btnEliminarArt.TabIndex = 63;
             btnEliminarArt.Text = "Eliminar";
+            btnEliminarArt.Click += btnEliminarArt_Click;
             // 
             // guna2Panel5
             // 

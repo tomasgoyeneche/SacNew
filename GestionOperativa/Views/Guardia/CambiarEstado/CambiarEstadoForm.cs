@@ -105,6 +105,7 @@ namespace GestionOperativa.Views
 
         private async void bVaporizado_Click(object sender, EventArgs e)
         {
+
             bVaporizado.Enabled = false;
             await _presenter.RegistrarCambio(false, 7, "Vaporizado");
             bVaporizado.Enabled = true;

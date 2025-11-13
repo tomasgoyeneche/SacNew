@@ -214,6 +214,7 @@ namespace Servicios.Presenters
                 _ordenActual.Fase = 1; // Autorizada
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
 
+
                 _view.IdNomina = nomina.IdNomina;
                 _view.MostrarMensaje("Orden de trabajo autorizada correctamente.");
 
@@ -351,7 +352,7 @@ namespace Servicios.Presenters
                 _view.FechaIngreso = _ordenActual.FechaInicio;
                 _view.OdometroIngreso = odometroIngreso;
                 _view.MostrarMensaje("Ingreso confirmado correctamente.");
-
+                await _nominaRepositorio.RegistrarNominaAsync(_ordenActual.IdNomina.Value, "Ingreso a Taller", $"La unidad comenzo la reparacion fecha {DateTime.Now}", _sesionService.IdUsuario);
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
             });
         }
@@ -370,7 +371,7 @@ namespace Servicios.Presenters
                 _view.FechaFin = _ordenActual.FechaFin;
                 _view.OdometroSalida = odometroSalida;
                 _view.MostrarMensaje("Orden de trabajo finalizada correctamente.");
-
+                await _nominaRepositorio.RegistrarNominaAsync(_ordenActual.IdNomina.Value, "Salida Taller", $"La unidad termino la reparacion fecha {DateTime.Now}", _sesionService.IdUsuario);
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
             });
         }

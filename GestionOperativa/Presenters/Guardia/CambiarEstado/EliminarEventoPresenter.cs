@@ -29,6 +29,16 @@ namespace GestionOperativa.Presenters
 
         public async Task EliminarRegistroAsync(GuardiaHistorialDto registro)
         {
+
+            if(registro.IdGuardiaEstado == 7)
+            {
+                if (!_sesionService.Permisos.Contains("0028-EliminarVaporizados"))
+                {
+                    _view.MostrarMensaje("No tiene permisos para eliminar eventos de vaporizado.");
+                    return;
+                }
+            }
+
             if (registro.IdGuardiaEstado == 1)
             {
                 // Eliminar todo si es el ingreso

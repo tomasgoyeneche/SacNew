@@ -40,6 +40,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlDatos = new DevExpress.XtraGrid.GridControl();
@@ -50,7 +52,8 @@
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cmbPeriodos = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            dtpPeriodo = new Guna.UI2.WinForms.Guna2DateTimePicker();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
@@ -187,28 +190,49 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(841, 27);
+            guna2HtmlLabel2.Location = new Point(710, 25);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(65, 23);
             guna2HtmlLabel2.TabIndex = 51;
             guna2HtmlLabel2.Text = "Periodo:";
             // 
-            // cmbPeriodos
+            // guna2Button1
             // 
-            cmbPeriodos.BackColor = Color.Transparent;
-            cmbPeriodos.CustomizableEdges = customizableEdges11;
-            cmbPeriodos.DrawMode = DrawMode.OwnerDrawFixed;
-            cmbPeriodos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPeriodos.FocusedColor = Color.FromArgb(94, 148, 255);
-            cmbPeriodos.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbPeriodos.Font = new Font("Segoe UI", 10F);
-            cmbPeriodos.ForeColor = Color.FromArgb(68, 88, 112);
-            cmbPeriodos.ItemHeight = 30;
-            cmbPeriodos.Location = new Point(912, 21);
-            cmbPeriodos.Name = "cmbPeriodos";
-            cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cmbPeriodos.Size = new Size(269, 36);
-            cmbPeriodos.TabIndex = 50;
+            guna2Button1.CustomizableEdges = customizableEdges11;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.Gray;
+            guna2Button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(1061, 18);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Button1.Size = new Size(120, 37);
+            guna2Button1.TabIndex = 52;
+            guna2Button1.Text = "Buscar";
+            guna2Button1.Click += guna2Button1_Click;
+            // 
+            // dtpPeriodo
+            // 
+            dtpPeriodo.BackColor = Color.Transparent;
+            dtpPeriodo.Checked = true;
+            dtpPeriodo.CustomFormat = "MM/yyyy";
+            dtpPeriodo.CustomizableEdges = customizableEdges13;
+            dtpPeriodo.FillColor = Color.WhiteSmoke;
+            dtpPeriodo.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpPeriodo.ForeColor = SystemColors.ActiveCaptionText;
+            dtpPeriodo.Format = DateTimePickerFormat.Custom;
+            dtpPeriodo.Location = new Point(781, 19);
+            dtpPeriodo.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
+            dtpPeriodo.MinDate = new DateTime(2020, 1, 1, 0, 0, 0, 0);
+            dtpPeriodo.Name = "dtpPeriodo";
+            dtpPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            dtpPeriodo.ShowUpDown = true;
+            dtpPeriodo.Size = new Size(274, 36);
+            dtpPeriodo.TabIndex = 53;
+            dtpPeriodo.Value = new DateTime(2025, 2, 3, 0, 0, 0, 0);
             // 
             // ImportarConsumosYpfForm
             // 
@@ -217,8 +241,9 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1198, 568);
+            Controls.Add(dtpPeriodo);
+            Controls.Add(guna2Button1);
             Controls.Add(guna2HtmlLabel2);
-            Controls.Add(cmbPeriodos);
             Controls.Add(guna2Panel3);
             Controls.Add(btnGuardar);
             Controls.Add(btnExportarExcel);
@@ -227,7 +252,6 @@
             Name = "ImportarConsumosYpfForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ImportarConsumosYpfForm";
-            Load += ImportarConsumosYPF_Load;
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlDatos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
@@ -249,6 +273,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpPeriodo;
     }
 }

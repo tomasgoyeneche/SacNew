@@ -49,8 +49,6 @@ namespace Servicios.Views.Mantenimiento
             // 🔹 Menu Movimientos Stock
             popupMenuMovimientos = new PopupMenu(barManager);
 
-            var historialArticulo = new BarButtonItem(barManager, "Historial de Artículo");
-            historialArticulo.ItemClick += (s, e) => _presenter.AbrirHistorialArticulo();
 
             var movimientosArticulo = new BarButtonItem(barManager, "Movimientos de Artículos");
             movimientosArticulo.ItemClick += (s, e) => _presenter.AbrirMovimientosArticulo();
@@ -58,7 +56,6 @@ namespace Servicios.Views.Mantenimiento
             var movimientoDeposito = new BarButtonItem(barManager, "Movimiento Depósito");
             movimientoDeposito.ItemClick += (s, e) => _presenter.AbrirMovimientosStock();
 
-            popupMenuMovimientos.AddItem(historialArticulo);
             popupMenuMovimientos.AddItem(movimientosArticulo);
             popupMenuMovimientos.AddItem(movimientoDeposito);
 
@@ -119,6 +116,16 @@ namespace Servicios.Views.Mantenimiento
         private async void bOrdenesActuales_Click(object sender, EventArgs e)
         {
             _presenter.AbrirOrdenesActuales();
+        }
+
+        private async void bOrdenesHistoricas_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirOrdenesTerminadas();
+        }
+
+        private void bProximosMantenimiento_Click(object sender, EventArgs e)
+        {
+            _presenter.AbrirProximosMantenimientos();
         }
     }
 }

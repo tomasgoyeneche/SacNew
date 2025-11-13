@@ -114,8 +114,16 @@ namespace Servicios.Views.Mantenimientos
         private async void bEditarComprobante_Click(object sender, EventArgs e)
         {
             var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
+
+            if (articulo.Estado == "Confirmado")
+            {
+                MostrarMensaje("No se puede editar un articulo confirmado");
+                return;
+            }
+
             if (articulo.IdOrdenTrabajoArticulo == null)
             {
+                
                 await _presenter.AgregarEditarArticulosAsync(articulo.IdArticulo);
             }
             else

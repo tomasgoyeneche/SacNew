@@ -1,15 +1,25 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters.Mantenimiento;
+using Servicios.Views.Mantenimiento;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Servicios.Views.Mantenimiento
+namespace Servicios.Views.Mantenimientos
 {
-    public partial class AgregarEditarArticuloForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarArticuloView
+    public partial class AgregarEditArticuloForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarArticuloView
     {
         public readonly AgregarEditarArticuloPresenter _presenter;
 
-        public AgregarEditarArticuloForm(AgregarEditarArticuloPresenter presenter)
+        public AgregarEditArticuloForm(AgregarEditarArticuloPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -27,7 +37,9 @@ namespace Servicios.Views.Mantenimiento
         public int? IdArticuloModelo => string.IsNullOrEmpty(cmbModelo.EditValue?.ToString()) ? null : Convert.ToInt32(cmbModelo.EditValue);
         public decimal PrecioUnitario => Convert.ToDecimal(txtPrecioUnitario.EditValue);
         public decimal? PedidoMinimo => string.IsNullOrEmpty(txtPedidoMinimo.Text) ? null : Convert.ToDecimal(txtPedidoMinimo.EditValue);
+        
         public decimal? PedidoMaximo => string.IsNullOrEmpty(txtPedidoMaximo.Text) ? null : Convert.ToDecimal(txtPedidoMaximo.EditValue);
+        public decimal? StockCritico => string.IsNullOrEmpty(txtStockCritico.Text) ? null : Convert.ToDecimal(txtStockCritico.EditValue);
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -57,6 +69,7 @@ namespace Servicios.Views.Mantenimiento
             txtPrecioUnitario.EditValue = null;
             txtPedidoMinimo.EditValue = null;
             txtPedidoMaximo.EditValue = null;
+            txtStockCritico.EditValue = null;
         }
 
         public void CargarMedidas(List<Medida> medidas)
@@ -116,6 +129,7 @@ namespace Servicios.Views.Mantenimiento
             txtPrecioUnitario.EditValue = articulo.PrecioUnitario;
             txtPedidoMinimo.EditValue = articulo.PedidoMinimo;
             txtPedidoMaximo.EditValue = articulo.PedidoMaximo;
+            txtStockCritico.EditValue = articulo.StockCritico;
 
             if (orden != null)
             {

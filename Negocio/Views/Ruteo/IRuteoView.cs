@@ -24,5 +24,7 @@ namespace GestionFlota.Views
         void SeleccionarRuteoCargadoPorId(int idPrograma);
 
         void SeleccionarRuteoPorNomina(int idNomina);
+        void MostrarMantenimientosUnidad(string texto);
+        void MostrarAusenciasChofer(string texto);
     }
 }

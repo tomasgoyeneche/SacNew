@@ -63,7 +63,7 @@ namespace GestionFlota.Views
 
         public void Cerrar()
         {
-            this.Close();
+            this.Dispose();
         }
 
         private async void btnConfirmar_Click(object sender, EventArgs e)
@@ -90,7 +90,10 @@ namespace GestionFlota.Views
 
         private async void bOrdenCarga_Click(object sender, EventArgs e)
         {
+            bOrdenCarga.Enabled = false; // Deshabilitar el botón para evitar múltiples clics
             await _presenter.AbrirOrdenCarga();
+            await _presenter.ConfirmarAsignacionAsync();
+            bOrdenCarga.Enabled = true; // Rehabilitar el botón después de la operación
         }
 
         private async void bCancelarAsignado_Click(object sender, EventArgs e)

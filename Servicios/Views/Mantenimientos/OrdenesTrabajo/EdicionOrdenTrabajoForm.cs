@@ -2,15 +2,24 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Servicios.Views.Mantenimientos
+namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
 {
-    public partial class EditarOrdenTrabajoForm : DevExpress.XtraEditors.XtraForm, IEditarOrdenTrabajoView
+    public partial class EdicionOrdenTrabajoForm : DevExpress.XtraEditors.XtraForm, IEditarOrdenTrabajoView
     {
         public readonly EditarOrdenTrabajoPresenter _presenter;
 
-        public EditarOrdenTrabajoForm(EditarOrdenTrabajoPresenter presenter)
+        public EdicionOrdenTrabajoForm(EditarOrdenTrabajoPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -263,11 +272,11 @@ namespace Servicios.Views.Mantenimientos
 
         public void Cerrar() => Dispose();
 
-        private void simpleButton8_Click(object sender, EventArgs e)
+        private void bCancelar_Click(object sender, EventArgs e)
         {
-            simpleButton8.Enabled = false;
+            bCancelar.Enabled = false;
             Dispose();
-            simpleButton8.Enabled = true;
+            bCancelar.Enabled = true;
         }
 
         private async void bFinalizo_Click(object sender, EventArgs e)

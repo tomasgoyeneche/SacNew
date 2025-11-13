@@ -44,6 +44,37 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<ArticuloMovimientoHistoricoDto>> ObtenerMovimientosPorPostaAsync(int idPosta)
+        {
+            const string query = "SELECT * FROM vw_ArticuloMovimientoHistorico WHERE IdPosta = @idPosta";
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<ArticuloMovimientoHistoricoDto>(query, new { idPosta });
+                return result.ToList();
+            });
+        }
+
+        public async Task<List<ArticuloStockDepositoDto>> ObtenerStockPorPostaAsync(int idPosta)
+        {
+            const string query = "SELECT * FROM vw_ArticuloStockDeposito WHERE IdPosta = @idPosta";
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<ArticuloStockDepositoDto>(query, new { idPosta });
+                return result.ToList();
+            });
+        }
+
+        public async Task<List<ArticuloStockDepositoDto>> ObtenerStockPorPostaCriticoAsync(int idPosta)
+        {
+            const string query = "SELECT * FROM vw_ArticuloStockDeposito WHERE IdPosta = @idPosta AND CantidadActual < StockCritico";
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<ArticuloStockDepositoDto>(query, new { idPosta });
+                return result.ToList();
+            });
+        }
+
+
         public async Task<MovimientoStock?> ObtenerPorIdAsync(int id)
         {
             const string query = @"
@@ -56,6 +87,22 @@ namespace Core.Repositories
                 return await conn.QueryFirstOrDefaultAsync<MovimientoStock>(
                     query,
                     new { IdMovimientoStock = id }
+                );
+            });
+        }
+
+        public async Task<MovimientoStock?> ObtenerPorFechaEmisionAsync(DateTime date)
+        {
+            const string query = @"
+            SELECT *
+            FROM MovimientoStock
+            WHERE FechaEmision = @FechaEmision AND Activo = 1";
+
+            return await ConectarAsync(async conn =>
+            {
+                return await conn.QueryFirstOrDefaultAsync<MovimientoStock>(
+                    query,
+                    new { FechaEmision = date }
                 );
             });
         }

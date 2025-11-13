@@ -25,6 +25,16 @@ namespace GestionFlota.Views
             //view.BestFitColumns();
         }
 
+        public void MostrarMantenimientosUnidad(string texto)
+        {
+            lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
+        public void MostrarAusenciasChofer(string texto)
+        {
+            lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
         public void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios)
         {
             gridControlVacios.DataSource = vacios;

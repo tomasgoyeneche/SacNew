@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Servicios.Presenters;
 using Servicios.Views.Mantenimientos;
+using Shared.Models;
 
 namespace Servicios.Views.Mantenimiento
 {
@@ -55,6 +56,23 @@ namespace Servicios.Views.Mantenimiento
             else
             {
                 MostrarMensaje("Seleccione un Mantenimiento para editar.");
+            }
+        }
+
+        private async void btnEliminarArt_Click(object sender, EventArgs e)
+        {
+            Shared.Models.Mantenimiento row = gridViewMantenimientos.GetFocusedRow() as Shared.Models.Mantenimiento;
+            if (row != null)
+            {
+                var confirm = MessageBox.Show("¿Eliminar este Mantenimiento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarMantenimiento(row.IdMantenimiento);
+                }
+            }
+            else
+            {
+                MostrarMensaje("Seleccione un Mantenimiento para eliminar.");
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using Servicios.Views;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
@@ -16,6 +17,10 @@ namespace Servicios.Presenters
         private readonly IOrdenTrabajoTareaRepositorio _ordenTrabajoTareaRepositorio;
         private readonly IOrdenTrabajoMantenimientoRepositorio _ordenTrabajoMantenimientoRepositorio;
         private readonly IArticuloStockRepositorio _articuloStockRepositorio;
+        private readonly IMovimientoStockRepositorio _movimientoStockRepositorio;
+        private readonly IMovimientoStockDetalleRepositorio _movimientoStockDetalleRepositorio;
+
+
         private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
 
         private Tarea? _tarea;
@@ -25,6 +30,8 @@ namespace Servicios.Presenters
         public AgregarEditarTareaPresenter(
             ITareaRepositorio tareaRepositorio,
             IMantenimientoTareaArticuloRepositorio tareaArticuloRepositorio,
+            IMovimientoStockRepositorio movimientoStockRepositorio,
+            IMovimientoStockDetalleRepositorio movimientoStockDetalleRepositorio,
             IOrdenTrabajoArticuloRepositorio ordenTrabajoArticuloRepositorio,
             IOrdenTrabajoTareaRepositorio ordenTrabajoTareaRepositorio,
             IArticuloStockRepositorio articuloStockRepositorio,
@@ -39,6 +46,8 @@ namespace Servicios.Presenters
             _tareaArticuloRepositorio = tareaArticuloRepositorio;
             _ordenTrabajoArticuloRepositorio = ordenTrabajoArticuloRepositorio;
             _ordenTrabajoMantenimientoRepositorio = ordenTrabajoMantenimientoRepositorio;
+            _movimientoStockRepositorio = movimientoStockRepositorio;
+            _movimientoStockDetalleRepositorio = movimientoStockDetalleRepositorio;
             _articuloStockRepositorio = articuloStockRepositorio;
             _ordenTrabajoRepositorio = ordenTrabajoRepositorio;
             _ordenTrabajoTareaRepositorio = ordenTrabajoTareaRepositorio;
@@ -71,7 +80,7 @@ namespace Servicios.Presenters
                             {
                                 IdArticulo = art.IdArticulo,
                                 Codigo = art.Codigo,
-                                Descripcion = art.Descripcion,
+                                Descripcion = art.Nombre,
                                 Cantidad = ta.Cantidad,
                                 PrecioUnitario = art.PrecioUnitario
                             });
@@ -112,7 +121,7 @@ namespace Servicios.Presenters
                                 IdOrdenTrabajoArticulo = ta.IdOrdenTrabajoArticulo,
                                 IdArticulo = art.IdArticulo,
                                 Codigo = ta.Codigo,
-                                Descripcion = art.Descripcion,
+                                Descripcion = ta.Nombre,
                                 Cantidad = ta.Cantidad,
                                 PrecioUnitario = ta.PrecioUnitario,
                                 Estado = ta.Estado
@@ -228,7 +237,7 @@ namespace Servicios.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                await AbrirFormularioAsync<AgregarEditarArticuloForm>(async form =>
+                await AbrirFormularioAsync<AgregarEditArticuloForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(idArticulo, _tipoVista, _view.IdTarea);
                 });
@@ -241,6 +250,36 @@ namespace Servicios.Presenters
             OrdenTrabajoTarea? tarea = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(articulo.IdOrdenTrabajoTarea);
             OrdenTrabajoMantenimiento? mantenimiento = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorIdAsync(tarea.IdOrdenTrabajoMantenimiento);
             OrdenTrabajo? ordenTrabajo = await _ordenTrabajoRepositorio.ObtenerPorIdAsync(mantenimiento.IdOrdenTrabajo);
+
+
+            int idMovimientoStock = 0;  
+
+            if (ordenTrabajo.IdLugarReparacion == 1 || ordenTrabajo.IdLugarReparacion == 2)
+            {
+                MovimientoStock? movimientoStock = await _movimientoStockRepositorio.ObtenerPorFechaEmisionAsync(ordenTrabajo.FechaEmision);
+                if (movimientoStock == null)
+                {
+                    MovimientoStock movStock = new MovimientoStock
+                    {
+                        IdTipoMovimiento = 2,
+                        FechaEmision = ordenTrabajo.FechaEmision,
+                        FechaIngreso = DateTime.Now,
+                        Autorizado = true,
+                        Observaciones = $"Movimiento por orden de trabajo N° {ordenTrabajo.IdOrdenTrabajo}",
+                        Activo = true
+                    };
+
+                    int idMovimientoStockNuevo = await _movimientoStockRepositorio.AgregarAsync(movStock);  
+                    idMovimientoStock = idMovimientoStockNuevo;
+                }
+                else
+                {
+                     idMovimientoStock = movimientoStock.IdMovimientoStock;
+                }
+
+                
+            }
+            
 
             if (ordenTrabajo != null)
             {
@@ -260,6 +299,20 @@ namespace Servicios.Presenters
                     }
 
                     articulo.Estado = "Confirmado";
+
+                    MovimientoStockDetalle detalle = new MovimientoStockDetalle
+                    {
+                        IdMovimientoStock = idMovimientoStock,
+                        IdArticulo = articulo.IdArticulo.Value,
+                        IdPosta = 2,
+                        Cantidad = articulo.Cantidad,
+                        PrecioUnitario = articulo.PrecioUnitario,
+                        PrecioTotal = articulo.Cantidad * articulo.PrecioUnitario,
+                        Activo = true
+                    };
+
+                    await _movimientoStockDetalleRepositorio.AgregarAsync(detalle);
+
                     await _ordenTrabajoArticuloRepositorio.ActualizarAsync(articulo);
                 }
                 else if (ordenTrabajo.IdLugarReparacion == 2)
@@ -276,6 +329,19 @@ namespace Servicios.Presenters
                     {
                         await _articuloStockRepositorio.CrearStockAsync(articulo.IdArticulo.Value, 3, articulo.Cantidad);
                     }
+
+                    MovimientoStockDetalle detalle = new MovimientoStockDetalle
+                    {
+                        IdMovimientoStock = idMovimientoStock,
+                        IdArticulo = articulo.IdArticulo.Value,
+                        IdPosta = 3,
+                        Cantidad = articulo.Cantidad,
+                        PrecioUnitario = articulo.PrecioUnitario,
+                        PrecioTotal = articulo.Cantidad * articulo.PrecioUnitario,
+                        Activo = true
+                    };
+
+                    await _movimientoStockDetalleRepositorio.AgregarAsync(detalle);
 
                     articulo.Estado = "Confirmado";
                     await _ordenTrabajoArticuloRepositorio.ActualizarAsync(articulo);

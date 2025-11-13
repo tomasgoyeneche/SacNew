@@ -51,7 +51,23 @@ namespace Servicios.Presenters.Mantenimiento
         {
             await AbrirFormularioAsync<ListadoOrdenTrabajoForm>(async form =>
             {
-                await form._presenter.InicializarAsync("Activas");
+                await form._presenter.InicializarAsync("Todos");
+            });
+        }
+
+        public async void AbrirOrdenesTerminadas()
+        {
+            await AbrirFormularioAsync<ListadoOrdenTrabajoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("Terminadas");
+            });
+        }
+
+        public async void AbrirProximosMantenimientos()
+        {
+            await AbrirFormularioAsync<MuestraDatosGenericoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("OrdenTrabajoProximo");
             });
         }
 
@@ -64,16 +80,30 @@ namespace Servicios.Presenters.Mantenimiento
         public void AbrirInformeTrabajos()
         { /* ... */ }
 
-        public void AbrirHistorialArticulo()
-        { /* ... */ }
 
-        public void AbrirMovimientosArticulo()
-        { /* ... */ }
+        public async void AbrirMovimientosArticulo()
+        {
+            await AbrirFormularioAsync<MuestraDatosGenericoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("ArticuloMovimientoHistorico", _sesionService.IdPosta);
+            });
 
-        public void AbrirArticulosExistencia()
-        { /* ... */ }
+        }
 
-        public void AbrirArticulosStockCritico()
-        { /* ... */ }
+        public async void AbrirArticulosExistencia()
+        {
+            await AbrirFormularioAsync<MuestraDatosGenericoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("ArticuloStockDeposito", _sesionService.IdPosta);
+            });
+        }
+
+        public async void AbrirArticulosStockCritico()
+        {
+            await AbrirFormularioAsync<MuestraDatosGenericoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync("ArticuloStockCritico", _sesionService.IdPosta);
+            });
+        }
     }
 }

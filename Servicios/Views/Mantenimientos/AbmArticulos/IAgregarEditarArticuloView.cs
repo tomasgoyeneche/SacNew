@@ -17,6 +17,9 @@ namespace Servicios.Views.Mantenimiento
         decimal? PedidoMinimo { get; }
         decimal? PedidoMaximo { get; }
 
+        decimal? StockCritico { get; }
+
+
         void CargarMedidas(List<Medida> medidas);
 
         void CargarFamilias(List<ArticuloFamilia> familias);

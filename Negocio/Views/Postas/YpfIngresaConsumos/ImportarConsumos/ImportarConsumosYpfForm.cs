@@ -16,14 +16,7 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
             _presenter.SetView(this);
         }
 
-        public Periodo? PeriodoSeleccionado => cmbPeriodos.SelectedItem as Periodo;
-
-        public void CargarPeriodos(List<Periodo> periodos)
-        {
-            cmbPeriodos.DataSource = periodos;
-            cmbPeriodos.DisplayMember = "NombrePeriodo";
-            cmbPeriodos.ValueMember = "IdPeriodo";
-        }
+        public DateTime PeriodoSeleccionado => dtpPeriodo.Value;
 
         public void MostrarMensaje(string mensaje)
         {
@@ -45,11 +38,6 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         public List<ImportConsumoYpfEnRuta> ObtenerConsumos()
         {
             return dgvDatos.DataSource as List<ImportConsumoYpfEnRuta> ?? new List<ImportConsumoYpfEnRuta>();
-        }
-
-        private async void ImportarConsumosYPF_Load(object sender, EventArgs e)
-        {
-            await _presenter.CargarPeriodosAsync();
         }
 
         private async void btnExportarExcel_Click(object sender, EventArgs e)
@@ -78,6 +66,16 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         {
             await _presenter.GuardarConsumosAsync();
             this.Dispose();
+        }
+
+        private async void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if(PeriodoSeleccionado == null)
+            {
+                MostrarMensaje("Seleccione un período antes de buscar consumos.");
+                return;
+            }
+            await _presenter.BuscarConsumosPorPeriodo();
         }
     }
 }

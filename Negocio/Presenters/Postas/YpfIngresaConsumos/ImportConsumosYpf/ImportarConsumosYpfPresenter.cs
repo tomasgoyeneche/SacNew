@@ -26,15 +26,6 @@ namespace GestionFlota.Presenters
             _consumoYpfRepositorio = consumoYpfRepositorio;
         }
 
-        public async Task CargarPeriodosAsync()
-        {
-            await EjecutarConCargaAsync(async () =>
-            {
-                var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
-                _view.CargarPeriodos(periodos);
-            });
-        }
-
         public async Task ImportarConsumosAsync(string filePath)
         {
             if (_view.PeriodoSeleccionado == null)
@@ -43,9 +34,9 @@ namespace GestionFlota.Presenters
                 return;
             }
 
-            var idPeriodo = _view.PeriodoSeleccionado.IdPeriodo;
+            int? idPeriodo = await ObtenerIdPeriodoAsync();
 
-            var consumosExistentes = await _consumoYpfRepositorio.ExistenConsumosParaPeriodoAsync(idPeriodo);
+            var consumosExistentes = await _consumoYpfRepositorio.ExistenConsumosParaPeriodoAsync(idPeriodo.Value);
             if (consumosExistentes)
             {
                 _view.MostrarMensaje("Ya existen consumos para este período. No se puede importar nuevamente.");
@@ -54,11 +45,18 @@ namespace GestionFlota.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                var consumos = await _importacionProcessor.ImportarConsumosDesdeExcelAsync(filePath, idPeriodo);
+                var consumos = await _importacionProcessor.ImportarConsumosDesdeExcelAsync(filePath, idPeriodo.Value);
 
                 _view.MostrarConsumos(consumos);
                 _view.MostrarMensaje("Importación completada con éxito.");
             });
+        }
+
+        private async Task<int?> ObtenerIdPeriodoAsync()
+        {
+            var fecha = _view.PeriodoSeleccionado;
+            return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(fecha.Month, fecha.Year);
+             
         }
 
         public async Task GuardarConsumosAsync()
@@ -80,6 +78,13 @@ namespace GestionFlota.Presenters
 
                 _view.MostrarMensaje("Consumos guardados correctamente.");
             });
+        }
+
+        public async Task BuscarConsumosPorPeriodo()
+        {
+            int idPeriodo = await ObtenerIdPeriodoAsync() ?? 0;
+            var consumos = await _consumoYpfRepositorio.ObtenerPorPeriodoAsync(idPeriodo);
+            _view.MostrarConsumos(consumos.ToList());
         }
 
         public async Task ExportarConsumosAExcelAsync(string filePath)

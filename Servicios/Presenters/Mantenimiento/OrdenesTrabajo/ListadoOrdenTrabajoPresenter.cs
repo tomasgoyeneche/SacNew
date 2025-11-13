@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimientos;
+using Servicios.Views.Mantenimientos.OrdenesTrabajo;
 using Shared.Models;
 
 namespace Servicios.Presenters
@@ -52,7 +53,7 @@ namespace Servicios.Presenters
 
         public async Task AbrirEdicionMovimientoAsync(int idOrdenTrabajo)
         {
-            await AbrirFormularioAsync<EditarOrdenTrabajoForm>(async form =>
+            await AbrirFormularioAsync<EdicionOrdenTrabajoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idOrdenTrabajo);
             });
@@ -88,11 +89,11 @@ namespace Servicios.Presenters
                 List<OrdenTrabajoDto> ordenes;
                 if (_Criterio == "Todos")
                 {
-                    ordenes = await _orderTrabajoRepositorio.ObtenerTodosDtoAsync();
+                    ordenes = await _orderTrabajoRepositorio.ObtenerNoCoincidetesDtoFaseAsync("Finalizada");
                 }
                 else
                 {
-                    ordenes = await _orderTrabajoRepositorio.ObtenerPorFaseAsync("Finalizada");
+                    ordenes = await _orderTrabajoRepositorio.ObtenerPorDtoFaseAsync("Finalizada");
                 }
                 _view.MostrarOrdenesDeTrabajo(ordenes);
             });

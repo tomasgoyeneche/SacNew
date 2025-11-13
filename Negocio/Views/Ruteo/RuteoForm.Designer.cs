@@ -114,6 +114,10 @@
             gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             bRecargar = new DevExpress.XtraEditors.SimpleButton();
+            lblAusenciasChofer = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10.SuspendLayout();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAlertas).BeginInit();
@@ -344,10 +348,10 @@
             guna2Panel6.Controls.Add(gridControlVencimientos);
             guna2Panel6.CustomizableEdges = customizableEdges7;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel6.Location = new Point(12, 430);
+            guna2Panel6.Location = new Point(12, 352);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel6.Size = new Size(241, 252);
+            guna2Panel6.Size = new Size(241, 134);
             guna2Panel6.TabIndex = 44;
             // 
             // guna2HtmlLabel6
@@ -371,7 +375,7 @@
             gridControlVencimientos.Location = new Point(0, 26);
             gridControlVencimientos.MainView = gridViewVencimientos;
             gridControlVencimientos.Name = "gridControlVencimientos";
-            gridControlVencimientos.Size = new Size(241, 226);
+            gridControlVencimientos.Size = new Size(241, 108);
             gridControlVencimientos.TabIndex = 39;
             gridControlVencimientos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewVencimientos, gridView1 });
             // 
@@ -405,7 +409,7 @@
             guna2Panel4.Location = new Point(12, 168);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel4.Size = new Size(241, 255);
+            guna2Panel4.Size = new Size(241, 178);
             guna2Panel4.TabIndex = 45;
             // 
             // guna2HtmlLabel5
@@ -429,7 +433,7 @@
             gridControlResumen.Location = new Point(0, 26);
             gridControlResumen.MainView = gridViewResumen;
             gridControlResumen.Name = "gridControlResumen";
-            gridControlResumen.Size = new Size(241, 229);
+            gridControlResumen.Size = new Size(241, 152);
             gridControlResumen.TabIndex = 39;
             gridControlResumen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewResumen, gridView2 });
             // 
@@ -891,7 +895,7 @@
             bRecargar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bRecargar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bRecargar.AppearanceDisabled.Options.UseForeColor = true;
-            bRecargar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
+            bRecargar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bRecargar.ImageOptions.SvgImage");
             bRecargar.Location = new Point(217, 130);
             bRecargar.Name = "bRecargar";
             bRecargar.Size = new Size(36, 30);
@@ -899,12 +903,70 @@
             bRecargar.Text = "Control Satelital";
             bRecargar.Click += bRecargar_Click;
             // 
+            // lblAusenciasChofer
+            // 
+            lblAusenciasChofer.AutoSize = false;
+            lblAusenciasChofer.BackColor = Color.FromArgb(42, 48, 56);
+            lblAusenciasChofer.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAusenciasChofer.ForeColor = Color.WhiteSmoke;
+            lblAusenciasChofer.Location = new Point(12, 606);
+            lblAusenciasChofer.Margin = new Padding(4, 3, 4, 3);
+            lblAusenciasChofer.Name = "lblAusenciasChofer";
+            lblAusenciasChofer.Size = new Size(241, 76);
+            lblAusenciasChofer.TabIndex = 114;
+            lblAusenciasChofer.Text = "Ausencia";
+            // 
+            // guna2HtmlLabel8
+            // 
+            guna2HtmlLabel8.AutoSize = false;
+            guna2HtmlLabel8.BackColor = Color.Goldenrod;
+            guna2HtmlLabel8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel8.ForeColor = SystemColors.ActiveCaptionText;
+            guna2HtmlLabel8.Location = new Point(12, 580);
+            guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            guna2HtmlLabel8.Size = new Size(241, 25);
+            guna2HtmlLabel8.TabIndex = 113;
+            guna2HtmlLabel8.Text = "Ausencias Chofer";
+            guna2HtmlLabel8.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // lblMantenimientosUnidad
+            // 
+            lblMantenimientosUnidad.AutoSize = false;
+            lblMantenimientosUnidad.BackColor = Color.FromArgb(42, 48, 56);
+            lblMantenimientosUnidad.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMantenimientosUnidad.ForeColor = Color.WhiteSmoke;
+            lblMantenimientosUnidad.Location = new Point(12, 516);
+            lblMantenimientosUnidad.Margin = new Padding(4, 3, 4, 3);
+            lblMantenimientosUnidad.Name = "lblMantenimientosUnidad";
+            lblMantenimientosUnidad.Size = new Size(241, 60);
+            lblMantenimientosUnidad.TabIndex = 112;
+            lblMantenimientosUnidad.Text = "Mantenimiento";
+            // 
+            // guna2HtmlLabel9
+            // 
+            guna2HtmlLabel9.AutoSize = false;
+            guna2HtmlLabel9.BackColor = Color.Goldenrod;
+            guna2HtmlLabel9.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel9.ForeColor = SystemColors.ActiveCaptionText;
+            guna2HtmlLabel9.Location = new Point(12, 491);
+            guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            guna2HtmlLabel9.Size = new Size(241, 24);
+            guna2HtmlLabel9.TabIndex = 111;
+            guna2HtmlLabel9.Text = "Mantenimientos Unidad";
+            guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // RuteoForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1268, 688);
+            Controls.Add(lblAusenciasChofer);
+            Controls.Add(guna2HtmlLabel8);
+            Controls.Add(lblMantenimientosUnidad);
+            Controls.Add(guna2HtmlLabel9);
             Controls.Add(bRecargar);
             Controls.Add(txtBuscar);
             Controls.Add(guna2Panel7);
@@ -1021,5 +1083,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
         private DevExpress.XtraEditors.SimpleButton bRecargar;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAusenciasChofer;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
     }
 }

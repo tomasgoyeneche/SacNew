@@ -390,7 +390,21 @@ namespace Servicios.Presenters
                     Activo = true
                 };
 
-                return await _tareaRepositorio.AgregarAsync(tarea);
+
+                int idTarea = await _tareaRepositorio.AgregarAsync(tarea);
+
+                var mt = new MantenimientoTarea
+                {
+                    IdMantenimiento = _view.IdMantenimiento,
+                    IdTarea = idTarea,
+                    Activo = true
+                };
+
+                await _mantenimientoTareaRepositorio.AgregarAsync(mt);
+
+                return idTarea;
+
+               
             }
             else
             {

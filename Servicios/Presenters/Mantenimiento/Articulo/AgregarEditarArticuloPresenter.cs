@@ -128,6 +128,7 @@ namespace Servicios.Presenters.Mantenimiento
                 PrecioUnitario = _view.PrecioUnitario,
                 PedidoMinimo = _view.PedidoMinimo,
                 PedidoMaximo = _view.PedidoMaximo,
+                StockCritico = _view.StockCritico,
                 Activo = true
             };
 

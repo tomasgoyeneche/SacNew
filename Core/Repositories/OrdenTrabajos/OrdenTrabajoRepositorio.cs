@@ -65,7 +65,22 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<OrdenTrabajoDto>> ObtenerPorFaseAsync(string fase)
+        public async Task<List<OrdenTrabajoDto>> ObtenerPorDtoFaseAsync(string fase)
+        {
+            const string query = @"
+        SELECT *
+        FROM vw_OrdenTrabajoDetalle
+        WHERE FaseNombre = @Fase AND Activo = 1
+        ORDER BY FechaEmision DESC;";
+
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<OrdenTrabajoDto>(query, new { Fase = fase });
+                return result.ToList();
+            });
+        }
+
+        public async Task<List<OrdenTrabajoDto>> ObtenerNoCoincidetesDtoFaseAsync(string fase)
         {
             const string query = @"
         SELECT *
@@ -80,17 +95,12 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<List<OrdenTrabajo>> ObtenerPorFaseAsync(byte fase)
+        public async Task<List<OrdenTrabajoProximoDto>> ObtenerOrdenTrabajoProximoAsync()
         {
-            const string query = @"
-        SELECT *
-        FROM OrdenTrabajo
-        WHERE Fase = @Fase AND Activo = 1
-        ORDER BY FechaEmision DESC;";
-
+            const string query = "SELECT * FROM vw_OrdenTrabajoProximo";
             return await ConectarAsync(async conn =>
             {
-                var result = await conn.QueryAsync<OrdenTrabajo>(query, new { Fase = fase });
+                var result = await conn.QueryAsync<OrdenTrabajoProximoDto>(query);
                 return result.ToList();
             });
         }

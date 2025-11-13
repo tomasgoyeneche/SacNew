@@ -98,7 +98,7 @@
             guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            bModificaTablas = new Guna.UI2.WinForms.Guna2Button();
+            bProximosMantenimiento = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -211,7 +211,7 @@
             bOrdenesActuales.Size = new Size(129, 30);
             bOrdenesActuales.TabIndex = 12;
             bOrdenesActuales.Text = "Ingresar";
-            bOrdenesActuales.Click += this.bOrdenesActuales_Click;
+            bOrdenesActuales.Click += bOrdenesActuales_Click;
             // 
             // guna2HtmlLabel15
             // 
@@ -286,6 +286,7 @@
             bOrdenesHistoricas.Size = new Size(129, 30);
             bOrdenesHistoricas.TabIndex = 12;
             bOrdenesHistoricas.Text = "Ingresar";
+            bOrdenesHistoricas.Click += bOrdenesHistoricas_Click;
             // 
             // guna2HtmlLabel13
             // 
@@ -390,7 +391,7 @@
             // 
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.Controls.Add(guna2PictureBox5);
-            guna2Panel5.Controls.Add(bModificaTablas);
+            guna2Panel5.Controls.Add(bProximosMantenimiento);
             guna2Panel5.Controls.Add(guna2HtmlLabel9);
             guna2Panel5.Controls.Add(guna2HtmlLabel10);
             guna2Panel5.CustomizableEdges = customizableEdges25;
@@ -415,24 +416,25 @@
             guna2PictureBox5.TabIndex = 12;
             guna2PictureBox5.TabStop = false;
             // 
-            // bModificaTablas
+            // bProximosMantenimiento
             // 
-            bModificaTablas.BackColor = Color.Transparent;
-            bModificaTablas.BorderRadius = 5;
-            bModificaTablas.CustomizableEdges = customizableEdges23;
-            bModificaTablas.DisabledState.BorderColor = Color.DarkGray;
-            bModificaTablas.DisabledState.CustomBorderColor = Color.DarkGray;
-            bModificaTablas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            bModificaTablas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            bModificaTablas.FillColor = Color.SeaGreen;
-            bModificaTablas.Font = new Font("Century Gothic", 9F);
-            bModificaTablas.ForeColor = Color.White;
-            bModificaTablas.Location = new Point(30, 180);
-            bModificaTablas.Name = "bModificaTablas";
-            bModificaTablas.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            bModificaTablas.Size = new Size(129, 30);
-            bModificaTablas.TabIndex = 12;
-            bModificaTablas.Text = "Ingresar";
+            bProximosMantenimiento.BackColor = Color.Transparent;
+            bProximosMantenimiento.BorderRadius = 5;
+            bProximosMantenimiento.CustomizableEdges = customizableEdges23;
+            bProximosMantenimiento.DisabledState.BorderColor = Color.DarkGray;
+            bProximosMantenimiento.DisabledState.CustomBorderColor = Color.DarkGray;
+            bProximosMantenimiento.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bProximosMantenimiento.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bProximosMantenimiento.FillColor = Color.SeaGreen;
+            bProximosMantenimiento.Font = new Font("Century Gothic", 9F);
+            bProximosMantenimiento.ForeColor = Color.White;
+            bProximosMantenimiento.Location = new Point(30, 180);
+            bProximosMantenimiento.Name = "bProximosMantenimiento";
+            bProximosMantenimiento.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            bProximosMantenimiento.Size = new Size(129, 30);
+            bProximosMantenimiento.TabIndex = 12;
+            bProximosMantenimiento.Text = "Ingresar";
+            bProximosMantenimiento.Click += bProximosMantenimiento_Click;
             // 
             // guna2HtmlLabel9
             // 
@@ -814,7 +816,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
-        private Guna.UI2.WinForms.Guna2Button bModificaTablas;
+        private Guna.UI2.WinForms.Guna2Button bProximosMantenimiento;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
