@@ -52,7 +52,6 @@ namespace GestionFlota.Presenters
             _excelService = excelService;
         }
 
-
         public async Task MostrarMantenimientosyFrancosDelChoferAsync(int idNomina)
         {
             Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
@@ -134,7 +133,7 @@ namespace GestionFlota.Presenters
 
             var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(ruteo.IdNomina);
 
-            await MostrarMantenimientosyFrancosDelChoferAsync(ruteo.IdNomina);  
+            await MostrarMantenimientosyFrancosDelChoferAsync(ruteo.IdNomina);
 
             _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());

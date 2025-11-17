@@ -76,7 +76,7 @@ namespace GestionFlota.Presenters
             Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
             if (nominaUnidadNueva != null)
             {
-                if (nominaUnidadNueva.FechaAlta > DateTime.Now)
+                if (nominaUnidadNueva.FechaAlta > DateTime.Now && nominaUnidadNueva.IdChofer != 0)
                 {
                     _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;

@@ -214,7 +214,6 @@ namespace Servicios.Presenters
                 _ordenActual.Fase = 1; // Autorizada
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
 
-
                 _view.IdNomina = nomina.IdNomina;
                 _view.MostrarMensaje("Orden de trabajo autorizada correctamente.");
 
@@ -333,7 +332,7 @@ namespace Servicios.Presenters
             // =========================================
             List<OrdenTrabajoMantenimiento> lista = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(_ordenActual.IdOrdenTrabajo);
             _view.CargarMantenimientosOrden(lista);
-
+            await CalcularTotalesAsync();
             _view.MostrarMensaje("Mantenimiento agregado correctamente a la orden.");
         }
 

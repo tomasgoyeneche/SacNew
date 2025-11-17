@@ -19,6 +19,7 @@ namespace Core.Repositories
         Task<List<OrdenTrabajoDto>> ObtenerPorDtoFaseAsync(string fase);
 
         Task<List<OrdenTrabajoDto>> ObtenerNoCoincidetesDtoFaseAsync(string fase);
+
         Task<List<OrdenTrabajoProximoDto>> ObtenerOrdenTrabajoProximoAsync();
 
         Task<List<OrdenTrabajo>> ObtenerPorNominaAsync(int idNomina);

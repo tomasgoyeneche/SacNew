@@ -1,8 +1,6 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using Servicios.Views;
-using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
 
@@ -19,7 +17,6 @@ namespace Servicios.Presenters
         private readonly IArticuloStockRepositorio _articuloStockRepositorio;
         private readonly IMovimientoStockRepositorio _movimientoStockRepositorio;
         private readonly IMovimientoStockDetalleRepositorio _movimientoStockDetalleRepositorio;
-
 
         private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
 
@@ -251,8 +248,7 @@ namespace Servicios.Presenters
             OrdenTrabajoMantenimiento? mantenimiento = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorIdAsync(tarea.IdOrdenTrabajoMantenimiento);
             OrdenTrabajo? ordenTrabajo = await _ordenTrabajoRepositorio.ObtenerPorIdAsync(mantenimiento.IdOrdenTrabajo);
 
-
-            int idMovimientoStock = 0;  
+            int idMovimientoStock = 0;
 
             if (ordenTrabajo.IdLugarReparacion == 1 || ordenTrabajo.IdLugarReparacion == 2)
             {
@@ -269,17 +265,14 @@ namespace Servicios.Presenters
                         Activo = true
                     };
 
-                    int idMovimientoStockNuevo = await _movimientoStockRepositorio.AgregarAsync(movStock);  
+                    int idMovimientoStockNuevo = await _movimientoStockRepositorio.AgregarAsync(movStock);
                     idMovimientoStock = idMovimientoStockNuevo;
                 }
                 else
                 {
-                     idMovimientoStock = movimientoStock.IdMovimientoStock;
+                    idMovimientoStock = movimientoStock.IdMovimientoStock;
                 }
-
-                
             }
-            
 
             if (ordenTrabajo != null)
             {

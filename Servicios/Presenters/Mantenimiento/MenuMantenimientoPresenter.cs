@@ -80,14 +80,12 @@ namespace Servicios.Presenters.Mantenimiento
         public void AbrirInformeTrabajos()
         { /* ... */ }
 
-
         public async void AbrirMovimientosArticulo()
         {
             await AbrirFormularioAsync<MuestraDatosGenericoForm>(async form =>
             {
                 await form._presenter.InicializarAsync("ArticuloMovimientoHistorico", _sesionService.IdPosta);
             });
-
         }
 
         public async void AbrirArticulosExistencia()

@@ -1,15 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Servicios.Presenters.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -38,7 +29,6 @@ namespace Servicios.Views.Mantenimientos
             // 🔹 Ocultar columnas de ID automáticamente
             foreach (DevExpress.XtraGrid.Columns.GridColumn col in gridViewGenerico.Columns)
             {
-
                 if (col.FieldName.StartsWith("Id", StringComparison.OrdinalIgnoreCase))
                     col.Visible = false;
             }
@@ -63,7 +53,6 @@ namespace Servicios.Views.Mantenimientos
                 }
             }
 
-
             if (tipo == nameof(ArticuloStockDepositoDto))
             {
                 string[] columnasOcultar =
@@ -81,8 +70,6 @@ namespace Servicios.Views.Mantenimientos
                         col.Visible = false;
                 }
             }
-
-
 
             gridViewGenerico.BestFitColumns();
         }
@@ -138,17 +125,13 @@ namespace Servicios.Views.Mantenimientos
                 {
                     e.Appearance.BackColor = Color.FromArgb(255, 255, 153); // Amarillo suave
                     e.Appearance.ForeColor = Color.Black;
-                } 
+                }
                 else
                 {
                     e.Appearance.BackColor = Color.FromArgb(255, 199, 206); // Rojo suave
                     e.Appearance.ForeColor = Color.DarkRed;
                 }
-                  
-                
             }
         }
-
-
     }
 }

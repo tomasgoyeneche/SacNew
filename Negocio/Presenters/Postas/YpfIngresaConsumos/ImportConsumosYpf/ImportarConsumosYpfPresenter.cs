@@ -56,7 +56,6 @@ namespace GestionFlota.Presenters
         {
             var fecha = _view.PeriodoSeleccionado;
             return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(fecha.Month, fecha.Year);
-             
         }
 
         public async Task GuardarConsumosAsync()

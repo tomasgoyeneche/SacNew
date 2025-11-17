@@ -123,7 +123,6 @@ namespace Servicios.Views.Mantenimientos
 
             if (articulo.IdOrdenTrabajoArticulo == null)
             {
-                
                 await _presenter.AgregarEditarArticulosAsync(articulo.IdArticulo);
             }
             else

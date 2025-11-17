@@ -390,7 +390,6 @@ namespace Servicios.Presenters
                     Activo = true
                 };
 
-
                 int idTarea = await _tareaRepositorio.AgregarAsync(tarea);
 
                 var mt = new MantenimientoTarea
@@ -403,8 +402,6 @@ namespace Servicios.Presenters
                 await _mantenimientoTareaRepositorio.AgregarAsync(mt);
 
                 return idTarea;
-
-               
             }
             else
             {

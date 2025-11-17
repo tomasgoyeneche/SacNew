@@ -78,7 +78,6 @@ namespace GestionOperativa.Presenters
                         return;
                     }
 
-               
                     RegistrarVaporizadoDesdeGuardiaAsync(_guardia);
                     fecha = DateTime.Now;
                     break;

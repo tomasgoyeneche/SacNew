@@ -19,7 +19,6 @@ namespace Servicios.Views.Mantenimiento
 
         decimal? StockCritico { get; }
 
-
         void CargarMedidas(List<Medida> medidas);
 
         void CargarFamilias(List<ArticuloFamilia> familias);

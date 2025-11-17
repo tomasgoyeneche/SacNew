@@ -49,7 +49,6 @@ namespace Servicios.Views.Mantenimiento
             // 🔹 Menu Movimientos Stock
             popupMenuMovimientos = new PopupMenu(barManager);
 
-
             var movimientosArticulo = new BarButtonItem(barManager, "Movimientos de Artículos");
             movimientosArticulo.ItemClick += (s, e) => _presenter.AbrirMovimientosArticulo();
 

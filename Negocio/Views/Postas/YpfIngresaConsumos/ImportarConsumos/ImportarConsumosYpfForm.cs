@@ -70,7 +70,7 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
 
         private async void guna2Button1_Click(object sender, EventArgs e)
         {
-            if(PeriodoSeleccionado == null)
+            if (PeriodoSeleccionado == null)
             {
                 MostrarMensaje("Seleccione un período antes de buscar consumos.");
                 return;

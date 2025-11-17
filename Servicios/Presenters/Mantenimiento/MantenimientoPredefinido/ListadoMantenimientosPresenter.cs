@@ -1,7 +1,6 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using Microsoft.Win32;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Shared.Models;
@@ -13,8 +12,6 @@ namespace Servicios.Presenters
         private readonly IMantenimientoRepositorio _movimientoRepositorio;
         private readonly IMantenimientoTareaRepositorio _mantenimientoTareaRepositorio;
         private readonly IMantenimientoTareaArticuloRepositorio _mantenimientoTareaArticuloRepositorio;
-
-
 
         public ListadoMantenimientosPresenter(
             IMantenimientoRepositorio movimientoRepositorio,
@@ -81,6 +78,5 @@ namespace Servicios.Presenters
             _view.MostrarMensaje("Mantenimiento predefinido eliminado correctamente.");
             await InicializarAsync();
         }
-
     }
 }

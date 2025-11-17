@@ -3,15 +3,6 @@ using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters.Mantenimiento;
 using Servicios.Views.Mantenimiento;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos
 {
@@ -37,7 +28,7 @@ namespace Servicios.Views.Mantenimientos
         public int? IdArticuloModelo => string.IsNullOrEmpty(cmbModelo.EditValue?.ToString()) ? null : Convert.ToInt32(cmbModelo.EditValue);
         public decimal PrecioUnitario => Convert.ToDecimal(txtPrecioUnitario.EditValue);
         public decimal? PedidoMinimo => string.IsNullOrEmpty(txtPedidoMinimo.Text) ? null : Convert.ToDecimal(txtPedidoMinimo.EditValue);
-        
+
         public decimal? PedidoMaximo => string.IsNullOrEmpty(txtPedidoMaximo.Text) ? null : Convert.ToDecimal(txtPedidoMaximo.EditValue);
         public decimal? StockCritico => string.IsNullOrEmpty(txtStockCritico.Text) ? null : Convert.ToDecimal(txtStockCritico.EditValue);
 

@@ -74,7 +74,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<MovimientoStock?> ObtenerPorIdAsync(int id)
         {
             const string query = @"

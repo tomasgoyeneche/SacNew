@@ -2,16 +2,7 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
 {
@@ -260,6 +251,11 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
 
         private async void btnIngreso_Click(object sender, EventArgs e)
         {
+            if (IdLugarReparacion == 0)
+            {
+                MostrarMensaje("Seleccione un lugar de reparacion primero");
+                return;
+            }
             btnIngreso.Enabled = false;
             await _presenter.ConfirmarIngresoAsync();
             btnIngreso.Enabled = true;
