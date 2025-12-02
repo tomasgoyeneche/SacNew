@@ -101,6 +101,10 @@
             gridViewChoferesLibres = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            lblAusenciasChofer = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDisponibles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewDisponibles).BeginInit();
@@ -297,7 +301,7 @@
             guna2Panel4.Location = new Point(17, 164);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Panel4.Size = new Size(241, 216);
+            guna2Panel4.Size = new Size(241, 101);
             guna2Panel4.TabIndex = 47;
             // 
             // guna2HtmlLabel5
@@ -318,10 +322,10 @@
             // 
             gridControlResumen.Dock = DockStyle.Bottom;
             gridControlResumen.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlResumen.Location = new Point(0, 26);
+            gridControlResumen.Location = new Point(0, 25);
             gridControlResumen.MainView = gridViewResumen;
             gridControlResumen.Name = "gridControlResumen";
-            gridControlResumen.Size = new Size(241, 190);
+            gridControlResumen.Size = new Size(241, 76);
             gridControlResumen.TabIndex = 39;
             gridControlResumen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewResumen });
             // 
@@ -373,10 +377,10 @@
             guna2Panel6.Controls.Add(gridControlVencimientos);
             guna2Panel6.CustomizableEdges = customizableEdges5;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
-            guna2Panel6.Location = new Point(17, 386);
+            guna2Panel6.Location = new Point(17, 271);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Panel6.Size = new Size(241, 236);
+            guna2Panel6.Size = new Size(241, 152);
             guna2Panel6.TabIndex = 46;
             // 
             // guna2HtmlLabel6
@@ -400,7 +404,7 @@
             gridControlVencimientos.Location = new Point(0, 26);
             gridControlVencimientos.MainView = gridViewVencimientos;
             gridControlVencimientos.Name = "gridControlVencimientos";
-            gridControlVencimientos.Size = new Size(241, 210);
+            gridControlVencimientos.Size = new Size(241, 126);
             gridControlVencimientos.TabIndex = 39;
             gridControlVencimientos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewVencimientos });
             // 
@@ -770,6 +774,60 @@
             gridColumn29.Visible = true;
             gridColumn29.VisibleIndex = 1;
             // 
+            // lblAusenciasChofer
+            // 
+            lblAusenciasChofer.AutoSize = false;
+            lblAusenciasChofer.BackColor = Color.FromArgb(42, 48, 56);
+            lblAusenciasChofer.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAusenciasChofer.ForeColor = Color.WhiteSmoke;
+            lblAusenciasChofer.Location = new Point(17, 546);
+            lblAusenciasChofer.Margin = new Padding(4, 3, 4, 3);
+            lblAusenciasChofer.Name = "lblAusenciasChofer";
+            lblAusenciasChofer.Size = new Size(241, 76);
+            lblAusenciasChofer.TabIndex = 118;
+            lblAusenciasChofer.Text = "Ausencia";
+            // 
+            // guna2HtmlLabel8
+            // 
+            guna2HtmlLabel8.AutoSize = false;
+            guna2HtmlLabel8.BackColor = Color.SteelBlue;
+            guna2HtmlLabel8.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel8.ForeColor = SystemColors.ActiveCaptionText;
+            guna2HtmlLabel8.Location = new Point(17, 520);
+            guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            guna2HtmlLabel8.Size = new Size(241, 25);
+            guna2HtmlLabel8.TabIndex = 117;
+            guna2HtmlLabel8.Text = "Ausencias Chofer";
+            guna2HtmlLabel8.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // lblMantenimientosUnidad
+            // 
+            lblMantenimientosUnidad.AutoSize = false;
+            lblMantenimientosUnidad.BackColor = Color.FromArgb(42, 48, 56);
+            lblMantenimientosUnidad.Font = new Font("Century Gothic", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMantenimientosUnidad.ForeColor = Color.WhiteSmoke;
+            lblMantenimientosUnidad.Location = new Point(17, 454);
+            lblMantenimientosUnidad.Margin = new Padding(4, 3, 4, 3);
+            lblMantenimientosUnidad.Name = "lblMantenimientosUnidad";
+            lblMantenimientosUnidad.Size = new Size(241, 60);
+            lblMantenimientosUnidad.TabIndex = 116;
+            lblMantenimientosUnidad.Text = "Mantenimiento";
+            // 
+            // guna2HtmlLabel9
+            // 
+            guna2HtmlLabel9.AutoSize = false;
+            guna2HtmlLabel9.BackColor = Color.SteelBlue;
+            guna2HtmlLabel9.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel9.ForeColor = SystemColors.ActiveCaptionText;
+            guna2HtmlLabel9.Location = new Point(17, 429);
+            guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            guna2HtmlLabel9.Size = new Size(241, 24);
+            guna2HtmlLabel9.TabIndex = 115;
+            guna2HtmlLabel9.Text = "Mantenimientos Unidad";
+            guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // DisponibilidadForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -777,10 +835,14 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
+            Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2Panel7);
+            Controls.Add(guna2HtmlLabel8);
             Controls.Add(lblNoCheck);
             Controls.Add(lblCheck);
+            Controls.Add(lblMantenimientosUnidad);
             Controls.Add(bDisponibilidadYpf);
+            Controls.Add(guna2HtmlLabel9);
             Controls.Add(bAgregarDispo);
             Controls.Add(bCancelarDisponible);
             Controls.Add(bBuscarDisponibles);
@@ -876,5 +938,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewChoferesLibres;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAusenciasChofer;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
     }
 }

@@ -7,7 +7,7 @@ namespace Servicios.Views.Mantenimientos
     {
         int IdTarea { get; set; }
         string TipoVista { get; set; }
-
+        string Codigo { get; set; }
         string Nombre { get; set; }
         string Descripcion { get; set; }
         decimal Horas { get; set; }

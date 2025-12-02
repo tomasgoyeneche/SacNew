@@ -13,6 +13,8 @@ namespace GestionFlota.Presenters
         private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IAlertaRepositorio _alertaRepositorio;
+        private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
+        private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
 
         private readonly IExcelService _excelService;
@@ -23,6 +25,8 @@ namespace GestionFlota.Presenters
 
             INavigationService navigationService
             , IChoferRepositorio choferRepositorio
+            , IChoferEstadoRepositorio choferEstadoRepositorio
+            , IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio
             , IExcelService excelService
             , INominaRepositorio nominaRepositorio
             , IAlertaRepositorio alertaRepositorio
@@ -30,6 +34,8 @@ namespace GestionFlota.Presenters
         {
             _disponibilidadRepositorio = disponibilidadRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _choferEstadoRepositorio = choferEstadoRepositorio;
+            _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
             _alertaRepositorio = alertaRepositorio;
             _choferRepositorio = choferRepositorio;
             _excelService = excelService;
@@ -39,6 +45,31 @@ namespace GestionFlota.Presenters
         {
             _view.ConfigurarControles();
             await BuscarDisponibilidadesAsync();
+        }
+
+        public async Task MostrarMantenimientosyFrancosDelChoferAsync(int idNomina)
+        {
+            Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
+
+            // Unidades
+            List<UnidadMantenimientoDto> mantenimientos = await _unidadMantenimientoRepositorio.ObtenerPorUnidadAsync(nomina.IdUnidad);
+            string textoMantenimientos = (mantenimientos != null && mantenimientos.Any())
+                ? string.Join(Environment.NewLine,
+                    mantenimientos.Select(m =>
+                        $"{m.Descripcion} - fecha inicio: {m.FechaInicio:dd/MM/yyyy} - fecha fin: {m.FechaFin:dd/MM/yyyy}")
+                )
+                : "Sin mantenimientos asignados";
+            _view.MostrarMantenimientosUnidad(textoMantenimientos);
+
+            // Chofer
+            List<NovedadesChoferesDto> ausencias = await _choferEstadoRepositorio.ObtenerPorChoferAsync(nomina.IdChofer);
+            string textoAusencias = (ausencias != null && ausencias.Any())
+                ? string.Join(Environment.NewLine,
+                    ausencias.Select(m =>
+                        $"{m.Descripcion} - fecha inicio: {m.FechaInicio:dd/MM/yyyy} - fecha fin: {m.FechaFin:dd/MM/yyyy}")
+                )
+                : "Sin francos asignados";
+            _view.MostrarAusenciasChofer(textoAusencias);
         }
 
         public async Task BuscarDisponibilidadesAsync(int? idNominaSeleccionada = null)
@@ -79,6 +110,8 @@ namespace GestionFlota.Presenters
             alertas.AddRange(alertasNomina);
 
             var historial = await _nominaRepositorio.ObtenerHistorialPorNomina(dispo.IdNomina);
+
+            await MostrarMantenimientosyFrancosDelChoferAsync(dispo.IdNomina);
 
             _view.MostrarHistorial(historial);
             _view.MostrarVencimientos(vencimientos.OrderBy(v => v.FechaVencimiento).ToList());

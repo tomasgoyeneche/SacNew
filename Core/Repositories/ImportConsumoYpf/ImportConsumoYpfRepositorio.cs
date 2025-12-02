@@ -10,19 +10,16 @@ namespace Core.Repositories
         public ImportConsumoYpfRepositorio(ConnectionStrings connectionStrings, ISesionService sesionService)
             : base(connectionStrings, sesionService) { }
 
-        public async Task AgregarConsumoAsync(ImportConsumoYpfEnRuta consumo)
+        public async Task<int> AgregarConsumoAsync(ImportConsumoYpfEnRuta consumo)
         {
-            var query = @"
-        INSERT INTO ImportConsumoYpfEnRuta
-        (FechaHora, Localidad, Tarjeta, idChofer, idUnidad, Remito,
-         idConsumo, Litros, ImporteTotalYer, ImporteSinImpuestos, Factura, IdPeriodo)
-        VALUES
-        (@FechaHora, @Localidad, @Tarjeta, @IdChofer, @IdUnidad, @Remito,
-         @IdConsumo, @Litros, @ImporteTotalYer, @ImporteSinImpuestos, @Factura, @IdPeriodo)";
-
-            await ConectarAsync(conn => conn.ExecuteAsync(query, consumo));
+            return await AgregarGenéricoAsync("ImportConsumoYPFEnRuta", consumo);
         }
 
+
+        public async Task<int> ActualizarConsumoAsync(ImportConsumoYpfEnRuta consumo)
+        {
+            return await ActualizarGenéricoAsync("ImportConsumoYPFEnRuta", consumo);
+        }
         public async Task<IEnumerable<ImportConsumoYpfEnRuta>> ObtenerPorPeriodoAsync(int idPeriodo)
         {
             var query = "SELECT * FROM ImportConsumoYpfEnRuta WHERE IdPeriodo = @IdPeriodo";

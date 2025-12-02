@@ -2,14 +2,23 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Servicios.Views.Mantenimientos
+namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
 {
-    public partial class AgregarEditarTareaForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarTareaView
+    public partial class AgregarEditTareaForm : DevExpress.XtraEditors.XtraForm, IAgregarEditarTareaView
     {
         public readonly AgregarEditarTareaPresenter _presenter;
 
-        public AgregarEditarTareaForm(AgregarEditarTareaPresenter presenter)
+        public AgregarEditTareaForm(AgregarEditarTareaPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -18,7 +27,7 @@ namespace Servicios.Views.Mantenimientos
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            await _presenter.GuardarAsync();
+            await _presenter.GuardarAsync(true);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -55,6 +64,11 @@ namespace Servicios.Views.Mantenimientos
             set => txtNombre.Text = value;
         }
 
+        public string Codigo
+        {
+            get => txtCodigo.Text.Trim();
+            set => txtCodigo.Text = value;
+        }
         public string Descripcion
         {
             get => txtDescripcion.Text.Trim();
@@ -113,6 +127,7 @@ namespace Servicios.Views.Mantenimientos
 
         private async void bEditarComprobante_Click(object sender, EventArgs e)
         {
+
             var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
 
             if (articulo.Estado == "Confirmado")

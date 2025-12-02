@@ -60,12 +60,16 @@ namespace SacNew.Views
 
         private void bAdminDocumental_Click(object sender, EventArgs e)
         {
+            bAdminDocumental.Enabled = false;
             _presenter.AbrirFormularioConPermisosAsync<MenuAdministracionDocumental>("0002-AdministracionDocumental");
+            bAdminDocumental.Enabled = true;
         }
 
         private void bGuardia_Click(object sender, EventArgs e)
         {
+            bGuardia.Enabled = false;
             _presenter.AbrirGuardia("0001 - GuardiaBB", 2);
+            bGuardia.Enabled = true;
         }
 
         private void bInformes_Click(object sender, EventArgs e)
@@ -110,12 +114,16 @@ namespace SacNew.Views
 
         private void bRuteo_Click(object sender, EventArgs e)
         {
+            bRuteo.Enabled = false;
             _presenter.AbrirRuteo("0006-Ruteo");
+            bRuteo.Enabled = true;
         }
 
-        private void bDisponibilidad_Click(object sender, EventArgs e)
+        private async void bDisponibilidad_Click(object sender, EventArgs e)
         {
-            _presenter.AbrirDisponibilidad("0007-Disponibilidad");
+            bDisponibilidad.Enabled = false;
+            await _presenter.AbrirDisponibilidad("0007-Disponibilidad");
+            bDisponibilidad.Enabled = true;
         }
 
         private void bCupos_Click(object sender, EventArgs e)

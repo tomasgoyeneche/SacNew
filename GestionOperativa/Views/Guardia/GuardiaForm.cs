@@ -95,6 +95,11 @@ namespace GestionOperativa
             view.BestFitColumns();
         }
 
+        public void MostrarAusenciasChofer(string texto)
+        {
+            lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
         public void MostrarVencimientos(List<VencimientosDto> vencimientos)
         {
             gridControlVencimientos.DataSource = vencimientos;
@@ -144,22 +149,27 @@ namespace GestionOperativa
 
         private async void bIngresar_Click(object sender, EventArgs e)
         {
+            bIngresar.Enabled = false;  
             await _presenter.RegistrarIngresoAsync(false); // Ingreso normal (ahora)
+            bIngresar.Enabled = true;
         }
 
         private async void bIngresoOtros_Click(object sender, EventArgs e)
         {
+            bIngresoOtros.Enabled = false;
             await _presenter.RegistrarOtrosAsync(); // Ingreso normal (ahora)
+            bIngresoOtros.Enabled = true;   
         }
 
         private async void bSalida_Click(object sender, EventArgs e)
         {
+          
             if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");
                 return;
             }
-
+            bSalida.Enabled = false;
             // 🔹 Pregunta de confirmación con estilo DevExpress
             var respuesta = XtraMessageBox.Show(
                  this,
@@ -174,6 +184,7 @@ namespace GestionOperativa
             {
                 await _presenter.RegistrarSalidaAsync(guardia, false); // salida automática
             }
+            bSalida.Enabled = true;
         }
 
         private async void dtpSalida_EditValueChanged(object sender, EventArgs e)

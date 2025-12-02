@@ -32,6 +32,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            lblDisponibles = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bAyuda = new Guna.UI2.WinForms.Guna2CircleButton();
             lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -65,6 +66,7 @@
             emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
@@ -96,11 +98,13 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem4).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
             // 
+            layoutControl1.Controls.Add(lblDisponibles);
             layoutControl1.Controls.Add(bAyuda);
             layoutControl1.Controls.Add(lblMantenimientosUnidad);
             layoutControl1.Controls.Add(simpleButton1);
@@ -121,6 +125,19 @@
             layoutControl1.Size = new Size(808, 578);
             layoutControl1.TabIndex = 0;
             layoutControl1.Text = "layoutControl1";
+            // 
+            // lblDisponibles
+            // 
+            lblDisponibles.AutoSize = false;
+            lblDisponibles.BackColor = Color.FromArgb(42, 48, 56);
+            lblDisponibles.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDisponibles.ForeColor = Color.Red;
+            lblDisponibles.Location = new Point(421, 333);
+            lblDisponibles.Margin = new Padding(4, 3, 4, 3);
+            lblDisponibles.Name = "lblDisponibles";
+            lblDisponibles.Size = new Size(375, 217);
+            lblDisponibles.TabIndex = 4;
+            lblDisponibles.Text = "Disponibles";
             // 
             // bAyuda
             // 
@@ -144,12 +161,12 @@
             // 
             lblMantenimientosUnidad.AutoSize = false;
             lblMantenimientosUnidad.BackColor = Color.FromArgb(42, 48, 56);
-            lblMantenimientosUnidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMantenimientosUnidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMantenimientosUnidad.ForeColor = Color.Red;
             lblMantenimientosUnidad.Location = new Point(421, 85);
             lblMantenimientosUnidad.Margin = new Padding(4, 3, 4, 3);
             lblMantenimientosUnidad.Name = "lblMantenimientosUnidad";
-            lblMantenimientosUnidad.Size = new Size(375, 465);
+            lblMantenimientosUnidad.Size = new Size(375, 216);
             lblMantenimientosUnidad.TabIndex = 3;
             lblMantenimientosUnidad.Text = "Mantenimiento";
             // 
@@ -318,7 +335,7 @@
             Root.AppearanceItemCaption.Options.UseForeColor = true;
             Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, emptySpaceItem2, layoutControlItem5, layoutControlItem6, layoutControlItem3, layoutControlItem4, layoutControlItem2, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, emptySpaceItem3, emptySpaceItem5, layoutControlItem11, emptySpaceItem1, emptySpaceItem6, emptySpaceItem7, layoutControlItem12, emptySpaceItem8 });
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, emptySpaceItem2, layoutControlItem5, layoutControlItem6, layoutControlItem3, layoutControlItem4, layoutControlItem2, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, emptySpaceItem3, emptySpaceItem5, layoutControlItem11, emptySpaceItem1, emptySpaceItem6, emptySpaceItem7, layoutControlItem12, emptySpaceItem8, layoutControlItem13 });
             Root.Name = "Root";
             Root.Size = new Size(808, 578);
             Root.TextVisible = false;
@@ -457,7 +474,7 @@
             layoutControlItem11.Location = new Point(409, 45);
             layoutControlItem11.Name = "layoutControlItem11";
             layoutControlItem11.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
-            layoutControlItem11.Size = new Size(379, 497);
+            layoutControlItem11.Size = new Size(379, 248);
             layoutControlItem11.Text = "Mantenimientos Unidad";
             layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem11.TextSize = new Size(133, 15);
@@ -505,6 +522,17 @@
             emptySpaceItem8.Name = "emptySpaceItem8";
             emptySpaceItem8.Size = new Size(42, 32);
             emptySpaceItem8.TextSize = new Size(0, 0);
+            // 
+            // layoutControlItem13
+            // 
+            layoutControlItem13.Control = lblDisponibles;
+            layoutControlItem13.Location = new Point(409, 293);
+            layoutControlItem13.Name = "layoutControlItem13";
+            layoutControlItem13.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
+            layoutControlItem13.Size = new Size(379, 249);
+            layoutControlItem13.Text = "Disponibles de Chofer";
+            layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
+            layoutControlItem13.TextSize = new Size(133, 15);
             // 
             // emptySpaceItem4
             // 
@@ -557,6 +585,7 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem12).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem13).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem4).EndInit();
             ResumeLayout(false);
         }
@@ -598,5 +627,7 @@
         private Guna.UI2.WinForms.Guna2CircleButton bAyuda;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDisponibles;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
     }
 }

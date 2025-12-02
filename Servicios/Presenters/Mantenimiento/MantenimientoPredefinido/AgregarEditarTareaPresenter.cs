@@ -17,7 +17,6 @@ namespace Servicios.Presenters
         private readonly IArticuloStockRepositorio _articuloStockRepositorio;
         private readonly IMovimientoStockRepositorio _movimientoStockRepositorio;
         private readonly IMovimientoStockDetalleRepositorio _movimientoStockDetalleRepositorio;
-
         private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
 
         private Tarea? _tarea;
@@ -96,7 +95,7 @@ namespace Servicios.Presenters
                         _view.MostrarMensaje("No se encontró la tarea especificada.");
                         return;
                     }
-
+                    _view.Codigo = _tarea.Codigo;
                     _view.Nombre = _tarea.Nombre;
                     _view.Descripcion = _tarea.Descripcion;
                     _view.Horas = _tarea.Horas ?? 0;
@@ -138,6 +137,7 @@ namespace Servicios.Presenters
                         _view.MostrarMensaje("No se encontró la tarea de orden de trabajo especificada.");
                         return;
                     }
+                    _view.Codigo = _tareaOrden.Codigo;
                     _view.Nombre = _tareaOrden.Nombre;
                     _view.Descripcion = _tareaOrden.Descripcion;
                     _view.Horas = _tareaOrden.Horas ?? 0;
@@ -151,6 +151,7 @@ namespace Servicios.Presenters
 
         public async Task AgregarArticuloAsync()
         {
+            await GuardarAsync(false);
             if (_view.IdArticuloSeleccionado == 0 || _view.CantidadArticulo <= 0)
             {
                 _view.MostrarMensaje("Debe seleccionar un artículo y una cantidad válida.");
@@ -203,6 +204,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarArticuloAsync(int idArticulo, int? idOrdenTrabajoArticulo = null)
         {
+            await GuardarAsync(false);
             if (_tipoVista == "MantenimientoPredefinido")
             {
                 var existentes = await _tareaArticuloRepositorio.ObtenerPorTareaAsync(_view.IdTarea);
@@ -232,6 +234,7 @@ namespace Servicios.Presenters
 
         public async Task AgregarEditarArticulosAsync(int? idArticulo = null)
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await AbrirFormularioAsync<AgregarEditArticuloForm>(async form =>
@@ -243,6 +246,7 @@ namespace Servicios.Presenters
 
         public async Task MoverStockArticulo(int idOrdenTrabajoArticulo)
         {
+            await GuardarAsync(false);
             OrdenTrabajoArticulo? articulo = await _ordenTrabajoArticuloRepositorio.ObtenerPorIdAsync(idOrdenTrabajoArticulo);
             OrdenTrabajoTarea? tarea = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(articulo.IdOrdenTrabajoTarea);
             OrdenTrabajoMantenimiento? mantenimiento = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorIdAsync(tarea.IdOrdenTrabajoMantenimiento);
@@ -354,7 +358,7 @@ namespace Servicios.Presenters
             await InicializarAsync(_tipoVista, _view.IdTarea);
         }
 
-        public async Task GuardarAsync()
+        public async Task GuardarAsync(bool Manual)
         {
             if (_tipoVista == "MantenimientoPredefinido")
             {
@@ -363,7 +367,7 @@ namespace Servicios.Presenters
                     _view.MostrarMensaje("No se pudo guardar: la tarea no está inicializada.");
                     return;
                 }
-
+                _tarea.Codigo = _view.Codigo;
                 _tarea.Nombre = _view.Nombre;
                 _tarea.Descripcion = _view.Descripcion;
                 _tarea.Horas = _view.Horas;
@@ -372,8 +376,12 @@ namespace Servicios.Presenters
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _tareaRepositorio.ActualizarAsync(_tarea);
-                    _view.MostrarMensaje("Tarea actualizada correctamente.");
-                    _view.Cerrar();
+                    if(Manual == true)
+                    {
+                        _view.MostrarMensaje("Tarea actualizada correctamente.");
+                        _view.Cerrar();
+                    }
+                  
                 });
             }
             else
@@ -383,7 +391,7 @@ namespace Servicios.Presenters
                     _view.MostrarMensaje("No se pudo guardar: la tarea no está inicializada.");
                     return;
                 }
-
+                _tareaOrden.Codigo = _view.Codigo;
                 _tareaOrden.Nombre = _view.Nombre;
                 _tareaOrden.Descripcion = _view.Descripcion;
                 _tareaOrden.Horas = _view.Horas;
@@ -392,8 +400,11 @@ namespace Servicios.Presenters
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _ordenTrabajoTareaRepositorio.ActualizarAsync(_tareaOrden);
-                    _view.MostrarMensaje("Tarea actualizada correctamente.");
-                    _view.Cerrar();
+                    if (Manual == true)
+                    {
+                        _view.MostrarMensaje("Tarea actualizada correctamente.");
+                        _view.Cerrar();
+                    }
                 });
             }
         }

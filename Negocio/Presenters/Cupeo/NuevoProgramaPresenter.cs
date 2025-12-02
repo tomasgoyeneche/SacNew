@@ -138,6 +138,26 @@ namespace GestionFlota.Presenters
                 FechaFin = null
             };
             await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
+            
+            
+            Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(_cupeo.IdNomina);
+            Nomina? nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(nomina.IdUnidad);
+
+            if (nomina.IdNomina != nominaUnidadNueva.IdNomina)
+            {
+                var tramoNominaNueva = new ProgramaTramo
+                {
+                    IdPrograma = idPrograma,
+                    IdNomina = nominaUnidadNueva.IdNomina,
+                    IdDestino = _view.IdDestinoSeleccionado ?? 0,
+                    FechaInicio = nominaUnidadNueva.FechaAlta,
+                    FechaFin = null // vacío
+                };
+
+                await _programaRepositorio.InsertarProgramaTramoAsync(tramoNominaNueva);
+            }
+
+
 
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var productos = await _productoRepositorio.ObtenerTodosAsync();

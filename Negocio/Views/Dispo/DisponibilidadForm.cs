@@ -21,6 +21,17 @@ namespace GestionFlota.Views
             dateEditFecha.EditValue = DateTime.Today.AddDays(1);
         }
 
+        public void MostrarMantenimientosUnidad(string texto)
+        {
+            lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
+        public void MostrarAusenciasChofer(string texto)
+        {
+            lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
+
         public DateTime FechaSeleccionada => dateEditFecha.EditValue is DateTime fecha ? fecha : DateTime.Today.AddDays(1);
 
         public void CargarDisponibilidades(List<Disponibilidad> disponibilidades)
@@ -107,6 +118,9 @@ namespace GestionFlota.Views
                 if (view.Columns[col] != null)
                     view.Columns[col].Visible = false;
             }
+
+            gridViewAlertas.Columns["Fecha"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gridViewAlertas.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
 
             gridViewAlertas.BestFitColumns();
         }

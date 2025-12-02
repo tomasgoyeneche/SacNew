@@ -1,5 +1,6 @@
 ﻿using Configuraciones.Views;
 using Core.Base;
+using Core.Reports;
 using Core.Repositories;
 using Core.Services;
 using GestionDocumental.Reports;
@@ -16,6 +17,8 @@ namespace InformesYEstadisticas.Presenters
         private readonly IDocumentacionProcessor _documentacionService;
         private readonly IConfRepositorio _confRepositorio;
         private readonly IProgramaRepositorio _programaRepositorio;
+        private readonly IUnidadRepositorio _unidadRepositorio;
+
         private readonly IExcelService _excelService;
 
         private readonly IPlanillaRepositorio _planillaRepositorio;
@@ -25,6 +28,7 @@ namespace InformesYEstadisticas.Presenters
             ISesionService sesionService,
             INavigationService navigationService,
             IDocumentacionProcessor documentacionService,
+            IUnidadRepositorio unidadRepositorio,
             IPlanillaRepositorio planillaRepositorio,
             IProgramaRepositorio programaRepositorio,
             IExcelService excelService,
@@ -35,6 +39,7 @@ namespace InformesYEstadisticas.Presenters
             _documentacionService = documentacionService;
             _confRepositorio = confRepositorio;
             _planillaRepositorio = planillaRepositorio;
+            _unidadRepositorio = unidadRepositorio;
             _ReporteConsumosNomTeOtrosProcessor = ReporteConsumosNomTeOtrosProcessor;
             _programaRepositorio = programaRepositorio;
             _excelService = excelService;
@@ -66,6 +71,35 @@ namespace InformesYEstadisticas.Presenters
                 });
             });
         }
+
+
+        public async Task GenerarReporteNomina()
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+             
+                // Obtener los datos desde el repositorio
+                List<UnidadDto> unidades = await _unidadRepositorio.ObtenerUnidadesDtoAsync();
+                var totalEquipos = unidades.Count;
+                var totalEmpresas = unidades
+                    .Select(u => u.Empresa_Unidad)
+                    .Distinct()
+                    .Count();
+                // Crear una instancia del nuevo reporte DevExpress
+                ResumenNominaMetanol reporte = new ResumenNominaMetanol();
+                reporte.DataSource = unidades;
+                reporte.Parameters["pTotalEmpresas"].Value = totalEmpresas;
+                reporte.Parameters["pTotalEquipos"].Value = totalEquipos;
+                reporte.DataMember = "";
+
+                await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
+                {
+                    form.MostrarReporteDevExpress(reporte);
+                    return Task.CompletedTask;
+                });
+            });
+        }
+
 
         public async Task GenerarVerifMensual()
         {

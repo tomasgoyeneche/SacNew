@@ -79,11 +79,11 @@ namespace App.Presenters
             }
             finally
             {
-                SplashScreenManager.CloseDefaultWaitForm();
+               SplashScreenManager.CloseDefaultWaitForm();
             }
         }
 
-        public async void AbrirDisponibilidad(string tipoPermiso)
+        public async Task AbrirDisponibilidad(string tipoPermiso)
         {
             SplashScreenManager.ShowDefaultWaitForm("Cargando", "Por favor espere...");
 

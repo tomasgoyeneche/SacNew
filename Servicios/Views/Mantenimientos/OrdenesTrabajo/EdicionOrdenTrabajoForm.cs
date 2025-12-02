@@ -333,7 +333,7 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
         private async void bGuardar_Click(object sender, EventArgs e)
         {
             bGuardar.Enabled = false;
-            await _presenter.GuardarAsync();
+            await _presenter.GuardarAsync(true);
             bGuardar.Enabled = true;
         }
 

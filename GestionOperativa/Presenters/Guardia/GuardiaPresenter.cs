@@ -24,6 +24,10 @@ namespace GestionOperativa.Presenters
         private readonly IProgramaRepositorio _programaRepositorio;
         private readonly IExcelService _excelService;
 
+        private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
+        private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
+
+
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _consumoNomTeProcessor;
         private readonly IPostaRepositorio _postaRepositorio;
@@ -43,6 +47,8 @@ namespace GestionOperativa.Presenters
             IAlertaRepositorio alertaRepositorio,
             INominaRepositorio nominaRepositorio,
             IProgramaRepositorio programaRepositorio,
+            IChoferEstadoRepositorio choferEstadoRepositorio,
+            IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
             IExcelService excelService,
             IReporteConsumosNomTeOtrosProcessor consumoNomTeProcessor,
             IPOCRepositorio pocRepositorio,
@@ -59,6 +65,8 @@ namespace GestionOperativa.Presenters
             _alertaRepositorio = alertaRepositorio;
             _nominaRepositorio = nominaRepositorio;
             _unidadRepositorio = unidadRepositorio;
+            _choferEstadoRepositorio = choferEstadoRepositorio;
+            _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
             _pocRepositorio = pocRepositorio;
             _postaRepositorio = postaRepositorio;
             _programaRepositorio = programaRepositorio;
@@ -68,6 +76,37 @@ namespace GestionOperativa.Presenters
             _reporteNominasProcessor = reporteNominasProcessor;
             _vaporizadoRepositorio = vaporizadoRepositorio;
         }
+
+        public async Task MostrarMantenimientosyFrancosDelChoferAsync(int idNomina)
+        {
+            if(idNomina == 0)
+            {
+                _view.MostrarAusenciasChofer("Sin francos asignados");
+                return;
+            }
+            Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(idNomina);
+
+            // Unidades
+            //List<UnidadMantenimientoDto> mantenimientos = await _unidadMantenimientoRepositorio.ObtenerPorUnidadAsync(nomina.IdUnidad);
+            //string textoMantenimientos = (mantenimientos != null && mantenimientos.Any())
+            //    ? string.Join(Environment.NewLine,
+            //        mantenimientos.Select(m =>
+            //            $"{m.Descripcion} - fecha inicio: {m.FechaInicio:dd/MM/yyyy} - fecha fin: {m.FechaFin:dd/MM/yyyy}")
+            //    )
+            //    : "Sin mantenimientos asignados";
+            //_view.MostrarMantenimientosUnidad(textoMantenimientos);
+
+            // Chofer
+            List<NovedadesChoferesDto> ausencias = await _choferEstadoRepositorio.ObtenerPorChoferAsync(nomina.IdChofer);
+            string textoAusencias = (ausencias != null && ausencias.Any())
+                ? string.Join(Environment.NewLine,
+                    ausencias.Select(m =>
+                        $"{m.Descripcion} - fecha inicio: {m.FechaInicio:dd/MM/yyyy} - fecha fin: {m.FechaFin:dd/MM/yyyy}")
+                )
+                : "Sin francos asignados";
+            _view.MostrarAusenciasChofer(textoAusencias);
+        }
+
 
         public async Task InicializarAsync(int idPosta, int? idGuardiaSeleccionada = null)
         {
@@ -123,6 +162,7 @@ namespace GestionOperativa.Presenters
 
                     var alertasNomina = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(guardia.IdEntidad);
                     alertas.AddRange(alertasNomina);
+                    await MostrarMantenimientosyFrancosDelChoferAsync(nomina.IdNomina);
                     break;
 
                 case 2: // Tránsito Especial
@@ -138,6 +178,7 @@ namespace GestionOperativa.Presenters
                         if (te.Art.HasValue && te.Art < fechaLimite)
                             vencimientos.Add(new VencimientosDto { Descripcion = "ART", FechaVencimiento = te.Art.Value });
                     }
+                    await MostrarMantenimientosyFrancosDelChoferAsync(0);
                     break;
 
                 case 3: // Otros
@@ -150,6 +191,7 @@ namespace GestionOperativa.Presenters
                         if (otros.Art.HasValue && otros.Art < fechaLimite)
                             vencimientos.Add(new VencimientosDto { Descripcion = "ART", FechaVencimiento = otros.Art.Value });
                     }
+                    await MostrarMantenimientosyFrancosDelChoferAsync(0);
                     break;
             }
 

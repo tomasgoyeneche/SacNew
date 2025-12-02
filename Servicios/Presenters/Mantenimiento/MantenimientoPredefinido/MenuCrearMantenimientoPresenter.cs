@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimientos;
+using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
 using Shared.Models;
 
 namespace Servicios.Presenters
@@ -212,7 +213,7 @@ namespace Servicios.Presenters
             _view.RepuestosTotales = totalRepuestos;
         }
 
-        public async Task GuardarAsync()
+        public async Task GuardarAsync(bool manual)
         {
             // según el tipo de mantenimiento, actuamos distinto
             if (_tipoVista == "MantenimientoPredefinido")
@@ -234,13 +235,13 @@ namespace Servicios.Presenters
                     if (_mantenimiento == null)
                     {
                         var id = await _mantenimientoRepositorio.AgregarAsync(mantenimiento);
-                        mantenimiento.IdMantenimiento = id;
-                        _view.MostrarMensaje("Mantenimiento agregado correctamente.");
+                       
                     }
                     else
                     {
                         await _mantenimientoRepositorio.ActualizarAsync(mantenimiento);
-                        _view.MostrarMensaje("Mantenimiento actualizado correctamente.");
+                 
+                     
                     }
                 });
             }
@@ -263,13 +264,20 @@ namespace Servicios.Presenters
                 };
 
                 await _ordenTrabajoMantenimientoRepositorio.ActualizarAsync(ordenMantenimiento);
-                _view.MostrarMensaje("Mantenimiento actualizado correctamente.");
+               
+
             }
-            _view.Cerrar();
+            if (manual == true)
+            {
+                _view.MostrarMensaje("Mantenimiento actualizado correctamente.");
+                _view.Cerrar();
+            }
+
         }
 
         public async Task AgregarTareaAsync(int idTarea)
         {
+            await GuardarAsync(false);
             if (_view.IdMantenimiento == 0 && _Ordenmantenimiento == null)
             {
                 _view.MostrarMensaje("Debe guardar el mantenimiento antes de agregar tareas.");
@@ -352,6 +360,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarTareaAsync(int? idTarea = null, int? idOrdenTrabajoTarea = null)
         {
+            await GuardarAsync(false);
             if (_view.IdMantenimiento == 0) return;
 
             if (idTarea != null)
@@ -423,7 +432,8 @@ namespace Servicios.Presenters
 
         public async Task AbrirEdicionTareaAsync(int idTarea)
         {
-            await AbrirFormularioAsync<AgregarEditarTareaForm>(async form =>
+            await GuardarAsync(false);
+            await AbrirFormularioAsync<AgregarEditTareaForm>(async form =>
             {
                 await form._presenter.InicializarAsync(_tipoVista, idTarea);
             });

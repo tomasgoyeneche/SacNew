@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using GestionFlota.Presenters;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
 using Shared.Models;
@@ -17,27 +18,28 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         }
 
         public DateTime PeriodoSeleccionado => dtpPeriodo.Value;
-
+        public int QuincenaSeleccionada =>
+        Convert.ToInt32(cmbQuincena.SelectedItem ?? "1");
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void MostrarConsumos(List<ImportConsumoYpfEnRuta> consumos)
+        public void MostrarConsumos(List<ImportConsumoYpfEnRutaDto> consumos)
         {
             gridControlDatos.DataSource = consumos;
-
-            // Ocultamos columnas no deseadas desde el GridView
             var view = dgvDatos;
-            view.Columns["IdImportConsumoYPF"].Visible = false;
-            view.Columns["Chequeado"].Visible = false;
-
-            view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
+            foreach (GridColumn col in view.Columns)
+            {
+                if (col.FieldName.StartsWith("Id", StringComparison.OrdinalIgnoreCase))
+                    col.Visible = false;
+            }
+            view.BestFitColumns();
         }
 
-        public List<ImportConsumoYpfEnRuta> ObtenerConsumos()
+        public List<ImportConsumoYpfEnRutaDto> ObtenerConsumos()
         {
-            return dgvDatos.DataSource as List<ImportConsumoYpfEnRuta> ?? new List<ImportConsumoYpfEnRuta>();
+            return dgvDatos.DataSource as List<ImportConsumoYpfEnRutaDto> ?? new List<ImportConsumoYpfEnRutaDto>();
         }
 
         private async void btnExportarExcel_Click(object sender, EventArgs e)
@@ -70,12 +72,21 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
 
         private async void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (PeriodoSeleccionado == null)
+            if (PeriodoSeleccionado == DateTime.MinValue)
             {
                 MostrarMensaje("Seleccione un período antes de buscar consumos.");
                 return;
             }
             await _presenter.BuscarConsumosPorPeriodo();
+        }
+
+        private void ImportarConsumosYpfForm_Load(object sender, EventArgs e)
+        {
+            dtpPeriodo.Value = DateTime.Now;
+            cmbQuincena.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
+            cmbQuincena.Items.AddRange(new[] { "1", "2" });
+            cmbQuincena.SelectedIndex = 0;
+            
         }
     }
 }

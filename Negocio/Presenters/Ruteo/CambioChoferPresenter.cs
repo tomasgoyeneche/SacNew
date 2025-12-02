@@ -66,7 +66,7 @@ namespace GestionFlota.Presenters
             Nomina? nominaChoferNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorChofer(idChofer.Value);
             if (nominaChoferNueva != null)
             {
-                if (nominaChoferNueva.FechaAlta > DateTime.Now)
+                if (nominaChoferNueva.FechaAlta > _view.FechaCambio)
                 {
                     _view.MostrarMensaje("El chofer seleccionado ya está asignado a otra unidad en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;
@@ -76,7 +76,7 @@ namespace GestionFlota.Presenters
             Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
             if (nominaUnidadNueva != null)
             {
-                if (nominaUnidadNueva.FechaAlta > DateTime.Now && nominaUnidadNueva.IdChofer != 0)
+                if (nominaUnidadNueva.FechaAlta > _view.FechaCambio && nominaUnidadNueva.IdChofer != 0)
                 {
                     _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;
@@ -117,7 +117,7 @@ namespace GestionFlota.Presenters
             Nomina? nominaChoferNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorChofer(_nominaActual.IdChofer);
             if (nominaChoferNueva != null)
             {
-                if (nominaChoferNueva.FechaAlta > DateTime.Now)
+                if (nominaChoferNueva.FechaAlta > _view.FechaCambio)
                 {
                     _view.MostrarMensaje("El chofer a bajar ya está asignado a otra unidad en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;
@@ -127,7 +127,7 @@ namespace GestionFlota.Presenters
             Nomina nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(_nominaActual.IdUnidad);
             if (nominaUnidadNueva != null)
             {
-                if (nominaUnidadNueva.FechaAlta > DateTime.Now)
+                if (nominaUnidadNueva.FechaAlta > _view.FechaCambio)
                 {
                     _view.MostrarMensaje("La unidad ya tiene un chofer asignado en una fecha futura, comunicarse a sistemas para cambiar.");
                     return;

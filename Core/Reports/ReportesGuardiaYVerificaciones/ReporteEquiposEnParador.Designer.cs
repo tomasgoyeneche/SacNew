@@ -384,7 +384,7 @@
             // 
             this.xrLabel6.BackColor = System.Drawing.Color.Silver;
             this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumCount(sum([idGuardiaIngreso]))")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumCount(sum([IdGuardiaIngreso]))")});
             this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(1023.334F, 0F);
             this.xrLabel6.Multiline = true;

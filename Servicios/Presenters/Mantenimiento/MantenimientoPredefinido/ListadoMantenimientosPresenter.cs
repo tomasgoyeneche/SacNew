@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
+using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
 using Shared.Models;
 
 namespace Servicios.Presenters
@@ -43,7 +44,7 @@ namespace Servicios.Presenters
 
         public async Task AbrirEdicionMantenimientoAsync(int idMantenimiento)
         {
-            await AbrirFormularioAsync<MenuCrearMantenimientoForm>(async form =>
+            await AbrirFormularioAsync<MenuCrearManForm>(async form =>
             {
                 await form._presenter.InicializarAsync("MantenimientoPredefinido", idMantenimiento);
             });

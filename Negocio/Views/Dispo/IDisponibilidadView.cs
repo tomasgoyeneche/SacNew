@@ -25,6 +25,9 @@ namespace GestionFlota.Views
 
         void SeleccionarDispoPorNomina(int idNominaSeleccionada);
 
+        void MostrarMantenimientosUnidad(string texto);
+
+        void MostrarAusenciasChofer(string texto);
         void Close();
     }
 }

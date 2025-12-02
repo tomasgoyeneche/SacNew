@@ -5,10 +5,10 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
 {
     public interface IImportarConsumosYpfView : IViewConMensajes
     {
-        List<ImportConsumoYpfEnRuta> ObtenerConsumos();
+        List<ImportConsumoYpfEnRutaDto> ObtenerConsumos();
 
         DateTime PeriodoSeleccionado { get; }
-
-        void MostrarConsumos(List<ImportConsumoYpfEnRuta> consumos);
+        int QuincenaSeleccionada { get; }
+        void MostrarConsumos(List<ImportConsumoYpfEnRutaDto> consumos);
     }
 }

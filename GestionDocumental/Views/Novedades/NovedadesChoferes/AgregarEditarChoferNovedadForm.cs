@@ -77,6 +77,12 @@ namespace GestionDocumental.Views.Novedades.NovedadesChoferes
             lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
         }
 
+        public void MostrarDisponiblesChofer(string texto)
+        {
+            lblDisponibles.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
+
         public void CargarEstados(List<ChoferTipoEstado> estados)
         {
             cmbEstado.Properties.DataSource = estados;
@@ -134,10 +140,12 @@ namespace GestionDocumental.Views.Novedades.NovedadesChoferes
             if (int.TryParse(cmbChofer.EditValue?.ToString(), out int idChofer) && idChofer > 0)
             {
                 await _presenter.MostrarMantenimientosUnidadDelChoferAsync(idChofer);
+                await _presenter.MostrarDisponiblesDelChoferAsync(idChofer);
             }
             else
             {
                 await _presenter.MostrarMantenimientosUnidadDelChoferAsync(0); // Limpiar si no hay chofer
+                await _presenter.MostrarDisponiblesDelChoferAsync(0); // Limpiar si no hay chofer
             }
         }
 

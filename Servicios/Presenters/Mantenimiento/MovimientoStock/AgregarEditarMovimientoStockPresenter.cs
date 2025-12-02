@@ -152,7 +152,7 @@ namespace Servicios.Presenters
             });
         }
 
-        public async Task GuardarAsync()
+        public async Task GuardarAsync(bool manual)
         {
             await EjecutarConCargaAsync(async () =>
             {
@@ -166,14 +166,18 @@ namespace Servicios.Presenters
                 _movimiento.Observaciones = _view.Observaciones;
 
                 await _movimientoRepositorio.ActualizarAsync(_movimiento);
-
-                _view.MostrarMensaje("Movimiento actualizado correctamente.");
-                _view.Cerrar();
+                 if(manual == true)
+                {
+                    _view.MostrarMensaje("Movimiento actualizado correctamente.");
+                    _view.Cerrar();
+                }
+  
             });
         }
 
         public async Task EditarArtAsync(int idMovimientoDetalle)
         {
+            await GuardarAsync(false);
             MovimientoStockDetalle? detalle = await _detalleRepositorio.ObtenerPorIdAsync(idMovimientoDetalle);
             await EjecutarConCargaAsync(async () =>
             {
@@ -186,6 +190,7 @@ namespace Servicios.Presenters
 
         public async Task EditarComprobanteAsync(int idMovimientoComprobante)
         {
+            await GuardarAsync(false);
             MovimientoComprobante? detalle = await _comprobanteRepositorio.ObtenerPorIdAsync(idMovimientoComprobante);
             await EjecutarConCargaAsync(async () =>
             {
@@ -198,6 +203,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarArtAsync(int idMovimientoDetalle)
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await _detalleRepositorio.EliminarAsync(idMovimientoDetalle);
@@ -206,6 +212,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarComprobanteAsync(int idMovimientoComprobante)
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await _comprobanteRepositorio.EliminarAsync(idMovimientoComprobante);
@@ -214,6 +221,7 @@ namespace Servicios.Presenters
 
         public async Task AgregarArtAsync()
         {
+            await GuardarAsync(false);  
             await EjecutarConCargaAsync(async () =>
             {
                 await AbrirFormularioAsync<AgregarEditarArtForm>(async form =>
@@ -225,6 +233,7 @@ namespace Servicios.Presenters
 
         public async Task AgregarComprobanteAsync()
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await AbrirFormularioAsync<AgregarEditarComprobanteForm>(async form =>

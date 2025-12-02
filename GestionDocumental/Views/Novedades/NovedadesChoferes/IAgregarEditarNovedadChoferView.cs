@@ -23,9 +23,8 @@ namespace GestionDocumental.Views
         void MostrarMantenimientosUnidad(string texto);
 
         void MostrarDatosNovedad(NovedadesChoferesDto novedadChofer);
-
+        void MostrarDisponiblesChofer(string texto);
         void MostrarDiasAusente(int dias);
-
         void MostrarFechaReincorporacion(DateTime fecha);
     }
 }

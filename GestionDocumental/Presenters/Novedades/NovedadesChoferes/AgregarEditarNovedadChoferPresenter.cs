@@ -11,6 +11,10 @@ namespace GestionDocumental.Presenters
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
         private readonly INominaRepositorio _nominaRepositorio;
+        private readonly IDisponibilidadRepositorio _disponibleRepositorio;
+        private readonly ILocacionRepositorio _locacionRepositorio;
+
+
         private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
 
         public NovedadesChoferesDto? NovedadActual { get; private set; }
@@ -19,6 +23,8 @@ namespace GestionDocumental.Presenters
             IChoferRepositorio choferRepositorio,
             IChoferEstadoRepositorio choferEstadoRepositorio,
             INominaRepositorio nominaRepositorio,
+            IDisponibilidadRepositorio disponibleRepositorio,
+            ILocacionRepositorio locacionRepositorio,
             IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
@@ -27,6 +33,8 @@ namespace GestionDocumental.Presenters
             _choferRepositorio = choferRepositorio;
             _choferEstadoRepositorio = choferEstadoRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _disponibleRepositorio = disponibleRepositorio;
+            _locacionRepositorio = locacionRepositorio;
             _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
         }
 
@@ -78,6 +86,53 @@ namespace GestionDocumental.Presenters
                );
 
             _view.MostrarMantenimientosUnidad(texto);
+        }
+
+        public async Task MostrarDisponiblesDelChoferAsync(int idChofer)
+        {
+            Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorChoferAsync(idChofer, DateTime.Now);
+            if (nomina == null)
+            {
+                _view.MostrarDisponiblesChofer(""); // Limpiar el label
+                return;
+            }
+
+            List<Disponible> disponibles = await _disponibleRepositorio.ObtenerDisponiblePorNomina(nomina.IdNomina);
+
+            if (disponibles == null || !disponibles.Any())
+            {
+                _view.MostrarDisponiblesChofer("Sin Disponibles asignados");
+                return;
+            }
+
+            // Filtrar: solo disponibles con fecha >= hoy
+            var disponiblesFiltrados = disponibles
+                .Where(d => d.FechaDisponible.Date >= DateTime.Today)
+                .ToList();
+
+            if (!disponiblesFiltrados.Any())
+            {
+                _view.MostrarDisponiblesChofer("Sin Disponibles próximos");
+                return;
+            }
+
+            // Construir el texto
+            var textoBuilder = new List<string>();
+
+            foreach (var disponible in disponiblesFiltrados)
+            {
+                var locacion = await _locacionRepositorio.ObtenerPorIdAsync(disponible.IdOrigen);
+                string descripcionLocacion = locacion?.Nombre ?? "Sin locación";
+
+                textoBuilder.Add(
+                    $"Disponible: {disponible.FechaDisponible:dd/MM/yyyy} - " +
+                    $"Locación: {descripcionLocacion}"
+                );
+            }
+
+            string texto = string.Join(Environment.NewLine, textoBuilder);
+
+            _view.MostrarDisponiblesChofer(texto);
         }
 
         public async Task GuardarAsync()

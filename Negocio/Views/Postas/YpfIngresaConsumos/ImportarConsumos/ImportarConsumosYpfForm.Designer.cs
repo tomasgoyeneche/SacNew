@@ -42,6 +42,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlDatos = new DevExpress.XtraGrid.GridControl();
@@ -54,6 +56,8 @@
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             dtpPeriodo = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cmbQuincena = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
@@ -106,7 +110,6 @@
             dgvDatos.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             dgvDatos.GridControl = gridControlDatos;
             dgvDatos.Name = "dgvDatos";
-            dgvDatos.OptionsBehavior.Editable = false;
             dgvDatos.OptionsSelection.EnableAppearanceFocusedCell = false;
             dgvDatos.OptionsView.EnableAppearanceEvenRow = true;
             // 
@@ -190,7 +193,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(710, 25);
+            guna2HtmlLabel2.Location = new Point(530, 27);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(65, 23);
             guna2HtmlLabel2.TabIndex = 51;
@@ -224,15 +227,43 @@
             dtpPeriodo.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpPeriodo.ForeColor = SystemColors.ActiveCaptionText;
             dtpPeriodo.Format = DateTimePickerFormat.Custom;
-            dtpPeriodo.Location = new Point(781, 19);
+            dtpPeriodo.Location = new Point(601, 19);
             dtpPeriodo.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpPeriodo.MinDate = new DateTime(2020, 1, 1, 0, 0, 0, 0);
             dtpPeriodo.Name = "dtpPeriodo";
             dtpPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges14;
             dtpPeriodo.ShowUpDown = true;
-            dtpPeriodo.Size = new Size(274, 36);
+            dtpPeriodo.Size = new Size(219, 36);
             dtpPeriodo.TabIndex = 53;
             dtpPeriodo.Value = new DateTime(2025, 2, 3, 0, 0, 0, 0);
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel3.Location = new Point(826, 26);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(85, 23);
+            guna2HtmlLabel3.TabIndex = 54;
+            guna2HtmlLabel3.Text = "Quincena:";
+            // 
+            // cmbQuincena
+            // 
+            cmbQuincena.BackColor = Color.Transparent;
+            cmbQuincena.CustomizableEdges = customizableEdges15;
+            cmbQuincena.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbQuincena.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbQuincena.FocusedColor = Color.FromArgb(94, 148, 255);
+            cmbQuincena.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cmbQuincena.Font = new Font("Segoe UI", 10F);
+            cmbQuincena.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbQuincena.ItemHeight = 30;
+            cmbQuincena.Location = new Point(914, 20);
+            cmbQuincena.Name = "cmbQuincena";
+            cmbQuincena.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            cmbQuincena.Size = new Size(140, 36);
+            cmbQuincena.TabIndex = 55;
             // 
             // ImportarConsumosYpfForm
             // 
@@ -241,6 +272,8 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1198, 568);
+            Controls.Add(cmbQuincena);
+            Controls.Add(guna2HtmlLabel3);
             Controls.Add(dtpPeriodo);
             Controls.Add(guna2Button1);
             Controls.Add(guna2HtmlLabel2);
@@ -252,6 +285,7 @@
             Name = "ImportarConsumosYpfForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ImportarConsumosYpfForm";
+            Load += ImportarConsumosYpfForm_Load;
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlDatos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
@@ -275,5 +309,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpPeriodo;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbQuincena;
     }
 }

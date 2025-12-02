@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
+using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
 using Shared.Models;
 using System.IO;
 
@@ -138,7 +139,8 @@ namespace Servicios.Presenters
 
         public async Task AbrirEdicionMantenimientoAsync(int idMantenimiento)
         {
-            await AbrirFormularioAsync<MenuCrearMantenimientoForm>(async form =>
+            await GuardarAsync(false);
+            await AbrirFormularioAsync<MenuCrearManForm>(async form =>
             {
                 await form._presenter.InicializarAsync("MantenimientoManual", idMantenimiento);
             });
@@ -149,6 +151,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarMantenimiento(int idOrdenTrabajoMantenimiento)
         {
+            await GuardarAsync(false);
             await _ordenTrabajoMantenimientoRepositorio.EliminarAsync(idOrdenTrabajoMantenimiento);
             foreach (var tarea in await _ordenTrabajoTareaRepositorio.ObtenerPorMantenimientoAsync(idOrdenTrabajoMantenimiento))
             {
@@ -167,6 +170,7 @@ namespace Servicios.Presenters
 
         public async Task EliminarComprobanteAsync(int idOrdenTrabajoComprobante, string ruta)
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 // 1️⃣ Eliminar registro de base de datos
@@ -225,6 +229,8 @@ namespace Servicios.Presenters
         {
             if (_ordenActual == null)
                 throw new Exception("No se encontró la orden de trabajo actual.");
+
+            await GuardarAsync(false);
 
             var mantenimiento = await _mantenimientoRepositorio.ObtenerPorIdAsync(idMantenimiento);
             if (mantenimiento == null)
@@ -375,7 +381,7 @@ namespace Servicios.Presenters
             });
         }
 
-        public async Task GuardarAsync()
+        public async Task GuardarAsync(bool manual)
         {
             await EjecutarConCargaAsync(async () =>
             {
@@ -389,14 +395,20 @@ namespace Servicios.Presenters
                 _ordenActual.CostoEstimado = _view.Costo;
 
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
-                _view.MostrarMensaje("Orden de trabajo Actualizada correctamente.");
+                
+                if(manual == true)
+                {
+                    _view.MostrarMensaje("Orden de trabajo Actualizada correctamente.");
 
-                _view.Cerrar();
+                    _view.Cerrar();
+                }
+                
             });
         }
 
         public async Task AgregarComprobanteAsync()
         {
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await AbrirFormularioAsync<AgregarEditarComprobanteForm>(async form =>
@@ -408,6 +420,7 @@ namespace Servicios.Presenters
 
         public async Task EditarComprobanteAsync(int idOrdenTrabajoComprobante)
         {
+            await GuardarAsync(false);
             OrdenTrabajoComprobante? detalle = await _ordenTrabajoComprobanteRepositorio.ObtenerPorIdAsync(idOrdenTrabajoComprobante);
             await EjecutarConCargaAsync(async () =>
             {

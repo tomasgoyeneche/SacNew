@@ -68,7 +68,7 @@ namespace Servicios.Views
         private async void btnConfirmar_Click(object sender, EventArgs e)
         {
             _presenter.ConfirmarIngresoAsync();
-            await _presenter.GuardarAsync();
+            await _presenter.GuardarAsync(true);
         }
 
         public void HabilitarFechaIngreso(bool habilitar)
@@ -85,7 +85,7 @@ namespace Servicios.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            await _presenter.GuardarAsync();
+            await _presenter.GuardarAsync(true);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

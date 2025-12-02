@@ -1,18 +1,26 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
-using Servicios.Views.Mantenimientos;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Servicios.Views.Mantenimiento
+namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
 {
-    public partial class MenuCrearMantenimientoForm : DevExpress.XtraEditors.XtraForm, IMenuCrearMantenimientoView
+    public partial class MenuCrearManForm : DevExpress.XtraEditors.XtraForm, IMenuCrearMantenimientoView
     {
         public readonly MenuCrearMantenimientoPresenter _presenter;
 
         public string TipoVista { get; set; }
 
-        public MenuCrearMantenimientoForm(MenuCrearMantenimientoPresenter presenter)
+        public MenuCrearManForm(MenuCrearMantenimientoPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -21,7 +29,7 @@ namespace Servicios.Views.Mantenimiento
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            await _presenter.GuardarAsync();
+            await _presenter.GuardarAsync(true);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -68,20 +76,20 @@ namespace Servicios.Views.Mantenimiento
 
             if (seleccion.Equals("Días", StringComparison.OrdinalIgnoreCase))
             {
-                txtIntervalo.Visible = true;
-                lblIntervalo.Visible = true;
+                lblIntervalo.ContentVisible = true;
+                lblIntervalo.TextVisible = true;
                 lblIntervalo.Text = "Dias:";
             }
             else if (seleccion.Equals("Kilómetros", StringComparison.OrdinalIgnoreCase))
             {
-                txtIntervalo.Visible = true;
-                lblIntervalo.Visible = true;
+                lblIntervalo.ContentVisible = true;
+                lblIntervalo.TextVisible = true;
                 lblIntervalo.Text = "Km:";
             }
             else // Indefinido
             {
-                txtIntervalo.Visible = false;
-                lblIntervalo.Visible = false;
+                lblIntervalo.ContentVisible = false;
+                lblIntervalo.TextVisible = false;
             }
         }
 
@@ -191,10 +199,10 @@ namespace Servicios.Views.Mantenimiento
 
         public void CargarFrecuencias()
         {
-            cmbFrecuencia.Visible = true;
-            lblFrecuencia.Visible = true;
-            txtIntervalo.Visible = true;
-            lblIntervalo.Visible = true;
+            lblFrecuencia.ContentVisible = true;
+            lblFrecuencia.TextVisible = true;
+            lblIntervalo.ContentVisible = true;
+            lblIntervalo.TextVisible = true;
 
             var lista = new List<string> { "Indefinido", "Días", "Kilómetros" };
             cmbFrecuencia.Properties.DataSource = lista;
@@ -203,10 +211,10 @@ namespace Servicios.Views.Mantenimiento
 
         public void OcultarFrecuencias()
         {
-            cmbFrecuencia.Visible = false;
-            lblFrecuencia.Visible = false;
-            txtIntervalo.Visible = false;
-            lblIntervalo.Visible = false;
+            lblFrecuencia.ContentVisible = false;
+            lblFrecuencia.TextVisible = false;
+            lblIntervalo.ContentVisible = false;
+            lblIntervalo.TextVisible = false;
         }
 
         public void CargarTareasPredefinidas(List<Tarea> tareas)

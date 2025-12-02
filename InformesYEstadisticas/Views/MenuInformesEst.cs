@@ -35,8 +35,9 @@ namespace InformesYEstadisticas
             await _presenter.GenerarReporteConsumos();
         }
 
-        private void bResumenNomMetanol_Click(object sender, EventArgs e)
+        private async void bResumenNomMetanol_Click(object sender, EventArgs e)
         {
+            await _presenter.GenerarReporteNomina();
         }
 
         private async void bExpoTransoft_Click(object sender, EventArgs e)

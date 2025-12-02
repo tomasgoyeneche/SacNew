@@ -129,6 +129,9 @@ namespace GestionFlota.Views
                     view.Columns[col].Visible = false;
             }
 
+            gridViewAlertas.Columns["Fecha"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gridViewAlertas.Columns["Fecha"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+
             gridViewAlertas.BestFitColumns();
         }
 
