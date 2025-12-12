@@ -129,6 +129,7 @@ namespace Servicios.Presenters.Mantenimiento
                 PedidoMinimo = _view.PedidoMinimo,
                 PedidoMaximo = _view.PedidoMaximo,
                 StockCritico = _view.StockCritico,
+                Dolar = _view.Dolarizado,
                 Activo = true
             };
 
@@ -183,6 +184,7 @@ namespace Servicios.Presenters.Mantenimiento
                         Cantidad = cantidad, //falta
                         Estimado = cantidad * _view.PrecioUnitario, //falta
                         Estado = _ordenArticulo?.Estado ?? "Pendiente",
+                        Dolar = _view.Dolarizado,
                         Activo = true
                     };
 

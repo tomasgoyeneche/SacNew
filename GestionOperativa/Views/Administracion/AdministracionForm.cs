@@ -212,18 +212,54 @@ namespace GestionOperativa.Views
                 txtPsiCurso.Text = "N/A";
             }
 
-            txtCuit.Text = tractor.Empresa_Cuit;
-            txtTractor.Text = tractor.Patente;
-            txtSemi.Text = semi.Patente;
-            txtVtv.Text = tractor.Vtv.Value.ToShortDateString();
-            txtVtvSemi.Text = semi.Vtv.Value.ToShortDateString();
-            txtEstanq.Text = semi.Estanqueidad.Value.ToShortDateString();
-            txtVisualInt.Text = semi.VisualInterna.Value.ToShortDateString();
-            txtMasYpf.Text = unidad.MasYPF.Value.ToShortDateString();
-            txtVerifMensual.Text = unidad.VerifMensual.Value.ToShortDateString();
-            txtVisualExt.Text = semi.VisualExterna.Value.ToShortDateString();
-            txtChecklist.Text = unidad.Checklist.Value.ToShortDateString();
-            txtEspesor.Text = semi.CisternaEspesor.Value.ToShortDateString();
+            if(tractor != null)
+            {
+                txtVtv.Text = tractor.Vtv.Value.ToShortDateString();
+                txtTractor.Text = tractor.Patente;
+                txtCuit.Text = tractor.Empresa_Cuit;
+
+            }
+            else
+            {
+                txtVtv.Text = "N/A";
+                txtTractor.Text = "N/A";
+                txtCuit.Text = "N/A";
+            }
+
+            if(semi != null)
+            {
+                txtSemi.Text = semi.Patente;
+                txtVtvSemi.Text = semi.Vtv.Value.ToShortDateString();
+                txtEstanq.Text = semi.Estanqueidad.Value.ToShortDateString();
+                txtVisualInt.Text = semi.VisualInterna.Value.ToShortDateString();
+                txtVisualExt.Text = semi.VisualExterna.Value.ToShortDateString();
+                txtEspesor.Text = semi.CisternaEspesor.Value.ToShortDateString();
+            }
+            else
+            {
+                txtSemi.Text = "N/A";
+                txtVtvSemi.Text = "N/A";
+                txtEstanq.Text = "N/A";
+                txtVisualInt.Text = "N/A";
+                txtVisualExt.Text = "N/A";
+                txtEspesor.Text = "N/A";
+            }
+
+
+            if (unidad != null)
+            {
+                txtMasYpf.Text = unidad.MasYPF.Value.ToShortDateString();
+                txtVerifMensual.Text = unidad.VerifMensual.Value.ToShortDateString();
+                txtChecklist.Text = unidad.Checklist.Value.ToShortDateString();
+            }else
+            {
+                txtMasYpf.Text = "N/A";
+                txtVerifMensual.Text = "N/A";
+                txtChecklist.Text = "N/A";
+            }
+
+
+
 
             // Foto del Chofer
             if (!string.IsNullOrEmpty(rutaFotoChofer) && File.Exists(rutaFotoChofer) && rutaFotoChofer != null)

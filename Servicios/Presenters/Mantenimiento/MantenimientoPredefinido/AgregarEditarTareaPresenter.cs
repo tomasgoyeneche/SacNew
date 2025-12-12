@@ -78,7 +78,8 @@ namespace Servicios.Presenters
                                 Codigo = art.Codigo,
                                 Descripcion = art.Nombre,
                                 Cantidad = ta.Cantidad,
-                                PrecioUnitario = art.PrecioUnitario
+                                PrecioUnitario = art.PrecioUnitario,
+                                Dolar = art.Dolar
                             });
                         }
                     }
@@ -86,8 +87,16 @@ namespace Servicios.Presenters
                     _view.CargarArticulosAsociados(listaDto);
 
                     // 🔹 Calcular el total de repuestos
-                    decimal totalRepuestos = listaDto.Sum(x => x.PrecioTotal);
-                    _view.Repuestos = totalRepuestos;
+                    decimal totalRepuestosPesos = listaDto
+                    .Where(x => !x.Dolar)
+                    .Sum(x => x.PrecioTotal);
+
+                    decimal totalRepuestosUsd = listaDto
+                        .Where(x => x.Dolar)
+                        .Sum(x => x.PrecioTotal);
+
+                    _view.Repuestos = totalRepuestosPesos;
+                    _view.RepuestosUsd = totalRepuestosUsd;
 
                     _tarea = await _tareaRepositorio.ObtenerPorIdAsync(idTarea);
                     if (_tarea == null)
@@ -100,6 +109,7 @@ namespace Servicios.Presenters
                     _view.Descripcion = _tarea.Descripcion;
                     _view.Horas = _tarea.Horas ?? 0;
                     _view.ManoObra = _tarea.ManoObra ?? 0;
+                    _view.Dolarizado = _tarea.Dolar;
                 }
                 else
                 {
@@ -120,7 +130,8 @@ namespace Servicios.Presenters
                                 Descripcion = ta.Nombre,
                                 Cantidad = ta.Cantidad,
                                 PrecioUnitario = ta.PrecioUnitario,
-                                Estado = ta.Estado
+                                Estado = ta.Estado,
+                                Dolar = art.Dolar
                             });
                         }
                     }
@@ -128,8 +139,16 @@ namespace Servicios.Presenters
                     _view.CargarArticulosAsociados(listaDto);
 
                     // 🔹 Calcular el total de repuestos
-                    decimal totalRepuestos = listaDto.Sum(x => x.PrecioTotal);
-                    _view.Repuestos = totalRepuestos;
+                    decimal totalRepuestosPesos = listaDto
+                    .Where(x => !x.Dolar)
+                    .Sum(x => x.PrecioTotal);
+
+                    decimal totalRepuestosUsd = listaDto
+                        .Where(x => x.Dolar)
+                        .Sum(x => x.PrecioTotal);
+
+                    _view.Repuestos = totalRepuestosPesos;
+                    _view.RepuestosUsd = totalRepuestosUsd;
 
                     _tareaOrden = await _ordenTrabajoTareaRepositorio.ObtenerPorIdAsync(idTarea);
                     if (_tareaOrden == null)
@@ -142,6 +161,7 @@ namespace Servicios.Presenters
                     _view.Descripcion = _tareaOrden.Descripcion;
                     _view.Horas = _tareaOrden.Horas ?? 0;
                     _view.ManoObra = _tareaOrden.ManoObra ?? 0;
+                    _view.Dolarizado = _tareaOrden.Dolar;
                 }
                 // 🔹 Obtener la tarea
 
@@ -195,6 +215,7 @@ namespace Servicios.Presenters
                     PrecioUnitario = articulo.PrecioUnitario,
                     Cantidad = _view.CantidadArticulo,
                     Estimado = _view.CantidadArticulo * articulo.PrecioUnitario,
+                    Dolar = articulo.Dolar,
                     Activo = true
                 };
                 await _ordenTrabajoArticuloRepositorio.AgregarAsync(entidad);
@@ -305,6 +326,7 @@ namespace Servicios.Presenters
                         Cantidad = articulo.Cantidad,
                         PrecioUnitario = articulo.PrecioUnitario,
                         PrecioTotal = articulo.Cantidad * articulo.PrecioUnitario,
+                        Dolar = articulo.Dolar,
                         Activo = true
                     };
 
@@ -335,6 +357,7 @@ namespace Servicios.Presenters
                         Cantidad = articulo.Cantidad,
                         PrecioUnitario = articulo.PrecioUnitario,
                         PrecioTotal = articulo.Cantidad * articulo.PrecioUnitario,
+                        Dolar = articulo.Dolar,
                         Activo = true
                     };
 
@@ -372,7 +395,7 @@ namespace Servicios.Presenters
                 _tarea.Descripcion = _view.Descripcion;
                 _tarea.Horas = _view.Horas;
                 _tarea.ManoObra = _view.ManoObra;
-
+                _tarea.Dolar = _view.Dolarizado;
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _tareaRepositorio.ActualizarAsync(_tarea);
@@ -396,7 +419,7 @@ namespace Servicios.Presenters
                 _tareaOrden.Descripcion = _view.Descripcion;
                 _tareaOrden.Horas = _view.Horas;
                 _tareaOrden.ManoObra = _view.ManoObra;
-
+                _tareaOrden.Dolar = _view.Dolarizado;
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _ordenTrabajoTareaRepositorio.ActualizarAsync(_tareaOrden);

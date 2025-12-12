@@ -83,6 +83,12 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
             set => txtManoObra.EditValue = value;
         }
 
+        public decimal? CostoUsd
+        {
+            get => Convert.ToDecimal(txtPrecioUsd.EditValue ?? 0);
+            set => txtPrecioUsd.EditValue = value;
+        }
+
         public string Observaciones
         {
             get => txtDescripcion.Text.Trim();
@@ -244,6 +250,7 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
             txtOdometroFin.EditValue = null;
             txtHoras.EditValue = null;
             txtManoObra.EditValue = null;
+            txtPrecioUsd.EditValue = null;
             txtDescripcion.Text = string.Empty;
             gridViewComprobantes.ClearColumnsFilter();
             gridViewMantenimientos.ClearColumnsFilter();

@@ -93,6 +93,12 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             set => txtRepuestos.EditValue = value;
         }
 
+        public decimal RepuestosUsd
+        {
+            get => Convert.ToDecimal(txtRepuestosUsd.EditValue ?? 0);
+            set => txtRepuestosUsd.EditValue = value;
+        }
+
         public int IdArticuloSeleccionado => Convert.ToInt32(cmbArticulo.EditValue ?? 0);
 
         public decimal CantidadArticulo
@@ -100,6 +106,13 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             get => Convert.ToDecimal(txtCantidad.EditValue ?? 0);
             set => txtCantidad.EditValue = value;
         }
+
+        public bool Dolarizado
+        {
+            get => chkDolarizado.Checked;
+            set => chkDolarizado.Checked = value;
+        }
+
 
         public void CargarArticulos(List<Articulo> articulos)
         {

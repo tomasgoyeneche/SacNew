@@ -9,6 +9,9 @@
         public decimal Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal PrecioTotal { get; set; }
+
+        public bool Dolar { get; set; }
+
         public bool Activo { get; set; }
     }
 }

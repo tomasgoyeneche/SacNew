@@ -13,6 +13,7 @@
 
         public decimal? HorasEstimadas { get; set; }
         public decimal? CostoEstimado { get; set; }
+        public decimal? CostoUsd { get; set; }
 
         /// <summary>
         /// 0 = Creada, 1 = Autorizada, 2 = En Taller, 3 = Finalizada

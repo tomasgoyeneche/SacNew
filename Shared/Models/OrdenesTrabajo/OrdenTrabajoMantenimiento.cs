@@ -13,9 +13,10 @@
         public string? Descripcion { get; set; }
 
         public decimal? ManoObra { get; set; }
+        public decimal? ManoObraUsd { get; set; }
         public decimal? Horas { get; set; }
         public decimal? PrecioRepuestos { get; set; }
-
+        public decimal? PrecioRepuestosUsd { get; set; }
         public bool Activo { get; set; } = true;
     }
 }

@@ -13,7 +13,9 @@ namespace Servicios.Views.Mantenimientos
         decimal Horas { get; set; }
         decimal ManoObra { get; set; }
         decimal Repuestos { get; set; }
+        decimal RepuestosUsd { get; set; }
 
+        bool Dolarizado { get; set; }
         int IdArticuloSeleccionado { get; }
         decimal CantidadArticulo { get; }
 

@@ -149,7 +149,7 @@ namespace GestionOperativa
 
         private async void bIngresar_Click(object sender, EventArgs e)
         {
-            bIngresar.Enabled = false;  
+            bIngresar.Enabled = false;
             await _presenter.RegistrarIngresoAsync(false); // Ingreso normal (ahora)
             bIngresar.Enabled = true;
         }
@@ -158,12 +158,12 @@ namespace GestionOperativa
         {
             bIngresoOtros.Enabled = false;
             await _presenter.RegistrarOtrosAsync(); // Ingreso normal (ahora)
-            bIngresoOtros.Enabled = true;   
+            bIngresoOtros.Enabled = true;
         }
 
         private async void bSalida_Click(object sender, EventArgs e)
         {
-          
+
             if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");
@@ -375,6 +375,25 @@ namespace GestionOperativa
 
             // Llama al presenter para exportar
             await _presenter.ExportarTeAsync(desde, hasta);
+        }
+
+        private async void gridViewAlertas_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks != 2 || e.RowHandle < 0) return;
+
+            if (gridViewAlertas.GetFocusedRow() is AlertaDto alerta)
+            {
+                var confirm = XtraMessageBox.Show(
+                    $"¿Deseás eliminar la alerta #{alerta.IdAlerta}?\n\n{alerta.Descripcion}",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    await _presenter.EliminarAlertaAsync(alerta);
+                }
+            }
         }
     }
 }

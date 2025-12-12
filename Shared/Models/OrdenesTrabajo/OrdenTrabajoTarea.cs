@@ -13,7 +13,9 @@
         public decimal? ManoObra { get; set; }
         public decimal? Horas { get; set; }
         public decimal? TotalEstimado { get; set; }
+        public decimal? TotalEstimadoUsd { get; set; }
 
+        public bool Dolar { get; set; } = false;
         public bool Activo { get; set; } = true;
     }
 }

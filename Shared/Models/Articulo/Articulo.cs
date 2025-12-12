@@ -27,7 +27,7 @@
         public decimal? PedidoMaximo { get; set; }
 
         public decimal? StockCritico { get; set; }
-
+        public bool Dolar { get; set; } = false;
         public bool Activo { get; set; } = true;
     }
 }

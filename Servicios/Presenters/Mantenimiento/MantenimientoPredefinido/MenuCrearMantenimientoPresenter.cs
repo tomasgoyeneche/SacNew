@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.XtraTreeList.Data;
 using Servicios.Views.Mantenimientos;
 using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
 using Shared.Models;
@@ -173,10 +174,22 @@ namespace Servicios.Presenters
             decimal totalHoras = 0;
             decimal totalManoObra = 0;
             decimal totalRepuestos = 0;
+            decimal totalManoObraUsd = 0;
+            decimal totalRepuestosUsd = 0;
+
             if (_tipoVista == "MantenimientoPredefinido")
             {
                 totalHoras = tareas.Sum(t => t.Horas ?? 0);
                 totalManoObra = tareas.Sum(t => t.ManoObra ?? 0);
+
+                totalManoObra = tareas
+                .Where(x => !x.Dolar)
+                .Sum(x => x.ManoObra.Value);
+
+                totalManoObraUsd = tareas
+                 .Where(x => x.Dolar)
+                 .Sum(x => x.ManoObra.Value);
+
                 totalRepuestos = 0;
 
                 foreach (var tarea in tareas)
@@ -185,9 +198,13 @@ namespace Servicios.Presenters
                     foreach (var item in articulosAsociados)
                     {
                         var articulo = await _articuloRepositorio.ObtenerPorIdAsync(item.IdArticulo);
-                        if (articulo != null)
+                        if (articulo != null && articulo.Dolar == false)
                         {
                             totalRepuestos += (articulo.PrecioUnitario * item.Cantidad);
+                        }
+                        else if (articulo != null && articulo.Dolar == true)
+                        {
+                            totalRepuestosUsd += (articulo.PrecioUnitario * item.Cantidad);
                         }
                     }
                 }
@@ -195,7 +212,13 @@ namespace Servicios.Presenters
             else
             {
                 totalHoras = tareasOrdenes.Sum(t => t.Horas ?? 0);
-                totalManoObra = tareasOrdenes.Sum(t => t.ManoObra ?? 0);
+                totalManoObra = tareasOrdenes
+              .Where(x => !x.Dolar)
+              .Sum(x => x.ManoObra.Value);
+
+                totalManoObraUsd = tareasOrdenes
+                  .Where(x => x.Dolar)
+                  .Sum(x => x.ManoObra.Value);
                 totalRepuestos = 0;
 
                 foreach (var tarea in tareasOrdenes)
@@ -203,7 +226,10 @@ namespace Servicios.Presenters
                     List<OrdenTrabajoArticulo> articulosAsociados = await _ordenTrabajoArticuloRepositorio.ObtenerPorTareaAsync(tarea.IdOrdenTrabajoTarea);
                     foreach (var item in articulosAsociados)
                     {
-                        totalRepuestos += (item.PrecioUnitario * item.Cantidad);
+                        if (item.Dolar == true)
+                            totalRepuestosUsd += (item.PrecioUnitario * item.Cantidad);
+                        else
+                            totalRepuestos += (item.PrecioUnitario * item.Cantidad);
                     }
                 }
             }
@@ -211,6 +237,8 @@ namespace Servicios.Presenters
             _view.HorasTotales = totalHoras;
             _view.ManoObraTotal = totalManoObra;
             _view.RepuestosTotales = totalRepuestos;
+            _view.ManoObraTotalUsd = totalManoObraUsd;
+            _view.RepuestosTotalesUsd = totalRepuestosUsd;
         }
 
         public async Task GuardarAsync(bool manual)
@@ -259,8 +287,10 @@ namespace Servicios.Presenters
                     Descripcion = _view.Descripcion,
                     Activo = true,
                     ManoObra = _view.ManoObraTotal,
+                    ManoObraUsd = _view.ManoObraTotalUsd,
                     Horas = _view.HorasTotales,
-                    PrecioRepuestos = _view.RepuestosTotales
+                    PrecioRepuestos = _view.RepuestosTotales,
+                    PrecioRepuestosUsd = _view.RepuestosTotalesUsd
                 };
 
                 await _ordenTrabajoMantenimientoRepositorio.ActualizarAsync(ordenMantenimiento);
@@ -311,13 +341,34 @@ namespace Servicios.Presenters
                 }
 
                 decimal totalArticulos = 0;
+                decimal totalArticulosUsd = 0;  
                 foreach (Articulo articulo in articulos)
                 {
                     var cantidad = manTareaArt.FirstOrDefault(x => x.IdArticulo == articulo.IdArticulo)?.Cantidad ?? 0;
-                    totalArticulos += articulo.PrecioUnitario * cantidad;
+                    if(articulo.Dolar == false)
+                    {
+                        totalArticulos += articulo.PrecioUnitario * cantidad;
+
+                    }
+                    else if(articulo.Dolar == true)
+                    {
+                        totalArticulosUsd += articulo.PrecioUnitario * cantidad;
+                    }
                 }
 
-                decimal totalEstimado = tarea.ManoObra.Value + totalArticulos;
+                decimal totalEstimado = 0;
+                decimal totalEstimadoUsd = 0;
+
+                if (tarea.Dolar == true)
+                {
+                    totalEstimado = totalArticulos;
+                    totalEstimadoUsd = tarea.ManoObra.Value + totalArticulosUsd;    
+                }
+                else
+                {
+                    totalEstimado = tarea.ManoObra.Value + totalArticulos;
+                    totalEstimadoUsd = totalArticulosUsd;
+                }
 
                 OrdenTrabajoTarea ordenTrabajoTarea = new OrdenTrabajoTarea
                 {
@@ -328,6 +379,8 @@ namespace Servicios.Presenters
                     Horas = tarea.Horas,
                     ManoObra = tarea.ManoObra,
                     TotalEstimado = totalEstimado,
+                    TotalEstimadoUsd = totalEstimadoUsd,
+                    Dolar = tarea.Dolar,
                     Activo = true
                 };
 
@@ -347,6 +400,7 @@ namespace Servicios.Presenters
                         Cantidad = cantidad,
                         Estimado = articulo.PrecioUnitario * cantidad,
                         Activo = true,
+                        Dolar = articulo.Dolar,
                         Estado = "Pendiente"
                     };
 
@@ -396,6 +450,7 @@ namespace Servicios.Presenters
                     Descripcion = "",
                     Horas = 0,
                     ManoObra = 0,
+                    Dolar = false,
                     Activo = true
                 };
 
@@ -423,6 +478,7 @@ namespace Servicios.Presenters
                     Horas = 0,
                     ManoObra = 0,
                     TotalEstimado = 0,
+                    Dolar = false,
                     Activo = true
                 };
 

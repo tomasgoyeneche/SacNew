@@ -16,7 +16,7 @@ namespace Servicios.Views.Mantenimiento
         decimal PrecioUnitario { get; }
         decimal? PedidoMinimo { get; }
         decimal? PedidoMaximo { get; }
-
+        bool Dolarizado { get; }
         decimal? StockCritico { get; }
 
         void CargarMedidas(List<Medida> medidas);

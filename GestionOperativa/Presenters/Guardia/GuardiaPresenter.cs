@@ -235,8 +235,18 @@ namespace GestionOperativa.Presenters
             }
             // Buscar IdTractor
             int? idTractor = await _unidadRepositorio.ObtenerIdTractorPorPatenteAsync(patente);
+            int? idUnidad;
 
-            if (idTractor == null)
+            if(idTractor != null)
+            {
+                idUnidad = await _unidadRepositorio.ObtenerIdUnidadPorTractorAsync(idTractor.Value);
+            }else
+            {
+                idUnidad = null;
+            }
+
+
+            if (idUnidad == null)
             {
                 await AbrirFormularioAsync<AgregarEditarTransitoEspecialForm>(async form =>
                 {
@@ -248,7 +258,6 @@ namespace GestionOperativa.Presenters
             }
 
             // Buscar IdUnidad
-            int? idUnidad = await _unidadRepositorio.ObtenerIdUnidadPorTractorAsync(idTractor.Value);
             if (idUnidad == null)
             {
                 _view.MostrarMensaje("Unidad no encontrada.");
@@ -495,6 +504,17 @@ namespace GestionOperativa.Presenters
             });
 
             _view.MostrarMensaje("Archivo TransitoEspecial exportado y abierto.");
+        }
+
+        public async Task EliminarAlertaAsync(AlertaDto alerta)
+        {
+            // Eliminar en repositorio
+            await _alertaRepositorio.EliminarAlertaAsync(alerta.IdAlerta);
+
+            _view.MostrarMensaje("La alerta se eliminó correctamente.");
+
+            // Refrescar vencimientos y alertas del ruteo actualmente seleccionado
+            await InicializarAsync(_idPosta);
         }
     }
 }

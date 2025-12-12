@@ -29,6 +29,7 @@ namespace Servicios.Views.Mantenimientos
         public decimal PrecioUnitario => Convert.ToDecimal(txtPrecioUnitario.EditValue);
         public decimal? PedidoMinimo => string.IsNullOrEmpty(txtPedidoMinimo.Text) ? null : Convert.ToDecimal(txtPedidoMinimo.EditValue);
 
+        public bool Dolarizado => chkDolarizado.Checked;
         public decimal? PedidoMaximo => string.IsNullOrEmpty(txtPedidoMaximo.Text) ? null : Convert.ToDecimal(txtPedidoMaximo.EditValue);
         public decimal? StockCritico => string.IsNullOrEmpty(txtStockCritico.Text) ? null : Convert.ToDecimal(txtStockCritico.EditValue);
 
@@ -61,6 +62,7 @@ namespace Servicios.Views.Mantenimientos
             txtPedidoMinimo.EditValue = null;
             txtPedidoMaximo.EditValue = null;
             txtStockCritico.EditValue = null;
+            chkDolarizado.Checked = false;
         }
 
         public void CargarMedidas(List<Medida> medidas)
@@ -121,6 +123,7 @@ namespace Servicios.Views.Mantenimientos
             txtPedidoMinimo.EditValue = articulo.PedidoMinimo;
             txtPedidoMaximo.EditValue = articulo.PedidoMaximo;
             txtStockCritico.EditValue = articulo.StockCritico;
+            chkDolarizado.Checked = articulo.Dolar;
 
             if (orden != null)
             {

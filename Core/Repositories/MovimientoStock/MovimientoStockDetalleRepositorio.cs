@@ -26,8 +26,8 @@ namespace Core.Repositories
         public async Task<int> AgregarAsync(MovimientoStockDetalle detalle)
         {
             const string query = @"
-            INSERT INTO MovimientoStockDetalle (IdMovimientoStock, IdArticulo, IdPosta, Cantidad, PrecioUnitario, PrecioTotal, Activo)
-            VALUES (@IdMovimientoStock, @IdArticulo, @IdPosta, @Cantidad, @PrecioUnitario, @PrecioTotal, 1);
+            INSERT INTO MovimientoStockDetalle (IdMovimientoStock, IdArticulo, IdPosta, Cantidad, PrecioUnitario, PrecioTotal, Activo, Dolar)
+            VALUES (@IdMovimientoStock, @IdArticulo, @IdPosta, @Cantidad, @PrecioUnitario, @PrecioTotal, 1, Dolar);
             SELECT CAST(SCOPE_IDENTITY() as int);";
 
             return await EjecutarConAuditoriaAsync(
@@ -47,7 +47,9 @@ namespace Core.Repositories
                 IdPosta = @IdPosta,
                 Cantidad = @Cantidad,
                 PrecioUnitario = @PrecioUnitario,
-                PrecioTotal = @PrecioTotal
+                PrecioTotal = @PrecioTotal,
+                Activo = @Activo,
+                Dolar = @Dolar
             WHERE IdMovimientoDetalle = @IdMovimientoDetalle";
 
             await EjecutarConAuditoriaAsync(

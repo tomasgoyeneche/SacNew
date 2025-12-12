@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pComprobantes = new Guna.UI2.WinForms.Guna2Panel();
+            chkDolarizado = new DevExpress.XtraEditors.CheckEdit();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtCantidad = new DevExpress.XtraEditors.TextEdit();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -47,6 +48,7 @@
             simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             pComprobantes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chkDolarizado.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPrecioUnitario.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPrecioTotal.Properties).BeginInit();
@@ -58,6 +60,7 @@
             // pComprobantes
             // 
             pComprobantes.BackColor = Color.Transparent;
+            pComprobantes.Controls.Add(chkDolarizado);
             pComprobantes.Controls.Add(guna2HtmlLabel7);
             pComprobantes.Controls.Add(txtCantidad);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
@@ -71,13 +74,25 @@
             pComprobantes.Controls.Add(lookupArticulo);
             pComprobantes.Controls.Add(guna2HtmlLabel4);
             pComprobantes.Controls.Add(guna2HtmlLabel3);
-            pComprobantes.CustomizableEdges = customizableEdges1;
+            pComprobantes.CustomizableEdges = customizableEdges3;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(12, 12);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pComprobantes.Size = new Size(369, 381);
             pComprobantes.TabIndex = 87;
+            // 
+            // chkDolarizado
+            // 
+            chkDolarizado.Location = new Point(281, 289);
+            chkDolarizado.Name = "chkDolarizado";
+            chkDolarizado.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkDolarizado.Properties.Appearance.ForeColor = Color.Lime;
+            chkDolarizado.Properties.Appearance.Options.UseFont = true;
+            chkDolarizado.Properties.Appearance.Options.UseForeColor = true;
+            chkDolarizado.Properties.Caption = "Dolar $";
+            chkDolarizado.Size = new Size(71, 20);
+            chkDolarizado.TabIndex = 103;
             // 
             // guna2HtmlLabel7
             // 
@@ -114,7 +129,7 @@
             guna2HtmlLabel6.Location = new Point(17, 264);
             guna2HtmlLabel6.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(335, 23);
+            guna2HtmlLabel6.Size = new Size(259, 23);
             guna2HtmlLabel6.TabIndex = 100;
             guna2HtmlLabel6.Text = "Precio Unitario";
             guna2HtmlLabel6.TextAlignment = ContentAlignment.TopCenter;
@@ -127,7 +142,7 @@
             txtPrecioUnitario.Properties.Appearance.Options.UseFont = true;
             txtPrecioUnitario.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtPrecioUnitario.Properties.MaskSettings.Set("mask", "f");
-            txtPrecioUnitario.Size = new Size(334, 22);
+            txtPrecioUnitario.Size = new Size(258, 22);
             txtPrecioUnitario.TabIndex = 99;
             txtPrecioUnitario.EditValueChanged += spinCantidad_EditValueChanged;
             // 
@@ -296,6 +311,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AgregarEditarArtForm";
             pComprobantes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chkDolarizado.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCantidad.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPrecioUnitario.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPrecioTotal.Properties).EndInit();
@@ -323,5 +339,6 @@
         private DevExpress.XtraEditors.TextEdit txtCantidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private DevExpress.XtraEditors.TextEdit txtPrecioUnitario;
+        private DevExpress.XtraEditors.CheckEdit chkDolarizado;
     }
 }

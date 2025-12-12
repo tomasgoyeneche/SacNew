@@ -61,6 +61,12 @@ namespace Servicios.Views
             set => txtPrecioTotal.EditValue = value;
         }
 
+        public bool Dolarizado
+        {
+            get => chkDolarizado.Checked;
+            set => chkDolarizado.Checked = value;
+        }
+
         public void CargarArticulos(List<Articulo> articulos)
         {
             lookupArticulo.Properties.DataSource = articulos;
@@ -75,6 +81,7 @@ namespace Servicios.Views
         {
             txtNombre.Text = articulo.Nombre;
             txtDescripcion.Text = articulo.Descripcion;
+            chkDolarizado.Checked = articulo.Dolar; 
             if (articulo.PrecioUnitario != 0)
             {
                 PrecioUnitario = articulo.PrecioUnitario;

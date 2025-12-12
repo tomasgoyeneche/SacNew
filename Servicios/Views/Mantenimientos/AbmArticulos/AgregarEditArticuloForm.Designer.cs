@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             txtStockCritico = new DevExpress.XtraEditors.TextEdit();
             btnGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -72,6 +72,9 @@
             layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            chkDolarizado = new DevExpress.XtraEditors.CheckEdit();
+            layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtStockCritico.Properties).BeginInit();
@@ -109,10 +112,14 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem17).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkDolarizado.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem18).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
             // 
+            layoutControl1.Controls.Add(chkDolarizado);
             layoutControl1.Controls.Add(txtStockCritico);
             layoutControl1.Controls.Add(btnGuardar);
             layoutControl1.Controls.Add(btnCancelar);
@@ -141,15 +148,15 @@
             // 
             // txtStockCritico
             // 
-            txtStockCritico.Location = new Point(617, 409);
+            txtStockCritico.Location = new Point(655, 409);
             txtStockCritico.Name = "txtStockCritico";
             txtStockCritico.Properties.Appearance.Font = new Font("Segoe UI", 12F);
             txtStockCritico.Properties.Appearance.Options.UseFont = true;
             txtStockCritico.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtStockCritico.Properties.MaskSettings.Set("mask", "f");
-            txtStockCritico.Size = new Size(154, 28);
+            txtStockCritico.Size = new Size(116, 28);
             txtStockCritico.StyleController = layoutControl1;
-            txtStockCritico.TabIndex = 17;
+            txtStockCritico.TabIndex = 15;
             // 
             // btnGuardar
             // 
@@ -194,25 +201,25 @@
             // 
             // txtPedidoMaximo
             // 
-            txtPedidoMaximo.Location = new Point(435, 409);
+            txtPedidoMaximo.Location = new Point(483, 409);
             txtPedidoMaximo.Name = "txtPedidoMaximo";
             txtPedidoMaximo.Properties.Appearance.Font = new Font("Segoe UI", 12F);
             txtPedidoMaximo.Properties.Appearance.Options.UseFont = true;
             txtPedidoMaximo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtPedidoMaximo.Properties.MaskSettings.Set("mask", "f");
-            txtPedidoMaximo.Size = new Size(178, 28);
+            txtPedidoMaximo.Size = new Size(168, 28);
             txtPedidoMaximo.StyleController = layoutControl1;
             txtPedidoMaximo.TabIndex = 14;
             // 
             // txtPedidoMinimo
             // 
-            txtPedidoMinimo.Location = new Point(256, 409);
+            txtPedidoMinimo.Location = new Point(298, 409);
             txtPedidoMinimo.Name = "txtPedidoMinimo";
             txtPedidoMinimo.Properties.Appearance.Font = new Font("Segoe UI", 12F);
             txtPedidoMinimo.Properties.Appearance.Options.UseFont = true;
             txtPedidoMinimo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtPedidoMinimo.Properties.MaskSettings.Set("mask", "f");
-            txtPedidoMinimo.Size = new Size(175, 28);
+            txtPedidoMinimo.Size = new Size(181, 28);
             txtPedidoMinimo.StyleController = layoutControl1;
             txtPedidoMinimo.TabIndex = 13;
             // 
@@ -224,7 +231,7 @@
             txtPrecioUnitario.Properties.Appearance.Options.UseFont = true;
             txtPrecioUnitario.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtPrecioUnitario.Properties.MaskSettings.Set("mask", "f");
-            txtPrecioUnitario.Size = new Size(225, 28);
+            txtPrecioUnitario.Size = new Size(175, 28);
             txtPrecioUnitario.StyleController = layoutControl1;
             txtPrecioUnitario.TabIndex = 12;
             // 
@@ -358,11 +365,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges1;
+            guna2Panel10.CustomizableEdges = customizableEdges5;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(27, 27);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel10.Size = new Size(744, 41);
             guna2Panel10.TabIndex = 0;
             // 
@@ -400,7 +407,7 @@
             Root.AppearanceItemCaption.Options.UseForeColor = true;
             Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, emptySpaceItem2, emptySpaceItem3, layoutControlItem7, layoutControlItem8, emptySpaceItem4, layoutControlItem9, layoutControlItem10, layoutControlItem11, layoutControlItem12, layoutControlItem13, layoutControlItem14, emptySpaceItem5, layoutControlItem15, layoutControlItem16, emptySpaceItem1, layoutControlItem17 });
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, emptySpaceItem2, emptySpaceItem3, layoutControlItem7, layoutControlItem8, emptySpaceItem4, layoutControlItem9, layoutControlItem10, layoutControlItem11, layoutControlItem12, layoutControlItem13, layoutControlItem14, emptySpaceItem5, layoutControlItem15, layoutControlItem16, emptySpaceItem1, layoutControlItem17, layoutControlItem18, emptySpaceItem6 });
             Root.Name = "Root";
             Root.Padding = new DevExpress.XtraLayout.Utils.Padding(25, 25, 25, 25);
             Root.Size = new Size(798, 568);
@@ -555,7 +562,7 @@
             layoutControlItem12.Location = new Point(0, 354);
             layoutControlItem12.Name = "layoutControlItem12";
             layoutControlItem12.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
-            layoutControlItem12.Size = new Size(229, 60);
+            layoutControlItem12.Size = new Size(179, 60);
             layoutControlItem12.Text = "Precio Unitario";
             layoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem12.TextSize = new Size(110, 15);
@@ -563,10 +570,10 @@
             // layoutControlItem13
             // 
             layoutControlItem13.Control = txtPedidoMinimo;
-            layoutControlItem13.Location = new Point(229, 354);
+            layoutControlItem13.Location = new Point(271, 354);
             layoutControlItem13.Name = "layoutControlItem13";
             layoutControlItem13.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
-            layoutControlItem13.Size = new Size(179, 60);
+            layoutControlItem13.Size = new Size(185, 60);
             layoutControlItem13.Text = "Pedido Minimo";
             layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem13.TextSize = new Size(110, 15);
@@ -574,10 +581,10 @@
             // layoutControlItem14
             // 
             layoutControlItem14.Control = txtPedidoMaximo;
-            layoutControlItem14.Location = new Point(408, 354);
+            layoutControlItem14.Location = new Point(456, 354);
             layoutControlItem14.Name = "layoutControlItem14";
             layoutControlItem14.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
-            layoutControlItem14.Size = new Size(182, 60);
+            layoutControlItem14.Size = new Size(172, 60);
             layoutControlItem14.Text = "Pedido Maximo";
             layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem14.TextSize = new Size(110, 15);
@@ -623,13 +630,44 @@
             // layoutControlItem17
             // 
             layoutControlItem17.Control = txtStockCritico;
-            layoutControlItem17.Location = new Point(590, 354);
+            layoutControlItem17.Location = new Point(628, 354);
             layoutControlItem17.Name = "layoutControlItem17";
             layoutControlItem17.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
-            layoutControlItem17.Size = new Size(158, 60);
+            layoutControlItem17.Size = new Size(120, 60);
             layoutControlItem17.Text = "Stock Critico";
             layoutControlItem17.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem17.TextSize = new Size(110, 15);
+            // 
+            // chkDolarizado
+            // 
+            chkDolarizado.Location = new Point(206, 417);
+            chkDolarizado.Name = "chkDolarizado";
+            chkDolarizado.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkDolarizado.Properties.Appearance.ForeColor = Color.Lime;
+            chkDolarizado.Properties.Appearance.Options.UseFont = true;
+            chkDolarizado.Properties.Appearance.Options.UseForeColor = true;
+            chkDolarizado.Properties.Caption = "Dolar $";
+            chkDolarizado.Size = new Size(88, 20);
+            chkDolarizado.StyleController = layoutControl1;
+            chkDolarizado.TabIndex = 16;
+            // 
+            // layoutControlItem18
+            // 
+            layoutControlItem18.Control = chkDolarizado;
+            layoutControlItem18.Location = new Point(179, 390);
+            layoutControlItem18.Name = "layoutControlItem18";
+            layoutControlItem18.Size = new Size(92, 24);
+            layoutControlItem18.TextLocation = DevExpress.Utils.Locations.Bottom;
+            layoutControlItem18.TextSize = new Size(0, 0);
+            layoutControlItem18.TextVisible = false;
+            // 
+            // emptySpaceItem6
+            // 
+            emptySpaceItem6.AllowHotTrack = false;
+            emptySpaceItem6.Location = new Point(179, 354);
+            emptySpaceItem6.Name = "emptySpaceItem6";
+            emptySpaceItem6.Size = new Size(92, 36);
+            emptySpaceItem6.TextSize = new Size(0, 0);
             // 
             // AgregarEditArticuloForm
             // 
@@ -681,6 +719,9 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem16).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem17).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkDolarizado.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem18).EndInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).EndInit();
             ResumeLayout(false);
         }
 
@@ -728,5 +769,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.TextEdit txtStockCritico;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraEditors.CheckEdit chkDolarizado;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
     }
 }

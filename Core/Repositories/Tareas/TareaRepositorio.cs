@@ -13,8 +13,8 @@ namespace Core.Repositories
         public async Task<int> AgregarAsync(Tarea tarea)
         {
             const string query = @"
-        INSERT INTO Tarea (Nombre, Codigo, Descripcion, ManoObra, Horas, Activo)
-        VALUES (@Nombre, @Codigo, @Descripcion, @ManoObra, @Horas, @Activo);
+        INSERT INTO Tarea (Nombre, Codigo, Descripcion, ManoObra, Horas, Activo, Dolar)
+        VALUES (@Nombre, @Codigo, @Descripcion, @ManoObra, @Horas, @Activo, @Dolar);
         SELECT CAST(SCOPE_IDENTITY() as int);";
 
             return await ConectarAsync(async conn =>
@@ -32,7 +32,8 @@ namespace Core.Repositories
             ManoObra = @ManoObra,
             Horas = @Horas,
             Codigo = @Codigo,
-            Activo = @Activo
+            Activo = @Activo,
+            Dolar = @Dolar  
         WHERE IdTarea = @IdTarea;";
 
             return await ConectarAsync(async conn =>

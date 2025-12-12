@@ -10,6 +10,8 @@ namespace GestionDocumental.Presenters.Novedades
     {
         private readonly IUnidadMantenimientoRepositorio _UnidadMantenimientoRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
+        private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
+
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         public UnidadMantenimientoDto? NovedadActual { get; private set; }
@@ -19,6 +21,7 @@ namespace GestionDocumental.Presenters.Novedades
             IUnidadRepositorio unidadRepositorio,
             ISesionService sesionService,
             INominaRepositorio nominaRepositorio,
+            IOrdenTrabajoRepositorio ordenTrabajoRepositorio,
             IChoferEstadoRepositorio choferEstadoRepositorio,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
@@ -26,6 +29,7 @@ namespace GestionDocumental.Presenters.Novedades
             _UnidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
             _unidadRepositorio = unidadRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _ordenTrabajoRepositorio = ordenTrabajoRepositorio;
             _choferEstadoRepositorio = choferEstadoRepositorio;
         }
 
@@ -102,6 +106,27 @@ namespace GestionDocumental.Presenters.Novedades
                     {
                         await _UnidadMantenimientoRepositorio.AltaNovedadAsync(unidadMantenimiento, _sesionService.IdUsuario);
                         _view.MostrarMensaje("Mantenimiento de Unidad Agregado Correctamente");
+
+                        Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(_view.IdUnidad, DateTime.Now);
+
+                        OrdenTrabajo orden = new OrdenTrabajo
+                        {
+                            FechaEmision = DateTime.Now,
+                            FechaInicio = null,
+                            FechaFin = null,
+                            IdNomina = nomina.IdNomina,
+                            OdometroIngreso = null,
+                            OdometroSalida = null,
+                            HorasEstimadas = null,
+                            CostoEstimado = null,
+                            Fase = 0, // Asumiendo que 1 es la fase inicial
+                            IdLugarReparacion = null,
+                            Observaciones = $"Novedad asignada: {unidadMantenimiento.IdUnidadMantenimiento} | Fecha Inicio: {unidadMantenimiento.FechaInicio} - Fecha Fin {unidadMantenimiento.FechaFin} | Descripcion: {unidadMantenimiento.Observaciones}",
+                            Activo = true
+                        };
+
+                        await _ordenTrabajoRepositorio.AgregarAsync(orden);  
+
                     }
                     else
                     {

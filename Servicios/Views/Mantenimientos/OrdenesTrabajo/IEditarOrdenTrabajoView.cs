@@ -19,6 +19,8 @@ namespace Servicios.Views.Mantenimientos
         decimal? OdometroIngreso { get; set; }
         decimal? OdometroSalida { get; set; }
         decimal? Costo { get; set; } //
+        decimal? CostoUsd { get; set; } //
+
         decimal? Horas { get; set; } //
         string Observaciones { get; set; }
 

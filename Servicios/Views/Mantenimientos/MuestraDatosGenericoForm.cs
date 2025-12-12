@@ -115,13 +115,20 @@ namespace Servicios.Views.Mantenimientos
 
             if ((_presenter.TipoVistaActual == "ArticuloStockDeposito" || _presenter.TipoVistaActual == "ArticuloStockCritico") && e.Column.FieldName == "CantidadActual")
             {
-                var valor = e.CellValue as decimal? ?? 0;
-                if (valor >= 10)
+                var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+                if (view == null) return;
+
+                // Obtenemos valores de la fila actual
+                decimal cantidad = e.CellValue as decimal? ?? 0;
+                decimal stockCritico = Convert.ToDecimal(view.GetRowCellValue(e.RowHandle, "StockCritico") ?? 0);
+
+                // 🔹 Lógica de color
+                if (cantidad > (stockCritico + 10))
                 {
                     e.Appearance.BackColor = Color.FromArgb(198, 239, 206); // Verde suave
                     e.Appearance.ForeColor = Color.DarkGreen;
                 }
-                else if (valor < 10 && valor > 0)
+                else if (cantidad > stockCritico)
                 {
                     e.Appearance.BackColor = Color.FromArgb(255, 255, 153); // Amarillo suave
                     e.Appearance.ForeColor = Color.Black;

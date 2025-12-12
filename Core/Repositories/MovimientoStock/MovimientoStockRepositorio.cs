@@ -46,7 +46,7 @@ namespace Core.Repositories
 
         public async Task<List<ArticuloMovimientoHistoricoDto>> ObtenerMovimientosPorPostaAsync(int idPosta)
         {
-            const string query = "SELECT * FROM vw_ArticuloMovimientoHistorico WHERE IdPosta = @idPosta";
+            const string query = "SELECT * FROM vw_ArticuloMovimientoHistorico WHERE IdPosta = @idPosta order by FechaMovimiento desc";
             return await ConectarAsync(async conn =>
             {
                 var result = await conn.QueryAsync<ArticuloMovimientoHistoricoDto>(query, new { idPosta });

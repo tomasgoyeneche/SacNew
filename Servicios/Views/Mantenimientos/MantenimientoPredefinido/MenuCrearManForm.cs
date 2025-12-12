@@ -168,10 +168,22 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             set => txtManoObraTotales.EditValue = value;
         }
 
+        public decimal ManoObraTotalUsd
+        {
+            get => Convert.ToDecimal(txtManoObraUsd.EditValue ?? 0);
+            set => txtManoObraUsd.EditValue = value;
+        }
+
         public decimal RepuestosTotales
         {
             get => Convert.ToDecimal(txtRepuestosTotales.EditValue ?? 0);
             set => txtRepuestosTotales.EditValue = value;
+        }
+
+        public decimal RepuestosTotalesUsd
+        {
+            get => Convert.ToDecimal(txtRepuestosUsd.EditValue ?? 0);
+            set => txtRepuestosUsd.EditValue = value;
         }
 
         // =====================================================

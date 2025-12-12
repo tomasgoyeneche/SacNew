@@ -112,6 +112,8 @@
             layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtPrecioUsd = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDescripcion.Properties).BeginInit();
@@ -166,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem20).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtPrecioUsd.Properties).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
@@ -394,6 +397,8 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.Controls.Add(guna2HtmlLabel1);
+            guna2Panel1.Controls.Add(txtPrecioUsd);
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
             guna2Panel1.Controls.Add(txtHoras);
             guna2Panel1.Controls.Add(guna2HtmlLabel11);
@@ -413,7 +418,7 @@
             guna2HtmlLabel9.BackColor = Color.Gray;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel9.Location = new Point(11, 33);
+            guna2HtmlLabel9.Location = new Point(11, 24);
             guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(130, 23);
@@ -424,7 +429,7 @@
             // txtHoras
             // 
             txtHoras.Enabled = false;
-            txtHoras.Location = new Point(142, 34);
+            txtHoras.Location = new Point(142, 25);
             txtHoras.Name = "txtHoras";
             txtHoras.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHoras.Properties.Appearance.Options.UseFont = true;
@@ -436,21 +441,21 @@
             // guna2HtmlLabel11
             // 
             guna2HtmlLabel11.AutoSize = false;
-            guna2HtmlLabel11.BackColor = Color.Gray;
+            guna2HtmlLabel11.BackColor = Color.RosyBrown;
             guna2HtmlLabel11.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel11.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel11.Location = new Point(11, 68);
+            guna2HtmlLabel11.Location = new Point(11, 52);
             guna2HtmlLabel11.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             guna2HtmlLabel11.Size = new Size(130, 23);
             guna2HtmlLabel11.TabIndex = 100;
-            guna2HtmlLabel11.Text = "Costo Total";
+            guna2HtmlLabel11.Text = "Costo Total $";
             guna2HtmlLabel11.TextAlignment = ContentAlignment.TopCenter;
             // 
             // txtManoObra
             // 
             txtManoObra.Enabled = false;
-            txtManoObra.Location = new Point(142, 69);
+            txtManoObra.Location = new Point(142, 53);
             txtManoObra.Name = "txtManoObra";
             txtManoObra.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtManoObra.Properties.Appearance.Options.UseFont = true;
@@ -1160,6 +1165,32 @@
             layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem20.TextSize = new Size(174, 15);
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Green;
+            guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel1.Location = new Point(11, 79);
+            guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(130, 23);
+            guna2HtmlLabel1.TabIndex = 104;
+            guna2HtmlLabel1.Text = "Costo Total USD";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // txtPrecioUsd
+            // 
+            txtPrecioUsd.Enabled = false;
+            txtPrecioUsd.Location = new Point(142, 80);
+            txtPrecioUsd.Name = "txtPrecioUsd";
+            txtPrecioUsd.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPrecioUsd.Properties.Appearance.Options.UseFont = true;
+            txtPrecioUsd.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtPrecioUsd.Properties.MaskSettings.Set("mask", "f");
+            txtPrecioUsd.Size = new Size(237, 22);
+            txtPrecioUsd.TabIndex = 103;
+            // 
             // EdicionOrdenTrabajoForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -1227,6 +1258,7 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem15).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem8).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem20).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtPrecioUsd.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -1307,5 +1339,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
         private DevExpress.XtraEditors.MemoEdit txtDescripcion;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private DevExpress.XtraEditors.TextEdit txtPrecioUsd;
     }
 }

@@ -13,6 +13,7 @@
         public decimal Cantidad { get; set; }
         public decimal? Estimado { get; set; }
 
+        public bool Dolar { get; set; } = false;
         public bool Activo { get; set; } = true;
         public string Estado { get; set; } = "Pendiente";
     }

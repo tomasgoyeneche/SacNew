@@ -51,6 +51,7 @@ namespace Servicios.Presenters
                 _view.Cantidad = detalle.Cantidad;
                 _view.PrecioUnitario = detalle.PrecioUnitario;
                 _view.PrecioTotal = detalle.PrecioTotal;
+                _view.Dolarizado = detalle.Dolar;
 
                 Articulo articulo = await _articuloRepositorio.ObtenerPorIdAsync(detalle.IdArticulo);
                 if (articulo != null)
@@ -79,6 +80,7 @@ namespace Servicios.Presenters
                 Cantidad = _view.Cantidad,
                 PrecioUnitario = _view.PrecioUnitario,
                 PrecioTotal = _view.PrecioTotal,
+                Dolar = _view.Dolarizado,
                 Activo = true
             };
 

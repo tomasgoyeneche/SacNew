@@ -113,9 +113,13 @@ namespace Servicios.Presenters
             decimal totalHoras = mantenimientos.Sum(t => t.Horas ?? 0);
             decimal totalManoObra = mantenimientos.Sum(t => t.ManoObra ?? 0);
             decimal totalRepuestos = mantenimientos.Sum(t => t.PrecioRepuestos ?? 0);
+            decimal totalManoObraUsd = mantenimientos.Sum(t => t.ManoObraUsd ?? 0); 
+            decimal totalRepuestosUsd = mantenimientos.Sum(t => t.PrecioRepuestosUsd ?? 0);
 
+      
             _view.Horas = totalHoras;
             _view.Costo = totalManoObra + totalRepuestos;
+            _view.CostoUsd = totalManoObraUsd + totalRepuestosUsd;
         }
 
         public async Task<int> CrearMantenimientoAsync(int idTipoMantenimiento)
@@ -130,8 +134,10 @@ namespace Servicios.Presenters
                 Activo = true,
                 Descripcion = "",
                 ManoObra = 0,
+                ManoObraUsd = 0,
                 Horas = 0,
-                PrecioRepuestos = 0
+                PrecioRepuestos = 0,
+                PrecioRepuestosUsd = 0
             };
 
             return await _ordenTrabajoMantenimientoRepositorio.AgregarAsync(mantenimiento);
@@ -240,7 +246,7 @@ namespace Servicios.Presenters
             }
 
             // Calcular totales
-            decimal totalHoras = 0, totalManoObra = 0, totalRepuestos = 0;
+            decimal totalHoras = 0, totalManoObra = 0, totalManoObraUsd = 0, totalRepuestos = 0, totalRepuestosUsd = 0;
 
             List<MantenimientoTarea> tareasMantenimiento = await _mantenimientoTareaRepositorio.ObtenerPorMantenimientoAsync(idMantenimiento);
             List<Tarea> listaTareas = new List<Tarea>();
@@ -252,14 +258,24 @@ namespace Servicios.Presenters
 
                 listaTareas.Add(tarea);
                 totalHoras += tarea.Horas ?? 0;
-                totalManoObra += tarea.ManoObra ?? 0;
+                if (tarea.Dolar == true)
+                    totalManoObraUsd += tarea.ManoObra ?? 0;
+                else
+                    totalManoObra += tarea.ManoObra ?? 0;
 
                 var articulos = await _mantenimientoTareaArticuloRepositorio.ObtenerPorTareaAsync(tareaMan.IdTarea);
                 foreach (var art in articulos)
                 {
                     var articulo = await _articuloRepositorio.ObtenerPorIdAsync(art.IdArticulo);
-                    if (articulo != null)
+                    if (articulo.Dolar == false)
+                    {
                         totalRepuestos += articulo.PrecioUnitario * art.Cantidad;
+
+                    }
+                    else if (articulo.Dolar == true)
+                    {
+                        totalRepuestosUsd += articulo.PrecioUnitario * art.Cantidad;
+                    }
                 }
             }
 
@@ -272,8 +288,10 @@ namespace Servicios.Presenters
                 AplicaA = mantenimiento.AplicaA,
                 Descripcion = mantenimiento.Descripcion,
                 ManoObra = totalManoObra,
+                ManoObraUsd = totalManoObraUsd,
                 Horas = totalHoras,
                 PrecioRepuestos = totalRepuestos,
+                PrecioRepuestosUsd = totalRepuestosUsd,
                 Activo = true
             };
 
@@ -287,14 +305,36 @@ namespace Servicios.Presenters
                 List<MantenimientoTareaArticulo> articulosTarea = await _mantenimientoTareaArticuloRepositorio.ObtenerPorTareaAsync(tarea.IdTarea);
 
                 // Calculamos total de repuestos de esta tarea
+                decimal totalArticulos = 0;
+                decimal totalArticulosUsd = 0;
                 foreach (MantenimientoTareaArticulo art in articulosTarea)
                 {
                     Articulo? articulo = await _articuloRepositorio.ObtenerPorIdAsync(art.IdArticulo);
-                    if (articulo != null)
-                        totalRepuestosTarea += articulo.PrecioUnitario * art.Cantidad;
+                    if (articulo.Dolar == false)
+                    {
+                        totalArticulos += articulo.PrecioUnitario * art.Cantidad;
+
+                    }
+                    else if (articulo.Dolar == true)
+                    {
+                        totalArticulosUsd += articulo.PrecioUnitario * art.Cantidad;
+                    }
                 }
 
-                decimal totalEstimado = (tarea.ManoObra ?? 0) + totalRepuestosTarea;
+                decimal totalEstimado = 0;
+                decimal totalEstimadoUsd = 0;
+
+                if (tarea.Dolar == true)
+                {
+                    totalEstimado = totalArticulos;
+                    totalEstimadoUsd = tarea.ManoObra.Value + totalArticulosUsd;
+                }
+                else
+                {
+                    totalEstimado = tarea.ManoObra.Value + totalArticulos;
+                    totalEstimadoUsd = totalArticulosUsd;
+                }
+
 
                 OrdenTrabajoTarea nuevaTarea = new OrdenTrabajoTarea
                 {
@@ -305,6 +345,7 @@ namespace Servicios.Presenters
                     ManoObra = tarea.ManoObra,
                     Horas = tarea.Horas,
                     TotalEstimado = totalEstimado,
+                    TotalEstimadoUsd = totalEstimadoUsd,
                     Activo = true
                 };
 
@@ -325,6 +366,7 @@ namespace Servicios.Presenters
                         PrecioUnitario = articulo.PrecioUnitario,
                         Cantidad = art.Cantidad,
                         Estimado = articulo.PrecioUnitario * art.Cantidad,
+                        Dolar = articulo.Dolar,
                         Activo = true,
                         Estado = "Pendiente"
                     };
@@ -393,6 +435,7 @@ namespace Servicios.Presenters
                 _ordenActual.Observaciones = _view.Observaciones;
                 _ordenActual.HorasEstimadas = _view.Horas;
                 _ordenActual.CostoEstimado = _view.Costo;
+                _ordenActual.CostoUsd = _view.CostoUsd;
 
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
                 

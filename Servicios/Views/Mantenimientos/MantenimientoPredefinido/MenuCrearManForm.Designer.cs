@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -87,6 +87,10 @@
             emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtManoObraUsd = new DevExpress.XtraEditors.TextEdit();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtRepuestosUsd = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             guna2Panel1.SuspendLayout();
@@ -125,6 +129,8 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtManoObraUsd.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtRepuestosUsd.Properties).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
@@ -153,6 +159,10 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.Controls.Add(guna2HtmlLabel2);
+            guna2Panel1.Controls.Add(txtRepuestosUsd);
+            guna2Panel1.Controls.Add(guna2HtmlLabel1);
+            guna2Panel1.Controls.Add(txtManoObraUsd);
             guna2Panel1.Controls.Add(guna2HtmlLabel7);
             guna2Panel1.Controls.Add(txtHorasTotales);
             guna2Panel1.Controls.Add(guna2HtmlLabel8);
@@ -160,11 +170,11 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
             guna2Panel1.Controls.Add(txtRepuestosTotales);
             guna2Panel1.Controls.Add(guna2HtmlLabel13);
-            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.CustomizableEdges = customizableEdges7;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(383, 375);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel1.Size = new Size(403, 186);
             guna2Panel1.TabIndex = 114;
             // 
@@ -197,15 +207,15 @@
             // guna2HtmlLabel8
             // 
             guna2HtmlLabel8.AutoSize = false;
-            guna2HtmlLabel8.BackColor = Color.Gray;
+            guna2HtmlLabel8.BackColor = Color.RosyBrown;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel8.ForeColor = Color.WhiteSmoke;
             guna2HtmlLabel8.Location = new Point(35, 84);
             guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(335, 23);
+            guna2HtmlLabel8.Size = new Size(164, 23);
             guna2HtmlLabel8.TabIndex = 100;
-            guna2HtmlLabel8.Text = "Mano de Obra";
+            guna2HtmlLabel8.Text = "Mano de Obra $";
             guna2HtmlLabel8.TextAlignment = ContentAlignment.TopCenter;
             // 
             // txtManoObraTotales
@@ -217,21 +227,21 @@
             txtManoObraTotales.Properties.Appearance.Options.UseFont = true;
             txtManoObraTotales.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtManoObraTotales.Properties.MaskSettings.Set("mask", "f");
-            txtManoObraTotales.Size = new Size(334, 22);
+            txtManoObraTotales.Size = new Size(163, 22);
             txtManoObraTotales.TabIndex = 99;
             // 
             // guna2HtmlLabel9
             // 
             guna2HtmlLabel9.AutoSize = false;
-            guna2HtmlLabel9.BackColor = Color.Gray;
+            guna2HtmlLabel9.BackColor = Color.RosyBrown;
             guna2HtmlLabel9.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel9.ForeColor = SystemColors.ControlLight;
             guna2HtmlLabel9.Location = new Point(34, 137);
             guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(335, 23);
+            guna2HtmlLabel9.Size = new Size(166, 23);
             guna2HtmlLabel9.TabIndex = 98;
-            guna2HtmlLabel9.Text = "Repuestos";
+            guna2HtmlLabel9.Text = "Repuestos $";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.TopCenter;
             // 
             // txtRepuestosTotales
@@ -243,7 +253,7 @@
             txtRepuestosTotales.Properties.Appearance.Options.UseFont = true;
             txtRepuestosTotales.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtRepuestosTotales.Properties.MaskSettings.Set("mask", "f");
-            txtRepuestosTotales.Size = new Size(334, 22);
+            txtRepuestosTotales.Size = new Size(165, 22);
             txtRepuestosTotales.TabIndex = 97;
             // 
             // guna2HtmlLabel13
@@ -361,11 +371,11 @@
             pComprobantes.Controls.Add(bEliminarTarea);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
             pComprobantes.Controls.Add(bEditarTarea);
-            pComprobantes.CustomizableEdges = customizableEdges3;
+            pComprobantes.CustomizableEdges = customizableEdges9;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(383, 131);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges10;
             pComprobantes.Size = new Size(403, 230);
             pComprobantes.TabIndex = 6;
             // 
@@ -541,11 +551,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges5;
+            guna2Panel10.CustomizableEdges = customizableEdges11;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(17, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel10.Size = new Size(343, 43);
             guna2Panel10.TabIndex = 0;
             // 
@@ -780,6 +790,58 @@
             layoutControlItem13.TextSize = new Size(0, 0);
             layoutControlItem13.TextVisible = false;
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Green;
+            guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = Color.WhiteSmoke;
+            guna2HtmlLabel1.Location = new Point(205, 84);
+            guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(164, 23);
+            guna2HtmlLabel1.TabIndex = 104;
+            guna2HtmlLabel1.Text = "Mano de Obra USD";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // txtManoObraUsd
+            // 
+            txtManoObraUsd.Enabled = false;
+            txtManoObraUsd.Location = new Point(205, 107);
+            txtManoObraUsd.Name = "txtManoObraUsd";
+            txtManoObraUsd.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtManoObraUsd.Properties.Appearance.Options.UseFont = true;
+            txtManoObraUsd.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtManoObraUsd.Properties.MaskSettings.Set("mask", "f");
+            txtManoObraUsd.Size = new Size(163, 22);
+            txtManoObraUsd.TabIndex = 103;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.AutoSize = false;
+            guna2HtmlLabel2.BackColor = Color.Green;
+            guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel2.Location = new Point(204, 137);
+            guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(166, 23);
+            guna2HtmlLabel2.TabIndex = 106;
+            guna2HtmlLabel2.Text = "Repuestos USD";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // txtRepuestosUsd
+            // 
+            txtRepuestosUsd.Enabled = false;
+            txtRepuestosUsd.Location = new Point(204, 160);
+            txtRepuestosUsd.Name = "txtRepuestosUsd";
+            txtRepuestosUsd.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRepuestosUsd.Properties.Appearance.Options.UseFont = true;
+            txtRepuestosUsd.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtRepuestosUsd.Properties.MaskSettings.Set("mask", "f");
+            txtRepuestosUsd.Size = new Size(165, 22);
+            txtRepuestosUsd.TabIndex = 105;
+            // 
             // MenuCrearManForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -829,6 +891,8 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtManoObraUsd.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtRepuestosUsd.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -887,5 +951,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private DevExpress.XtraEditors.TextEdit txtRepuestosUsd;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private DevExpress.XtraEditors.TextEdit txtManoObraUsd;
     }
 }
