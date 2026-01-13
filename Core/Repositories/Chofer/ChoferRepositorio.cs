@@ -34,6 +34,17 @@ namespace Core.Repositories
             });
         }
 
+        public async Task<List<Chofer?>> ObtenerTodosLosChoferesIncluyendoInactivos()
+        {
+            var query = "SELECT * FROM Chofer";
+
+            return await ConectarAsync(async connection =>
+            {
+                var chofers = await connection.QueryAsync<Chofer?>(query);
+                return chofers.ToList();
+            });
+        }
+
         public async Task<List<ChoferesLibresDto?>> ObtenerTodosLosChoferesLibres()
         {
             var query = "SELECT * FROM vw_ChoferesLibres";

@@ -7,6 +7,8 @@ namespace Servicios
     {
         void MostrarVaporizados(List<VaporizadoDto> vaporizados);
 
+        void CargarGuardiasPasadas(List<GuardiaDto> empresas);
+
         DialogResult ConfirmarEliminacion(string mensaje);
     }
 }

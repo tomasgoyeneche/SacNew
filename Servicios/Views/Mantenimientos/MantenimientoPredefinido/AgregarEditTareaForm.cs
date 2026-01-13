@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
 {
@@ -69,6 +60,7 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             get => txtCodigo.Text.Trim();
             set => txtCodigo.Text = value;
         }
+
         public string Descripcion
         {
             get => txtDescripcion.Text.Trim();
@@ -113,7 +105,6 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             set => chkDolarizado.Checked = value;
         }
 
-
         public void CargarArticulos(List<Articulo> articulos)
         {
             cmbArticulo.Properties.DataSource = articulos;
@@ -122,7 +113,7 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             cmbArticulo.Properties.NullText = "Seleccione un artículo...";
             cmbArticulo.Properties.Columns.Clear();
             cmbArticulo.Properties.Columns.Add(new LookUpColumnInfo("Codigo", "Código"));
-            cmbArticulo.Properties.Columns.Add(new LookUpColumnInfo("Descripcion", "Descripción"));
+            cmbArticulo.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Nombre"));
         }
 
         public void CargarArticulosAsociados(List<TareaArticuloDto> articulos)
@@ -140,7 +131,6 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
 
         private async void bEditarComprobante_Click(object sender, EventArgs e)
         {
-
             var articulo = gridViewArticulos.GetFocusedRow() as TareaArticuloDto;
 
             if (articulo.Estado == "Confirmado")

@@ -26,6 +26,10 @@ namespace Servicios.Views
 
         void MostrarMensaje(string mensaje);
 
+        void HabilitarFechaEmision(bool habilitar);
+
+        void HabilitarAutorizar(bool habilitar);
+
         void Cerrar();
     }
 }

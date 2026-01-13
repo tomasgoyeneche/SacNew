@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtCUIT = new DevExpress.XtraEditors.TextEdit();
@@ -48,22 +48,25 @@
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
+            txtNombreFantasia = new DevExpress.XtraEditors.TextEdit();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtCUIT.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtRazonSocial.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtDireccion.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtTelefono.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtNombreFantasia.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges1;
+            guna2Panel10.CustomizableEdges = customizableEdges7;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(0, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 76;
             // 
@@ -81,7 +84,7 @@
             // 
             // txtCUIT
             // 
-            txtCUIT.Location = new Point(32, 195);
+            txtCUIT.Location = new Point(32, 235);
             txtCUIT.Name = "txtCUIT";
             txtCUIT.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCUIT.Properties.Appearance.Options.UseFont = true;
@@ -95,7 +98,7 @@
             guna2HtmlLabel1.BackColor = Color.Gray;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(32, 171);
+            guna2HtmlLabel1.Location = new Point(32, 211);
             guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(419, 23);
@@ -105,7 +108,7 @@
             // 
             // txtRazonSocial
             // 
-            txtRazonSocial.Location = new Point(32, 122);
+            txtRazonSocial.Location = new Point(32, 162);
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRazonSocial.Properties.Appearance.Options.UseFont = true;
@@ -119,7 +122,7 @@
             guna2HtmlLabel8.BackColor = Color.Gray;
             guna2HtmlLabel8.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel8.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel8.Location = new Point(32, 98);
+            guna2HtmlLabel8.Location = new Point(32, 138);
             guna2HtmlLabel8.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(419, 23);
@@ -129,7 +132,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(32, 269);
+            txtDireccion.Location = new Point(32, 309);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDireccion.Properties.Appearance.Options.UseFont = true;
@@ -143,7 +146,7 @@
             guna2HtmlLabel2.BackColor = Color.Gray;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(32, 245);
+            guna2HtmlLabel2.Location = new Point(32, 285);
             guna2HtmlLabel2.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(419, 23);
@@ -153,7 +156,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(32, 342);
+            txtTelefono.Location = new Point(32, 382);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTelefono.Properties.Appearance.Options.UseFont = true;
@@ -167,7 +170,7 @@
             guna2HtmlLabel3.BackColor = Color.Gray;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(32, 318);
+            guna2HtmlLabel3.Location = new Point(32, 358);
             guna2HtmlLabel3.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(419, 23);
@@ -177,7 +180,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(32, 414);
+            txtEmail.Location = new Point(32, 454);
             txtEmail.Name = "txtEmail";
             txtEmail.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.Properties.Appearance.Options.UseFont = true;
@@ -191,7 +194,7 @@
             guna2HtmlLabel4.BackColor = Color.Gray;
             guna2HtmlLabel4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel4.Location = new Point(32, 390);
+            guna2HtmlLabel4.Location = new Point(32, 430);
             guna2HtmlLabel4.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(419, 23);
@@ -202,7 +205,7 @@
             // btnGuardar
             // 
             btnGuardar.AnimatedGIF = true;
-            btnGuardar.CustomizableEdges = customizableEdges3;
+            btnGuardar.CustomizableEdges = customizableEdges9;
             btnGuardar.DisabledState.BorderColor = Color.DarkGray;
             btnGuardar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGuardar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -213,7 +216,7 @@
             btnGuardar.Location = new Point(269, 507);
             btnGuardar.Margin = new Padding(4, 3, 4, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnGuardar.Size = new Size(182, 35);
             btnGuardar.TabIndex = 91;
             btnGuardar.Text = "Guardar";
@@ -221,7 +224,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.CustomizableEdges = customizableEdges5;
+            btnCancelar.CustomizableEdges = customizableEdges11;
             btnCancelar.DisabledState.BorderColor = Color.DarkGray;
             btnCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -232,11 +235,35 @@
             btnCancelar.Location = new Point(32, 507);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnCancelar.Size = new Size(190, 35);
             btnCancelar.TabIndex = 90;
             btnCancelar.Text = "Cancelar";
             btnCancelar.Click += btnCancelar_Click;
+            // 
+            // txtNombreFantasia
+            // 
+            txtNombreFantasia.Location = new Point(32, 90);
+            txtNombreFantasia.Name = "txtNombreFantasia";
+            txtNombreFantasia.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNombreFantasia.Properties.Appearance.Options.UseFont = true;
+            txtNombreFantasia.Properties.NullValuePrompt = "Ingrese Nombre Fantasia (Obligatorio)";
+            txtNombreFantasia.Size = new Size(419, 22);
+            txtNombreFantasia.TabIndex = 93;
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.AutoSize = false;
+            guna2HtmlLabel5.BackColor = Color.Gray;
+            guna2HtmlLabel5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel5.Location = new Point(32, 66);
+            guna2HtmlLabel5.Margin = new Padding(4, 3, 4, 3);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(419, 23);
+            guna2HtmlLabel5.TabIndex = 92;
+            guna2HtmlLabel5.Text = "Nombre Fantasia";
+            guna2HtmlLabel5.TextAlignment = ContentAlignment.TopCenter;
             // 
             // AgregarEditarArticuloProveedorForm
             // 
@@ -245,6 +272,8 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 568);
+            Controls.Add(txtNombreFantasia);
+            Controls.Add(guna2HtmlLabel5);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);
             Controls.Add(txtEmail);
@@ -267,6 +296,7 @@
             ((System.ComponentModel.ISupportInitialize)txtDireccion.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtTelefono.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtNombreFantasia.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -286,5 +316,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
+        private DevExpress.XtraEditors.TextEdit txtNombreFantasia;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

@@ -15,6 +15,7 @@
         public bool ZonaFria { get; set; }              // Indica si pertenece a una zona fría
         public bool Activo { get; set; }                // Estado del chofer (activo/inactivo)
         public DateTime FechaAlta { get; set; }         // Fecha de alta en la empresa
+        public DateTime? FechaBaja { get; set; }         // Fecha de alta en la empresa
 
         public string NombreApellido
         {

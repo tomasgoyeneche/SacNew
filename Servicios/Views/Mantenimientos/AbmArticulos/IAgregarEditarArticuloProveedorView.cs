@@ -7,6 +7,8 @@ namespace Servicios.Views.Mantenimiento
     {
         int? IdArticuloProveedor { get; }
         string RazonSocial { get; }
+        string NombreFantasia { get; }
+
         string CUIT { get; }
         string? Direccion { get; }
         string? Telefono { get; }

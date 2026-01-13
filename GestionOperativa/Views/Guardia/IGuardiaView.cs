@@ -18,7 +18,9 @@ namespace GestionOperativa
         void MostrarAlertas(List<AlertaDto> alertas);
 
         void SeleccionarGuardiaPorId(int idGuardia);
+
         void MostrarAusenciasChofer(string texto);
+
         string PatenteIngresada { get; set; }
         DateTime? FechaManual { get; } // null si no se eligió
         DateTime? FechaSalidaManual { get; } // null si no se eligió

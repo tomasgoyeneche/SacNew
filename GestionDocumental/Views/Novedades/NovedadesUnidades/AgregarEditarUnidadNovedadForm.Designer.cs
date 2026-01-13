@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             bGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -68,6 +68,8 @@
             emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            lblDisponibles = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cmbUnidad.Properties).BeginInit();
@@ -101,10 +103,12 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem14).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
             // 
+            layoutControl1.Controls.Add(lblDisponibles);
             layoutControl1.Controls.Add(simpleButton1);
             layoutControl1.Controls.Add(bGuardar);
             layoutControl1.Controls.Add(cmbUnidad);
@@ -138,7 +142,7 @@
             simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             simpleButton1.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             simpleButton1.AppearanceDisabled.Options.UseForeColor = true;
-            simpleButton1.Location = new Point(12, 501);
+            simpleButton1.Location = new Point(12, 502);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(185, 40);
             simpleButton1.StyleController = layoutControl1;
@@ -158,7 +162,7 @@
             bGuardar.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             bGuardar.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bGuardar.AppearanceDisabled.Options.UseForeColor = true;
-            bGuardar.Location = new Point(213, 501);
+            bGuardar.Location = new Point(213, 502);
             bGuardar.MinimumSize = new Size(0, 40);
             bGuardar.Name = "bGuardar";
             bGuardar.Size = new Size(178, 40);
@@ -169,12 +173,12 @@
             // 
             // cmbUnidad
             // 
-            cmbUnidad.Location = new Point(12, 87);
+            cmbUnidad.Location = new Point(12, 85);
             cmbUnidad.MaximumSize = new Size(0, 30);
             cmbUnidad.MinimumSize = new Size(0, 30);
             cmbUnidad.Name = "cmbUnidad";
             cmbUnidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmbUnidad.Size = new Size(260, 30);
+            cmbUnidad.Size = new Size(253, 30);
             cmbUnidad.StyleController = layoutControl1;
             cmbUnidad.TabIndex = 2;
             cmbUnidad.EditValueChanged += cmbUnidad_EditValueChanged;
@@ -188,11 +192,11 @@
             bAyuda.FillColor = Color.SteelBlue;
             bAyuda.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bAyuda.ForeColor = Color.White;
-            bAyuda.Location = new Point(344, 278);
+            bAyuda.Location = new Point(344, 288);
             bAyuda.Name = "bAyuda";
-            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            bAyuda.ShadowDecoration.CustomizableEdges = customizableEdges1;
             bAyuda.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            bAyuda.Size = new Size(47, 29);
+            bAyuda.Size = new Size(47, 23);
             bAyuda.TabIndex = 10;
             bAyuda.Text = "?";
             bAyuda.Click += bAyuda_Click;
@@ -200,15 +204,15 @@
             // txtObservaciones
             // 
             txtObservaciones.EditValue = "";
-            txtObservaciones.Location = new Point(12, 342);
+            txtObservaciones.Location = new Point(12, 346);
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(379, 132);
+            txtObservaciones.Size = new Size(379, 119);
             txtObservaciones.StyleController = layoutControl1;
             txtObservaciones.TabIndex = 11;
             // 
             // cmbEstado
             // 
-            cmbEstado.Location = new Point(12, 277);
+            cmbEstado.Location = new Point(12, 281);
             cmbEstado.MaximumSize = new Size(0, 30);
             cmbEstado.MinimumSize = new Size(0, 30);
             cmbEstado.Name = "cmbEstado";
@@ -223,10 +227,10 @@
             lblDiasAusente.BackColor = Color.Transparent;
             lblDiasAusente.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDiasAusente.ForeColor = SystemColors.ControlLight;
-            lblDiasAusente.Location = new Point(12, 222);
+            lblDiasAusente.Location = new Point(12, 221);
             lblDiasAusente.Margin = new Padding(4, 3, 4, 3);
             lblDiasAusente.Name = "lblDiasAusente";
-            lblDiasAusente.Size = new Size(379, 20);
+            lblDiasAusente.Size = new Size(379, 25);
             lblDiasAusente.TabIndex = 8;
             lblDiasAusente.Text = "Dias Ausentes:";
             // 
@@ -236,17 +240,17 @@
             lblReincorporacion.BackColor = Color.Transparent;
             lblReincorporacion.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblReincorporacion.ForeColor = SystemColors.ControlLight;
-            lblReincorporacion.Location = new Point(12, 192);
+            lblReincorporacion.Location = new Point(12, 190);
             lblReincorporacion.Margin = new Padding(4, 3, 4, 3);
             lblReincorporacion.Name = "lblReincorporacion";
-            lblReincorporacion.Size = new Size(379, 20);
+            lblReincorporacion.Size = new Size(379, 21);
             lblReincorporacion.TabIndex = 7;
             lblReincorporacion.Text = "Reincorpora:";
             // 
             // dtpFechaFinal
             // 
             dtpFechaFinal.EditValue = new DateTime(2025, 8, 14, 11, 36, 20, 0);
-            dtpFechaFinal.Location = new Point(206, 145);
+            dtpFechaFinal.Location = new Point(206, 143);
             dtpFechaFinal.MaximumSize = new Size(0, 30);
             dtpFechaFinal.MinimumSize = new Size(0, 30);
             dtpFechaFinal.Name = "dtpFechaFinal";
@@ -262,7 +266,7 @@
             // dtpFechaInicio
             // 
             dtpFechaInicio.EditValue = new DateTime(2025, 8, 14, 11, 36, 14, 0);
-            dtpFechaInicio.Location = new Point(12, 145);
+            dtpFechaInicio.Location = new Point(12, 143);
             dtpFechaInicio.MaximumSize = new Size(0, 30);
             dtpFechaInicio.MinimumSize = new Size(0, 30);
             dtpFechaInicio.Name = "dtpFechaInicio";
@@ -278,7 +282,7 @@
             // txtOdometro
             // 
             txtOdometro.EditValue = "";
-            txtOdometro.Location = new Point(276, 87);
+            txtOdometro.Location = new Point(269, 85);
             txtOdometro.MaximumSize = new Size(0, 30);
             txtOdometro.MinimumSize = new Size(0, 30);
             txtOdometro.Name = "txtOdometro";
@@ -287,19 +291,19 @@
             txtOdometro.Properties.MaskSettings.Set("mask", "d");
             txtOdometro.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             txtOdometro.Properties.NullValuePrompt = "Ingrese Numero Danes";
-            txtOdometro.Size = new Size(115, 30);
+            txtOdometro.Size = new Size(122, 30);
             txtOdometro.StyleController = layoutControl1;
             txtOdometro.TabIndex = 3;
             // 
             // guna2Panel13
             // 
             guna2Panel13.Controls.Add(guna2HtmlLabel6);
-            guna2Panel13.CustomizableEdges = customizableEdges5;
+            guna2Panel13.CustomizableEdges = customizableEdges2;
             guna2Panel13.FillColor = Color.Coral;
             guna2Panel13.Location = new Point(12, 12);
             guna2Panel13.Name = "guna2Panel13";
-            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Panel13.Size = new Size(296, 40);
+            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2Panel13.Size = new Size(296, 38);
             guna2Panel13.TabIndex = 0;
             // 
             // guna2HtmlLabel6
@@ -318,12 +322,12 @@
             // 
             lblAusenciasChofer.AutoSize = false;
             lblAusenciasChofer.BackColor = Color.FromArgb(42, 48, 56);
-            lblAusenciasChofer.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAusenciasChofer.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAusenciasChofer.ForeColor = Color.Red;
-            lblAusenciasChofer.Location = new Point(415, 87);
+            lblAusenciasChofer.Location = new Point(415, 85);
             lblAusenciasChofer.Margin = new Padding(4, 3, 4, 3);
             lblAusenciasChofer.Name = "lblAusenciasChofer";
-            lblAusenciasChofer.Size = new Size(376, 454);
+            lblAusenciasChofer.Size = new Size(376, 199);
             lblAusenciasChofer.TabIndex = 4;
             lblAusenciasChofer.Text = "Ausencia";
             // 
@@ -337,7 +341,7 @@
             Root.AppearanceItemCaption.Options.UseForeColor = true;
             Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem3, emptySpaceItem1, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, emptySpaceItem2, layoutControlItem11, emptySpaceItem3, emptySpaceItem4, layoutControlItem2, layoutControlItem12, layoutControlItem13, emptySpaceItem5, emptySpaceItem8, emptySpaceItem7, layoutControlItem4 });
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem3, emptySpaceItem1, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, emptySpaceItem2, layoutControlItem11, emptySpaceItem3, emptySpaceItem4, layoutControlItem2, layoutControlItem12, layoutControlItem13, emptySpaceItem5, emptySpaceItem8, emptySpaceItem7, layoutControlItem4, layoutControlItem14 });
             Root.Name = "Root";
             Root.Size = new Size(803, 573);
             Root.TextVisible = false;
@@ -345,13 +349,13 @@
             // layoutControlItem1
             // 
             layoutControlItem1.Control = lblAusenciasChofer;
-            layoutControlItem1.Location = new Point(403, 44);
+            layoutControlItem1.Location = new Point(403, 42);
             layoutControlItem1.Name = "layoutControlItem1";
             layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
-            layoutControlItem1.Size = new Size(380, 489);
+            layoutControlItem1.Size = new Size(380, 234);
             layoutControlItem1.Text = "Novedades Choferes";
             layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem1.TextSize = new Size(115, 15);
+            layoutControlItem1.TextSize = new Size(122, 15);
             // 
             // layoutControlItem3
             // 
@@ -359,7 +363,7 @@
             layoutControlItem3.Location = new Point(0, 0);
             layoutControlItem3.MinSize = new Size(1, 1);
             layoutControlItem3.Name = "layoutControlItem3";
-            layoutControlItem3.Size = new Size(300, 44);
+            layoutControlItem3.Size = new Size(300, 42);
             layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             layoutControlItem3.TextSize = new Size(0, 0);
             layoutControlItem3.TextVisible = false;
@@ -369,88 +373,88 @@
             emptySpaceItem1.AllowHotTrack = false;
             emptySpaceItem1.Location = new Point(403, 0);
             emptySpaceItem1.Name = "emptySpaceItem1";
-            emptySpaceItem1.Size = new Size(380, 44);
+            emptySpaceItem1.Size = new Size(380, 42);
             emptySpaceItem1.TextSize = new Size(0, 0);
             // 
             // layoutControlItem5
             // 
             layoutControlItem5.Control = dtpFechaInicio;
-            layoutControlItem5.Location = new Point(0, 109);
+            layoutControlItem5.Location = new Point(0, 107);
             layoutControlItem5.Name = "layoutControlItem5";
             layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 8, 2);
             layoutControlItem5.Size = new Size(194, 58);
             layoutControlItem5.Text = "Desde";
             layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem5.TextSize = new Size(115, 15);
+            layoutControlItem5.TextSize = new Size(122, 15);
             // 
             // layoutControlItem6
             // 
             layoutControlItem6.Control = dtpFechaFinal;
-            layoutControlItem6.Location = new Point(194, 109);
+            layoutControlItem6.Location = new Point(194, 107);
             layoutControlItem6.Name = "layoutControlItem6";
             layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 8, 2);
             layoutControlItem6.Size = new Size(189, 58);
             layoutControlItem6.Text = "Hasta";
             layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem6.TextSize = new Size(115, 15);
+            layoutControlItem6.TextSize = new Size(122, 15);
             // 
             // layoutControlItem7
             // 
             layoutControlItem7.Control = lblReincorporacion;
-            layoutControlItem7.Location = new Point(0, 167);
+            layoutControlItem7.Location = new Point(0, 165);
             layoutControlItem7.Name = "layoutControlItem7";
             layoutControlItem7.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
-            layoutControlItem7.Size = new Size(383, 37);
+            layoutControlItem7.Size = new Size(383, 38);
             layoutControlItem7.TextSize = new Size(0, 0);
             layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             layoutControlItem8.Control = lblDiasAusente;
-            layoutControlItem8.Location = new Point(0, 204);
+            layoutControlItem8.Location = new Point(0, 203);
             layoutControlItem8.Name = "layoutControlItem8";
             layoutControlItem8.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 8, 2);
-            layoutControlItem8.Size = new Size(383, 30);
+            layoutControlItem8.Size = new Size(383, 35);
             layoutControlItem8.TextSize = new Size(0, 0);
             layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             layoutControlItem9.Control = cmbEstado;
-            layoutControlItem9.Location = new Point(0, 234);
+            layoutControlItem9.Location = new Point(0, 238);
             layoutControlItem9.Name = "layoutControlItem9";
             layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
             layoutControlItem9.Size = new Size(332, 65);
             layoutControlItem9.Text = "Motivo";
             layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem9.TextSize = new Size(115, 15);
+            layoutControlItem9.TextSize = new Size(122, 15);
             // 
             // layoutControlItem10
             // 
             layoutControlItem10.Control = txtObservaciones;
-            layoutControlItem10.Location = new Point(0, 299);
+            layoutControlItem10.Location = new Point(0, 303);
             layoutControlItem10.Name = "layoutControlItem10";
             layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
-            layoutControlItem10.Size = new Size(383, 167);
+            layoutControlItem10.Size = new Size(383, 154);
             layoutControlItem10.Text = "Observaciones";
             layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem10.TextSize = new Size(115, 15);
+            layoutControlItem10.TextSize = new Size(122, 15);
             // 
             // emptySpaceItem2
             // 
             emptySpaceItem2.AllowHotTrack = false;
-            emptySpaceItem2.Location = new Point(332, 234);
+            emptySpaceItem2.Location = new Point(332, 238);
             emptySpaceItem2.Name = "emptySpaceItem2";
-            emptySpaceItem2.Size = new Size(51, 32);
+            emptySpaceItem2.Size = new Size(51, 38);
             emptySpaceItem2.TextSize = new Size(0, 0);
             // 
             // layoutControlItem11
             // 
             layoutControlItem11.Control = bAyuda;
-            layoutControlItem11.Location = new Point(332, 266);
+            layoutControlItem11.Location = new Point(332, 276);
             layoutControlItem11.MinSize = new Size(1, 1);
             layoutControlItem11.Name = "layoutControlItem11";
-            layoutControlItem11.Size = new Size(51, 33);
+            layoutControlItem11.Size = new Size(51, 27);
             layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             layoutControlItem11.TextSize = new Size(0, 0);
             layoutControlItem11.TextVisible = false;
@@ -460,7 +464,7 @@
             emptySpaceItem3.AllowHotTrack = false;
             emptySpaceItem3.Location = new Point(383, 0);
             emptySpaceItem3.Name = "emptySpaceItem3";
-            emptySpaceItem3.Size = new Size(20, 533);
+            emptySpaceItem3.Size = new Size(20, 534);
             emptySpaceItem3.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem4
@@ -468,24 +472,24 @@
             emptySpaceItem4.AllowHotTrack = false;
             emptySpaceItem4.Location = new Point(300, 0);
             emptySpaceItem4.Name = "emptySpaceItem4";
-            emptySpaceItem4.Size = new Size(83, 44);
+            emptySpaceItem4.Size = new Size(83, 42);
             emptySpaceItem4.TextSize = new Size(0, 0);
             // 
             // layoutControlItem2
             // 
             layoutControlItem2.Control = cmbUnidad;
-            layoutControlItem2.Location = new Point(0, 44);
+            layoutControlItem2.Location = new Point(0, 42);
             layoutControlItem2.Name = "layoutControlItem2";
             layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
-            layoutControlItem2.Size = new Size(264, 65);
+            layoutControlItem2.Size = new Size(257, 65);
             layoutControlItem2.Text = "Unidad";
             layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem2.TextSize = new Size(115, 15);
+            layoutControlItem2.TextSize = new Size(122, 15);
             // 
             // layoutControlItem12
             // 
             layoutControlItem12.Control = bGuardar;
-            layoutControlItem12.Location = new Point(201, 489);
+            layoutControlItem12.Location = new Point(201, 490);
             layoutControlItem12.Name = "layoutControlItem12";
             layoutControlItem12.Size = new Size(182, 44);
             layoutControlItem12.TextSize = new Size(0, 0);
@@ -494,7 +498,7 @@
             // layoutControlItem13
             // 
             layoutControlItem13.Control = simpleButton1;
-            layoutControlItem13.Location = new Point(0, 489);
+            layoutControlItem13.Location = new Point(0, 490);
             layoutControlItem13.MinSize = new Size(72, 26);
             layoutControlItem13.Name = "layoutControlItem13";
             layoutControlItem13.Size = new Size(189, 44);
@@ -505,7 +509,7 @@
             // emptySpaceItem5
             // 
             emptySpaceItem5.AllowHotTrack = false;
-            emptySpaceItem5.Location = new Point(189, 489);
+            emptySpaceItem5.Location = new Point(189, 490);
             emptySpaceItem5.Name = "emptySpaceItem5";
             emptySpaceItem5.Size = new Size(12, 44);
             emptySpaceItem5.TextSize = new Size(0, 0);
@@ -513,29 +517,29 @@
             // emptySpaceItem8
             // 
             emptySpaceItem8.AllowHotTrack = false;
-            emptySpaceItem8.Location = new Point(0, 533);
+            emptySpaceItem8.Location = new Point(0, 534);
             emptySpaceItem8.Name = "emptySpaceItem8";
-            emptySpaceItem8.Size = new Size(783, 20);
+            emptySpaceItem8.Size = new Size(783, 19);
             emptySpaceItem8.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem7
             // 
             emptySpaceItem7.AllowHotTrack = false;
-            emptySpaceItem7.Location = new Point(0, 466);
+            emptySpaceItem7.Location = new Point(0, 457);
             emptySpaceItem7.Name = "emptySpaceItem7";
-            emptySpaceItem7.Size = new Size(383, 23);
+            emptySpaceItem7.Size = new Size(383, 33);
             emptySpaceItem7.TextSize = new Size(0, 0);
             // 
             // layoutControlItem4
             // 
             layoutControlItem4.Control = txtOdometro;
-            layoutControlItem4.Location = new Point(264, 44);
+            layoutControlItem4.Location = new Point(257, 42);
             layoutControlItem4.Name = "layoutControlItem4";
             layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
-            layoutControlItem4.Size = new Size(119, 65);
+            layoutControlItem4.Size = new Size(126, 65);
             layoutControlItem4.Text = "Odometro";
             layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            layoutControlItem4.TextSize = new Size(115, 15);
+            layoutControlItem4.TextSize = new Size(122, 15);
             // 
             // emptySpaceItem6
             // 
@@ -544,6 +548,30 @@
             emptySpaceItem6.Name = "emptySpaceItem5";
             emptySpaceItem6.Size = new Size(21, 44);
             emptySpaceItem6.TextSize = new Size(0, 0);
+            // 
+            // lblDisponibles
+            // 
+            lblDisponibles.AutoSize = false;
+            lblDisponibles.BackColor = Color.FromArgb(42, 48, 56);
+            lblDisponibles.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDisponibles.ForeColor = Color.Red;
+            lblDisponibles.Location = new Point(415, 316);
+            lblDisponibles.Margin = new Padding(4, 3, 4, 3);
+            lblDisponibles.Name = "lblDisponibles";
+            lblDisponibles.Size = new Size(376, 226);
+            lblDisponibles.TabIndex = 14;
+            lblDisponibles.Text = "Disponibles";
+            // 
+            // layoutControlItem14
+            // 
+            layoutControlItem14.Control = lblDisponibles;
+            layoutControlItem14.Location = new Point(403, 276);
+            layoutControlItem14.Name = "layoutControlItem14";
+            layoutControlItem14.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 12, 2);
+            layoutControlItem14.Size = new Size(380, 258);
+            layoutControlItem14.Text = "Disponibles de Unidad";
+            layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
+            layoutControlItem14.TextSize = new Size(122, 15);
             // 
             // AgregarEditarUnidadNovedadForm
             // 
@@ -593,6 +621,7 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem7).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem14).EndInit();
             ResumeLayout(false);
         }
 
@@ -635,5 +664,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDisponibles;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

@@ -2,15 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using Servicios.Presenters;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
 {
@@ -236,6 +227,7 @@ namespace Servicios.Views.Mantenimientos.MantenimientoPredefinido
             cmbTarea.Properties.ValueMember = "IdTarea";
             cmbTarea.Properties.NullText = "Seleccione una tarea...";
             cmbTarea.Properties.Columns.Clear();
+            cmbTarea.Properties.Columns.Add(new LookUpColumnInfo("Codigo", "Código"));
             cmbTarea.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Tarea"));
         }
 

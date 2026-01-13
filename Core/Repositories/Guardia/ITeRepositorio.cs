@@ -7,5 +7,7 @@ namespace Core.Repositories
         Task<TransitoEspecial?> ObtenerPorIdAsync(int id);
 
         Task<List<GuardiaTransitoEspecialDto>> ObtenerControlTransitoEspecial(DateTime desde, DateTime hasta);
+
+        Task<List<TransitoEspecialEmpresaDto>> ObtenerEmpresasTransitoEspecialAsync();
     }
 }

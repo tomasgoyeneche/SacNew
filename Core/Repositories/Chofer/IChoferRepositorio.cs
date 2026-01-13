@@ -17,6 +17,8 @@ namespace Core.Repositories
 
         Task<List<ChoferesLibresDto?>> ObtenerTodosLosChoferesLibres();
 
+        Task<List<Chofer?>> ObtenerTodosLosChoferesIncluyendoInactivos();
+
         // Obtener Por Otras Opciones
 
         Task<int?> ObtenerIdPorDocumentoAsync(string documento);

@@ -65,6 +65,13 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                             _view.MostrarMensaje("Los campos Nombre, Apellido y Documento son obligatorios.");
                             break;
                         }
+                        List<Chofer> choferes = await _choferRepositorio.ObtenerTodosLosChoferesIncluyendoInactivos();
+                        if (choferes.Any(c => c.Documento == _view.Campo3))
+                        {
+                            _view.MostrarMensaje("Ya existe un chofer con el mismo número de documento.");
+                            break;
+                        }
+
                         var chofer = new Chofer
                         {
                             Nombre = _view.Campo1,
@@ -80,6 +87,12 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                             _view.MostrarMensaje("La patente es obligatoria.");
                             break;
                         }
+                        List<Shared.Models.Tractor> tractores = await _tractorRepositorio.ObtenerTodosLosTractores();
+                        if (tractores.Any(c => c.Patente == _view.Campo1))
+                        {
+                            _view.MostrarMensaje("Ya existe un tractor con la misma patente.");
+                            break;
+                        }
                         var tractor = new Shared.Models.Tractor
                         {
                             Patente = _view.Campo1.ToUpper(),
@@ -92,6 +105,12 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         if (_view.Campo1 == null)
                         {
                             _view.MostrarMensaje("La patente es obligatoria.");
+                            break;
+                        }
+                        List<Shared.Models.Semi> semis = await _semiRepositorio.ObtenerTodosLosSemis();
+                        if (semis.Any(c => c.Patente == _view.Campo1))
+                        {
+                            _view.MostrarMensaje("Ya existe un semi con la misma patente.");
                             break;
                         }
                         var semi = new Semi

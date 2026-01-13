@@ -21,7 +21,15 @@ namespace Servicios.Views
         public int IdMovimientoStock { get; private set; }
 
         public int IdTipoMovimiento { get => Convert.ToInt32(cmbTipoMovimiento.EditValue); set => cmbTipoMovimiento.EditValue = value; }
-        public bool Autorizado { get => btnAutorizar.Enabled == false; set => btnAutorizar.Enabled = !value; }
+
+        private bool _autorizado;
+
+        public bool Autorizado
+        {
+            get => _autorizado;
+            set => _autorizado = value;
+        }
+
         public DateTime FechaEmision { get => (DateTime)dateFechaEmision.EditValue; set => dateFechaEmision.EditValue = value; }
         public DateTime? FechaIngreso { get => dateFechaIngreso.EditValue as DateTime?; set => dateFechaIngreso.EditValue = value; }
         public string Observaciones { get => txtObservaciones.Text; set => txtObservaciones.Text = value; }
@@ -71,16 +79,24 @@ namespace Servicios.Views
             await _presenter.GuardarAsync(true);
         }
 
-        public void HabilitarFechaIngreso(bool habilitar)
+        public void HabilitarAutorizar(bool habilitar)
         {
-            dateFechaIngreso.Enabled = habilitar;
+            btnAutorizar.Enabled = habilitar;
         }
 
         public void HabilitarConfirmar(bool habilitar)
         {
-            cmbTipoMovimiento.Enabled = habilitar;
-            bEliminarArticulo.Enabled = habilitar;
             bConfirmar.Enabled = habilitar;
+        }
+
+        public void HabilitarFechaEmision(bool habilitar)
+        {
+            dateFechaEmision.Enabled = habilitar;
+        }
+
+        public void HabilitarFechaIngreso(bool habilitar)
+        {
+            dateFechaIngreso.Enabled = habilitar;
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
@@ -191,6 +207,17 @@ namespace Servicios.Views
                 XtraMessageBox.Show("El archivo no existe en la ruta especificada.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private async void bAbrirRequerimiento_Click(object sender, EventArgs e)
+        {
+            List<MovimientoStockDetalleDto> detalles = (gridViewDetalles.DataSource as IEnumerable<MovimientoStockDetalleDto>)?
+            .ToList() ?? new List<MovimientoStockDetalleDto>();
+
+            List<MovimientoComprobanteDto> comprobantes = (gridViewComprobantes.DataSource as IEnumerable<MovimientoComprobanteDto>)?
+                .ToList() ?? new List<MovimientoComprobanteDto>();
+
+            await _presenter.AbrirRequerimientoCompras(detalles, comprobantes);
         }
     }
 }

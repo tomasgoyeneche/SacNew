@@ -14,7 +14,6 @@ namespace GestionDocumental.Presenters
         private readonly IDisponibilidadRepositorio _disponibleRepositorio;
         private readonly ILocacionRepositorio _locacionRepositorio;
 
-
         private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
 
         public NovedadesChoferesDto? NovedadActual { get; private set; }
@@ -164,6 +163,19 @@ namespace GestionDocumental.Presenters
                         await _choferEstadoRepositorio.EditarNovedadAsync(novedadChofer, _sesionService.IdUsuario);
                         _view.MostrarMensaje("Novedad de Chofer Actualizada Correctamente");
                     }
+
+                    List<ChoferTipoEstado> estados = await _choferEstadoRepositorio.ObtenerEstados();
+                    var estadoSeleccionado = estados.FirstOrDefault(e => e.IdEstado == novedadChofer.IdEstado);
+
+                    if (estadoSeleccionado.Disponible != true)
+                    {
+                        await CancelarDisponibilidadesPorAusenciaAsync(
+                              _view.IdChofer,
+                              _view.FechaInicio,
+                              _view.FechaFin
+                          );
+                    }
+
                     _view.Close();
                 });
             }
@@ -225,6 +237,49 @@ namespace GestionDocumental.Presenters
                 }
             }
             return true;
+        }
+
+        private async Task CancelarDisponibilidadesPorAusenciaAsync(
+        int idChofer,
+        DateTime fechaInicio,
+        DateTime fechaFin)
+        {
+            DateTime fecha = fechaInicio.Date;
+
+            while (fecha <= fechaFin.Date)
+            {
+                // 1️⃣ Obtener nómina activa del chofer en esa fecha
+                Nomina? nomina = await _nominaRepositorio
+                    .ObtenerNominaActivaPorChoferAsync(idChofer, fecha);
+
+                if (nomina != null)
+                {
+                    // 2️⃣ Buscar disponibilidad de ese día
+                    Disponible? disponible =
+                        await _disponibleRepositorio
+                            .ObtenerDisponiblePorNominaYFechaAsync(
+                                nomina.IdNomina,
+                                fecha);
+
+                    if (disponible != null)
+                    {
+                        // 3️⃣ Cancelar disponibilidad
+                        disponible.IdDisponibleEstado = 10; // Cancelado
+                        disponible.Observaciones = "Agrego/Edito Ausencia de Chofer";
+
+                        await _disponibleRepositorio.ActualizarDisponibleAsync(disponible);
+
+                        await _nominaRepositorio.RegistrarNominaAsync(
+                            disponible.IdNomina,
+                            "Cancela Disponible",
+                             $"Agrego/Edito Ausencia de Chofer Fecha: {fechaInicio:dd/MM/yyyy} - Fin: {fechaFin:dd/MM/yyyy}",
+                            _sesionService.IdUsuario
+                        );
+                    }
+                }
+
+                fecha = fecha.AddDays(1);
+            }
         }
     }
 }

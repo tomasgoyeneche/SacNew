@@ -28,6 +28,7 @@ namespace GestionFlota.Views
         void MostrarMantenimientosUnidad(string texto);
 
         void MostrarAusenciasChofer(string texto);
+
         void Close();
     }
 }

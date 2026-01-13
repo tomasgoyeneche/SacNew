@@ -138,12 +138,11 @@ namespace GestionFlota.Presenters
                 FechaFin = null
             };
             await _programaRepositorio.InsertarProgramaTramoAsync(tramo);
-            
-            
+
             Nomina? nomina = await _nominaRepositorio.ObtenerPorIdAsync(_cupeo.IdNomina);
             Nomina? nominaUnidadNueva = await _nominaRepositorio.ObtenerNominaMasNuevaPorUnidad(nomina.IdUnidad);
 
-            if (nomina.IdNomina != nominaUnidadNueva.IdNomina)
+            if ((nomina.IdNomina != nominaUnidadNueva.IdNomina) && nominaUnidadNueva.IdChofer != 0)
             {
                 var tramoNominaNueva = new ProgramaTramo
                 {
@@ -156,8 +155,6 @@ namespace GestionFlota.Presenters
 
                 await _programaRepositorio.InsertarProgramaTramoAsync(tramoNominaNueva);
             }
-
-
 
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var productos = await _productoRepositorio.ObtenerTodosAsync();

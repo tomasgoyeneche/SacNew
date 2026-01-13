@@ -15,7 +15,9 @@ namespace Core.Repositories
         Task ActualizarDisponibleAsync(Disponible disp);
 
         Task<Disponible?> ObtenerPorIdAsync(int idDisponible);
+
         Task<List<Disponible>> ObtenerDisponiblePorNomina(int idNomina);
+
         Task AgregarDisponibleAsync(Disponible disp);
 
         Task<DisponibleEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);

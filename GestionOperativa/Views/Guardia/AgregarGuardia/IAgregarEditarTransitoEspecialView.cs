@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using Shared.Models;
 
 namespace GestionOperativa
 {
@@ -16,6 +17,10 @@ namespace GestionOperativa
         string Tractor { get; set; }
         string Semi { get; }
         string Zona { get; }
+
+        void CargarEmpresasTransitoEspecial(List<TransitoEspecialEmpresaDto> empresas);
+
+        void CompletarEmpresa(string razonSocial, string cuit);
 
         void Close();
     }

@@ -82,7 +82,6 @@ namespace GestionDocumental.Views.Novedades.NovedadesChoferes
             lblDisponibles.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
         }
 
-
         public void CargarEstados(List<ChoferTipoEstado> estados)
         {
             cmbEstado.Properties.DataSource = estados;

@@ -9,6 +9,7 @@ namespace SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos
 
         DateTime PeriodoSeleccionado { get; }
         int QuincenaSeleccionada { get; }
+
         void MostrarConsumos(List<ImportConsumoYpfEnRutaDto> consumos);
     }
 }

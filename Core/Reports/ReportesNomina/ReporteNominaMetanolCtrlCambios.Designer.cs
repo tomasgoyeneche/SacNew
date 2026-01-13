@@ -55,7 +55,6 @@
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.DetailReportBajas = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
@@ -362,7 +361,6 @@
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel7,
             this.xrLabel6,
-            this.xrLabel5,
             this.xrLabel10});
             this.PageFooter.HeightF = 53.58321F;
             this.PageFooter.Name = "PageFooter";
@@ -389,17 +387,6 @@
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.Text = "Rev: 00";
             // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(313.8959F, 30.58324F);
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(117.7084F, 22.99997F);
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "formulario: QF10.08";
-            // 
             // xrLabel10
             // 
             this.xrLabel10.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F, DevExpress.Drawing.DXFontStyle.Bold);
@@ -409,7 +396,7 @@
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(250F, 22.99997F);
             this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "Archivo: QF71008 Nómina flota metanol. doc";
+            this.xrLabel10.Text = "Nómina flota metanol. doc";
             // 
             // DetailReportBajas
             // 
@@ -779,7 +766,6 @@
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.DetailBand Detail1;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;

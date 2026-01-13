@@ -105,6 +105,7 @@
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            bDispoArena = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDisponibles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewDisponibles).BeginInit();
@@ -828,6 +829,26 @@
             guna2HtmlLabel9.Text = "Mantenimientos Unidad";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // bDispoArena
+            // 
+            bDispoArena.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
+            bDispoArena.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bDispoArena.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bDispoArena.Appearance.Options.UseBackColor = true;
+            bDispoArena.Appearance.Options.UseFont = true;
+            bDispoArena.Appearance.Options.UseForeColor = true;
+            bDispoArena.Appearance.Options.UseTextOptions = true;
+            bDispoArena.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            bDispoArena.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
+            bDispoArena.AppearanceDisabled.Options.UseForeColor = true;
+            bDispoArena.Enabled = false;
+            bDispoArena.Location = new Point(674, 632);
+            bDispoArena.Name = "bDispoArena";
+            bDispoArena.Size = new Size(241, 46);
+            bDispoArena.TabIndex = 119;
+            bDispoArena.Text = "Disponibilidad Arena";
+            bDispoArena.Click += bDispoArena_Click;
+            // 
             // DisponibilidadForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -835,6 +856,7 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
+            Controls.Add(bDispoArena);
             Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2HtmlLabel8);
@@ -942,5 +964,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private DevExpress.XtraEditors.SimpleButton bDispoArena;
     }
 }

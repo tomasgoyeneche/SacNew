@@ -18,6 +18,7 @@ namespace Servicios.Views.Mantenimientos
         decimal ManoObraTotalUsd { get; set; }
         decimal RepuestosTotales { get; set; }
         decimal RepuestosTotalesUsd { get; set; }
+
         void CargarTiposMantenimiento(List<TipoMantenimiento> tipos, string tipoVista);
 
         void CargarAplicaA();

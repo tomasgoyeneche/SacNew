@@ -31,7 +31,6 @@ namespace GestionFlota.Views
             lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
         }
 
-
         public DateTime FechaSeleccionada => dateEditFecha.EditValue is DateTime fecha ? fecha : DateTime.Today.AddDays(1);
 
         public void CargarDisponibilidades(List<Disponibilidad> disponibilidades)
@@ -210,7 +209,7 @@ namespace GestionFlota.Views
 
         private async void bDisponibilidadYpf_Click(object sender, EventArgs e)
         {
-            await _presenter.MostrarSelectorFechasYPFAsync();
+            await _presenter.MostrarSelectorFechasYPFAsync(false);
         }
 
         private void gridControlHistorico_DoubleClick(object sender, EventArgs e)
@@ -262,6 +261,11 @@ namespace GestionFlota.Views
                 gridControlHistorico.Enabled = true;
                 gridControlVencimientos.Enabled = true;
             }
+        }
+
+        private async void bDispoArena_Click(object sender, EventArgs e)
+        {
+            await _presenter.MostrarSelectorFechasYPFAsync(true);
         }
     }
 }

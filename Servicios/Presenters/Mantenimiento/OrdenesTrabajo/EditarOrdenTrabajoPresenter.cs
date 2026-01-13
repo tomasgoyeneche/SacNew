@@ -4,7 +4,9 @@ using Core.Services;
 using Servicios.Views.Mantenimiento;
 using Servicios.Views.Mantenimientos;
 using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
+using Servicios.Views.RequerimientosDeCompra;
 using Shared.Models;
+using Shared.Models.RequerimientoCompra;
 using System.IO;
 
 namespace Servicios.Presenters
@@ -18,6 +20,9 @@ namespace Servicios.Presenters
         private readonly IMantenimientoTareaArticuloRepositorio _mantenimientoTareaArticuloRepositorio;
         private readonly IOrdenTrabajoTareaRepositorio _ordenTrabajoTareaRepositorio;
         private readonly IOrdenTrabajoArticuloRepositorio _ordenTrabajoArticuloRepositorio;
+        private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
+        private readonly IPostaRepositorio _postaRepositorio;
+
         private readonly ITareaRepositorio _tareaRepositorio;
         private readonly IArticuloRepositorio _articuloRepositorio;
         private readonly ILugarReparacionRepositorio _lugarRepositorio;
@@ -33,6 +38,8 @@ namespace Servicios.Presenters
             IMantenimientoRepositorio mantenimientoRepositorio,
             IMantenimientoTareaRepositorio mantenimientoTareaRepositorio,
             IOrdenTrabajoTareaRepositorio ordenTrabajoTareaRepositorio,
+            IPostaRepositorio postaRepositorio,
+            IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
             IOrdenTrabajoArticuloRepositorio ordenTrabajoArticuloRepositorio,
             ITareaRepositorio tareaRepositorio,
             IMantenimientoTareaArticuloRepositorio mantenimientoTareaArticuloRepositorio,
@@ -52,6 +59,8 @@ namespace Servicios.Presenters
             _mantenimientoTareaArticuloRepositorio = mantenimientoTareaArticuloRepositorio;
             _articuloRepositorio = articuloRepositorio;
             _tareaRepositorio = tareaRepositorio;
+            _postaRepositorio = postaRepositorio;
+            _unidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
             _ordenTrabajoTareaRepositorio = ordenTrabajoTareaRepositorio;
             _ordenTrabajoArticuloRepositorio = ordenTrabajoArticuloRepositorio;
             _lugarRepositorio = lugarRepositorio;
@@ -113,13 +122,14 @@ namespace Servicios.Presenters
             decimal totalHoras = mantenimientos.Sum(t => t.Horas ?? 0);
             decimal totalManoObra = mantenimientos.Sum(t => t.ManoObra ?? 0);
             decimal totalRepuestos = mantenimientos.Sum(t => t.PrecioRepuestos ?? 0);
-            decimal totalManoObraUsd = mantenimientos.Sum(t => t.ManoObraUsd ?? 0); 
+            decimal totalManoObraUsd = mantenimientos.Sum(t => t.ManoObraUsd ?? 0);
             decimal totalRepuestosUsd = mantenimientos.Sum(t => t.PrecioRepuestosUsd ?? 0);
 
-      
             _view.Horas = totalHoras;
             _view.Costo = totalManoObra + totalRepuestos;
             _view.CostoUsd = totalManoObraUsd + totalRepuestosUsd;
+
+            await GuardarAsync(false);
         }
 
         public async Task<int> CrearMantenimientoAsync(int idTipoMantenimiento)
@@ -149,6 +159,101 @@ namespace Servicios.Presenters
             await AbrirFormularioAsync<MenuCrearManForm>(async form =>
             {
                 await form._presenter.InicializarAsync("MantenimientoManual", idMantenimiento);
+            });
+
+            // refrescar lista después de cerrar
+            await InicializarAsync(_ordenActual.IdOrdenTrabajo);
+        }
+
+        public async Task AbrirRequerimientoCompras()
+        {
+            List<OrdenTrabajoMantenimiento> ordenTrabajoMantenimientos = await _ordenTrabajoMantenimientoRepositorio.ObtenerPorOrdenTrabajoAsync(_ordenActual.IdOrdenTrabajo);
+            List<OrdenTrabajoTarea> ordenTrabajoTareas = new List<OrdenTrabajoTarea>();
+            foreach (var mantenimiento in ordenTrabajoMantenimientos)
+            {
+                var tareas = await _ordenTrabajoTareaRepositorio.ObtenerPorMantenimientoAsync(mantenimiento.IdOrdenTrabajoMantenimiento);
+                ordenTrabajoTareas.AddRange(tareas);
+            }
+            List<OrdenTrabajoArticulo> ordenTrabajoArticulos = new List<OrdenTrabajoArticulo>();
+            foreach (var tarea in ordenTrabajoTareas)
+            {
+                var articulos = await _ordenTrabajoArticuloRepositorio.ObtenerPorTareaAsync(tarea.IdOrdenTrabajoTarea);
+                ordenTrabajoArticulos.AddRange(articulos);
+            }
+            Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(_sesionService.IdPosta);
+
+            List<RcDetalleRcc> rcDetalles = ordenTrabajoArticulos.Select(d => new RcDetalleRcc
+            {
+                Descripcion = $"{d.Codigo} - {d.Nombre} - " +
+                   (d.Dolar
+                       ? $"USD {d.PrecioUnitario:N2}"
+                       : $"{d.PrecioUnitario:C2}"),
+                Cantidad = d.Cantidad,
+                Activo = true
+            }).ToList();
+
+            foreach (var mantenimiento in ordenTrabajoMantenimientos)
+            {
+                // ---- Mano de Obra en Pesos ----
+                if (mantenimiento.ManoObra.HasValue && mantenimiento.ManoObra.Value > 0)
+                {
+                    rcDetalles.Add(new RcDetalleRcc
+                    {
+                        Descripcion = $"Mano de Obra - {mantenimiento.Nombre} - {mantenimiento.ManoObra.Value:C2}",
+                        Cantidad = mantenimiento.ManoObra.Value,
+                        Activo = true
+                    });
+                }
+
+                // ---- Mano de Obra en USD ----
+                if (mantenimiento.ManoObraUsd.HasValue && mantenimiento.ManoObraUsd.Value > 0)
+                {
+                    rcDetalles.Add(new RcDetalleRcc
+                    {
+                        Descripcion = $"Mano de Obra Dólar - {mantenimiento.Nombre} - USD {mantenimiento.ManoObraUsd.Value:N2}",
+                        Cantidad = mantenimiento.ManoObraUsd.Value,
+                        Activo = true
+                    });
+                }
+            }
+
+            decimal totalPesos = 0m;
+            decimal totalUsd = 0m;
+
+            foreach (var mantenimiento in ordenTrabajoMantenimientos)
+            {
+                if (mantenimiento.ManoObra.HasValue)
+                    totalPesos += mantenimiento.ManoObra.Value;
+
+                if (mantenimiento.PrecioRepuestos.HasValue)
+                    totalPesos += mantenimiento.PrecioRepuestos.Value;
+
+                if (mantenimiento.ManoObraUsd.HasValue)
+                    totalUsd += mantenimiento.ManoObraUsd.Value;
+
+                if (mantenimiento.PrecioRepuestosUsd.HasValue)
+                    totalUsd += mantenimiento.PrecioRepuestosUsd.Value;
+            }
+
+            string precioTotal = string.Empty;
+
+            if (totalPesos > 0 && totalUsd > 0)
+            {
+                precioTotal = $"Pesos: {totalPesos:C2} - Dólar: USD {totalUsd:N2}";
+            }
+            else if (totalPesos > 0)
+            {
+                precioTotal = $"Pesos: {totalPesos:C2}";
+            }
+            else if (totalUsd > 0)
+            {
+                precioTotal = $"Dólar: USD {totalUsd:N2}";
+            }
+
+            await AbrirFormularioAsync<CrearRequerimientoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync();
+                form._presenter.AgregarDatosDesdeAntes(rcDetalles, precioTotal, posta.Descripcion);
             });
 
             // refrescar lista después de cerrar
@@ -270,7 +375,6 @@ namespace Servicios.Presenters
                     if (articulo.Dolar == false)
                     {
                         totalRepuestos += articulo.PrecioUnitario * art.Cantidad;
-
                     }
                     else if (articulo.Dolar == true)
                     {
@@ -313,7 +417,6 @@ namespace Servicios.Presenters
                     if (articulo.Dolar == false)
                     {
                         totalArticulos += articulo.PrecioUnitario * art.Cantidad;
-
                     }
                     else if (articulo.Dolar == true)
                     {
@@ -334,7 +437,6 @@ namespace Servicios.Presenters
                     totalEstimado = tarea.ManoObra.Value + totalArticulos;
                     totalEstimadoUsd = totalArticulosUsd;
                 }
-
 
                 OrdenTrabajoTarea nuevaTarea = new OrdenTrabajoTarea
                 {
@@ -397,7 +499,15 @@ namespace Servicios.Presenters
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
 
                 _view.FechaIngreso = _ordenActual.FechaInicio;
-                _view.OdometroIngreso = odometroIngreso;
+                if (odometroIngreso != null)
+                {
+                    _view.OdometroIngreso = odometroIngreso;
+                }
+                else
+                {
+                    _view.OdometroIngreso = 0;
+                }
+
                 _view.MostrarMensaje("Ingreso confirmado correctamente.");
                 await _nominaRepositorio.RegistrarNominaAsync(_ordenActual.IdNomina.Value, "Ingreso a Taller", $"La unidad comenzo la reparacion fecha {DateTime.Now}", _sesionService.IdUsuario);
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
@@ -417,6 +527,23 @@ namespace Servicios.Presenters
 
                 _view.FechaFin = _ordenActual.FechaFin;
                 _view.OdometroSalida = odometroSalida;
+
+                if (_ordenActual.IdUnidadMantenimiento != null)
+                {
+                    UnidadMantenimiento? unidadMantenimiento = await _unidadMantenimientoRepositorio.ObtenerPorUnidadIdAsync(_ordenActual.IdUnidadMantenimiento.Value);
+
+                    if (unidadMantenimiento.FechaInicio > DateTime.Now)
+                    {
+                        unidadMantenimiento.FechaInicio = DateTime.Now;
+                    }
+
+                    unidadMantenimiento.FechaFin = DateTime.Now;
+
+                    unidadMantenimiento.Odometro = odometroSalida.HasValue ? (int)odometroSalida.Value : 0;
+
+                    await _unidadMantenimientoRepositorio.EditarNovedadAsync(unidadMantenimiento, _sesionService.IdUsuario);
+                }
+
                 _view.MostrarMensaje("Orden de trabajo finalizada correctamente.");
                 await _nominaRepositorio.RegistrarNominaAsync(_ordenActual.IdNomina.Value, "Salida Taller", $"La unidad termino la reparacion fecha {DateTime.Now}", _sesionService.IdUsuario);
                 _view.ActualizarEstadoUI(_ordenActual.Fase);
@@ -438,14 +565,13 @@ namespace Servicios.Presenters
                 _ordenActual.CostoUsd = _view.CostoUsd;
 
                 await _ordenRepositorio.ActualizarAsync(_ordenActual);
-                
-                if(manual == true)
+
+                if (manual == true)
                 {
                     _view.MostrarMensaje("Orden de trabajo Actualizada correctamente.");
 
                     _view.Cerrar();
                 }
-                
             });
         }
 

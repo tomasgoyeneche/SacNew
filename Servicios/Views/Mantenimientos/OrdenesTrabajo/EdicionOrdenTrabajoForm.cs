@@ -235,7 +235,6 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
                 await _presenter.AutorizarAsync(IdUnidad.Value);
             else
                 MostrarMensaje("Debe seleccionar una unidad antes de autorizar.");
-            btnAutorizar.Enabled = true;
         }
 
         public void LimpiarFormulario()
@@ -265,7 +264,6 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
             }
             btnIngreso.Enabled = false;
             await _presenter.ConfirmarIngresoAsync();
-            btnIngreso.Enabled = true;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -286,7 +284,6 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
         {
             bFinalizo.Enabled = false;
             await _presenter.ConfirmarSalidaAsync();
-            bFinalizo.Enabled = true;
         }
 
         private async void bAgregarCom_Click(object sender, EventArgs e)
@@ -423,6 +420,11 @@ namespace Servicios.Views.Mantenimientos.OrdenesTrabajo
             {
                 MostrarMensaje("Seleccione un Mantenimiento para eliminar.");
             }
+        }
+
+        private async void bAbrirRequerimiento_Click(object sender, EventArgs e)
+        {
+            await _presenter.AbrirRequerimientoCompras();
         }
     }
 }

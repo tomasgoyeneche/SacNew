@@ -18,8 +18,10 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         }
 
         public DateTime PeriodoSeleccionado => dtpPeriodo.Value;
+
         public int QuincenaSeleccionada =>
         Convert.ToInt32(cmbQuincena.SelectedItem ?? "1");
+
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -86,7 +88,6 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
             cmbQuincena.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
             cmbQuincena.Items.AddRange(new[] { "1", "2" });
             cmbQuincena.SelectedIndex = 0;
-            
         }
     }
 }

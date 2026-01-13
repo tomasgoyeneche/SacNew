@@ -1,7 +1,6 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
-using DevExpress.XtraTreeList.Data;
 using Servicios.Views.Mantenimientos;
 using Servicios.Views.Mantenimientos.MantenimientoPredefinido;
 using Shared.Models;
@@ -239,6 +238,7 @@ namespace Servicios.Presenters
             _view.RepuestosTotales = totalRepuestos;
             _view.ManoObraTotalUsd = totalManoObraUsd;
             _view.RepuestosTotalesUsd = totalRepuestosUsd;
+            await GuardarAsync(false);
         }
 
         public async Task GuardarAsync(bool manual)
@@ -258,18 +258,21 @@ namespace Servicios.Presenters
                     DiasIntervalo = _view.DiasIntervalo
                 };
 
+                if ((mantenimiento.IdTipoMantenimiento == 1) && mantenimiento.KilometrosIntervalo == null && mantenimiento.DiasIntervalo == null && manual == true)
+                {
+                    _view.MostrarMensaje("Para el tipo de mantenimiento 'Preventivo', debe especificar una frecuencia en kilómetros o días.");
+                    return;
+                }
+
                 await EjecutarConCargaAsync(async () =>
                 {
                     if (_mantenimiento == null)
                     {
                         var id = await _mantenimientoRepositorio.AgregarAsync(mantenimiento);
-                       
                     }
                     else
                     {
                         await _mantenimientoRepositorio.ActualizarAsync(mantenimiento);
-                 
-                     
                     }
                 });
             }
@@ -294,15 +297,12 @@ namespace Servicios.Presenters
                 };
 
                 await _ordenTrabajoMantenimientoRepositorio.ActualizarAsync(ordenMantenimiento);
-               
-
             }
             if (manual == true)
             {
                 _view.MostrarMensaje("Mantenimiento actualizado correctamente.");
                 _view.Cerrar();
             }
-
         }
 
         public async Task AgregarTareaAsync(int idTarea)
@@ -341,16 +341,15 @@ namespace Servicios.Presenters
                 }
 
                 decimal totalArticulos = 0;
-                decimal totalArticulosUsd = 0;  
+                decimal totalArticulosUsd = 0;
                 foreach (Articulo articulo in articulos)
                 {
                     var cantidad = manTareaArt.FirstOrDefault(x => x.IdArticulo == articulo.IdArticulo)?.Cantidad ?? 0;
-                    if(articulo.Dolar == false)
+                    if (articulo.Dolar == false)
                     {
                         totalArticulos += articulo.PrecioUnitario * cantidad;
-
                     }
-                    else if(articulo.Dolar == true)
+                    else if (articulo.Dolar == true)
                     {
                         totalArticulosUsd += articulo.PrecioUnitario * cantidad;
                     }
@@ -362,7 +361,7 @@ namespace Servicios.Presenters
                 if (tarea.Dolar == true)
                 {
                     totalEstimado = totalArticulos;
-                    totalEstimadoUsd = tarea.ManoObra.Value + totalArticulosUsd;    
+                    totalEstimadoUsd = tarea.ManoObra.Value + totalArticulosUsd;
                 }
                 else
                 {

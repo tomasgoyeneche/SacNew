@@ -188,10 +188,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             await _presenter.ExportarHistorialUnidadesAsync(desdeFecha, hastaFecha);
         }
 
-        private void bImprimirChecklist_Click(object sender, EventArgs e)
-        {
-        }
-
         private async void bFlotaControlCambios_Click(object sender, EventArgs e)
         {
             string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(

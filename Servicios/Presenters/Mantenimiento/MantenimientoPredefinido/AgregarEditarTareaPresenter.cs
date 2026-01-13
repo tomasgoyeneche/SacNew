@@ -131,7 +131,7 @@ namespace Servicios.Presenters
                                 Cantidad = ta.Cantidad,
                                 PrecioUnitario = ta.PrecioUnitario,
                                 Estado = ta.Estado,
-                                Dolar = art.Dolar
+                                Dolar = ta.Dolar
                             });
                         }
                     }
@@ -167,6 +167,8 @@ namespace Servicios.Presenters
 
                 // 🔹 Cargar artículos disponibles y asociados
             });
+
+            await GuardarAsync(false);
         }
 
         public async Task AgregarArticuloAsync()
@@ -399,12 +401,11 @@ namespace Servicios.Presenters
                 await EjecutarConCargaAsync(async () =>
                 {
                     await _tareaRepositorio.ActualizarAsync(_tarea);
-                    if(Manual == true)
+                    if (Manual == true)
                     {
                         _view.MostrarMensaje("Tarea actualizada correctamente.");
                         _view.Cerrar();
                     }
-                  
                 });
             }
             else

@@ -33,7 +33,7 @@ namespace Core.Repositories
             Horas = @Horas,
             Codigo = @Codigo,
             Activo = @Activo,
-            Dolar = @Dolar  
+            Dolar = @Dolar
         WHERE IdTarea = @IdTarea;";
 
             return await ConectarAsync(async conn =>

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -153,11 +153,11 @@
             // guna2Panel13
             // 
             guna2Panel13.Controls.Add(guna2HtmlLabel6);
-            guna2Panel13.CustomizableEdges = customizableEdges1;
+            guna2Panel13.CustomizableEdges = customizableEdges3;
             guna2Panel13.FillColor = Color.Coral;
             guna2Panel13.Location = new Point(12, 12);
             guna2Panel13.Name = "guna2Panel13";
-            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel13.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel13.Size = new Size(200, 32);
             guna2Panel13.TabIndex = 76;
             // 
@@ -189,7 +189,7 @@
             // dtpFechaNac
             // 
             dtpFechaNac.EditValue = null;
-            dtpFechaNac.Location = new Point(231, 132);
+            dtpFechaNac.Location = new Point(231, 140);
             dtpFechaNac.MaximumSize = new Size(0, 30);
             dtpFechaNac.MinimumSize = new Size(0, 30);
             dtpFechaNac.Name = "dtpFechaNac";
@@ -203,7 +203,7 @@
             // 
             // txtCelular
             // 
-            txtCelular.Location = new Point(497, 432);
+            txtCelular.Location = new Point(497, 440);
             txtCelular.MaximumSize = new Size(0, 30);
             txtCelular.MinimumSize = new Size(0, 30);
             txtCelular.Name = "txtCelular";
@@ -215,7 +215,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(231, 432);
+            txtTelefono.Location = new Point(231, 440);
             txtTelefono.MaximumSize = new Size(0, 30);
             txtTelefono.MinimumSize = new Size(0, 30);
             txtTelefono.Name = "txtTelefono";
@@ -228,7 +228,7 @@
             // txtDomicilio
             // 
             txtDomicilio.EditValue = "";
-            txtDomicilio.Location = new Point(231, 372);
+            txtDomicilio.Location = new Point(231, 380);
             txtDomicilio.MaximumSize = new Size(0, 30);
             txtDomicilio.MinimumSize = new Size(0, 30);
             txtDomicilio.Name = "txtDomicilio";
@@ -239,7 +239,7 @@
             // 
             // cmbLocalidad
             // 
-            cmbLocalidad.Location = new Point(492, 312);
+            cmbLocalidad.Location = new Point(492, 320);
             cmbLocalidad.MaximumSize = new Size(0, 30);
             cmbLocalidad.MinimumSize = new Size(0, 30);
             cmbLocalidad.Name = "cmbLocalidad";
@@ -250,7 +250,7 @@
             // 
             // cmbProvincia
             // 
-            cmbProvincia.Location = new Point(231, 312);
+            cmbProvincia.Location = new Point(231, 320);
             cmbProvincia.MaximumSize = new Size(0, 30);
             cmbProvincia.MinimumSize = new Size(0, 30);
             cmbProvincia.Name = "cmbProvincia";
@@ -262,7 +262,7 @@
             // 
             // cmdEmpresaId
             // 
-            cmdEmpresaId.Location = new Point(231, 252);
+            cmdEmpresaId.Location = new Point(231, 260);
             cmdEmpresaId.MaximumSize = new Size(0, 30);
             cmdEmpresaId.MinimumSize = new Size(0, 30);
             cmdEmpresaId.Name = "cmdEmpresaId";
@@ -274,7 +274,7 @@
             // dtpFecha
             // 
             dtpFecha.EditValue = null;
-            dtpFecha.Location = new Point(231, 192);
+            dtpFecha.Location = new Point(231, 200);
             dtpFecha.MaximumSize = new Size(0, 30);
             dtpFecha.MinimumSize = new Size(0, 30);
             dtpFecha.Name = "dtpFecha";
@@ -289,13 +289,13 @@
             // txtDoc
             // 
             txtDoc.EditValue = "";
-            txtDoc.Location = new Point(231, 74);
+            txtDoc.Location = new Point(231, 82);
             txtDoc.MaximumSize = new Size(0, 30);
             txtDoc.MinimumSize = new Size(0, 30);
             txtDoc.Name = "txtDoc";
             txtDoc.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
             txtDoc.Properties.MaskSettings.Set("mask", "\\S{1,}");
-            txtDoc.Properties.NullValuePrompt = "Enter First Name";
+            txtDoc.Properties.NullValuePrompt = "Ingresa Documento";
             txtDoc.Size = new Size(545, 30);
             txtDoc.StyleController = layoutControl1;
             txtDoc.TabIndex = 0;
@@ -413,7 +413,7 @@
             // layoutControlItem5
             // 
             layoutControlItem5.Control = dtpFecha;
-            layoutControlItem5.Location = new Point(219, 154);
+            layoutControlItem5.Location = new Point(219, 162);
             layoutControlItem5.Name = "layoutControlItem5";
             layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem5.Size = new Size(549, 60);
@@ -424,7 +424,7 @@
             // layoutControlItem6
             // 
             layoutControlItem6.Control = cmdEmpresaId;
-            layoutControlItem6.Location = new Point(219, 214);
+            layoutControlItem6.Location = new Point(219, 222);
             layoutControlItem6.Name = "layoutControlItem6";
             layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem6.Size = new Size(549, 60);
@@ -435,7 +435,7 @@
             // layoutControlItem7
             // 
             layoutControlItem7.Control = cmbProvincia;
-            layoutControlItem7.Location = new Point(219, 274);
+            layoutControlItem7.Location = new Point(219, 282);
             layoutControlItem7.Name = "layoutControlItem7";
             layoutControlItem7.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem7.Size = new Size(261, 60);
@@ -446,7 +446,7 @@
             // layoutControlItem9
             // 
             layoutControlItem9.Control = cmbLocalidad;
-            layoutControlItem9.Location = new Point(480, 274);
+            layoutControlItem9.Location = new Point(480, 282);
             layoutControlItem9.Name = "layoutControlItem9";
             layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem9.Size = new Size(288, 60);
@@ -457,7 +457,7 @@
             // layoutControlItem11
             // 
             layoutControlItem11.Control = txtTelefono;
-            layoutControlItem11.Location = new Point(219, 394);
+            layoutControlItem11.Location = new Point(219, 402);
             layoutControlItem11.Name = "layoutControlItem11";
             layoutControlItem11.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem11.Size = new Size(256, 60);
@@ -468,7 +468,7 @@
             // layoutControlItem10
             // 
             layoutControlItem10.Control = txtDomicilio;
-            layoutControlItem10.Location = new Point(219, 334);
+            layoutControlItem10.Location = new Point(219, 342);
             layoutControlItem10.Name = "layoutControlItem10";
             layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem10.Size = new Size(549, 60);
@@ -479,7 +479,7 @@
             // layoutControlItem13
             // 
             layoutControlItem13.Control = txtCelular;
-            layoutControlItem13.Location = new Point(485, 394);
+            layoutControlItem13.Location = new Point(485, 402);
             layoutControlItem13.Name = "layoutControlItem13";
             layoutControlItem13.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
             layoutControlItem13.Size = new Size(283, 60);
@@ -490,25 +490,25 @@
             // emptySpaceItem4
             // 
             emptySpaceItem4.AllowHotTrack = false;
-            emptySpaceItem4.Location = new Point(219, 454);
+            emptySpaceItem4.Location = new Point(219, 462);
             emptySpaceItem4.Name = "emptySpaceItem4";
-            emptySpaceItem4.Size = new Size(256, 50);
+            emptySpaceItem4.Size = new Size(256, 42);
             emptySpaceItem4.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             emptySpaceItem5.AllowHotTrack = false;
-            emptySpaceItem5.Location = new Point(485, 454);
+            emptySpaceItem5.Location = new Point(485, 462);
             emptySpaceItem5.Name = "emptySpaceItem5";
-            emptySpaceItem5.Size = new Size(283, 50);
+            emptySpaceItem5.Size = new Size(283, 42);
             emptySpaceItem5.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             emptySpaceItem6.AllowHotTrack = false;
-            emptySpaceItem6.Location = new Point(475, 394);
+            emptySpaceItem6.Location = new Point(475, 402);
             emptySpaceItem6.Name = "emptySpaceItem6";
-            emptySpaceItem6.Size = new Size(10, 110);
+            emptySpaceItem6.Size = new Size(10, 102);
             emptySpaceItem6.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem7
@@ -555,7 +555,7 @@
             // layoutControlItem14
             // 
             layoutControlItem14.Control = dtpFechaNac;
-            layoutControlItem14.Location = new Point(219, 96);
+            layoutControlItem14.Location = new Point(219, 104);
             layoutControlItem14.Name = "layoutControlItem14";
             layoutControlItem14.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 8, 2);
             layoutControlItem14.Size = new Size(549, 58);
@@ -566,7 +566,7 @@
             // layoutControlItem4
             // 
             layoutControlItem4.Control = txtDoc;
-            layoutControlItem4.Location = new Point(219, 38);
+            layoutControlItem4.Location = new Point(219, 46);
             layoutControlItem4.Name = "layoutControlItem4";
             layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 8, 2);
             layoutControlItem4.Size = new Size(549, 58);
@@ -597,7 +597,7 @@
             emptySpaceItem8.AllowHotTrack = false;
             emptySpaceItem8.Location = new Point(219, 0);
             emptySpaceItem8.Name = "emptySpaceItem8";
-            emptySpaceItem8.Size = new Size(549, 38);
+            emptySpaceItem8.Size = new Size(549, 46);
             emptySpaceItem8.TextSize = new Size(0, 0);
             // 
             // emptySpaceItem10

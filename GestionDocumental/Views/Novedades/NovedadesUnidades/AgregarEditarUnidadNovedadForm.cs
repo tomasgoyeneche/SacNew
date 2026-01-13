@@ -43,6 +43,11 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
             lblAusenciasChofer.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
         }
 
+        public void MostrarDisponiblesUnidad(string texto)
+        {
+            lblDisponibles.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
+        }
+
         public void LimpiarFormulario()
         {
             cmbUnidad.EditValue = null;
@@ -131,10 +136,12 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
             if (int.TryParse(cmbUnidad.EditValue?.ToString(), out int idUnidad) && idUnidad > 0)
             {
                 await _presenter.MostrarAusenciasDelChoferAsync(idUnidad);
+                await _presenter.MostrarDisponiblesDeUnidadAsync(idUnidad);
             }
             else
             {
                 await _presenter.MostrarAusenciasDelChoferAsync(0); // Limpiar si no hay chofer
+                await _presenter.MostrarDisponiblesDeUnidadAsync(0);
             }
         }
 

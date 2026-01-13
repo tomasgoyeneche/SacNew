@@ -27,7 +27,6 @@ namespace GestionOperativa.Presenters
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
         private readonly IUnidadMantenimientoRepositorio _unidadMantenimientoRepositorio;
 
-
         private readonly IPOCRepositorio _pocRepositorio;
         private readonly IReporteConsumosNomTeOtrosProcessor _consumoNomTeProcessor;
         private readonly IPostaRepositorio _postaRepositorio;
@@ -79,7 +78,7 @@ namespace GestionOperativa.Presenters
 
         public async Task MostrarMantenimientosyFrancosDelChoferAsync(int idNomina)
         {
-            if(idNomina == 0)
+            if (idNomina == 0)
             {
                 _view.MostrarAusenciasChofer("Sin francos asignados");
                 return;
@@ -106,7 +105,6 @@ namespace GestionOperativa.Presenters
                 : "Sin francos asignados";
             _view.MostrarAusenciasChofer(textoAusencias);
         }
-
 
         public async Task InicializarAsync(int idPosta, int? idGuardiaSeleccionada = null)
         {
@@ -237,14 +235,14 @@ namespace GestionOperativa.Presenters
             int? idTractor = await _unidadRepositorio.ObtenerIdTractorPorPatenteAsync(patente);
             int? idUnidad;
 
-            if(idTractor != null)
+            if (idTractor != null)
             {
                 idUnidad = await _unidadRepositorio.ObtenerIdUnidadPorTractorAsync(idTractor.Value);
-            }else
+            }
+            else
             {
                 idUnidad = null;
             }
-
 
             if (idUnidad == null)
             {

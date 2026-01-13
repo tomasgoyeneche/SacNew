@@ -50,6 +50,9 @@ namespace Servicios.Presenters
                 _view.MostrarVaporizados
                 );
             }
+
+            List<GuardiaDto> guardiasPasadas = await _guardiaRepositorio.ObtenerGuardiasPasadasPorPostaAsync(_IdPosta);
+            _view.CargarGuardiasPasadas(guardiasPasadas);
         }
 
         public async Task EliminarVaporizadoAsync(VaporizadoDto vaporizado)
@@ -104,6 +107,51 @@ namespace Servicios.Presenters
                     await form._presenter.CargarDatosAsync(null, null);
                 });
             }, async () => await CargarVaporizadosAsync(_IdPosta));
+        }
+
+        public async Task RegistrarVaporizadoDesdeGuardiaAsync(GuardiaDto guardia)
+        {
+            // 1️⃣ Validar que no exista ya un vaporizado para esa guardia
+            var vaporizados = await _repositorioVaporizado.ObtenerTodosLosVaporizadosDto();
+
+            bool yaExiste = vaporizados.Any(v =>
+                v.IdGuardiaIngreso == guardia.IdGuardiaIngreso);
+
+            if (yaExiste)
+            {
+                _view.MostrarMensaje(
+                    "Ya existe un vaporizado registrado para la guardia seleccionada.");
+                return;
+            }
+
+            // 2️⃣ Crear vaporizado
+            var vaporizado = new Vaporizado
+            {
+                NroCertificado = null,
+                RemitoDanes = null,
+                IdPosta = guardia.IdPosta,
+                CantidadCisternas = null,
+                IdVaporizadoMotivo = null,
+                FechaInicio = null,
+                FechaFin = null,
+                IdVaporizadoZona = null,
+                TipoIngreso = guardia.TipoIngreso,
+                EsExterno = false,
+                IdNomina = guardia.TipoIngreso == 1 ? guardia.IdEntidad : null,
+                IdTe = guardia.TipoIngreso == 2 ? guardia.IdEntidad : null,
+                Observaciones = null,
+                Activo = true,
+                IdGuardiaIngreso = guardia.IdGuardiaIngreso
+            };
+
+            // 3️⃣ Guardar
+            await _repositorioVaporizado.AgregarAsync(
+                vaporizado,
+                _sesionService.IdUsuario
+            );
+
+            _view.MostrarMensaje("Vaporizado registrado correctamente.");
+            await CargarVaporizadosAsync(_IdPosta);
         }
     }
 }

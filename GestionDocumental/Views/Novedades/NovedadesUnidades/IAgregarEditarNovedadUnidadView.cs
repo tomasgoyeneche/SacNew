@@ -12,6 +12,8 @@ namespace GestionDocumental.Views.Novedades.NovedadesUnidades
         string Observaciones { get; }
         int Odometro { get; }
 
+        void MostrarDisponiblesUnidad(string texto);
+
         void CargarEstados(List<UnidadMantenimientoEstado> estados);
 
         void CargarUnidades(List<UnidadDto> unidades);

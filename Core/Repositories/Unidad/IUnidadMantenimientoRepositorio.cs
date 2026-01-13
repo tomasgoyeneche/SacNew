@@ -10,13 +10,15 @@ namespace Core.Repositories
 
         Task<List<UnidadMantenimientoEstado>> ObtenerEstados();
 
-        Task AltaNovedadAsync(UnidadMantenimiento unidadMantenimiento, int idUsuario);
+        Task<int> AltaNovedadAsync(UnidadMantenimiento unidadMantenimimento, int idUsuario);
 
         Task EditarNovedadAsync(UnidadMantenimiento unidadMantenimiento, int idUsuario);
 
         Task EliminarNovedadAsync(UnidadMantenimientoDto unidadMantenimiento, int idUsuario);
 
         Task<List<UnidadMantenimientoDto>> ObtenerPorMesYAnioAsync(int mes, int anio);
+
+        Task<UnidadMantenimiento?> ObtenerPorUnidadIdAsync(int idUnidadMantenimiento);
 
         Task<List<UnidadMantenimientoDto>> ObtenerPorAnioAsync(int anio);
 

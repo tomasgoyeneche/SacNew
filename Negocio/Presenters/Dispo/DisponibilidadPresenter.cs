@@ -223,21 +223,24 @@ namespace GestionFlota.Presenters
             await BuscarDisponibilidadesAsync(); // Refrescar lista después de cambiar estado
         }
 
-        public async Task MostrarSelectorFechasYPFAsync()
+        public async Task MostrarSelectorFechasYPFAsync(bool arena)
         {
-            var fechas = await _disponibilidadRepositorio.ObtenerProximasFechasDisponiblesAsync(DateTime.Today.AddDays(1), 5);
-            var control = new DispoYPFSelectorControl();
-            control.CargarFechas(fechas);
-
-            control.FechaSeleccionada += async (s, fechaSeleccionada) =>
+            if (arena == false)
             {
-                await ExportarDisponibilidadYPF(fechaSeleccionada);
-                // Cerrar ventana:
-                ((control.ParentForm) as Form)?.Close();
-            };
+                var fechas = await _disponibilidadRepositorio.ObtenerProximasFechasDisponiblesAsync(DateTime.Today.AddDays(1), 5);
+                var control = new DispoYPFSelectorControl();
+                control.CargarFechas(fechas);
 
-            // Mostralo modal
-            XtraDialog.Show(control, "Seleccione una fecha de disponibilidad YPF", MessageBoxButtons.OK);
+                control.FechaSeleccionada += async (s, fechaSeleccionada) =>
+                {
+                    await ExportarDisponibilidadYPF(fechaSeleccionada);
+                    // Cerrar ventana:
+                    ((control.ParentForm) as Form)?.Close();
+                };
+
+                // Mostralo modal
+                XtraDialog.Show(control, "Seleccione una fecha de disponibilidad YPF", MessageBoxButtons.OK);
+            }
         }
 
         private async Task ExportarDisponibilidadYPF(DateTime dispoFecha)

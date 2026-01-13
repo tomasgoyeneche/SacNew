@@ -31,5 +31,7 @@ namespace Core.Repositories
         Task RegistrarSalidaAsync(int idGuardiaIngreso, int idUsuario, DateTime fecha, string observacion);
 
         Task<bool> EstaEnParadorAsync(string patente);
+
+        Task<List<GuardiaDto>> ObtenerGuardiasPasadasPorPostaAsync(int idPosta);
     }
 }

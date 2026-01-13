@@ -3,6 +3,7 @@
     public class ArticuloProveedor
     {
         public int IdProveedor { get; set; } // Cambiar
+        public string NombreFantasia { get; set; } = string.Empty;
 
         public string RazonSocial { get; set; } = string.Empty;
         public string CUIT { get; set; } = string.Empty;

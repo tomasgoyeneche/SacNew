@@ -27,6 +27,8 @@ namespace Servicios.Views.Mantenimiento
 
         void CargarModelos(List<ArticuloModelo> modelos);
 
+        bool ConfirmarCreacionStockEnPostas();
+
         void LimpiarFormulario();
 
         int ObtenerCantidad();

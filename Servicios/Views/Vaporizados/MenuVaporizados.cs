@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraPrinting;
 using Servicios.Presenters;
 using Shared.Models;
@@ -113,6 +114,27 @@ namespace Servicios
             }
         }
 
+        public void CargarGuardiasPasadas(List<GuardiaDto> empresas)
+        {
+            cmbGuardia.Properties.DataSource = empresas;
+            cmbGuardia.Properties.ValueMember = nameof(GuardiaDto.IdGuardiaIngreso);
+            cmbGuardia.Properties.DisplayMember = nameof(GuardiaDto.Tractor);
+
+            cmbGuardia.Properties.NullText = "Seleccione guardia...";
+            cmbGuardia.Properties.PopupWidth = 250;
+
+            cmbGuardia.Properties.Columns.Clear();
+
+            var colTractor = new LookUpColumnInfo(nameof(GuardiaDto.Tractor), "Tractor", 120);
+            cmbGuardia.Properties.Columns.Add(colTractor);
+
+            var colIngreso = new LookUpColumnInfo(nameof(GuardiaDto.Ingreso), "Ingreso", 120);
+            colIngreso.FormatType = DevExpress.Utils.FormatType.DateTime;
+            colIngreso.FormatString = "dd/MM/yyyy HH:mm";
+
+            cmbGuardia.Properties.Columns.Add(colIngreso);
+        }
+
         //private async void btnAgregarNovedad_Click(object sender, EventArgs e)
         //{
         //    await _presenter.AgregarVaporizadoAsync();
@@ -150,6 +172,24 @@ namespace Servicios
                 FileName = rutaArchivo,
                 UseShellExecute = true
             });
+        }
+
+        private async void simpleButton1_Click(object sender, EventArgs e)
+        {
+            var guardia = cmbGuardia.GetSelectedDataRow() as GuardiaDto;
+
+            if (guardia == null)
+            {
+                XtraMessageBox.Show(
+                    "Debe seleccionar una guardia.",
+                    "Atención",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            await _presenter.RegistrarVaporizadoDesdeGuardiaAsync(guardia);
         }
     }
 }

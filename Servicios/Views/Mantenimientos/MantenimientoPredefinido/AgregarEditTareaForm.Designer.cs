@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
@@ -196,11 +196,11 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel9);
             guna2Panel1.Controls.Add(txtRepuestos);
             guna2Panel1.Controls.Add(guna2HtmlLabel13);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
+            guna2Panel1.CustomizableEdges = customizableEdges1;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(381, 358);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel1.Size = new Size(405, 198);
             guna2Panel1.TabIndex = 9;
             // 
@@ -210,10 +210,10 @@
             guna2HtmlLabel1.BackColor = Color.Green;
             guna2HtmlLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel1.Location = new Point(216, 138);
+            guna2HtmlLabel1.Location = new Point(207, 138);
             guna2HtmlLabel1.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(152, 23);
+            guna2HtmlLabel1.Size = new Size(161, 23);
             guna2HtmlLabel1.TabIndex = 106;
             guna2HtmlLabel1.Text = "Repuestos USD";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
@@ -221,13 +221,13 @@
             // txtRepuestosUsd
             // 
             txtRepuestosUsd.Enabled = false;
-            txtRepuestosUsd.Location = new Point(216, 161);
+            txtRepuestosUsd.Location = new Point(207, 161);
             txtRepuestosUsd.Name = "txtRepuestosUsd";
             txtRepuestosUsd.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRepuestosUsd.Properties.Appearance.Options.UseFont = true;
             txtRepuestosUsd.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtRepuestosUsd.Properties.MaskSettings.Set("mask", "f");
-            txtRepuestosUsd.Size = new Size(151, 22);
+            txtRepuestosUsd.Size = new Size(160, 22);
             txtRepuestosUsd.TabIndex = 105;
             // 
             // chkDolarizado
@@ -301,7 +301,7 @@
             guna2HtmlLabel9.Location = new Point(34, 138);
             guna2HtmlLabel9.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(176, 23);
+            guna2HtmlLabel9.Size = new Size(165, 23);
             guna2HtmlLabel9.TabIndex = 98;
             guna2HtmlLabel9.Text = "Repuestos $";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.TopCenter;
@@ -315,7 +315,7 @@
             txtRepuestos.Properties.Appearance.Options.UseFont = true;
             txtRepuestos.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             txtRepuestos.Properties.MaskSettings.Set("mask", "f");
-            txtRepuestos.Size = new Size(175, 22);
+            txtRepuestos.Size = new Size(164, 22);
             txtRepuestos.TabIndex = 97;
             // 
             // guna2HtmlLabel13
@@ -341,11 +341,11 @@
             pComprobantes.Controls.Add(bEliminarArticulo);
             pComprobantes.Controls.Add(guna2HtmlLabel6);
             pComprobantes.Controls.Add(bEditarComprobante);
-            pComprobantes.CustomizableEdges = customizableEdges9;
+            pComprobantes.CustomizableEdges = customizableEdges3;
             pComprobantes.FillColor = Color.FromArgb(42, 48, 56);
             pComprobantes.Location = new Point(381, 54);
             pComprobantes.Name = "pComprobantes";
-            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pComprobantes.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pComprobantes.Size = new Size(405, 280);
             pComprobantes.TabIndex = 3;
             // 
@@ -578,11 +578,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges11;
+            guna2Panel10.CustomizableEdges = customizableEdges5;
             guna2Panel10.FillColor = Color.SeaGreen;
             guna2Panel10.Location = new Point(12, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel10.Size = new Size(351, 38);
             guna2Panel10.TabIndex = 0;
             // 

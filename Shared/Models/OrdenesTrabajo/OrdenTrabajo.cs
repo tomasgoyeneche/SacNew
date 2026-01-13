@@ -23,6 +23,7 @@
         public int? IdLugarReparacion { get; set; }
         public string? Observaciones { get; set; }
 
+        public int? IdUnidadMantenimiento { get; set; }
         public bool Activo { get; set; } = true;
     }
 }

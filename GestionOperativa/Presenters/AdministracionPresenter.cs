@@ -160,7 +160,7 @@ namespace GestionOperativa.Presenters
                     ChoferDto? chofer = await _choferRepositorio.ObtenerPorIdDtoAsync(nomina.IdChofer);
                     TractorDto? tractorDto = await _tractorRepositorio.ObtenerPorIdDtoAsync(unidad.IdTractor);
                     Semi semi = await _semiRepositorio.ObtenerSemiPorIdAsync(unidad.IdSemi);
-                    Shared.Models.Tractor tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(unidad.IdTractor);    
+                    Shared.Models.Tractor tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(unidad.IdTractor);
                     SemiDto? semiDto = await _semiRepositorio.ObtenerPorIdDtoAsync(unidad.IdSemi);
 
                     string? rutaFoto = null;
@@ -170,7 +170,6 @@ namespace GestionOperativa.Presenters
                         rutaFoto = await ObtenerRutaPorIdAsync(1, "", chofer.Documento + ".jpg");
                     }
 
-                  
                     string patenteUnidad = $"{tractor.Patente}_{semi.Patente}";
                     string? rutaFotoUnidad = await ObtenerRutaPorIdAsync(6, "Nomina", $"{patenteUnidad}.jpg");
 

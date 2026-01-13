@@ -84,6 +84,14 @@ namespace Servicios.Presenters
                 Activo = true
             };
 
+            Articulo? articulo = await _articuloRepositorio.ObtenerPorIdAsync(detalle.IdArticulo);
+
+            if (articulo != null)
+            {
+                articulo.PrecioUnitario = detalle.PrecioUnitario;
+                await _articuloRepositorio.ActualizarArticuloAsync(articulo);
+            }
+
             await EjecutarConCargaAsync(async () =>
             {
                 if (DetalleActual == null)

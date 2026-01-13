@@ -45,6 +45,7 @@ namespace Servicios.Presenters.Mantenimiento
             {
                 IdProveedor = ProveedorActual?.IdProveedor ?? 0,
                 RazonSocial = _view.RazonSocial,
+                NombreFantasia = _view.NombreFantasia,
                 CUIT = _view.CUIT,
                 Direccion = _view.Direccion ?? "Indefinido",
                 Telefono = _view.Telefono ?? "Indefinido",

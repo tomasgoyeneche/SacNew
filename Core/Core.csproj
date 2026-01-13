@@ -52,10 +52,10 @@
     <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteIngresoTe.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteNominaEquiposEnComodato.cs">
+    <Compile Update="Reports\ReportesNomina\ReporteNominaEquiposEnComodato.cs">
       <SubType>XtraReport</SubType>
     </Compile>
-    <Compile Update="Reports\ReporteNominaMetanolActiva.cs">
+    <Compile Update="Reports\ReportesNomina\ReporteNominaMetanolActiva.cs">
       <SubType>XtraReport</SubType>
     </Compile>
     <Compile Update="Reports\ReportesGuardiaYVerificaciones\ReporteVerifMensual.cs">

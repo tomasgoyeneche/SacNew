@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shared.Models
+﻿namespace Shared.Models
 {
     public class ImportConsumoYpfEnRutaDto
     {
@@ -13,7 +7,7 @@ namespace Shared.Models
         public string? Localidad { get; set; }
         public string? Tarjeta { get; set; }
         public int IdChofer { get; set; }
-        public string ? NombreChofer { get; set; }
+        public string? NombreChofer { get; set; }
         public int IdUnidad { get; set; }
         public string? PatenteTractor { get; set; }
         public string? Remito { get; set; }

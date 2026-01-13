@@ -12,6 +12,7 @@ namespace Servicios.Views.Mantenimiento
         decimal PrecioUnitario { get; set; }
         decimal PrecioTotal { get; set; }
         bool Dolarizado { get; set; }
+
         void CargarArticulos(List<Articulo> articulos);
 
         void MostrarArticuloSeleccionado(Articulo articulo);

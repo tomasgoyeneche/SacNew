@@ -163,7 +163,6 @@ namespace GestionOperativa
 
         private async void bSalida_Click(object sender, EventArgs e)
         {
-
             if (gridViewGuardia.GetFocusedRow() is not GuardiaDto guardia)
             {
                 MostrarMensaje("Debe seleccionar un registro para registrar la salida.");

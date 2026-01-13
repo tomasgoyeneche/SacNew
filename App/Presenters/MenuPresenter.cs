@@ -79,7 +79,7 @@ namespace App.Presenters
             }
             finally
             {
-               SplashScreenManager.CloseDefaultWaitForm();
+                SplashScreenManager.CloseDefaultWaitForm();
             }
         }
 

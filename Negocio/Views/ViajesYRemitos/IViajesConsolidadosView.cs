@@ -7,7 +7,6 @@ namespace GestionFlota.Views
     {
         void CargarProgramas(List<VistaProgramaGridDto> programas);
 
-
         void MostrarRemitosFaltantes(int faltanCarga, int faltanEntrega);
     }
 }

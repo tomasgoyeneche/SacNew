@@ -3,7 +3,9 @@ using Core.Repositories;
 using Core.Services;
 using Servicios.Views;
 using Servicios.Views.Mantenimiento;
+using Servicios.Views.RequerimientosDeCompra;
 using Shared.Models;
+using Shared.Models.RequerimientoCompra;
 
 namespace Servicios.Presenters
 {
@@ -14,6 +16,8 @@ namespace Servicios.Presenters
         private readonly IMovimientoComprobanteRepositorio _comprobanteRepositorio;
         private readonly IArticuloRepositorio _articuloRepositorio;
         private readonly IArticuloStockRepositorio _articuloStockRepositorio;
+        private readonly IPostaRepositorio _postaRepositorio;
+
         private readonly IArticuloProveedorRepositorio _articuloProveedorRepositorio;
 
         private MovimientoStock? _movimiento;
@@ -23,6 +27,7 @@ namespace Servicios.Presenters
         IMovimientoStockDetalleRepositorio detalleRepositorio,
         IMovimientoComprobanteRepositorio comprobanteRepositorio,
         IArticuloRepositorio articuloRepositorio,
+        IPostaRepositorio postaRepositorio,
         IArticuloStockRepositorio articuloStockRepositorio, // 🔹 agregado
         IArticuloProveedorRepositorio articuloProveedorRepositorio,
         ISesionService sesionService,
@@ -35,6 +40,7 @@ namespace Servicios.Presenters
             _articuloRepositorio = articuloRepositorio;
             _articuloProveedorRepositorio = articuloProveedorRepositorio;
             _articuloStockRepositorio = articuloStockRepositorio; // 🔹 agregado
+            _postaRepositorio = postaRepositorio;
         }
 
         public async Task InicializarAsync(int idMovimiento)
@@ -52,17 +58,6 @@ namespace Servicios.Presenters
                     _view.FechaEmision = _movimiento.FechaEmision;
                     _view.FechaIngreso = _movimiento.FechaIngreso;
                     _view.Observaciones = _movimiento.Observaciones ?? "";
-
-                    if (_view.FechaIngreso == null)
-                    {
-                        _view.HabilitarConfirmar(true);
-                        _view.HabilitarFechaIngreso(false);
-                    }
-                    else
-                    {
-                        _view.HabilitarConfirmar(false);
-                        _view.HabilitarFechaIngreso(true);
-                    }
 
                     List<MovimientoStockDetalle> detalles = await _detalleRepositorio.ObtenerPorMovimientoAsync(_movimiento.IdMovimientoStock);
 
@@ -105,12 +100,71 @@ namespace Servicios.Presenters
                     _view.CargarComprobantes(comprobantesDto);
                 }
             });
+
+            ActualizarEstadoUI();
         }
 
-        public void Autorizar()
+        public async Task AbrirRequerimientoCompras(List<MovimientoStockDetalleDto> detalles, List<MovimientoComprobanteDto> comprobantes)
+        {
+            List<RcDetalleRcc> rcDetalles = detalles.Select(d => new RcDetalleRcc
+            {
+                Descripcion = $"{d.Codigo} - {d.Descripcion} - {d.PrecioTotal:C2}",
+                Cantidad = d.Cantidad,
+                Activo = true
+            }).ToList();
+
+            decimal precioTotal = detalles.Sum(d => d.PrecioTotal);
+
+            Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(_sesionService.IdPosta);
+
+            await AbrirFormularioAsync<CrearRequerimientoForm>(async form =>
+            {
+                await form._presenter.InicializarAsync();
+                form._presenter.AgregarDatosDesdeAntes(rcDetalles, precioTotal.ToString(), posta.Descripcion);
+            });
+        }
+
+        private void ActualizarEstadoUI()
+        {
+            if (_movimiento == null)
+                return;
+
+            // 🔹 Caso 1: NO autorizado
+            if (!_movimiento.Autorizado)
+            {
+                _view.HabilitarAutorizar(true);
+                _view.HabilitarConfirmar(false);
+                _view.HabilitarFechaEmision(true);
+                _view.HabilitarFechaIngreso(false);
+                return;
+            }
+
+            // 🔹 Caso 2: Autorizado pero sin ingreso
+            if (_movimiento.Autorizado && _movimiento.FechaIngreso == null)
+            {
+                _view.HabilitarAutorizar(false);
+                _view.HabilitarConfirmar(true);
+                _view.HabilitarFechaEmision(false);
+                _view.HabilitarFechaIngreso(false);
+                return;
+            }
+
+            // 🔹 Caso 3: Autorizado y con ingreso
+            if (_movimiento.Autorizado && _movimiento.FechaIngreso != null)
+            {
+                _view.HabilitarAutorizar(false);
+                _view.HabilitarConfirmar(false);
+                _view.HabilitarFechaEmision(false);
+                _view.HabilitarFechaIngreso(true);
+            }
+        }
+
+        public async void Autorizar()
         {
             _view.Autorizado = true;
             _view.MostrarMensaje("Movimiento autorizado.");
+            await GuardarAsync(false);
+            ActualizarEstadoUI();
         }
 
         public async Task ConfirmarIngresoAsync()
@@ -121,8 +175,6 @@ namespace Servicios.Presenters
                     throw new InvalidOperationException("Movimiento no inicializado.");
 
                 _view.FechaIngreso = DateTime.Now;
-                _view.HabilitarFechaIngreso(true);
-                _view.HabilitarConfirmar(false);
 
                 var detalles = _view.ObtenerDetalles();
 
@@ -150,6 +202,9 @@ namespace Servicios.Presenters
 
                 _view.MostrarMensaje("Ingreso confirmado y stock actualizado.");
             });
+
+            await GuardarAsync(false);
+            ActualizarEstadoUI();
         }
 
         public async Task GuardarAsync(bool manual)
@@ -166,12 +221,11 @@ namespace Servicios.Presenters
                 _movimiento.Observaciones = _view.Observaciones;
 
                 await _movimientoRepositorio.ActualizarAsync(_movimiento);
-                 if(manual == true)
+                if (manual == true)
                 {
                     _view.MostrarMensaje("Movimiento actualizado correctamente.");
                     _view.Cerrar();
                 }
-  
             });
         }
 
@@ -221,7 +275,7 @@ namespace Servicios.Presenters
 
         public async Task AgregarArtAsync()
         {
-            await GuardarAsync(false);  
+            await GuardarAsync(false);
             await EjecutarConCargaAsync(async () =>
             {
                 await AbrirFormularioAsync<AgregarEditarArtForm>(async form =>

@@ -11,6 +11,8 @@ namespace GestionOperativa.Presenters
     public class AgregarEditarTransitoEspecialPresenter : BasePresenter<IAgregarEditarTransitoEspecialView>
     {
         private readonly IGuardiaRepositorio _guardiaRepositorio;
+        private readonly ITeRepositorio _teRepositorio;
+
         private readonly IReporteConsumosNomTeOtrosProcessor _reporteConsumoTeOtros;
         public DateTime _Fecha;
         private int _idPosta;
@@ -19,20 +21,24 @@ namespace GestionOperativa.Presenters
             ISesionService sesionService,
             INavigationService navigationService,
             IReporteConsumosNomTeOtrosProcessor reporteConsumosNomTeOtrosProcessor,
+            ITeRepositorio teRepositorio,
             IGuardiaRepositorio guardiaRepositorio
         ) : base(sesionService, navigationService)
         {
             _guardiaRepositorio = guardiaRepositorio;
             _reporteConsumoTeOtros = reporteConsumosNomTeOtrosProcessor;
+            _teRepositorio = teRepositorio;
         }
 
-        public Task InicializarAsync(DateTime fecha, string patente, int idPosta)
+        public async Task InicializarAsync(DateTime fecha, string patente, int idPosta)
         {
             _idPosta = idPosta;
             _view.Fecha = fecha;
             _Fecha = fecha;
             _view.Tractor = patente;
-            return Task.CompletedTask;
+
+            var empresas = await _teRepositorio.ObtenerEmpresasTransitoEspecialAsync();
+            _view.CargarEmpresasTransitoEspecial(empresas);
         }
 
         public async Task GuardarAsync()

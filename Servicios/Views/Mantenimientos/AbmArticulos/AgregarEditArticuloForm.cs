@@ -186,6 +186,18 @@ namespace Servicios.Views.Mantenimientos
             cmbFamilia.EditValue = id;
         }
 
+        public bool ConfirmarCreacionStockEnPostas()
+        {
+            var result = XtraMessageBox.Show(
+                "¿Desea crear stock en las postas?",
+                "Crear Stock",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            return result == DialogResult.Yes;
+        }
+
         private async void bAgregarMarca_Click(object sender, EventArgs e)
         {
             string nombre = XtraInputBox.Show("Ingrese el nombre de la nueva marca:", "Nueva Marca", "");

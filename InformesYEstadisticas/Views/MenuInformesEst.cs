@@ -217,5 +217,180 @@ namespace InformesYEstadisticas
 
             await _presenter.ExportarAsignadosCargadosAsync(desde, hasta);
         }
+
+        private async void bNovedadesChoferes_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+          "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+          "Fecha Desde",
+          DateTime.Today.ToString("dd/MM/yyyy")
+      );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.GenerarReporteNovedadesChoferes(desde, hasta, true, false);
+        }
+
+        private async void bGenerarVap_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+        "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+        "Fecha Desde",
+        DateTime.Today.ToString("dd/MM/yyyy")
+    );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.GenerarReporteVaporizados(desde, hasta, true);
+        }
+
+        private async void bNovChofResum_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+         "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+         "Fecha Desde",
+         DateTime.Today.ToString("dd/MM/yyyy")
+     );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.GenerarReporteNovedadesChoferes(desde, hasta, false, false);
+        }
+
+        private async void bGenerarVapRes_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+        "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+        "Fecha Desde",
+        DateTime.Today.ToString("dd/MM/yyyy")
+    );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.GenerarReporteVaporizados(desde, hasta, false);
+        }
+
+        private async void bNovedadesChofDisp_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+         "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+         "Fecha Desde",
+         DateTime.Today.ToString("dd/MM/yyyy")
+     );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.GenerarReporteNovedadesChoferes(desde, hasta, true, true);
+        }
     }
 }

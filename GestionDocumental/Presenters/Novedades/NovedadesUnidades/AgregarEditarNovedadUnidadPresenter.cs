@@ -11,6 +11,8 @@ namespace GestionDocumental.Presenters.Novedades
         private readonly IUnidadMantenimientoRepositorio _UnidadMantenimientoRepositorio;
         private readonly IUnidadRepositorio _unidadRepositorio;
         private readonly IOrdenTrabajoRepositorio _ordenTrabajoRepositorio;
+        private readonly IDisponibilidadRepositorio _disponibilidadRepositorio;
+        private readonly ILocacionRepositorio _locacionRepositorio;
 
         private readonly INominaRepositorio _nominaRepositorio;
         private readonly IChoferEstadoRepositorio _choferEstadoRepositorio;
@@ -19,7 +21,9 @@ namespace GestionDocumental.Presenters.Novedades
         public AgregarEditarNovedadUnidadPresenter(
             IUnidadMantenimientoRepositorio unidadMantenimientoRepositorio,
             IUnidadRepositorio unidadRepositorio,
+            IDisponibilidadRepositorio disponibilidadRepositorio,
             ISesionService sesionService,
+            ILocacionRepositorio locacionRepositorio,
             INominaRepositorio nominaRepositorio,
             IOrdenTrabajoRepositorio ordenTrabajoRepositorio,
             IChoferEstadoRepositorio choferEstadoRepositorio,
@@ -29,6 +33,8 @@ namespace GestionDocumental.Presenters.Novedades
             _UnidadMantenimientoRepositorio = unidadMantenimientoRepositorio;
             _unidadRepositorio = unidadRepositorio;
             _nominaRepositorio = nominaRepositorio;
+            _locacionRepositorio = locacionRepositorio;
+            _disponibilidadRepositorio = disponibilidadRepositorio;
             _ordenTrabajoRepositorio = ordenTrabajoRepositorio;
             _choferEstadoRepositorio = choferEstadoRepositorio;
         }
@@ -83,6 +89,53 @@ namespace GestionDocumental.Presenters.Novedades
             _view.MostrarAusenciasChofer(texto);
         }
 
+        public async Task MostrarDisponiblesDeUnidadAsync(int idUnidad)
+        {
+            Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(idUnidad, DateTime.Now);
+            if (nomina == null)
+            {
+                _view.MostrarDisponiblesUnidad(""); // Limpiar el label
+                return;
+            }
+
+            List<Disponible> disponibles = await _disponibilidadRepositorio.ObtenerDisponiblePorNomina(nomina.IdNomina);
+
+            if (disponibles == null || !disponibles.Any())
+            {
+                _view.MostrarDisponiblesUnidad("Sin Disponibles asignados");
+                return;
+            }
+
+            // Filtrar: solo disponibles con fecha >= hoy
+            var disponiblesFiltrados = disponibles
+                .Where(d => d.FechaDisponible.Date >= DateTime.Today)
+                .ToList();
+
+            if (!disponiblesFiltrados.Any())
+            {
+                _view.MostrarDisponiblesUnidad("Sin Disponibles próximos");
+                return;
+            }
+
+            // Construir el texto
+            var textoBuilder = new List<string>();
+
+            foreach (var disponible in disponiblesFiltrados)
+            {
+                var locacion = await _locacionRepositorio.ObtenerPorIdAsync(disponible.IdOrigen);
+                string descripcionLocacion = locacion?.Nombre ?? "Sin locación";
+
+                textoBuilder.Add(
+                    $"Disponible: {disponible.FechaDisponible:dd/MM/yyyy} - " +
+                    $"Locación: {descripcionLocacion}"
+                );
+            }
+
+            string texto = string.Join(Environment.NewLine, textoBuilder);
+
+            _view.MostrarDisponiblesUnidad(texto);
+        }
+
         public async Task GuardarAsync()
         {
             if (!await ValidarFechasDentroDeAusenciaAsync())
@@ -104,7 +157,7 @@ namespace GestionDocumental.Presenters.Novedades
                 {
                     if (NovedadActual == null)
                     {
-                        await _UnidadMantenimientoRepositorio.AltaNovedadAsync(unidadMantenimiento, _sesionService.IdUsuario);
+                        int idUMan = await _UnidadMantenimientoRepositorio.AltaNovedadAsync(unidadMantenimiento, _sesionService.IdUsuario);
                         _view.MostrarMensaje("Mantenimiento de Unidad Agregado Correctamente");
 
                         Nomina? nomina = await _nominaRepositorio.ObtenerNominaActivaPorUnidadAsync(_view.IdUnidad, DateTime.Now);
@@ -121,18 +174,31 @@ namespace GestionDocumental.Presenters.Novedades
                             CostoEstimado = null,
                             Fase = 0, // Asumiendo que 1 es la fase inicial
                             IdLugarReparacion = null,
-                            Observaciones = $"Novedad asignada: {unidadMantenimiento.IdUnidadMantenimiento} | Fecha Inicio: {unidadMantenimiento.FechaInicio} - Fecha Fin {unidadMantenimiento.FechaFin} | Descripcion: {unidadMantenimiento.Observaciones}",
+                            IdUnidadMantenimiento = idUMan,
+                            Observaciones = $"Novedad asignada: {idUMan} | Fecha Inicio: {unidadMantenimiento.FechaInicio} - Fecha Fin {unidadMantenimiento.FechaFin} | Descripcion: {unidadMantenimiento.Observaciones}",
                             Activo = true
                         };
 
-                        await _ordenTrabajoRepositorio.AgregarAsync(orden);  
-
+                        await _ordenTrabajoRepositorio.AgregarAsync(orden);
                     }
                     else
                     {
                         await _UnidadMantenimientoRepositorio.EditarNovedadAsync(unidadMantenimiento, _sesionService.IdUsuario);
                         _view.MostrarMensaje("Mantenimiento de Unidad Actualizado Correctamente");
                     }
+
+                    List<UnidadMantenimientoEstado> estados = await _UnidadMantenimientoRepositorio.ObtenerEstados();
+                    var estadoSeleccionado = estados.FirstOrDefault(e => e.IdMantenimientoEstado == unidadMantenimiento.IdMantenimientoEstado);
+
+                    if (estadoSeleccionado.Disponible != true)
+                    {
+                        await CancelarDisponibilidadesPorMantenimientoAsync(
+                              _view.IdUnidad,
+                              _view.FechaInicio,
+                              _view.FechaFin
+                          );
+                    }
+
                     _view.Close();
                 });
             }
@@ -194,6 +260,49 @@ namespace GestionDocumental.Presenters.Novedades
                 }
             }
             return true;
+        }
+
+        private async Task CancelarDisponibilidadesPorMantenimientoAsync(
+        int idUnidad,
+        DateTime fechaInicio,
+        DateTime fechaFin)
+        {
+            DateTime fecha = fechaInicio.Date;
+
+            while (fecha <= fechaFin.Date)
+            {
+                // 1️⃣ Obtener nómina activa del chofer en esa fecha
+                Nomina? nomina = await _nominaRepositorio
+                    .ObtenerNominaActivaPorUnidadAsync(idUnidad, fecha);
+
+                if (nomina != null)
+                {
+                    // 2️⃣ Buscar disponibilidad de ese día
+                    Disponible? disponible =
+                        await _disponibilidadRepositorio
+                            .ObtenerDisponiblePorNominaYFechaAsync(
+                                nomina.IdNomina,
+                                fecha);
+
+                    if (disponible != null)
+                    {
+                        // 3️⃣ Cancelar disponibilidad
+                        disponible.IdDisponibleEstado = 10; // Cancelado
+                        disponible.Observaciones = "Agrego/Edito Mantenimiento";
+
+                        await _disponibilidadRepositorio.ActualizarDisponibleAsync(disponible);
+
+                        await _nominaRepositorio.RegistrarNominaAsync(
+                            disponible.IdNomina,
+                            "Cancela Disponible",
+                             $"Agrego/Edito Mantenimiento Fecha: {fechaInicio:dd/MM/yyyy} - Fin: {fechaFin:dd/MM/yyyy}",
+                            _sesionService.IdUsuario
+                        );
+                    }
+                }
+
+                fecha = fecha.AddDays(1);
+            }
         }
     }
 }

@@ -50,40 +50,68 @@ namespace Core.Repositories
             });
         }
 
-        public async Task AltaNovedadAsync(UnidadMantenimiento unidadMantenimimento, int idUsuario)
+        public Task<UnidadMantenimiento?> ObtenerPorUnidadIdAsync(int idUnidadMantenimiento)
+        {
+            return ObtenerPorIdGenericoAsync<UnidadMantenimiento>("UnidadMantenimiento", "IdUnidadMantenimiento", idUnidadMantenimiento);
+        }
+
+        public async Task<int> AltaNovedadAsync(UnidadMantenimiento unidadMantenimimento, int idUsuario)
         {
             var query = @"
-            DECLARE @idEstadoUnidadSito INT;
+                DECLARE @idEstadoUnidadSito INT;
 
-            INSERT INTO UnidadMantenimiento (idUnidad, idMantenimientoEstado, Observaciones, FechaInicio, FechaFin, Odometro, Activo)
-            VALUES (@idUnidad, @idMantenimientoEstado, @Observaciones, @FechaInicio, @FechaFin, @Odometro, 1);
+                INSERT INTO UnidadMantenimiento
+                (
+                    idUnidad,
+                    idMantenimientoEstado,
+                    Observaciones,
+                    FechaInicio,
+                    FechaFin,
+                    Odometro,
+                    Activo
+                )
+                VALUES
+                (
+                    @IdUnidad,
+                    @IdMantenimientoEstado,
+                    @Observaciones,
+                    @FechaInicio,
+                    @FechaFin,
+                    @Odometro,
+                    1
+                );
 
-            SET @idEstadoUnidadSito = SCOPE_IDENTITY();
+                SET @idEstadoUnidadSito = SCOPE_IDENTITY();
 
-            INSERT INTO UnidadMantenimientoRegistro (
-                idUnidadMantenimiento,
-                idUnidad,
-                Motivo,
-                FechaInicio,
-                FechaFin,
-                Observaciones,
-                idUsuario,
-                Fecha,
-                idMantenimientoEstado
-            )
-            VALUES (
-                @idEstadoUnidadSito,
-                @idUnidad,
-                'Alta Mantenimiento',
-                @FechaInicio,
-                @FechaFin,
-                @Observaciones,
-                @idUsuario,
-                GETDATE(),
-                @idMantenimientoEstado
-            );";
+                INSERT INTO UnidadMantenimientoRegistro
+                (
+                    idUnidadMantenimiento,
+                    idUnidad,
+                    Motivo,
+                    FechaInicio,
+                    FechaFin,
+                    Observaciones,
+                    idUsuario,
+                    Fecha,
+                    idMantenimientoEstado
+                )
+                VALUES
+                (
+                    @idEstadoUnidadSito,
+                    @IdUnidad,
+                    'Alta Mantenimiento',
+                    @FechaInicio,
+                    @FechaFin,
+                    @Observaciones,
+                    @idUsuario,
+                    GETDATE(),
+                    @IdMantenimientoEstado
+                );
 
-            await ConectarAsync(connection =>
+                SELECT @idEstadoUnidadSito;
+                ";
+
+            return await ConectarAsync(async connection =>
             {
                 var parametros = new
                 {
@@ -96,7 +124,7 @@ namespace Core.Repositories
                     idUsuario
                 };
 
-                return connection.ExecuteAsync(query, parametros);
+                return await connection.ExecuteScalarAsync<int>(query, parametros);
             });
         }
 

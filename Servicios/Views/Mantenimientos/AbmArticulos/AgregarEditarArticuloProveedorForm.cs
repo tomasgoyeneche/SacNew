@@ -17,6 +17,8 @@ namespace Servicios.Views.Mantenimiento
 
         public int? IdArticuloProveedor { get; private set; }
 
+        public string NombreFantasia => txtNombreFantasia.Text.Trim();
+
         public string RazonSocial => txtRazonSocial.Text.Trim();
         public string CUIT => txtCUIT.Text.Trim();
         public string? Direccion => txtDireccion.Text.Trim();
@@ -42,6 +44,7 @@ namespace Servicios.Views.Mantenimiento
         public void MostrarDatosProveedor(ArticuloProveedor proveedor)
         {
             IdArticuloProveedor = proveedor.IdProveedor;
+            txtNombreFantasia.Text = proveedor.NombreFantasia;
             txtRazonSocial.Text = proveedor.RazonSocial;
             txtCUIT.Text = proveedor.CUIT;
             txtDireccion.Text = proveedor.Direccion;

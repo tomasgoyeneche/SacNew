@@ -64,7 +64,6 @@ namespace GestionFlota.Presenters
             });
         }
 
-
         private async Task<List<ImportConsumoYpfEnRutaDto>> ConvertirADtoAsync(IEnumerable<ImportConsumoYpfEnRuta> consumos)
         {
             var listaDto = new List<ImportConsumoYpfEnRutaDto>();
@@ -130,7 +129,6 @@ namespace GestionFlota.Presenters
             var quincena = _view.QuincenaSeleccionada;
             return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioQuincenaAsync(fecha.Month, fecha.Year, quincena);
         }
-        
 
         public async Task GuardarConsumosAsync()
         {

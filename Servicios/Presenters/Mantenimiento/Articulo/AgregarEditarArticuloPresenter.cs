@@ -138,8 +138,11 @@ namespace Servicios.Presenters.Mantenimiento
                 if (ArticuloActual == null)
                 {
                     var id = await _articuloRepositorio.AgregarArticuloAsync(articulo);
-                    await _articuloStockRepositorio.CrearStockAsync(id, 2, 0);
-                    await _articuloStockRepositorio.CrearStockAsync(id, 3, 0);
+                    if (_view.ConfirmarCreacionStockEnPostas())
+                    {
+                        await _articuloStockRepositorio.CrearStockAsync(id, 2, 0);
+                        await _articuloStockRepositorio.CrearStockAsync(id, 3, 0);
+                    }
 
                     if (_tipoVista != null && _tipoVista == "MantenimientoPredefinido")
                     {

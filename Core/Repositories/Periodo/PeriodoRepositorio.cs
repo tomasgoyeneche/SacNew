@@ -84,7 +84,6 @@ namespace Core.Repositories
             });
         }
 
-
         public async Task<Periodo?> ObtenerPorIdAsync(int idPeriodo)
         {
             var query = "SELECT * FROM Periodo WHERE IdPeriodo = @IdPeriodo";

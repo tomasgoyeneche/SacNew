@@ -15,11 +15,11 @@ namespace Core.Repositories
             return await AgregarGenéricoAsync("ImportConsumoYPFEnRuta", consumo);
         }
 
-
         public async Task<int> ActualizarConsumoAsync(ImportConsumoYpfEnRuta consumo)
         {
             return await ActualizarGenéricoAsync("ImportConsumoYPFEnRuta", consumo);
         }
+
         public async Task<IEnumerable<ImportConsumoYpfEnRuta>> ObtenerPorPeriodoAsync(int idPeriodo)
         {
             var query = "SELECT * FROM ImportConsumoYpfEnRuta WHERE IdPeriodo = @IdPeriodo";

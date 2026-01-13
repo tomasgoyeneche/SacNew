@@ -22,5 +22,15 @@ namespace Core.Repositories
             string query = @"SELECT * FROM vw_GuardiaTransitoEspecial WHERE Ingreso BETWEEN @desde AND @hasta Order by Ingreso";
             return (await ConectarAsync(conn => conn.QueryAsync<GuardiaTransitoEspecialDto>(query, new { desde, hasta }))).ToList();
         }
+
+        public async Task<List<TransitoEspecialEmpresaDto>> ObtenerEmpresasTransitoEspecialAsync()
+        {
+            const string query = "SELECT DISTINCT RazonSocial, CUIT FROM TE WHERE ACTIVO = 1 ORDER BY RazonSocial";
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<TransitoEspecialEmpresaDto>(query);
+                return result.ToList();
+            });
+        }
     }
 }

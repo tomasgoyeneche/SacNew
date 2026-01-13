@@ -212,12 +212,11 @@ namespace GestionOperativa.Views
                 txtPsiCurso.Text = "N/A";
             }
 
-            if(tractor != null)
+            if (tractor != null)
             {
                 txtVtv.Text = tractor.Vtv.Value.ToShortDateString();
                 txtTractor.Text = tractor.Patente;
                 txtCuit.Text = tractor.Empresa_Cuit;
-
             }
             else
             {
@@ -226,7 +225,7 @@ namespace GestionOperativa.Views
                 txtCuit.Text = "N/A";
             }
 
-            if(semi != null)
+            if (semi != null)
             {
                 txtSemi.Text = semi.Patente;
                 txtVtvSemi.Text = semi.Vtv.Value.ToShortDateString();
@@ -245,21 +244,18 @@ namespace GestionOperativa.Views
                 txtEspesor.Text = "N/A";
             }
 
-
             if (unidad != null)
             {
                 txtMasYpf.Text = unidad.MasYPF.Value.ToShortDateString();
                 txtVerifMensual.Text = unidad.VerifMensual.Value.ToShortDateString();
                 txtChecklist.Text = unidad.Checklist.Value.ToShortDateString();
-            }else
+            }
+            else
             {
                 txtMasYpf.Text = "N/A";
                 txtVerifMensual.Text = "N/A";
                 txtChecklist.Text = "N/A";
             }
-
-
-
 
             // Foto del Chofer
             if (!string.IsNullOrEmpty(rutaFotoChofer) && File.Exists(rutaFotoChofer) && rutaFotoChofer != null)

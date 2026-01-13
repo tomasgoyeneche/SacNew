@@ -39,9 +39,12 @@
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             labelNovedades = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnExportar = new DevExpress.XtraEditors.SimpleButton();
+            cmbGuardia = new DevExpress.XtraEditors.LookUpEdit();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)gridControlVaporizados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewVaporizados).BeginInit();
             guna2Panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbGuardia.Properties).BeginInit();
             SuspendLayout();
             // 
             // gridControlVaporizados
@@ -143,12 +146,37 @@
             btnExportar.Text = "Exportar";
             btnExportar.Click += btnExportar_Click;
             // 
+            // cmbGuardia
+            // 
+            cmbGuardia.Location = new Point(270, 20);
+            cmbGuardia.Name = "cmbGuardia";
+            cmbGuardia.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbGuardia.Properties.Appearance.Options.UseFont = true;
+            cmbGuardia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbGuardia.Size = new Size(305, 26);
+            cmbGuardia.TabIndex = 72;
+            // 
+            // simpleButton1
+            // 
+            simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            simpleButton1.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.Appearance.Options.UseFont = true;
+            simpleButton1.Location = new Point(581, 19);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(130, 27);
+            simpleButton1.TabIndex = 73;
+            simpleButton1.Text = "Agregar Vaporizado";
+            simpleButton1.Click += simpleButton1_Click;
+            // 
             // MenuVaporizados
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1093, 573);
+            Controls.Add(simpleButton1);
+            Controls.Add(cmbGuardia);
             Controls.Add(btnExportar);
             Controls.Add(guna2Panel10);
             Controls.Add(simpleButton3);
@@ -164,6 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)gridViewVaporizados).EndInit();
             guna2Panel10.ResumeLayout(false);
             guna2Panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbGuardia.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -177,5 +206,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel labelNovedades;
         private DevExpress.XtraEditors.SimpleButton btnExportar;
+        private DevExpress.XtraEditors.LookUpEdit cmbGuardia;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

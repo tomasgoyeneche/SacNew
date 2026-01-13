@@ -107,6 +107,16 @@ namespace Servicios.Presenters
 
         public async Task GuardarAsync()
         {
+            if (_view.Nombre.Trim() == "")
+            {
+                _view.MostrarMensaje("El nombre del comprobante no puede estar vacío.");
+                return;
+            }
+            if (_view.IdTipoComprobante == 0)
+            {
+                _view.MostrarMensaje("Debe seleccionar un tipo de comprobante.");
+                return;
+            }
             if (_Tipo == "MovimientoStock")
             {
                 var comprobante = new MovimientoComprobante
