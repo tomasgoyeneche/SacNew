@@ -20,5 +20,9 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         void ConfigurarBotonDNI(bool habilitar, string? rutaArchivo);
 
         void ConfigurarBotonLicencia(bool habilitar, string? rutaArchivo);
+
+        void ConfigurarBotonCursoManejoDef(bool habilitar, string? rutaArchivo);
+
+        void ConfigurarBotonEvalPsicom(bool habilitar, string? rutaArchivo);
     }
 }

@@ -259,20 +259,32 @@ namespace InformesYEstadisticas.Presenters
         }
 
         private async Task<List<NovedadesChoferesDto>> FiltrarYRecalcularNovedadesAsync(
-        List<NovedadesChoferesDto> lista,
-        DateTime desde,
-        DateTime hasta,
-        bool disponible)
+     List<NovedadesChoferesDto> lista,
+     DateTime desde,
+     DateTime hasta,
+     bool disponible)
         {
             desde = desde.Date;
             hasta = hasta.Date;
 
             var resultado = new List<NovedadesChoferesDto>();
 
-            foreach (var n in lista)
+            // Agrupar por chofer
+            var novedadesPorChofer = lista
+                .Where(n => n.FechaInicio < hasta && n.FechaFin >= desde)
+                .GroupBy(n => n.idChofer);
+
+            foreach (var grupoChofer in novedadesPorChofer)
             {
-                // 1️⃣ Ver intersección básica con el período
-                if (n.FechaInicio < hasta && n.FechaFin >= desde)
+                // Días ya contados para este chofer
+                var diasOcupados = new HashSet<DateTime>();
+
+                // Ordenar novedades por fecha de inicio (prioridad)
+                var novedadesOrdenadas = grupoChofer
+                    .OrderBy(n => n.FechaInicio)
+                    .ToList();
+
+                foreach (var n in novedadesOrdenadas)
                 {
                     DateTime inicioConteo = n.FechaInicio < desde
                         ? desde
@@ -282,29 +294,30 @@ namespace InformesYEstadisticas.Presenters
                         ? hasta
                         : n.FechaFin.AddDays(1);
 
-                    int diasCalculados = 0;
+                    int diasAsignados = 0;
 
-                    // 2️⃣ Contar días
                     for (DateTime fecha = inicioConteo; fecha < finConteo; fecha = fecha.AddDays(1))
                     {
-                        if (!disponible)
+                        // Ya usado por otra novedad
+                        if (diasOcupados.Contains(fecha))
+                            continue;
+
+                        if (disponible)
                         {
-                            // comportamiento actual
-                            diasCalculados++;
-                        }
-                        else
-                        {
-                            // solo contar si tiene nómina activa ese día
                             var nomina = await _nominaRepositorio
                                 .ObtenerNominaActivaPorChoferAsync(n.idChofer, fecha);
 
-                            if (nomina != null)
-                                diasCalculados++;
+                            if (nomina == null)
+                                continue;
                         }
+
+                        // Día válido → se asigna a ESTA novedad
+                        diasOcupados.Add(fecha);
+                        diasAsignados++;
                     }
 
-                    // 3️⃣ Si no quedó ningún día válido, no entra al informe
-                    if (diasCalculados > 0)
+                    // Solo entra si le quedaron días
+                    if (diasAsignados > 0)
                     {
                         resultado.Add(new NovedadesChoferesDto
                         {
@@ -316,7 +329,7 @@ namespace InformesYEstadisticas.Presenters
                             Abreviado = n.Abreviado,
                             FechaInicio = n.FechaInicio,
                             FechaFin = n.FechaFin,
-                            Dias = diasCalculados,
+                            Dias = diasAsignados,
                             Disponible = n.Disponible,
                             Observaciones = n.Observaciones
                         });

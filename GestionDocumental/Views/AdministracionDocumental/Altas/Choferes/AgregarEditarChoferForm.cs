@@ -43,6 +43,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             IExamenAnual.Text = chofer.ExamenAnual.ToShortDateString();
             IPsicofisicoApto.Text = chofer.PsicofisicoApto.ToShortDateString();
             IPsicofisicoCurso.Text = chofer.PsicofisicoCurso.ToShortDateString();
+            lCursoManejoDef.Text = chofer.CursoManejo.ToShortDateString();
+            lEvaluacionPsicometrica.Text = chofer.EvaluacionPsicometrica.ToShortDateString();
         }
 
         public void MostrarSeguros(List<EmpresaSeguroDto> seguros)
@@ -95,6 +97,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         public void ConfigurarBotonLicencia(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bLicencia, habilitar, rutaArchivo);
 
         public void ConfigurarBotonExamenAnual(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bExamenAnual, habilitar, rutaArchivo);
+
+        public void ConfigurarBotonCursoManejoDef(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bCursoDef, habilitar, rutaArchivo);
+        public void ConfigurarBotonEvalPsicom(bool habilitar, string? rutaArchivo) => ConfigurarBotonDocumento(bEvalPsico, habilitar, rutaArchivo);
+
 
         private void ConfigurarBotonDocumento(Guna2ImageButton boton, bool habilitar, string? rutaArchivo)
         {
@@ -170,6 +176,21 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private async void bEditarVencimientos_Click(object sender, EventArgs e)
         {
             await _presenter.EditarVencimientos(IdChofer);
+        }
+
+        private void bCursoDef_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bCursoDef"]);
+        }
+
+        private void bExamenAnual_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bExamenAnual"]);
+        }
+
+        private void bEvalPsico_Click(object sender, EventArgs e)
+        {
+            AbrirArchivo(_rutasDocumentos["bEvalPsico"]);
         }
     }
 }

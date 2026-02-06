@@ -150,13 +150,13 @@ namespace Servicios.Presenters
             if (GuardiaActual?.TipoIngreso == 1)
             {
                 // Obtener Producto (por IdMotivo) y Posta (por IdPosta)
-                Producto producto = await _productoRepo.ObtenerPorIdAsync(vap.IdVaporizadoMotivo!.Value);
+                VaporizadoMotivo producto = await _productoRepo.ObtenerPorIdVapMotivoAsync(vap.IdVaporizadoMotivo!.Value);
                 Posta posta = await _postaRepo.ObtenerPorIdAsync(vap.IdPosta);
 
                 string fechaSoloDia = vap.FechaInicio!.Value.ToString("dd/MM/yyyy"); // solo fecha
                 string horaInicio = vap.FechaInicio!.Value.ToString("HH:mm");
                 string horaFin = vap.FechaFin!.Value.ToString("HH:mm");
-                string nombreProd = producto?.Nombre ?? "-";
+                string nombreProd = producto?.Descripcion ?? "-";
                 string nombrePosta = posta?.Descripcion ?? "-";
                 string nroCert = string.IsNullOrWhiteSpace(vap.NroCertificado) ? "-" : vap.NroCertificado;
 

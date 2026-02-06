@@ -20,5 +20,9 @@
         public DateTime ExamenAnual { get; set; }
         public DateTime PsicofisicoApto { get; set; }
         public DateTime PsicofisicoCurso { get; set; }
+        public DateTime CursoManejo { get; set; }
+        public DateTime EvaluacionPsicometrica { get; set; }
+
+
     }
 }

@@ -54,7 +54,10 @@ namespace GestionOperativa.Presenters.Choferes
             { "Apto", _view.ConfigurarBotonApto },
             { "Curso", _view.ConfigurarBotonCurso },
             { "DNI", _view.ConfigurarBotonDNI },
-            { "Licencia", _view.ConfigurarBotonLicencia }
+            { "Licencia", _view.ConfigurarBotonLicencia },
+            { "EvalPsicometrica", _view.ConfigurarBotonEvalPsicom },
+            { "CursoManejoDef", _view.ConfigurarBotonCursoManejoDef }
+
         };
 
             foreach (var (subCarpeta, accion) in subCarpetas)

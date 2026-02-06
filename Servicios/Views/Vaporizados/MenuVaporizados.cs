@@ -121,18 +121,25 @@ namespace Servicios
             cmbGuardia.Properties.DisplayMember = nameof(GuardiaDto.Tractor);
 
             cmbGuardia.Properties.NullText = "Seleccione guardia...";
-            cmbGuardia.Properties.PopupWidth = 250;
+            cmbGuardia.Properties.PopupWidth = 270;
 
             cmbGuardia.Properties.Columns.Clear();
 
             var colTractor = new LookUpColumnInfo(nameof(GuardiaDto.Tractor), "Tractor", 120);
             cmbGuardia.Properties.Columns.Add(colTractor);
 
+            var colSemi = new LookUpColumnInfo(nameof(GuardiaDto.Semi), "Semi", 120);
+            cmbGuardia.Properties.Columns.Add(colSemi);
+
+
             var colIngreso = new LookUpColumnInfo(nameof(GuardiaDto.Ingreso), "Ingreso", 120);
             colIngreso.FormatType = DevExpress.Utils.FormatType.DateTime;
             colIngreso.FormatString = "dd/MM/yyyy HH:mm";
 
             cmbGuardia.Properties.Columns.Add(colIngreso);
+
+            cmbGuardia.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
+            cmbGuardia.Properties.AutoSearchColumnIndex = -1; // busca en todas las columnas
         }
 
         //private async void btnAgregarNovedad_Click(object sender, EventArgs e)

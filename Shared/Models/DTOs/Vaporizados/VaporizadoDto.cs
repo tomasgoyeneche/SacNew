@@ -12,8 +12,8 @@
         public string Motivo { get; set; } = string.Empty;
 
         public int Cisternas { get; set; } = 0;
-        public int NumeroCertificado { get; set; } = 0;
-        public int RemitoDanes { get; set; } = 0;
+        public string NumeroCertificado { get; set; } = string.Empty;
+        public string RemitoDanes { get; set; } = string.Empty;
         public DateTime? Inicio { get; set; }
         public DateTime? Fin { get; set; }
 

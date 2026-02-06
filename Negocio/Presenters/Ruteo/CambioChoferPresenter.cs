@@ -95,13 +95,13 @@ namespace GestionFlota.Presenters
                 await _nominaRepositorio.RegistrarNominaAsync(
                  _nominaActual.IdNomina,
                  "Cambio Chofer",
-                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre}" + fecha.ToString("dd/MM/yyyy"),
+                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre}" + fecha.ToString("dd/MM/yyyy HH:mm"),
                  _sesionService.IdUsuario
                 );
             }
             // Registrar evento en NominaRegistro
             string nombre = _view.NombreChoferSeleccionado ?? "Sin chofer";
-            string descripcion = $"{nombre} - {fecha:dd/MM/yyyy}";
+            string descripcion = $"{nombre} - {fecha:dd/MM/yyyy HH:mm}";
             await _nominaRepositorio.RegistrarNominaAsync(_nominaActual.IdNomina, "Cambio Chofer", descripcion, _sesionService.IdUsuario);
 
             _view.MostrarMensaje("Cambio de chofer realizado correctamente.");
@@ -143,7 +143,7 @@ namespace GestionFlota.Presenters
                 await _nominaRepositorio.RegistrarNominaAsync(
                  _nominaActual.IdNomina,
                  "Cambio Chofer",
-                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre}" + fecha.ToString("dd/MM/yyyy"),
+                 $"Baja Chofer - {chofer.Apellido}, {chofer.Nombre} - " + fecha.ToString("dd/MM/yyyy HH:mm"),
                  _sesionService.IdUsuario
                 );
 

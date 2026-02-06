@@ -28,6 +28,12 @@ namespace Core.Repositories
             return ObtenerPorIdGenericoAsync<Producto>("Producto", "IdProducto", idProducto);
         }
 
+        public Task<VaporizadoMotivo?> ObtenerPorIdVapMotivoAsync(int idVaporizadoMotivo)
+        {
+            return ObtenerPorIdGenericoAsync<VaporizadoMotivo>("VaporizadoMotivo", "IdVaporizadoMotivo", idVaporizadoMotivo);
+        }
+
+
         public async Task<List<ProductoSinonimo>> ObtenerTodosSinonimosAsync()
         {
             var query = "SELECT * FROM ProductoSinonimo where Activo = 1";

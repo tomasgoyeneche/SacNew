@@ -161,6 +161,8 @@ namespace GestionFlota.Presenters
                         _sesionService.IdUsuario
                     );
 
+                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino);
+
                     _view.MostrarMensaje("Disponible actualizado correctamente.");
                 }
                 else
@@ -174,10 +176,68 @@ namespace GestionFlota.Presenters
                         _sesionService.IdUsuario
                     );
 
+                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino);
+
                     _view.MostrarMensaje("Disponible agregado correctamente.");
                 }
                 _view.Cerrar();
             }
+        }
+
+        private async Task ActualizarDisponibilidadHistoricaSiCorrespondeAsync(
+        Disponible disponible,
+        Locacion origen,
+        Locacion? destino)
+            {
+            // Regla general del “corte”:
+            // El histórico del día X se genera el día X-1 a las 12:00.
+            // Si ya pasó ese corte, y ahora cambian cosas, hay que corregir el histórico.
+            DateTime momentoCorte = disponible.FechaDisponible.Date.AddDays(-1).AddHours(12);
+
+            if (DateTime.Now < momentoCorte)
+                return; // todavía no se generó histórico para esa fecha → no hacemos nada
+
+            // Traer históricos del día de la disponibilidad
+            var historicos = await _disponibilidadRepositorio
+                .ObtenerPorFechaHistoricaAsync(disponible.FechaDisponible.Date);
+
+            if (historicos == null || historicos.Count == 0)
+                return;
+
+            // Nomina actual del disponible (unidad "real" a la que pertenece)
+            var nominaDisponible = await _nominaRepositorio.ObtenerPorIdAsync(disponible.IdNomina);
+            if (nominaDisponible == null)
+                return;
+
+            int idUnidadDisponible = nominaDisponible.IdUnidad;
+
+            // Para matchear por unidad, necesitamos saber la unidad de cada histórico (vía su IdNomina)
+            // (Simple y seguro; si querés performance luego lo optimizamos con batch.)
+            DisponibilidadHistorica? historicoMatch = null;
+
+            foreach (var h in historicos)
+            {
+                var nominaH = await _nominaRepositorio.ObtenerPorIdAsync(h.IdNomina);
+                if (nominaH != null && nominaH.IdUnidad == idUnidadDisponible)
+                {
+                    historicoMatch = h;
+                    break;
+                }
+            }
+
+            if (historicoMatch == null)
+                return; // no hay histórico para esa unidad en esa fecha
+
+            // Actualizar campos pedidos
+            historicoMatch.IdNomina = disponible.IdNomina; // por si cambió la nómina
+            historicoMatch.Estado = "Disponible";
+            historicoMatch.IdEstadoReal = 1;   // por ahora
+            historicoMatch.TipoEstadoReal = 1; // por ahora
+            historicoMatch.Origen = origen.Nombre;
+            historicoMatch.Destino = destino?.Nombre ?? string.Empty; // o null si tu DB lo permite
+            historicoMatch.FechaRegistro = DateTime.Now;
+
+            await _disponibilidadRepositorio.ActualizarDispoHistoricaAsync(historicoMatch);
         }
 
         public async Task MostrarMantenimientosyFrancosDelChoferAsync(int idNomina)

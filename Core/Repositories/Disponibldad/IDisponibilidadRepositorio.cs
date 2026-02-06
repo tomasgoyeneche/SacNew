@@ -20,6 +20,9 @@ namespace Core.Repositories
 
         Task AgregarDisponibleAsync(Disponible disp);
 
+        Task<List<DisponibilidadHistorica>> ObtenerPorFechaHistoricaAsync(DateTime fechaDisponible);
+        Task ActualizarDispoHistoricaAsync(DisponibilidadHistorica historico);
+
         Task<DisponibleEstado?> ObtenerEstadoDeBajaPorIdAsync(int idMotivo);
 
         Task<List<DisponibilidadYPF>> ObtenerDisponibilidadYPFPorFechaAsync(DateTime dispoFecha);

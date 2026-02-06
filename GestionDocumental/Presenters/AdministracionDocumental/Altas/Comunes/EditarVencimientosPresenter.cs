@@ -45,6 +45,9 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                     vencimientos[2] = ("Psicofísico Apto", chofer.PsicofisicoApto);
                     vencimientos[3] = ("Psicofísico Curso", chofer.PsicofisicoCurso);
                     vencimientos[4] = ("Examen Anual", chofer.ExamenAnual);
+                    vencimientos[5] = ("Curso Manejo Defensivo", chofer.CursoManejo);
+                    vencimientos[6] = ("Evaluacion Psicometrica", chofer.EvaluacionPsicometrica);
+
                     _view.MostrarTara(false, null);
                     break;
 

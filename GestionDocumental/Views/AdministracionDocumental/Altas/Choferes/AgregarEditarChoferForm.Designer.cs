@@ -31,35 +31,35 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -68,6 +68,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -117,6 +119,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bFotoChofer = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            bCursoDef = new Guna.UI2.WinForms.Guna2ImageButton();
+            bEvalPsico = new Guna.UI2.WinForms.Guna2ImageButton();
+            lCursoManejoDef = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lEvaluacionPsicometrica = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bPsicofisicoApto = new Guna.UI2.WinForms.Guna2ImageButton();
             bPsicofisicoCurso = new Guna.UI2.WinForms.Guna2ImageButton();
             bExamenAnual = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -180,12 +188,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             guna2Panel9.Controls.Add(bMinimize);
             guna2Panel9.Controls.Add(bClose);
-            guna2Panel9.CustomizableEdges = customizableEdges44;
+            guna2Panel9.CustomizableEdges = customizableEdges46;
             guna2Panel9.Dock = DockStyle.Top;
             guna2Panel9.FillColor = Color.Transparent;
             guna2Panel9.Location = new Point(0, 0);
             guna2Panel9.Name = "guna2Panel9";
-            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges45;
+            guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges47;
             guna2Panel9.Size = new Size(800, 31);
             guna2Panel9.TabIndex = 22;
             // 
@@ -193,12 +201,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             bMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            bMinimize.CustomizableEdges = customizableEdges40;
+            bMinimize.CustomizableEdges = customizableEdges42;
             bMinimize.FillColor = Color.Transparent;
             bMinimize.IconColor = Color.WhiteSmoke;
             bMinimize.Location = new Point(736, 0);
             bMinimize.Name = "bMinimize";
-            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges41;
+            bMinimize.ShadowDecoration.CustomizableEdges = customizableEdges43;
             bMinimize.Size = new Size(32, 31);
             bMinimize.TabIndex = 18;
             // 
@@ -206,14 +214,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             bClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bClose.Animated = true;
-            bClose.CustomizableEdges = customizableEdges42;
+            bClose.CustomizableEdges = customizableEdges44;
             bClose.FillColor = Color.Transparent;
             bClose.HoverState.FillColor = Color.IndianRed;
             bClose.HoverState.IconColor = Color.White;
             bClose.IconColor = Color.WhiteSmoke;
             bClose.Location = new Point(768, 0);
             bClose.Name = "bClose";
-            bClose.ShadowDecoration.CustomizableEdges = customizableEdges43;
+            bClose.ShadowDecoration.CustomizableEdges = customizableEdges45;
             bClose.Size = new Size(32, 31);
             bClose.TabIndex = 17;
             // 
@@ -241,12 +249,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             lRazonSocial.Controls.Add(guna2HtmlLabel2);
             lRazonSocial.Controls.Add(guna2HtmlLabel4);
             lRazonSocial.Controls.Add(guna2HtmlLabel3);
-            lRazonSocial.CustomizableEdges = customizableEdges38;
+            lRazonSocial.CustomizableEdges = customizableEdges40;
             lRazonSocial.FillColor = Color.FromArgb(42, 48, 56);
             lRazonSocial.ForeColor = SystemColors.ControlLight;
             lRazonSocial.Location = new Point(23, 156);
             lRazonSocial.Name = "lRazonSocial";
-            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges39;
+            lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges41;
             lRazonSocial.Size = new Size(570, 233);
             lRazonSocial.TabIndex = 30;
             // 
@@ -280,7 +288,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bAltaTemprana.Location = new Point(340, 34);
             bAltaTemprana.Name = "bAltaTemprana";
             bAltaTemprana.PressedState.ImageSize = new Size(27, 21);
-            bAltaTemprana.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            bAltaTemprana.ShadowDecoration.CustomizableEdges = customizableEdges34;
             bAltaTemprana.Size = new Size(26, 20);
             bAltaTemprana.TabIndex = 56;
             bAltaTemprana.Click += bAltaTemprana_Click;
@@ -322,14 +330,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bDocumento.Location = new Point(21, 34);
             bDocumento.Name = "bDocumento";
             bDocumento.PressedState.ImageSize = new Size(27, 21);
-            bDocumento.ShadowDecoration.CustomizableEdges = customizableEdges33;
+            bDocumento.ShadowDecoration.CustomizableEdges = customizableEdges35;
             bDocumento.Size = new Size(26, 20);
             bDocumento.TabIndex = 53;
             bDocumento.Click += bDocumento_Click;
             // 
             // btnEditarDatos
             // 
-            btnEditarDatos.CustomizableEdges = customizableEdges34;
+            btnEditarDatos.CustomizableEdges = customizableEdges36;
             btnEditarDatos.DisabledState.BorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditarDatos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -340,7 +348,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             btnEditarDatos.ForeColor = Color.White;
             btnEditarDatos.Location = new Point(0, 215);
             btnEditarDatos.Name = "btnEditarDatos";
-            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges35;
+            btnEditarDatos.ShadowDecoration.CustomizableEdges = customizableEdges37;
             btnEditarDatos.Size = new Size(570, 18);
             btnEditarDatos.TabIndex = 52;
             btnEditarDatos.Text = "Editar";
@@ -426,12 +434,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // guna2Panel4
             // 
             guna2Panel4.Controls.Add(guna2HtmlLabel10);
-            guna2Panel4.CustomizableEdges = customizableEdges36;
+            guna2Panel4.CustomizableEdges = customizableEdges38;
             guna2Panel4.Dock = DockStyle.Top;
             guna2Panel4.FillColor = Color.ForestGreen;
             guna2Panel4.Location = new Point(0, 0);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges37;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges39;
             guna2Panel4.Size = new Size(570, 25);
             guna2Panel4.TabIndex = 31;
             // 
@@ -554,12 +562,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             guna2Panel1.Controls.Add(dvgSegurosChoferes);
             guna2Panel1.Controls.Add(guna2Panel2);
-            guna2Panel1.CustomizableEdges = customizableEdges30;
+            guna2Panel1.CustomizableEdges = customizableEdges32;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.ForeColor = SystemColors.ControlLight;
             guna2Panel1.Location = new Point(23, 395);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges31;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges33;
             guna2Panel1.Size = new Size(768, 188);
             guna2Panel1.TabIndex = 53;
             // 
@@ -631,12 +639,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(guna2HtmlLabel18);
-            guna2Panel2.CustomizableEdges = customizableEdges28;
+            guna2Panel2.CustomizableEdges = customizableEdges30;
             guna2Panel2.Dock = DockStyle.Top;
             guna2Panel2.FillColor = Color.ForestGreen;
             guna2Panel2.Location = new Point(0, 0);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges29;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges31;
             guna2Panel2.Size = new Size(768, 25);
             guna2Panel2.TabIndex = 31;
             // 
@@ -654,12 +662,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // picBoxFotoChofer
             // 
             picBoxFotoChofer.BackgroundImageLayout = ImageLayout.Stretch;
-            picBoxFotoChofer.CustomizableEdges = customizableEdges26;
+            picBoxFotoChofer.CustomizableEdges = customizableEdges28;
             picBoxFotoChofer.FillColor = Color.Transparent;
             picBoxFotoChofer.ImageRotate = 0F;
             picBoxFotoChofer.Location = new Point(602, 65);
             picBoxFotoChofer.Name = "picBoxFotoChofer";
-            picBoxFotoChofer.ShadowDecoration.CustomizableEdges = customizableEdges27;
+            picBoxFotoChofer.ShadowDecoration.CustomizableEdges = customizableEdges29;
             picBoxFotoChofer.Size = new Size(189, 228);
             picBoxFotoChofer.TabIndex = 54;
             picBoxFotoChofer.TabStop = false;
@@ -668,11 +676,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             guna2Panel3.Controls.Add(bFotoChofer);
             guna2Panel3.Controls.Add(guna2HtmlLabel27);
-            guna2Panel3.CustomizableEdges = customizableEdges24;
+            guna2Panel3.CustomizableEdges = customizableEdges26;
             guna2Panel3.FillColor = Color.ForestGreen;
             guna2Panel3.Location = new Point(602, 40);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges25;
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges27;
             guna2Panel3.Size = new Size(189, 25);
             guna2Panel3.TabIndex = 55;
             // 
@@ -689,7 +697,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bFotoChofer.Location = new Point(158, 3);
             bFotoChofer.Name = "bFotoChofer";
             bFotoChofer.PressedState.ImageSize = new Size(27, 21);
-            bFotoChofer.ShadowDecoration.CustomizableEdges = customizableEdges23;
+            bFotoChofer.ShadowDecoration.CustomizableEdges = customizableEdges25;
             bFotoChofer.Size = new Size(26, 20);
             bFotoChofer.TabIndex = 53;
             bFotoChofer.Click += bFotoChofer_Click;
@@ -707,6 +715,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             // guna2Panel6
             // 
+            guna2Panel6.Controls.Add(bCursoDef);
+            guna2Panel6.Controls.Add(bEvalPsico);
+            guna2Panel6.Controls.Add(lCursoManejoDef);
+            guna2Panel6.Controls.Add(lEvaluacionPsicometrica);
+            guna2Panel6.Controls.Add(guna2HtmlLabel13);
+            guna2Panel6.Controls.Add(guna2HtmlLabel14);
             guna2Panel6.Controls.Add(bPsicofisicoApto);
             guna2Panel6.Controls.Add(bPsicofisicoCurso);
             guna2Panel6.Controls.Add(bExamenAnual);
@@ -722,14 +736,98 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             guna2Panel6.Controls.Add(guna2HtmlLabel38);
             guna2Panel6.Controls.Add(guna2HtmlLabel40);
             guna2Panel6.Controls.Add(guna2HtmlLabel41);
-            guna2Panel6.CustomizableEdges = customizableEdges21;
+            guna2Panel6.CustomizableEdges = customizableEdges23;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel6.ForeColor = SystemColors.ControlLight;
             guna2Panel6.Location = new Point(23, 592);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel6.Size = new Size(768, 105);
             guna2Panel6.TabIndex = 57;
+            // 
+            // bCursoDef
+            // 
+            bCursoDef.BackColor = Color.Transparent;
+            bCursoDef.BackgroundImageLayout = ImageLayout.Stretch;
+            bCursoDef.CheckedState.ImageSize = new Size(64, 64);
+            bCursoDef.HoverState.ImageSize = new Size(27, 21);
+            bCursoDef.Image = Resources.iconoOk;
+            bCursoDef.ImageOffset = new Point(0, 0);
+            bCursoDef.ImageRotate = 0F;
+            bCursoDef.ImageSize = new Size(25, 20);
+            bCursoDef.Location = new Point(272, 32);
+            bCursoDef.Name = "bCursoDef";
+            bCursoDef.PressedState.ImageSize = new Size(27, 21);
+            bCursoDef.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            bCursoDef.Size = new Size(26, 20);
+            bCursoDef.TabIndex = 66;
+            bCursoDef.Click += bCursoDef_Click;
+            // 
+            // bEvalPsico
+            // 
+            bEvalPsico.BackColor = Color.Transparent;
+            bEvalPsico.BackgroundImageLayout = ImageLayout.Stretch;
+            bEvalPsico.CheckedState.ImageSize = new Size(64, 64);
+            bEvalPsico.HoverState.ImageSize = new Size(27, 21);
+            bEvalPsico.Image = Resources.iconoOk;
+            bEvalPsico.ImageOffset = new Point(0, 0);
+            bEvalPsico.ImageRotate = 0F;
+            bEvalPsico.ImageSize = new Size(25, 20);
+            bEvalPsico.Location = new Point(272, 58);
+            bEvalPsico.Name = "bEvalPsico";
+            bEvalPsico.PressedState.ImageSize = new Size(27, 21);
+            bEvalPsico.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            bEvalPsico.Size = new Size(26, 20);
+            bEvalPsico.TabIndex = 65;
+            bEvalPsico.Click += bEvalPsico_Click;
+            // 
+            // lCursoManejoDef
+            // 
+            lCursoManejoDef.BackColor = Color.Transparent;
+            lCursoManejoDef.Font = new Font("Century Gothic", 9F);
+            lCursoManejoDef.ForeColor = SystemColors.ControlLight;
+            lCursoManejoDef.Location = new Point(442, 34);
+            lCursoManejoDef.Name = "lCursoManejoDef";
+            lCursoManejoDef.Size = new Size(60, 19);
+            lCursoManejoDef.TabIndex = 64;
+            lCursoManejoDef.Text = "Curso Def";
+            // 
+            // lEvaluacionPsicometrica
+            // 
+            lEvaluacionPsicometrica.BackColor = Color.Transparent;
+            lEvaluacionPsicometrica.Font = new Font("Century Gothic", 9F);
+            lEvaluacionPsicometrica.ForeColor = SystemColors.ControlLight;
+            lEvaluacionPsicometrica.Location = new Point(442, 58);
+            lEvaluacionPsicometrica.Name = "lEvaluacionPsicometrica";
+            lEvaluacionPsicometrica.Size = new Size(81, 19);
+            lEvaluacionPsicometrica.TabIndex = 63;
+            lEvaluacionPsicometrica.Text = "Psicometrica";
+            // 
+            // guna2HtmlLabel13
+            // 
+            guna2HtmlLabel13.AutoSize = false;
+            guna2HtmlLabel13.BackColor = Color.Gray;
+            guna2HtmlLabel13.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            guna2HtmlLabel13.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel13.Location = new Point(304, 58);
+            guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            guna2HtmlLabel13.Size = new Size(132, 20);
+            guna2HtmlLabel13.TabIndex = 62;
+            guna2HtmlLabel13.Text = "Eval. Psicometrica";
+            guna2HtmlLabel13.TextAlignment = ContentAlignment.TopCenter;
+            // 
+            // guna2HtmlLabel14
+            // 
+            guna2HtmlLabel14.AutoSize = false;
+            guna2HtmlLabel14.BackColor = Color.Gray;
+            guna2HtmlLabel14.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            guna2HtmlLabel14.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel14.Location = new Point(304, 32);
+            guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            guna2HtmlLabel14.Size = new Size(132, 20);
+            guna2HtmlLabel14.TabIndex = 61;
+            guna2HtmlLabel14.Text = "Curso Manejo Def";
+            guna2HtmlLabel14.TextAlignment = ContentAlignment.TopCenter;
             // 
             // bPsicofisicoApto
             // 
@@ -741,10 +839,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bPsicofisicoApto.ImageOffset = new Point(0, 0);
             bPsicofisicoApto.ImageRotate = 0F;
             bPsicofisicoApto.ImageSize = new Size(25, 20);
-            bPsicofisicoApto.Location = new Point(438, 32);
+            bPsicofisicoApto.Location = new Point(528, 32);
             bPsicofisicoApto.Name = "bPsicofisicoApto";
             bPsicofisicoApto.PressedState.ImageSize = new Size(27, 21);
-            bPsicofisicoApto.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            bPsicofisicoApto.ShadowDecoration.CustomizableEdges = customizableEdges15;
             bPsicofisicoApto.Size = new Size(26, 20);
             bPsicofisicoApto.TabIndex = 60;
             bPsicofisicoApto.Click += bPsicofisicoApto_Click;
@@ -759,10 +857,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bPsicofisicoCurso.ImageOffset = new Point(0, 0);
             bPsicofisicoCurso.ImageRotate = 0F;
             bPsicofisicoCurso.ImageSize = new Size(25, 20);
-            bPsicofisicoCurso.Location = new Point(438, 58);
+            bPsicofisicoCurso.Location = new Point(528, 58);
             bPsicofisicoCurso.Name = "bPsicofisicoCurso";
             bPsicofisicoCurso.PressedState.ImageSize = new Size(27, 21);
-            bPsicofisicoCurso.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            bPsicofisicoCurso.ShadowDecoration.CustomizableEdges = customizableEdges16;
             bPsicofisicoCurso.Size = new Size(26, 20);
             bPsicofisicoCurso.TabIndex = 59;
             bPsicofisicoCurso.Click += bPsicofisicoCurso_Click;
@@ -780,9 +878,10 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bExamenAnual.Location = new Point(13, 59);
             bExamenAnual.Name = "bExamenAnual";
             bExamenAnual.PressedState.ImageSize = new Size(27, 21);
-            bExamenAnual.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            bExamenAnual.ShadowDecoration.CustomizableEdges = customizableEdges17;
             bExamenAnual.Size = new Size(26, 20);
             bExamenAnual.TabIndex = 58;
+            bExamenAnual.Click += bExamenAnual_Click;
             // 
             // bLicencia
             // 
@@ -797,14 +896,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bLicencia.Location = new Point(13, 33);
             bLicencia.Name = "bLicencia";
             bLicencia.PressedState.ImageSize = new Size(27, 21);
-            bLicencia.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            bLicencia.ShadowDecoration.CustomizableEdges = customizableEdges18;
             bLicencia.Size = new Size(26, 20);
             bLicencia.TabIndex = 57;
             bLicencia.Click += bLicencia_Click;
             // 
             // bEditarVencimientos
             // 
-            bEditarVencimientos.CustomizableEdges = customizableEdges17;
+            bEditarVencimientos.CustomizableEdges = customizableEdges19;
             bEditarVencimientos.DisabledState.BorderColor = Color.DarkGray;
             bEditarVencimientos.DisabledState.CustomBorderColor = Color.DarkGray;
             bEditarVencimientos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -815,7 +914,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             bEditarVencimientos.ForeColor = Color.White;
             bEditarVencimientos.Location = new Point(0, 85);
             bEditarVencimientos.Name = "bEditarVencimientos";
-            bEditarVencimientos.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            bEditarVencimientos.ShadowDecoration.CustomizableEdges = customizableEdges20;
             bEditarVencimientos.Size = new Size(768, 20);
             bEditarVencimientos.TabIndex = 57;
             bEditarVencimientos.Text = "Editar";
@@ -826,7 +925,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             IPsicofisicoApto.BackColor = Color.Transparent;
             IPsicofisicoApto.Font = new Font("Century Gothic", 9F);
             IPsicofisicoApto.ForeColor = SystemColors.ControlLight;
-            IPsicofisicoApto.Location = new Point(608, 34);
+            IPsicofisicoApto.Location = new Point(698, 34);
             IPsicofisicoApto.Name = "IPsicofisicoApto";
             IPsicofisicoApto.Size = new Size(65, 19);
             IPsicofisicoApto.TabIndex = 55;
@@ -837,7 +936,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             IPsicofisicoCurso.BackColor = Color.Transparent;
             IPsicofisicoCurso.Font = new Font("Century Gothic", 9F);
             IPsicofisicoCurso.ForeColor = SystemColors.ControlLight;
-            IPsicofisicoCurso.Location = new Point(608, 58);
+            IPsicofisicoCurso.Location = new Point(698, 58);
             IPsicofisicoCurso.Name = "IPsicofisicoCurso";
             IPsicofisicoCurso.Size = new Size(65, 19);
             IPsicofisicoCurso.TabIndex = 54;
@@ -879,12 +978,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // guna2Panel8
             // 
             guna2Panel8.Controls.Add(guna2HtmlLabel36);
-            guna2Panel8.CustomizableEdges = customizableEdges19;
+            guna2Panel8.CustomizableEdges = customizableEdges21;
             guna2Panel8.Dock = DockStyle.Top;
             guna2Panel8.FillColor = Color.ForestGreen;
             guna2Panel8.Location = new Point(0, 0);
             guna2Panel8.Name = "guna2Panel8";
-            guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2Panel8.Size = new Size(768, 25);
             guna2Panel8.TabIndex = 31;
             // 
@@ -905,7 +1004,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             guna2HtmlLabel37.BackColor = Color.Gray;
             guna2HtmlLabel37.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel37.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel37.Location = new Point(470, 58);
+            guna2HtmlLabel37.Location = new Point(560, 58);
             guna2HtmlLabel37.Name = "guna2HtmlLabel37";
             guna2HtmlLabel37.Size = new Size(132, 20);
             guna2HtmlLabel37.TabIndex = 28;
@@ -944,7 +1043,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             guna2HtmlLabel41.BackColor = Color.Gray;
             guna2HtmlLabel41.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
             guna2HtmlLabel41.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel41.Location = new Point(470, 32);
+            guna2HtmlLabel41.Location = new Point(560, 32);
             guna2HtmlLabel41.Name = "guna2HtmlLabel41";
             guna2HtmlLabel41.Size = new Size(132, 20);
             guna2HtmlLabel41.TabIndex = 25;
@@ -1341,5 +1440,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2DataGridView dvgSegurosChoferes;
+        private Guna.UI2.WinForms.Guna2ImageButton bCursoDef;
+        private Guna.UI2.WinForms.Guna2ImageButton bEvalPsico;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lCursoManejoDef;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lEvaluacionPsicometrica;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
     }
 }

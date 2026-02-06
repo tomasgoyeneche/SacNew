@@ -92,5 +92,49 @@ namespace Core.Repositories
             return await ConectarAsync(conn =>
                 conn.QueryFirstOrDefaultAsync<DisponibleEstado>(query, new { idMotivo }));
         }
+
+        public async Task<List<DisponibilidadHistorica>> ObtenerPorFechaHistoricaAsync(DateTime fechaDisponible)
+        {
+            const string query = @"
+                        SELECT 
+                            IdDisponibilidadHistorica,
+                            Fecha,
+                            IdNomina,
+                            IdProducto,
+                            Estado,
+                            IdEstadoReal,
+                            TipoEstadoReal,
+                            Origen,
+                            Destino,
+                            FechaRegistro
+                        FROM dbo.DisponibilidadHistorica
+                        WHERE Fecha >= @Desde AND Fecha < @Hasta;";
+
+            var desde = fechaDisponible.Date;
+            var hasta = fechaDisponible.Date.AddDays(1);
+
+            return await ConectarAsync(conn =>
+                conn.QueryAsync<DisponibilidadHistorica>(query, new { Desde = desde, Hasta = hasta })
+            ).ContinueWith(t => t.Result.ToList());
+        }
+
+        public async Task ActualizarDispoHistoricaAsync(DisponibilidadHistorica historico)
+        {
+            const string query = @"
+                UPDATE dbo.DisponibilidadHistorica
+                SET
+                    IdNomina = @IdNomina,
+                    Estado = @Estado,
+                    IdEstadoReal = @IdEstadoReal,
+                    TipoEstadoReal = @TipoEstadoReal,
+                    Origen = @Origen,
+                    Destino = @Destino,
+                    FechaRegistro = @FechaRegistro
+                WHERE IdDisponibilidadHistorica = @IdDisponibilidadHistorica;";
+
+            await ConectarAsync(conn =>
+                conn.ExecuteAsync(query, new DynamicParameters(historico))
+            );
+        }
     }
 }

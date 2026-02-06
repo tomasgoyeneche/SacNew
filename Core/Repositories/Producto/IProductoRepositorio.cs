@@ -9,7 +9,7 @@ namespace Core.Repositories
         Task<List<ProductoSinonimo>> ObtenerTodosSinonimosAsync();
 
         Task AgregarSinonimoAsync(ProductoSinonimo sinonimo);
-
+        Task<VaporizadoMotivo?> ObtenerPorIdVapMotivoAsync(int idVaporizadoMotivo);
         Task<Producto?> ObtenerPorIdAsync(int idProducto);
     }
 }
