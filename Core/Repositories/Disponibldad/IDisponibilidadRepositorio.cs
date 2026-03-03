@@ -18,7 +18,7 @@ namespace Core.Repositories
 
         Task<List<Disponible>> ObtenerDisponiblePorNomina(int idNomina);
 
-        Task AgregarDisponibleAsync(Disponible disp);
+        Task<int> AgregarDisponibleAsync(Disponible disp);
 
         Task<List<DisponibilidadHistorica>> ObtenerPorFechaHistoricaAsync(DateTime fechaDisponible);
         Task ActualizarDispoHistoricaAsync(DisponibilidadHistorica historico);

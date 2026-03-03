@@ -137,14 +137,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lMetanol = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lGasoil = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lLujanCuyo = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lTrafigura = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lTraficoAutorizado = new Guna.UI2.WinForms.Guna2HtmlLabel();
             bAgregarL = new Guna.UI2.WinForms.Guna2Button();
             bEliminarL = new Guna.UI2.WinForms.Guna2Button();
             listPaises = new ListBox();
@@ -435,7 +428,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             lRazonSocial.Location = new Point(13, 197);
             lRazonSocial.Name = "lRazonSocial";
             lRazonSocial.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            lRazonSocial.Size = new Size(555, 122);
+            lRazonSocial.Size = new Size(555, 135);
             lRazonSocial.TabIndex = 91;
             // 
             // lEmpresaSemi
@@ -918,7 +911,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(171, 18);
             guna2HtmlLabel12.TabIndex = 33;
-            guna2HtmlLabel12.Text = "Transportes Autorizados";
+            guna2HtmlLabel12.Text = "Transporte Autorizados";
             guna2HtmlLabel12.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel13
@@ -969,101 +962,18 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             guna2HtmlLabel15.TabIndex = 32;
             guna2HtmlLabel15.Text = "Vencimientos";
             // 
-            // lMetanol
+            // lTraficoAutorizado
             // 
-            lMetanol.BackColor = Color.Transparent;
-            lMetanol.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lMetanol.ForeColor = SystemColors.ControlLight;
-            lMetanol.Location = new Point(137, 481);
-            lMetanol.Name = "lMetanol";
-            lMetanol.Size = new Size(8, 18);
-            lMetanol.TabIndex = 80;
-            lMetanol.Text = "s";
-            // 
-            // guna2HtmlLabel17
-            // 
-            guna2HtmlLabel17.AutoSize = false;
-            guna2HtmlLabel17.BackColor = Color.Gray;
-            guna2HtmlLabel17.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel17.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel17.Location = new Point(13, 481);
-            guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            guna2HtmlLabel17.Size = new Size(118, 20);
-            guna2HtmlLabel17.TabIndex = 79;
-            guna2HtmlLabel17.Text = "Metanol";
-            guna2HtmlLabel17.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // lGasoil
-            // 
-            lGasoil.BackColor = Color.Transparent;
-            lGasoil.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lGasoil.ForeColor = SystemColors.ControlLight;
-            lGasoil.Location = new Point(137, 507);
-            lGasoil.Name = "lGasoil";
-            lGasoil.Size = new Size(8, 18);
-            lGasoil.TabIndex = 98;
-            lGasoil.Text = "s";
-            // 
-            // guna2HtmlLabel21
-            // 
-            guna2HtmlLabel21.AutoSize = false;
-            guna2HtmlLabel21.BackColor = Color.Gray;
-            guna2HtmlLabel21.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel21.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel21.Location = new Point(13, 507);
-            guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            guna2HtmlLabel21.Size = new Size(118, 20);
-            guna2HtmlLabel21.TabIndex = 97;
-            guna2HtmlLabel21.Text = "Gas Oil";
-            guna2HtmlLabel21.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // lLujanCuyo
-            // 
-            lLujanCuyo.BackColor = Color.Transparent;
-            lLujanCuyo.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lLujanCuyo.ForeColor = SystemColors.ControlLight;
-            lLujanCuyo.Location = new Point(137, 533);
-            lLujanCuyo.Name = "lLujanCuyo";
-            lLujanCuyo.Size = new Size(8, 18);
-            lLujanCuyo.TabIndex = 100;
-            lLujanCuyo.Text = "s";
-            // 
-            // guna2HtmlLabel25
-            // 
-            guna2HtmlLabel25.AutoSize = false;
-            guna2HtmlLabel25.BackColor = Color.Gray;
-            guna2HtmlLabel25.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel25.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel25.Location = new Point(13, 533);
-            guna2HtmlLabel25.Name = "guna2HtmlLabel25";
-            guna2HtmlLabel25.Size = new Size(118, 20);
-            guna2HtmlLabel25.TabIndex = 99;
-            guna2HtmlLabel25.Text = "Lujan De Cuyo";
-            guna2HtmlLabel25.TextAlignment = ContentAlignment.TopCenter;
-            // 
-            // lTrafigura
-            // 
-            lTrafigura.BackColor = Color.Transparent;
-            lTrafigura.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lTrafigura.ForeColor = SystemColors.ControlLight;
-            lTrafigura.Location = new Point(137, 559);
-            lTrafigura.Name = "lTrafigura";
-            lTrafigura.Size = new Size(8, 18);
-            lTrafigura.TabIndex = 102;
-            lTrafigura.Text = "s";
-            // 
-            // guna2HtmlLabel28
-            // 
-            guna2HtmlLabel28.AutoSize = false;
-            guna2HtmlLabel28.BackColor = Color.Gray;
-            guna2HtmlLabel28.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-            guna2HtmlLabel28.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel28.Location = new Point(13, 559);
-            guna2HtmlLabel28.Name = "guna2HtmlLabel28";
-            guna2HtmlLabel28.Size = new Size(118, 20);
-            guna2HtmlLabel28.TabIndex = 101;
-            guna2HtmlLabel28.Text = "Trafigura";
-            guna2HtmlLabel28.TextAlignment = ContentAlignment.TopCenter;
+            lTraficoAutorizado.AutoSize = false;
+            lTraficoAutorizado.BackColor = Color.Gray;
+            lTraficoAutorizado.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            lTraficoAutorizado.ForeColor = SystemColors.ControlLight;
+            lTraficoAutorizado.Location = new Point(13, 481);
+            lTraficoAutorizado.Name = "lTraficoAutorizado";
+            lTraficoAutorizado.Size = new Size(171, 20);
+            lTraficoAutorizado.TabIndex = 79;
+            lTraficoAutorizado.Text = "traf";
+            lTraficoAutorizado.TextAlignment = ContentAlignment.TopCenter;
             // 
             // bAgregarL
             // 
@@ -1131,15 +1041,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             Controls.Add(listPaises);
             Controls.Add(bAgregarL);
             Controls.Add(bEliminarL);
-            Controls.Add(lTrafigura);
-            Controls.Add(guna2HtmlLabel28);
-            Controls.Add(lLujanCuyo);
-            Controls.Add(guna2HtmlLabel25);
-            Controls.Add(lGasoil);
-            Controls.Add(guna2HtmlLabel21);
-            Controls.Add(lMetanol);
             Controls.Add(guna2Panel8);
-            Controls.Add(guna2HtmlLabel17);
+            Controls.Add(lTraficoAutorizado);
             Controls.Add(guna2Panel6);
             Controls.Add(picBoxConfiguracionSemi);
             Controls.Add(guna2Panel12);
@@ -1180,7 +1083,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             guna2Panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxTractor).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -1246,14 +1148,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lLujanCuyo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lGasoil;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lMetanol;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lTrafigura;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lTraficoAutorizado;
         private ListBox listPaises;
         private Guna.UI2.WinForms.Guna2Button bAgregarL;
         private Guna.UI2.WinForms.Guna2Button bEliminarL;

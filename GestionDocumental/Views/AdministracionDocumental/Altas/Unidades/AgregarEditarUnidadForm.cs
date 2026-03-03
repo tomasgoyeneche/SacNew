@@ -43,10 +43,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             lChecklist.Text = unidad.Checklist?.ToShortDateString();
             lVerifMensual.Text = unidad.VerifMensual?.ToShortDateString();
 
-            lMetanol.Text = unidad.Metanol ? "Sí" : "No";
-            lGasoil.Text = unidad.Gasoil ? "Sí" : "No";
-            lLujanCuyo.Text = unidad.LujanCuyo ? "Sí" : "No";
-            lTrafigura.Text = unidad.AptoBo ? "Sí" : "No";
+            lTraficoAutorizado.Text = unidad.Trafico_Nombre;
+
         }
 
         public void ConfigurarFotoUnidad(bool habilitar, string? rutaArchivo)

@@ -81,6 +81,16 @@ namespace GestionFlota.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage calculationoptions {
+            get {
+                object obj = ResourceManager.GetObject("calculationoptions", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap creditoEmpresaTarjetas {

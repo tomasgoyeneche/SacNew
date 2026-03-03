@@ -256,7 +256,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                             Tractor = tractor?.Patente ?? "N/A",
                             Semi = semi?.Patente ?? "N/A",
                             Estado = "Baja",
-                            EstadoFecha = unidad.BajaUnidad,
+                            EstadoFecha = unidad.BajaUnidad.Value,
                             EstadoActual = unidad.Activo ? "Activo" : "Inactivo"
                         });
                     }

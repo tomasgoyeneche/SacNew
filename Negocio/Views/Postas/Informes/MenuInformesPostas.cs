@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using DevExpress.XtraEditors;
 using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes;
 using GestionFlota.Views.Postas.Informes.ConsumoUnidad;
@@ -40,6 +41,41 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
             }
 
             await _presenter.BuscarConsumosAsync(desdeFecha);
+        }
+
+        private async void bExportaTransoft_Click(object sender, EventArgs e)
+        {
+            string fechaDesdeStr = DevExpress.XtraEditors.XtraInputBox.Show(
+               "Por favor ingrese la fecha DESDE (formato: dd/MM/yyyy):",
+               "Fecha Desde",
+               DateTime.Today.ToString("dd/MM/yyyy")
+           );
+
+            if (string.IsNullOrWhiteSpace(fechaDesdeStr) || !DateTime.TryParse(fechaDesdeStr, out DateTime desde))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Desde'.");
+                return;
+            }
+
+            string fechaHastaStr = DevExpress.XtraEditors.XtraInputBox.Show(
+                "Por favor ingrese la fecha HASTA (formato: dd/MM/yyyy):",
+                "Fecha Hasta",
+                DateTime.Today.ToString("dd/MM/yyyy")
+            );
+
+            if (string.IsNullOrWhiteSpace(fechaHastaStr) || !DateTime.TryParse(fechaHastaStr, out DateTime hasta))
+            {
+                XtraMessageBox.Show("Por favor ingrese una fecha válida para 'Hasta'.");
+                return;
+            }
+
+            if (hasta < desde)
+            {
+                XtraMessageBox.Show("'Hasta' debe ser igual o mayor a 'Desde'.");
+                return;
+            }
+
+            await _presenter.ExportaTransoftConsumos(desde, hasta);
         }
     }
 }

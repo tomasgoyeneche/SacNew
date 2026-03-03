@@ -118,6 +118,7 @@ namespace Core.Repositories
                 UPDATE chofer
                 SET Apellido = @Apellido,
                     Nombre = @Nombre,
+                    NroLegajo = @NroLegajo,
                     Documento = @Documento,
                     FechaNacimiento = @FechaNacimiento,
                     IdLocalidad = @IdLocalidad,

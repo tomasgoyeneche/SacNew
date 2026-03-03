@@ -162,6 +162,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             guna2HtmlLabel52 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblNroLegajo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel9.SuspendLayout();
             lRazonSocial.SuspendLayout();
             guna2Panel4.SuspendLayout();
@@ -227,6 +229,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             // 
             // lRazonSocial
             // 
+            lRazonSocial.Controls.Add(lblNroLegajo);
+            lRazonSocial.Controls.Add(guna2HtmlLabel12);
             lRazonSocial.Controls.Add(chkZonaFria);
             lRazonSocial.Controls.Add(bAltaTemprana);
             lRazonSocial.Controls.Add(IAltaTemprana);
@@ -1316,6 +1320,30 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             guna2HtmlLabel6.TabIndex = 0;
             guna2HtmlLabel6.Text = "Agregar/Editar Chofer";
             // 
+            // lblNroLegajo
+            // 
+            lblNroLegajo.BackColor = Color.Transparent;
+            lblNroLegajo.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNroLegajo.ForeColor = SystemColors.ControlLight;
+            lblNroLegajo.Location = new Point(496, 113);
+            lblNroLegajo.Name = "lblNroLegajo";
+            lblNroLegajo.Size = new Size(65, 19);
+            lblNroLegajo.TabIndex = 59;
+            lblNroLegajo.Text = "NroLegajo";
+            // 
+            // guna2HtmlLabel12
+            // 
+            guna2HtmlLabel12.AutoSize = false;
+            guna2HtmlLabel12.BackColor = Color.Gray;
+            guna2HtmlLabel12.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            guna2HtmlLabel12.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel12.Location = new Point(340, 111);
+            guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            guna2HtmlLabel12.Size = new Size(150, 20);
+            guna2HtmlLabel12.TabIndex = 58;
+            guna2HtmlLabel12.Text = "Legajo";
+            guna2HtmlLabel12.TextAlignment = ContentAlignment.TopCenter;
+            // 
             // AgregarEditarChoferForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1446,5 +1474,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         private Guna.UI2.WinForms.Guna2HtmlLabel lEvaluacionPsicometrica;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNroLegajo;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
     }
 }

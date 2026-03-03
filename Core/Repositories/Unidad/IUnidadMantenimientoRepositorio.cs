@@ -23,5 +23,6 @@ namespace Core.Repositories
         Task<List<UnidadMantenimientoDto>> ObtenerPorAnioAsync(int anio);
 
         Task<List<UnidadMantenimientoDto>> ObtenerPorUnidadAsync(int idUnidad);
+        Task<List<UnidadMantenimientoDto>> ObtenerMantenimientoPorRangoDeFechas(DateTime desde, DateTime hasta);
     }
 }

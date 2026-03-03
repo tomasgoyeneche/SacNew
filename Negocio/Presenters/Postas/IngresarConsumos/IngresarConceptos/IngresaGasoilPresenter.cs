@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo;
 using Shared.Models;
+using Shared.Models.DTOs;
 
 namespace GestionFlota.Presenters
 {
@@ -11,6 +12,8 @@ namespace GestionFlota.Presenters
         private readonly IConceptoRepositorio _conceptoRepositorio;
         private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
         private readonly IPOCRepositorio _pocRepositorio;
+        private readonly IProgramaRepositorio _programaRepositorio;
+        private readonly ILocacionRepositorio _locacionRepositorio;
         private readonly IEmpresaCreditoRepositorio _empresaCreditoRepositorio;
 
         private decimal _consumoPrecioAnterior;
@@ -29,6 +32,8 @@ namespace GestionFlota.Presenters
             IConsumoGasoilRepositorio consumoGasoilRepositorio,
             IEmpresaCreditoRepositorio empresaCreditoRepositorio,
             IPOCRepositorio pocRepositorio,
+            IProgramaRepositorio programaRepositorio,
+            ILocacionRepositorio locacionRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
         ) : base(sesionService, navigationService)
@@ -36,6 +41,8 @@ namespace GestionFlota.Presenters
             _conceptoRepositorio = conceptoRepositorio;
             _consumoGasoilRepositorio = consumoGasoilRepositorio;
             _empresaCreditoRepositorio = empresaCreditoRepositorio;
+            _locacionRepositorio = locacionRepositorio;
+            _programaRepositorio = programaRepositorio;
             _pocRepositorio = pocRepositorio;
         }
 
@@ -63,70 +70,24 @@ namespace GestionFlota.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                var consumo = await _consumoGasoilRepositorio.ObtenerPorIdAsync(idConsumo);
+                ConsumoGasoil? consumo = await _consumoGasoilRepositorio.ObtenerPorIdAsync(idConsumo);
                 if (consumo == null)
                 {
-                    _view.MostrarMensajeGuna("No se encontró el consumo seleccionado.");
+                    _view.MostrarMensaje("No se encontró el consumo seleccionado.");
                     return;
                 }
                 _consumoPrecioAnterior = consumo.PrecioTotal;
                 _autorizado = consumo.LitrosAutorizados;
                 _idPrograma = consumo.IdPrograma;
                 (_patente, _capacidadTanque) = await _pocRepositorio.ObtenerUnidadPorPocAsync(_Poc.IdPoc);
+                _view.MostrarLitrosAutorizados(consumo.LitrosAutorizados, 0, "Indefinido Por", "Edicion", "0");
 
                 await CargarDatosComunesAsync();
                 _view.InicializarParaEdicion(consumo);
             });
         }
 
-        public async Task GuardarConsumoAsync()
-        {
-            if (!_view.Litros.HasValue || (_view.Litros.Value > _autorizado && !_view.ConfirmarGuardado("El consumo excede el autorizado, ¿desea guardar de todos modos?")))
-            {
-                return;
-            }
-
-            await EjecutarConCargaAsync(async () =>
-            {
-                var tipoSeleccionado = _view.TipoGasoilSeleccionado;
-                var nuevoPrecioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual;
-
-                if (VerificarCreditoInsuficiente(nuevoPrecioTotal - _consumoPrecioAnterior)) return;
-                ConsumoGasoil consumo;
-
-                _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
-
-                if (_idConsumo == null)
-                {
-                    consumo = CrearNuevoConsumo(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
-                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
-                    {
-                        consumo.TransitoEspecial = true;
-                    }
-                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
-                        return;
-                    await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
-                }
-                else
-                {
-                    consumo = await ActualizarConsumoExistente(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
-                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
-                    {
-                        consumo.TransitoEspecial = true;
-                    }
-                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
-                        return;
-                    await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
-                }
-
-                if (consumo != null)
-                {
-                    await ActualizarCreditoAsync(nuevoPrecioTotal, _idConsumo == null ? 0 : _consumoPrecioAnterior);
-                    _view.MostrarMensajeGuna("Consumo guardado correctamente.");
-                    _view.Cerrar();
-                }
-            });
-        }
+       
 
         private async Task CargarDatosComunesAsync()
         {
@@ -144,29 +105,40 @@ namespace GestionFlota.Presenters
 
             if (_sesionService.IdPosta == 2)
             {
-                var ultimoConsumo = await _consumoGasoilRepositorio.ObtenerUltimoConsumoPorPatenteAsync(_patente);
+                ConsumoGasoilAutorizadoDto? ultimoConsumo = await _consumoGasoilRepositorio.ObtenerUltimoConsumoPorPatenteAsync(_patente);
 
                 if (ultimoConsumo != null && ultimoConsumo.NumeroPoc.StartsWith("BB"))
                 {
                     _idPrograma = ultimoConsumo.IdPrograma;
                     _autorizado = ultimoConsumo.LitrosAutorizados - ultimoConsumo.LitrosCargados;
-                    _view.MostrarLitrosAutorizados(_autorizado, 640);
+                    Programa? prog = await _programaRepositorio.ObtenerPorIdAsync(_idPrograma);
+                    Locacion? locacion = await _locacionRepositorio.ObtenerPorIdAsync(prog.IdOrigen);
+                    _view.MostrarLitrosAutorizados(_autorizado, 640, locacion.Nombre, programa.Value.Destino, prog.AlbaranDespacho.ToString());
                     validaPorBahiaBlanca = true;
                 }
             }
+            //--HACER QUE SE FIJE SI CARGO EN BAHIA Y DARLE AUTORIZADO ANTERIOR
 
             if (programaValido && !validaPorBahiaBlanca)
             {
                 _kilometros = programa.Value.Kilometros;
                 _autorizado = _empresaCredito.IdEmpresa == 1
-                    ? _kilometros * 32 / 100 * 2
-                    : _kilometros * 35 / 100 * 2;
+                    ? _kilometros * 32 / 100
+                    : _kilometros * 35 / 100;
+
+                    //? _kilometros * 32 / 100 * 2 caso ida y vuelta 
+                    //: _kilometros * 35 / 100 * 2;
 
                 _idPrograma = programa.Value.IdPrograma;
                 var litrosCargados = await _consumoGasoilRepositorio.ObtenerLitrosCargadosPorProgramaAsync(_idPrograma);
                 _autorizado -= litrosCargados;
 
-                _view.MostrarLitrosAutorizados(_autorizado, _kilometros);
+                Programa? prog = await _programaRepositorio.ObtenerPorIdAsync(_idPrograma);
+                Locacion? locacion = await _locacionRepositorio.ObtenerPorIdAsync(prog.IdOrigen);
+                if(prog != null)
+                {
+                    _view.MostrarLitrosAutorizados(_autorizado, _kilometros, locacion.Nombre, programa.Value.Destino, prog.AlbaranDespacho.ToString());
+                }
             }
 
             if (!programaValido && !validaPorBahiaBlanca)
@@ -179,7 +151,7 @@ namespace GestionFlota.Presenters
 
         private async Task CargarAutorizacionAnteriorAsync()
         {
-            var consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosUltimosDosMesesAsync(_patente, _idPrograma);
+            List<ConsumoGasoilAutorizadoDto> consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosUltimosDosMesesAsync(_patente, _idPrograma);
 
             _restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
             _restanteAnterior -= consumosAnteriores.Sum(c => c.LitrosCargados);
@@ -198,11 +170,11 @@ namespace GestionFlota.Presenters
                 return;
             }
 
-            var consumosActuales = _idConsumo == null
+            List<ConsumoGasoilAutorizadoDto> consumosActuales = _idConsumo == null
                 ? await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(_idPrograma, _patente)
                 : await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaEditableAsync(_idConsumo.Value, _idPrograma, _patente);
 
-            var restanteTotal = _autorizado + _restanteAnterior;
+            decimal restanteTotal = _autorizado + _restanteAnterior;
             _view.MostrarConsumosTotales(consumosActuales);
             _view.ActualizarLabelTotal(restanteTotal);
         }
@@ -247,7 +219,8 @@ namespace GestionFlota.Presenters
                 _conceptoRepositorio.ObtenerPorTipoAsync(2)
             )).SelectMany(x => x).ToList();
 
-            _view.CargarTiposGasoil(FiltrarTiposGasoil(tiposGasoil), _Poc.NumeroPoc);
+            POCDto? pocDto = await _pocRepositorio.ObtenerPorIdDtoAsync(_Poc.IdPoc);
+            _view.CargarTiposGasoil(FiltrarTiposGasoil(tiposGasoil), _Poc.NumeroPoc, pocDto);
         }
 
         private List<Concepto> FiltrarTiposGasoil(IEnumerable<Concepto> tiposGasoil)
@@ -288,12 +261,59 @@ namespace GestionFlota.Presenters
 
         public void CalcularTotal(decimal litros)
         {
-            var tipoSeleccionado = _view.TipoGasoilSeleccionado;
-
-            var total = litros * tipoSeleccionado.PrecioActual;
+            Concepto tipoSeleccionado = _view.TipoGasoilSeleccionado;
+            decimal total = litros * tipoSeleccionado.PrecioActual;
             _view.MostrarTotalCalculado(total);
         }
 
+        public async Task GuardarConsumoAsync()
+        {
+            if (!_view.Litros.HasValue || (_view.Litros.Value > _autorizado && !_view.ConfirmarGuardado("El consumo excede el autorizado, ¿desea guardar de todos modos?")))
+            {
+                return;
+            }
+
+            await EjecutarConCargaAsync(async () =>
+            {
+                Concepto tipoSeleccionado = _view.TipoGasoilSeleccionado;
+                decimal nuevoPrecioTotal = _view.Litros.Value * tipoSeleccionado.PrecioActual;
+
+                if (VerificarCreditoInsuficiente(nuevoPrecioTotal - _consumoPrecioAnterior)) return;
+                ConsumoGasoil consumo;
+
+                _Poc.FechaCreacion = _Poc.FechaCreacion.Date;
+
+                if (_idConsumo == null)
+                {
+                    consumo = CrearNuevoConsumo(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
+                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
+                    {
+                        consumo.TransitoEspecial = true;
+                    }
+                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
+                        return;
+                    await _consumoGasoilRepositorio.AgregarConsumoAsync(consumo);
+                }
+                else
+                {
+                    consumo = await ActualizarConsumoExistente(nuevoPrecioTotal, tipoSeleccionado.IdConsumo);
+                    if (_view.TipoGasoilSeleccionado.IdConsumo == 20 || _view.TipoGasoilSeleccionado.IdConsumo == 21)
+                    {
+                        consumo.TransitoEspecial = true;
+                    }
+                    if (!await ValidarAsync(consumo, _capacidadTanque, _autorizado, _Poc.FechaCreacion))
+                        return;
+                    await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
+                }
+
+                if (consumo != null)
+                {
+                    await ActualizarCreditoAsync(nuevoPrecioTotal, _idConsumo == null ? 0 : _consumoPrecioAnterior);
+                    _view.MostrarMensaje("Consumo guardado correctamente.");
+                    _view.Cerrar();
+                }
+            });
+        }
         private async Task ActualizarCreditoAsync(decimal nuevoImporte, decimal importeAnterior)
         {
             decimal diferencia = nuevoImporte - importeAnterior;
@@ -308,7 +328,7 @@ namespace GestionFlota.Presenters
         {
             if (precioTotal > _empresaCredito.CreditoDisponible)
             {
-                _view.MostrarMensajeGuna($"El crédito disponible ({_empresaCredito.CreditoDisponible:C}) no es suficiente.");
+                _view.MostrarMensaje($"El crédito disponible ({_empresaCredito.CreditoDisponible:C}) no es suficiente.");
                 return true;
             }
             return false;

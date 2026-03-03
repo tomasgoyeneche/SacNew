@@ -279,5 +279,22 @@ namespace Core.Repositories
                 return novedades.ToList();
             });
         }
+
+        public async Task<List<UnidadMantenimientoDto>> ObtenerMantenimientoPorRangoDeFechas(DateTime desde, DateTime hasta)
+        {
+            // desde inclusive, hasta NO inclusivo
+            const string query = @"
+            SELECT *
+            FROM vw_NovedadesUnidades ce
+            WHERE ce.FechaInicio < @Hasta
+              AND ce.FechaFin >= @Desde
+            ORDER BY ce.idUnidad, ce.FechaInicio;";
+
+            var rows = await ConectarAsync(conn =>
+                conn.QueryAsync<UnidadMantenimientoDto>(query, new { Desde = desde.Date, Hasta = hasta.Date })
+            );
+
+            return rows.ToList();
+        }
     }
 }

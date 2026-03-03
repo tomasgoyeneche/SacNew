@@ -22,6 +22,9 @@
 
         public int IdPais { get; set; }
 
+        public int IdTrafico { get; set; }
+
+
         public string? Configuracion { get; set; }
 
         public bool Activo { get; set; }

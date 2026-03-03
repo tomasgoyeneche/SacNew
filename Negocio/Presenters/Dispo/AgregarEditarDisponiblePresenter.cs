@@ -161,13 +161,13 @@ namespace GestionFlota.Presenters
                         _sesionService.IdUsuario
                     );
 
-                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino);
+                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino, disponible.IdDisponible);
 
                     _view.MostrarMensaje("Disponible actualizado correctamente.");
                 }
                 else
                 {
-                    await _disponibilidadRepositorio.AgregarDisponibleAsync(disponible);
+                    int idDisponibleNuevo = await _disponibilidadRepositorio.AgregarDisponibleAsync(disponible);
 
                     await _nominaRepositorio.RegistrarNominaAsync(
                         disponible.IdNomina,
@@ -176,7 +176,7 @@ namespace GestionFlota.Presenters
                         _sesionService.IdUsuario
                     );
 
-                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino);
+                    await ActualizarDisponibilidadHistoricaSiCorrespondeAsync(disponible, origen, destino, idDisponibleNuevo);
 
                     _view.MostrarMensaje("Disponible agregado correctamente.");
                 }
@@ -187,12 +187,13 @@ namespace GestionFlota.Presenters
         private async Task ActualizarDisponibilidadHistoricaSiCorrespondeAsync(
         Disponible disponible,
         Locacion origen,
-        Locacion? destino)
+        Locacion? destino,
+        int idDisponibleNuevo)
             {
             // Regla general del “corte”:
             // El histórico del día X se genera el día X-1 a las 12:00.
             // Si ya pasó ese corte, y ahora cambian cosas, hay que corregir el histórico.
-            DateTime momentoCorte = disponible.FechaDisponible.Date.AddDays(-1).AddHours(12);
+            DateTime momentoCorte = disponible.FechaDisponible.Date.AddDays(-1).AddHours(13);
 
             if (DateTime.Now < momentoCorte)
                 return; // todavía no se generó histórico para esa fecha → no hacemos nada
@@ -231,7 +232,7 @@ namespace GestionFlota.Presenters
             // Actualizar campos pedidos
             historicoMatch.IdNomina = disponible.IdNomina; // por si cambió la nómina
             historicoMatch.Estado = "Disponible";
-            historicoMatch.IdEstadoReal = 1;   // por ahora
+            historicoMatch.IdEstadoReal = idDisponibleNuevo;   // por ahora
             historicoMatch.TipoEstadoReal = 1; // por ahora
             historicoMatch.Origen = origen.Nombre;
             historicoMatch.Destino = destino?.Nombre ?? string.Empty; // o null si tu DB lo permite

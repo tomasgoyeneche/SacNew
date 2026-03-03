@@ -89,7 +89,7 @@ namespace GestionFlota.Presenters
 
         public async Task AbrirGasoilAutorizadoAsync()
         {
-            await AbrirFormularioAsync<IngresaGasoil>(async form =>
+            await AbrirFormularioAsync<IngresaGasoilForm>(async form =>
             {
                 await form._presenter.CargarDatosAsync(_poc, _amount);
             });
@@ -178,7 +178,7 @@ namespace GestionFlota.Presenters
             }
             else if (tipoConsumo == 1)
             {
-                await AbrirFormularioAsync<IngresaGasoil>(async form =>
+                await AbrirFormularioAsync<IngresaGasoilForm>(async form =>
                 {
                     await form._presenter.CargarDatosParaEditarAsync(_poc, idConsumo, _amount);
                 });

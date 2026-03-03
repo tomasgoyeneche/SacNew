@@ -151,6 +151,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dvgSeguroEmpresa = new Guna.UI2.WinForms.Guna2DataGridView();
+            lTrafico = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxConfiguracion).BeginInit();
             guna2Panel12.SuspendLayout();
@@ -588,6 +590,8 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             // 
             // lRazonSocial
             // 
+            lRazonSocial.Controls.Add(lTrafico);
+            lRazonSocial.Controls.Add(guna2HtmlLabel15);
             lRazonSocial.Controls.Add(IAnio);
             lRazonSocial.Controls.Add(IClaveSatelital);
             lRazonSocial.Controls.Add(guna2HtmlLabel19);
@@ -1155,7 +1159,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dvgSeguroEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dvgSeguroEmpresa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dvgSeguroEmpresa.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -1210,6 +1213,30 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             dvgSeguroEmpresa.ThemeStyle.RowsStyle.Height = 25;
             dvgSeguroEmpresa.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dvgSeguroEmpresa.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
+            // lTrafico
+            // 
+            lTrafico.BackColor = Color.Transparent;
+            lTrafico.Font = new Font("Century Gothic", 9F);
+            lTrafico.ForeColor = SystemColors.ControlLight;
+            lTrafico.Location = new Point(402, 112);
+            lTrafico.Name = "lTrafico";
+            lTrafico.Size = new Size(42, 19);
+            lTrafico.TabIndex = 72;
+            lTrafico.Text = "Marca";
+            // 
+            // guna2HtmlLabel15
+            // 
+            guna2HtmlLabel15.AutoSize = false;
+            guna2HtmlLabel15.BackColor = Color.Gray;
+            guna2HtmlLabel15.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            guna2HtmlLabel15.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel15.Location = new Point(274, 111);
+            guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            guna2HtmlLabel15.Size = new Size(122, 20);
+            guna2HtmlLabel15.TabIndex = 71;
+            guna2HtmlLabel15.Text = "Trafico";
+            guna2HtmlLabel15.TextAlignment = ContentAlignment.TopCenter;
             // 
             // AgregarEditarTractorForm
             // 
@@ -1331,5 +1358,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2HtmlLabel IAnio;
         private Guna.UI2.WinForms.Guna2DataGridView dvgSeguroEmpresa;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lTrafico;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
     }
 }

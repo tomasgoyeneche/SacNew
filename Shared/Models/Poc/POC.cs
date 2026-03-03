@@ -7,7 +7,7 @@
         public int IdPosta { get; set; }
         public int IdUnidad { get; set; }
         public int IdChofer { get; set; }
-        public double? Odometro { get; set; }
+        public decimal? Odometro { get; set; }
         public string? Comentario { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaCierre { get; set; }

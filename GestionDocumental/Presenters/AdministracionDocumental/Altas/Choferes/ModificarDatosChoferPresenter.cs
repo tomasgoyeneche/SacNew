@@ -63,6 +63,7 @@ namespace GestionOperativa.Presenters.Choferes
             var chofer = new Chofer
             {
                 IdChofer = _view.IdChofer,
+                NroLegajo = _view.NroLegajo,
                 Apellido = _view.Apellido,
                 Nombre = _view.Nombre,
                 Documento = _view.Documento,

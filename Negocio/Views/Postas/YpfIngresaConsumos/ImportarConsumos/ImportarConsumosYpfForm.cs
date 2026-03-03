@@ -1,5 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using GestionFlota.Presenters;
 using SacNew.Views.GestionFlota.Postas.YpfIngresaConsumos.ImportarConsumos;
 using Shared.Models;
@@ -22,6 +25,10 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         public int QuincenaSeleccionada =>
         Convert.ToInt32(cmbQuincena.SelectedItem ?? "1");
 
+        public void Cerrar()
+        {
+            this.Dispose();
+        }
         public void MostrarMensaje(string mensaje)
         {
             XtraMessageBox.Show(this, mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -69,7 +76,7 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             await _presenter.GuardarConsumosAsync();
-            this.Dispose();
+            Cerrar();
         }
 
         private async void guna2Button1_Click(object sender, EventArgs e)
@@ -88,6 +95,33 @@ namespace GestionFlota.Views.Postas.YpfIngresaConsumos.ImportarConsumos
             cmbQuincena.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
             cmbQuincena.Items.AddRange(new[] { "1", "2" });
             cmbQuincena.SelectedIndex = 0;
+            gridControlDatos.DataSource = null;
+            gridControlDatos.RefreshDataSource();
+        }
+
+        private async void dgvDatos_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName != "Chequeado")
+                return;
+
+            var view = (GridView)sender;
+
+            // 🔥 Forzamos que el valor nuevo se aplique
+            view.SetRowCellValue(e.RowHandle, e.Column, e.Value);
+            view.PostEditor();      // 🔥 Forzar commit del valor
+            view.UpdateCurrentRow();
+
+            var dto = view.GetRow(e.RowHandle) as ImportConsumoYpfEnRutaDto;
+
+            if (dto != null)
+            {
+                await _presenter.ActualizarChequeadoAsync(dto);
+            }
+
+            view.CloseEditor();
+            view.FocusedRowHandle = GridControl.InvalidRowHandle;
+
+            view.RefreshData();
         }
     }
 }

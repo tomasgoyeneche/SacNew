@@ -39,6 +39,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             gridControlNovedades = new DevExpress.XtraGrid.GridControl();
             gridViewNovedades = new DevExpress.XtraGrid.Views.Grid.GridView();
             btnAgregarNovedad = new Guna.UI2.WinForms.Guna2Button();
@@ -50,6 +52,7 @@
             labelNovedades = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbMesAnio = new Guna.UI2.WinForms.Guna2ComboBox();
             dispoCheck = new Guna.UI2.WinForms.Guna2CheckBox();
+            btnPruebaCalendario = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)gridControlNovedades).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewNovedades).BeginInit();
             guna2Panel10.SuspendLayout();
@@ -137,7 +140,7 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel6.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel6.Location = new Point(459, 27);
+            guna2HtmlLabel6.Location = new Point(459, 31);
             guna2HtmlLabel6.Margin = new Padding(4, 3, 4, 3);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(124, 23);
@@ -150,7 +153,7 @@
             btnExportar.Appearance.Options.UseBackColor = true;
             btnExportar.ImageOptions.Image = (Image)resources.GetObject("btnExportar.ImageOptions.Image");
             btnExportar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            btnExportar.Location = new Point(748, 20);
+            btnExportar.Location = new Point(748, 24);
             btnExportar.Name = "btnExportar";
             btnExportar.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             btnExportar.Size = new Size(39, 30);
@@ -190,7 +193,7 @@
             cmbMesAnio.Font = new Font("Segoe UI", 10F);
             cmbMesAnio.ForeColor = Color.FromArgb(68, 88, 112);
             cmbMesAnio.ItemHeight = 30;
-            cmbMesAnio.Location = new Point(597, 15);
+            cmbMesAnio.Location = new Point(597, 19);
             cmbMesAnio.Name = "cmbMesAnio";
             cmbMesAnio.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cmbMesAnio.Size = new Size(140, 36);
@@ -206,7 +209,7 @@
             dispoCheck.CheckMarkColor = Color.LimeGreen;
             dispoCheck.Font = new Font("Century Gothic", 10F);
             dispoCheck.ForeColor = Color.WhiteSmoke;
-            dispoCheck.Location = new Point(260, 27);
+            dispoCheck.Location = new Point(260, 23);
             dispoCheck.Name = "dispoCheck";
             dispoCheck.Size = new Size(89, 23);
             dispoCheck.TabIndex = 84;
@@ -217,12 +220,31 @@
             dispoCheck.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             dispoCheck.CheckedChanged += dispoCheck_CheckedChanged;
             // 
+            // btnPruebaCalendario
+            // 
+            btnPruebaCalendario.CustomizableEdges = customizableEdges11;
+            btnPruebaCalendario.DisabledState.BorderColor = Color.DarkGray;
+            btnPruebaCalendario.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnPruebaCalendario.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnPruebaCalendario.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnPruebaCalendario.FillColor = Color.ForestGreen;
+            btnPruebaCalendario.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPruebaCalendario.ForeColor = Color.White;
+            btnPruebaCalendario.Location = new Point(355, 19);
+            btnPruebaCalendario.Name = "btnPruebaCalendario";
+            btnPruebaCalendario.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnPruebaCalendario.Size = new Size(97, 37);
+            btnPruebaCalendario.TabIndex = 85;
+            btnPruebaCalendario.Text = "Grilla SAC";
+            btnPruebaCalendario.Click += btnPruebaCalendario_Click;
+            // 
             // NovedadesForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(803, 573);
+            Controls.Add(btnPruebaCalendario);
             Controls.Add(dispoCheck);
             Controls.Add(cmbMesAnio);
             Controls.Add(guna2Panel10);
@@ -258,5 +280,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbMesAnio;
         private Guna.UI2.WinForms.Guna2CheckBox dispoCheck;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewNovedades;
+        private Guna.UI2.WinForms.Guna2Button btnPruebaCalendario;
     }
 }

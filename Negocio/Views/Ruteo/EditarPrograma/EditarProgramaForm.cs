@@ -305,6 +305,7 @@ namespace GestionFlota.Views
             await _presenter.GuardarFechaProgramaAsync("EntregaLlegada", null);
         }
 
+
         private async void bEliminarIngresoEntrega_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("¿Seguro que desea eliminar la Fecha de Ingreso a Entrega?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

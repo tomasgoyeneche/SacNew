@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using GestionDocumental.Views;
+using GestionDocumental.Views.Novedades;
 using GestionDocumental.Views.Novedades.NovedadesChoferes;
 using GestionDocumental.Views.Novedades.NovedadesUnidades;
 using Shared.Models;
@@ -127,6 +128,25 @@ namespace GestionDocumental.Presenters
             }, async () => await CargarNovedadesAsync(_view.activoChecked, _Entidad));
         }
 
+        public async Task CargarCalendarioChoferes()
+        {
+            if(_Entidad == "Chofer")
+            {
+                await AbrirFormularioAsync<NovedadesChoferesCalendarioForm>(async form =>
+                {
+                    await form._presenter.InicializarAsync("CHOFER", null);
+                });
+            }
+            else
+            {
+                await AbrirFormularioAsync<NovedadesChoferesCalendarioForm>(async form =>
+                {
+                    await form._presenter.InicializarAsync("UNIDAD", null);
+                });
+            }
+           
+        }
+
         public async Task CargarMesesParaExportacionAsync()
         {
             var fechas = await _calendarioRepositorio.ObtenerMesesAniosDisponiblesAsync();
@@ -157,7 +177,7 @@ namespace GestionDocumental.Presenters
                     List<ChoferDto> choferes = await _choferRepositorio.ObtenerTodosLosChoferesDto();
                     List<NovedadesChoferesDto> novedades = await _repositorioChoferEstado.ObtenerPorMesYAnioAsync(mes, anio);
 
-                    string titulo = "Empresa;Chofer;" + string.Join(";", diasMes.Select(d => d.Dia.ToString("00"))) + ";;Disponible;%;Ausente;%";
+                    string titulo = "Legajo;Chofer;" + string.Join(";", diasMes.Select(d => d.Dia.ToString("00"))) + ";;Disponible;%;Ausente;%";
                     filas.Add(titulo);
 
                     var agrupadas = novedades
@@ -166,7 +186,7 @@ namespace GestionDocumental.Presenters
 
                     foreach (var chofer in choferes)
                     {
-                        string fila = $"{chofer.Empresa_Nombre};{chofer.Apellido}, {chofer.Nombre}";
+                        string fila = $"{chofer.NroLegajo};{chofer.Apellido}, {chofer.Nombre}";
                         int disponibles = 0, ausentes = 0;
 
                         foreach (var dia in diasMes)

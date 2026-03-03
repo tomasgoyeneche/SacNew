@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionFlota.Presenters.Informes;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
@@ -29,8 +30,8 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
         public int? IdConcepto => cmbConcepto.SelectedValue as int?;
         public int? IdPosta => cmbPosta.SelectedValue as int?;
         public int? IdEmpresa => cmbEmpresa.SelectedValue as int?;
-        public int? IdUnidad => cmbUnidad.SelectedValue as int?;
-        public int? IdChofer => cmbChofer.SelectedValue as int?;
+        public int? IdUnidad => cmbUnidad.EditValue as int?;
+        public int? IdChofer => cmbChofer.EditValue as int?;
         public string NumeroPoc => txtNumeroPoc.Text.Trim();
         public string Estado => rbTodas.Checked ? "Todas" : rbAbiertas.Checked ? "Abierta" : "Cerrada";
         public DateTime? FechaCreacionDesde => dtpCreacionDesde.Value.Date;
@@ -67,19 +68,22 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
 
         public void CargarUnidades(List<UnidadDto> unidades)
         {
-            cmbUnidad.DataSource = unidades;
-
-            cmbUnidad.DisplayMember = "PatenteCompleta";
-            cmbUnidad.ValueMember = "IdUnidad";
-            cmbUnidad.SelectedIndex = -1;
+            cmbUnidad.Properties.DataSource = unidades;
+            cmbUnidad.Properties.DisplayMember = "PatenteCompleta";
+            cmbUnidad.Properties.ValueMember = "IdUnidad";
+            cmbUnidad.Properties.NullText = "[Seleccione Unidad]";
+            cmbUnidad.Properties.Columns.Clear();
+            cmbUnidad.Properties.Columns.Add(new LookUpColumnInfo("PatenteCompleta", "Unidad"));
         }
 
         public void CargarChoferes(List<Chofer> choferes)
         {
-            cmbChofer.DataSource = choferes;
-            cmbChofer.DisplayMember = "NombreApellido";
-            cmbChofer.ValueMember = "IdChofer";
-            cmbChofer.SelectedIndex = -1;
+            cmbChofer.Properties.DataSource = choferes;
+            cmbChofer.Properties.DisplayMember = "NombreApellido";
+            cmbChofer.Properties.ValueMember = "IdChofer";
+            cmbChofer.Properties.NullText = "[Seleccione Chofer]";
+            cmbChofer.Properties.Columns.Clear();
+            cmbChofer.Properties.Columns.Add(new LookUpColumnInfo("NombreApellido", "Chofer"));
         }
 
         public void MostrarMensaje(string mensaje)
@@ -89,7 +93,7 @@ namespace GestionFlota.Views.Postas.Modificaciones.ConsultarConsumos
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
         }
     }
 }

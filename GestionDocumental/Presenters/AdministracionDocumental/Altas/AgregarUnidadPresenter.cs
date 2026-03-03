@@ -9,6 +9,8 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
     public class AgregarUnidadPresenter : BasePresenter<IAgregarUnidadView>
     {
         private readonly IUnidadRepositorio _unidadRepositorio;
+        private readonly ITraficoRepositorio _traficoRepositorio;
+
         private readonly ITractorRepositorio _tractorRepositorio;
         private readonly ISemiRepositorio _semiRepositorio;
 
@@ -16,11 +18,13 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
             ISesionService sesionService,
             INavigationService navigationService,
             IUnidadRepositorio unidadRepositorio,
+            ITraficoRepositorio traficoRepositorio,
             ITractorRepositorio tractorRepositorio,
             ISemiRepositorio semiRepositorio)
             : base(sesionService, navigationService)
         {
             _unidadRepositorio = unidadRepositorio;
+            _traficoRepositorio = traficoRepositorio;   
             _tractorRepositorio = tractorRepositorio;
             _semiRepositorio = semiRepositorio;
         }
@@ -30,11 +34,29 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
             _view.MostrarEmpresa(nombreEmpresa, idEmpresa);
             await EjecutarConCargaAsync(async () =>
             {
-                var tractores = await _tractorRepositorio.ObtenerTractoresLibresAsync();
-                var semis = await _semiRepositorio.ObtenerSemisLibresAsync();
+                List<Trafico> traficos = await _traficoRepositorio.ObtenerTodosAsync();
+                _view.CargarTrafico(traficos);
+            });
+        }
 
-                _view.CargarTractores(tractores);
-                _view.CargarSemis(semis);
+        public async Task CargarDatosPorTraficoAsync(int idTrafico)
+        {
+            await EjecutarConCargaAsync(async () =>
+            {
+                List<Shared.Models.Tractor> tractores = await _tractorRepositorio.ObtenerTractoresLibresAsync();
+                List<Semi> semis = await _semiRepositorio.ObtenerSemisLibresAsync();
+
+                // 🔥 Filtrado en capa de presentación
+                List<Shared.Models.Tractor> tractoresFiltrados = tractores
+                    .Where(t => t.IdTrafico == idTrafico)
+                    .ToList();
+
+                List<Semi> semisFiltrados = semis
+                    .Where(s => s.IdTrafico == idTrafico)
+                    .ToList();
+
+                _view.CargarTractores(tractoresFiltrados);
+                _view.CargarSemis(semisFiltrados);
             });
         }
 
@@ -61,10 +83,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                 IdTractor = tractor.IdTractor,
                 IdSemi = semi.IdSemi,
                 TaraTotal = (int)(tractor.Tara + semi.Tara),
-                Metanol = _view.UsaMetanol,
-                Gasoil = _view.UsaGasoil,
-                LujanCuyo = _view.UsaLujanCuyo,
-                AptoBo = _view.UsaAptoBo,
+                IdTrafico = _view.IdTraficoSeleccionado,
                 Activo = true
             };
 

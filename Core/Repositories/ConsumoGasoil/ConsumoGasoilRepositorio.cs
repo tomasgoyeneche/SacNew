@@ -89,16 +89,38 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<(int IdPrograma, decimal Kilometros)?> ObtenerProgramaPorPatenteAsync(string patenteTractor, DateTime FechaCreacion)
-        {
-            return await ConectarAsync(async connection =>
+        public async Task<(int IdPrograma, decimal Kilometros, string Destino)?>
+         ObtenerProgramaPorPatenteAsync(string patenteTractor, DateTime fechaCreacion)
             {
-                const string query = @"
-                SELECT IdPrograma, Kilometros
-                FROM vw_ProgramaCombustible
-                WHERE PatenteTractor = @PatenteTractor and SalidaEntrega is null";
-
-                return await connection.QuerySingleOrDefaultAsync<(int, decimal)?>(query, new { PatenteTractor = patenteTractor });
+                return await ConectarAsync(async connection =>
+                {
+                    const string query = @"
+        SELECT TOP 1 
+            IdPrograma, 
+            Kilometros,
+            Destino
+        FROM vw_ProgramaCombustible
+        WHERE PatenteTractor = @PatenteTractor
+          AND (
+              (@FechaCreacion >= FechaCarga AND @FechaCreacion < SalidaEntrega)
+              OR
+              (@FechaCreacion >= FechaCarga AND SalidaEntrega IS NULL)
+              OR
+              (FechaCarga > @FechaCreacion)
+          )
+        ORDER BY
+            CASE 
+                WHEN @FechaCreacion >= FechaCarga AND SalidaEntrega IS NULL THEN 1
+                WHEN @FechaCreacion >= FechaCarga AND @FechaCreacion < SalidaEntrega THEN 2
+                WHEN FechaCarga > @FechaCreacion THEN 3
+            END,
+            ABS(DATEDIFF(SECOND, FechaCarga, @FechaCreacion))";
+                return await connection.QuerySingleOrDefaultAsync<(int, decimal, string)?>(query,
+                    new
+                    {
+                        PatenteTractor = patenteTractor,
+                        FechaCreacion = fechaCreacion
+                    });
             });
         }
 

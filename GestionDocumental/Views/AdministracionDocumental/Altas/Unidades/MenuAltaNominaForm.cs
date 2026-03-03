@@ -79,38 +79,6 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
-            dataGridViewUnidades.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Metanol",
-                HeaderText = "Metanol",
-                DataPropertyName = "Metanol",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-
-            dataGridViewUnidades.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Gasoil",
-                HeaderText = "Gasoil",
-                DataPropertyName = "Gasoil",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-
-            dataGridViewUnidades.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "LujanCuyo",
-                HeaderText = "Luján Cuyo",
-                DataPropertyName = "LujanCuyo",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-
-            dataGridViewUnidades.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "AptoBo",
-                HeaderText = "Apto BO",
-                DataPropertyName = "AptoBo",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-
             // Evento para formatear las columnas booleanas
             dataGridViewUnidades.CellFormatting += (sender, e) =>
             {

@@ -176,10 +176,18 @@ namespace Servicios.Presenters
 
                 _view.FechaIngreso = DateTime.Now;
 
-                var detalles = _view.ObtenerDetalles();
+                List<MovimientoStockDetalleDto> detalles = _view.ObtenerDetalles();
 
                 foreach (var det in detalles)
                 {
+                    //Articulo? articulo = await _articuloRepositorio.ObtenerPorIdAsync(det.IdArticulo);  AL FINAL ESTA PUESTO CUANDO SE AGREGA
+                    //if(articulo != null)                                                                EL ARTICULO AL GRID DE LOS ARTICULOS
+                    //{
+                    //    articulo.PrecioUnitario = det.PrecioUnitario;
+
+                    //    await _articuloRepositorio.ActualizarArticuloAsync(articulo);
+                    //}
+            
                     var stock = await _articuloStockRepositorio.ObtenerStockAsync(det.IdArticulo, det.IdPosta);
 
                     if (stock != null)

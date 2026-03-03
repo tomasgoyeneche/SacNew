@@ -91,6 +91,24 @@ namespace Core.Repositories
             ).ContinueWith(t => t.Result.ToList());
         }
 
+        public async Task<List<InformeConsumoPocDto>> BuscarConsumosPorFechaAsync(DateTime desde, DateTime hasta)
+        {
+            var query = @"
+        SELECT *
+        FROM vw_InformeConsumoPoc
+        WHERE FechaCarga >= @Desde AND FechaCarga < @Hasta";
+
+            return await ConectarAsync(async connection =>
+            {
+                var registros = await connection.QueryAsync<InformeConsumoPocDto>(query, new
+                {
+                    Desde = desde.Date,
+                    Hasta = hasta.Date.AddDays(1)
+                });
+                return registros.ToList();
+            });
+        }
+
         public async Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(
                 int? idConcepto,
                 int? idPosta,

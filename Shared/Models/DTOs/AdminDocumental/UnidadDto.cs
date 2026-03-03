@@ -19,11 +19,7 @@
 
         public decimal TaraTotal { get; set; }
 
-        public bool Metanol { get; set; }
-        public bool Gasoil { get; set; }
-        public bool LujanCuyo { get; set; }
-        public bool AptoBo { get; set; }
-
+        public string? Trafico_Nombre { get; set; }
         public DateTime? VerifMensual { get; set; }
         public DateTime? Checklist { get; set; }
         public DateTime? MasYPF { get; set; }

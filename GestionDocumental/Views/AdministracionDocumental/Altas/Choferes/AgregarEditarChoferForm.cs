@@ -28,6 +28,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
         {
             IdChofer = chofer.IdChofer;
             IApellido.Text = chofer.Apellido;
+            lblNroLegajo.Text = chofer.NroLegajo.ToString();
             INombre.Text = chofer.Nombre;
             IDoc.Text = chofer.Documento;
             IFechaNacimiento.Text = chofer.FechaNacimiento.ToShortDateString();

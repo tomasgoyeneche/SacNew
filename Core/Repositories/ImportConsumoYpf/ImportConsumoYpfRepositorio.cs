@@ -42,5 +42,20 @@ namespace Core.Repositories
                 conn.ExecuteScalarAsync<int>(query, new { idPeriodo })
             ) > 0;
         }
+
+        public async Task ActualizarChequeadoAsync(ImportConsumoYpfEnRuta consumo)
+        {
+            const string query = @"
+        UPDATE ImportConsumoYPFEnRuta
+        SET Chequeado = @Chequeado
+        WHERE IdImportConsumoYPFEnRuta = @IdImportConsumoYPFEnRuta";
+
+            await ConectarAsync(conn =>
+                conn.ExecuteAsync(query, new
+                {
+                    consumo.Chequeado,
+                    consumo.IdImportConsumoYPFEnRuta
+                }));
+        }
     }
 }

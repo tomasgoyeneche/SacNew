@@ -13,5 +13,6 @@ namespace Core.Repositories
         Task<int> ActualizarConsumoAsync(ImportConsumoYpfEnRuta consumo);
 
         Task<bool> ExistenConsumosParaPeriodoAsync(int idPeriodo);
+        Task ActualizarChequeadoAsync(ImportConsumoYpfEnRuta consumo);
     }
 }

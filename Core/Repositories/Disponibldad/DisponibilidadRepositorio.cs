@@ -58,7 +58,7 @@ namespace Core.Repositories
             return (await ConectarAsync(conn => conn.QueryAsync<DisponibleEstado>(query))).ToList();
         }
 
-        public Task AgregarDisponibleAsync(Disponible disp)
+        public Task<int> AgregarDisponibleAsync(Disponible disp)
         {
             return AgregarGenéricoAsync("Disponible", disp);
         }

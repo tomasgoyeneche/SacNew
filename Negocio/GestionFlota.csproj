@@ -39,9 +39,6 @@
     <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\CrearPoc\AgregarEditarPoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\IngresarConsumo\IngresaGasoil.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\Postas\IngresaConsumos\ManualConsumos\IngresarConsumo\IngresoManualYPF.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -47,17 +47,16 @@
             guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            chkMetanol = new Guna.UI2.WinForms.Guna2CheckBox();
-            chkGasoil = new Guna.UI2.WinForms.Guna2CheckBox();
-            chkLujanCuyo = new Guna.UI2.WinForms.Guna2CheckBox();
-            chkAptoBo = new Guna.UI2.WinForms.Guna2CheckBox();
             btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             lblEmpresa = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cmbTrafico = new DevExpress.XtraEditors.LookUpEdit();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvTractores).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSemis).BeginInit();
             guna2Panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbTrafico.Properties).BeginInit();
             SuspendLayout();
             // 
             // dgvTractores
@@ -236,84 +235,6 @@
             guna2HtmlLabel2.Text = "Semis Disponibles";
             guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // chkMetanol
-            // 
-            chkMetanol.AutoSize = true;
-            chkMetanol.Checked = true;
-            chkMetanol.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            chkMetanol.CheckedState.BorderRadius = 0;
-            chkMetanol.CheckedState.BorderThickness = 0;
-            chkMetanol.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkMetanol.CheckState = CheckState.Checked;
-            chkMetanol.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkMetanol.ForeColor = Color.WhiteSmoke;
-            chkMetanol.Location = new Point(283, 47);
-            chkMetanol.Name = "chkMetanol";
-            chkMetanol.Size = new Size(91, 23);
-            chkMetanol.TabIndex = 58;
-            chkMetanol.Text = "Metanol";
-            chkMetanol.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            chkMetanol.UncheckedState.BorderRadius = 0;
-            chkMetanol.UncheckedState.BorderThickness = 0;
-            chkMetanol.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
-            // chkGasoil
-            // 
-            chkGasoil.AutoSize = true;
-            chkGasoil.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            chkGasoil.CheckedState.BorderRadius = 0;
-            chkGasoil.CheckedState.BorderThickness = 0;
-            chkGasoil.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkGasoil.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkGasoil.ForeColor = Color.WhiteSmoke;
-            chkGasoil.Location = new Point(422, 76);
-            chkGasoil.Name = "chkGasoil";
-            chkGasoil.Size = new Size(76, 23);
-            chkGasoil.TabIndex = 59;
-            chkGasoil.Text = "Gasoil";
-            chkGasoil.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            chkGasoil.UncheckedState.BorderRadius = 0;
-            chkGasoil.UncheckedState.BorderThickness = 0;
-            chkGasoil.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
-            // chkLujanCuyo
-            // 
-            chkLujanCuyo.AutoSize = true;
-            chkLujanCuyo.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            chkLujanCuyo.CheckedState.BorderRadius = 0;
-            chkLujanCuyo.CheckedState.BorderThickness = 0;
-            chkLujanCuyo.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkLujanCuyo.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkLujanCuyo.ForeColor = Color.WhiteSmoke;
-            chkLujanCuyo.Location = new Point(283, 76);
-            chkLujanCuyo.Name = "chkLujanCuyo";
-            chkLujanCuyo.Size = new Size(115, 23);
-            chkLujanCuyo.TabIndex = 60;
-            chkLujanCuyo.Text = "Lujan Cuyo";
-            chkLujanCuyo.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            chkLujanCuyo.UncheckedState.BorderRadius = 0;
-            chkLujanCuyo.UncheckedState.BorderThickness = 0;
-            chkLujanCuyo.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
-            // chkAptoBo
-            // 
-            chkAptoBo.AutoSize = true;
-            chkAptoBo.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            chkAptoBo.CheckedState.BorderRadius = 0;
-            chkAptoBo.CheckedState.BorderThickness = 0;
-            chkAptoBo.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkAptoBo.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkAptoBo.ForeColor = Color.WhiteSmoke;
-            chkAptoBo.Location = new Point(422, 47);
-            chkAptoBo.Name = "chkAptoBo";
-            chkAptoBo.Size = new Size(95, 23);
-            chkAptoBo.TabIndex = 61;
-            chkAptoBo.Text = "Apto B.O";
-            chkAptoBo.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            chkAptoBo.UncheckedState.BorderRadius = 0;
-            chkAptoBo.UncheckedState.BorderThickness = 0;
-            chkAptoBo.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            // 
             // btnCancelar
             // 
             btnCancelar.Appearance.BackColor = Color.LightGray;
@@ -374,20 +295,43 @@
             lblEmpresa.Text = "Empresa";
             lblEmpresa.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // cmbTrafico
+            // 
+            cmbTrafico.Location = new Point(283, 79);
+            cmbTrafico.Margin = new Padding(4, 3, 4, 3);
+            cmbTrafico.Name = "cmbTrafico";
+            cmbTrafico.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbTrafico.Properties.Appearance.Options.UseFont = true;
+            cmbTrafico.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbTrafico.Size = new Size(234, 26);
+            cmbTrafico.TabIndex = 84;
+            cmbTrafico.EditValueChanged += cmbTrafico_EditValueChanged;
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.AutoSize = false;
+            guna2HtmlLabel3.BackColor = Color.DimGray;
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = Color.WhiteSmoke;
+            guna2HtmlLabel3.Location = new Point(283, 53);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(234, 22);
+            guna2HtmlLabel3.TabIndex = 85;
+            guna2HtmlLabel3.Text = "Seleccione Trafico";
+            guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // AgregarUnidadForm
             // 
             Appearance.BackColor = Color.FromArgb(42, 48, 56);
             Appearance.Options.UseBackColor = true;
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(798, 568);
+            Controls.Add(guna2HtmlLabel3);
+            Controls.Add(cmbTrafico);
             Controls.Add(lblEmpresa);
             Controls.Add(guna2GradientPanel1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
-            Controls.Add(chkAptoBo);
-            Controls.Add(chkLujanCuyo);
-            Controls.Add(chkGasoil);
-            Controls.Add(chkMetanol);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2Panel10);
@@ -401,8 +345,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvSemis).EndInit();
             guna2Panel10.ResumeLayout(false);
             guna2Panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cmbTrafico.Properties).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -413,13 +357,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2CheckBox chkMetanol;
-        private Guna.UI2.WinForms.Guna2CheckBox chkGasoil;
-        private Guna.UI2.WinForms.Guna2CheckBox chkLujanCuyo;
-        private Guna.UI2.WinForms.Guna2CheckBox chkAptoBo;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblEmpresa;
+        private DevExpress.XtraEditors.LookUpEdit cmbTrafico;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

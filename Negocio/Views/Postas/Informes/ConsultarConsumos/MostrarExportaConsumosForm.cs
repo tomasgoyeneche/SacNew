@@ -1,14 +1,24 @@
-﻿using GestionFlota.Presenters.Informes;
+﻿using DevExpress.XtraEditors;
+using GestionFlota.Presenters.Informes;
 using Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 {
-    public partial class MostrarResultadosConsumosForm : Form, IResultadosConsumoView
+    public partial class MostrarExportaConsumosForm : DevExpress.XtraEditors.XtraForm, IResultadosConsumoView
     {
         private readonly ResultadosConsumoPresenter _presenter;
         private List<InformeConsumoPocDto> _resultados = new();
 
-        public MostrarResultadosConsumosForm(ResultadosConsumoPresenter presenter)
+        public MostrarExportaConsumosForm(ResultadosConsumoPresenter presenter)
         {
             InitializeComponent();
             _presenter = presenter;
@@ -18,7 +28,8 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
         public void MostrarResultados(List<InformeConsumoPocDto> resultados)
         {
             _resultados = resultados;
-            dataGridViewResultados.DataSource = resultados;
+            gridControlConsumos.DataSource = resultados;
+            gridViewConsumos.BestFitColumns();
 
             ConfigurarColumnas();
             _presenter.CalcularYMostrarTotales(resultados);
@@ -26,10 +37,9 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
 
         public void MostrarTotales(List<TotalConsumoDto> totales)
         {
-            dataGridViewTotales.DataSource = totales;
-
+            gridControlTotales.DataSource = totales;
+            gridViewTotales.BestFitColumns();
             // Configuración visual del grid
-            dataGridViewTotales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         public void MostrarMensaje(string mensaje)
@@ -50,21 +60,17 @@ namespace GestionFlota.Views.Postas.Informes.ConsultarConsumos
         private void ConfigurarColumnas()
         {
             var columnasVisibles = new List<string>
-        {
-            "NumeroPoc", "Chofer_Nombre", "Codigo_Posta", "Empresa_Nombre", "Tractor_Patente", "Semi_Patente",
-            "Concepto_Codigo", "Odometro", "Comentario", "FechaCreacion", "FechaCierre", "Usuario", "NumeroVale", "LitrosAutorizados", "LitrosCargados", "Observaciones", "Dolar", "PrecioDolar",
-            "PrecioTotal", "FechaCarga", "Estado"
-        };
+    {
+        "NumeroPoc", "Chofer_Nombre", "Codigo_Posta", "Empresa_Nombre", "Tractor_Patente", "Semi_Patente",
+        "Concepto_Codigo", "Odometro", "Comentario", "FechaCreacion", "FechaCierre", "Usuario",
+        "NumeroVale", "LitrosAutorizados", "LitrosCargados", "Observaciones", "Dolar",
+        "PrecioDolar", "PrecioTotal", "FechaCarga", "Estado"
+    };
 
-            foreach (DataGridViewColumn col in dataGridViewResultados.Columns)
+            foreach (DevExpress.XtraGrid.Columns.GridColumn col in gridViewConsumos.Columns)
             {
-                col.Visible = columnasVisibles.Contains(col.Name);
+                col.Visible = columnasVisibles.Contains(col.FieldName);
             }
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

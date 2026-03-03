@@ -7,13 +7,10 @@
         public int IdSemi { get; set; }
         public int TaraTotal { get; set; }
         public int IdEmpresa { get; set; }
-        public bool Metanol { get; set; }
-        public bool LujanCuyo { get; set; }
-        public bool Gasoil { get; set; }
-        public bool AptoBo { get; set; }
         public bool Activo { get; set; }
+        public int IdTrafico { get; set; }
 
         public DateTime AltaUnidad { get; set; }
-        public DateTime BajaUnidad { get; set; }
+        public DateTime? BajaUnidad { get; set; }
     }
 }

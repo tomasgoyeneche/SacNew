@@ -112,6 +112,7 @@
             dgvDatos.Name = "dgvDatos";
             dgvDatos.OptionsSelection.EnableAppearanceFocusedCell = false;
             dgvDatos.OptionsView.EnableAppearanceEvenRow = true;
+            dgvDatos.CellValueChanging += dgvDatos_CellValueChanging;
             // 
             // btnGuardar
             // 

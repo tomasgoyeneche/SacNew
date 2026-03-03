@@ -19,7 +19,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         public int IdChofer => Convert.ToInt32(cmbChofer.EditValue);
         public int IdPeriodo => Convert.ToInt32(cmbPeriodo.SelectedValue);
         public string NumeroPOC => txtNumeroPOC.Text.Trim();
-        public double Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToDouble(txtOdometro.Text.Trim());
+        public decimal Odometro => string.IsNullOrEmpty(txtOdometro.Text) ? 0 : Convert.ToDecimal(txtOdometro.Text.Trim());
         public string Comentario => txtComentario.Text.Trim();
         public DateTime FechaCreacion => dtpFechaCreacion.Value;
         public int IdUsuario => _presenter.IdUsuario;

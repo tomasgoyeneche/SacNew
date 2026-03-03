@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using GestionDocumental.Presenters;
+using System.Threading.Tasks;
 
 namespace GestionDocumental.Views
 {
@@ -65,6 +66,7 @@ namespace GestionDocumental.Views
                         view.Columns[col].Visible = false;
                 }
                 labelNovedades.Text = "Mantenimiento Unidades";
+
             }
 
             gridViewNovedades.OptionsView.EnableAppearanceEvenRow = true;
@@ -171,6 +173,11 @@ namespace GestionDocumental.Views
         private async void dispoCheck_CheckedChanged(object sender, EventArgs e)
         {
             await _presenter.CargarNovedadesAsync(dispoCheck.Checked, _presenter._Entidad);
+        }
+
+        private async void btnPruebaCalendario_Click(object sender, EventArgs e)
+        {
+            await _presenter.CargarCalendarioChoferes();
         }
 
         //Exportar a excel devexpress

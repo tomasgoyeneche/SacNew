@@ -30,6 +30,9 @@ namespace GestionDocumental.Views.AdministracionDocumental.Altas.Choferes
         public DateTime? FechaAlta => dtpFecha.EditValue as DateTime?;
         public int IdProvincia => (int)cmbProvincia.EditValue;
         public int IdLocalidad => (int)cmbLocalidad.EditValue;
+
+        public int NroLegajo => Convert.ToInt32(txtNroLegajo.Text);
+
         public string Domicilio => txtDomicilio.Text.Trim();
         public string Telefono => txtTelefono.Text.Trim();
         public string Celular => txtCelular.Text.Trim();
@@ -39,6 +42,7 @@ namespace GestionDocumental.Views.AdministracionDocumental.Altas.Choferes
             IdChofer = chofer.IdChofer;
             txtNombres.Text = chofer.Nombre;
             txtApellido.Text = chofer.Apellido;
+            txtNroLegajo.Text = chofer.NroLegajo.ToString();
 
             txtDoc.Text = chofer.Documento;
             txtDomicilio.Text = chofer.Domicilio;

@@ -3,6 +3,8 @@
     public class Chofer
     {
         public int IdChofer { get; set; }               // Identificador único del chofer
+        public int NroLegajo { get; set; }               // Identificador único del chofer
+
         public string? Apellido { get; set; }            // Apellido del chofer
         public string? Nombre { get; set; }              // Nombre del chofer
         public string? Documento { get; set; }           // Documento del chofer

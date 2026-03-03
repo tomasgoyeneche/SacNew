@@ -251,5 +251,22 @@ namespace Core.Repositories
                 return novedades.ToList();
             });
         }
+
+        public async Task<List<NovedadesChoferesDto>> ObtenerAusenciasPorRangoDeFechas(DateTime desde, DateTime hasta)
+        {
+            // desde inclusive, hasta NO inclusivo
+            const string query = @"
+            SELECT *
+            FROM vw_NovedadesChoferes ce
+            WHERE ce.FechaInicio < @Hasta 
+            AND ce.FechaFin >= @Desde  
+            ORDER BY ce.idChofer, ce.FechaInicio;";
+
+            var rows = await ConectarAsync(conn =>
+                conn.QueryAsync<NovedadesChoferesDto>(query, new { Desde = desde.Date, Hasta = hasta.Date })
+            );
+
+            return rows.ToList();
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Core.Repositories
         Task<List<ConsumosUnificadosDto>> ObtenerPorPocAsync(int idPoc);
 
         Task<List<InformeConsumoPocDto>> ObtenerPorFechaCargaAsync(DateTime fechaCarga, int idPosta);
-
+        Task<List<InformeConsumoPocDto>> BuscarConsumosPorFechaAsync(DateTime desde, DateTime hasta);
         Task<List<InformeConsumoPocDto>> BuscarConsumosAsync(
                 int? idConcepto,
                 int? idPosta,

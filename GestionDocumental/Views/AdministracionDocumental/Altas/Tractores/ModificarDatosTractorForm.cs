@@ -27,11 +27,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         public int Hp => Convert.ToInt32(txtHp.Text.Trim());
         public int Combustible => Convert.ToInt32(txtCapCombustible.Text.Trim());
         public int Cmt => Convert.ToInt32(txtCmt.Text.Trim());
+        public int IdTrafico => (int)cmbTrafico.SelectedValue;
+
         public int IdEmpresa { get; private set; } // Se obtiene del DTO al cargar datos
         public string SatelitalSeleccionado => cmbSatelital.SelectedItem?.ToString() ?? string.Empty;
         public DateTime FechaAlta => dtpFechaAlta.Value;
 
-        public void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre)
+        public void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre, List<Trafico> traficos)
         {
             if (cmbSatelital.Items.Count == 0)
             {
@@ -59,6 +61,11 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             cmbModelo.DisplayMember = "NombreModelo";
             cmbModelo.ValueMember = "IdModelo";
             cmbModelo.SelectedValue = tractor.IdModelo;
+
+            cmbTrafico.DataSource = traficos;
+            cmbTrafico.DisplayMember = "Nombre";
+            cmbTrafico.ValueMember = "IdTrafico";
+            cmbTrafico.SelectedValue = tractor.IdTrafico;
 
             // 🔹 Determinar Satelital Actual
             if (!string.IsNullOrEmpty(SatelitalNombre))

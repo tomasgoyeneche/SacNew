@@ -7,17 +7,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         void MostrarEmpresa(string nombreEmpresa, int idEmpresa);
 
         void CargarTractores(List<Tractor> tractores);
-
+        void CargarTrafico(List<Trafico> traficos);
         void CargarSemis(List<Semi> semis);
+        int IdTraficoSeleccionado { get; }
 
         int IdEmpresa { get; }
         int? IdTractorSeleccionado { get; }
         int? IdSemiSeleccionado { get; }
-        bool UsaMetanol { get; }
-        bool UsaGasoil { get; }
-        bool UsaLujanCuyo { get; }
-        bool UsaAptoBo { get; }
-
         void MostrarMensaje(string mensaje);
 
         void Cerrar();

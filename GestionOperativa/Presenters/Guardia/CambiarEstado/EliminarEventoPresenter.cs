@@ -9,15 +9,19 @@ namespace GestionOperativa.Presenters
     public class EliminarEventoPresenter : BasePresenter<IEliminarEventoView>
     {
         private readonly IGuardiaRepositorio _guardiaRepositorio;
+        private readonly IVaporizadoRepositorio _vaporizadoRepositorio;
+
         private GuardiaDto _guardia;
 
         public EliminarEventoPresenter(
             ISesionService sesionService,
             INavigationService nav,
+            IVaporizadoRepositorio vap,
             IGuardiaRepositorio guardiaRepositorio)
             : base(sesionService, nav)
         {
             _guardiaRepositorio = guardiaRepositorio;
+            _vaporizadoRepositorio = vap;
         }
 
         public async Task InicializarAsync(GuardiaDto guardia)
@@ -35,6 +39,13 @@ namespace GestionOperativa.Presenters
                 {
                     _view.MostrarMensaje("No tiene permisos para eliminar eventos de vaporizado.");
                     return;
+                }
+
+                Vaporizado? vapo = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(registro.IdGuardiaIngreso);
+
+                if(vapo != null)
+                {
+                    await _vaporizadoRepositorio.EliminarAsync(vapo.IdVaporizado);
                 }
             }
 

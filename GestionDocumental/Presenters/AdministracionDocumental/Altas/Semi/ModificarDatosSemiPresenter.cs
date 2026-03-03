@@ -15,6 +15,8 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly ISemiCisternaTipoCargaRepositorio _tipoCargaRepositorio;
         private readonly ISemiCisternaMaterialRepositorio _materialRepositorio;
+        private readonly ITraficoRepositorio _traficoRepositorio;
+
         private readonly ISemiCisternaCompartimientoRepositorio _semiCompartimientoRepositorio;
 
         public Semi Semi { get; private set; }
@@ -25,6 +27,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             ISemiRepositorio semiRepositorio,
             IVehiculoMarcaRepositorio marcaRepositorio,
             IVehiculoModeloRepositorio modeloRepositorio,
+            ITraficoRepositorio traficoRepositorio, 
             ISemiCisternaTipoCargaRepositorio tipoCargaRepositorio,
             ISemiCisternaCompartimientoRepositorio semiCompartimientoRepositorio,
             ISemiCisternaMaterialRepositorio materialRepositorio)
@@ -33,6 +36,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             _semiRepositorio = semiRepositorio;
             _marcaRepositorio = marcaRepositorio;
             _modeloRepositorio = modeloRepositorio;
+            _traficoRepositorio = traficoRepositorio;   
             _tipoCargaRepositorio = tipoCargaRepositorio;
             _materialRepositorio = materialRepositorio;
             _semiCompartimientoRepositorio = semiCompartimientoRepositorio;
@@ -53,8 +57,9 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(Semi.IdMarca);
                 var tiposCarga = await _tipoCargaRepositorio.ObtenerTiposCargaAsync();
                 var materiales = await _materialRepositorio.ObtenerMaterialesAsync();
+                List<Trafico> traficos = await _traficoRepositorio.ObtenerTodosAsync();
 
-                _view.CargarDatosSemi(Semi, marcas, modelos, tiposCarga, materiales, litros);
+                _view.CargarDatosSemi(Semi, marcas, modelos, tiposCarga, materiales, litros, traficos);
             });
         }
 
@@ -79,6 +84,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             Semi.Inv = _view.Inv;
             Semi.LitroNominal = _view.LitroNominal;
             Semi.Cubicacion = _view.Cubicacion;
+            Semi.IdTrafico = _view.IdTrafico;   
 
             await EjecutarConCargaAsync(async () =>
             {

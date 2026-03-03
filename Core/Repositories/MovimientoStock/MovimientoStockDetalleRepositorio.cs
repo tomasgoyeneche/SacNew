@@ -27,7 +27,7 @@ namespace Core.Repositories
         {
             const string query = @"
             INSERT INTO MovimientoStockDetalle (IdMovimientoStock, IdArticulo, IdPosta, Cantidad, PrecioUnitario, PrecioTotal, Activo, Dolar)
-            VALUES (@IdMovimientoStock, @IdArticulo, @IdPosta, @Cantidad, @PrecioUnitario, @PrecioTotal, 1, Dolar);
+            VALUES (@IdMovimientoStock, @IdArticulo, @IdPosta, @Cantidad, @PrecioUnitario, @PrecioTotal, 1, @Dolar);
             SELECT CAST(SCOPE_IDENTITY() as int);";
 
             return await EjecutarConAuditoriaAsync(

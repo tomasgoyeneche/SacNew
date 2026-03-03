@@ -12,6 +12,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
 
         DateTime? FechaNacimiento { get; }
 
+        int NroLegajo { get; }
         int idEmpresa { get; }
         bool ZonaFria { get; }
         DateTime? FechaAlta { get; }

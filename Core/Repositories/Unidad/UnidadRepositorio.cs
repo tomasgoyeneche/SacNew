@@ -51,7 +51,7 @@ namespace Core.Repositories
             var query = @"
             SELECT IdTractor
             FROM Tractor
-            WHERE Patente = @Patente AND Activo = 1";
+            WHERE Patente = @Patente";
 
             return await ConectarAsync(async conn =>
                 await conn.QuerySingleOrDefaultAsync<int?>(query, new { Patente = patente }));
@@ -60,9 +60,9 @@ namespace Core.Repositories
         public async Task<int?> ObtenerIdUnidadPorTractorAsync(int idTractor)
         {
             var query = @"
-            SELECT IdUnidad
+            SELECT TOP 1 IdUnidad
             FROM Unidad
-            WHERE IdTractor = @IdTractor AND Activo = 1";
+            WHERE IdTractor = @IdTractor order by AltaUnidad desc";
 
             return await ConectarAsync(async conn =>
                 await conn.QuerySingleOrDefaultAsync<int?>(query, new { IdTractor = idTractor }));
@@ -154,12 +154,9 @@ namespace Core.Repositories
                         unidad.IdSemi,
                         unidad.TaraTotal,
                         unidad.IdEmpresa,
-                        unidad.Metanol,
-                        unidad.Gasoil,
-                        unidad.LujanCuyo,
-                        unidad.AptoBo,
                         unidad.Activo,
-                        idUsuario = idUsuario
+                        idUsuario = idUsuario,
+                        unidad.IdTrafico
                     },
                     commandType: CommandType.StoredProcedure
                 );

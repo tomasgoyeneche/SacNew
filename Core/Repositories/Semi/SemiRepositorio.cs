@@ -61,7 +61,7 @@ namespace Core.Repositories
         public async Task<List<Shared.Models.Semi>> ObtenerSemisLibresAsync()
         {
             const string sql = @"
-        SELECT s.IdSemi, s.Patente, s.Tara
+        SELECT *
         FROM Semi s
         WHERE s.IdSemi NOT IN (SELECT IdSemi FROM Unidad WHERE Activo = 1) and s.Activo = 1";
 

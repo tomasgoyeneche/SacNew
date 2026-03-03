@@ -120,7 +120,7 @@ namespace InformesYEstadisticas.Presenters
             List<VaporizadoDto> listaFiltrada = lista
             .Where(v => v.Inicio != null &&
                         v.Inicio.Value.Date >= desde.Date &&
-                        v.Inicio.Value.Date <= hasta.Date)
+                        v.Inicio.Value.Date < hasta.Date)  //  v.Inicio.Value.Date <= hasta.Date INCLUYE FECHA DE HASTA
             .ToList();
 
             if (!listaFiltrada.Any())

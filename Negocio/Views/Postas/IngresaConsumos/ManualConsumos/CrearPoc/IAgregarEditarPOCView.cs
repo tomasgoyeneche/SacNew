@@ -9,7 +9,7 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.CrearPoc
         int IdChofer { get; }
         int IdPeriodo { get; }
         string NumeroPOC { get; }
-        double Odometro { get; }
+        decimal Odometro { get; }
         string Comentario { get; }
         DateTime FechaCreacion { get; }  // La fecha y hora que se ingresa manualmente
         int IdUsuario { get; }

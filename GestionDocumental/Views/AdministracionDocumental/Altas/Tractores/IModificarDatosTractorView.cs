@@ -12,12 +12,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
         decimal Tara { get; }
         int Hp { get; }
         int Combustible { get; }
+
+        int IdTrafico { get; }
         int Cmt { get; }
         int IdEmpresa { get; } // 🔹 Se usa para buscar EmpresaSatelital
         string SatelitalSeleccionado { get; } // 🔹 Megatrans o Sitrack
         DateTime FechaAlta { get; }
 
-        void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre);
+        void CargarDatosTractor(Tractor tractor, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos, string SatelitalNombre, List<Trafico> traficos);
 
         void CargarModelos(List<VehiculoModelo> modelos);
 

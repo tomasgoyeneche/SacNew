@@ -48,16 +48,16 @@ namespace GestionFlota.Presenters
                 return;
             }
 
-            var consumosExistentes = await _consumoYpfRepositorio.ExistenConsumosParaPeriodoAsync(idPeriodo.Value);
-            if (consumosExistentes)
-            {
-                _view.MostrarMensaje("Ya existen consumos para este período.");
-                return;
-            }
+            //var consumosExistentes = await _consumoYpfRepositorio.ExistenConsumosParaPeriodoAsync(idPeriodo.Value);
+            //if (consumosExistentes)
+            //{
+            //    _view.MostrarMensaje("Ya existen consumos para este período.");
+            //    return;
+            //}
 
             await EjecutarConCargaAsync(async () =>
             {
-                var consumos = await _importacionProcessor.ImportarConsumosDesdeExcelAsync(filePath, idPeriodo.Value);
+                List<ImportConsumoYpfEnRuta> consumos = await _importacionProcessor.ImportarConsumosDesdeExcelAsync(filePath, idPeriodo.Value);
                 var dtos = await ConvertirADtoAsync(consumos);
                 _view.MostrarConsumos(dtos);
                 _view.MostrarMensaje("Importación completada con éxito.");
@@ -70,6 +70,9 @@ namespace GestionFlota.Presenters
 
             foreach (var c in consumos)
             {
+                if (c.IdChofer == 73)
+                    continue;
+
                 var unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(c.IdUnidad);
                 var tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(unidad.IdTractor);
                 var chofer = await _choferRepositorio.ObtenerPorIdAsync(c.IdChofer);
@@ -157,6 +160,17 @@ namespace GestionFlota.Presenters
 
                 _view.MostrarMensaje("Consumos guardados correctamente.");
             });
+        }
+
+        public async Task ActualizarChequeadoAsync(ImportConsumoYpfEnRutaDto dto)
+        {
+            var entidad = new ImportConsumoYpfEnRuta
+            {
+                IdImportConsumoYPFEnRuta = dto.IdImportConsumoYPFEnRuta,
+                Chequeado = dto.Chequeado
+            };
+
+            await _consumoYpfRepositorio.ActualizarChequeadoAsync(entidad);
         }
 
         public async Task BuscarConsumosPorPeriodo()

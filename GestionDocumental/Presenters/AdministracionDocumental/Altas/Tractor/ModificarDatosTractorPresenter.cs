@@ -2,6 +2,7 @@
 using Core.Repositories;
 using Core.Services;
 using GestionOperativa.Views.AdministracionDocumental.Altas.Tractores;
+using Shared.Models;
 
 namespace GestionOperativa.Presenters.AdministracionDocumental
 {
@@ -9,6 +10,8 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
     {
         private readonly ITractorRepositorio _tractorRepositorio;
         private readonly IVehiculoMarcaRepositorio _marcaRepositorio;
+        private readonly ITraficoRepositorio _traficoRepositorio;
+
         private readonly IVehiculoModeloRepositorio _modeloRepositorio;
         private readonly IEmpresaSatelitalRepositorio _empresaSatelitalRepositorio;
         private Shared.Models.Tractor Tractor { get; set; }
@@ -17,6 +20,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             ISesionService sesionService,
             INavigationService navigationService,
             ITractorRepositorio tractorRepositorio,
+            ITraficoRepositorio traficoRepositorio,
             IVehiculoMarcaRepositorio marcaRepositorio,
             IVehiculoModeloRepositorio modeloRepositorio,
             IEmpresaSatelitalRepositorio empresaSatelitalRepositorio)
@@ -25,6 +29,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             _tractorRepositorio = tractorRepositorio;
             _marcaRepositorio = marcaRepositorio;
             _modeloRepositorio = modeloRepositorio;
+            _traficoRepositorio = traficoRepositorio;
             _empresaSatelitalRepositorio = empresaSatelitalRepositorio;
         }
 
@@ -41,8 +46,8 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
 
                 var marcas = await _marcaRepositorio.ObtenerMarcasPorTipoAsync(1);
                 var modelos = await _modeloRepositorio.ObtenerModelosPorMarcaAsync(Tractor.IdMarca);
-
-                _view.CargarDatosTractor(Tractor, marcas, modelos, SatelitalNombre);
+                List<Trafico> traficos = await _traficoRepositorio.ObtenerTodosAsync();
+                _view.CargarDatosTractor(Tractor, marcas, modelos, SatelitalNombre, traficos);
             });
         }
 
@@ -65,6 +70,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             Tractor.Cmt = _view.Cmt;
             Tractor.FechaAlta = _view.FechaAlta;
             Tractor.IdEmpresa = _view.IdEmpresa; // 🔹 Se usa para buscar EmpresaSatelital
+            Tractor.IdTrafico = _view.IdTrafico;
 
             // 🔹 Obtener IdEmpresaSatelital si existe
             int idSatelital = _view.SatelitalSeleccionado == "Megatrans" ? 2 : 1;

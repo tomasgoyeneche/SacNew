@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
 using GestionOperativa.Presenters;
 using Guna.UI2.WinForms;
 using Shared.Models;
@@ -51,6 +52,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             IVisualInterna.Text = semi.VisualInterna?.ToShortDateString();
             IFechaEspesor.Text = semi.CisternaEspesor?.ToShortDateString();
             IVisualExt.Text = semi.VisualExterna?.ToShortDateString();
+            lTrafico.Text = semi.Trafico_Nombre;
         }
 
         public void MostrarSeguros(List<EmpresaSeguroDto> seguros)

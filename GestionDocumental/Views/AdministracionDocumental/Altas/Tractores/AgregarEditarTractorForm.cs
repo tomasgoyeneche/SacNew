@@ -48,7 +48,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Tractores
             ITipo.Text = tractor.Empresa_Tipo;
             IFechaAlta.Text = tractor.FechaAlta?.ToShortDateString() ?? "N/A";
             IVtv.Text = tractor.Vtv?.ToShortDateString() ?? "N/A";
-
+            lTrafico.Text = tractor.Trafico_Nombre;
             SatelitalNombre = tractor.Satelital_Descripcion;
         }
 

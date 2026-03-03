@@ -22,6 +22,12 @@ namespace Core.Base
 
         protected async Task<bool> ValidarAsync<T>(T entidad, params object[] parametros)
         {
+            if (entidad == null)
+            {
+                MostrarMensaje("No se puede validar una entidad nula.");
+                return false;
+            }
+
             var validador = _navigationService.ResolverServicio<IValidator<T>>();
 
             if (validador == null)
@@ -106,6 +112,11 @@ namespace Core.Base
             catch (ValidationException ex)
             {
                 MostrarErrores(ex.Errors);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MostrarMensaje("No tienes permisos para realizar esta operación.");
+                // _logger?.LogWarning(ex, $"Acceso no autorizado en {contexto ?? "operación"}");
             }
             catch (Exception ex)
             {

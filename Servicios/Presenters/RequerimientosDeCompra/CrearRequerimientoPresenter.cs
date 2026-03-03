@@ -114,6 +114,8 @@ namespace Servicios.Presenters
         // ================= GUARDAR =================
         public async Task GuardarAsync()
         {
+            //await GenerarReporteRcAsync(9535); para probar
+            //return;
             var rc = new RcRcc
             {
                 Fecha = _view.Fecha,

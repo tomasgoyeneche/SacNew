@@ -60,7 +60,7 @@ namespace Core.Repositories
         public async Task<List<Tractor>> ObtenerTractoresLibresAsync()
         {
             const string sql = @"
-        SELECT t.IdTractor, t.Patente, t.Tara
+        SELECT *
         FROM Tractor t
         WHERE t.IdTractor NOT IN (SELECT IdTractor FROM Unidad WHERE Activo = 1) and t.Activo = 1";
 

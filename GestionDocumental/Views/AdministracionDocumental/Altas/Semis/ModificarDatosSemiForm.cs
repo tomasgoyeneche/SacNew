@@ -24,13 +24,15 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         public int IdTipoCarga => (int)txtTipoCarga.SelectedValue;
         public int Compartimientos => Convert.ToInt32(txtCisternas.Text);
         public int IdMaterial => (int)cmbMaterial.SelectedValue;
+        public int IdTrafico => (int)cmbTrafico.SelectedValue;
+
 
         public int Inv => Convert.ToInt32(txtInv.Text);
         public int LitroNominal => Convert.ToInt32(txtLitrosNom.Text);
         public int Cubicacion => Convert.ToInt32(txtCubicacion.Text);
 
         public void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
-                                    List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros)
+                                    List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros, List<Trafico> trafico)
         {
             IdSemi = semi.IdSemi;
             txtPatente.Text = semi.Patente;
@@ -62,6 +64,12 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
             cmbMaterial.DisplayMember = "Descripcion";
             cmbMaterial.ValueMember = "IdMaterial";
             cmbMaterial.SelectedValue = semi.IdMaterial;
+
+            cmbTrafico.DataSource = trafico;
+            cmbTrafico.DisplayMember = "Nombre";
+            cmbTrafico.ValueMember = "IdTrafico";
+            cmbTrafico.SelectedValue = semi.IdTrafico;
+
         }
 
         public void ActualizarConfeccion(string confeccion)

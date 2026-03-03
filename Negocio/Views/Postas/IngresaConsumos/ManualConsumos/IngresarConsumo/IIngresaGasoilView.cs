@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Shared.Models;
+using Shared.Models.DTOs;
 
 namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.IngresarConsumo
 {
@@ -13,11 +14,11 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
 
         bool Dolar { get; }
 
-        void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros);
+        void MostrarLitrosAutorizados(decimal litrosAutorizados, decimal kilometros, string origen, string destino, string albaran);
 
         void InicializarParaEdicion(ConsumoGasoil consumo);
 
-        void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc);
+        void CargarTiposGasoil(List<Concepto> tiposGasoil, string poc, POCDto pocdto);
 
         bool ConfirmarGuardado(string mensaje);
 
@@ -32,7 +33,6 @@ namespace SacNew.Views.GestionFlota.Postas.IngresaConsumos.ManualConsumos.Ingres
 
         void ActualizarLabelTotal(decimal restante);
 
-        void MostrarMensajeGuna(string mensaje);
 
         void Cerrar();
     }

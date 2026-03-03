@@ -20,6 +20,7 @@
 
         // Datos de `SemiCisterna`
         public int LitroNominal { get; set; }
+        public int IdTrafico { get; set; }
 
         public int Cubicacion { get; set; }
         public int IdTipoCarga { get; set; }

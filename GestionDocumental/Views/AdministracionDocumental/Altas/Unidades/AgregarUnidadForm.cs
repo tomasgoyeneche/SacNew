@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using GestionOperativa.Presenters.AdministracionDocumental.Altas;
 using Shared.Models;
 
@@ -25,15 +26,23 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
             ? dgvSemis.SelectedRows[0].Cells["IdSemi"].Value as int?
             : null;
 
-        public bool UsaMetanol => chkMetanol.Checked;
-        public bool UsaGasoil => chkGasoil.Checked;
-        public bool UsaLujanCuyo => chkLujanCuyo.Checked;
-        public bool UsaAptoBo => chkAptoBo.Checked;
+        public int IdTraficoSeleccionado =>
+            cmbTrafico.EditValue is int value ? value : 0;
 
         public void MostrarEmpresa(string nombreEmpresa, int idEmpresa)
         {
             lblEmpresa.Text = $"Empresa: {nombreEmpresa}";
             IdEmpresa = idEmpresa;
+        }
+
+        public void CargarTrafico(List<Trafico> traficos)
+        {
+            cmbTrafico.Properties.DataSource = traficos;
+            cmbTrafico.Properties.DisplayMember = "Nombre";
+            cmbTrafico.Properties.ValueMember = "IdTrafico";
+            cmbTrafico.Properties.NullText = "Seleccione un tráfico";
+            cmbTrafico.Properties.Columns.Clear();
+            cmbTrafico.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Trafico"));
         }
 
         public void CargarTractores(List<Tractor> tractores)
@@ -70,6 +79,14 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Cerrar();
+        }
+
+        private async void cmbTrafico_EditValueChanged(object sender, EventArgs e)
+        {
+            if (IdTraficoSeleccionado > 0)
+            {
+                await _presenter.CargarDatosPorTraficoAsync(IdTraficoSeleccionado);
+            }
         }
     }
 }

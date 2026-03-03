@@ -28,7 +28,7 @@
         public string? Empresa_Nombre { get; set; }
         public string? Empresa_Cuit { get; set; }
         public string? Empresa_Tipo { get; set; }
-
+        public string? Trafico_Nombre { get; set; }
         public DateTime? FechaAlta { get; set; }
 
         public int Inv { get; set; }

@@ -15,13 +15,13 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Semis
         int IdTipoCarga { get; }
         int Compartimientos { get; }
         int IdMaterial { get; }
-
+        int IdTrafico { get; }
         int Inv { get; }
         int LitroNominal { get; }
         int Cubicacion { get; }
 
         void CargarDatosSemi(Semi semi, List<VehiculoMarca> marcas, List<VehiculoModelo> modelos,
-                             List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros);
+                             List<SemiCisternaTipoCarga> tiposCarga, List<SemiCisternaMaterial> materiales, string litros, List<Trafico> trafico);
 
         void CargarModelos(List<VehiculoModelo> modelos);
 
