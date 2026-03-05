@@ -26,6 +26,8 @@
         public string? Observaciones { get; set; } = string.Empty;
         public string? Location { get; set; } = string.Empty;
         public int? Sat { get; set; }
+        public int? IdTrafico { get; set; }
+
         public string? Confirmado { get; set; } = string.Empty;
     }
 }

@@ -52,11 +52,15 @@ namespace Core.Base
             return true;
         }
 
-        protected async Task AbrirFormularioAsync<TForm>(Func<TForm, Task> configurarFormulario) where TForm : Form
+        protected async Task AbrirFormularioAsync<TForm>(Func<TForm, Task> configurarFormulario, bool modal = false) where TForm : Form
         {
             var formulario = _navigationService.ObtenerFormulario<TForm>();
             await configurarFormulario(formulario);
-            _navigationService.ShowDialog<TForm>();
+
+            if (modal)
+                _navigationService.ShowDialog<TForm>();
+            else
+                _navigationService.Show<TForm>();
         }
 
         public async Task AbrirFormularioConPermisosAsync<TForm>(

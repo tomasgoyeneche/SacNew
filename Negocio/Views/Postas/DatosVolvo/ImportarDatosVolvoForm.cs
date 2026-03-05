@@ -16,29 +16,29 @@ namespace GestionFlota.Views.Postas.DatosVolvo
             _presenter.SetView(this);
         }
 
-        public Periodo? PeriodoSeleccionado => cmbPeriodos.SelectedItem as Periodo;
+        public DateTime PeriodoSeleccionado => dtpPeriodo.Value;
 
-        public void CargarPeriodos(IEnumerable<Periodo> periodos)
-        {
-            cmbPeriodos.DataSource = periodos.ToList();
-            cmbPeriodos.DisplayMember = "NombrePeriodo";
-            cmbPeriodos.ValueMember = "IdPeriodo";
-        }
+        public int QuincenaSeleccionada =>
+        Convert.ToInt32(cmbQuincena.SelectedItem ?? "1");
 
-        public void MostrarDatos(List<ImportVolvoConnect> datos)
+
+        public void MostrarDatos(List<ImportVolvoConnectDto> datos)
         {
             gridControlDatos.DataSource = datos;
 
             // Ocultamos columnas no deseadas desde el GridView
             var view = dgvDatos;
             view.Columns["IdImportVolvoConnect"].Visible = false;
+            view.Columns["IdUnidad"].Visible = false;
+            view.Columns["IdPeriodo"].Visible = false;
+
 
             view.BestFitColumns(); // Ajusta automáticamente las columnas al contenido
         }
 
-        public List<ImportVolvoConnect> ObtenerDatos()
+        public List<ImportVolvoConnectDto> ObtenerDatos()
         {
-            return dgvDatos.DataSource as List<ImportVolvoConnect> ?? new List<ImportVolvoConnect>();
+            return dgvDatos.DataSource as List<ImportVolvoConnectDto> ?? new List<ImportVolvoConnectDto>();
         }
 
         public void MostrarMensaje(string mensaje)
@@ -72,7 +72,22 @@ namespace GestionFlota.Views.Postas.DatosVolvo
 
         private async void ImportDatosVolvo_Load(object sender, EventArgs e)
         {
-            await _presenter.CargarPeriodosAsync();
+            dtpPeriodo.Value = DateTime.Now;
+            cmbQuincena.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
+            cmbQuincena.Items.AddRange(new[] { "1", "2" });
+            cmbQuincena.SelectedIndex = 0;
+            gridControlDatos.DataSource = null;
+            gridControlDatos.RefreshDataSource();
+        }
+
+        private async void bBuscarDatos_Click(object sender, EventArgs e)
+        {
+            if (PeriodoSeleccionado == DateTime.MinValue)
+            {
+                MostrarMensaje("Seleccione un período antes de buscar consumos.");
+                return;
+            }
+            await _presenter.BuscarConsumosPorPeriodo();
         }
     }
 }

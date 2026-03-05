@@ -86,7 +86,20 @@ namespace GestionFlota.Presenters
                     _view.SetEstadoCargaDisponibles(true);
 
                     List<Shared.Models.Ruteo> ruteos = await _programaRepositorio.ObtenerRuteoAsync();
+
+                    int idTrafico = _view.IdTraficoSeleccionado;
+
+                    // 🔥 Filtrado por tráfico
+                    ruteos = ruteos
+                        .Where(r => r.IdTrafico == idTrafico)
+                        .ToList();
+
                     List<RuteoResumen> resumen = await _programaRepositorio.ObtenerResumenAsync();
+
+                    resumen = resumen
+                        .Where(r => r.IdTrafico == idTrafico)
+                        .ToList();
+
                     List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
 
                     var cargados = ruteos

@@ -19,6 +19,8 @@
         public int Cupo { get; set; }
         public string? DisDestino { get; set; }
 
+
+        public int IdTrafico { get; set; } = 0;
         public char? Tipo { get; set; }
     }
 }

@@ -34,6 +34,7 @@
         public string Location { get; set; } = string.Empty;
         public int Sat { get; set; } = 0;
 
+        public int IdTrafico { get; set; } = 0;
         public string Estado { get; set; } = string.Empty;
     }
 }

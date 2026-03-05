@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.CodeParser.CodeStyle.Formatting;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using Shared.Models;
@@ -81,6 +82,13 @@ namespace GestionFlota.Presenters
                 DateTime fecha = _view.FechaSeleccionada;
                 List<Disponibilidad> disponibilidades =
                     await _disponibilidadRepositorio.BuscarDisponiblesPorFechaAsync(fecha);
+
+                int idTrafico = _view.IdTraficoSeleccionado;
+
+                disponibilidades = disponibilidades
+                    .Where(d => d.IdTrafico == idTrafico)
+                    .ToList();
+
                 List<ChoferesLibresDto> choferesLibres = await _choferRepositorio.ObtenerTodosLosChoferesLibres();
                 _view.CargarDisponibilidades(disponibilidades);
                 _view.MostrarChoferesLibres(choferesLibres);
@@ -246,6 +254,15 @@ namespace GestionFlota.Presenters
         private async Task ExportarDisponibilidadYPF(DateTime dispoFecha)
         {
             List<DisponibilidadYPF> lista = await _disponibilidadRepositorio.ObtenerDisponibilidadYPFPorFechaAsync(dispoFecha);
+
+
+            int idTrafico = _view.IdTraficoSeleccionado;
+
+            lista = lista
+                .Where(l => l.IdTrafico == idTrafico)
+                .ToList();
+
+
             if (lista == null || !lista.Any())
             {
                 _view.MostrarMensaje("No hay datos para exportar para la fecha seleccionada.");

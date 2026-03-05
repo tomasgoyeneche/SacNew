@@ -4,13 +4,13 @@ namespace SacNew.Views.GestionFlota.Postas.DatosVolvo
 {
     public interface IImportarVolvoConnectView
     {
-        Periodo PeriodoSeleccionado { get; }
+        DateTime PeriodoSeleccionado { get; }
+        int QuincenaSeleccionada { get; }
 
-        void CargarPeriodos(IEnumerable<Periodo> periodos);
 
-        void MostrarDatos(List<ImportVolvoConnect> datos);
+        void MostrarDatos(List<ImportVolvoConnectDto> datos);
 
-        List<ImportVolvoConnect> ObtenerDatos();
+        List<ImportVolvoConnectDto> ObtenerDatos();
 
         void MostrarMensaje(string mensaje);
     }

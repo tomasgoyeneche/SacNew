@@ -81,7 +81,7 @@ namespace GestionOperativa.Presenters.Choferes
             await AbrirFormularioAsync<ModificarChoferDatosForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idChofer);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
         }
 
@@ -90,7 +90,7 @@ namespace GestionOperativa.Presenters.Choferes
             await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
             {
                 await form._presenter.InicializarAsync("chofer", idChofer);
-            });
+            },true);
             await CargarDatosParaMostrarAsync(idChofer); // Refrescar la vista después de agregar
         }
 
@@ -99,7 +99,7 @@ namespace GestionOperativa.Presenters.Choferes
             await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
             {
                 await form.CargarDatosAsync(idChofer, tipoEntidad);
-            });
+            },true);
 
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idChofer);

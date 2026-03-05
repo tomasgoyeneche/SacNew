@@ -7,6 +7,7 @@ namespace GestionFlota.Views
     {
         DateTime FechaSeleccionada { get; }
 
+        int IdTraficoSeleccionado { get; }  
         void CargarDisponibilidades(List<Disponibilidad> disponibilidades);
 
         void ConfigurarControles();

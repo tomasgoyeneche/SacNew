@@ -31,7 +31,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<NovedadesForm>(tipoPermiso, async form =>
             {
                 await form._presenter.CargarNovedadesAsync(false, tipoNovedad);
-            });
+            }, false);
         }
 
         public async void AbrirAlertas(string tipoPermiso)
@@ -39,7 +39,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<AlertasForm>(tipoPermiso, async form =>
             {
                 await form._presenter.CargarAlertasAsync();
-            });
+            }, false);
         }
 
         public async void AbrirGuardia(string tipoPermiso, int idPosta)
@@ -47,7 +47,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<GuardiaForm>(tipoPermiso, async form =>
             {
                 await form._presenter.InicializarAsync(idPosta);
-            });
+            }, false);
         }
 
         public async void AbrirAdministracion(string tipoPermiso, int idPosta)
@@ -55,7 +55,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<AdministracionForm>(tipoPermiso, async form =>
             {
                 await form._presenter.InicializarAsync(idPosta);
-            });
+            }, false);
         }
 
         public async void AbrirVaporizados(string tipoPermiso)
@@ -63,7 +63,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<MenuVaporizados>(tipoPermiso, async form =>
             {
                 await form._presenter.CargarVaporizadosAsync(_sesionService.IdPosta);
-            });
+            }, false);
         }
 
         public async void AbrirRuteo(string tipoPermiso)
@@ -113,7 +113,7 @@ namespace App.Presenters
             await AbrirFormularioConPermisosAsync<ViajesConsolidadosForm>(tipoPermiso, async form =>
             {
                 await form._presenter.InicializarAsync();
-            });
+            }, false);
         }
     }
 }

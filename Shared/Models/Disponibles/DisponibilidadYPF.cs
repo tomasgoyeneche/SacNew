@@ -26,5 +26,7 @@
         public string Destino { get; set; } = string.Empty;
         public string ObsYPF { get; set; } = string.Empty;
         public string TipoCarga { get; set; } = string.Empty;
+
+        public int IdTrafico { get; set; } = 0;
     }
 }

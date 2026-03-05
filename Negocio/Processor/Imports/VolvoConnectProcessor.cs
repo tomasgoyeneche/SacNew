@@ -32,14 +32,24 @@ namespace GestionFlota.Processor
                 return new ImportVolvoConnect
                 {
                     IdUnidad = idUnidad.Value,
-                    Kilometros = decimal.Parse(worksheet.Cells[row, 4].Text), // Columna D
-                    PromedioGasoilEnMarcha = decimal.Parse(worksheet.Cells[row, 6].Text), // Columna F
-                    GasoilEnMarcha = decimal.Parse(worksheet.Cells[row, 7].Text), // Columna G
-                    PromedioGasoilEnConduccion = decimal.Parse(worksheet.Cells[row, 9].Text), // Columna I
-                    GasoilEnConduccion = decimal.Parse(worksheet.Cells[row, 8].Text), // Columna H
+                    Kilometros = ParseDecimalOrZero(worksheet.Cells[row, 4].Text),
+                    PromedioGasoilEnMarcha = ParseDecimalOrZero(worksheet.Cells[row, 6].Text),
+                    GasoilEnMarcha = ParseDecimalOrZero(worksheet.Cells[row, 7].Text),
+                    PromedioGasoilEnConduccion = ParseDecimalOrZero(worksheet.Cells[row, 9].Text),
+                    GasoilEnConduccion = ParseDecimalOrZero(worksheet.Cells[row, 8].Text),
                     IdPeriodo = idPeriodo
                 };
             }, "Datos del informe");  // Pasar el nombre de la hoja como parámetro
+        }
+
+        private decimal ParseDecimalOrZero(string? valor)
+        {
+            if (string.IsNullOrWhiteSpace(valor))
+                return 0;
+
+            return decimal.TryParse(valor, out var resultado)
+                ? resultado
+                : 0;
         }
 
         private async Task<int?> ObtenerIdUnidadDesdePatenteAsync(string patente)

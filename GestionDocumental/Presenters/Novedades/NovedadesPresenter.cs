@@ -95,14 +95,14 @@ namespace GestionDocumental.Presenters
                     await AbrirFormularioAsync<AgregarEditarChoferNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(novChofer);
-                    });
+                    }, true);
                 }
                 else if (_Entidad == "Unidad" && novedad is UnidadMantenimientoDto novUnidad)
                 {
                     await AbrirFormularioAsync<AgregarEditarUnidadNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(novUnidad);
-                    });
+                    }, true);
                 }
             }, async () => await CargarNovedadesAsync(_view.activoChecked, _Entidad));
         }
@@ -116,14 +116,14 @@ namespace GestionDocumental.Presenters
                     await AbrirFormularioAsync<AgregarEditarChoferNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(null);
-                    });
+                    }, true);
                 }
                 else if (_Entidad == "Unidad")
                 {
                     await AbrirFormularioAsync<AgregarEditarUnidadNovedadForm>(async form =>
                     {
                         await form._presenter.InicializarAsync(null);
-                    });
+                    }, true);
                 }
             }, async () => await CargarNovedadesAsync(_view.activoChecked, _Entidad));
         }

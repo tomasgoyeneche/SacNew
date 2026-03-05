@@ -5,6 +5,7 @@ namespace GestionFlota.Views
 {
     public interface ICupeoView : IViewConMensajes
     {
+        int IdTraficoSeleccionado { get; }
         void MostrarCupeoDisp(List<Shared.Models.Cupeo> cargados);
 
         void MostrarCupeoAsignados(List<Shared.Models.Cupeo> vacios);

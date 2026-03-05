@@ -47,7 +47,7 @@ namespace GestionFlota.Processor
                     Litros = decimal.Parse(worksheet.Cells[row, 20].Text),
                     ImporteTotalYer = decimal.Parse(worksheet.Cells[row, 24].Text),
                     ImporteSinImpuestos = decimal.Parse(worksheet.Cells[row, 24].Text) - SumarImpuestos(worksheet, row),
-                    Factura = worksheet.Cells[row, 26].Text,
+                    Factura = worksheet.Cells[row, 30].Text,
                     IdPeriodo = idPeriodo
                 };
 
@@ -70,7 +70,7 @@ namespace GestionFlota.Processor
 
         private decimal SumarImpuestos(ExcelWorksheet worksheet, int row)
         {
-            return Enumerable.Range(27, 4) // Columnas AB, AC, AD, AE
+            return Enumerable.Range(26, 4) // Columnas AB, AC, AD, AE
                              .Select(col => decimal.Parse(worksheet.Cells[row, col].Text))
                              .Sum();
         }
@@ -82,6 +82,9 @@ namespace GestionFlota.Processor
                 "ULTRADIESEL" => 25,
                 "INFINIA DIESEL" => 26,
                 "D.DIESEL 500" => 27,
+                "AZUL 32 BIDON 10 L" => 28,
+                "AZUL 32 BIDON 20 L" => 29,
+                "AZUL 32 GRANEL" => 30,
                 _ => throw new Exception($"Consumo '{nombreConsumo}' no reconocido.")
             };
         }

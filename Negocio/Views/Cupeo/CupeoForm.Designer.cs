@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CupeoForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -106,6 +106,9 @@
             bVerPrograma = new DevExpress.XtraEditors.SimpleButton();
             bRecargar = new DevExpress.XtraEditors.SimpleButton();
             txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
+            chkBiocombustible = new DevExpress.XtraEditors.CheckEdit();
+            chkArena = new DevExpress.XtraEditors.CheckEdit();
+            chkMetanol = new DevExpress.XtraEditors.CheckEdit();
             guna2Panel10.SuspendLayout();
             guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlResumen).BeginInit();
@@ -125,16 +128,19 @@
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlAsignados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAsignados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges1;
+            guna2Panel10.CustomizableEdges = customizableEdges17;
             guna2Panel10.FillColor = Color.MediumSeaGreen;
             guna2Panel10.Location = new Point(0, 12);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel10.Size = new Size(293, 38);
             guna2Panel10.TabIndex = 39;
             // 
@@ -155,11 +161,11 @@
             guna2Panel4.BackColor = Color.Transparent;
             guna2Panel4.Controls.Add(guna2HtmlLabel5);
             guna2Panel4.Controls.Add(gridControlResumen);
-            guna2Panel4.CustomizableEdges = customizableEdges3;
+            guna2Panel4.CustomizableEdges = customizableEdges19;
             guna2Panel4.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel4.Location = new Point(12, 172);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Panel4.Size = new Size(281, 246);
             guna2Panel4.TabIndex = 49;
             // 
@@ -234,11 +240,11 @@
             guna2Panel6.BackColor = Color.Transparent;
             guna2Panel6.Controls.Add(guna2HtmlLabel6);
             guna2Panel6.Controls.Add(gridControlVencimientos);
-            guna2Panel6.CustomizableEdges = customizableEdges5;
+            guna2Panel6.CustomizableEdges = customizableEdges21;
             guna2Panel6.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel6.Location = new Point(12, 430);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2Panel6.Size = new Size(281, 246);
             guna2Panel6.TabIndex = 48;
             // 
@@ -287,11 +293,11 @@
             guna2Panel3.BackColor = Color.Transparent;
             guna2Panel3.Controls.Add(gridControlHistorico);
             guna2Panel3.Controls.Add(guna2HtmlLabel2);
-            guna2Panel3.CustomizableEdges = customizableEdges7;
+            guna2Panel3.CustomizableEdges = customizableEdges23;
             guna2Panel3.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel3.Location = new Point(925, 11);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel3.Size = new Size(488, 150);
             guna2Panel3.TabIndex = 47;
             // 
@@ -369,11 +375,11 @@
             guna2Panel2.BackColor = Color.Transparent;
             guna2Panel2.Controls.Add(guna2HtmlLabel1);
             guna2Panel2.Controls.Add(gridControlAlertas);
-            guna2Panel2.CustomizableEdges = customizableEdges9;
+            guna2Panel2.CustomizableEdges = customizableEdges25;
             guna2Panel2.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel2.Location = new Point(311, 11);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel2.Size = new Size(608, 150);
             guna2Panel2.TabIndex = 46;
             // 
@@ -422,11 +428,11 @@
             guna2Panel5.BackColor = Color.Transparent;
             guna2Panel5.Controls.Add(gridControlDisp);
             guna2Panel5.Controls.Add(guna2HtmlLabel3);
-            guna2Panel5.CustomizableEdges = customizableEdges11;
+            guna2Panel5.CustomizableEdges = customizableEdges27;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel5.Location = new Point(311, 172);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel5.Size = new Size(1102, 246);
             guna2Panel5.TabIndex = 51;
             // 
@@ -565,11 +571,11 @@
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
             guna2Panel1.Controls.Add(gridControlAsignados);
-            guna2Panel1.CustomizableEdges = customizableEdges13;
+            guna2Panel1.CustomizableEdges = customizableEdges29;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(311, 430);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Panel1.Size = new Size(1102, 246);
             guna2Panel1.TabIndex = 50;
             // 
@@ -742,7 +748,7 @@
             bImportarPrograma.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bImportarPrograma.ImageOptions.SvgImage");
             bImportarPrograma.Location = new Point(12, 59);
             bImportarPrograma.Name = "bImportarPrograma";
-            bImportarPrograma.Size = new Size(281, 30);
+            bImportarPrograma.Size = new Size(186, 30);
             bImportarPrograma.TabIndex = 52;
             bImportarPrograma.Text = "Importar Programa";
             bImportarPrograma.Click += bImportarPrograma_Click;
@@ -762,7 +768,7 @@
             bVerPrograma.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bVerPrograma.ImageOptions.SvgImage");
             bVerPrograma.Location = new Point(12, 96);
             bVerPrograma.Name = "bVerPrograma";
-            bVerPrograma.Size = new Size(281, 30);
+            bVerPrograma.Size = new Size(186, 30);
             bVerPrograma.TabIndex = 53;
             bVerPrograma.Text = "Ver Programa";
             bVerPrograma.Click += bVerPrograma_Click;
@@ -789,7 +795,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.CustomizableEdges = customizableEdges15;
+            txtBuscar.CustomizableEdges = customizableEdges31;
             txtBuscar.DefaultText = "";
             txtBuscar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtBuscar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -804,11 +810,51 @@
             txtBuscar.PasswordChar = '\0';
             txtBuscar.PlaceholderText = "Buscar";
             txtBuscar.SelectedText = "";
-            txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges32;
             txtBuscar.Size = new Size(239, 30);
             txtBuscar.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             txtBuscar.TabIndex = 54;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // chkBiocombustible
+            // 
+            chkBiocombustible.Location = new Point(213, 108);
+            chkBiocombustible.Name = "chkBiocombustible";
+            chkBiocombustible.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkBiocombustible.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkBiocombustible.Properties.Appearance.Options.UseFont = true;
+            chkBiocombustible.Properties.Appearance.Options.UseForeColor = true;
+            chkBiocombustible.Properties.Caption = "Bio-Comb";
+            chkBiocombustible.Size = new Size(80, 20);
+            chkBiocombustible.TabIndex = 125;
+            chkBiocombustible.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkArena
+            // 
+            chkArena.Location = new Point(213, 83);
+            chkArena.Name = "chkArena";
+            chkArena.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkArena.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkArena.Properties.Appearance.Options.UseFont = true;
+            chkArena.Properties.Appearance.Options.UseForeColor = true;
+            chkArena.Properties.Caption = "Arena";
+            chkArena.Size = new Size(65, 20);
+            chkArena.TabIndex = 124;
+            chkArena.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkMetanol
+            // 
+            chkMetanol.EditValue = true;
+            chkMetanol.Location = new Point(213, 57);
+            chkMetanol.Name = "chkMetanol";
+            chkMetanol.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkMetanol.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkMetanol.Properties.Appearance.Options.UseFont = true;
+            chkMetanol.Properties.Appearance.Options.UseForeColor = true;
+            chkMetanol.Properties.Caption = "Metanol";
+            chkMetanol.Size = new Size(78, 20);
+            chkMetanol.TabIndex = 123;
+            chkMetanol.CheckedChanged += Trafico_CheckedChanged;
             // 
             // CupeoForm
             // 
@@ -817,8 +863,11 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
+            Controls.Add(chkBiocombustible);
             Controls.Add(bRecargar);
+            Controls.Add(chkArena);
             Controls.Add(txtBuscar);
+            Controls.Add(chkMetanol);
             Controls.Add(bVerPrograma);
             Controls.Add(bImportarPrograma);
             Controls.Add(guna2Panel5);
@@ -852,6 +901,9 @@
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlAsignados).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAsignados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -918,5 +970,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
         private DevExpress.XtraEditors.SimpleButton bRecargar;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
+        private DevExpress.XtraEditors.CheckEdit chkBiocombustible;
+        private DevExpress.XtraEditors.CheckEdit chkArena;
+        private DevExpress.XtraEditors.CheckEdit chkMetanol;
     }
 }

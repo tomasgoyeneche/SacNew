@@ -19,5 +19,7 @@ namespace Shared.Models
         public string Origen { get; set; } = string.Empty; // Origen de la información de la disponibilidad histórica (por ejemplo, "Sistema", "Manual", etc.)  
         public string? Destino { get; set; } = string.Empty; // Destino de la información de la disponibilidad histórica (por ejemplo, "Base de Datos", "Reporte", etc.)
         public DateTime FechaRegistro { get; set; } = DateTime.Now; // Fecha y hora en que se registró la disponibilidad histórica
+
+        public int IdTrafico { get; set; } = 0;
     }
 }

@@ -5,6 +5,8 @@ namespace GestionFlota.Views
 {
     public interface IRuteoView : IViewConMensajes
     {
+
+        int IdTraficoSeleccionado { get; }
         void MostrarRuteoCargados(List<Shared.Models.Ruteo> cargados);
 
         void MostrarRuteoVacios(List<Shared.Models.Ruteo> vacios);

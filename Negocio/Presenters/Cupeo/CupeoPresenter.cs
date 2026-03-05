@@ -56,6 +56,17 @@ namespace GestionFlota.Presenters
                         .Where(r => r.IdDestino != null)
                         .ToList();
 
+                    int idTrafico = _view.IdTraficoSeleccionado;
+
+                    asignados = asignados
+                        .Where(a => a.IdTrafico == idTrafico)
+                        .ToList();
+
+
+                    disp = disp
+                        .Where(d => d.IdTrafico == idTrafico)
+                        .ToList();
+
                     _view.MostrarCupeoDisp(disp);
                     _view.MostrarCupeoAsignados(asignados);
                     //_view.MostrarResumen(resumen);

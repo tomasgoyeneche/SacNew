@@ -3,6 +3,7 @@ using Core.Repositories;
 using Core.Services;
 using GestionFlota.Processor;
 using SacNew.Views.GestionFlota.Postas.DatosVolvo;
+using Shared.Models;
 
 namespace GestionFlota.Presenters
 {
@@ -10,11 +11,16 @@ namespace GestionFlota.Presenters
     {
         private readonly IPeriodoRepositorio _periodoRepositorio;
         private readonly IVolvoConnectProcessor _volvoConnectProcessor;
+        private readonly IUnidadRepositorio _unidadRepositorio;
+        private readonly ITractorRepositorio _tractorRepositorio;
+
         private readonly IImportVolvoConnectRepositorio _volvoConnectRepositorio;
 
         public ImportarVolvoConnectPresenter(
             IPeriodoRepositorio periodoRepositorio,
             IVolvoConnectProcessor volvoConnectProcessor,
+            IUnidadRepositorio unidadRepositorio,
+            ITractorRepositorio tractorRepositorio,
             IImportVolvoConnectRepositorio volvoConnectRepositorio,
             ISesionService sesionService,
             INavigationService navigationService
@@ -23,50 +29,103 @@ namespace GestionFlota.Presenters
             _periodoRepositorio = periodoRepositorio;
             _volvoConnectProcessor = volvoConnectProcessor;
             _volvoConnectRepositorio = volvoConnectRepositorio;
+            _tractorRepositorio = tractorRepositorio;
+            _unidadRepositorio = unidadRepositorio; 
         }
 
-        public async Task CargarPeriodosAsync()
+        private async Task<int?> ObtenerIdPeriodoAsync()
         {
-            await EjecutarConCargaAsync(async () =>
-            {
-                var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
-                _view.CargarPeriodos(periodos);
-            });
+            var fecha = _view.PeriodoSeleccionado;
+            var quincena = _view.QuincenaSeleccionada;
+            return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioQuincenaAsync(fecha.Month, fecha.Year, quincena);
         }
 
         public async Task ImportarVolvoAsync(string filePath)
         {
-            if (_view.PeriodoSeleccionado == null)
+            int? idPeriodo = await ObtenerIdPeriodoAsync();
+            if (idPeriodo == null)
             {
-                _view.MostrarMensaje("Debe seleccionar un período.");
+                _view.MostrarMensaje("Debe seleccionar un período válido.");
                 return;
             }
 
             await EjecutarConCargaAsync(async () =>
             {
-                var idPeriodo = _view.PeriodoSeleccionado.IdPeriodo;
-
-                if (await _volvoConnectRepositorio.ExistenDatosParaPeriodoAsync(idPeriodo))
+                if (await _volvoConnectRepositorio.ExistenDatosParaPeriodoAsync(idPeriodo.Value))
                 {
-                    _view.MostrarMensaje("Ya existen consumos para este período.");
+                    _view.MostrarMensaje("Ya existen datos para este período.");
                     return;
                 }
 
-                var consumos = await _volvoConnectProcessor.ImportarDesdeExcelAsync(filePath, idPeriodo);
-                _view.MostrarDatos(consumos);
+                List<ImportVolvoConnect> consumos = await _volvoConnectProcessor.ImportarDesdeExcelAsync(filePath, idPeriodo.Value);
+                List<ImportVolvoConnectDto> dtos = await ConvertirADtoAsync(consumos);
+                _view.MostrarDatos(dtos);
                 _view.MostrarMensaje("Importación completada.");
             });
         }
 
+        private async Task<List<ImportVolvoConnectDto>> ConvertirADtoAsync(IEnumerable<ImportVolvoConnect> consumos)
+        {
+            var listaDto = new List<ImportVolvoConnectDto>();
+
+            foreach (var c in consumos)
+            {
+                Unidad? unidad = await _unidadRepositorio.ObtenerPorUnidadIdAsync(c.IdUnidad);
+                Tractor? tractor = await _tractorRepositorio.ObtenerTractorPorIdAsync(unidad.IdTractor);
+                Periodo? periodo = await _periodoRepositorio.ObtenerPorIdAsync(c.IdPeriodo);
+
+                listaDto.Add(new ImportVolvoConnectDto
+                {
+                    IdImportVolvoConnect = c.IdImportVolvoConnect,
+                    IdUnidad = c.IdUnidad,
+                    PatenteTractor = tractor.Patente,
+                    Kilometros = c.Kilometros,
+                    PromedioGasoilEnMarcha = c.PromedioGasoilEnMarcha,
+                    GasoilEnMarcha = c.GasoilEnMarcha,  
+                    PromedioGasoilEnConduccion = c.PromedioGasoilEnConduccion,
+                    GasoilEnConduccion = c.GasoilEnConduccion,
+                    IdPeriodo = c.IdPeriodo,
+                    NombrePeriodo = periodo.NombrePeriodo
+                });
+            }
+
+            return listaDto;
+        }
+
+        private List<ImportVolvoConnect> ConvertirADominio(List<ImportVolvoConnectDto> dtos)
+        {
+            return dtos.Select(x => new ImportVolvoConnect
+            {
+                IdImportVolvoConnect = x.IdImportVolvoConnect,
+                 IdUnidad = x.IdUnidad,
+                 Kilometros = x.Kilometros,
+                 PromedioGasoilEnMarcha = x.PromedioGasoilEnMarcha,
+                 GasoilEnMarcha = x.GasoilEnMarcha,
+                 PromedioGasoilEnConduccion = x.PromedioGasoilEnConduccion,
+                 GasoilEnConduccion = x.GasoilEnConduccion,
+                IdPeriodo = x.IdPeriodo
+            }).ToList();
+        }
+
+        public async Task BuscarConsumosPorPeriodo()
+        {
+            int idPeriodo = await ObtenerIdPeriodoAsync() ?? 0;
+            List<ImportVolvoConnect> consumos = await _volvoConnectRepositorio.ObtenerPorPeriodoAsync(idPeriodo);
+            var dtos = await ConvertirADtoAsync(consumos);
+            _view.MostrarDatos(dtos);
+        }
+
+
         public async Task GuardarConsumosAsync()
         {
-            var consumos = _view.ObtenerDatos();
-
-            if (!consumos.Any())
+            var dtos = _view.ObtenerDatos();
+            if (!dtos.Any())
             {
-                _view.MostrarMensaje("No hay datos para guardar.");
+                _view.MostrarMensaje("No hay consumos para guardar.");
                 return;
             }
+
+            var consumos = ConvertirADominio(dtos);
 
             await EjecutarConCargaAsync(async () =>
             {
@@ -80,7 +139,8 @@ namespace GestionFlota.Presenters
 
         public async Task ExportarConsumosAExcelAsync(string filePath)
         {
-            var consumos = _view.ObtenerDatos();
+            var dtos = _view.ObtenerDatos();
+            var consumos = ConvertirADominio(dtos);
 
             if (!consumos.Any())
             {

@@ -40,6 +40,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridControlDatos = new DevExpress.XtraGrid.GridControl();
@@ -49,8 +53,11 @@
             btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             btnExportarExcel = new Guna.UI2.WinForms.Guna2Button();
             btnImportar = new Guna.UI2.WinForms.Guna2Button();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cmbPeriodos = new Guna.UI2.WinForms.Guna2ComboBox();
+            cmbQuincena = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            dtpPeriodo = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            bBuscarDatos = new Guna.UI2.WinForms.Guna2Button();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
@@ -67,7 +74,7 @@
             guna2Panel1.Location = new Point(17, 85);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(762, 424);
+            guna2Panel1.Size = new Size(839, 424);
             guna2Panel1.TabIndex = 43;
             // 
             // guna2HtmlLabel4
@@ -79,7 +86,7 @@
             guna2HtmlLabel4.ForeColor = Color.Black;
             guna2HtmlLabel4.Location = new Point(0, 0);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(762, 20);
+            guna2HtmlLabel4.Size = new Size(839, 20);
             guna2HtmlLabel4.TabIndex = 50;
             guna2HtmlLabel4.Text = "Datos Importados";
             guna2HtmlLabel4.TextAlignment = ContentAlignment.MiddleCenter;
@@ -91,7 +98,7 @@
             gridControlDatos.Location = new Point(0, 34);
             gridControlDatos.MainView = dgvDatos;
             gridControlDatos.Name = "gridControlDatos";
-            gridControlDatos.Size = new Size(762, 390);
+            gridControlDatos.Size = new Size(839, 390);
             gridControlDatos.TabIndex = 39;
             gridControlDatos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { dgvDatos });
             // 
@@ -138,7 +145,7 @@
             btnGuardar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnGuardar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(659, 520);
+            btnGuardar.Location = new Point(736, 520);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnGuardar.Size = new Size(120, 37);
@@ -182,33 +189,82 @@
             btnImportar.Text = "Importar";
             btnImportar.Click += btnImportar_Click;
             // 
-            // guna2HtmlLabel2
+            // cmbQuincena
             // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(439, 32);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(65, 23);
-            guna2HtmlLabel2.TabIndex = 55;
-            guna2HtmlLabel2.Text = "Periodo:";
+            cmbQuincena.BackColor = Color.Transparent;
+            cmbQuincena.CustomizableEdges = customizableEdges11;
+            cmbQuincena.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbQuincena.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbQuincena.FocusedColor = Color.FromArgb(94, 148, 255);
+            cmbQuincena.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cmbQuincena.Font = new Font("Segoe UI", 10F);
+            cmbQuincena.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbQuincena.ItemHeight = 30;
+            cmbQuincena.Location = new Point(638, 33);
+            cmbQuincena.Name = "cmbQuincena";
+            cmbQuincena.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbQuincena.Size = new Size(92, 36);
+            cmbQuincena.TabIndex = 60;
             // 
-            // cmbPeriodos
+            // guna2HtmlLabel3
             // 
-            cmbPeriodos.BackColor = Color.Transparent;
-            cmbPeriodos.CustomizableEdges = customizableEdges11;
-            cmbPeriodos.DrawMode = DrawMode.OwnerDrawFixed;
-            cmbPeriodos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPeriodos.FocusedColor = Color.FromArgb(94, 148, 255);
-            cmbPeriodos.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbPeriodos.Font = new Font("Segoe UI", 10F);
-            cmbPeriodos.ForeColor = Color.FromArgb(68, 88, 112);
-            cmbPeriodos.ItemHeight = 30;
-            cmbPeriodos.Location = new Point(510, 26);
-            cmbPeriodos.Name = "cmbPeriodos";
-            cmbPeriodos.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cmbPeriodos.Size = new Size(269, 36);
-            cmbPeriodos.TabIndex = 54;
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel3.Location = new Point(547, 46);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(85, 23);
+            guna2HtmlLabel3.TabIndex = 59;
+            guna2HtmlLabel3.Text = "Quincena:";
+            // 
+            // dtpPeriodo
+            // 
+            dtpPeriodo.BackColor = Color.Transparent;
+            dtpPeriodo.Checked = true;
+            dtpPeriodo.CustomFormat = "MM/yyyy";
+            dtpPeriodo.CustomizableEdges = customizableEdges13;
+            dtpPeriodo.FillColor = Color.WhiteSmoke;
+            dtpPeriodo.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpPeriodo.ForeColor = SystemColors.ActiveCaptionText;
+            dtpPeriodo.Format = DateTimePickerFormat.Custom;
+            dtpPeriodo.Location = new Point(408, 33);
+            dtpPeriodo.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
+            dtpPeriodo.MinDate = new DateTime(2020, 1, 1, 0, 0, 0, 0);
+            dtpPeriodo.Name = "dtpPeriodo";
+            dtpPeriodo.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            dtpPeriodo.ShowUpDown = true;
+            dtpPeriodo.Size = new Size(133, 36);
+            dtpPeriodo.TabIndex = 58;
+            dtpPeriodo.Value = new DateTime(2025, 2, 3, 0, 0, 0, 0);
+            // 
+            // bBuscarDatos
+            // 
+            bBuscarDatos.CustomizableEdges = customizableEdges15;
+            bBuscarDatos.DisabledState.BorderColor = Color.DarkGray;
+            bBuscarDatos.DisabledState.CustomBorderColor = Color.DarkGray;
+            bBuscarDatos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            bBuscarDatos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bBuscarDatos.FillColor = Color.Gray;
+            bBuscarDatos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bBuscarDatos.ForeColor = Color.White;
+            bBuscarDatos.Location = new Point(736, 32);
+            bBuscarDatos.Name = "bBuscarDatos";
+            bBuscarDatos.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            bBuscarDatos.Size = new Size(120, 37);
+            bBuscarDatos.TabIndex = 57;
+            bBuscarDatos.Text = "Buscar";
+            bBuscarDatos.Click += bBuscarDatos_Click;
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.ForeColor = SystemColors.ControlLight;
+            guna2HtmlLabel5.Location = new Point(337, 46);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(65, 23);
+            guna2HtmlLabel5.TabIndex = 56;
+            guna2HtmlLabel5.Text = "Periodo:";
             // 
             // ImportarDatosVolvoForm
             // 
@@ -216,12 +272,15 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(798, 568);
-            Controls.Add(guna2HtmlLabel2);
-            Controls.Add(cmbPeriodos);
+            ClientSize = new Size(868, 568);
+            Controls.Add(cmbQuincena);
+            Controls.Add(guna2HtmlLabel3);
+            Controls.Add(dtpPeriodo);
             Controls.Add(btnGuardar);
             Controls.Add(guna2Panel3);
+            Controls.Add(bBuscarDatos);
             Controls.Add(btnExportarExcel);
+            Controls.Add(guna2HtmlLabel5);
             Controls.Add(guna2Panel1);
             Controls.Add(btnImportar);
             MaximizeBox = false;
@@ -250,7 +309,10 @@
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnExportarExcel;
         private Guna.UI2.WinForms.Guna2Button btnImportar;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbPeriodos;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbQuincena;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpPeriodo;
+        private Guna.UI2.WinForms.Guna2Button bBuscarDatos;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

@@ -105,7 +105,9 @@
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblMantenimientosUnidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            bDispoArena = new DevExpress.XtraEditors.SimpleButton();
+            chkBiocombustible = new DevExpress.XtraEditors.CheckEdit();
+            chkArena = new DevExpress.XtraEditors.CheckEdit();
+            chkMetanol = new DevExpress.XtraEditors.CheckEdit();
             guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlDisponibles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewDisponibles).BeginInit();
@@ -127,6 +129,9 @@
             guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControlChoferesLibres).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewChoferesLibres).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel5
@@ -323,10 +328,10 @@
             // 
             gridControlResumen.Dock = DockStyle.Bottom;
             gridControlResumen.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControlResumen.Location = new Point(0, 25);
+            gridControlResumen.Location = new Point(0, 26);
             gridControlResumen.MainView = gridViewResumen;
             gridControlResumen.Name = "gridControlResumen";
-            gridControlResumen.Size = new Size(241, 76);
+            gridControlResumen.Size = new Size(241, 75);
             gridControlResumen.TabIndex = 39;
             gridControlResumen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewResumen });
             // 
@@ -583,7 +588,7 @@
             // dateEditFecha
             // 
             dateEditFecha.EditValue = null;
-            dateEditFecha.Location = new Point(17, 66);
+            dateEditFecha.Location = new Point(17, 82);
             dateEditFecha.Name = "dateEditFecha";
             dateEditFecha.Properties.Appearance.BackColor = Color.WhiteSmoke;
             dateEditFecha.Properties.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -614,7 +619,7 @@
             bBuscarDisponibles.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
             bBuscarDisponibles.AppearanceDisabled.Options.UseForeColor = true;
             bBuscarDisponibles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bBuscarDisponibles.ImageOptions.SvgImage");
-            bBuscarDisponibles.Location = new Point(17, 116);
+            bBuscarDisponibles.Location = new Point(17, 128);
             bBuscarDisponibles.Name = "bBuscarDisponibles";
             bBuscarDisponibles.Size = new Size(241, 30);
             bBuscarDisponibles.TabIndex = 80;
@@ -829,25 +834,45 @@
             guna2HtmlLabel9.Text = "Mantenimientos Unidad";
             guna2HtmlLabel9.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // bDispoArena
+            // chkBiocombustible
             // 
-            bDispoArena.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
-            bDispoArena.Appearance.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bDispoArena.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bDispoArena.Appearance.Options.UseBackColor = true;
-            bDispoArena.Appearance.Options.UseFont = true;
-            bDispoArena.Appearance.Options.UseForeColor = true;
-            bDispoArena.Appearance.Options.UseTextOptions = true;
-            bDispoArena.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            bDispoArena.AppearanceDisabled.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
-            bDispoArena.AppearanceDisabled.Options.UseForeColor = true;
-            bDispoArena.Enabled = false;
-            bDispoArena.Location = new Point(674, 632);
-            bDispoArena.Name = "bDispoArena";
-            bDispoArena.Size = new Size(241, 46);
-            bDispoArena.TabIndex = 119;
-            bDispoArena.Text = "Disponibilidad Arena";
-            bDispoArena.Click += bDispoArena_Click;
+            chkBiocombustible.Location = new Point(181, 56);
+            chkBiocombustible.Name = "chkBiocombustible";
+            chkBiocombustible.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkBiocombustible.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkBiocombustible.Properties.Appearance.Options.UseFont = true;
+            chkBiocombustible.Properties.Appearance.Options.UseForeColor = true;
+            chkBiocombustible.Properties.Caption = "Bio-Comb";
+            chkBiocombustible.Size = new Size(77, 20);
+            chkBiocombustible.TabIndex = 122;
+            chkBiocombustible.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkArena
+            // 
+            chkArena.Location = new Point(106, 56);
+            chkArena.Name = "chkArena";
+            chkArena.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkArena.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkArena.Properties.Appearance.Options.UseFont = true;
+            chkArena.Properties.Appearance.Options.UseForeColor = true;
+            chkArena.Properties.Caption = "Arena";
+            chkArena.Size = new Size(62, 20);
+            chkArena.TabIndex = 121;
+            chkArena.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkMetanol
+            // 
+            chkMetanol.EditValue = true;
+            chkMetanol.Location = new Point(17, 56);
+            chkMetanol.Name = "chkMetanol";
+            chkMetanol.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkMetanol.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkMetanol.Properties.Appearance.Options.UseFont = true;
+            chkMetanol.Properties.Appearance.Options.UseForeColor = true;
+            chkMetanol.Properties.Caption = "Metanol";
+            chkMetanol.Size = new Size(75, 20);
+            chkMetanol.TabIndex = 120;
+            chkMetanol.CheckedChanged += Trafico_CheckedChanged;
             // 
             // DisponibilidadForm
             // 
@@ -856,7 +881,9 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 688);
-            Controls.Add(bDispoArena);
+            Controls.Add(chkBiocombustible);
+            Controls.Add(chkArena);
+            Controls.Add(chkMetanol);
             Controls.Add(lblAusenciasChofer);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2HtmlLabel8);
@@ -902,6 +929,9 @@
             guna2Panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControlChoferesLibres).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewChoferesLibres).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -964,6 +994,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMantenimientosUnidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private DevExpress.XtraEditors.SimpleButton bDispoArena;
+        private DevExpress.XtraEditors.CheckEdit chkBiocombustible;
+        private DevExpress.XtraEditors.CheckEdit chkArena;
+        private DevExpress.XtraEditors.CheckEdit chkMetanol;
     }
 }

@@ -25,6 +25,40 @@ namespace GestionFlota.Views
             //view.BestFitColumns();
         }
 
+        public int IdTraficoSeleccionado
+        {
+            get
+            {
+                if (chkArena.Checked) return 2;
+                if (chkBiocombustible.Checked) return 3;
+                return 1; // Default Metanol
+            }
+        }
+
+        private void SeleccionarUnico(CheckEdit seleccionado)
+        {
+            chkMetanol.CheckedChanged -= Trafico_CheckedChanged;
+            chkArena.CheckedChanged -= Trafico_CheckedChanged;
+            chkBiocombustible.CheckedChanged -= Trafico_CheckedChanged;
+
+            chkMetanol.Checked = seleccionado == chkMetanol;
+            chkArena.Checked = seleccionado == chkArena;
+            chkBiocombustible.Checked = seleccionado == chkBiocombustible;
+
+            chkMetanol.CheckedChanged += Trafico_CheckedChanged;
+            chkArena.CheckedChanged += Trafico_CheckedChanged;
+            chkBiocombustible.CheckedChanged += Trafico_CheckedChanged;
+        }
+
+        private async void Trafico_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckEdit chk && chk.Checked)
+            {
+                SeleccionarUnico(chk);
+                await _presenter.InicializarAsync();
+            }
+        }
+
         public void MostrarMantenimientosUnidad(string texto)
         {
             lblMantenimientosUnidad.Text = texto; // Asegurate de tener un label llamado así, o poné el nombre que uses
