@@ -14,9 +14,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM Posta";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Posta>(query).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Posta>(query);
+                return result.ToList();
             });
         }
 
@@ -29,10 +30,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM Posta WHERE Codigo LIKE @TextoBusqueda OR Descripcion LIKE @TextoBusqueda";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Posta>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Posta>(query, new { TextoBusqueda = $"%{textoBusqueda}%" });
+                return result.ToList();
             });
         }
 

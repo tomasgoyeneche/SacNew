@@ -15,7 +15,7 @@ namespace Core.Repositories
         public async Task<List<POCDto>> ObtenerTodosPorPostaAsync(int idPosta, string Estado)
         {
             var query = @"
-    SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado, FechaCreacion
+    SELECT IdPoc, NumeroPOC, Odometro, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado, FechaCreacion
     FROM vw_POCUnidadDetalle
     WHERE Estado = @Estado AND IdPosta = @idPosta
     ORDER BY FechaCreacion desc";
@@ -30,16 +30,17 @@ namespace Core.Repositories
         public async Task<List<POCDto>> BuscarPOCAsync(string criterio, int idPosta)
         {
             var query = @"
-        SELECT IdPoc, NumeroPOC, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer
+        SELECT IdPoc, NumeroPOC, Odometro, PatenteTractor, PatenteSemi, NombreFantasia, NombreCompletoChofer
         FROM vw_POCUnidadDetalle
         WHERE Estado = 'abierta' and IdPosta = @IdPosta
         AND (NumeroPOC LIKE @Criterio OR PatenteTractor LIKE @Criterio
         OR PatenteSemi LIKE @Criterio OR NombreFantasia LIKE @Criterio
         OR NombreCompletoChofer LIKE @Criterio)";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta }).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<POCDto>(query, new { Criterio = "%" + criterio + "%", IdPosta = idPosta });
+                return result.ToList();
             });
         }
 

@@ -96,7 +96,7 @@ namespace Core.Repositories
         public async Task<List<DisponibilidadHistorica>> ObtenerPorFechaHistoricaAsync(DateTime fechaDisponible)
         {
             const string query = @"
-                        SELECT 
+                        SELECT
                             IdDisponibilidadHistorica,
                             Fecha,
                             IdNomina,
@@ -113,9 +113,11 @@ namespace Core.Repositories
             var desde = fechaDisponible.Date;
             var hasta = fechaDisponible.Date.AddDays(1);
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<DisponibilidadHistorica>(query, new { Desde = desde, Hasta = hasta })
-            ).ContinueWith(t => t.Result.ToList());
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<DisponibilidadHistorica>(query, new { Desde = desde, Hasta = hasta });
+                return result.ToList();
+            });
         }
 
         public async Task ActualizarDispoHistoricaAsync(DisponibilidadHistorica historico)

@@ -17,9 +17,10 @@ namespace Core.Repositories
                            WHERE Activo = 1
                            ORDER BY Descripcion";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<EmpresaSeguroEntidad>(query).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<EmpresaSeguroEntidad>(query);
+                return result.ToList();
             });
         }
     }

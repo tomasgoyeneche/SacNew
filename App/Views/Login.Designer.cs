@@ -158,7 +158,7 @@
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(60, 15);
             guna2HtmlLabel1.TabIndex = 7;
-            guna2HtmlLabel1.Text = "Version 2.1";
+            guna2HtmlLabel1.Text = "Version 2.2";
             // 
             // guna2Panel1
             // 

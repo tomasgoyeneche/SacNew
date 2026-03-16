@@ -48,10 +48,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM vw_TractoresDetalles WHERE Patente LIKE @TextoBusqueda OR Empresa_Nombre LIKE @TextoBusqueda order by patente";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<TractorDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<TractorDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" });
+                return result.ToList();
             });
         }
 

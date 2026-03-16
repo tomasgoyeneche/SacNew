@@ -23,25 +23,25 @@ namespace Core.Repositories
             });
         }
 
-        public Task<List<Usuario>> ObtenerTodosAsync()
+        public async Task<List<Usuario>> ObtenerTodosAsync()
         {
             var query = "SELECT * FROM Usuario WHERE Activo = 1";
 
-            return ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Usuario>(query)
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Usuario>(query);
+                return result.ToList();
             });
         }
 
-        public Task<List<Usuario>> BuscarPorCriterioAsync(string criterio)
+        public async Task<List<Usuario>> BuscarPorCriterioAsync(string criterio)
         {
             var query = "SELECT * FROM Usuario WHERE Activo = 1 AND (NombreUsuario LIKE @Criterio OR NombreCompleto LIKE @Criterio)";
 
-            return ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Usuario>(query, new { Criterio = $"%{criterio}%" })
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Usuario>(query, new { Criterio = $"%{criterio}%" });
+                return result.ToList();
             });
         }
 

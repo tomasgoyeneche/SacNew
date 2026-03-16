@@ -52,6 +52,7 @@ namespace GestionDocumental.Presenters
         {
             IdTrafico = idTrafico;
             TipoAusenciaMan = tipoAusenciaMan;
+
             _view.ConfigurarScheduler();
             return SetMesAsync(mes ?? DateTime.Today);
         }
@@ -72,6 +73,7 @@ namespace GestionDocumental.Presenters
         {
             var mes = new DateTime(fecha.Year, fecha.Month, 1);
             _view.SetMesSeleccionado(mes);
+            _view.CargarFeriadosDelMes(mes);
             await CargarMesAsync(mes);
         }
 

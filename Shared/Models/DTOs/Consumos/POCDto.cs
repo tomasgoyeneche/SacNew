@@ -7,7 +7,7 @@
         public int IdPosta { get; set; }
         public string? PatenteTractor { get; set; }
         public string? PatenteSemi { get; set; }
-
+        public decimal Odometro { get; set; }   
         public int CapacidadTanque { get; set; }
         public string? NombreFantasia { get; set; }
         public string? NombreCompletoChofer { get; set; }

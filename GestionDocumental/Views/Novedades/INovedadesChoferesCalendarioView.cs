@@ -16,7 +16,7 @@ namespace GestionDocumental.Views.Novedades
 
         int PromedioAusenciasChofer { set; }
         void SetMesSeleccionado(DateTime fechaDelMes);
-
+        void CargarFeriadosDelMes(DateTime mes);
         // Scheduler (la vista no expone el control, expone un binder)
         void ConfigurarScheduler();
         void BindearScheduler(

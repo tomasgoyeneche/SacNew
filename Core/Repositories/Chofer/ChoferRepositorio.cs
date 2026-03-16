@@ -84,10 +84,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM Chofer WHERE activo = 1 and (Nombre LIKE @TextoBusqueda OR Apellido LIKE @TextoBusqueda OR Documento LIKE @TextoBusqueda)";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<ChoferDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<ChoferDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" });
+                return result.ToList();
             });
         }
 
