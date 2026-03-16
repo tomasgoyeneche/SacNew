@@ -87,9 +87,11 @@ namespace Core.Repositories
         WHERE CAST(fechacarga AS DATE) = @fechaCarga and idPosta = @idPosta
         Order by FechaCarga desc";
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<InformeConsumoPocDto>(query, new { fechaCarga = fechaCarga.Date, idPosta })
-            ).ContinueWith(t => t.Result.ToList());
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<InformeConsumoPocDto>(query, new { fechaCarga = fechaCarga.Date, idPosta });
+                return result.ToList();
+            });
         }
 
         public async Task<List<InformeConsumoPocDto>> BuscarConsumosPorFechaAsync(DateTime desde, DateTime hasta)

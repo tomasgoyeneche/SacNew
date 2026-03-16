@@ -32,14 +32,14 @@ namespace Core.Repositories
             });
         }
 
-        public Task<List<Permiso>> ObtenerTodoslosPermisos()
+        public async Task<List<Permiso>> ObtenerTodoslosPermisos()
         {
             var query = "SELECT * FROM Permiso";
 
-            return ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Permiso>(query)
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Permiso>(query);
+                return result.ToList();
             });
         }
 

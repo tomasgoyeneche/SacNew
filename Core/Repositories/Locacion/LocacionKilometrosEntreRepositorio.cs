@@ -20,18 +20,19 @@ namespace Core.Repositories
             INNER JOIN Locacion l ON lk.IdLocacionDestino = l.IdLocacion
             WHERE lk.IdLocacionOrigen = @IdLocacion";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<LocacionKilometrosEntre, Locacion, LocacionKilometrosEntre>(
+                var result = await connection.QueryAsync<LocacionKilometrosEntre, Locacion, LocacionKilometrosEntre>(
                     query,
                     (locacionKilometrosEntre, locacionDestino) =>
                     {
-                        locacionKilometrosEntre.LocacionDestino = locacionDestino;  // Asignar la locación destino
+                        locacionKilometrosEntre.LocacionDestino = locacionDestino;
                         return locacionKilometrosEntre;
                     },
-                    new { IdLocacion = idLocacion },  // Parámetro para la consulta
-                    splitOn: "LocacionDestinoId"  // Indica dónde empieza el segundo objeto (LocacionDestino)
-                ).ContinueWith(task => task.Result.ToList());
+                    new { IdLocacion = idLocacion },
+                    splitOn: "LocacionDestinoId"
+                );
+                return result.ToList();
             });
         }
 

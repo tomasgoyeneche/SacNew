@@ -16,10 +16,11 @@ namespace Core.Repositories
             SELECT * From OrdenTrabajoComprobante c
             WHERE c.IdOrdenTrabajo = @IdOrdenTrabajo AND c.Activo = 1";
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<OrdenTrabajoComprobante>(query, new { IdOrdenTrabajo = idOrdenTrabajo })
-                    .ContinueWith(t => t.Result.ToList())
-            );
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<OrdenTrabajoComprobante>(query, new { IdOrdenTrabajo = idOrdenTrabajo });
+                return result.ToList();
+            });
         }
 
         public async Task<TipoComprobante?> ObtenerTiposComprobantesPorId(int idTipoComprobante)

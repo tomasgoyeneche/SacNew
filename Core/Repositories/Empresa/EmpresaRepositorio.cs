@@ -15,9 +15,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM vw_EmpresaDetalle";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<EmpresaDto>(query).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<EmpresaDto>(query);
+                return result.ToList();
             });
         }
 
@@ -25,9 +26,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM Empresa";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<Empresa>(query).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<Empresa>(query);
+                return result.ToList();
             });
         }
 
@@ -50,10 +52,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM vw_EmpresaDetalle WHERE Cuit LIKE @TextoBusqueda OR NombreFantasia LIKE @TextoBusqueda";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<EmpresaDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" })
-                                 .ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<EmpresaDto>(query, new { TextoBusqueda = $"%{textoBusqueda}%" });
+                return result.ToList();
             });
         }
 

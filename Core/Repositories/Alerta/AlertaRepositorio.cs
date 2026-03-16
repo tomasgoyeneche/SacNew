@@ -14,9 +14,10 @@ namespace Core.Repositories
         {
             var query = "SELECT * FROM vw_AlertaDetalle";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<AlertaDto?>(query).ContinueWith(task => task.Result.ToList());
+                var result = await connection.QueryAsync<AlertaDto?>(query);
+                return result.ToList();
             });
         }
 
@@ -68,9 +69,11 @@ namespace Core.Repositories
         {
             const string query = "SELECT * FROM vw_AlertaDetalle WHERE IdNomina = @idNomina";
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<AlertaDto>(query, new { idNomina }))
-                .ContinueWith(t => t.Result.ToList());
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<AlertaDto>(query, new { idNomina });
+                return result.ToList();
+            });
         }
     }
 }

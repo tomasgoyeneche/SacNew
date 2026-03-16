@@ -17,10 +17,11 @@ namespace Core.Repositories
             FROM MovimientoStockDetalle
             WHERE IdMovimientoStock = @IdMovimientoStock AND Activo = 1";
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<MovimientoStockDetalle>(query, new { IdMovimientoStock = idMovimientoStock })
-                    .ContinueWith(t => t.Result.ToList())
-            );
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<MovimientoStockDetalle>(query, new { IdMovimientoStock = idMovimientoStock });
+                return result.ToList();
+            });
         }
 
         public async Task<int> AgregarAsync(MovimientoStockDetalle detalle)

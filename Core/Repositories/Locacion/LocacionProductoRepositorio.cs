@@ -20,18 +20,19 @@ namespace Core.Repositories
     INNER JOIN Producto p ON lp.IdProducto = p.IdProducto
     WHERE lp.IdLocacion = @IdLocacion";
 
-            return await ConectarAsync(connection =>
+            return await ConectarAsync(async connection =>
             {
-                return connection.QueryAsync<LocacionProducto, Producto, LocacionProducto>(
+                var result = await connection.QueryAsync<LocacionProducto, Producto, LocacionProducto>(
                     query,
                     (locacionProducto, producto) =>
                     {
-                        locacionProducto.Producto = producto;  // Asignar el producto mapeado
+                        locacionProducto.Producto = producto;
                         return locacionProducto;
                     },
-                    new { IdLocacion = idLocacion },  // Parámetro para la consulta
-                    splitOn: "IdProducto"  // Indicar dónde empieza el objeto Producto
-                ).ContinueWith(task => task.Result.ToList());
+                    new { IdLocacion = idLocacion },
+                    splitOn: "IdProducto"
+                );
+                return result.ToList();
             });
         }
 

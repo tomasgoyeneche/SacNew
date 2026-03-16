@@ -23,6 +23,31 @@ namespace GestionDocumental.Views.Novedades
     public partial class NovedadesChoferesCalendarioForm : DevExpress.XtraEditors.XtraForm, INovedadesChoferesCalendarioView
     {
         public readonly NovedadesChoferesCalendarioPresenter _presenter;
+        private HashSet<DateTime> _feriados = new();
+
+        // ver cambiarlo ya que habria que actualizar el programa cada año, un re bondi
+        private HashSet<DateTime> ObtenerFeriados(int anio)
+        {
+            return new HashSet<DateTime>
+            {
+                new DateTime(anio, 1, 1),   // Año Nuevo
+                new DateTime(anio, 2, 16),   // Carnaval
+                new DateTime(anio, 2, 17),   // Carnaval
+                new DateTime(anio, 3, 24),  // Día de la Memoria
+                new DateTime(anio, 4, 2),  // Día de la Memoria
+                new DateTime(anio, 4, 3),  // Día de la Memoria
+                new DateTime(anio, 5, 1),   // Día del Trabajador
+                new DateTime(anio, 5, 25),  // Revolución de Mayo
+                new DateTime(anio, 6, 15),  // Día de la Bandera
+                new DateTime(anio, 6, 20),  // Día de la Bandera
+                new DateTime(anio, 7, 9),   // Independencia
+                new DateTime(anio, 8, 17),   // Independencia
+                new DateTime(anio, 10, 12),   // Independencia
+                new DateTime(anio, 11, 23),   // Independencia
+                new DateTime(anio, 12, 8),  // Inmaculada Concepción
+                new DateTime(anio, 12, 25)  // Navidad
+            };
+        }
 
         public int IdTraficoSeleccionado
         {
@@ -60,6 +85,10 @@ namespace GestionDocumental.Views.Novedades
         }
         private int _promedioAusenciasChofer;
 
+        public void CargarFeriadosDelMes(DateTime mes)
+        {
+            _feriados = ObtenerFeriados(mes.Year);
+        }
 
         public void SetMesSeleccionado(DateTime fechaDelMes)
         {
@@ -126,6 +155,42 @@ namespace GestionDocumental.Views.Novedades
                 e.Text = e.Appointment.Subject;
 
             schedulerControlAusencias.AppointmentViewInfoCustomizing += Scheduler_AppointmentViewInfoCustomizing;
+            schedulerControlAusencias.CustomDrawTimeCell += Scheduler_CustomDrawTimeCell;
+        }
+
+        private void Scheduler_CustomDrawTimeCell(
+    object sender,
+    DevExpress.XtraScheduler.CustomDrawObjectEventArgs e)
+        {
+            var cell = e.ObjectInfo as DevExpress.XtraScheduler.Drawing.TimeCell;
+            if (cell == null)
+                return;
+
+            var fecha = cell.Interval.Start.Date;
+
+            Color? colorFondo = null;
+
+            if (_feriados.Contains(fecha))
+            {
+                colorFondo = Color.FromArgb(255, 220, 220);
+            }
+            else if (fecha.DayOfWeek == DayOfWeek.Sunday)
+            {
+                colorFondo = Color.FromArgb(235, 235, 235);
+            }
+
+            if (colorFondo.HasValue)
+            {
+                // 🔹 Pintar fondo
+                using var brush = new SolidBrush(colorFondo.Value);
+                e.Cache.FillRectangle(brush, e.Bounds);
+
+                // 🔹 Dibujar borde manual (para mantener la grilla)
+                using var pen = new Pen(Color.LightGray);
+                e.Cache.DrawRectangle(pen, e.Bounds);
+
+                e.Handled = true;
+            }
         }
 
         public void BindearScheduler(

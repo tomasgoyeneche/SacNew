@@ -16,10 +16,11 @@ namespace Core.Repositories
             SELECT * From MovimientoComprobante c
             WHERE c.IdMovimientoStock = @IdMovimientoStock AND c.Activo = 1";
 
-            return await ConectarAsync(conn =>
-                conn.QueryAsync<MovimientoComprobante>(query, new { IdMovimientoStock = idMovimientoStock })
-                    .ContinueWith(t => t.Result.ToList())
-            );
+            return await ConectarAsync(async conn =>
+            {
+                var result = await conn.QueryAsync<MovimientoComprobante>(query, new { IdMovimientoStock = idMovimientoStock });
+                return result.ToList();
+            });
         }
 
         public async Task<TipoComprobante?> ObtenerTiposComprobantesPorId(int idTipoComprobante)
