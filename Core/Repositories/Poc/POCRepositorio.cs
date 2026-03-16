@@ -17,7 +17,8 @@ namespace Core.Repositories
             var query = @"
     SELECT IdPoc, NumeroPOC, PatenteTractor, CapacidadTanque, PatenteSemi, NombreFantasia, NombreCompletoChofer, Estado, FechaCreacion
     FROM vw_POCUnidadDetalle
-    WHERE Estado = @Estado AND IdPosta = @idPosta";
+    WHERE Estado = @Estado AND IdPosta = @idPosta
+    ORDER BY FechaCreacion desc";
 
             return await ConectarAsync(async connection =>
             {

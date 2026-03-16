@@ -27,9 +27,6 @@
     <Compile Update="Views\Postas\ABMPostas\MenuAbmPostas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Postas\ConceptoConsumos\AgregarEditarConcepto.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\Postas\ConceptoConsumos\MenuConceptos.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -103,20 +103,20 @@ namespace GestionFlota.Presenters
             bool validaPorBahiaBlanca = false;
             bool programaValido = programa?.Kilometros > 0;
 
-            if (_sesionService.IdPosta == 2)
-            {
-                ConsumoGasoilAutorizadoDto? ultimoConsumo = await _consumoGasoilRepositorio.ObtenerUltimoConsumoPorPatenteAsync(_patente);
+            //if (_sesionService.IdPosta == 2)
+            //{
+            //    ConsumoGasoilAutorizadoDto? ultimoConsumo = await _consumoGasoilRepositorio.ObtenerUltimoConsumoPorPatenteAsync(_patente);
 
-                if (ultimoConsumo != null && ultimoConsumo.NumeroPoc.StartsWith("BB"))
-                {
-                    _idPrograma = ultimoConsumo.IdPrograma;
-                    _autorizado = ultimoConsumo.LitrosAutorizados - ultimoConsumo.LitrosCargados;
-                    Programa? prog = await _programaRepositorio.ObtenerPorIdAsync(_idPrograma);
-                    Locacion? locacion = await _locacionRepositorio.ObtenerPorIdAsync(prog.IdOrigen);
-                    _view.MostrarLitrosAutorizados(_autorizado, 640, locacion.Nombre, programa.Value.Destino, prog.AlbaranDespacho.ToString());
-                    validaPorBahiaBlanca = true;
-                }
-            }
+            //    if (ultimoConsumo != null && ultimoConsumo.NumeroPoc.StartsWith("BB"))
+            //    {
+            //        _idPrograma = ultimoConsumo.IdPrograma;
+            //        _autorizado = ultimoConsumo.LitrosAutorizados - ultimoConsumo.LitrosCargados;
+            //        Programa? prog = await _programaRepositorio.ObtenerPorIdAsync(_idPrograma);
+            //        Locacion? locacion = await _locacionRepositorio.ObtenerPorIdAsync(prog.IdOrigen);
+            //        _view.MostrarLitrosAutorizados(_autorizado, 640, locacion.Nombre, programa.Value.Destino, prog.AlbaranDespacho.ToString());
+            //        validaPorBahiaBlanca = true;
+            //    }
+            //}
             //--HACER QUE SE FIJE SI CARGO EN BAHIA Y DARLE AUTORIZADO ANTERIOR
 
             if (programaValido && !validaPorBahiaBlanca)
@@ -151,13 +151,13 @@ namespace GestionFlota.Presenters
 
         private async Task CargarAutorizacionAnteriorAsync()
         {
-            List<ConsumoGasoilAutorizadoDto> consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosUltimosDosMesesAsync(_patente, _idPrograma);
+            List<ConsumoGasoilAutorizadoDto> consumosAnteriores = await _consumoGasoilRepositorio.ObtenerConsumosUltimosDosMesesDesdeFechaAsync(_patente, _idPrograma, _Poc.FechaCreacion);
 
-            _restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
-            _restanteAnterior -= consumosAnteriores.Sum(c => c.LitrosCargados);
+            //_restanteAnterior = consumosAnteriores.FirstOrDefault()?.LitrosAutorizados ?? 0;
+            //_restanteAnterior -= consumosAnteriores.Sum(c => c.LitrosCargados);            MOSTRAR CONSUMOS ANTERIORES
 
             _view.MostrarConsumosAnteriores(consumosAnteriores);
-            _view.ActualizarLabelAnterior(_restanteAnterior);
+            //_view.ActualizarLabelAnterior(_restanteAnterior);
         }
 
         private async Task CargarAutorizacionActualAsync()
@@ -174,7 +174,8 @@ namespace GestionFlota.Presenters
                 ? await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaAsync(_idPrograma, _patente)
                 : await _consumoGasoilRepositorio.ObtenerConsumosPorProgramaEditableAsync(_idConsumo.Value, _idPrograma, _patente);
 
-            decimal restanteTotal = _autorizado + _restanteAnterior;
+            //decimal restanteTotal = _autorizado + _restanteAnterior;
+            decimal restanteTotal = _autorizado;
             _view.MostrarConsumosTotales(consumosActuales);
             _view.ActualizarLabelTotal(restanteTotal);
         }
@@ -270,6 +271,12 @@ namespace GestionFlota.Presenters
         {
             if (!_view.Litros.HasValue || (_view.Litros.Value > _autorizado && !_view.ConfirmarGuardado("El consumo excede el autorizado, ¿desea guardar de todos modos?")))
             {
+                return;
+            }
+
+            if(_view.Litros.Value > _autorizado && _view.Observaciones == "")
+            {
+                _view.MostrarMensaje("Se Paso del autorizado por ende debe ingresar un comentario obligatorio");
                 return;
             }
 

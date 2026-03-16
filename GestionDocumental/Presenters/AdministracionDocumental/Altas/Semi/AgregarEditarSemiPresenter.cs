@@ -99,7 +99,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<ModificarDatosSemiForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idSemi, _litros);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
         }
 
@@ -108,7 +108,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
             {
                 await form.CargarDatosAsync(idSemi, tipoEntidad);
-            });
+            }, true);
 
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idSemi);
@@ -119,7 +119,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
             {
                 await form._presenter.InicializarAsync("semi", idSemi);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idSemi); // Refrescar la vista después de agregar
         }
 
@@ -128,7 +128,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>
             {
                 await form._presenter.CargarDatosAsync(idSemi, entidad);
-            });
+            }, true);
 
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idSemi);

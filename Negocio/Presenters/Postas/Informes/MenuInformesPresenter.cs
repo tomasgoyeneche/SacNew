@@ -28,7 +28,7 @@ namespace GestionFlota.Presenters.Informes
 
                 await AbrirFormularioAsync<MostrarExportaConsumosForm>(async form =>
                 {
-                    form.MostrarResultados(resultados);
+                    form.MostrarResultados(resultados, true);
                 });
             });
         }
@@ -41,7 +41,7 @@ namespace GestionFlota.Presenters.Informes
 
                 await AbrirFormularioAsync<MostrarExportaConsumosForm>(async form =>
                 {
-                    form.MostrarResultados(resultados);
+                    form.MostrarResultados(resultados, false);
                 });
             });
         }

@@ -68,7 +68,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         List<Chofer> choferes = await _choferRepositorio.ObtenerTodosLosChoferesIncluyendoInactivos();
                         if (choferes.Any(c => c.Documento == _view.Campo3))
                         {
-                            _view.MostrarMensaje("Ya existe un chofer con el mismo número de documento.");
+                            _view.MostrarMensaje("Ya existe un chofer con el mismo número de documento, comunicarse con sistemas para solicitar el alta.");
                             break;
                         }
 
@@ -110,7 +110,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental.Altas
                         List<Shared.Models.Semi> semis = await _semiRepositorio.ObtenerTodosLosSemis();
                         if (semis.Any(c => c.Patente == _view.Campo1))
                         {
-                            _view.MostrarMensaje("Ya existe un semi con la misma patente.");
+                            _view.MostrarMensaje("Ya existe un semi con la misma patente, comunicarse con sistemas para solicitar el alta.");
                             break;
                         }
                         var semi = new Semi

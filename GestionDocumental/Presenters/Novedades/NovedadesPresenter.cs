@@ -134,14 +134,14 @@ namespace GestionDocumental.Presenters
             {
                 await AbrirFormularioAsync<NovedadesChoferesCalendarioForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync("CHOFER", null);
+                    await form._presenter.InicializarAsync("CHOFER", 1, null);
                 });
             }
             else
             {
                 await AbrirFormularioAsync<NovedadesChoferesCalendarioForm>(async form =>
                 {
-                    await form._presenter.InicializarAsync("UNIDAD", null);
+                    await form._presenter.InicializarAsync("UNIDAD", 1, null);
                 });
             }
            

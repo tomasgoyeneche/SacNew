@@ -318,7 +318,11 @@ namespace GestionOperativa.Presenters
         { "PsicofisicoApto", chofer => chofer.PsicofisicoApto },
         { "PsicofisicoCurso", chofer => chofer.PsicofisicoCurso },
         { "Licencia", chofer => chofer.Licencia },
-        { "Examen Anual", chofer => chofer.ExamenAnual }
+        { "Examen Anual", chofer => chofer.ExamenAnual },
+        { "Curso Manejo", chofer => chofer.CursoManejo },
+        { "Evaluacion Psicometrica", chofer => chofer.EvaluacionPsicometrica },
+
+
     };
 
             await _documentacionService.ExportarVencimientosAsync<ChoferDto>(

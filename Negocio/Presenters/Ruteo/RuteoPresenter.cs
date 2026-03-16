@@ -158,7 +158,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<EditarProgramaForm>(async form =>
             {
                 await form._presenter.InicializarAsync(ruteo);
-            });
+            }, true);
             await InicializarAsync(idProgramaSeleccionado, idNominaSeleccionada);
         }
 

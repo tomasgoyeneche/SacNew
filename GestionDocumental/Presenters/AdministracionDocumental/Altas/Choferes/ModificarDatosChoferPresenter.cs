@@ -11,6 +11,8 @@ namespace GestionOperativa.Presenters.Choferes
     {
         private readonly IEmpresaRepositorio _empresaRepositorio;
         private readonly IChoferRepositorio _choferRepositorio;
+        private readonly ITraficoRepositorio _traficoRepositorio;
+
         private readonly IProvinciaRepositorio _provinciaRepositorio;
         private readonly ILocalidadRepositorio _localidadRepositorio;
         private readonly IConfRepositorio _confRepositorio;
@@ -19,6 +21,7 @@ namespace GestionOperativa.Presenters.Choferes
             ISesionService sesionService,
             INavigationService navigationService,
             IEmpresaRepositorio empresaRepositorio,
+            ITraficoRepositorio trficoRepositorio,  
             IChoferRepositorio choferRepositorio,
             IProvinciaRepositorio provinciaRepositorio,
             IConfRepositorio confRepositorio,
@@ -29,6 +32,7 @@ namespace GestionOperativa.Presenters.Choferes
             _choferRepositorio = choferRepositorio;
             _confRepositorio = confRepositorio;
             _provinciaRepositorio = provinciaRepositorio;
+            _traficoRepositorio = trficoRepositorio;
             _localidadRepositorio = localidadRepositorio;
         }
 
@@ -40,7 +44,7 @@ namespace GestionOperativa.Presenters.Choferes
                 var chofer = await _choferRepositorio.ObtenerPorIdAsync(idChofer);
                 var provincias = await _provinciaRepositorio.ObtenerProvinciasAsync();
                 int idProvincia = await _localidadRepositorio.ObtenerPorIdAsync(chofer.IdLocalidad);
-
+                var traficos = await _traficoRepositorio.ObtenerTodosAsync();
                 if (chofer == null)
                 {
                     _view.MostrarMensaje("No se encontró la empresa.");
@@ -48,7 +52,7 @@ namespace GestionOperativa.Presenters.Choferes
                 }
 
                 await VerificarArchivosChoferAsync(chofer.Documento);
-                _view.CargarDatosChofer(chofer, empresas, provincias, idProvincia);
+                _view.CargarDatosChofer(chofer, empresas, provincias, traficos, idProvincia);
             });
         }
 

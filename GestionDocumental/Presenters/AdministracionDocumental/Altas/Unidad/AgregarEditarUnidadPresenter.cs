@@ -85,7 +85,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
             {
                 await form._presenter.InicializarAsync("unidad", idUnidad);
-            });
+            }, true);
             await CargarDatosUnidadAsync(idUnidad); // Refrescar la vista después de agregar
         }
     }

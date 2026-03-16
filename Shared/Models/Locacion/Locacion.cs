@@ -10,7 +10,7 @@
         public bool Activo { get; set; }  // Para baja lógica (activo o inactivo)
 
         public bool Exportacion { get; set; }  // Campo booleano para exportación
-
+        public int IdTrafico { get; set; }
         public string CargaTexto => Carga ? "Sí" : "No";
         public string DescargaTexto => Descarga ? "Sí" : "No";
 

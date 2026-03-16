@@ -55,7 +55,7 @@ namespace GestionFlota.Presenters
                 {
                     form._presenter.CargarDatosParaEditar(poc);
                     await Task.CompletedTask;
-                });
+                }, true);
             }, CargarPOCAsync);
         }
 
@@ -63,7 +63,7 @@ namespace GestionFlota.Presenters
         {
             await EjecutarConCargaAsync(() =>
             {
-                return AbrirFormularioAsync<AgregarEditarPoc>(async form => await Task.CompletedTask);
+                return AbrirFormularioAsync<AgregarEditarPoc>(async form => await Task.CompletedTask, true);
             }, CargarPOCAsync);
         }
 
@@ -85,7 +85,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<MenuIngresarGasoilOtros>(async form =>
             {
                 await form._presenter.CargarDatosAsync(idPoc);
-            });
+            }, true);
         }
     }
 }

@@ -194,7 +194,7 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel2.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel2.Location = new Point(530, 27);
+            guna2HtmlLabel2.Location = new Point(512, 27);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             guna2HtmlLabel2.Size = new Size(65, 23);
             guna2HtmlLabel2.TabIndex = 51;
@@ -228,7 +228,7 @@
             dtpPeriodo.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpPeriodo.ForeColor = SystemColors.ActiveCaptionText;
             dtpPeriodo.Format = DateTimePickerFormat.Custom;
-            dtpPeriodo.Location = new Point(601, 19);
+            dtpPeriodo.Location = new Point(583, 19);
             dtpPeriodo.MaxDate = new DateTime(2080, 12, 31, 0, 0, 0, 0);
             dtpPeriodo.MinDate = new DateTime(2020, 1, 1, 0, 0, 0, 0);
             dtpPeriodo.Name = "dtpPeriodo";
@@ -243,7 +243,7 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = SystemColors.ControlLight;
-            guna2HtmlLabel3.Location = new Point(826, 26);
+            guna2HtmlLabel3.Location = new Point(808, 26);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(85, 23);
             guna2HtmlLabel3.TabIndex = 54;
@@ -260,7 +260,7 @@
             cmbQuincena.Font = new Font("Segoe UI", 10F);
             cmbQuincena.ForeColor = Color.FromArgb(68, 88, 112);
             cmbQuincena.ItemHeight = 30;
-            cmbQuincena.Location = new Point(914, 20);
+            cmbQuincena.Location = new Point(896, 20);
             cmbQuincena.Name = "cmbQuincena";
             cmbQuincena.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cmbQuincena.Size = new Size(140, 36);

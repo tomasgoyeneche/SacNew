@@ -78,6 +78,8 @@
             emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            cmbTrafico = new DevExpress.XtraEditors.LookUpEdit();
+            layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtNroLegajo.Properties).BeginInit();
@@ -126,10 +128,13 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cmbTrafico.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem20).BeginInit();
             SuspendLayout();
             // 
             // layoutControl1
             // 
+            layoutControl1.Controls.Add(cmbTrafico);
             layoutControl1.Controls.Add(txtNroLegajo);
             layoutControl1.Controls.Add(guna2Panel13);
             layoutControl1.Controls.Add(chkZonaFria);
@@ -286,7 +291,7 @@
             cmdEmpresaId.MinimumSize = new Size(0, 30);
             cmdEmpresaId.Name = "cmdEmpresaId";
             cmdEmpresaId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            cmdEmpresaId.Size = new Size(545, 30);
+            cmdEmpresaId.Size = new Size(257, 30);
             cmdEmpresaId.StyleController = layoutControl1;
             cmdEmpresaId.TabIndex = 4;
             // 
@@ -397,7 +402,7 @@
             Root.AppearanceItemCaption.Options.UseForeColor = true;
             Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, emptySpaceItem2, emptySpaceItem3, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem9, layoutControlItem11, layoutControlItem10, layoutControlItem13, emptySpaceItem4, emptySpaceItem5, emptySpaceItem6, emptySpaceItem7, layoutControlItem2, layoutControlItem3, layoutControlItem17, layoutControlItem14, layoutControlItem4, layoutControlItem15, layoutControlItem16, emptySpaceItem8, emptySpaceItem10, layoutControlItem18, layoutControlItem19 });
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, emptySpaceItem2, emptySpaceItem3, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem9, layoutControlItem11, layoutControlItem10, layoutControlItem13, emptySpaceItem4, emptySpaceItem5, emptySpaceItem6, emptySpaceItem7, layoutControlItem2, layoutControlItem3, layoutControlItem17, layoutControlItem14, layoutControlItem4, layoutControlItem15, layoutControlItem16, emptySpaceItem8, emptySpaceItem10, layoutControlItem18, layoutControlItem19, layoutControlItem20 });
             Root.Name = "Root";
             Root.Size = new Size(798, 568);
             Root.TextVisible = false;
@@ -446,7 +451,7 @@
             layoutControlItem6.Location = new Point(219, 219);
             layoutControlItem6.Name = "layoutControlItem6";
             layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
-            layoutControlItem6.Size = new Size(549, 60);
+            layoutControlItem6.Size = new Size(261, 60);
             layoutControlItem6.Text = "Empresa";
             layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem6.TextSize = new Size(99, 15);
@@ -675,6 +680,28 @@
             layoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top;
             layoutControlItem12.TextSize = new Size(66, 15);
             // 
+            // cmbTrafico
+            // 
+            cmbTrafico.Location = new Point(492, 257);
+            cmbTrafico.MaximumSize = new Size(0, 30);
+            cmbTrafico.MinimumSize = new Size(0, 30);
+            cmbTrafico.Name = "cmbTrafico";
+            cmbTrafico.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            cmbTrafico.Size = new Size(284, 30);
+            cmbTrafico.StyleController = layoutControl1;
+            cmbTrafico.TabIndex = 7;
+            // 
+            // layoutControlItem20
+            // 
+            layoutControlItem20.Control = cmbTrafico;
+            layoutControlItem20.Location = new Point(480, 219);
+            layoutControlItem20.Name = "layoutControlItem20";
+            layoutControlItem20.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 10, 2);
+            layoutControlItem20.Size = new Size(288, 60);
+            layoutControlItem20.Text = "Trafico";
+            layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
+            layoutControlItem20.TextSize = new Size(99, 15);
+            // 
             // ModificarChoferDatosForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -734,6 +761,8 @@
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cmbTrafico.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem20).EndInit();
             ResumeLayout(false);
         }
 
@@ -787,5 +816,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraEditors.TextEdit txtNroLegajo;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private DevExpress.XtraEditors.LookUpEdit cmbTrafico;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
     }
 }

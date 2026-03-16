@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
 using SacNew.Presenters;
 using Shared.Models;
 using System.Data;
@@ -18,7 +19,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
 
         public string Nombre => txtNombre.Text.Trim();
         public string Direccion => txtDireccion.Text.Trim();
-
+        public int IdTrafico => (int)cmbTrafico.SelectedValue;
         public bool Exportacion => checkExpo.Checked;
         public bool Carga => cbCarga.SelectedItem.ToString() == "Sí";
         public bool Descarga => cbDescarga.SelectedItem.ToString() == "Sí";
@@ -30,6 +31,7 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             cbCarga.SelectedItem = locacion.Carga ? "Sí" : "No";
             cbDescarga.SelectedItem = locacion.Descarga ? "Sí" : "No";
             checkExpo.Checked = locacion.Exportacion;
+            cmbTrafico.SelectedValue = locacion.IdTrafico;
         }
 
         public void CargarProductos(List<LocacionProducto> productos)
@@ -53,6 +55,13 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
             }).ToList();
 
             dataGridViewKilometros.Columns["idKilometros"].Visible = false;
+        }
+
+        public void CargarTraficos(List<Trafico> traficos)
+        {
+            cmbTrafico.DataSource = traficos;
+            cmbTrafico.DisplayMember = "Nombre";
+            cmbTrafico.ValueMember = "IdTrafico";
         }
 
         public void MostrarMensaje(string mensaje)

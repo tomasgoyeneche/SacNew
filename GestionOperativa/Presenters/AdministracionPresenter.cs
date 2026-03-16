@@ -205,7 +205,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<CambiarEstadoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(guardia, true);
-            });
+            }, true);
             await InicializarAsync(_idPosta);
         }
 
@@ -218,7 +218,7 @@ namespace GestionOperativa.Presenters
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
         }
 
         public async Task GenerarNominaActual()
@@ -229,7 +229,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task GenerarReporteTelefonosNomina()
@@ -244,7 +244,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task MostrarEquiposEnParador()
@@ -259,7 +259,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task ReimprimirPoc(GuardiaDto guardia)
@@ -267,22 +267,22 @@ namespace GestionOperativa.Presenters
             switch (guardia.TipoIngreso)
             {
                 case 1:
-                    ReporteControlOperativoConsumos? reporte = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteConsumosNomina(guardia.IdEntidad, guardia.IdGuardiaIngreso, guardia.Ingreso);
+                    ReporteControlOperativoConsumos? reporte = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteConsumosNomina(guardia.IdEntidad, guardia.IdGuardiaIngreso, guardia.Ingreso, guardia.NroControl);
                     await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                     {
                         form.MostrarReporteDevExpress(reporte);
                         return Task.CompletedTask;
-                    });
+                    }, true);
                     break;
 
                 case 2:
                     TransitoEspecial te = await _teRepositorio.ObtenerPorIdAsync(guardia.IdEntidad);
-                    ReporteIngresoTe? reporteTe = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteTeOtros(guardia.IdGuardiaIngreso, guardia.Ingreso, te);
+                    ReporteIngresoTe? reporteTe = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteTeOtros(guardia.IdGuardiaIngreso, guardia.Ingreso, te, guardia.NroControl);
                     await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                     {
                         form.MostrarReporteDevExpress(reporteTe);
                         return Task.CompletedTask;
-                    });
+                    }, true);
                     break;
 
                 case 3:
@@ -300,12 +300,12 @@ namespace GestionOperativa.Presenters
                         Seguro = null,
                         Activo = true
                     };
-                    ReporteIngresoTe? reporteOtros = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteTeOtros(guardia.IdGuardiaIngreso, guardia.Ingreso, teOtros);
+                    ReporteIngresoTe? reporteOtros = await _reporteConsumosNomTeOtrosProcessor.ObtenerReporteTeOtros(guardia.IdGuardiaIngreso, guardia.Ingreso, teOtros, guardia.NroControl);
                     await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                     {
                         form.MostrarReporteDevExpress(reporteOtros);
                         return Task.CompletedTask;
-                    });
+                    }, true);
                     break;
 
                 default:
@@ -320,7 +320,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task AbrirVaporizados(string tipoPermiso)
@@ -328,7 +328,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioConPermisosAsync<MenuVaporizados>(tipoPermiso, async form =>
             {
                 await form._presenter.CargarVaporizadosAsync(_sesionService.IdPosta);
-            });
+            }, true);
         }
 
         public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)

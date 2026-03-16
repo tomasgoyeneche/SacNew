@@ -63,6 +63,7 @@
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
+            this.xrLabel119 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
@@ -254,6 +255,7 @@
             this.DatosUnidad = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.fechaPoc = new DevExpress.XtraReports.Parameters.Parameter();
             this.numeroPoc = new DevExpress.XtraReports.Parameters.Parameter();
+            this.nroControl = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlanillaPreguntaDto)).BeginInit();
@@ -287,6 +289,7 @@
             // 
             this.xrPanel1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrPanel1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel119,
             this.xrLabel5,
             this.xrLabel4,
             this.xrLabel1,
@@ -299,6 +302,22 @@
             this.xrPanel1.Name = "xrPanel1";
             this.xrPanel1.SizeF = new System.Drawing.SizeF(750.125F, 98.95834F);
             this.xrPanel1.StylePriority.UseBorders = false;
+            // 
+            // xrLabel119
+            // 
+            this.xrLabel119.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel119.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(\'Control N°: \', ?nroControl)")});
+            this.xrLabel119.Font = new DevExpress.Drawing.DXFont("Century Gothic", 8F);
+            this.xrLabel119.LocationFloat = new DevExpress.Utils.PointFloat(609.708F, 49.99998F);
+            this.xrLabel119.Multiline = true;
+            this.xrLabel119.Name = "xrLabel119";
+            this.xrLabel119.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel119.SizeF = new System.Drawing.SizeF(140.4166F, 23.00001F);
+            this.xrLabel119.StylePriority.UseBorders = false;
+            this.xrLabel119.StylePriority.UseFont = false;
+            this.xrLabel119.StylePriority.UseTextAlignment = false;
+            this.xrLabel119.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel5
             // 
@@ -347,11 +366,11 @@
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Pie]")});
             this.xrLabel9.Font = new DevExpress.Drawing.DXFont("arial", 8F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(639.0834F, 10.00002F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(609.708F, 10.00002F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(111.0413F, 20F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(140.4167F, 20F);
             this.xrLabel9.StylePriority.UseBorders = false;
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.Text = "\r\n";
@@ -375,11 +394,11 @@
             // 
             this.xrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(639.0834F, 29.99999F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(609.708F, 30F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(41.6665F, 20F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(71.04187F, 20F);
             this.xrLabel8.StylePriority.UseBorders = false;
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.Text = "Fecha:";
@@ -2888,6 +2907,15 @@
             this.numeroPoc.ValueInfo = "0";
             this.numeroPoc.Visible = false;
             // 
+            // nroControl
+            // 
+            this.nroControl.AllowNull = true;
+            this.nroControl.Description = "Parameter1";
+            this.nroControl.Name = "nroControl";
+            this.nroControl.Type = typeof(int);
+            this.nroControl.ValueInfo = "0";
+            this.nroControl.Visible = false;
+            // 
             // ReporteControlOperativoConsumos
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2912,12 +2940,14 @@
             new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.vencimientosvencidos, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
             new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.proximosvencimientos, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
             new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.fechaPoc, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
-            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.numeroPoc, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.numeroPoc, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.nroControl, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.vencimientosvencidos,
             this.proximosvencimientos,
             this.fechaPoc,
-            this.numeroPoc});
+            this.numeroPoc,
+            this.nroControl});
             this.Version = "24.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
@@ -3126,5 +3156,7 @@
         private DevExpress.XtraReports.Parameters.Parameter numeroPoc;
         public DevExpress.XtraReports.UI.DetailReportBand VencimientosNomina;
         private DevExpress.DataAccess.ObjectBinding.ObjectDataSource DatosUnidad;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel119;
+        private DevExpress.XtraReports.Parameters.Parameter nroControl;
     }
 }

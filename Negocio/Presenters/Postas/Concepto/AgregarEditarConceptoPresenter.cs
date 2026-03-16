@@ -38,7 +38,6 @@ namespace GestionFlota.Presenters
                 CargarDatosParaEditar(conceptoSeleccionado);
             }
         }
-
         private async Task CargarTiposDeConsumoAsync()
         {
             var tiposDeConsumo = await _conceptoTipoRepositorio.ObtenerTodosLosTiposAsync();
@@ -92,22 +91,23 @@ namespace GestionFlota.Presenters
                 _conceptoActual.IdConsumo = _view.Id;  // Mantener el Id del concepto
                 _conceptoActual.Descripcion = _view.Descripcion;
                 _conceptoActual.IdConsumoTipo = _view.IdTipoConsumo;
+                _conceptoActual.PrecioAnterior = _conceptoActual.PrecioActual;
                 _conceptoActual.PrecioActual = _view.PrecioActual;
                 _conceptoActual.Vigencia = _view.Vigencia;
-                _conceptoActual.PrecioAnterior = _view.PrecioAnterior;
                 _conceptoActual.IdUsuario = idUsuario;
                 _conceptoActual.FechaModificacion = DateTime.Now;
 
                 await _conceptoRepositorio.ActualizarConceptoAsync(_conceptoActual);
 
-                // Actualizar los registros de conceptoPostaProveedor
-                var idProveedorBahia = _view.IdProveedorBahiaBlanca;
-                var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
+                //// Actualizar los registros de conceptoPostaProveedor
+                //var idProveedorBahia = _view.IdProveedorBahiaBlanca;
+                //var idProveedorPlaza = _view.IdProveedorPlazaHuincul;
 
-                await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 2, idProveedorBahia);
-                await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 3, idProveedorPlaza);
+                //await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 2, idProveedorBahia);
+                //await _conceptoPostaProveedorRepositorio.ActualizarConceptoPostaProveedorAsync(_conceptoActual.IdConsumo, 3, idProveedorPlaza);
 
                 _view.MostrarMensaje("Concepto actualizado exitosamente.");
+                _view.CierrePost();
             }
         }
 
@@ -149,17 +149,17 @@ namespace GestionFlota.Presenters
                 return false;
             }
 
-            if (_view.IdProveedorBahiaBlanca <= 0)
-            {
-                _view.MostrarMensaje("Debe seleccionar un proveedor válido para Bahía Blanca.");
-                return false;
-            }
+            //if (_view.IdProveedorBahiaBlanca <= 0)
+            //{
+            //    _view.MostrarMensaje("Debe seleccionar un proveedor válido para Bahía Blanca.");
+            //    return false;
+            //}
 
-            if (_view.IdProveedorPlazaHuincul <= 0)
-            {
-                _view.MostrarMensaje("Debe seleccionar un proveedor válido para Plaza Huincul.");
-                return false;
-            }
+            //if (_view.IdProveedorPlazaHuincul <= 0)
+            //{
+            //    _view.MostrarMensaje("Debe seleccionar un proveedor válido para Plaza Huincul.");
+            //    return false;
+            //}
 
             return true;
         }

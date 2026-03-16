@@ -13,9 +13,11 @@ namespace SacNew.Views.Configuraciones.AbmLocaciones
         bool Descarga { get; }
         bool Exportacion { get; }
 
+        int IdTrafico { get; }
+
         // Métodos para mostrar y cargar datos
         void MostrarDatosLocacion(Locacion locacion);
-
+        void CargarTraficos(List<Trafico> traficos);
         void CargarProductos(List<LocacionProducto> productos);
 
         void EstablecerModoEdicion(bool habilitar);

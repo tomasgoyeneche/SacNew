@@ -21,8 +21,8 @@ namespace Core.Repositories
                 try
                 {
                     string insertIngreso = @"
-                    INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo)
-                    VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo);
+                    INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo, NroControl)
+                    VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo, @NroControl);
                     SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     idPoc = await connection.ExecuteScalarAsync<int>(insertIngreso, ingreso, transaction);
@@ -54,6 +54,24 @@ namespace Core.Repositories
             return idPoc;
         }
 
+        public async Task<int> ObtenerProximoNumeroControlAsync(int idPosta)
+        {
+            const string query = @"
+        SELECT ISNULL(MAX(nroControl), 0) + 1
+        FROM GuardiaIngreso WITH (UPDLOCK, HOLDLOCK)
+        WHERE idPosta = @idPosta and Activo = 1";
+
+            return await ConectarAsync(async connection =>
+            {
+                var numero = await connection.ExecuteScalarAsync<int>(
+                    query,
+                    new { idPosta }
+                );
+
+                return numero;
+            });
+        }
+
         public async Task RegistrarSalidaAsync(int idGuardiaIngreso, int idUsuario, DateTime fecha, string observacion)
         {
             await ConectarAsync(async conn =>
@@ -81,7 +99,7 @@ namespace Core.Repositories
             });
         }
 
-        public async Task<int> RegistrarIngresoTransitoEspecialAsync(TransitoEspecial te, int idPosta, DateTime fechaIngreso, int idUsuario)
+        public async Task<int> RegistrarIngresoTransitoEspecialAsync(TransitoEspecial te, int idPosta, DateTime fechaIngreso, int idUsuario, int nroControl)
         {
             int idIngreso = 0;
 
@@ -109,12 +127,13 @@ namespace Core.Repositories
                         IdGuardiaIngresoOtros = null,
                         IdGuardiaEstado = 1,
                         FechaIngreso = fechaIngreso,
-                        Activo = true
+                        Activo = true,
+                        NroControl = nroControl
                     };
 
                     string insertIngreso = @"
-                INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo)
-                VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo);
+                INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo, NroControl)
+                VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo, @NroControl);
                 SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     idIngreso = await conn.ExecuteScalarAsync<int>(insertIngreso, ingreso, tran);

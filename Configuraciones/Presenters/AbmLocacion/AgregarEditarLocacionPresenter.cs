@@ -9,6 +9,8 @@ namespace SacNew.Presenters
     public class AgregarEditarLocacionPresenter : BasePresenter<IAgregarEditarLocacionView>
     {
         private readonly ILocacionRepositorio _locacionRepositorio;
+        private readonly ITraficoRepositorio _traficoRepositorio;
+
         private readonly ILocacionProductoRepositorio _locacionProductoRepositorio;
         private readonly ILocacionKilometrosEntreRepositorio _locacionKilometrosEntreRepositorio;
 
@@ -16,6 +18,7 @@ namespace SacNew.Presenters
 
         public AgregarEditarLocacionPresenter(
             ILocacionRepositorio locacionRepositorio,
+            ITraficoRepositorio traficoRepositorio,
             ILocacionProductoRepositorio locacionProductoRepositorio,
             ILocacionKilometrosEntreRepositorio locacionKilometrosEntreRepositorio,
             ISesionService sesionService,
@@ -24,11 +27,14 @@ namespace SacNew.Presenters
         {
             _locacionRepositorio = locacionRepositorio;
             _locacionProductoRepositorio = locacionProductoRepositorio;
+            _traficoRepositorio = traficoRepositorio;   
             _locacionKilometrosEntreRepositorio = locacionKilometrosEntreRepositorio;
         }
 
         public async Task InicializarAsync(int? idLocacion)
         {
+            List<Trafico> traficos = await _traficoRepositorio.ObtenerTodosAsync();
+            _view.CargarTraficos(traficos);
             await EjecutarConCargaAsync(async () =>
             {
                 if (idLocacion.HasValue)
@@ -56,6 +62,7 @@ namespace SacNew.Presenters
                 _locacionActual.Carga = _view.Carga;
                 _locacionActual.Descarga = _view.Descarga;
                 _locacionActual.Activo = true;
+                _locacionActual.IdTrafico = _view.IdTrafico;
                 _locacionActual.Exportacion = _view.Exportacion;
                 if (!await ValidarAsync(_locacionActual))
                     return;
@@ -116,7 +123,7 @@ namespace SacNew.Presenters
             await AbrirFormularioAsync<AgregarProductoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(_locacionActual.IdLocacion);
-            });
+            }, true);
 
             await CargarProductosAsync(_locacionActual.IdLocacion);
         }
@@ -126,7 +133,7 @@ namespace SacNew.Presenters
             await AbrirFormularioAsync<AgregarKilometrosLocaciones>(async form =>
             {
                 await form._presenter.InicializarAsync(_locacionActual.IdLocacion);
-            });
+            }, true);
 
             await CargarKilometrosAsync(_locacionActual.IdLocacion);
         }

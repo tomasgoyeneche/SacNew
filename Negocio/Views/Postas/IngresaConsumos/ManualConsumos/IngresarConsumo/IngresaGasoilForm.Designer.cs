@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             lblTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -116,11 +116,11 @@
             guna2Panel5.Controls.Add(guna2HtmlLabel4);
             guna2Panel5.Controls.Add(guna2HtmlLabel3);
             guna2Panel5.Controls.Add(dataGridViewTotales);
-            guna2Panel5.CustomizableEdges = customizableEdges13;
+            guna2Panel5.CustomizableEdges = customizableEdges1;
             guna2Panel5.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel5.Location = new Point(379, 68);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel5.Size = new Size(398, 215);
             guna2Panel5.TabIndex = 44;
             // 
@@ -129,7 +129,7 @@
             lblTotal.BackColor = Color.Transparent;
             lblTotal.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotal.ForeColor = Color.WhiteSmoke;
-            lblTotal.Location = new Point(235, 25);
+            lblTotal.Location = new Point(207, 25);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(32, 19);
             lblTotal.TabIndex = 53;
@@ -142,9 +142,9 @@
             guna2HtmlLabel4.ForeColor = Color.WhiteSmoke;
             guna2HtmlLabel4.Location = new Point(6, 26);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(223, 18);
+            guna2HtmlLabel4.Size = new Size(195, 18);
             guna2HtmlLabel4.TabIndex = 51;
-            guna2HtmlLabel4.Text = "Litros totales de ambas autorizaciones";
+            guna2HtmlLabel4.Text = "LitrLitros restantes de autorizacion";
             // 
             // guna2HtmlLabel3
             // 
@@ -157,7 +157,7 @@
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(398, 20);
             guna2HtmlLabel3.TabIndex = 50;
-            guna2HtmlLabel3.Text = "Litros de ambas autorizaciones";
+            guna2HtmlLabel3.Text = "Litros Autorizacion Actual";
             guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // dataGridViewTotales
@@ -247,11 +247,11 @@
             guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(guna2HtmlLabel1);
             guna2Panel1.Controls.Add(dataGridViewAnteriores);
-            guna2Panel1.CustomizableEdges = customizableEdges15;
+            guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.FillColor = Color.FromArgb(42, 48, 56);
             guna2Panel1.Location = new Point(379, 341);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(398, 215);
             guna2Panel1.TabIndex = 45;
             // 
@@ -265,6 +265,7 @@
             lblAnterior.Size = new Size(36, 19);
             lblAnterior.TabIndex = 54;
             lblAnterior.Text = "sobra";
+            lblAnterior.Visible = false;
             // 
             // guna2HtmlLabel2
             // 
@@ -276,6 +277,7 @@
             guna2HtmlLabel2.Size = new Size(159, 18);
             guna2HtmlLabel2.TabIndex = 47;
             guna2HtmlLabel2.Text = "Litros y fechas autorizacion";
+            guna2HtmlLabel2.Visible = false;
             // 
             // guna2HtmlLabel1
             // 
@@ -288,7 +290,7 @@
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(398, 20);
             guna2HtmlLabel1.TabIndex = 50;
-            guna2HtmlLabel1.Text = "Litro de autorizacion anterior";
+            guna2HtmlLabel1.Text = "Litros Cargados Ultimos 2 Meses";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // dataGridViewAnteriores
@@ -403,11 +405,11 @@
             // guna2Panel10
             // 
             guna2Panel10.Controls.Add(guna2HtmlLabel17);
-            guna2Panel10.CustomizableEdges = customizableEdges17;
+            guna2Panel10.CustomizableEdges = customizableEdges5;
             guna2Panel10.FillColor = Color.Goldenrod;
             guna2Panel10.Location = new Point(0, 13);
             guna2Panel10.Name = "guna2Panel10";
-            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel10.Size = new Size(253, 38);
             guna2Panel10.TabIndex = 53;
             // 

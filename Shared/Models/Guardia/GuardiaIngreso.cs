@@ -14,6 +14,7 @@
         public int IdGuardiaEstado { get; set; } = 0;
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
 
+        public int NroControl { get; set; } = 0;    
         public bool Activo { get; set; } = true;
     }
 }

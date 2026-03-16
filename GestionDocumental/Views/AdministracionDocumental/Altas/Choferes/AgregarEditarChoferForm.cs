@@ -36,6 +36,7 @@ namespace GestionOperativa.Views.AdministracionDocumental.Altas.Choferes
             lDireccion.Text = chofer.Domicilio;
             ITelefonos.Text = chofer.Telefono + ' ' + chofer.Celular;
             IEmpresa.Text = chofer.Empresa_Nombre;
+            lTrafico.Text = chofer.Trafico;
             IEmpresaCuit.Text = chofer.Empresa_Cuit;
             ITipo.Text = chofer.Empresa_Tipo;
             chkZonaFria.Checked = chofer.ZonaFria;

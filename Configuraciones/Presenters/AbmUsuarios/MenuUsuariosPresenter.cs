@@ -50,7 +50,7 @@ namespace SacNew.Presenters.AbmUsuarios
             await AbrirFormularioAsync<AgregarEditUsuarioForm>(async form =>
             {
                 await form._presenter.InicializarAsync(null);
-            });
+            }, true);
             await CargarUsuariosAsync(); // Refrescar al cerrar el formulario
         }
 
@@ -59,7 +59,7 @@ namespace SacNew.Presenters.AbmUsuarios
             await AbrirFormularioAsync<AgregarEditUsuarioForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idUsuario);
-            });
+            }, true);
             await CargarUsuariosAsync(); // Refrescar al cerrar el formulario
         }
 
@@ -68,7 +68,7 @@ namespace SacNew.Presenters.AbmUsuarios
             await AbrirFormularioAsync<PermisosUsuarioForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idUsuario);
-            });
+            }, true);
             await CargarUsuariosAsync(); // Refrescar al cerrar el formulario
         }
     }

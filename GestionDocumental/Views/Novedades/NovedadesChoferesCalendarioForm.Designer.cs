@@ -36,6 +36,9 @@
             schedulerStorageAusencias = new DevExpress.XtraScheduler.SchedulerDataStorage(components);
             dateMes = new DevExpress.XtraEditors.DateEdit();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            chkBiocombustible = new DevExpress.XtraEditors.CheckEdit();
+            chkArena = new DevExpress.XtraEditors.CheckEdit();
+            chkMetanol = new DevExpress.XtraEditors.CheckEdit();
             btnMesAnterior = new DevExpress.XtraEditors.SimpleButton();
             btnRefrescar = new DevExpress.XtraEditors.SimpleButton();
             btnMesSiguiente = new DevExpress.XtraEditors.SimpleButton();
@@ -47,12 +50,19 @@
             layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)schedulerControlAusencias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)schedulerStorageAusencias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateMes.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateMes.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
@@ -61,6 +71,10 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
             SuspendLayout();
             // 
             // schedulerControlAusencias
@@ -72,7 +86,7 @@
             schedulerControlAusencias.OptionsView.ToolTipVisibility = DevExpress.XtraScheduler.ToolTipVisibility.Always;
             schedulerControlAusencias.Size = new Size(1910, 1000);
             schedulerControlAusencias.Start = new DateTime(2026, 2, 12, 0, 0, 0, 0);
-            schedulerControlAusencias.TabIndex = 5;
+            schedulerControlAusencias.TabIndex = 7;
             schedulerControlAusencias.Text = "Control Ausencias";
             schedulerControlAusencias.Views.DayView.TimeRulers.Add(timeRuler1);
             schedulerControlAusencias.Views.FullWeekView.Enabled = true;
@@ -127,6 +141,9 @@
             // 
             // layoutControl1
             // 
+            layoutControl1.Controls.Add(chkBiocombustible);
+            layoutControl1.Controls.Add(chkArena);
+            layoutControl1.Controls.Add(chkMetanol);
             layoutControl1.Controls.Add(btnMesAnterior);
             layoutControl1.Controls.Add(btnRefrescar);
             layoutControl1.Controls.Add(btnMesSiguiente);
@@ -140,15 +157,58 @@
             layoutControl1.TabIndex = 5;
             layoutControl1.Text = "layoutControl1";
             // 
+            // chkBiocombustible
+            // 
+            chkBiocombustible.Location = new Point(516, 4);
+            chkBiocombustible.Name = "chkBiocombustible";
+            chkBiocombustible.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkBiocombustible.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkBiocombustible.Properties.Appearance.Options.UseFont = true;
+            chkBiocombustible.Properties.Appearance.Options.UseForeColor = true;
+            chkBiocombustible.Properties.Caption = "Bio-Comb";
+            chkBiocombustible.Size = new Size(109, 20);
+            chkBiocombustible.StyleController = layoutControl1;
+            chkBiocombustible.TabIndex = 118;
+            chkBiocombustible.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkArena
+            // 
+            chkArena.Location = new Point(426, 4);
+            chkArena.Name = "chkArena";
+            chkArena.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkArena.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkArena.Properties.Appearance.Options.UseFont = true;
+            chkArena.Properties.Appearance.Options.UseForeColor = true;
+            chkArena.Properties.Caption = "Arena";
+            chkArena.Size = new Size(86, 20);
+            chkArena.StyleController = layoutControl1;
+            chkArena.TabIndex = 4;
+            chkArena.CheckedChanged += Trafico_CheckedChanged;
+            // 
+            // chkMetanol
+            // 
+            chkMetanol.EditValue = true;
+            chkMetanol.Location = new Point(339, 4);
+            chkMetanol.Name = "chkMetanol";
+            chkMetanol.Properties.Appearance.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkMetanol.Properties.Appearance.ForeColor = Color.WhiteSmoke;
+            chkMetanol.Properties.Appearance.Options.UseFont = true;
+            chkMetanol.Properties.Appearance.Options.UseForeColor = true;
+            chkMetanol.Properties.Caption = "Metanol";
+            chkMetanol.Size = new Size(83, 20);
+            chkMetanol.StyleController = layoutControl1;
+            chkMetanol.TabIndex = 3;
+            chkMetanol.CheckedChanged += Trafico_CheckedChanged;
+            // 
             // btnMesAnterior
             // 
             btnMesAnterior.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMesAnterior.Appearance.Options.UseFont = true;
-            btnMesAnterior.Location = new Point(1699, 4);
+            btnMesAnterior.Location = new Point(1731, 4);
             btnMesAnterior.Name = "btnMesAnterior";
-            btnMesAnterior.Size = new Size(106, 36);
+            btnMesAnterior.Size = new Size(89, 36);
             btnMesAnterior.StyleController = layoutControl1;
-            btnMesAnterior.TabIndex = 3;
+            btnMesAnterior.TabIndex = 5;
             btnMesAnterior.Text = "<";
             // 
             // btnRefrescar
@@ -169,18 +229,18 @@
             // 
             btnMesSiguiente.Appearance.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMesSiguiente.Appearance.Options.UseFont = true;
-            btnMesSiguiente.Location = new Point(1809, 4);
+            btnMesSiguiente.Location = new Point(1824, 4);
             btnMesSiguiente.Name = "btnMesSiguiente";
-            btnMesSiguiente.Size = new Size(105, 36);
+            btnMesSiguiente.Size = new Size(90, 36);
             btnMesSiguiente.StyleController = layoutControl1;
-            btnMesSiguiente.TabIndex = 4;
+            btnMesSiguiente.TabIndex = 6;
             btnMesSiguiente.Text = ">";
             // 
             // Root
             // 
             Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem3, emptySpaceItem1, layoutControlItem4, layoutControlItem2, layoutControlItem5, emptySpaceItem2 });
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem3, emptySpaceItem1, layoutControlItem4, layoutControlItem2, layoutControlItem5, emptySpaceItem2, layoutControlItem6, emptySpaceItem3, layoutControlItem7, layoutControlItem8 });
             Root.Name = "Root";
             Root.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             Root.Size = new Size(1918, 1048);
@@ -199,10 +259,10 @@
             // layoutControlItem3
             // 
             layoutControlItem3.Control = btnMesSiguiente;
-            layoutControlItem3.Location = new Point(1805, 0);
+            layoutControlItem3.Location = new Point(1820, 0);
             layoutControlItem3.MinSize = new Size(24, 28);
             layoutControlItem3.Name = "layoutControlItem3";
-            layoutControlItem3.Size = new Size(109, 40);
+            layoutControlItem3.Size = new Size(94, 40);
             layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             layoutControlItem3.TextSize = new Size(0, 0);
             layoutControlItem3.TextVisible = false;
@@ -210,9 +270,9 @@
             // emptySpaceItem1
             // 
             emptySpaceItem1.AllowHotTrack = false;
-            emptySpaceItem1.Location = new Point(309, 0);
+            emptySpaceItem1.Location = new Point(625, 0);
             emptySpaceItem1.Name = "emptySpaceItem1";
-            emptySpaceItem1.Size = new Size(1386, 40);
+            emptySpaceItem1.Size = new Size(1102, 40);
             emptySpaceItem1.TextSize = new Size(0, 0);
             // 
             // layoutControlItem4
@@ -243,10 +303,10 @@
             // layoutControlItem5
             // 
             layoutControlItem5.Control = btnMesAnterior;
-            layoutControlItem5.Location = new Point(1695, 0);
+            layoutControlItem5.Location = new Point(1727, 0);
             layoutControlItem5.MinSize = new Size(24, 28);
             layoutControlItem5.Name = "layoutControlItem5";
-            layoutControlItem5.Size = new Size(110, 40);
+            layoutControlItem5.Size = new Size(93, 40);
             layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             layoutControlItem5.TextSize = new Size(0, 0);
             layoutControlItem5.TextVisible = false;
@@ -258,6 +318,41 @@
             emptySpaceItem2.Name = "emptySpaceItem2";
             emptySpaceItem2.Size = new Size(28, 40);
             emptySpaceItem2.TextSize = new Size(0, 0);
+            // 
+            // layoutControlItem6
+            // 
+            layoutControlItem6.Control = chkMetanol;
+            layoutControlItem6.Location = new Point(335, 0);
+            layoutControlItem6.Name = "layoutControlItem6";
+            layoutControlItem6.Size = new Size(87, 40);
+            layoutControlItem6.TextSize = new Size(0, 0);
+            layoutControlItem6.TextVisible = false;
+            // 
+            // emptySpaceItem3
+            // 
+            emptySpaceItem3.AllowHotTrack = false;
+            emptySpaceItem3.Location = new Point(309, 0);
+            emptySpaceItem3.Name = "emptySpaceItem3";
+            emptySpaceItem3.Size = new Size(26, 40);
+            emptySpaceItem3.TextSize = new Size(0, 0);
+            // 
+            // layoutControlItem7
+            // 
+            layoutControlItem7.Control = chkArena;
+            layoutControlItem7.Location = new Point(422, 0);
+            layoutControlItem7.Name = "layoutControlItem7";
+            layoutControlItem7.Size = new Size(90, 40);
+            layoutControlItem7.TextSize = new Size(0, 0);
+            layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            layoutControlItem8.Control = chkBiocombustible;
+            layoutControlItem8.Location = new Point(512, 0);
+            layoutControlItem8.Name = "layoutControlItem8";
+            layoutControlItem8.Size = new Size(113, 40);
+            layoutControlItem8.TextSize = new Size(0, 0);
+            layoutControlItem8.TextVisible = false;
             // 
             // NovedadesChoferesCalendarioForm
             // 
@@ -275,6 +370,9 @@
             ((System.ComponentModel.ISupportInitialize)dateMes.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
             layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chkBiocombustible.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkArena.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkMetanol.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)Root).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
@@ -283,6 +381,10 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem5).EndInit();
             ((System.ComponentModel.ISupportInitialize)emptySpaceItem2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)emptySpaceItem3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
             ResumeLayout(false);
         }
 
@@ -303,5 +405,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.CheckEdit chkMetanol;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraEditors.CheckEdit chkArena;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.CheckEdit chkBiocombustible;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
     }
 }

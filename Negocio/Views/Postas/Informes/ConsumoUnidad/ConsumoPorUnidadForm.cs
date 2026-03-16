@@ -18,17 +18,30 @@ namespace GestionFlota.Views.Postas.Informes.ConsumoUnidad
 
         private async void ConsumoPorUnidad_Load(object sender, EventArgs e)
         {
-            await _presenter.CargarPeriodosAsync();
+            dtpDesde.Value = DateTime.Now;
+            dtpHasta.Value = DateTime.Now;
+
+            cmbDesde.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
+            cmbDesde.Items.AddRange(new[] { "1", "2" });
+            cmbDesde.SelectedIndex = 0;
+
+            cmbHasta.Items.Clear(); // 🔹 Limpia todos los elementos anteriores
+            cmbHasta.Items.AddRange(new[] { "1", "2" });
+            cmbHasta.SelectedIndex = 0;
+
+            gridControlDatos.DataSource = null;
+            gridControlDatos.RefreshDataSource();
         }
 
-        public int IdPeriodoSeleccionado => (int)cmbPeriodos.SelectedValue;
+        public DateTime PeriodoDesde => dtpDesde.Value;
+        public int QuincenaDesde =>
+       Convert.ToInt32(cmbDesde.SelectedItem ?? "1");
 
-        public void CargarPeriodos(List<Periodo> periodos)
-        {
-            cmbPeriodos.DataSource = periodos;
-            cmbPeriodos.DisplayMember = "NombrePeriodo";
-            cmbPeriodos.ValueMember = "IdPeriodo";
-        }
+
+        public DateTime PeriodoHasta => dtpHasta.Value;
+        public int QuincenaHasta =>
+       Convert.ToInt32(cmbHasta.SelectedItem ?? "1");
+
 
         public void MostrarConsumos(List<InformeConsumoUnidad> consumos)
         {

@@ -92,7 +92,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<IngresaGasoilForm>(async form =>
             {
                 await form._presenter.CargarDatosAsync(_poc, _amount);
-            });
+            }, true);
             await CargarDatosAsync(_view.IdPoc);
         }
 
@@ -101,7 +101,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
             {
                 await form._presenter.CargarDatosAsync(_poc, _amount);
-            });
+            }, true);
 
             await CargarDatosAsync(_view.IdPoc);
         }
@@ -111,7 +111,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<IngresoManualYPF>(async form =>
             {
                 await form._presenter.CargarDatosAsync(idPoc);
-            });
+            }, true);
             await CargarDatosAsync(_view.IdPoc);
         }
 
@@ -174,14 +174,14 @@ namespace GestionFlota.Presenters
                 await AbrirFormularioAsync<OtrosConsumosForm>(async form =>
                 {
                     await form._presenter.CargarDatosParaEditarAsync(_poc, idConsumo, _amount);
-                });
+                }, true);
             }
             else if (tipoConsumo == 1)
             {
                 await AbrirFormularioAsync<IngresaGasoilForm>(async form =>
                 {
                     await form._presenter.CargarDatosParaEditarAsync(_poc, idConsumo, _amount);
-                });
+                }, true);
             }
 
             await CargarDatosAsync(_view.IdPoc);

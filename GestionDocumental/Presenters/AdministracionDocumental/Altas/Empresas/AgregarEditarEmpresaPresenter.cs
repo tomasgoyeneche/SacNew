@@ -80,7 +80,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<ModificarDatosEmpresaForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idEmpresa);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
         }
 
@@ -89,7 +89,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<AgregarEmpresaSatelitalForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idEmpresa);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idEmpresa); // Refrescar la vista después de agregar
         }
 
@@ -122,14 +122,14 @@ namespace GestionOperativa.Presenters
                 await AbrirFormularioAsync<AgregarEditarSeguro>(async form =>
                 {
                     await form._presenter.InicializarAsync(empresa, idEmpresa);
-                });
+                }, true);
             }
             else
             {
                 await AbrirFormularioAsync<AgregarEditarSeguro>(async form =>
                 {
                     await form._presenter.InicializarAsync(null, idEmpresa);
-                });
+                }, true);
             }
 
             await CargarDatosParaMostrarAsync(idEmpresa);

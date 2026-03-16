@@ -36,8 +36,8 @@ namespace Core.Repositories
         public Task AgregarAsync(Locacion locacion)
         {
             var query = @"
-            INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo, Exportacion)
-            VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo, @Exportacion)";
+            INSERT INTO Locacion (Nombre, Direccion, Carga, Descarga, Activo, Exportacion, IdTrafico)
+            VALUES (@Nombre, @Direccion, @Carga, @Descarga, @Activo, @Exportacion, @IdTrafico)";
 
             // No hay necesidad de serializar los valores manualmente
             return EjecutarConAuditoriaAsync(
@@ -56,7 +56,7 @@ namespace Core.Repositories
 
             var query = @"
             UPDATE Locacion
-            SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo, Exportacion = @Exportacion
+            SET Nombre = @Nombre, Direccion = @Direccion, Carga = @Carga, Descarga = @Descarga, Activo = @Activo, Exportacion = @Exportacion, IdTrafico = @IdTrafico
             WHERE IdLocacion = @IdLocacion";
 
             // Llamar a EjecutarConAuditoriaAsync para ejecutar la consulta y registrar auditoría

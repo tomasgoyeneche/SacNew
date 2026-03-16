@@ -448,6 +448,7 @@
             bIngresaYpfRuta.DisabledState.CustomBorderColor = Color.DarkGray;
             bIngresaYpfRuta.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             bIngresaYpfRuta.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            bIngresaYpfRuta.Enabled = false;
             bIngresaYpfRuta.FillColor = Color.SteelBlue;
             bIngresaYpfRuta.Font = new Font("Segoe UI", 9F);
             bIngresaYpfRuta.ForeColor = Color.White;

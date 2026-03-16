@@ -24,19 +24,26 @@ namespace GestionFlota.Presenters
             _excelService = excelService;
         }
 
-        public async Task CargarPeriodosAsync()
+        private async Task<int?> ObtenerIdPeriodoDesde()
         {
-            await EjecutarConCargaAsync(async () =>
-            {
-                var periodos = await _periodoRepositorio.ObtenerPeriodosActivosAsync();
-                _view.CargarPeriodos(periodos);
-            });
+            var fecha = _view.PeriodoDesde;
+            var quincena = _view.QuincenaHasta;
+            return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioQuincenaAsync(fecha.Month, fecha.Year, quincena);
+        }
+
+        private async Task<int?> ObtenerIdPeriodoHasta()
+        {
+            var fecha = _view.PeriodoHasta;
+            var quincena = _view.QuincenaHasta;
+            return await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioQuincenaAsync(fecha.Month, fecha.Year, quincena);
         }
 
         public async Task BuscarConsumosAsync()
         {
-            var idPeriodo = _view.IdPeriodoSeleccionado;
-            if (idPeriodo == 0)
+            int idPeriodoDesde = await ObtenerIdPeriodoDesde() ?? 0;
+            int idPeriodoHasta = await ObtenerIdPeriodoHasta() ?? 0;
+
+            if (idPeriodoHasta == 0 || idPeriodoDesde == 0)
             {
                 _view.MostrarMensaje("Debe seleccionar un periodo.");
                 return;
@@ -44,7 +51,7 @@ namespace GestionFlota.Presenters
 
             await EjecutarConCargaAsync(async () =>
             {
-                var consumos = await _consumoUnidadRepositorio.ObtenerConsumosPorPeriodoAsync(idPeriodo);
+                var consumos = await _consumoUnidadRepositorio.ObtenerConsumosPorPeriodoAsync(idPeriodoDesde, idPeriodoHasta);
 
                 _view.MostrarConsumos(consumos);
                 _view.MostrarMensaje("Búsqueda completada.");
@@ -60,15 +67,28 @@ namespace GestionFlota.Presenters
                 return;
             }
 
-            await EjecutarConCargaAsync(async () =>
+            int idPeriodoDesde = await ObtenerIdPeriodoDesde() ?? 0;
+            int idPeriodoHasta = await ObtenerIdPeriodoHasta() ?? 0;
+
+            if(idPeriodoDesde == idPeriodoHasta)
             {
-                foreach (var consumo in consumos)
+                await EjecutarConCargaAsync(async () =>
                 {
-                    consumo.idPeriodo = _view.IdPeriodoSeleccionado;
-                    await _consumoUnidadRepositorio.GuardarConsumoAsync(consumo);
-                }
-                _view.MostrarMensaje("Consumos guardados correctamente.");
-            });
+                    foreach (var consumo in consumos)
+                    {
+                        consumo.idPeriodo = idPeriodoDesde;
+                        await _consumoUnidadRepositorio.GuardarConsumoAsync(consumo);
+                    }
+                    _view.MostrarMensaje("Consumos guardados correctamente.");
+                });
+            }
+            else
+            {
+                _view.MostrarMensaje("Tiene mas de un periodo seleccionado, solo puede guardar de 1 periodo");
+                return;
+            }
+
+           
         }
 
         public async Task ExportarConsumosAExcelAsync(string filePath)

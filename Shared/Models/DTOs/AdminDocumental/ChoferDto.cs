@@ -17,6 +17,8 @@
         public string? Empresa_Cuit { get; set; }
         public string? Empresa_Tipo { get; set; }
         public bool ZonaFria { get; set; }
+
+        public string Trafico { get; set; } 
         public DateTime FechaAlta { get; set; }
         public DateTime Licencia { get; set; }
         public DateTime ExamenAnual { get; set; }

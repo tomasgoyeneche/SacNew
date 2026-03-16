@@ -45,9 +45,26 @@ namespace GestionFlota.Presenters
             _view.MostrarAlertas(alertas);
 
             List<VistaPrograma> programas = await _programaRepositorio.ObtenerVistaProgramasPorPatenteAsync(cupeo.Tractor);
+
+
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var destinos = await _locacionRepositorio.ObtenerTodasAsync();
             var productos = await _productoRepositorio.ObtenerTodosAsync();
+
+            if (cupeo.IdTrafico != 0)
+            {
+                origenes = origenes
+                        .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                        .ToList();
+
+                destinos = destinos
+                       .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                       .ToList();
+
+                productos = productos
+                    .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                    .ToList();
+            }
 
             _view.CargarOrigenes(origenes, cupeo.IdOrigen);
             _view.CargarViajesAnteriores(programas);

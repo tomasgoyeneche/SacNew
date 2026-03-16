@@ -57,7 +57,7 @@ namespace SacNew.Presenters
             await AbrirFormularioAsync<AgregarEditarPool>(async form =>
             {
                 await form._presenter.InicializarAsync(idLocacion);
-            });
+            }, true);
         }
 
         public async Task EditarLocacion(int idLocacion)
@@ -65,7 +65,7 @@ namespace SacNew.Presenters
             await AbrirFormularioAsync<AgregarEditarLocacion>(async form =>
             {
                 await form._presenter.InicializarAsync(idLocacion);
-            });
+            }, true);
             await CargarLocacionesAsync(); // Refrescar al cerrar el formulario
         }
 
@@ -74,7 +74,7 @@ namespace SacNew.Presenters
             await AbrirFormularioAsync<AgregarEditarLocacion>(async form =>
             {
                 await form._presenter.InicializarAsync(null);
-            });
+            }, true);
             await CargarLocacionesAsync(); // Refrescar al cerrar el formulario
         }
     }

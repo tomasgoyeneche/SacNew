@@ -163,4 +163,7 @@
   <data name="calculationoptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calculationoptions.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="business_dollarcircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_dollarcircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

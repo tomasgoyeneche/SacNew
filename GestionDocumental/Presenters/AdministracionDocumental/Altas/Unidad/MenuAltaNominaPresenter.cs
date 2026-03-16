@@ -109,7 +109,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await AbrirFormularioAsync<AgregarEditarUnidadForm>(async form =>
             {
                 await form.CargarDatos(unidadSeleccionada.IdUnidad);
-            });
+            }, true);
         }
 
         public async Task EliminarUnidadAsync()
@@ -144,7 +144,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
             await AbrirFormularioAsync<AgregarUnidadForm>(async form =>
             {
                 await form._presenter.InicializarAsync(empresa.IdEmpresa, empresa.NombreFantasia);
-            });
+            }, true);
             await CargarEmpresasAsync(); // Refrescar la vista después de agregar
         }
 
@@ -164,7 +164,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
             });
         }
 
@@ -194,7 +194,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
             });
         }
 
@@ -214,7 +214,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
             });
         }
 

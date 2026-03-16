@@ -212,7 +212,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<AgregarIngresoOtrosForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(fecha, patente, _idPosta);
-                });
+                }, true);
             await InicializarAsync(_idPosta);
         }
 
@@ -250,7 +250,7 @@ namespace GestionOperativa.Presenters
                 await AbrirFormularioAsync<AgregarEditarTransitoEspecialForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(fecha, patente, _idPosta);
-                });
+                }, true);
                 _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
                 await InicializarAsync(_idPosta);
                 return;
@@ -272,6 +272,7 @@ namespace GestionOperativa.Presenters
 
             List<AlertaDto> alertas = await _alertaRepositorio.ObtenerAlertasPorIdNominaAsync(nomina.IdNomina);
 
+            int nroControl = await _guardiaRepositorio.ObtenerProximoNumeroControlAsync(_idPosta);
 
             var ingreso = new GuardiaIngreso
             {
@@ -282,33 +283,51 @@ namespace GestionOperativa.Presenters
                 IdGuardiaIngresoOtros = null,
                 IdGuardiaEstado = 1,
                 FechaIngreso = fecha,
-                Activo = true
+                Activo = true,
+                NroControl = nroControl
             };
 
             int idPoc = await _guardiaRepositorio.RegistrarIngresoAsync(ingreso, _sesionService.IdUsuario, esManual ? "Ingreso - Manual" : "Ingreso");
 
             Posta posta = await _postaRepositorio.ObtenerPorIdAsync(_idPosta);
-            int? idPeriodo = await _periodoRepositorio.ObtenerIdPeriodoPorMesAnioAsync(fecha.Month, fecha.Year);  // Esta mal ya que te devuelve siempre primera quincena corregir
-            decimal? odometro = await _programaRepositorio.ObtenerOdometerPorNomina(nomina.IdNomina);
+            int quincena = fecha.Day <= 15 ? 1 : 2;
 
-            POC poc = new POC()
+            int? idPeriodo = await _periodoRepositorio
+                .ObtenerIdPeriodoPorMesAnioQuincenaAsync(
+                    fecha.Month,
+                    fecha.Year,
+                    quincena);
+            // Esta mal ya que te devuelve siempre primera quincena corregir
+            if (idPeriodo == null)
             {
-                NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),
-                IdPosta = posta.IdPosta,
-                IdUnidad = nomina.IdUnidad,
-                IdChofer = nomina.IdChofer,
-                Odometro = odometro ?? 0, // ver si tomar del satelital
-                FechaCreacion = fecha,
-                FechaCierre = null,
-                IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto
-                IdUsuario = _sesionService.IdUsuario,
-                Estado = "Abierta"
-            };
+                _view.MostrarMensaje("No se encontró período para la fecha seleccionada.");
+                return;
+            }
+
+            decimal? odometro = await _programaRepositorio.ObtenerOdometerPorNomina(nomina.IdNomina);
+            
+            if(idPeriodo != null) 
+            {
+                POC poc = new POC()
+                {
+                    NumeroPoc = posta.Codigo + "-" + idPoc.ToString(),
+                    IdPosta = posta.IdPosta,
+                    IdUnidad = nomina.IdUnidad,
+                    IdChofer = nomina.IdChofer == 0 ? 73 : nomina.IdChofer,
+                    Odometro = odometro ?? 0, // ver si tomar del satelital
+                    FechaCreacion = fecha,
+                    FechaCierre = null,
+                    IdPeriodo = idPeriodo ?? 0, // Cambiar por el periodo correcto
+                    IdUsuario = _sesionService.IdUsuario,
+                    Estado = "Abierta"
+                };
+
+                await _pocRepositorio.AgregarPOCAsync(poc);
+            }
 
             await _nominaRepositorio.RegistrarNominaAsync(nomina.IdNomina, "Ingreso Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             _view.PatenteIngresada = string.Empty; // Limpiar campo de patente
-            await _pocRepositorio.AgregarPOCAsync(poc);
-            ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha);
+            ReporteControlOperativoConsumos? reporte = await _consumoNomTeProcessor.ObtenerReporteConsumosNomina(nomina.IdNomina, idPoc, fecha , nroControl);
             foreach (AlertaDto ale in alertas)
             {
                 _view.MostrarMensaje($"Alerta: {ale.Descripcion} eliminar si ya fue resuelta.");
@@ -324,7 +343,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task RegistrarSalidaAsync(GuardiaDto guardia, bool esManual)
@@ -356,7 +375,7 @@ namespace GestionOperativa.Presenters
                     await AbrirFormularioAsync<AgregarEditarVaporizadoForm>(async form =>
                     {
                         await form._presenter.CargarDatosAsync(vaporizado, guardiaIngreso);
-                    });
+                    }, true);
 
                     Vaporizado? vaporizadoActualizado = await _vaporizadoRepositorio.ObtenerPorGuardiaIngresoAsync(guardia.IdGuardiaIngreso);
 
@@ -372,18 +391,18 @@ namespace GestionOperativa.Presenters
             {
                 // 1. Obtener la Posta
                 Posta? posta = await _postaRepositorio.ObtenerPorIdAsync(guardia.IdPosta);
-                if (posta != null)
-                {
-                    // 2. Armar número de POC y buscar el POC
-                    string numeroPoc = $"{posta.Codigo}-{guardia.IdGuardiaIngreso}";
-                    POC? poc = await _pocRepositorio.ObtenerPorNumeroAsync(numeroPoc);
+                //if (posta != null)
+                //{
+                //    // 2. Armar número de POC y buscar el POC
+                //    string numeroPoc = $"{posta.Codigo}-{guardia.IdGuardiaIngreso}";
+                //    POC? poc = await _pocRepositorio.ObtenerPorNumeroAsync(numeroPoc);
 
-                    // 3. Si existe, cerrar el POC
-                    if (poc != null)
-                    {
-                        await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
-                    }
-                }
+                //    // 3. Si existe, cerrar el POC
+                //    if (poc != null)
+                //    {
+                //        await _pocRepositorio.ActualizarFechaCierreYEstadoAsync(poc.IdPoc, fecha, "cerrada");
+                //    }
+                //}
                 await _nominaRepositorio.RegistrarNominaAsync(guardia.IdEntidad, "Salida Guardia", $"{posta.Descripcion}-{DateTime.Now}", _sesionService.IdUsuario);
             }
 
@@ -417,7 +436,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<CambiarEstadoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(guardia, false);
-            });
+            }, true);
             await InicializarAsync(_idPosta, idGuardiaSeleccionada);
         }
 
@@ -429,7 +448,7 @@ namespace GestionOperativa.Presenters
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
 
         public async Task ExportarTransoftAsync(DateTime desde, DateTime hasta)

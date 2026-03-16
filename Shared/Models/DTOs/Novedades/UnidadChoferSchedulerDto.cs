@@ -17,9 +17,11 @@ namespace Shared.Models
         public string Abreviado { get; set; } = string.Empty;
         public string DescripcionEstado { get; set; } = string.Empty;
         public string Observaciones { get; set; } = string.Empty;
+        public string Usuario {  get; set; } = string.Empty;    
 
         // opcional: para colorear o lógica extra
         public int IdEstado { get; set; }
         public bool Disponible { get; set; }
+
     }
 }

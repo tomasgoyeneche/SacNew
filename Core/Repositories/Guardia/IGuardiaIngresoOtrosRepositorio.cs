@@ -6,6 +6,6 @@ namespace Core.Repositories
     {
         Task<GuardiaIngresoOtros?> ObtenerPorIdAsync(int id);
 
-        Task<int> RegistrarIngresoOtrosAsync(GuardiaIngresoOtros ingresoOtros, int idPosta, DateTime fechaIngreso, int idUsuario);
+        Task<int> RegistrarIngresoOtrosAsync(GuardiaIngresoOtros ingresoOtros, int idPosta, DateTime fechaIngreso, int idUsuario, int nroControl);
     }
 }

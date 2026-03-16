@@ -41,6 +41,7 @@
             gridControlTotales = new DevExpress.XtraGrid.GridControl();
             gridViewTotales = new DevExpress.XtraGrid.Views.Grid.GridView();
             btnExportar = new DevExpress.XtraEditors.SimpleButton();
+            bValorizaConsumos = new DevExpress.XtraEditors.SimpleButton();
             guna2Panel3.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -118,6 +119,7 @@
             gridViewConsumos.OptionsView.ColumnAutoWidth = false;
             gridViewConsumos.OptionsView.EnableAppearanceEvenRow = true;
             gridViewConsumos.OptionsView.EnableAppearanceOddRow = true;
+            gridViewConsumos.RowCellStyle += gridViewConsumos_RowCellStyle;
             // 
             // tabPage2
             // 
@@ -171,6 +173,22 @@
             btnExportar.Text = "Exportar";
             btnExportar.Click += btnExportar_Click;
             // 
+            // bValorizaConsumos
+            // 
+            bValorizaConsumos.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
+            bValorizaConsumos.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bValorizaConsumos.Appearance.Options.UseBackColor = true;
+            bValorizaConsumos.Appearance.Options.UseFont = true;
+            bValorizaConsumos.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            bValorizaConsumos.ImageOptions.SvgImage = Properties.Resources.business_dollarcircled;
+            bValorizaConsumos.Location = new Point(503, 12);
+            bValorizaConsumos.Name = "bValorizaConsumos";
+            bValorizaConsumos.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            bValorizaConsumos.Size = new Size(132, 43);
+            bValorizaConsumos.TabIndex = 61;
+            bValorizaConsumos.Text = "Valoriza";
+            bValorizaConsumos.Click += bValorizaConsumos_Click;
+            // 
             // MostrarExportaConsumosForm
             // 
             Appearance.BackColor = Color.FromArgb(26, 29, 35);
@@ -178,6 +196,7 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 568);
+            Controls.Add(bValorizaConsumos);
             Controls.Add(btnExportar);
             Controls.Add(tabControl1);
             Controls.Add(guna2Panel3);
@@ -210,5 +229,6 @@
         private DevExpress.XtraEditors.SimpleButton btnExportar;
         private DevExpress.XtraGrid.GridControl gridControlTotales;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTotales;
+        private DevExpress.XtraEditors.SimpleButton bValorizaConsumos;
     }
 }

@@ -89,7 +89,7 @@ namespace GestionOperativa.Presenters.AdministracionDocumental
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
             });
         }
     }

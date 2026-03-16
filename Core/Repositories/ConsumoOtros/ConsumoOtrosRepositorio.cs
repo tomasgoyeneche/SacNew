@@ -84,7 +84,8 @@ namespace Core.Repositories
             var query = @"
         SELECT *
         FROM vw_InformeConsumoPoc
-        WHERE CAST(fechacarga AS DATE) = @fechaCarga and idPosta = @idPosta";
+        WHERE CAST(fechacarga AS DATE) = @fechaCarga and idPosta = @idPosta
+        Order by FechaCarga desc";
 
             return await ConectarAsync(conn =>
                 conn.QueryAsync<InformeConsumoPocDto>(query, new { fechaCarga = fechaCarga.Date, idPosta })
@@ -96,7 +97,8 @@ namespace Core.Repositories
             var query = @"
         SELECT *
         FROM vw_InformeConsumoPoc
-        WHERE FechaCarga >= @Desde AND FechaCarga < @Hasta";
+        WHERE FechaCarga >= @Desde AND FechaCarga < @Hasta
+         Order by FechaCarga desc";
 
             return await ConectarAsync(async connection =>
             {

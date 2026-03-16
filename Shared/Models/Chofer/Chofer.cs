@@ -18,7 +18,7 @@
         public bool Activo { get; set; }                // Estado del chofer (activo/inactivo)
         public DateTime FechaAlta { get; set; }         // Fecha de alta en la empresa
         public DateTime? FechaBaja { get; set; }         // Fecha de alta en la empresa
-
+        public int IdTrafico { get; set; }
         public string NombreApellido
         {
             get

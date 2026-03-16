@@ -12,6 +12,8 @@ namespace GestionOperativa.Presenters.AgregarGuardia
     public class AgregarIngresoOtrosPresenter : BasePresenter<IAgregarIngresoOtrosView>
     {
         private readonly IGuardiaIngresoOtrosRepositorio _guardiaRepositorio;
+        private readonly IGuardiaRepositorio _guardiaIngresoRepositorio;
+
         private readonly IReporteConsumosNomTeOtrosProcessor _reporteConsumoTeOtros;
         private int _idPosta;
         public DateTime _Fecha;
@@ -19,11 +21,13 @@ namespace GestionOperativa.Presenters.AgregarGuardia
         public AgregarIngresoOtrosPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
+            IGuardiaRepositorio guardiaIngresoRepositorio,
             IGuardiaIngresoOtrosRepositorio guardiaRepositorio,
             IReporteConsumosNomTeOtrosProcessor reporteConsumoTeOtros
         ) : base(sesionService, navigationService)
         {
             _guardiaRepositorio = guardiaRepositorio;
+            _guardiaIngresoRepositorio = guardiaIngresoRepositorio;
             _reporteConsumoTeOtros = reporteConsumoTeOtros;
         }
 
@@ -52,7 +56,8 @@ namespace GestionOperativa.Presenters.AgregarGuardia
                 Activo = true
             };
 
-            int idPoc = await _guardiaRepositorio.RegistrarIngresoOtrosAsync(ingresoOtros, _idPosta, _Fecha, _sesionService.IdUsuario);
+            int nroControl = await _guardiaIngresoRepositorio.ObtenerProximoNumeroControlAsync(_idPosta);
+            int idPoc = await _guardiaRepositorio.RegistrarIngresoOtrosAsync(ingresoOtros, _idPosta, _Fecha, _sesionService.IdUsuario, nroControl);
             _view.MostrarMensaje("Ingreso de Otros registrado correctamente.");
 
             TransitoEspecial te = new TransitoEspecial
@@ -68,7 +73,7 @@ namespace GestionOperativa.Presenters.AgregarGuardia
                 Seguro = null,
                 Activo = true
             };
-            ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te);
+            ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te, nroControl);
             await GenerarPocIngresoOtros(reporte);
             _view.Close();
         }
@@ -79,7 +84,7 @@ namespace GestionOperativa.Presenters.AgregarGuardia
             {
                 form.MostrarReporteDevExpress(reporte);
                 return Task.CompletedTask;
-            });
+            }, true);
         }
     }
 }

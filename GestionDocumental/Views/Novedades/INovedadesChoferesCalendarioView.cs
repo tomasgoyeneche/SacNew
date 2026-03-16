@@ -11,6 +11,7 @@ namespace GestionDocumental.Views.Novedades
     public interface INovedadesChoferesCalendarioView : IViewConMensajes
     {
         // Navegación del período
+        int IdTraficoSeleccionado { get; }
         DateTime MesSeleccionado { get; }     // Cualquier fecha dentro del mes seleccionado (ej: 2026-02-01)
 
         int PromedioAusenciasChofer { set; }

@@ -408,7 +408,7 @@ namespace InformesYEstadisticas.Presenters
         {
             await EjecutarConCargaAsync(async () =>
             {
-                ReporteControlOperativoConsumos? reporte = await _ReporteConsumosNomTeOtrosProcessor.ObtenerReporteConsumosNomina(0, 1, DateTime.Now);
+                ReporteControlOperativoConsumos? reporte = await _ReporteConsumosNomTeOtrosProcessor.ObtenerReporteConsumosNomina(0, 1, DateTime.Now, 1);
 
                 await AbrirFormularioAsync<VisualizadorReportesDevForm>(form =>
                 {

@@ -6,7 +6,7 @@ namespace Core.Repositories
     {
         Task<int> RegistrarIngresoAsync(GuardiaIngreso ingreso, int idUsuario, string Observacion);
 
-        Task<int> RegistrarIngresoTransitoEspecialAsync(TransitoEspecial te, int idPosta, DateTime fechaIngreso, int idUsuario);
+        Task<int> RegistrarIngresoTransitoEspecialAsync(TransitoEspecial te, int idPosta, DateTime fechaIngreso, int idUsuario, int nroControl);
 
         Task<List<GuardiaDto>> ObtenerGuardiasPorPostaAsync(int idPosta);
 
@@ -31,6 +31,8 @@ namespace Core.Repositories
         Task RegistrarSalidaAsync(int idGuardiaIngreso, int idUsuario, DateTime fecha, string observacion);
 
         Task<bool> EstaEnParadorAsync(string patente);
+
+        Task<int> ObtenerProximoNumeroControlAsync(int idPosta);
 
         Task<List<GuardiaDto>> ObtenerGuardiasPasadasPorPostaAsync(int idPosta);
     }

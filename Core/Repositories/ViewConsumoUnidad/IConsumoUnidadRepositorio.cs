@@ -4,7 +4,7 @@ namespace Core.Repositories
 {
     public interface IConsumoUnidadRepositorio
     {
-        Task<List<InformeConsumoUnidad>> ObtenerConsumosPorPeriodoAsync(int idPeriodo);
+        Task<List<InformeConsumoUnidad>> ObtenerConsumosPorPeriodoAsync(int idPeriodoDesde, int idPeriodoHasta);
 
         Task GuardarConsumoAsync(InformeConsumoUnidad consumo);
     }

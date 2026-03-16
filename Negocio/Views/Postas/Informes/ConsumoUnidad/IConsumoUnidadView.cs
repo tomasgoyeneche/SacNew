@@ -4,9 +4,11 @@ namespace SacNew.Views.GestionFlota.Postas.Informes
 {
     public interface IConsumoUnidadView
     {
-        int IdPeriodoSeleccionado { get; }
+        DateTime PeriodoDesde { get; }
+        int QuincenaDesde { get; }
 
-        void CargarPeriodos(List<Periodo> periodos);
+        DateTime PeriodoHasta { get; }
+        int QuincenaHasta { get; }
 
         void MostrarConsumos(List<InformeConsumoUnidad> consumos);
 

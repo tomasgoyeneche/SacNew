@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using GestionFlota.Views.Postas.ConceptoConsumos;
 using SacNew.Views.GestionFlota.Postas.ConceptoConsumos;
 using Shared.Models;
 
@@ -64,7 +65,7 @@ namespace GestionFlota.Presenters
 
         public async Task AgregarConceptoAsync()
         {
-            await AbrirFormularioAsync<AgregarEditarConcepto>(async form =>
+            await AbrirFormularioAsync<AgregarEditarConceptoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(default);
             });
@@ -73,7 +74,7 @@ namespace GestionFlota.Presenters
 
         public async Task EditarConceptoAsync(Concepto conceptoSeleccionado)
         {
-            await AbrirFormularioAsync<AgregarEditarConcepto>(async form =>
+            await AbrirFormularioAsync<AgregarEditarConceptoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(conceptoSeleccionado);
             });

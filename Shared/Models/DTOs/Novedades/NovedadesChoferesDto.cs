@@ -22,5 +22,10 @@
         public string Disponible { get; set; } = string.Empty;
 
         public string Observaciones { get; set; } = string.Empty;
+
+        public string Usuario { get; set; } = string.Empty;
+
+        public int IdTrafico { get; set; } = 0;
+
     }
 }

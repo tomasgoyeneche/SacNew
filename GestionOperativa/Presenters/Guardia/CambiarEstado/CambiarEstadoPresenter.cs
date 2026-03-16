@@ -35,7 +35,7 @@ namespace GestionOperativa.Presenters
             await AbrirFormularioAsync<EliminarEventoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(_guardia);
-            });
+            }, true);
         }
 
         private async Task CambiarEstadoAsync(int idEstado, DateTime fecha, string observacion)
@@ -126,7 +126,7 @@ namespace GestionOperativa.Presenters
                 await AbrirFormularioAsync<CambioChoferForm>(async form =>
                 {
                     await form._presenter.InicializarAsync(_guardia.IdEntidad);
-                });
+                }, true);
             }
             else
             {

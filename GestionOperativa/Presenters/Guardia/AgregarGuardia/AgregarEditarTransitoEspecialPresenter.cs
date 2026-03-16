@@ -62,9 +62,10 @@ namespace GestionOperativa.Presenters
             if (!await ValidarAsync(te))
                 return;
 
-            int idPoc = await _guardiaRepositorio.RegistrarIngresoTransitoEspecialAsync(te, _idPosta, _Fecha, _sesionService.IdUsuario);
+            int nroControl = await _guardiaRepositorio.ObtenerProximoNumeroControlAsync(_idPosta);
+            int idPoc = await _guardiaRepositorio.RegistrarIngresoTransitoEspecialAsync(te, _idPosta, _Fecha, _sesionService.IdUsuario, nroControl);
             _view.MostrarMensaje("Ingreso de Tránsito Especial registrado correctamente.");
-            ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te);
+            ReporteIngresoTe? reporte = await _reporteConsumoTeOtros.ObtenerReporteTeOtros(idPoc, _Fecha, te, nroControl);
             await GenerarPocTe(reporte);
             _view.Close();
         }
@@ -75,7 +76,7 @@ namespace GestionOperativa.Presenters
                 {
                     form.MostrarReporteDevExpress(reporte);
                     return Task.CompletedTask;
-                });
+                }, true);
         }
     }
 }

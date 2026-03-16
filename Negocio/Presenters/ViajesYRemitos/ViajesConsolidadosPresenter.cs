@@ -121,7 +121,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<EditarProgramaForm>(async f =>
             {
                 await f._presenter.InicializarAsync(ruteo);
-            });
+            }, true);
         }
 
         public async Task ExportarProgramasPorMesAsync(int mes, int anio)

@@ -131,7 +131,15 @@ namespace GestionFlota.Presenters
             {
                 foreach (var consumo in consumos)
                 {
-                    await _volvoConnectRepositorio.AgregarImportacionAsync(consumo);
+                    if (consumo.IdImportVolvoConnect == 0)
+                    {
+                        await _volvoConnectRepositorio.AgregarImportacionAsync(consumo);
+                    }
+                    else
+                    {
+                       // actualizar
+                    }
+                  
                 }
                 _view.MostrarMensaje("Consumos guardados correctamente.");
             });

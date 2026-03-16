@@ -12,15 +12,15 @@ namespace Core.Repositories
         {
         }
 
-        public async Task<List<InformeConsumoUnidad>> ObtenerConsumosPorPeriodoAsync(int idPeriodo)
+        public async Task<List<InformeConsumoUnidad>> ObtenerConsumosPorPeriodoAsync(int idPeriodoDesde, int idPeriodoHasta)
         {
             var query = @"
-        EXEC sp_ImportInformeConsumos @idPeriodo";
+        EXEC sp_ImportInformeConsumos @idPeriodoDesde, @idPeriodoHasta";
 
             return await ConectarAsync(async conn =>
             {
                 var consumos = await conn.QueryAsync<InformeConsumoUnidad>(
-                    query, new { idPeriodo }
+                    query, new { idPeriodoDesde, idPeriodoHasta }
                 );
                 return consumos.ToList();
             });

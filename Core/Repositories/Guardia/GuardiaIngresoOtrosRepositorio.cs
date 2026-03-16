@@ -17,7 +17,7 @@ namespace Core.Repositories
                 conn.QueryFirstOrDefaultAsync<GuardiaIngresoOtros>(query, new { id }));
         }
 
-        public async Task<int> RegistrarIngresoOtrosAsync(GuardiaIngresoOtros ingresoOtros, int idPosta, DateTime fechaIngreso, int idUsuario)
+        public async Task<int> RegistrarIngresoOtrosAsync(GuardiaIngresoOtros ingresoOtros, int idPosta, DateTime fechaIngreso, int idUsuario, int nroControl)
         {
             int numeroPoc = 0;
 
@@ -45,12 +45,13 @@ namespace Core.Repositories
                         IdGuardiaIngresoOtros = idIngresoOtros,
                         IdGuardiaEstado = 1,
                         FechaIngreso = fechaIngreso,
-                        Activo = true
+                        Activo = true,
+                        NroControl = nroControl
                     };
 
                     string insertIngreso = @"
-                INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo)
-                VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo);
+                INSERT INTO GuardiaIngreso (IdPosta, TipoIngreso, IdNomina, IdTe, IdGuardiaIngresoOtros, IdGuardiaEstado, FechaIngreso, Activo, NroControl)
+                VALUES (@IdPosta, @TipoIngreso, @IdNomina, @IdTe, @IdGuardiaIngresoOtros, @IdGuardiaEstado, @FechaIngreso, @Activo, @NroControl);
                 SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     numeroPoc = await conn.ExecuteScalarAsync<int>(insertIngreso, ingreso, tran);

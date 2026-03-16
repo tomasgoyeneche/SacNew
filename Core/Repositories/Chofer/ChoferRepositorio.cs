@@ -127,7 +127,8 @@ namespace Core.Repositories
                     Celular = @Celular,
                     idEmpresa = @idEmpresa,
                     ZonaFria = @ZonaFria,
-                    FechaAlta = @FechaAlta
+                    FechaAlta = @FechaAlta,
+                    IdTrafico = @IdTrafico
                 WHERE IdChofer = @IdChofer";
 
             await EjecutarConAuditoriaAsync(

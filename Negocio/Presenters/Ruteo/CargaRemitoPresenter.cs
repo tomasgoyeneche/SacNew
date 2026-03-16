@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.CodeParser.CodeStyle.Formatting;
 using GestionFlota.Views.Ruteo;
 using Shared.Models;
 
@@ -43,6 +44,16 @@ namespace GestionFlota.Presenters.Ruteo
             List<Producto> productos = await _productoRepositorio.ObtenerTodosAsync();
             List<Medida> medidas = await _medidaRepositorio.ObtenerTodosAsync();
 
+            if(ruteo.IdTrafico != 0)
+            {
+                locaciones = locaciones
+                        .Where(r => r.IdTrafico == ruteo.IdTrafico)
+                        .ToList();
+
+                productos = productos
+                    .Where(r => r.IdTrafico == ruteo.IdTrafico)
+                    .ToList();
+            }
             // Origen para cmbCarga, Destino para cmbDestino (solo mostrar, no editar)
             _view.CargarLocaciones(locaciones);
             _view.CargarProductos(productos);

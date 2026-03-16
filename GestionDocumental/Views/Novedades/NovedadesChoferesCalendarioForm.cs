@@ -24,6 +24,16 @@ namespace GestionDocumental.Views.Novedades
     {
         public readonly NovedadesChoferesCalendarioPresenter _presenter;
 
+        public int IdTraficoSeleccionado
+        {
+            get
+            {
+                if (chkArena.Checked) return 2;
+                if (chkBiocombustible.Checked) return 3;
+                return 1; // Default Metanol
+            }
+        }
+
         public NovedadesChoferesCalendarioForm(NovedadesChoferesCalendarioPresenter presenter)
         {
             InitializeComponent();
@@ -63,6 +73,30 @@ namespace GestionDocumental.Views.Novedades
         {
             if (dateMes.EditValue is DateTime dt)
                 await _presenter.CambiarMesAsync(dt);
+        }
+
+
+        private async void Trafico_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckEdit chk && chk.Checked)
+            {
+                SeleccionarUnico(chk);
+                await _presenter.CambiaChequeo();
+            }
+        }
+        private void SeleccionarUnico(CheckEdit seleccionado)
+        {
+            chkMetanol.CheckedChanged -= Trafico_CheckedChanged;
+            chkArena.CheckedChanged -= Trafico_CheckedChanged;
+            chkBiocombustible.CheckedChanged -= Trafico_CheckedChanged;
+
+            chkMetanol.Checked = seleccionado == chkMetanol;
+            chkArena.Checked = seleccionado == chkArena;
+            chkBiocombustible.Checked = seleccionado == chkBiocombustible;
+
+            chkMetanol.CheckedChanged += Trafico_CheckedChanged;
+            chkArena.CheckedChanged += Trafico_CheckedChanged;
+            chkBiocombustible.CheckedChanged += Trafico_CheckedChanged;
         }
 
         public void ConfigurarScheduler()
@@ -106,6 +140,14 @@ namespace GestionDocumental.Views.Novedades
             storage.Resources.Mappings.Id = nameof(UnidadChoferResourceDto.IdEntidad);
             storage.Resources.Mappings.Caption = nameof(UnidadChoferResourceDto.Descripcion);
 
+            storage.Appointments.CustomFieldMappings.Clear();
+            storage.Appointments.CustomFieldMappings.Add(
+                new AppointmentCustomFieldMapping("IdEstado", nameof(UnidadChoferSchedulerDto.IdEstado))
+            );
+            storage.Appointments.CustomFieldMappings.Add(
+              new AppointmentCustomFieldMapping("Usuario", nameof(UnidadChoferSchedulerDto.Usuario))
+            );
+
             storage.Appointments.DataSource = ausencias;
             storage.Appointments.Mappings.AppointmentId = nameof(UnidadChoferSchedulerDto.IdEstadoChoferUnidad);
             storage.Appointments.Mappings.ResourceId = nameof(UnidadChoferSchedulerDto.IdChoferUnidad);
@@ -113,29 +155,54 @@ namespace GestionDocumental.Views.Novedades
             storage.Appointments.Mappings.End = nameof(UnidadChoferSchedulerDto.FinExclusivo);
             storage.Appointments.Mappings.Subject = nameof(UnidadChoferSchedulerDto.DescripcionEstado);
             storage.Appointments.Mappings.Description = nameof(UnidadChoferSchedulerDto.Observaciones);
+          
 
-            storage.Appointments.CustomFieldMappings.Clear();
-            storage.Appointments.CustomFieldMappings.Add(
-                new AppointmentCustomFieldMapping("IdEstado", nameof(UnidadChoferSchedulerDto.IdEstado))
-            );
+           
             AplicarRangoVisible(desde, hasta);
         }
+
+        //public void AplicarRangoVisible(DateTime desde, DateTime hasta)
+        //{
+        //    var intervalo = new TimeInterval(desde, hasta);
+        //    // 1) Restringe navegación/operaciones fuera del mes
+        //    schedulerControlAusencias.LimitInterval = intervalo;
+        //    // 2) En Timeline: evita “scroll infinito” (si no, el scroll no respeta bien el rango)
+        //    schedulerControlAusencias.TimelineView.EnableInfiniteScrolling = false;
+        //    // 3) Fuerza qué intervalo debe mostrarse (lo visible)
+        //    schedulerControlAusencias.TimelineView.SetVisibleIntervals(
+        //        new TimeIntervalCollection { intervalo }
+        //    );
+        //    // 4) Alinea el scroll al inicio del mes (opcional pero queda bien)
+        //    schedulerControlAusencias.Start = desde;
+        //    // 5) Refresca layout (en Timeline a veces hace falta)
+        //    schedulerControlAusencias.TimelineView.LayoutChanged();
+        //}
 
         public void AplicarRangoVisible(DateTime desde, DateTime hasta)
         {
             var intervalo = new TimeInterval(desde, hasta);
-            // 1) Restringe navegación/operaciones fuera del mes
+
             schedulerControlAusencias.LimitInterval = intervalo;
-            // 2) En Timeline: evita “scroll infinito” (si no, el scroll no respeta bien el rango)
             schedulerControlAusencias.TimelineView.EnableInfiniteScrolling = false;
-            // 3) Fuerza qué intervalo debe mostrarse (lo visible)
+
             schedulerControlAusencias.TimelineView.SetVisibleIntervals(
                 new TimeIntervalCollection { intervalo }
             );
-            // 4) Alinea el scroll al inicio del mes (opcional pero queda bien)
+
             schedulerControlAusencias.Start = desde;
-            // 5) Refresca layout (en Timeline a veces hace falta)
-            schedulerControlAusencias.TimelineView.LayoutChanged();
+
+            // 🔥 Ajustar ancho dinámicamente
+            var tv = schedulerControlAusencias.TimelineView;
+
+            int diasDelMes = (hasta - desde).Days;
+            int anchoDisponible = schedulerControlAusencias.Width - 160; // margen aproximado
+
+            if (diasDelMes > 0)
+            {
+                tv.GetBaseTimeScale().Width = anchoDisponible / diasDelMes;
+            }
+
+            tv.LayoutChanged();
         }
 
         private const int ResourceTotalTopId = int.MaxValue - 1;
@@ -145,6 +212,10 @@ namespace GestionDocumental.Views.Novedades
         {
             var apt = e.ViewInfo.Appointment;
 
+            var usuario = apt.CustomFields["Usuario"]?.ToString();
+            if (string.IsNullOrWhiteSpace(usuario))
+                usuario = "—";
+
             // Tooltip prolijo (vale para todos)
             var obs = string.IsNullOrWhiteSpace(apt.Description) ? "—" : apt.Description.Trim();
             e.ViewInfo.ToolTipText =
@@ -152,6 +223,7 @@ namespace GestionDocumental.Views.Novedades
                 "────────────────────\n" +
                 $"🕒 Inicio: {apt.Start:dd/MM/yyyy HH:mm}\n" +
                 $"🏁 Final:  {apt.End:dd/MM/yyyy HH:mm}\n" +
+                $"👤 Usuario: {usuario}\n" +
                 $"📝 Obs:    {obs}";
 
             var resourceId = apt.ResourceId is int r ? r : 0;

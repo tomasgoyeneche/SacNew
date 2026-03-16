@@ -93,7 +93,7 @@ namespace GestionOperativa.Presenters.Tractor
             await AbrirFormularioAsync<ModificarDatosTractorForm>(async form =>
             {
                 await form._presenter.InicializarAsync(idTractor, SatelitalNombre);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idTractor); // Refrescar la vista después de agregar
         }
 
@@ -102,7 +102,7 @@ namespace GestionOperativa.Presenters.Tractor
             await AbrirFormularioAsync<CambiarTransportistaForm>(async form =>
             {
                 await form.CargarDatosAsync(idTractor, tipoEntidad);
-            });
+            }, true);
 
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idTractor);
@@ -113,7 +113,7 @@ namespace GestionOperativa.Presenters.Tractor
             await AbrirFormularioAsync<ModificarConfiguracionSemiForm>(async form =>
             {
                 await form._presenter.CargarDatosAsync(idTractor, entidad);
-            });
+            }, true);
 
             // 🔄 Refrescar vista una vez cambiado el transportista
             await CargarDatosParaMostrarAsync(idTractor);
@@ -124,7 +124,7 @@ namespace GestionOperativa.Presenters.Tractor
             await AbrirFormularioAsync<ModificarVencimientosForm>(async form =>
             {
                 await form._presenter.InicializarAsync("tractor", idTractor);
-            });
+            }, true);
             await CargarDatosParaMostrarAsync(idTractor); // Refrescar la vista después de agregar
         }
     }

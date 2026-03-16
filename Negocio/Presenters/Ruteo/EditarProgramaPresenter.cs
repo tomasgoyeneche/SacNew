@@ -157,7 +157,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<CargarRemitoForm>(async form =>
             {
                 await form._presenter.InicializarAsync(programa, _Ruteo, tipoRemito);
-            });
+            }, true);
             await InicializarAsync(_Ruteo);
         }
 

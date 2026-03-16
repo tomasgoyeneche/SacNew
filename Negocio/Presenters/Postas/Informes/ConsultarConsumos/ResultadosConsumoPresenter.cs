@@ -1,4 +1,5 @@
 ﻿using Core.Base;
+using Core.Repositories;
 using Core.Services;
 using GestionFlota.Views.Postas.Informes.ConsultarConsumos;
 using Shared.Models;
@@ -8,14 +9,25 @@ namespace GestionFlota.Presenters.Informes
     public class ResultadosConsumoPresenter : BasePresenter<IResultadosConsumoView>
     {
         private readonly IExcelService _excelService;
+        private readonly IConceptoRepositorio _conceptoRepositorio;
+        private readonly IConsumoGasoilRepositorio _consumoGasoilRepositorio;
+        private readonly IConsumoOtrosRepositorio _consumoOtrosRepositorio;
+
+
 
         public ResultadosConsumoPresenter(
             ISesionService sesionService,
             INavigationService navigationService,
-            IExcelService excelService)
+            IExcelService excelService,
+            IConceptoRepositorio conceptoRepositorio,
+            IConsumoGasoilRepositorio consumoGasoilRepositorio,
+            IConsumoOtrosRepositorio consumoOtrosRepositorio)
             : base(sesionService, navigationService)
         {
             _excelService = excelService;
+            _conceptoRepositorio = conceptoRepositorio;
+            _consumoGasoilRepositorio = consumoGasoilRepositorio;
+            _consumoOtrosRepositorio = consumoOtrosRepositorio;
         }
 
         public async Task ExportarAExcelAsync()
@@ -89,6 +101,102 @@ namespace GestionFlota.Presenters.Informes
                 .ToList();
 
             _view.MostrarTotales(totales);
+        }
+
+        public async Task ValorizaYCuentaConsumos()
+        {
+            List<InformeConsumoPocDto> consumos = _view.ObtenerResultados();
+            var (cantidad, clavesActualizadas) =
+         await ValorizarConsumosAsync(consumos);
+
+            _view.MostrarMensaje($"{cantidad} registros fueron valorizados.");
+
+            _view.MarcarRegistrosValorizados(clavesActualizadas);
+        }
+
+
+
+        public async Task<(int cantidad, List<string> clavesActualizadas)>
+        ValorizarConsumosAsync(List<InformeConsumoPocDto> resultados)
+        {
+            int contador = 0;
+            var clavesActualizadas = new List<string>();
+
+            foreach (var item in resultados)
+            {
+                Concepto concepto = await _conceptoRepositorio.ObtenerPorIdAsync(item.IdConsumo);
+                if (concepto == null)
+                    continue;
+
+                if (concepto.PrecioActual == 0)
+                    continue;
+
+                if (item.FechaCarga.Date < concepto.Vigencia.Date)
+                    continue;
+
+                decimal nuevoTotal = item.LitrosCargados * concepto.PrecioActual;
+
+                string clave = item.Tipo_Consumo == "GASOIL"
+                   ? $"G_{item.IdRegistro}"
+                   : $"O_{item.IdRegistro}";
+
+                if (item.Tipo_Consumo == "GASOIL")
+                {
+                    var consumo = await _consumoGasoilRepositorio.ObtenerPorIdAsync(item.IdRegistro);
+                    if (consumo == null)
+                        continue;
+
+                    if (consumo.PrecioTotal == nuevoTotal)
+                        continue;
+
+                    var mensaje =
+                    $"¿Desea valorizar el consumo?\n\n" +
+                    $"Concepto: {item.Concepto_Codigo}\n" +
+                    $"Remito/Vale: {item.NumeroVale}\n" +
+                    $"Precio actual: {consumo.PrecioTotal:N2}\n" +
+                    $"Precio unidad: {concepto.PrecioActual:N2}\n" +
+                    $"Nuevo precio: {nuevoTotal:N2}";
+
+                    if (!_view.ConfirmarValorizacion(mensaje))
+                        continue;
+
+                    consumo.PrecioTotal = nuevoTotal;
+                    await _consumoGasoilRepositorio.ActualizarConsumoAsync(consumo);
+                    item.PrecioTotal = nuevoTotal;
+
+                    contador++;
+                    clavesActualizadas.Add(clave);
+                }
+                else if (item.Tipo_Consumo == "OTROS")
+                {
+                    var consumoOtros = await _consumoOtrosRepositorio.ObtenerPorIdAsync(item.IdRegistro);
+                    if (consumoOtros == null)
+                        continue;
+
+                    if (consumoOtros.ImporteTotal == nuevoTotal)
+                        continue;
+
+                    var mensaje =
+                        $"¿Desea valorizar el consumo?\n\n" +
+                        $"Concepto: {item.Concepto_Codigo}\n" +
+                        $"Remito/Vale: {item.NumeroVale}\n" +
+                        $"Precio actual: {consumoOtros.ImporteTotal:N2}\n" +
+                        $"Precio unidad: {concepto.PrecioActual:N2}\n" +
+                        $"Nuevo precio: {nuevoTotal:N2}";
+
+                    if (!_view.ConfirmarValorizacion(mensaje))
+                        continue;
+
+                    consumoOtros.ImporteTotal = nuevoTotal;
+                    await _consumoOtrosRepositorio.ActualizarConsumoAsync(consumoOtros);
+                    item.PrecioTotal = nuevoTotal;
+
+                    contador++;
+                    clavesActualizadas.Add(clave);
+                }
+            }
+
+            return (contador, clavesActualizadas);
         }
     }
 }

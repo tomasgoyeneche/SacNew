@@ -47,9 +47,20 @@ namespace GestionFlota.Presenters
             FechaDisponible = fechaSeleccionada;
 
             List<Locacion> origenes = await _locacionRepositorio.ObtenerTodasAsync();
-            _view.CargarOrigenes(origenes);
-
             List<Locacion> destinos = await _locacionRepositorio.ObtenerTodasAsync();
+     
+            if (dispo.IdTrafico != 0)
+            {
+                origenes = origenes
+                        .Where(r => r.IdTrafico == dispo.IdTrafico)
+                        .ToList();
+
+                destinos = destinos
+                       .Where(r => r.IdTrafico == dispo.IdTrafico)
+                       .ToList();
+            }
+
+            _view.CargarOrigenes(origenes);
             _view.CargarDestinos(destinos);
 
             DisponibleActual = await _disponibilidadRepositorio.ObtenerDisponiblePorNominaYFechaAsync(IdNomina, FechaDisponible);

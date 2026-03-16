@@ -190,7 +190,7 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<AgregarEditarDisponibleForm>(async f =>
             {
                 await f._presenter.InicializarAsync(dispo, _view.FechaSeleccionada); // Asumiendo que este presenter espera el dispo a editar
-            });
+            }, true);
             await BuscarDisponibilidadesAsync(idNominaSeleccionada); // Refrescar lista después de editar
         }
 

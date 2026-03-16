@@ -38,7 +38,7 @@ namespace GestionOperativa.Processor
             _planillaRepositorio = planillaRepositorio;
         }
 
-        public async Task<ReporteControlOperativoConsumos?> ObtenerReporteConsumosNomina(int idNomina, int idPoc, DateTime fecha)
+        public async Task<ReporteControlOperativoConsumos?> ObtenerReporteConsumosNomina(int idNomina, int idPoc, DateTime fecha, int nroControl    )
         {
             ReporteControlOperativoConsumos reporte = new ReporteControlOperativoConsumos();
 
@@ -126,12 +126,13 @@ namespace GestionOperativa.Processor
             reporte.DetailReport.DataMember = ""; // si es lista directa
 
             reporte.Parameters["fechaPoc"].Value = fecha;
+            reporte.Parameters["nroControl"].Value = nroControl;
             reporte.Parameters["numeroPoc"].Value = idPoc;
 
             return reporte;
         }
 
-        public async Task<ReporteIngresoTe?> ObtenerReporteTeOtros(int idPoc, DateTime fecha, TransitoEspecial transitoEspecial)
+        public async Task<ReporteIngresoTe?> ObtenerReporteTeOtros(int idPoc, DateTime fecha, TransitoEspecial transitoEspecial, int nroControl)
         {
             var reporte = new ReporteIngresoTe();
             reporte.DataSource = new List<TransitoEspecial> { transitoEspecial };
@@ -140,6 +141,8 @@ namespace GestionOperativa.Processor
             reporte.Parameters["fechaCreacion"].Value = fecha;
             reporte.Parameters["numeroPoc"].Visible = false; // opcional, por si querés ocultarlo desde acá también
             reporte.Parameters["fechaCreacion"].Visible = false; // opcional, por si querés ocultarlo desde acá también
+            reporte.Parameters["nroControl"].Value = nroControl;
+
             return reporte;
         }
 

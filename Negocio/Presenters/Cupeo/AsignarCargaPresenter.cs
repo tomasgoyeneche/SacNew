@@ -3,6 +3,7 @@ using Core.Base;
 using Core.Reports;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using GestionFlota.Views;
 using GestionFlota.Views.Cupeo;
@@ -48,6 +49,21 @@ namespace GestionFlota.Presenters
             var origenes = await _locacionRepositorio.ObtenerTodasAsync();
             var destinos = await _locacionRepositorio.ObtenerTodasAsync();
             var productos = await _productoRepositorio.ObtenerTodosAsync();
+
+            if (cupeo.IdTrafico != 0)
+            {
+                origenes = origenes
+                        .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                        .ToList();
+
+                destinos = destinos
+                       .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                       .ToList();
+
+                productos = productos
+                    .Where(r => r.IdTrafico == cupeo.IdTrafico)
+                    .ToList();
+            }
 
             _view.CargarOrigenes(origenes, cupeo.IdOrigen);
             _view.CargarDestinos(destinos, cupeo.IdDestino);

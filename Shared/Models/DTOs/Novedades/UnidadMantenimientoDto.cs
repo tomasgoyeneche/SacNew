@@ -21,6 +21,8 @@
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
 
-        public int Dias { get; set; } = 0;
+        public int Dias { get; set; } = 0; 
+
+        public string Usuario { get; set; } = string.Empty;
     }
 }

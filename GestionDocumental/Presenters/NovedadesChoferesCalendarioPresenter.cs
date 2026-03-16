@@ -1,6 +1,7 @@
 ﻿using Core.Base;
 using Core.Repositories;
 using Core.Services;
+using DevExpress.CodeParser.CodeStyle.Formatting;
 using GestionDocumental.Properties;
 using GestionDocumental.Views.Novedades;
 using Shared.Models;
@@ -24,6 +25,8 @@ namespace GestionDocumental.Presenters
 
         private readonly IUnidadRepositorio _unidadRepositorio;
         public string TipoAusenciaMan;
+        public int IdTrafico;
+
 
         public NovedadesChoferesCalendarioPresenter(
             IChoferRepositorio choferRepositorio,
@@ -45,11 +48,18 @@ namespace GestionDocumental.Presenters
             _choferEstadoRepositorio = choferEstadoRepositorio;
         }
 
-        public Task InicializarAsync(string tipoAusenciaMan, DateTime? mes = null)
+        public Task InicializarAsync(string tipoAusenciaMan, int idTrafico, DateTime? mes = null)
         {
+            IdTrafico = idTrafico;
             TipoAusenciaMan = tipoAusenciaMan;
             _view.ConfigurarScheduler();
             return SetMesAsync(mes ?? DateTime.Today);
+        }
+
+        public async Task CambiaChequeo()
+        {
+            int idTrafico = _view.IdTraficoSeleccionado;
+            await InicializarAsync(TipoAusenciaMan, idTrafico, null);
         }
 
         public Task CambiarMesAsync(DateTime fechaDelMes) => SetMesAsync(fechaDelMes);
@@ -88,6 +98,10 @@ namespace GestionDocumental.Presenters
                 List<Chofer?> choferes = await _choferRepositorio
                 .ObtenerTodosLosChoferesIncluyendoInactivos();
 
+                choferes = choferes
+                       .Where(c => c.IdTrafico == IdTrafico)
+                       .ToList();
+
                 resources = choferes
                     .Where(c =>
                         c.FechaAlta < hasta &&
@@ -103,6 +117,10 @@ namespace GestionDocumental.Presenters
                 List<NovedadesChoferesDto> ausencias = await _choferEstadoRepositorio
                     .ObtenerAusenciasPorRangoDeFechas(desde, hasta);
 
+                ausencias = ausencias
+                       .Where(c => c.IdTrafico == IdTrafico)
+                       .ToList();
+
                 listaFinal = ausencias
                     .Select(n => new UnidadChoferSchedulerDto
                     {
@@ -115,10 +133,11 @@ namespace GestionDocumental.Presenters
                         Abreviado = n.Abreviado,
                         DescripcionEstado = n.Descripcion,
                         Observaciones = n.Observaciones,
-
+                          
                         IdEstado = n.idEstado,
 
-                        Disponible = n.Disponible == "SI"
+                        Disponible = n.Disponible == "SI",
+                        Usuario = n.Usuario
                     })
                     .ToList();
 
@@ -179,7 +198,7 @@ namespace GestionDocumental.Presenters
                         Observaciones = n.Observaciones,
 
                         IdEstado = n.idMantenimientoEstado,
-
+                        Usuario = n.Usuario,    
                         Disponible = false,
                     })
                     .ToList();

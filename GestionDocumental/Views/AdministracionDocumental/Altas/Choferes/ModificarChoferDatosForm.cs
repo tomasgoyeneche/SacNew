@@ -37,7 +37,7 @@ namespace GestionDocumental.Views.AdministracionDocumental.Altas.Choferes
         public string Telefono => txtTelefono.Text.Trim();
         public string Celular => txtCelular.Text.Trim();
 
-        public async void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, int idProvincia)
+        public async void CargarDatosChofer(Chofer chofer, List<EmpresaDto> empresa, List<Provincia> provincias, List<Trafico> traficos, int idProvincia)
         {
             IdChofer = chofer.IdChofer;
             txtNombres.Text = chofer.Nombre;
@@ -66,6 +66,13 @@ namespace GestionDocumental.Views.AdministracionDocumental.Altas.Choferes
             cmbProvincia.Properties.Columns.Clear();
             cmbProvincia.Properties.Columns.Add(new LookUpColumnInfo("NombreProvincia", "Provincias"));
             cmbProvincia.EditValue = idProvincia;
+
+            cmbTrafico.Properties.DataSource = provincias;
+            cmbTrafico.Properties.DisplayMember = "Nombre";
+            cmbTrafico.Properties.ValueMember = "IdTrafico";
+            cmbTrafico.Properties.Columns.Clear();
+            cmbTrafico.Properties.Columns.Add(new LookUpColumnInfo("Nombre", "Traficos"));
+            cmbTrafico.EditValue = chofer.IdTrafico;
 
             await _presenter.CargarLocalidades(idProvincia);
             cmbLocalidad.EditValue = chofer.IdLocalidad;

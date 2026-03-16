@@ -110,19 +110,19 @@ namespace GestionFlota.Presenters
             await AbrirFormularioAsync<ImportarPrograma>(async form =>
             {
                 // await form._presenter.InicializarAsync();
-            });
+            }, true);
             await InicializarAsync();
         }
 
         public async Task AbrirAsignarCargaAsync(Cupeo cupeo, int? idNominaAsignados = null)
         {
-            await AbrirFormularioAsync<AsignarCargaForm>(async f => await f._presenter.InicializarAsync(cupeo));
+            await AbrirFormularioAsync<AsignarCargaForm>(async f => await f._presenter.InicializarAsync(cupeo), true);
             await InicializarAsync(idNominaAsignados);
         }
 
         public async Task AbrirAsignarManual(Cupeo cupeo, int? idNominaDisp = null)
         {
-            await AbrirFormularioAsync<AgregarProgramaManual>(async f => await f._presenter.InicializarAsync(cupeo));
+            await AbrirFormularioAsync<AgregarProgramaManual>(async f => await f._presenter.InicializarAsync(cupeo), true);
             await InicializarAsync(null, idNominaDisp);
         }
 
